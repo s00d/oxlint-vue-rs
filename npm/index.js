@@ -20,7 +20,11 @@ let core // undefined = not loaded yet, null = unavailable
 function loadCore() {
   if (core !== undefined) return core
   try {
-    core = require(process.env.OXLINT_VUE_RS_ADDON || resolve(addon))
+    // process.dlopen loads the native module whatever the file extension (an OXLINT_VUE_RS_ADDON override may
+    // point at a cargo build output such as liboxlint_vue_rs_napi.dylib, which `require` would parse as JS).
+    const mod = { exports: {} }
+    process.dlopen(mod, process.env.OXLINT_VUE_RS_ADDON || resolve(addon))
+    core = mod.exports
   } catch (e) {
     core = null
     console.error(`oxlint-vue-rs: Node addon not available, vue-rs rules are skipped (${e.message})`)
