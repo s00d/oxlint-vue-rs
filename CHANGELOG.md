@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+- Fix: a bare `#="…"` / `:="…"` / `@="…"` in a template is a directive (`v-slot` / `v-bind` / `v-on` without an
+  argument), as Vue compiles it: slot variables are no longer reported as undefined (`no-undef-properties`).
+  Deliberate difference from vue-eslint-parser — see docs/compatibility.md.
+- Fix: `no-duplicate-class-names` ignores class-name fragments glued to an interpolation or a concatenation
+  (`` `hover:text-${c}-600` ``), and its fix inside a template literal next to `${…}` no longer corrupts the code
+  (eslint-plugin-vue writes `` `${x} b} ``).
+
 ## 0.1.2 — 2026-11-12
 
 - Fix: in TS templates, a union type in a cast (`x as string | undefined`) is no longer parsed as a Vue 2 filter

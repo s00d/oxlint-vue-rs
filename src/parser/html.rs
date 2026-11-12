@@ -232,8 +232,13 @@ fn adjust_attribute_name(name: &str, ns: Namespace) -> Option<&'static str> {
     }
 }
 
-/// `/^(?:v-|[.:@#]).*[^.:@#]$/u`
+/// `/^(?:v-|[.:@#]).*[^.:@#]$/u`, plus a bare `:` / `.` / `@` / `#`: Vue compiles those as `v-bind` /
+/// `v-on` / `v-slot` without an argument (`#="{ item }"` is the default slot's scope). vue-eslint-parser
+/// keeps them as plain attributes, so their expressions and slot variables were invisible to the rules.
 fn is_directive_name(name: &str) -> bool {
+    if matches!(name, ":" | "." | "@" | "#") {
+        return true;
+    }
     let starts = name.starts_with("v-") || name.starts_with(['.', ':', '@', '#']);
     if !starts {
         return false;

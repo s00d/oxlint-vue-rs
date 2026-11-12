@@ -1,5 +1,6 @@
 //! Regression cases from the differential audit against real ESLint (eslint-plugin-vue 10.12.1).
-//! Each expectation (report start `line:col`, fix output) was produced by ESLint itself.
+//! Each expectation (report start `line:col`, fix output) was produced by ESLint itself, except the
+//! deliberate differences (docs/compatibility.md §5), which say so and are justified by Vue semantics.
 
 use std::path::Path;
 
@@ -285,5 +286,75 @@ fn ts_union_in_template_is_not_a_filter() {
     assert_eq!(
         reports("no-deprecated-filter", json!([]), Value::Null, js),
         vec!["2:9"]
+    );
+}
+
+// Vue compiles a bare `#` / `:` / `@` as `v-slot` / `v-bind` / `v-on` without an argument (checked with
+// @vue/compiler-dom 3.5); vue-eslint-parser keeps them as plain attributes.
+#[test]
+fn bare_shorthand_is_a_directive() {
+    let code = "<template>\n  <Popover #=\"{ open, close }\">\n    <div :class=\"{ a: open }\" :=\"attrs\" @=\"handlers\" />\n  </Popover>\n</template>\n<script>\nexport default { props: ['attrs', 'handlers'] }\n</script>\n";
+    // `open` is the slot's scope variable, not an undefined component property.
+    assert!(reports("no-undef-properties", json!([]), Value::Null, code).is_empty());
+    // `close` is declared by the slot scope and never used.
+    assert_eq!(
+        reports("no-unused-vars", json!([]), Value::Null, code),
+        ["2:23"]
+    );
+    // `attrs` / `handlers` are used by `:=` / `@=`.
+    let g = json!([{ "groups": ["props"] }]);
+    assert!(reports("no-unused-properties", g, Value::Null, code).is_empty());
+}
+
+// A class-name fragment glued to an interpolation or a concatenated operand is not a class name.
+#[test]
+fn class_fragments_are_not_duplicates() {
+    let r = |c: &str| run("no-duplicate-class-names", json!([]), Value::Null, c);
+    // `hover:text-X-600` and `focus-visible:text-X-600` differ: no `-600` class exists.
+    let tpl = "<template><a :class=\"`text-${c}-500 hover:text-${c}-600 focus:text-${c}-600`\" /></template>";
+    assert!(r(tpl).0.is_empty());
+    assert!(
+        r("<template><a :class=\"`btn-${a} btn-${b}`\" /></template>")
+            .0
+            .is_empty()
+    );
+    assert!(
+        r("<template><a :class=\"'p-' + s + ' m-' + s\" /></template>")
+            .0
+            .is_empty()
+    );
+    assert!(
+        r("<template><a class=\"x\" :class=\"`${a}x`\" /></template>")
+            .0
+            .is_empty()
+    );
+    // Whole names next to an interpolation are still checked.
+    assert_eq!(
+        r("<template><a :class=\"`a ${x} a`\" /></template>").0,
+        ["1:22"]
+    );
+    assert_eq!(
+        r("<template><a :class=\"'foo ' + 'foo'\" /></template>").0,
+        ["1:22"]
+    );
+    // `${x}y y y`: one `y` is duplicated, but the raw-text fix would drop the fragment too — no fix.
+    let (at, fix) = r("<template><a :class=\"`${x}y y y`\" /></template>");
+    assert_eq!(at, ["1:26"]);
+    assert_eq!(fix, None);
+}
+
+// The fix of a template element keeps its `}` / `${` delimiters (upstream treats them as quotes and
+// writes `` `${x} b} ``).
+#[test]
+fn duplicate_class_fix_keeps_template_delimiters() {
+    let (_, fix) = run(
+        "no-duplicate-class-names",
+        json!([]),
+        Value::Null,
+        "<template><a :class=\"`${x} b b`\" /><a :class=\"`b b ${x}`\" /></template>",
+    );
+    assert_eq!(
+        fix.as_deref(),
+        Some("<template><a :class=\"`${x} b`\" /><a :class=\"`b ${x}`\" /></template>")
     );
 }

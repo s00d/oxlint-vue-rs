@@ -90,6 +90,21 @@ ESLint is); oxlint-vue its 25 template rules plus oxlint's defaults. Single-thre
   oxlint-vue-rs keeps the expression whole when every `|` lies inside a TS type (`as`, `satisfies`, type
   arguments); a real filter such as `{{ msg | upper }}` is still reported. On the corpora this removes exactly the
   3 such false positives (on-nuxt-3) and changes nothing else.
+- **A bare `#` / `:` / `@` / `.` attribute is a directive.** Vue compiles `#="{ open }"` as the default slot's
+  scope and `:="obj"` / `@="handlers"` as `v-bind` / `v-on` without an argument (checked with
+  @vue/compiler-dom 3.5). vue-eslint-parser keeps them as plain attributes, so the slot variables look undefined
+  (`no-undef-properties`) and the bound objects unused. We parse them as directives. On cypress this removes 6
+  false `no-undef-properties` and adds what any `v-slot="{ … }"` gets: `v-slot-style` (4), `object-curly-spacing`
+  (8), `attributes-order` (2).
+- **`no-duplicate-class-names`: fragments are not class names.** In `` `text-${c}-500 hover:text-${c}-600` `` or
+  `'p-' + size`, the text glued to an interpolation or a concatenated operand is part of a longer class
+  (`-600` is not a class). eslint-plugin-vue compares those fragments (2 false positives on hoppscotch); we
+  skip them, and give no fix when a duplicate is spelled like a fragment of the same string. Its fix of a template
+  element next to `${…}` also treats `}` / `${` as quotes and corrupts the literal (`` `${x} b b` `` →
+  `` `${x} b} ``); ours keeps the delimiters.
+- **`no-ref-as-operand` checks right operands of `&&` / `||` in a test** (`if (a && hasNext)` with a `ref`
+  `hasNext`): ported from eslint-plugin-vue's main branch (#3148, after 10.12.1). All 3 such reports on the new
+  corpora (halo, vue-pure-admin) are real bugs: the ref object is always truthy.
 
 ## 6. Known gaps
 
