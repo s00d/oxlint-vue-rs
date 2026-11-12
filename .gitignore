@@ -2,3 +2,4 @@
 /node_modules
 *.log
 /dist-npm
+.DS_Store

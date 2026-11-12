@@ -10,7 +10,7 @@ homepage = "https://github.com/s00d/oxlint-vue-rs"
 readme = "README.md"
 keywords = ["vue", "oxlint", "linter", "eslint", "oxc"]
 categories = ["development-tools", "command-line-utilities"]
-include = ["src/**/*", "Cargo.toml", "Cargo.lock", "README.md", "LICENSE"]
+include = ["/src/**/*", "/Cargo.toml", "/Cargo.lock", "/README.md", "/LICENSE"]
 
 [dependencies]
 ignore = "0.4"
