@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.3 — 2026-11-12
 
 - Fix: a bare `#="…"` / `:="…"` / `@="…"` in a template is a directive (`v-slot` / `v-bind` / `v-on` without an
   argument), as Vue compiles it: slot variables are no longer reported as undefined (`no-undef-properties`).

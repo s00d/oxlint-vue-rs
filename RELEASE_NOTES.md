@@ -1,3 +1,19 @@
+**0.1.3** — fewer false positives, found on 11 large Vue projects (gitlab-foss, directus, hoppscotch, halo,
+primevue, cypress, vue-pure-admin, slidev, soybean-admin, vitepress, gitea; 5213 `.vue` files):
+
+- bare `#="…"` / `:="…"` / `@="…"` are directives (`v-slot` / `v-bind` / `v-on`), as Vue compiles them;
+- `no-duplicate-class-names`: no reports on class fragments next to `${…}`, and its fix no longer corrupts template literals;
+- `no-undef-properties`: type names in template expressions (`as HTMLInputElement`) are not properties;
+- `no-undef-properties` / `no-unused-properties`: nothing reported in components with `extends` / `mixins`;
+- `no-unused-refs`: nothing reported when `setup()` spreads its return or the instance escapes;
+- union-typed props reported once, not once per union member;
+- `prefer-define-options`: its fix keeps the blank lines above `export default`.
+
+Several of these are deliberate differences from eslint-plugin-vue — see
+[docs/compatibility.md](https://github.com/s00d/oxlint-vue-rs/blob/main/docs/compatibility.md).
+
+---
+
 **0.1.2**
 
 - Fix: with `<script lang="ts">`, a union type in a template cast (`attrs.style as string | undefined`) is no
