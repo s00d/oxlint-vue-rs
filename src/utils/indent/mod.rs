@@ -309,18 +309,30 @@ pub fn run_script(ctx: &mut Ctx, opts: &Opts) {
             }
         }
     }
-    // ESTree `Program` range: espree starts at the first statement and ends at the last token;
-    // with `<script>` + `<script setup>` vue-eslint-parser spans the statements.
-    let body_end = program
-        .body
-        .iter()
-        .map(|s| oxc::span::GetSpan::span(s).end)
-        .chain(program.directives.iter().map(|d| d.span.end))
-        .max();
+    // ESTree `Program` range: ESLint 9 parsers start it at the beginning of the script text (so
+    // leading comments are inside) and end it at the last token; with `<script>` + `<script setup>`
+    // vue-eslint-parser spans min(start of the `<script>` text, first statement) to the last
+    // statement.
+    let stmts = || {
+        program
+            .body
+            .iter()
+            .map(oxc::span::GetSpan::span)
+            .chain(program.directives.iter().map(|d| d.span))
+    };
     let range = if scripts.len() > 1 {
-        (first_code.start, body_end.unwrap_or(last_code.end))
+        let text = scripts.iter().find(|s| !s.setup).map(|s| s.content.start);
+        let start = stmts().map(|s| s.start).chain(text).min();
+        let end = stmts().map(|s| s.end).max();
+        (
+            start.unwrap_or(first_code.start),
+            end.unwrap_or(last_code.end),
+        )
     } else {
-        (first_code.start, last_code.end)
+        let text = scripts
+            .first()
+            .map_or(first_code.start, |s| s.content.start);
+        (text.min(first_code.start), last_code.end)
     };
     let store = Store::new(src, all);
     let mut b = Builder::new(src);
