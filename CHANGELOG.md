@@ -8,6 +8,9 @@
 - Fix: `no-duplicate-class-names` ignores class-name fragments glued to an interpolation or a concatenation
   (`` `hover:text-${c}-600` ``), and its fix inside a template literal next to `${…}` no longer corrupts the code
   (eslint-plugin-vue writes `` `${x} b} ``).
+- Fix: `no-undef-properties` no longer reports type names used in template expressions
+  (`$event.target as HTMLInputElement`, `(el: Element) => …`) — they are erased by the compiler.
+- Fix: `prefer-define-options`'s fix no longer deletes blank lines above the removed `export default`.
 
 ## 0.1.2 — 2026-11-12
 

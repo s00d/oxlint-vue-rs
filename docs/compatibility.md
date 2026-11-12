@@ -102,6 +102,12 @@ ESLint is); oxlint-vue its 25 template rules plus oxlint's defaults. Single-thre
   skip them, and give no fix when a duplicate is spelled like a fragment of the same string. Its fix of a template
   element next to `${…}` also treats `}` / `${` as quotes and corrupts the literal (`` `${x} b b` `` →
   `` `${x} b} ``); ours keeps the delimiters.
+- **Type names in template expressions are not component properties.** `($event.target as HTMLInputElement)`,
+  `(el: Element) => …`, `el as HTMLElement | null`: the compiler erases these types, nothing is read from the
+  instance. eslint-plugin-vue counts them as property references (except `as const` and `<script setup generic>`
+  names), so `no-undef-properties` reports DOM types as undefined. We skip every type-position name. This removes
+  45 false `no-undef-properties` (old corpora: on-nuxt-3 15, ui 13, vue-vben-admin 3, nuxt-i18n-next 1; new:
+  directus 7, vitepress 3, hoppscotch 2, slidev 1) and nothing else.
 - **`no-ref-as-operand` checks right operands of `&&` / `||` in a test** (`if (a && hasNext)` with a `ref`
   `hasNext`): ported from eslint-plugin-vue's main branch (#3148, after 10.12.1). All 3 such reports on the new
   corpora (halo, vue-pure-admin) are real bugs: the ref object is always truthy.

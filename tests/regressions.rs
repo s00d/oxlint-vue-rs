@@ -358,3 +358,28 @@ fn duplicate_class_fix_keeps_template_delimiters() {
         Some("<template><a :class=\"`${x} b`\" /><a :class=\"`b ${x}`\" /></template>")
     );
 }
+
+// ESLint-verified: the removed `export default` starts at the end of the previous line, one line
+// terminator only — blank lines above it stay.
+#[test]
+fn prefer_define_options_keeps_blank_lines_above() {
+    let code = "<script>\nimport { defineComponent } from 'vue'\n\nexport default defineComponent({ inheritAttrs: true })\n</script>\n<script setup>\nconst a = 1\n</script>\n";
+    let (_, fix) = run("prefer-define-options", json!([]), Value::Null, code);
+    assert_eq!(
+        fix.as_deref(),
+        Some(
+            "<script>\nimport { defineComponent } from 'vue'\n\n</script>\n<script setup>\ndefineOptions(defineComponent({ inheritAttrs: true }))\n\nconst a = 1\n</script>\n"
+        )
+    );
+}
+
+// A name in a type position of a template expression is erased by the compiler: it is not a component
+// property (upstream reports DOM types such as `HTMLInputElement` as undefined).
+#[test]
+fn template_type_names_are_not_properties() {
+    let code = "<script setup lang=\"ts\">\nconst onInput = (v: string) => v\n</script>\n<template>\n  <input @input=\"onInput(($event.target as HTMLInputElement).value)\" :ref=\"(el: Element) => el\" />\n  <i>{{ missing }}</i>\n</template>\n";
+    assert_eq!(
+        reports("no-undef-properties", json!([]), Value::Null, code),
+        ["6:9"]
+    );
+}

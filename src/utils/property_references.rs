@@ -773,16 +773,11 @@ impl<'f, 'a> Extractor<'f, 'a> {
         let c = &doc.exprs[ci as usize];
         let mut out = Vec::new();
         for r in &c.references {
-            // `x as const` is no reference; `<script setup generic="T">` resolves type `T`.
-            let generic = r.is_type_reference
-                && (r.name == "const"
-                    || doc.top_level().any(|e| {
-                        e.variables.iter().any(|v| {
-                            v.kind == crate::ast::VariableKind::Generic && v.name == r.name
-                        })
-                    }));
+            // A name in a type position (`$event.target as HTMLInputElement`, `(el: Element) => …`) is erased
+            // by the compiler and never read from the instance. Upstream counts it (except `as const` and a
+            // `<script setup generic>` name), so `no-undef-properties` reported DOM types as undefined.
             if r.variable.is_some()
-                || generic
+                || r.is_type_reference
                 || (ignore_globals && is_global_name(self.file, &r.name))
             {
                 continue;

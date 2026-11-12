@@ -46,9 +46,10 @@ impl Rule for PreferDefineOptions {
                 remove.start = if line == 0 {
                     0
                 } else {
-                    // End of the previous line (before its line terminator).
+                    // End of the previous line (before its one line terminator; blank lines above stay).
                     let prev = &file.source[..ls as usize];
-                    prev.trim_end_matches(['\n']).trim_end_matches('\r').len() as u32
+                    let prev = prev.strip_suffix('\n').unwrap_or(prev);
+                    prev.strip_suffix('\r').unwrap_or(prev).len() as u32
                 };
             }
             let last_import = program
