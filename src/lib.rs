@@ -144,7 +144,7 @@ pub fn configure(
     let def = rules::ALL
         .iter()
         .find(|d| d.name == name)
-        .ok_or_else(|| format!("unknown rule vue/{name}"))?;
+        .ok_or_else(|| format!("unknown rule {name}"))?;
     Ok(
         (def.create)(&RuleOptions { options, settings }).map(|rule| ConfiguredRule {
             name: def.name,
