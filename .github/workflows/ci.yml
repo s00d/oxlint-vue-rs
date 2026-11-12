@@ -24,7 +24,7 @@ jobs:
       - uses: Swatinem/rust-cache@v2
       - run: cargo fmt --check
       - run: cargo clippy --workspace --all-targets -- -D warnings
-      - run: cargo test
+      - run: cargo test --workspace
       - name: npm package smoke test
         if: runner.os != 'Windows'
         shell: bash
@@ -36,3 +36,6 @@ jobs:
           node scripts/npm/pack.mjs platform "$(rustc -vV | sed -n 's/^host: //p')" target/release/oxlint-vue-rs "$addon"
           for p in dist-npm/platforms/* dist-npm/oxlint-vue-rs; do npx --yes publint@0.3 run "$p" --strict; done
           node -e "import('./dist-npm/oxlint-vue-rs/index.js').then(m => { if (Object.keys(m.default.rules).length !== 210) process.exit(1) })"
+          # Released oxlint accepts the plugin and stays quiet (the oxc PR #28720 tests skip without OXLINT_PR).
+          npm i --no-save --prefix "$RUNNER_TEMP/oxlint" oxlint@1.93.0
+          OXLINT_RELEASED="$RUNNER_TEMP/oxlint/node_modules/.bin/oxlint" node --test tests/oxlint-plugin/oxlint-plugin.test.mjs

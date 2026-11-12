@@ -201,7 +201,7 @@ could not write), 2 usage or config error. `OXLINT_VUE_RS_BINARY=/path/to/binary
 ## Development
 
 ```bash
-cargo test                                   # upstream cases, parser fixtures, robustness, CLI, unit tests
+cargo test --workspace                       # upstream cases, parser fixtures, robustness, CLI, unit tests
 UPSTREAM_RULE=html-indent UPSTREAM_VERBOSE=1 cargo test --test upstream
 cargo clippy --workspace --all-targets -- -D warnings && cargo fmt --all --check
 cargo build --release --workspace          # CLI + Node addon (napi/)

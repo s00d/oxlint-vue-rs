@@ -98,3 +98,34 @@ pub fn lint(
         .collect();
     Ok(Value::Array(out).to_string())
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn utf16_offsets() {
+        let u = Utf16::new("a😀é<");
+        // a = byte 0, 😀 = bytes 1..5, é = bytes 5..7, < = byte 7, end = 8
+        assert_eq!([0, 1, 5, 7, 8].map(|b| u.at(b)), [0, 1, 3, 4, 5]);
+        assert_eq!(Utf16::new("abc").at(2), 2);
+    }
+
+    #[test]
+    fn lints_template_only_sfc_in_utf16() {
+        let src = "<template>\n  😀<div v-for=\"i in x\">{{ i }}</div>\n</template>\n";
+        let rules = r#"[["require-v-for-key", []]]"#;
+        let out = lint(
+            src.into(),
+            "a.vue".into(),
+            rules.into(),
+            "{}".into(),
+            "{}".into(),
+            "vue-rs".into(),
+        );
+        let v: Value = serde_json::from_str(&out.unwrap()).unwrap();
+        // `<div` is at byte 17, UTF-16 offset 15 (the emoji is 4 bytes, 2 units)
+        assert_eq!(v[0]["rule"], "require-v-for-key");
+        assert_eq!(v[0]["range"][0], 15);
+    }
+}
