@@ -45,8 +45,6 @@ const ACCEPTED: &[(&str, &str, &str)] = &[
         "parse",
         "comment-only attribute value",
     ),
-    // Two `defineEmits()` in one `<script setup>` (invalid program): the moves undo each other.
-    ("define-macros-order", "cycle", "duplicate macros"),
 ];
 
 fn file_options(case: &Value) -> (FileOptions, &'static str) {
@@ -471,4 +469,138 @@ fn separate_static_class_keeps_comments() {
 fn self_closing_inside_pre() {
     let code = "<template><pre><code v-html=\"x\">\n</code></pre></template>";
     assert_eq!(fix("html-self-closing", json!([]), code), None);
+}
+
+#[test]
+fn this_in_template_always_keeps_globals_shorthands_and_types() {
+    let opts = json!(["always"]);
+    assert_eq!(
+        fix(
+            "this-in-template",
+            opts.clone(),
+            "<template><div @click=\"f({ a }, Math.max(b))\" /></template>"
+        )
+        .as_deref(),
+        Some("<template><div @click=\"this.f({ a: this.a }, Math.max(this.b))\" /></template>")
+    );
+    let ts = "<script setup lang=\"ts\"></script>\n<template><b @click=\"(e: MouseEvent) => g(e)\" /></template>";
+    assert_eq!(
+        fix("this-in-template", opts, ts).as_deref(),
+        Some(
+            "<script setup lang=\"ts\"></script>\n<template><b @click=\"(e: MouseEvent) => this.g(e)\" /></template>"
+        )
+    );
+}
+
+#[test]
+fn attribute_values_keep_their_delimiters() {
+    // `["default"]` inside `v-if="…"` would end the attribute.
+    let code = "<template><div v-if=\"$slots.default\" /></template>";
+    assert_eq!(
+        fix("dot-notation", json!([{ "allowKeywords": false }]), code),
+        None
+    );
+    // `foo=a />` → `foo=a/>` makes the value `a/` and the tag no longer self-closing.
+    let code = "<template><div foo=a /></template>";
+    assert_eq!(
+        fix(
+            "html-closing-bracket-spacing",
+            json!([{ "selfClosingTag": "never" }]),
+            code
+        ),
+        None
+    );
+}
+
+#[test]
+fn line_comments_keep_their_line_break() {
+    // Joining `// comment` with `}}` comments out the end of the mustache.
+    let code = "<template>\n  {{\n    message\n    // comment\n  }}\n</template>";
+    let out = fix("mustache-interpolation-spacing", json!(["never"]), code);
+    assert!(
+        out.as_deref().is_none_or(|o| o.contains("// comment\n")),
+        "{out:?}"
+    );
+}
+
+#[test]
+fn kebab_casing_does_not_produce_html_elements() {
+    let code = "<template><Address /><MyComp /></template>";
+    assert_eq!(
+        fix(
+            "component-name-in-template-casing",
+            json!(["kebab-case", { "registeredComponentsOnly": false }]),
+            code
+        )
+        .as_deref(),
+        Some("<template><Address /><my-comp /></template>")
+    );
+}
+
+#[test]
+fn reorder_fixes_do_not_cycle() {
+    // Two `defineSlots()` (a compile error): the moves would undo each other.
+    let code =
+        "<script setup>\nconst a = 1\ndefineSlots()\ndefineProps()\ndefineSlots()\n</script>";
+    let opts: Vec<Value> = Vec::new();
+    let rules = [fixcheck::rule("define-macros-order", &opts, &Value::Null).unwrap()];
+    let r = fixcheck::fix_loop(
+        code,
+        Path::new("t.vue"),
+        &FileOptions::default(),
+        &rules,
+        true,
+    );
+    assert!(r.as_ref().is_none_or(|(.., p)| p.is_empty()), "{r:?}");
+    // A `// @vue/component` object inside `components` is checked once, as a component.
+    let code = "<script>\nexport default {\n  components: {\n    // @vue/component\n    Foo: {\n      emits: ['foo'],\n      setup() {}\n    }\n  },\n  emits: ['bar'],\n}\n</script>";
+    let opts = vec![json!({ "betweenOptions": "always", "withinOption": "never" })];
+    let rules =
+        [fixcheck::rule("padding-lines-in-component-definition", &opts, &Value::Null).unwrap()];
+    let r = fixcheck::fix_loop(
+        code,
+        Path::new("t.vue"),
+        &FileOptions::default(),
+        &rules,
+        false,
+    );
+    assert!(r.as_ref().is_some_and(|(.., p)| p.is_empty()), "{r:?}");
+}
+
+#[test]
+fn inline_handler_fix_compiles() {
+    // Vue wraps a handler in `{ }` only when it has a `;`: two statements without one do not compile.
+    let opts = json!(["inline"]);
+    let code = "<template><b @click=\"() => {\n  f()\n  g()\n}\" /></template>";
+    assert_eq!(fix("v-on-handler-style", opts.clone(), code), None);
+    assert_eq!(
+        fix(
+            "v-on-handler-style",
+            opts,
+            "<template><b @click=\"() => { f(); g() }\" /></template>"
+        )
+        .as_deref(),
+        Some("<template><b @click=\" f(); g() \" /></template>")
+    );
+}
+
+#[test]
+fn style_v_bind_spacing_converges() {
+    let code =
+        "<template></template>\n<style>\na { color: v-bind(color.); b: v-bind('x y'); }\n</style>";
+    let opts: Vec<Value> = vec![json!("always")];
+    let rules = [fixcheck::rule("space-in-parens", &opts, &Value::Null).unwrap()];
+    let (_, out, _, problems) = fixcheck::fix_loop(
+        code,
+        Path::new("t.vue"),
+        &FileOptions::default(),
+        &rules,
+        false,
+    )
+    .unwrap();
+    assert!(problems.is_empty(), "{problems:?}");
+    assert!(
+        out.contains("v-bind(color.)") && out.contains("v-bind( 'x y' )"),
+        "{out}"
+    );
 }

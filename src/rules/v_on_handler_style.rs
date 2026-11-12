@@ -382,7 +382,18 @@ impl Rule for R {
                             }
                             Kind::Inline => {
                                 let n = params.items.len() + usize::from(params.rest.is_some());
-                                let fix = (n == 0).then(|| {
+                                // Vue compiles an inline handler as `$event => (…)` unless its text
+                                // has a `;` (then `{…}`): a body of several statements, or one that is
+                                // not an expression, needs that `;` (eslint-plugin-vue fixes it anyway).
+                                let inlinable = block.is_none_or(|b| {
+                                    let one_expr = matches!(
+                                        b.statements.as_slice(),
+                                        [Statement::ExpressionStatement(_)]
+                                    );
+                                    !b.statements.is_empty()
+                                        && (one_expr || doc.slice(b.span).contains(';'))
+                                });
+                                let fix = (n == 0 && inlinable).then(|| {
                                     let text = match (block, expr_body) {
                                         (Some(b), _) => {
                                             let t = doc.slice(b.span);

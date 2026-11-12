@@ -153,6 +153,15 @@ ESLint is); oxlint-vue its 25 template rules plus oxlint's defaults. Single-thre
     start / end of an element: `padding-line-between-tags` does not fix a gap with text or a same-line space
     (`</b> <i>`, `a<br />b`), `no-useless-mustaches` does not fix the first / last mustache next to such
     whitespace (6 upstream cases skipped for this).
+  - No fix deletes a comment, joins a `//` comment with the next code, writes the attribute's quote into a
+    quoted value or glues text to an unquoted one (any rule; eslint-plugin-vue's `mustache-interpolation-spacing`,
+    `dot-notation`, `html-closing-bracket-spacing`, … do).
+  - `this-in-template` (`always`) does not report Vue's allowed globals (`Math`, `console`, …) or TS type names
+    (`this.Math` is undefined) and fixes a shorthand property as `{ a: this.a }`.
+  - No fix that changes what an element is (`component-name-in-template-casing` `<Address>` → `<address>`) or
+    does not compile (`v-on-handler-style` unwrapping several statements without `;`).
+  - Fixes that undo each other are not offered: `define-macros-order` with a duplicated macro,
+    `padding-lines-in-component-definition` on a `// @vue/component` object nested in an option.
   - `--fix` runs up to 50 passes (ESLint: 10) and stops on a cycle.
 
 ## 6. Known gaps

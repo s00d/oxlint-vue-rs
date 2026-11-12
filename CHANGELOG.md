@@ -28,6 +28,19 @@ upstream test input and on the real-project corpora, compiled with Vue before an
 - Fix: `padding-lines-in-component-definition` no longer treats comment lines as blank lines; its fix deleted all
   but the last line of a comment between two properties.
 - Fix: `prefer-separate-static-class` keeps the comments inside a `:class` list.
+- Fix: no fix deletes a comment or joins a `//` comment with the code after it (e.g. `mustache-interpolation-spacing`
+  `never` wrote `// comment}}`), and none writes the attribute's own quote into a quoted value (`dot-notation`
+  `allowKeywords: false` wrote `v-if="$slots["default"]"`) or glues text to an unquoted value (`foo=a />` →
+  `foo=a/>`).
+- Fix: `this-in-template` `always` no longer prefixes Vue's allowed globals (`Math`, `console`, …) or TS type names,
+  and writes `{ a: this.a }` for a shorthand property (eslint-plugin-vue wrote `{ this.a }`).
+- Fix: `component-name-in-template-casing` gives no fix that turns a component into an HTML element (`<Address>` →
+  `<address>`).
+- Fix: `v-on-handler-style` (`inline`) does not unwrap a function body that Vue would not compile as an inline
+  handler (several statements without `;`).
+- Fix: fixes that undid each other forever: `define-macros-order` with a macro called twice,
+  `padding-lines-in-component-definition` with a `// @vue/component` object inside an option, spacing rules in an
+  unparsable `<style>` `v-bind()`.
 - `--fix` repeats until the file is stable, up to 50 passes (was 10, like ESLint), and stops on a cycle: on the
   real-project corpora ~3% of files needed 11–30 passes with every rule on (reordering rules move one item per
   pass), and were left half-fixed.

@@ -390,6 +390,7 @@ pub fn lint_source(
     if let Some(doc) = &file.doc {
         drop_unquoted_breaks(source, doc, &mut out);
     }
+    drop_comment_losses(&file, &mut out);
     out.sort_by_key(|d| (d.span.start, d.span.end));
     if opts.no_inline_config {
         return out;
@@ -397,38 +398,55 @@ pub fn lint_source(
     directives::filter(&file, out, &opts.prefixes, opts.template_directives)
 }
 
-/// An unquoted attribute value ends at whitespace or `>`: a fix that writes one into it (e.g. a spacing
-/// rule in `:class=a+b`) or empties it would break the tag. Drop such fixes and suggestions.
+/// An attribute value must stay one value. An unquoted one ends at whitespace or `>`: a fix that writes
+/// one into it (e.g. a spacing rule in `:class=a+b`), empties it or glues text to its end breaks the tag.
+/// A quoted one ends at its quote: `dot-notation` writing `["default"]` into `v-if="…"` ends it early.
+/// Drop such fixes and suggestions.
 fn drop_unquoted_breaks(source: &str, doc: &ast::Document, diags: &mut [Diagnostic]) {
-    let values: Vec<Span> = doc
-        .elements
-        .iter()
-        .flat_map(|e| &e.start_tag.attributes)
-        .filter_map(|a| {
-            let span = match a.value.as_ref()? {
-                ast::AttributeValue::Literal(l) => l.span,
-                ast::AttributeValue::Expr(id) => doc.expr(*id).span,
-            };
-            let quoted = matches!(
-                source.as_bytes().get(span.start as usize),
-                Some(b'"' | b'\'')
-            );
-            (!quoted && !span.is_empty()).then_some(span)
-        })
-        .collect();
-    if values.is_empty() {
+    let mut unquoted: Vec<Span> = Vec::new();
+    let mut quoted: Vec<(Span, char)> = Vec::new();
+    for a in doc.elements.iter().flat_map(|e| &e.start_tag.attributes) {
+        let Some(value) = &a.value else { continue };
+        let span = match value {
+            ast::AttributeValue::Literal(l) => l.span,
+            ast::AttributeValue::Expr(id) => doc.expr(*id).span,
+        };
+        match source.as_bytes().get(span.start as usize) {
+            Some(&q @ (b'"' | b'\'')) if span.end > span.start + 1 => {
+                quoted.push((Span::new(span.start + 1, span.end - 1), q as char));
+            }
+            // A same-name shorthand (`:x`) has a value node but no value text.
+            _ if !span.is_empty() && source[..span.start as usize].trim_end().ends_with('=') => {
+                unquoted.push(span);
+            }
+            _ => {}
+        }
+    }
+    if unquoted.is_empty() && quoted.is_empty() {
         return;
     }
     let breaks = |f: &Fix| {
-        values.iter().any(|v| {
-            if f.span.start < v.start || v.end < f.span.end {
+        unquoted.iter().any(|v| {
+            if f.span.start < v.start || v.end < f.span.end || f.span.start == v.end {
                 return false;
             }
             let whole = f.span == *v;
             let t = f.text.as_bytes();
             let quoted = t.len() >= 2 && matches!(t[0], b'"' | b'\'') && t[t.len() - 1] == t[0];
             !(whole && quoted) && (f.text.contains(BREAKS) || (whole && t.is_empty()))
-        })
+        }) || unquoted.iter().any(|v| {
+            // Text glued to the value's end joins it: `foo=a /` → `foo=a/` makes the value `a/`.
+            f.span.start == v.end && {
+                let next = if f.text.is_empty() {
+                    source[f.span.end as usize..].chars().next()
+                } else {
+                    f.text.chars().next()
+                };
+                next.is_some_and(|c| !c.is_ascii_whitespace() && c != '>')
+            }
+        }) || quoted
+            .iter()
+            .any(|(v, q)| v.start <= f.span.start && f.span.end <= v.end && f.text.contains(*q))
     };
     for d in diags.iter_mut() {
         if d.fix.as_ref().is_some_and(breaks) {
@@ -437,6 +455,54 @@ fn drop_unquoted_breaks(source: &str, doc: &ast::Document, diags: &mut [Diagnost
         d.suggestions.retain(|s| !breaks(&s.fix));
     }
 }
+/// Rules whose fix or suggestion removes content, comments included, by design.
+const REMOVES_CONTENT: &[&str] = &["no-child-content"];
+
+/// No fix may delete a comment (its text, whitespace aside, must reappear in the replacement) or end a `//` comment's line
+/// (the code after it would be commented out). Several eslint-plugin-vue fixes do both, e.g. when
+/// vue-eslint-parser's token store skips a comment.
+fn drop_comment_losses(file: &LintFile, diags: &mut [Diagnostic]) {
+    let mut comments: Vec<(Span, bool)> = Vec::new();
+    if let Some(doc) = &file.doc {
+        comments.extend(
+            doc.comments
+                .iter()
+                .map(|c| (c.span, c.kind == ast::TokenKind::LineComment)),
+        );
+    }
+    if let Some(p) = file.program {
+        comments.extend(p.comments.iter().map(|c| (c.span, c.is_line())));
+    }
+    if comments.is_empty() {
+        return;
+    }
+    let src = file.source;
+    // Re-indenting a block comment rewrites its whitespace: compare without it.
+    let squeeze = |s: &str| s.split_whitespace().collect::<String>();
+    let loses = |f: &Fix| {
+        comments.iter().any(|&(c, line)| {
+            (f.span.start <= c.start
+                && c.end <= f.span.end
+                && !squeeze(&f.text).contains(&squeeze(&src[c.start as usize..c.end as usize])))
+                || (line
+                    && ((f.span.start <= c.end && c.end < f.span.end && !f.text.contains('\n'))
+                        || (f.span.is_empty()
+                            && f.span.start == c.end
+                            && !f.text.is_empty()
+                            && !f.text.starts_with(['\n', '\r']))))
+        })
+    };
+    for d in diags
+        .iter_mut()
+        .filter(|d| !REMOVES_CONTENT.contains(&d.rule))
+    {
+        if d.fix.as_ref().is_some_and(loses) {
+            d.fix = None;
+        }
+        d.suggestions.retain(|s| !loses(&s.fix));
+    }
+}
+
 const BREAKS: [char; 6] = [' ', '\t', '\n', '\r', '\x0c', '>'];
 
 /// Apply fixes once, ESLint style (sorted, overlapping ones skipped). `None` = nothing to fix.

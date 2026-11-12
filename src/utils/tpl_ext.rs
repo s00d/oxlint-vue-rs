@@ -152,6 +152,34 @@ impl<'a> Ext<'a> {
             let (span, open, (es, ee), quoted) = *v;
             let before_end = if quoted { es } else { open + 1 };
             let after_start = if quoted { ee } else { span.end - 1 };
+            let alloc = oxc::allocator::Allocator::default();
+            let mut masked = vec![b' '; src.len()];
+            masked[es as usize..ee as usize]
+                .copy_from_slice(&src.as_bytes()[es as usize..ee as usize]);
+            masked[es as usize - 1] = b'(';
+            masked[ee as usize] = b')';
+            let Ok(code) = String::from_utf8(masked) else {
+                continue;
+            };
+            let st = oxc::span::SourceType::default()
+                .with_module(true)
+                .with_typescript(ctx.file.ts);
+            let ret = oxc::parser::Parser::new(&alloc, &code, st)
+                .with_config(oxc::parser::config::TokensParserConfig)
+                .parse();
+            let stmt = match ret.program.body.as_slice() {
+                [oxc::ast::ast::Statement::ExpressionStatement(stmt)]
+                    if !ret.fatal_error && ret.diagnostics.is_empty() =>
+                {
+                    Some(stmt)
+                }
+                _ => None,
+            };
+            // An unparsable unquoted expression keeps its raw text: `(` / `)` tokens around it made
+            // spacing rules add a space on every pass (the raw text then starts with it).
+            if stmt.is_none() && !quoted {
+                continue;
+            }
             push(
                 &mut items,
                 span.start,
@@ -173,28 +201,7 @@ impl<'a> Ext<'a> {
             );
             cuts.push((span.start, before_end));
             cuts.push((after_start, span.end));
-            let alloc = oxc::allocator::Allocator::default();
-            let mut masked = vec![b' '; src.len()];
-            masked[es as usize..ee as usize]
-                .copy_from_slice(&src.as_bytes()[es as usize..ee as usize]);
-            masked[es as usize - 1] = b'(';
-            masked[ee as usize] = b')';
-            let Ok(code) = String::from_utf8(masked) else {
-                continue;
-            };
-            let st = oxc::span::SourceType::default()
-                .with_module(true)
-                .with_typescript(ctx.file.ts);
-            let ret = oxc::parser::Parser::new(&alloc, &code, st)
-                .with_config(oxc::parser::config::TokensParserConfig)
-                .parse();
-            if ret.fatal_error || !ret.diagnostics.is_empty() {
-                continue;
-            }
-            let [oxc::ast::ast::Statement::ExpressionStatement(stmt)] = ret.program.body.as_slice()
-            else {
-                continue;
-            };
+            let Some(stmt) = stmt else { continue };
             cuts.push((before_end, after_start));
             for t in ret.tokens.iter() {
                 if es <= t.start() && t.end() <= ee && t.start() < t.end() {

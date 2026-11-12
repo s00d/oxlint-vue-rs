@@ -75,6 +75,7 @@ impl Padding {
         properties: &[ObjectPropertyKind],
         option: &Value,
         next_option: &Value,
+        comps: &[Span],
     ) {
         let file = ctx.file;
         let group = match self.options.as_str() {
@@ -168,11 +169,18 @@ impl Padding {
             let Expression::ObjectExpression(nested) = js::skip_parens(&p.value) else {
                 continue;
             };
+            // A component object inside an option (`components: { /* @vue/component */ Foo: {…} }`) is
+            // checked as a component; checking it as an option value too makes the fixes undo each
+            // other.
+            if comps.contains(&nested.span) {
+                continue;
+            }
             self.verify(
                 ctx,
                 &nested.properties,
                 &parse_option(&prop_opt, "betweenItems"),
                 &parse_option(&prop_opt, "withinEach"),
+                comps,
             );
         }
     }
@@ -200,6 +208,7 @@ impl Padding {
             &o.properties,
             &parse_option(&opt, "betweenItems"),
             &parse_option(&opt, "withinEach"),
+            &[],
         );
     }
 }
@@ -209,8 +218,10 @@ impl Rule for Padding {
         let file = ctx.file;
         let between = parse_option(&self.options, "betweenOptions");
         let within = parse_option(&self.options, "withinOption");
-        for o in vc::vue_objects(file) {
-            self.verify(ctx, &o.obj.properties, &between, &within);
+        let objects = vc::vue_objects(file);
+        let comps: Vec<Span> = objects.iter().map(|o| o.obj.span).collect();
+        for o in objects {
+            self.verify(ctx, &o.obj.properties, &between, &within, &comps);
         }
         for m in vc::script_setup_macros(file) {
             match m.kind {
@@ -218,7 +229,7 @@ impl Rule for Padding {
                 vc::MacroKind::DefineEmits => self.verify_macro_object(ctx, m.arg(0), "emits"),
                 vc::MacroKind::DefineOptions => {
                     if let Some(Expression::ObjectExpression(o)) = m.arg(0).map(js::skip_parens) {
-                        self.verify(ctx, &o.properties, &between, &within);
+                        self.verify(ctx, &o.properties, &between, &within, &comps);
                     }
                 }
                 _ => {}

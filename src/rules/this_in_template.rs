@@ -19,6 +19,14 @@ struct ThisInTemplate {
     always: bool,
 }
 
+/// Vue 3's `GLOBALS_ALLOWED` (`@vue/shared`): template expressions read these as globals.
+const VUE_GLOBALS: &[&str] = &[
+    "Infinity", "undefined", "NaN", "isFinite", "isNaN", "parseFloat", "parseInt", "decodeURI",
+    "decodeURIComponent", "encodeURI", "encodeURIComponent", "Math", "Number", "Date", "Array",
+    "Object", "Boolean", "String", "RegExp", "Map", "Set", "JSON", "Intl", "BigInt", "console",
+    "Error", "Symbol",
+];
+
 /// `/^\d.*$|[^\w$]/`
 fn bad_name(n: &str) -> bool {
     n.starts_with(|c: char| c.is_ascii_digit())
@@ -38,15 +46,29 @@ impl Rule for ThisInTemplate {
                 if matches!(c.parent, ExprParent::DirectiveArgument(..)) {
                     continue;
                 }
+                let nodes = Nodes::of(c);
                 for r in &c.references {
-                    if !scope.contains(&r.name) {
-                        ctx.report_fix(
-                            r.span,
-                            Some("expected"),
-                            "Expected 'this'.",
-                            Some(Fix::insert(r.span.start, "this.")),
-                        );
+                    // Vue reads its allowed globals (`Math`, `console`, …) directly: `this.Math` is
+                    // undefined (eslint-plugin-vue rewrites them).
+                    if scope.contains(&r.name)
+                        || VUE_GLOBALS.contains(&r.name.as_str())
+                        || r.is_type_reference
+                    {
+                        continue;
                     }
+                    // `{ a }` → `{ a: this.a }` (eslint-plugin-vue writes `{ this.a }`).
+                    let shorthand = nodes.kinds.iter().enumerate().any(|(i, k)| {
+                        matches!(k, AstKind::IdentifierReference(id) if id.span == r.span)
+                            && nodes.parent(i).is_some_and(|p| {
+                                matches!(nodes.kinds[p], AstKind::ObjectProperty(o) if o.shorthand)
+                            })
+                    });
+                    let fix = if shorthand {
+                        Fix::insert(r.span.start, format!("{}: this.", r.name))
+                    } else {
+                        Fix::insert(r.span.start, "this.")
+                    };
+                    ctx.report_fix(r.span, Some("expected"), "Expected 'this'.", Some(fix));
                 }
                 continue;
             }

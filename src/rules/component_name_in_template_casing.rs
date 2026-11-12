@@ -96,8 +96,15 @@ impl Rule for R {
             {
                 edits.push(Fix::replace(t.span, format!("</{casing}")));
             }
-            // A name the conversion cannot change (`foo--bar`) would be "fixed" on every pass.
-            let fix = (casing != raw).then(|| Fix::merge(src, edits)).flatten();
+            // A name the conversion cannot change (`foo--bar`) would be "fixed" on every pass, and
+            // `<Address>` → `<address>` would turn the component into an HTML element.
+            let converted = &casing[..casing.len() - (raw.len() - name.len())];
+            let native = is_html_well_known_element_name(converted)
+                || is_svg_well_known_element_name(converted)
+                || is_math_well_known_element_name(converted);
+            let fix = (casing != raw && !native)
+                .then(|| Fix::merge(src, edits))
+                .flatten();
             ctx.report_fix(
                 open.span,
                 Some("incorrectCase"),

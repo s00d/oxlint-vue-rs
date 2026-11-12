@@ -144,10 +144,15 @@ impl Rule for DefineMacrosOrder {
         };
         // name -> top-level statement spans (last write wins, models accumulate).
         let mut macros: Vec<(String, Vec<Span>)> = Vec::new();
+        // A macro called twice (a compile error) makes the moves undo each other: report, no fix.
+        let mut duplicate = false;
         let mut set =
             |name: &str, s: Span, push: bool| match macros.iter_mut().find(|(n, _)| n == name) {
                 Some((_, v)) if push => v.push(s),
-                Some((_, v)) => *v = vec![s],
+                Some((_, v)) => {
+                    duplicate |= !v.contains(&s);
+                    *v = vec![s];
+                }
                 None => macros.push((name.to_string(), vec![s])),
             };
         let mut expose: Option<Span> = None;
@@ -255,7 +260,8 @@ impl Rule for DefineMacrosOrder {
                 .iter()
                 .flat_map(|n| move_before(file, *n, target))
                 .collect();
-            ctx.report_fix(moving[0], Some(id), msg, Fix::merge(file.source, edits));
+            let fix = (!duplicate).then(|| Fix::merge(file.source, edits)).flatten();
+            ctx.report_fix(moving[0], Some(id), msg, fix);
             return;
         }
     }
