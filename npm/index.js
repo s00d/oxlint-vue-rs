@@ -2,9 +2,9 @@
 //
 // With an oxlint that gives JS plugins the whole file (oxc PR #28720: `sourceCode.actualText`,
 // `context.report({ actualRange })`, template-only SFCs passed to plugins), the rules run here: every
-// enabled `vue-rs/*` rule registers itself for the file in its `before` hook, the first `after` hook runs
-// the Rust core (Node addon from the platform package) once for all of them on `actualText`, and each
-// rule reports its own problems. The visitors are empty, so oxlint never deserializes the AST for us.
+// enabled `vue-rs/*` rule registers itself for the file in its `before` hook, the first `Program` visit
+// runs the Rust core (Node addon from the platform package) once for all of them on `actualText`, and
+// each rule reports its own problems. (`Program` because oxlint never runs a rule with an empty visitor.)
 //
 // Released oxlint (<= 1.93) shows plugins only the `<script>` text: then every `before` hook returns
 // false and the plugin only registers the rule names, so `vue-rs/<rule>` entries validate in
@@ -62,7 +62,7 @@ function run(context) {
   return last.byRule
 }
 
-function after(context, name) {
+function report(context, name) {
   file.byRule ??= run(context)
   for (const d of file.byRule.get(name) ?? []) {
     context.report({
@@ -89,7 +89,7 @@ const rules = Object.fromEntries(
         schema: false,
       },
       createOnce(context) {
-        return { before: () => before(context, r.name), after: () => after(context, r.name) }
+        return { before: () => before(context, r.name), Program: () => report(context, r.name) }
       },
     },
   ]),

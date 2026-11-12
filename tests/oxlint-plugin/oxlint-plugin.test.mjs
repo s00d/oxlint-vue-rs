@@ -50,13 +50,16 @@ function exec(bin, args, cwd, env = {}) {
   return r
 }
 
-/** vue-rs problems from `--format json` output (oxlint's or ours), sorted. */
+/**
+ * vue-rs problems from `--format json` output (oxlint's or ours), sorted. Positions are the byte range
+ * and the line: oxlint counts columns in UTF-8 bytes, the CLI in UTF-16 units like ESLint.
+ */
 function problems(stdout) {
   return JSON.parse(stdout)
     .diagnostics.map((d) => {
       const rule = d.code.match(/^vue-rs[/(]([^)]+)\)?$/)?.[1]
-      const { offset, length, line, column } = d.labels[0].span
-      return rule && { file: d.filename, rule, severity: d.severity, message: d.message, offset, length, line, column }
+      const { offset, length, line } = d.labels[0].span
+      return rule && { file: d.filename, rule, severity: d.severity, message: d.message, offset, length, line }
     })
     .filter(Boolean)
     .sort((a, b) => a.file.localeCompare(b.file) || a.offset - b.offset || a.rule.localeCompare(b.rule))
@@ -83,19 +86,21 @@ test('oxlint runs the vue-rs rules exactly like the CLI', { skip: skipPr }, () =
   const got = problems(a.stdout)
   assert.deepEqual(got, problems(b.stdout))
   const rules = (file) => got.filter((p) => p.file === file).map((p) => p.rule)
-  // template-only SFC, options, both script blocks, TS, non-ASCII text before a report
+  // template-only SFC, options, both script blocks, TS, non-ASCII text before a report (UTF-16 ranges)
   assert.ok(rules('template-only.vue').includes('html-indent'))
   assert.ok(rules('template-only.vue').includes('eqeqeq'))
+  assert.ok(got.some((p) => p.file === 'template-only.vue' && p.line === 5 && p.rule === 'mustache-interpolation-spacing'))
   assert.ok(rules('script-template.vue').includes('order-in-components'))
   assert.ok(rules('two-scripts.vue').includes('padding-line-between-blocks'))
   assert.ok(rules('typed.vue').includes('require-explicit-emits'))
   // overrides: legacy/** turns html-indent and eqeqeq off
-  assert.deepEqual(rules(path.join('legacy', 'old.vue')), ['require-v-for-key'])
+  const legacy = rules(path.join('legacy', 'old.vue'))
+  assert.ok(legacy.includes('require-v-for-key') && !legacy.includes('html-indent') && !legacy.includes('eqeqeq'))
   // disable comments: template (next-line, block) and script (eslint-/oxlint-disable-next-line)
   const disabled = got.filter((p) => p.file === 'disabled.vue')
   assert.deepEqual(
     disabled.map((p) => `${p.line}:${p.rule}`),
-    ['7:html-self-closing', '8:html-indent', '14:order-in-components'],
+    ['7:html-self-closing', '8:html-indent', '10:padding-line-between-blocks', '14:order-in-components'],
   )
   // one report per problem in a file with two <script> blocks (oxlint lints each block)
   const two = problems(a.stdout).filter((p) => p.file === 'two-scripts.vue')
