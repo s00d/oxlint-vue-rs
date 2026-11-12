@@ -1,9 +1,11 @@
 //! vue/require-macro-variable-name
 
 use oxc::ast::AstKind;
-use oxc::ast::ast::{BindingPattern, Expression};
+use oxc::ast::ast::{BindingIdentifier, BindingPattern, Expression};
+use oxc::semantic::Semantic;
+use oxc::span::{GetSpan, Span};
 
-use crate::rule::{Ctx, Fix, Rule, RuleOptions, Suggestion, fmt_msg};
+use crate::rule::{Ctx, Fix, LintFile, Rule, RuleOptions, Suggestion, fmt_msg};
 use crate::utils::js;
 use crate::utils::vue_component as vc;
 
@@ -32,6 +34,8 @@ impl Rule for RequireMacroVariableName {
     fn run(&self, ctx: &mut Ctx<'_, '_>) {
         let file = ctx.file;
         let Some(sem) = file.semantic else { return };
+        // Two declarations renamed to one name (`--fix-suggestions` applies both) would clash.
+        let mut taken: Vec<&str> = Vec::new();
         for n in sem.nodes().iter() {
             let AstKind::VariableDeclarator(d) = n.kind() else {
                 continue;
@@ -61,19 +65,73 @@ impl Rule for RequireMacroVariableName {
                 continue;
             }
             let span = js::declarator_id_span(d);
-            let sugg = Suggestion {
+            let sugg = if taken.contains(&want.as_str()) {
+                None
+            } else {
+                taken.push(want);
+                rename(file, sem, id, d.span, span, want)
+            };
+            let sugg = sugg.map(|fix| Suggestion {
                 message_id: Some("changeName"),
                 desc: fmt_msg(
                     "Change the variable name to \"{{variableName}}\".",
                     &[("variableName", want)],
                 ),
-                fix: Fix::replace(span, want.clone()),
-            };
+                fix,
+            });
             let msg = fmt_msg(
                 "The variable name of \"{{macroName}}\" must be \"{{variableName}}\".",
                 &[("macroName", macro_name), ("variableName", want)],
             );
-            ctx.push(span, Some("requireName"), msg, None, vec![sugg]);
+            ctx.push(span, Some("requireName"), msg, None, sugg.into_iter().collect());
         }
     }
+}
+
+/// Rename the variable with its uses in the script and the template. eslint-plugin-vue renames only
+/// the declaration (uses then point nowhere, or the name is declared twice). No suggestion when the
+/// new name is taken or a use is a shorthand property (`{ emits }` would change its key).
+fn rename(
+    file: &LintFile,
+    sem: &Semantic,
+    id: &BindingIdentifier,
+    decl: Span,
+    span: Span,
+    want: &str,
+) -> Option<Fix> {
+    let scoping = sem.scoping();
+    if scoping.symbol_names().any(|n| n == want) {
+        return None;
+    }
+    let mut edits = vec![Fix::replace(span, want)];
+    if let Some(sym) = id.symbol_id.get() {
+        for &rid in scoping.get_resolved_reference_ids(sym) {
+            let node = scoping.get_reference(rid).node_id();
+            let at = sem.nodes().kind(node).span();
+            // `const useSlots = useSlots()`: the call means the import, not the TDZ binding.
+            if decl.start <= at.start && at.end <= decl.end {
+                continue;
+            }
+            if let AstKind::ObjectProperty(p) = sem.nodes().parent_kind(node)
+                && p.shorthand
+            {
+                return None;
+            }
+            edits.push(Fix::replace(at, want));
+        }
+    }
+    if let Some(doc) = &file.doc {
+        for r in doc.exprs.iter().flat_map(|c| &c.references) {
+            if r.variable.is_some() {
+                continue;
+            }
+            if r.name == want {
+                return None;
+            }
+            if r.name == id.name.as_str() {
+                edits.push(Fix::replace(r.span, want));
+            }
+        }
+    }
+    Fix::merge(file.source, edits)
 }

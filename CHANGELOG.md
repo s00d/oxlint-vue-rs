@@ -1,5 +1,27 @@
 # Changelog
 
+## Unreleased
+
+Fixes checked by a new harness (`tests/fixes.rs`, `scripts/fix-check.mjs`): every fix and suggestion on every
+upstream test input and on the real-project corpora, compiled with Vue before and after.
+
+- Fix: `--fix` keeps CRLF line endings in files that use them (rules wrote `\n`, mixing endings).
+- Fix: no fix writes whitespace or `>` into an unquoted attribute value (`:class=a+b` → `a + b` broke the tag;
+  `space-infix-ops`, `key-spacing`, …).
+- Fix: `html-self-closing` no longer treats U+00A0 / U+3000 text, or whitespace in `<pre>` / `<textarea>`, as empty
+  (the fix deleted it).
+- Fix: `padding-line-between-tags` does not add or remove blank lines inside `<pre>` (rendered text).
+- Fix: `no-extra-parens` keeps the parentheses of a template sequence (`{{ (a, b) }}`); without them the output
+  does not compile.
+- Fix: `no-useless-v-bind` gives no fix next to a static attribute of the same name (`class="a" :class="'b'"`) or
+  for a dynamic name (`:[k]="'v'"`), and quotes an unquoted value when needed.
+- Fix: `no-deprecated-v-bind-sync` fixes to `v-model:x` only where that compiles (a component, an assignable
+  value).
+- Fix: `component-options-name-casing` no longer writes an invalid key (`'fio.fio'` → `Fio.fio`); no fix when the
+  name cannot be converted. `component-name-in-template-casing`: no fix that leaves the name unchanged.
+- Fix: `require-macro-variable-name`'s suggestion renames the uses too, and is not offered when the name is taken.
+- Fix: `require-name-property`'s suggestion and `no-empty-component-block`'s fix keep comments.
+
 ## 0.1.3 — 2026-11-12
 
 - Fix: a bare `#="…"` / `:="…"` / `@="…"` in a template is a directive (`v-slot` / `v-bind` / `v-on` without an

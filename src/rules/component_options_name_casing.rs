@@ -2,6 +2,7 @@
 
 use oxc::ast::ast::PropertyKey;
 use oxc::span::GetSpan;
+use oxc::syntax::identifier::is_identifier_name;
 
 use crate::rule::{Ctx, Fix, Rule, RuleOptions, Suggestion, fmt_msg};
 use crate::utils::vue_component as vc;
@@ -46,24 +47,30 @@ impl Rule for ComponentOptionsNameCasing {
                     continue;
                 }
                 let converted = casing::converter(case)(&name);
+                // No fix when converting does not produce a valid name (`fio.fio` → `Fio.fio`): it
+                // would be reported, and "fixed", again on every pass.
+                let fixable = casing::checker(case)(&converted);
                 let key = p.key.span();
                 let msg = fmt_msg(
                     "Component name \"{{component}}\" is not {{caseType}}.",
                     &[("component", &name), ("caseType", case)],
                 );
-                let fix = if p.shorthand {
-                    let lhs = if !auto_fix && case == "kebab-case" {
-                        format!("'{converted}'")
-                    } else {
-                        converted.clone()
-                    };
-                    Fix::replace(p.span, format!("{lhs}: {name}"))
-                } else if !auto_fix && case == "kebab-case" {
-                    Fix::replace(key, format!("'{converted}'"))
+                // A converted name that is no identifier (`'fio.fio'` → `Fio.fio`) stays quoted;
+                // eslint-plugin-vue writes it bare, a syntax error.
+                let lhs = if (!auto_fix && case == "kebab-case") || !is_identifier_name(&converted)
+                {
+                    format!("'{}'", converted.replace('\\', "\\\\").replace('\'', "\\'"))
                 } else {
-                    Fix::replace(key, converted.clone())
+                    converted.clone()
                 };
-                if auto_fix {
+                let fix = if p.shorthand {
+                    Fix::replace(p.span, format!("{lhs}: {name}"))
+                } else {
+                    Fix::replace(key, lhs)
+                };
+                if !fixable {
+                    ctx.push(key, Some("caseNotMatched"), msg, None, Vec::new());
+                } else if auto_fix {
                     ctx.push(key, Some("caseNotMatched"), msg, Some(fix), Vec::new());
                 } else {
                     let desc = fmt_msg(

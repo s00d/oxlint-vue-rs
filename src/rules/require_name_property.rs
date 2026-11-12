@@ -60,10 +60,13 @@ impl Rule for RequireNameProperty {
                     };
                     (file.slice(l) == "{" && file.slice(r) == "}").then(|| {
                         let ind = line_indent(file, l.start);
-                        Fix::replace(
-                            Span::new(l.end, r.start),
-                            format!("\n{ind}  name: '{stem}'\n{ind}"),
-                        )
+                        let inner = Span::new(l.end, r.start);
+                        if file.slice(inner).trim().is_empty() {
+                            Fix::replace(inner, format!("\n{ind}  name: '{stem}'\n{ind}"))
+                        } else {
+                            // Only comments inside: keep them (eslint-plugin-vue replaces them).
+                            Fix::insert(l.end, format!("\n{ind}  name: '{stem}',"))
+                        }
                     })
                 }
             };

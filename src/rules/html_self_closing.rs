@@ -78,7 +78,16 @@ impl Rule for R {
             let close = last_token(doc, st.span, 0);
             if m == Mode::Always && !st.self_closing {
                 let end = e.end_tag.map_or(e.span.end, |t| t.start);
-                if src[st.span.end as usize..end as usize].trim().is_empty() {
+                // HTML whitespace only: Vue keeps U+00A0, U+3000, … as text (JS `trim()` drops them).
+                // In `<pre>` / `<textarea>` whitespace is content too.
+                let content = &src[st.span.end as usize..end as usize];
+                let pre = matches!(e.name.as_str(), "pre" | "textarea");
+                if (pre && content.is_empty())
+                    || (!pre
+                        && content
+                            .trim_matches(|c| matches!(c, ' ' | '\t' | '\n' | '\r' | '\x0c'))
+                            .is_empty())
+                {
                     let fix = close
                         .filter(|c| c.kind == TokenKind::HTMLTagClose)
                         .map(|c| {

@@ -387,12 +387,57 @@ pub fn lint_source(
             d.loc = Some([l, c, e, ec]);
         }
     }
+    if let Some(doc) = &file.doc {
+        drop_unquoted_breaks(source, doc, &mut out);
+    }
     out.sort_by_key(|d| (d.span.start, d.span.end));
     if opts.no_inline_config {
         return out;
     }
     directives::filter(&file, out, &opts.prefixes, opts.template_directives)
 }
+
+/// An unquoted attribute value ends at whitespace or `>`: a fix that writes one into it (e.g. a spacing
+/// rule in `:class=a+b`) or empties it would break the tag. Drop such fixes and suggestions.
+fn drop_unquoted_breaks(source: &str, doc: &ast::Document, diags: &mut [Diagnostic]) {
+    let values: Vec<Span> = doc
+        .elements
+        .iter()
+        .flat_map(|e| &e.start_tag.attributes)
+        .filter_map(|a| {
+            let span = match a.value.as_ref()? {
+                ast::AttributeValue::Literal(l) => l.span,
+                ast::AttributeValue::Expr(id) => doc.expr(*id).span,
+            };
+            let quoted = matches!(
+                source.as_bytes().get(span.start as usize),
+                Some(b'"' | b'\'')
+            );
+            (!quoted && !span.is_empty()).then_some(span)
+        })
+        .collect();
+    if values.is_empty() {
+        return;
+    }
+    let breaks = |f: &Fix| {
+        values.iter().any(|v| {
+            if f.span.start < v.start || v.end < f.span.end {
+                return false;
+            }
+            let whole = f.span == *v;
+            let t = f.text.as_bytes();
+            let quoted = t.len() >= 2 && matches!(t[0], b'"' | b'\'') && t[t.len() - 1] == t[0];
+            !(whole && quoted) && (f.text.contains(BREAKS) || (whole && t.is_empty()))
+        })
+    };
+    for d in diags.iter_mut() {
+        if d.fix.as_ref().is_some_and(breaks) {
+            d.fix = None;
+        }
+        d.suggestions.retain(|s| !breaks(&s.fix));
+    }
+}
+const BREAKS: [char; 6] = [' ', '\t', '\n', '\r', '\x0c', '>'];
 
 /// Apply fixes once, ESLint style (sorted, overlapping ones skipped). `None` = nothing to fix.
 pub fn apply_fixes(source: &str, diags: &[Diagnostic]) -> Option<String> {
@@ -401,6 +446,8 @@ pub fn apply_fixes(source: &str, diags: &[Diagnostic]) -> Option<String> {
         return None;
     }
     fixes.sort_by_key(|f| (f.span.start, f.span.end));
+    // Rules write `\n`; in a file that uses only CRLF that would mix line endings (ESLint does).
+    let crlf = source.contains("\r\n") && !source.replace("\r\n", "").contains('\n');
     let mut out = String::with_capacity(source.len());
     let mut pos = 0usize;
     let mut last: i64 = -1;
@@ -409,7 +456,11 @@ pub fn apply_fixes(source: &str, diags: &[Diagnostic]) -> Option<String> {
             continue;
         }
         out.push_str(&source[pos..f.span.start as usize]);
-        out.push_str(&f.text);
+        if crlf && f.text.contains('\n') {
+            out.push_str(&f.text.replace("\r\n", "\n").replace('\n', "\r\n"));
+        } else {
+            out.push_str(&f.text);
+        }
         pos = f.span.end as usize;
         last = f.span.end as i64;
     }

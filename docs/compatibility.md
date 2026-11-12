@@ -132,6 +132,21 @@ ESLint is); oxlint-vue its 25 template rules plus oxlint's defaults. Single-thre
 - **`no-ref-as-operand` checks right operands of `&&` / `||` in a test** (`if (a && hasNext)` with a `ref`
   `hasNext`): ported from eslint-plugin-vue's main branch (#3148, after 10.12.1). All 3 such reports on the new
   corpora (halo, vue-pure-admin) are real bugs: the ref object is always truthy.
+- **Fixes are checked against Vue, not against ESLint's output.** `tests/fixes.rs` and `scripts/fix-check.mjs`
+  run every fix and suggestion on the upstream inputs and the corpora and compile the result with
+  @vue/compiler-sfc; where eslint-plugin-vue's fix breaks the code or changes what renders, ours is narrower:
+  - CRLF files keep CRLF (ESLint inserts `\n`); no fix writes whitespace or `>` into an unquoted attribute value
+    (any rule).
+  - `html-self-closing`: Vue's whitespace is ASCII only, so `<div>\u00a0</div>` is not empty (eslint-plugin-vue
+    uses JS `trim()` and deletes the text); in `<pre>` / `<textarea>` only an empty element is.
+  - `padding-line-between-tags` reports nothing inside `<pre>`; `no-extra-parens` does not report the
+    parentheses of a template sequence expression (`{{ (a, b) }}`), which Vue needs.
+  - No fix where the result would not compile: `no-useless-v-bind` next to a same-name static attribute or with
+    a dynamic argument; `no-deprecated-v-bind-sync` on a plain element or with a non-assignable value;
+    `component-options-name-casing` for names that do not convert to an identifier (it wrote `Fio.fio: X`).
+  - `require-macro-variable-name`'s suggestion renames uses in the script and the template (eslint-plugin-vue
+    renames only the declaration) and is not offered when the new name is taken.
+  - `require-name-property` (suggestion) and `no-empty-component-block` keep comments.
 
 ## 6. Known gaps
 

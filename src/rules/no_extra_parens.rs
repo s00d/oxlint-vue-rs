@@ -1190,8 +1190,11 @@ impl V<'_, '_, '_, '_> {
         if k == 0 {
             return;
         }
+        // A template expression cannot be a bare sequence (`{{ (a, b) }}`): Vue compiles it into an
+        // argument / property position, where `a, b` means something else.
         let ok = k >= 2
-            || ((!is_iife(n) || skip_chain(n).is_some_and(|c| layers(&c.callee) >= 1))
+            || (!matches!(n, Expression::SequenceExpression(_))
+                && (!is_iife(n) || skip_chain(n).is_some_and(|c| layers(&c.callee) >= 1))
                 && !self.unwrap_changes_to_filter(span)
                 && !(root.style && self.style_without_quote(root.container, span)));
         if !ok {

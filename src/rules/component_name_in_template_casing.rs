@@ -96,11 +96,13 @@ impl Rule for R {
             {
                 edits.push(Fix::replace(t.span, format!("</{casing}")));
             }
+            // A name the conversion cannot change (`foo--bar`) would be "fixed" on every pass.
+            let fix = (casing != raw).then(|| Fix::merge(src, edits)).flatten();
             ctx.report_fix(
                 open.span,
                 Some("incorrectCase"),
                 format!("Component name \"{raw}\" is not {}.", self.case),
-                Fix::merge(src, edits),
+                fix,
             );
         }
     }

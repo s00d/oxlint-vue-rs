@@ -9,6 +9,12 @@ struct R;
 impl Rule for R {
     fn run(&self, ctx: &mut Ctx) {
         let Some(doc) = ctx.doc() else { return };
+        let src = ctx.source();
+        let html_ws = |c: char| matches!(c, ' ' | '\t' | '\n' | '\r' | '\x0c');
+        let inner = |b: &crate::ast::Element| {
+            let end = b.end_tag.map_or(b.span.end, |t| t.start);
+            &src[b.start_tag.span.end as usize..end as usize]
+        };
         for b in doc.top_level() {
             if !matches!(b.name.as_str(), "template" | "script" | "style") {
                 continue;
@@ -23,7 +29,7 @@ impl Rule for R {
             }
             let empty = match b.children.as_slice() {
                 [] => true,
-                [Child::Text(t)] => doc.text(*t).value.trim().is_empty(),
+                [Child::Text(t)] => doc.text(*t).value.trim_matches(html_ws).is_empty(),
                 _ => false,
             };
             if empty {
@@ -31,7 +37,11 @@ impl Rule for R {
                     b.span,
                     Some("unexpected"),
                     format!("`<{}>` is empty. Empty block is not allowed.", b.name),
-                    Some(Fix::remove(b.span)),
+                    // Only a block of whitespace: one holding a comment keeps it.
+                    inner(b)
+                        .trim_matches(html_ws)
+                        .is_empty()
+                        .then(|| Fix::remove(b.span)),
                 );
             }
         }

@@ -70,6 +70,17 @@ impl Rule for R {
         let src = ctx.source();
         for block in body_elements(doc) {
             let Some(parent) = block.parent else { continue };
+            // Whitespace inside `<pre>` is content: a blank line there changes the rendered text.
+            let mut anc = Some(parent);
+            let mut in_pre = false;
+            while let Some(id) = anc {
+                let e = doc.element(id);
+                in_pre |= e.name == "pre";
+                anc = e.parent;
+            }
+            if in_pre {
+                continue;
+            }
             let end_tag = block.end_tag.unwrap_or(block.start_tag.span);
             let Some(sib) = doc.element(parent).children.iter().find_map(|c| match c {
                 Child::Element(id)

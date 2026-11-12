@@ -30,3 +30,7 @@ path = "src/main.rs"
 lto = "thin"
 codegen-units = 1
 strip = true
+
+[dev-dependencies]
+# Fix-verification harness (tests/fixcheck): compare script ASTs via codegen.
+oxc = { version = "0.158.0", features = ["semantic", "ast_visit", "codegen"] }
