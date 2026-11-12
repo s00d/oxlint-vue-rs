@@ -64,7 +64,12 @@ fn unix(out: &str) -> Vec<String> {
         .map(|l| {
             let (loc, rest) = l.split_once(": ").unwrap();
             let rule = rest.rsplit_once('[').unwrap().1.trim_end_matches(']');
-            format!("{loc} {}", rule.split_once('/').map_or(rule, |x| x.1))
+            // Paths print natively (`\` on Windows), like oxlint; compare with `/`.
+            format!(
+                "{} {}",
+                loc.replace('\\', "/"),
+                rule.split_once('/').map_or(rule, |x| x.1)
+            )
         })
         .collect();
     v.sort();
@@ -351,6 +356,8 @@ export default {
 }
 
 // L5: GitHub annotation properties are escaped; an unknown format is an error.
+// (`:` is not allowed in Windows file names.)
+#[cfg(unix)]
 #[test]
 fn github_format_escapes_and_unknown_format() {
     let d = Dir::new("l5");
