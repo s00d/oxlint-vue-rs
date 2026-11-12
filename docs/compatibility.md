@@ -14,12 +14,12 @@ suggestion outputs.
 | | |
 |---|---:|
 | cases | 6878 |
-| pass | **6839** |
-| skipped | 39 |
+| pass | **6833** |
+| skipped | 45 |
 | failing | 0 |
 
-Skips: 29 type-aware cases (they need a TypeScript program — `languageOptions.project`) and 10 listed with reasons
-in `tests/upstream-skips.json`: 4 where oxc 0.158 cannot parse a type argument list on its own line after
+Skips: 29 type-aware cases (they need a TypeScript program — `languageOptions.project`) and 16 listed with reasons
+in `tests/upstream-skips.json`: 6 `no-useless-mustaches` fixes that change the rendered text (section 5), 4 where oxc 0.158 cannot parse a type argument list on its own line after
 `implements X` (`script-indent`), `v-bind()` in `<style>` for `no-parsing-error`, the `vueFeatures.filter: false`
 parser option, an upstream capture that parsed TS template expressions as JS, two cases that depend on the capture
 machine's paths, and one spurious ESLint parse error. Dropped from the data set: 3 `no-parsing-error` cases with lone
@@ -45,8 +45,8 @@ multiset.
 
 | | first 9 projects | 11 new projects |
 |---|---:|---:|
-| matching problems | **151 480** | **420 416** |
-| missing (ESLint reports, we don't) | 73 | 3 573 |
+| matching problems | **151 480** | **420 396** |
+| missing (ESLint reports, we don't) | 73 | 3 593 |
 | message differences | **0** | **0** |
 | extra (we report, ESLint doesn't) | **0** | 17 |
 | reports in files ESLint failed to parse | 98 | 676 |
@@ -163,6 +163,13 @@ ESLint is); oxlint-vue its 25 template rules plus oxlint's defaults. Single-thre
   - Fixes that undo each other are not offered: `define-macros-order` with a duplicated macro,
     `padding-lines-in-component-definition` on a `// @vue/component` object nested in an option.
   - `--fix` runs up to 50 passes (ESLint: 10) and stops on a cycle.
+
+  On the new corpora this removes 20 reports, all false positives: `padding-lines-in-component-definition` 11
+  (gitlab: comment lines between single-line properties), `html-self-closing` 5 (gitlab, hoppscotch: `<code>`
+  inside `<pre>`, `<textarea>` holding whitespace — its value), `padding-line-between-tags` 4 (gitlab: inside
+  `<pre>`). With `-D all --fix` on the first 9 projects, 4070 of 4121 files get the same output as ESLint's
+  `--fix` (run until stable); of the other 51, 47 differ in `padding-line-between-tags` gaps with text (ESLint
+  changes the rendered spaces) and 4 are files ESLint can no longer parse mid-fix.
 
 ## 6. Known gaps
 

@@ -9,8 +9,8 @@ oxlint **1.93.0** native `vue/*` rules vs oxlint-vue-rs.
 | **oxlint-vue-rs** (use `vue-rs/<rule>`) | 210 |
 | missing | 0 |
 
-Upstream RuleTester cases for oxlint-vue-rs rules: **6839/6878 pass**, 39 skipped
-(type-aware or unsupported parser options; reasons below), 0 failing. A case passes when every diagnostic
+Upstream RuleTester cases for oxlint-vue-rs rules: **6833/6878 pass**, 45 skipped
+(type-aware, unsupported parser options or deliberate fix differences; reasons below), 0 failing. A case passes when every diagnostic
 (line, column, end line, end column, message), the fix output and every suggestion equal the real eslint-plugin-vue run.
 
 "Corpus" = the rule at default options on 9 real projects (4121 `.vue` files) vs eslint-plugin-vue, matching
@@ -179,7 +179,7 @@ show 0 there.
 | [no-use-v-else-with-v-for](https://eslint.vuejs.org/rules/no-use-v-else-with-v-for.html) | uncategorized |  | **oxlint-vue-rs** | 6/6 | 7 match, 0 missing, 0 extra |  |
 | [no-use-v-if-with-v-for](https://eslint.vuejs.org/rules/no-use-v-if-with-v-for.html) | essential |  | **oxlint-vue-rs** | 23/23 | 0 match, 0 missing, 0 extra |  |
 | [no-useless-concat](https://eslint.vuejs.org/rules/no-useless-concat.html) | uncategorized |  | **oxlint-vue-rs** | 7/7 | 1 match, 0 missing, 0 extra |  |
-| [no-useless-mustaches](https://eslint.vuejs.org/rules/no-useless-mustaches.html) | uncategorized | fix | **oxlint-vue-rs** | 15/15 | 15 match, 0 missing, 0 extra |  |
+| [no-useless-mustaches](https://eslint.vuejs.org/rules/no-useless-mustaches.html) | uncategorized | fix | **oxlint-vue-rs** | 9/15 (6 skipped) | 15 match, 0 missing, 0 extra | skip invalid0, invalid3–7: no fix for a first / last mustache next to whitespace Vue drops (docs/compatibility.md §5) |
 | [no-useless-template-attributes](https://eslint.vuejs.org/rules/no-useless-template-attributes.html) | essential |  | **oxlint-vue-rs** | 9/9 | 0 match, 0 missing, 0 extra |  |
 | [no-useless-v-bind](https://eslint.vuejs.org/rules/no-useless-v-bind.html) | uncategorized | fix | **oxlint-vue-rs** | 8/8 | 34 match, 0 missing, 0 extra |  |
 | [no-v-for-template-key](https://eslint.vuejs.org/rules/no-v-for-template-key.html) | essential |  | **oxlint-vue-rs** | 14/14 | — | Vue 2 only; deprecated |

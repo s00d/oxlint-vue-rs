@@ -134,7 +134,10 @@ impl R {
                 Fix::replace(attrs[target].span, doc.slice(attrs[m].span))
             })
             .collect();
-        let fix = Fix::merge(doc.source, edits);
+        // Attributes written without whitespace between them (`a="1"b="2"`, a parse error) would merge
+        // into one once their texts are swapped.
+        let glued = (prev..node).any(|i| attrs[i].span.end >= attrs[i + 1].span.start);
+        let fix = (!glued).then(|| Fix::merge(doc.source, edits)).flatten();
         // isVBindObjectOverrideChanged(before, after)
         let mut before = previous.clone();
         before.push(node);

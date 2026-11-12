@@ -4,7 +4,7 @@
 //
 // usage:
 //   node scripts/fix-check.mjs upstream --ref <node-dir> --out <dir> [--variants] [--rules a,b]
-//   node scripts/fix-check.mjs corpus <dir>... --ref <node-dir> --out <dir> [--variants] [--rules a,b]
+//   node scripts/fix-check.mjs corpus <dir>... --ref <node-dir> --out <dir> [--variants] [--rules a,b] [--sample N]
 //
 // <node-dir> holds node_modules with eslint-plugin-vue (rule metadata and option schemas),
 // @vue/compiler-sfc and @babel/parser. Inputs are only read, never written.
@@ -161,7 +161,7 @@ if (mode === 'upstream') {
     }
   }
 } else if (mode === 'corpus') {
-  const dirs = argv.slice(1).filter((a, i, all) => !a.startsWith('--') && !['--ref', '--out', '--rules', '--jobs'].includes(all[i - 1]))
+  const dirs = argv.slice(1).filter((a, i, all) => !a.startsWith('--') && !['--ref', '--out', '--rules', '--jobs', '--sample'].includes(all[i - 1]))
   const walk = (d) => {
     for (const e of fs.readdirSync(d, { withFileTypes: true })) {
       const p = path.join(d, e.name)
@@ -174,6 +174,14 @@ if (mode === 'upstream') {
     }
   }
   for (const d of dirs) walk(path.resolve(d))
+  // --sample N: every k-th file (deterministic), for the heavy option-variant runs.
+  const n = Number(opt('--sample') ?? 0)
+  if (n && units.length > n) {
+    const k = units.length / n
+    const picked = Array.from({ length: n }, (_, i) => units[Math.floor(i * k)])
+    units.length = 0
+    units.push(...picked)
+  }
 } else {
   console.error('usage: fix-check.mjs upstream|corpus <dir>... --ref <node-dir> --out <dir>')
   process.exit(2)

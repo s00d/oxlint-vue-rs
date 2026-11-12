@@ -604,3 +604,15 @@ fn style_v_bind_spacing_converges() {
         "{out}"
     );
 }
+
+#[test]
+fn attributes_order_keeps_glued_attributes_apart() {
+    // `b="1"#x"` (no space, a parse error): swapping the texts would merge them into one attribute.
+    let code = "<template><MyComp v-slot=\"s\" b=\"1\"#x\" /></template>";
+    let out = fix("attributes-order", json!([]), code);
+    assert!(
+        out.as_deref()
+            .is_none_or(|o| !o.contains("\"#x\"b=") && !o.contains("\"b=")),
+        "{out:?}"
+    );
+}

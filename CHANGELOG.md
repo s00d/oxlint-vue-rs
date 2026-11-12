@@ -41,6 +41,8 @@ upstream test input and on the real-project corpora, compiled with Vue before an
 - Fix: fixes that undid each other forever: `define-macros-order` with a macro called twice,
   `padding-lines-in-component-definition` with a `// @vue/component` object inside an option, spacing rules in an
   unparsable `<style>` `v-bind()`.
+- Fix: `attributes-order` gives no fix for attributes written without whitespace between them (swapping merged
+  them into one).
 - `--fix` repeats until the file is stable, up to 50 passes (was 10, like ESLint), and stops on a cycle: on the
   real-project corpora ~3% of files needed 11–30 passes with every rule on (reordering rules move one item per
   pass), and were left half-fixed.
