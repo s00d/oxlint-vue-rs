@@ -38,16 +38,24 @@ Vue 3 + Vite). eslint-plugin-vue ran with vue-eslint-parser +
 typescript-eslint and `noInlineConfig`; we ran `--no-inline-config --hidden`. Problems are matched by
 file + line + column + rule + message.
 
-| | |
-|---|---:|
-| matching problems | **151 548** |
-| missing (ESLint reports, we don't) | **0** |
-| message differences | **0** |
-| extra (we report, ESLint doesn't) | **0** |
-| reports in files ESLint failed to parse | 99 |
+Second round, 11 public projects / **5213 `.vue` files**: cypress (app, frontend-shared), directus (app),
+gitea (web_src), gitlab-foss (Vue 2, `app/assets/javascripts`), halo (ui), hoppscotch, primevue, slidev,
+soybean-admin, vitepress, vue-pure-admin. Same setup; problems starting at one position are compared as a
+multiset.
 
-The 99 are in 10 files where ESLint stopped with a parse error (`lang="tsx"` blocks and JSX in a plain
-`<script>`; the reference config had no JSX enabled for them); we parse and lint those files.
+| | first 9 projects | 11 new projects |
+|---|---:|---:|
+| matching problems | **151 480** | **420 416** |
+| missing (ESLint reports, we don't) | 73 | 3 573 |
+| message differences | **0** | **0** |
+| extra (we report, ESLint doesn't) | **0** | 17 |
+| reports in files ESLint failed to parse | 98 | 676 |
+
+Every missing and extra problem is one of the deliberate differences in section 5 (each lists its counts):
+eslint-plugin-vue / vue-eslint-parser false positives we do not reproduce, plus `no-ref-as-operand` checks
+from upstream's main branch. The unparsed files are `lang="tsx"` blocks and JSX in a plain `<script>` (the
+reference config had no JSX for them); we parse and lint those files. With each project's own rule selection and
+options (gitea, directus, gitlab, primevue, vue-pure-admin) the results match the same way.
 
 Found and fixed during these runs: global `ref()`/`computed()` were tracked even when not declared (ESLint only
 follows declared `globals`) — 139 false positives of `no-ref-object-reactivity-loss` on Nuxt auto-imports;
