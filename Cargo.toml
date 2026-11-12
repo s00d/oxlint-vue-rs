@@ -12,6 +12,10 @@ keywords = ["vue", "oxlint", "linter", "eslint", "oxc"]
 categories = ["development-tools", "command-line-utilities"]
 include = ["/src/**/*", "/Cargo.toml", "/Cargo.lock", "/README.md", "/LICENSE"]
 
+[workspace]
+# `napi/`: the Node addon for the oxlint JS plugin (not published to crates.io).
+members = [".", "napi"]
+
 [dependencies]
 ignore = "0.4"
 globset = "0.4"

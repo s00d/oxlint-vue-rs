@@ -22,7 +22,8 @@ cargo publish
 ## 3. Binaries + GitHub release (Actions)
 
 Actions → **release** → Run workflow, `github_release: true`, `npm_publish: false`. It tests, builds the 8 platform
-binaries, assembles and publint-checks the npm packages, and creates the GitHub release `X.Y.Z` with the binaries
+binaries and Node addons (`napi/`, shipped as `oxlint-vue-rs.node` in each platform package and attached to the
+release as `oxlint-vue-rs-<target>.node`), assembles and publint-checks the npm packages, and creates the GitHub release `X.Y.Z` with the binaries
 and the npm tarballs (`oxlint-vue-rs-X.Y.Z.tgz` + one per platform package `@oxlint-vue-rs/<platform>`, packed as
 `oxlint-vue-rs-<platform>-X.Y.Z.tgz`).
 

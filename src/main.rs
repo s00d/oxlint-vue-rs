@@ -556,6 +556,9 @@ fn run_oxlint(
     cwd: &Path,
 ) -> Result<OxlintRun, String> {
     let mut cmd = Command::new(bin);
+    // Our JS plugin stays a no-op in this oxlint run (it would lint `.vue` files again under an oxlint
+    // with oxc PR #28720): this binary reports the vue-rs rules itself.
+    cmd.env("OXLINT_VUE_RS_CLI", "1");
     cmd.arg("--format").arg("json");
     if let Some(c) = &args.config {
         cmd.arg("--config").arg(c);

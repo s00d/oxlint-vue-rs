@@ -2,31 +2,16 @@
 // Launcher: runs the prebuilt native binary from the platform package npm installed for this machine
 // (optionalDependencies `@oxlint-vue-rs/<os>-<cpu>[-<libc>]`). OXLINT_VUE_RS_BINARY overrides the path.
 import { spawnSync } from 'node:child_process'
-import { createRequire } from 'node:module'
 import { existsSync } from 'node:fs'
-
-const require = createRequire(import.meta.url)
-const { platform, arch } = process
-
-function isMusl() {
-  if (platform !== 'linux') return false
-  try {
-    return !process.report.getReport().header.glibcVersionRuntime
-  } catch {
-    return false
-  }
-}
+import { exe, pkg, resolve, target } from '../platform.js'
 
 function binaryPath() {
   if (process.env.OXLINT_VUE_RS_BINARY) return process.env.OXLINT_VUE_RS_BINARY
-  const libc = platform === 'linux' ? (isMusl() ? '-musl' : '-gnu') : ''
-  const pkg = `@oxlint-vue-rs/${platform}-${arch}${libc}`
-  const exe = platform === 'win32' ? 'oxlint-vue-rs.exe' : 'oxlint-vue-rs'
   try {
-    return require.resolve(`${pkg}/${exe}`)
+    return resolve(exe)
   } catch {
     console.error(
-      `oxlint-vue-rs: no prebuilt binary for ${platform}-${arch}${libc} (package "${pkg}" is not installed).\n` +
+      `oxlint-vue-rs: no prebuilt binary for ${target} (package "${pkg}" is not installed).\n` +
         'Reinstall without --no-optional / --omit=optional, or build it: cargo install oxlint-vue-rs,\n' +
         'then set OXLINT_VUE_RS_BINARY to the binary path.',
     )

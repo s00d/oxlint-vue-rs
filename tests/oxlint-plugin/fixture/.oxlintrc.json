@@ -1,0 +1,19 @@
+{
+  "categories": { "correctness": "off" },
+  "jsPlugins": [{ "name": "vue-rs", "specifier": "oxlint-vue-rs" }],
+  "rules": {
+    "vue-rs/html-indent": ["warn", 2],
+    "vue-rs/require-v-for-key": "error",
+    "vue-rs/attributes-order": ["warn", { "alphabetical": true }],
+    "vue-rs/html-self-closing": "warn",
+    "vue-rs/mustache-interpolation-spacing": "warn",
+    "vue-rs/eqeqeq": "error",
+    "vue-rs/order-in-components": "warn",
+    "vue-rs/define-macros-order": "warn",
+    "vue-rs/require-explicit-emits": "error",
+    "vue-rs/padding-line-between-blocks": "warn",
+    "vue-rs/script-indent": ["warn", 2],
+    "vue-rs/max-len": ["warn", { "code": 60, "template": 60 }]
+  },
+  "overrides": [{ "files": ["legacy/**"], "rules": { "vue-rs/html-indent": "off", "vue-rs/eqeqeq": "off" } }]
+}

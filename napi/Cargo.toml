@@ -1,0 +1,23 @@
+[package]
+name = "oxlint-vue-rs-napi"
+version = "0.1.1"
+edition = "2024"
+rust-version = "1.97"
+license = "MIT"
+description = "Node addon: the oxlint-vue-rs core for its oxlint JS plugin"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+doctest = false
+
+[dependencies]
+oxlint-vue-rs = { path = ".." }
+# napi-rs: the Node-API binding (one sync function, strings in / JSON string out). Default features:
+# `dyn-symbols` resolves Node-API at load time (needed on Windows).
+napi = "3"
+napi-derive = "3"
+serde_json = "1"
+
+[build-dependencies]
+napi-build = "2"
