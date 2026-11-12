@@ -1,3 +1,13 @@
+**0.1.2**
+
+- Fix: with `<script lang="ts">`, a union type in a template cast (`attrs.style as string | undefined`) is no
+  longer parsed as a Vue 2 filter (false `no-deprecated-filter`). Real filters are still reported. This is a
+  deliberate difference from vue-eslint-parser / eslint-plugin-vue.
+- `npm run publish:npm` / release workflow: the 30 s pause applies only before a package name's first publish.
+- README restructured (badges, quick start, documentation index).
+
+---
+
 **0.1.1** — npm packaging: the prebuilt binaries now ship as scoped packages `@oxlint-vue-rs/<platform>`
 (installed automatically by `npm i -D oxlint oxlint-vue-rs`). No rule changes since 0.1.0.
 

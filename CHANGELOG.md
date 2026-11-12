@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.2 — 2026-11-12
 
 - Fix: in TS templates, a union type in a cast (`x as string | undefined`) is no longer parsed as a Vue 2 filter
   (false `no-deprecated-filter`). Deliberate difference from vue-eslint-parser — see docs/compatibility.md.
