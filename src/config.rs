@@ -607,6 +607,23 @@ mod tests {
     }
 
     #[test]
+    fn jsonc_edges_at_end_of_input() {
+        // Exact outputs pin the index arithmetic at the end of the text.
+        assert_eq!(strip_jsonc("1 /* open"), "1 ");
+        assert_eq!(strip_jsonc("1 /"), "1 /");
+        assert_eq!(strip_jsonc("1 //"), "1 ");
+        assert_eq!(strip_jsonc("[1,"), "[1,"); // no closing bracket: not a trailing comma
+        assert_eq!(strip_jsonc("[1,]"), "[1]");
+        assert_eq!(strip_jsonc("[1, /*c*/ ]"), "[1  ]");
+        assert_eq!(strip_jsonc("[1, // c\n]"), "[1 \n]");
+        assert_eq!(strip_jsonc("[1,/**/,2]"), "[1,,2]");
+        assert_eq!(strip_jsonc("\"a\\"), "\"a\\");
+        assert_eq!(strip_jsonc("\"é\"/*x*/"), "\"é\"");
+        assert_eq!(strip_jsonc("{\"ä\":1}"), "{\"ä\":1}");
+        assert_eq!(strip_jsonc("/*a*//*b*/1"), "1");
+    }
+
+    #[test]
     fn jsonc_block_and_line_comments() {
         let v: Value = serde_json::from_str(&strip_jsonc(
             "{/*x*/\"a\":/* y */1, // z\n\"b\": \"/* keep */\", \"c\": [1,/*q*/]}",
