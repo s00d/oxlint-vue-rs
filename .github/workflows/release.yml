@@ -1,17 +1,23 @@
-# Build prebuilt binaries for every platform and (optionally) publish the npm packages.
+# Build prebuilt binaries for every platform, attach them and the npm tarballs to a GitHub release, and
+# (optionally) publish the npm packages.
 #
-# Run manually: Actions → release → Run workflow. `publish: false` (default) only builds and uploads the
-# packages as workflow artifacts (a dry run). `publish: true` publishes to npm (NPM_TOKEN secret, or npm
-# trusted publishing / OIDC when the secret is unset) and creates a GitHub release with the binaries for tag
-# v<version> (version from Cargo.toml). Re-running is safe: versions already on npm and an existing release
-# are skipped / updated instead of failing.
+# Run manually: Actions → release → Run workflow.
+#   github_release (default true):  GitHub release `<version>` (from Cargo.toml, no `v` prefix) with the binaries and
+#                                   the npm tarballs; an existing release gets its assets replaced.
+#   npm_publish    (default false): also publish the npm packages (NPM_TOKEN secret, or npm trusted publishing /
+#                                   OIDC when the secret is unset). Versions already on npm are skipped.
+# With both off it is a dry run: everything is built and kept as workflow artifacts.
 name: release
 
 on:
   workflow_dispatch:
     inputs:
-      publish:
-        description: Publish to npm and create the GitHub release
+      github_release:
+        description: Create/update the GitHub release with binaries and npm tarballs
+        type: boolean
+        default: true
+      npm_publish:
+        description: Also publish the npm packages
         type: boolean
         default: false
 
@@ -120,7 +126,7 @@ jobs:
           name: npm-tarballs
           path: tarballs/*.tgz
       - name: Publish to npm
-        if: inputs.publish
+        if: inputs.npm_publish
         env:
           # Empty secret → npm >= 11.5 uses trusted publishing (OIDC); the first publish of a name needs a token.
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
@@ -143,7 +149,7 @@ jobs:
 
   github-release:
     needs: npm
-    if: inputs.publish
+    if: inputs.github_release
     runs-on: ubuntu-22.04
     permissions:
       contents: write
@@ -163,8 +169,8 @@ jobs:
             target=${dir#artifacts/bin-}
             for f in "$dir"/*; do cp "$f" "rel/$(basename "${f%.exe}")-$target$( [[ $f == *.exe ]] && echo .exe)"; done
           done
-          if gh release view "v$version" >/dev/null 2>&1; then
-            gh release upload "v$version" rel/* artifacts/npm-tarballs/*.tgz --clobber
+          if gh release view "$version" >/dev/null 2>&1; then
+            gh release upload "$version" rel/* artifacts/npm-tarballs/*.tgz --clobber
           else
-            gh release create "v$version" rel/* artifacts/npm-tarballs/*.tgz --title "v$version" --generate-notes --latest
+            gh release create "$version" rel/* artifacts/npm-tarballs/*.tgz --title "$version" --notes-file RELEASE_NOTES.md --latest --target "$GITHUB_SHA"
           fi

@@ -27,7 +27,7 @@ function binaryPath() {
   } catch {
     console.error(
       `oxlint-vue-rs: no prebuilt binary for ${platform}-${arch}${libc} (package "${pkg}" is not installed).\n` +
-        'Reinstall without --no-optional / --omit=optional, or build it: cargo install --git https://github.com/s00d/oxlint-vue-rs,\n' +
+        'Reinstall without --no-optional / --omit=optional, or build it: cargo install oxlint-vue-rs,\n' +
         'then set OXLINT_VUE_RS_BINARY to the binary path.',
     )
     process.exit(2)

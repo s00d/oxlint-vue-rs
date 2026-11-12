@@ -36,7 +36,7 @@ platform package (`oxlint-vue-rs-<os>-<cpu>[-gnu|-musl]`, installed automaticall
 `optionalDependencies`: macOS arm64/x64, Linux x64/arm64 glibc and musl, Windows x64/arm64). Nothing is compiled on
 install. `OXLINT_VUE_RS_BINARY=/path/to/binary` overrides the binary.
 
-From source: `cargo install --path .` (Rust 1.97+).
+From crates.io: `cargo install oxlint-vue-rs` (Rust 1.97+).
 
 Yarn PnP: the binary works, but oxlint cannot load the JS plugin (`Cannot find module 'oxlint-vue-rs'`) and the
 `./node_modules/...` preset paths do not exist. Use `nodeLinker: node-modules` in `.yarnrc.yml`, or the setup
@@ -44,13 +44,8 @@ without the JS plugin (below).
 
 ### Releasing
 
-The `release` GitHub workflow (manual) builds all platform binaries, assembles the packages with
-`scripts/npm/pack.mjs` and, when run with `publish: true`, publishes them to npm and creates the GitHub release.
-A re-run skips versions already on npm and updates an existing release, so a failed run can simply be repeated.
-npm auth: with the `NPM_TOKEN` secret set (a granular automation token with publish rights) it is used; with
-the secret unset, npm uses [trusted publishing](https://docs.npmjs.com/trusted-publishers) (OIDC, npm ≥ 11.5,
-installed by the workflow), which needs each package linked to this repo and workflow on npmjs.com. Trusted
-publishing cannot create a package, so the first release (0.1.0) needs the token. Not published yet.
+See [docs/releasing.md](docs/releasing.md): crates.io, the manual `release` GitHub workflow (all platform binaries,
+GitHub release with binaries and npm tarballs, optional npm publish) and publishing the npm packages by hand.
 
 ## Configure
 
