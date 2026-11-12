@@ -431,6 +431,133 @@ pub fn find_config(start: &Path) -> Option<PathBuf> {
 mod tests {
     use super::*;
 
+    fn tmp(name: &str, files: &[(&str, &str)]) -> std::path::PathBuf {
+        let dir = std::env::temp_dir().join(format!("ovr-cfg-{name}-{}", std::process::id()));
+        let _ = std::fs::remove_dir_all(&dir);
+        for (f, c) in files {
+            let p = dir.join(f);
+            std::fs::create_dir_all(p.parent().unwrap()).unwrap();
+            std::fs::write(p, c).unwrap();
+        }
+        dir
+    }
+
+    #[test]
+    fn severities() {
+        use serde_json::json;
+        assert_eq!(parse_severity(&json!("off")).unwrap(), None);
+        assert_eq!(parse_severity(&json!("allow")).unwrap(), None);
+        assert_eq!(
+            parse_severity(&json!("warn")).unwrap(),
+            Some(Severity::Warn)
+        );
+        assert_eq!(
+            parse_severity(&json!("deny")).unwrap(),
+            Some(Severity::Error)
+        );
+        assert_eq!(parse_severity(&json!(0)).unwrap(), None);
+        assert_eq!(parse_severity(&json!(1)).unwrap(), Some(Severity::Warn));
+        assert_eq!(parse_severity(&json!(2)).unwrap(), Some(Severity::Error));
+        assert!(parse_severity(&json!(3)).is_err());
+        assert!(parse_severity(&json!("loud")).is_err());
+        let s = parse_rule_setting(&json!(["warn", 2, {"a": 1}])).unwrap();
+        assert_eq!((s.severity, s.options.len()), (Some(Severity::Warn), 2));
+        let s = parse_rule_setting(&json!("error")).unwrap();
+        assert_eq!((s.severity, s.options.len()), (Some(Severity::Error), 0));
+        assert!(parse_rule_setting(&json!([])).is_err());
+    }
+
+    #[test]
+    fn plugin_alias_detection() {
+        let d = tmp(
+            "alias",
+            &[(
+                ".oxlintrc.json",
+                r#"{ "jsPlugins": [{ "name": "vx", "specifier": "oxlint-vue-rs" }, { "name": "other", "specifier": "eslint-plugin-foo" }, "some-plugin"],
+            "rules": { "vx/html-indent": "warn", "other/html-quotes": "error", "vue-rs/v-on-style": 1, "vue/no-dupe-keys": 2 } }"#,
+            )],
+        );
+        let c = Config::load(&d.join(".oxlintrc.json")).unwrap();
+        assert_eq!(c.prefixes, vec!["vx".to_string()]);
+        let names: Vec<_> = c.rules.iter().map(|(n, _)| n.as_str()).collect();
+        assert!(
+            names.contains(&"html-indent") && names.contains(&"v-on-style"),
+            "{names:?}"
+        );
+        assert!(
+            !names.contains(&"html-quotes") && !names.contains(&"no-dupe-keys"),
+            "{names:?}"
+        );
+        let d = tmp(
+            "alias2",
+            &[(
+                ".oxlintrc.json",
+                r#"{ "jsPlugins": ["oxlint-vue-rs"], "rules": {} }"#,
+            )],
+        );
+        assert_eq!(
+            Config::load(&d.join(".oxlintrc.json")).unwrap().prefixes,
+            vec![DEFAULT_PREFIX.to_string()]
+        );
+        let d = tmp(
+            "alias3",
+            &[(
+                ".oxlintrc.json",
+                r#"{ "jsPlugins": [{ "name": "x", "specifier": "./node_modules/oxlint-vue-rs/index.js" }] }"#,
+            )],
+        );
+        assert_eq!(
+            Config::load(&d.join(".oxlintrc.json")).unwrap().prefixes,
+            vec!["x".to_string()]
+        );
+        assert!(!is_ours("eslint-plugin-vue"));
+    }
+
+    #[test]
+    fn extends_chain_settings_and_depth() {
+        let d = tmp(
+            "ext",
+            &[
+                (
+                    "base.json",
+                    r#"{ "rules": { "vue-rs/html-indent": ["warn", 4] }, "settings": { "a": 1 } }"#,
+                ),
+                (
+                    ".oxlintrc.json",
+                    r#"{ "extends": ["./base.json"], "rules": { "vue-rs/html-indent": "error" }, "settings": { "b": 2 } }"#,
+                ),
+            ],
+        );
+        let c = Config::load(&d.join(".oxlintrc.json")).unwrap();
+        let (_, s) = c.rules.iter().find(|(n, _)| n == "html-indent").unwrap();
+        assert_eq!(s.severity, Some(Severity::Error));
+        assert_eq!(
+            (c.settings["a"].clone(), c.settings["b"].clone()),
+            (serde_json::json!(1), serde_json::json!(2))
+        );
+        let d = tmp(
+            "loop",
+            &[(".oxlintrc.json", r#"{ "extends": ["./.oxlintrc.json"] }"#)],
+        );
+        assert!(
+            Config::load(&d.join(".oxlintrc.json"))
+                .unwrap_err()
+                .contains("too deep")
+        );
+    }
+
+    #[test]
+    fn jsonc_block_and_line_comments() {
+        let v: Value = serde_json::from_str(&strip_jsonc(
+            "{/*x*/\"a\":/* y */1, // z\n\"b\": \"/* keep */\", \"c\": [1,/*q*/]}",
+        ))
+        .unwrap();
+        assert_eq!(v["a"], 1);
+        assert_eq!(v["b"], "/* keep */");
+        assert_eq!(v["c"].as_array().unwrap().len(), 1);
+        assert_eq!(strip_jsonc("{\"é\": \"ü\\\"\"}"), "{\"é\": \"ü\\\"\"}");
+    }
+
     // Cases checked against oxlint 1.93 overrides.
     #[test]
     fn globs() {
