@@ -10,5 +10,9 @@ First release.
 - `oxlint-vue-rs` CLI reading `.oxlintrc.json` like oxlint (`rules`, `overrides`, gitignore-style `ignorePatterns`,
   `settings`, `globals`, `extends`; nearest config per file), formats default/json/unix/github, atomic `--fix`,
   `--with-oxlint`, disable comments; a script syntax error is reported as a fatal `Parsing error` like ESLint.
-- oxlint JS plugin shim (`vue-rs/*` rule names) and presets for Vue 3 / Vue 2.
+- oxlint JS plugin shim (`vue-rs/*` rule names) and presets for Vue 3 / Vue 2 that reproduce eslint-plugin-vue's
+  configs completely (`plugins: ["vue"]` + native `vue/*` rules + `vue-rs/*`), plus `configs/settings/*` variants
+  with our rules in `settings["vue-rs"].rules` (no JS plugin, faster plain `oxlint`).
+- Warnings for `oxlint.config.*` without a JSON config (exit 2 when nothing is enabled) and for `vue/<rule>` keys
+  naming our rules; `-A/-W/-D` for oxlint rules, `--ignore-pattern` and `--no-ignore` are passed to oxlint.
 - npm distribution with prebuilt binaries for macOS, Linux (glibc, musl) and Windows (x64, arm64).

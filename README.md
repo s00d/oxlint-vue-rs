@@ -38,9 +38,19 @@ install. `OXLINT_VUE_RS_BINARY=/path/to/binary` overrides the binary.
 
 From source: `cargo install --path .` (Rust 1.97+).
 
-Releasing: the `release` GitHub workflow (manual) builds all platform binaries, assembles the packages with
-`scripts/npm/pack.mjs` and, when run with `publish: true`, publishes them to npm (secret `NPM_TOKEN`) and creates
-the GitHub release. Not published yet.
+Yarn PnP: the binary works, but oxlint cannot load the JS plugin (`Cannot find module 'oxlint-vue-rs'`) and the
+`./node_modules/...` preset paths do not exist. Use `nodeLinker: node-modules` in `.yarnrc.yml`, or the setup
+without the JS plugin (below).
+
+### Releasing
+
+The `release` GitHub workflow (manual) builds all platform binaries, assembles the packages with
+`scripts/npm/pack.mjs` and, when run with `publish: true`, publishes them to npm and creates the GitHub release.
+A re-run skips versions already on npm and updates an existing release, so a failed run can simply be repeated.
+npm auth: with the `NPM_TOKEN` secret set (a granular automation token with publish rights) it is used; with
+the secret unset, npm uses [trusted publishing](https://docs.npmjs.com/trusted-publishers) (OIDC, npm ≥ 11.5,
+installed by the workflow), which needs each package linked to this repo and workflow on npmjs.com. Trusted
+publishing cannot create a package, so the first release (0.1.0) needs the token. Not published yet.
 
 ## Configure
 
@@ -60,15 +70,41 @@ the GitHub release. Not published yet.
 ```
 
 `vue` is reserved by oxlint, so our rules use the alias you give the plugin (`vue-rs` by default). Options are
-exactly eslint-plugin-vue's. Presets (eslint-plugin-vue's Vue 3 / Vue 2 configs, minus the rules oxlint already has)
-are in `npm/configs/`: `essential`, `strongly-recommended`, `recommended`, and `vue2-*`:
+exactly eslint-plugin-vue's. A `vue/<rule>` key for one of our rules (the usual leftover of an ESLint config) is
+ignored with a warning naming the key to use; oxlint itself rejects it.
+
+Presets reproduce eslint-plugin-vue's configs completely: `plugins: ["vue"]`, oxlint's native `vue/*` rules at
+upstream severity (the other native `vue/*` rules off, as upstream), and our `vue-rs/*` rules. They are in
+`npm/configs/`: `essential`, `strongly-recommended`, `recommended`, and `vue2-*` (generated from
+eslint-plugin-vue by `scripts/gen-presets.mjs`):
 
 ```jsonc
 { "extends": ["./node_modules/oxlint-vue-rs/configs/recommended.json"] }
 ```
 
-Supported config keys: `rules`, `overrides` (`files` globs), `ignorePatterns`, `settings`, `globals`, `extends`
-(file paths), `jsPlugins` (to find the alias). Inline `// eslint-disable…` / `// oxlint-disable…` comments work
+### Setup without the JS plugin (faster plain `oxlint`)
+
+The JS plugin does nothing at lint time, but with it plain `oxlint` starts its JS plugin pipeline: on
+element-plus (2120 files) `oxlint` takes ~0.2 s with the recommended preset vs ~0.09 s without the plugin
+(~2×; median of 12 runs, oxlint 1.93). If you run plain `oxlint` (editor, pre-commit) and care about that, put
+our rules in `settings["vue-rs"].rules` instead and drop `jsPlugins`. oxlint ignores `settings`; oxlint-vue-rs
+reads rules from there as from `rules`:
+
+```jsonc
+{
+  "plugins": ["vue"],
+  "settings": { "vue-rs": { "rules": { "vue-rs/html-indent": ["warn", 2], "valid-v-for": "error" } } }
+}
+```
+
+Presets for it: `configs/settings/<name>.json`. Trade-off: oxlint (and its editor extension) no longer checks
+those rule names, so a typo is only reported by oxlint-vue-rs (as `unknown rule`).
+
+Supported config keys: `rules`, `overrides` (`files` globs), `ignorePatterns`, `settings` (incl.
+`settings["vue-rs"].rules`), `globals`, `extends` (file paths), `jsPlugins` (to find the alias). Only JSON configs
+are read (`.oxlintrc.json`, `.oxlintrc.jsonc`, `oxlintrc.json`); oxlint's JS/TS configs (`oxlint.config.ts` …)
+are not. When one is found and no JSON config is, oxlint-vue-rs warns and exits 2 (nothing would be checked),
+unless `-W`/`-D` enable rules on the command line; use a `.oxlintrc.json` or `-c <file.json>`. Inline `// eslint-disable…` / `// oxlint-disable…` comments work
 in scripts, and `<!-- eslint-disable… -->` in templates.
 
 ## Run
@@ -85,17 +121,18 @@ oxlint-vue-rs --rules             # list rules
 | Option | |
 |---|---|
 | `-c, --config <file>` | config file (default: nearest `.oxlintrc.json`) |
-| `-A/-W/-D <rule>` | allow / warn / deny a rule (`vue-rs/x`, `vue/x` or `x`; `all`) |
+| `-A/-W/-D <rule>` | allow / warn / deny a rule (`vue-rs/x`, `vue/x` or `x`; `all`); other names go to oxlint |
 | `--fix`, `--fix-suggestions` | apply fixes; also the first suggestion of each problem |
 | `-f, --format` | `default`, `json`, `unix`, `github` |
 | `--quiet`, `--deny-warnings`, `--max-warnings <n>` | as in oxlint |
-| `--ignore-pattern <glob>`, `--no-ignore`, `--hidden` | file selection (`.gitignore` is honoured) |
+| `--ignore-pattern <glob>`, `--no-ignore`, `--hidden` | file selection (`.gitignore` is honoured); the first two also go to oxlint |
 | `--no-inline-config` | ignore disable comments |
 | `--threads <n>` | worker threads (default: all cores) |
 | `--no-oxlint` / `--with-oxlint` | skip oxlint / require it (default: run it when found); `-- <args>` go to oxlint |
 | `--print-config` | resolved rules |
 
-Exit code: 0 clean, 1 problems (or warnings with `--deny-warnings` / over `--max-warnings`), 2 usage/config error.
+Exit code: 0 clean, 1 problems (or warnings with `--deny-warnings` / over `--max-warnings`, or a file `--fix`
+could not write, e.g. read-only), 2 usage/config error (including an `oxlint.config.*` with no JSON config).
 
 ## Rules
 
