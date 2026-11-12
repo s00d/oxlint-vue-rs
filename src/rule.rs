@@ -45,6 +45,10 @@ pub struct LintFile<'a> {
     pub globals: &'a Value,
     /// Precomputed line starts for location conversion.
     pub lines: &'a crate::LineIndex,
+    /// ESLint `sourceCode.lines` / `getLocFromIndex` line table (all line terminators). For an SFC
+    /// it differs from `lines` (vue-eslint-parser, `\n` only) when the file has CR or U+2028/9;
+    /// otherwise it is the same table.
+    pub eslint_lines: &'a crate::LineIndex,
 }
 
 impl<'a> LintFile<'a> {
@@ -211,6 +215,21 @@ impl<'f, 'a> Ctx<'f, 'a> {
             severity: self.severity,
             loc: None,
         });
+    }
+    /// Location of `span` whose start / end come from ESLint `getLocFromIndex` (`true`) or from
+    /// parser node locations (`false`).
+    pub fn mixed_loc(&self, span: Span, start_eslint: bool, end_eslint: bool) -> [u32; 4] {
+        let f = self.file;
+        let pick = |e: bool| if e { f.eslint_lines } else { f.lines };
+        let (l, c) = pick(start_eslint).line_col(f.source, span.start);
+        let (el, ec) = pick(end_eslint).line_col(f.source, span.end);
+        [l, c, el, ec]
+    }
+    /// Override the location of the last report.
+    pub fn set_last_loc(&mut self, loc: [u32; 4]) {
+        if let Some(d) = self.out.last_mut() {
+            d.loc = Some(loc);
+        }
     }
     /// Report with an explicit ESLint location (see [`Diagnostic::loc`]); `span` is still used
     /// for inline-directive matching.

@@ -10,7 +10,6 @@ use std::collections::HashMap;
 use oxc::ast::AstKind;
 use oxc::ast::ast::*;
 use oxc::semantic::{NodeId, Semantic, SymbolId};
-use oxc::span::GetSpan;
 
 use super::js;
 use super::reference_tracker::{TraceMap, esm_calls};
@@ -112,28 +111,19 @@ pub fn extract_ref_object_references<'a>(file: &LintFile<'a>) -> RefObjectRefere
         let method = hit.path.last().cloned().unwrap_or_default();
         ex.define_ref(hit.call, &method);
     }
-    // `tracker.iterateGlobalReferences(map)`: calls of the unresolved globals.
-    // ponytail: `window.ref()` / `globalThis.ref()` member forms are not followed.
-    let mut globals: Vec<(&CallExpression, String)> = Vec::new();
-    for (name, ids) in sem.scoping().root_unresolved_references() {
-        if !matches!(
-            name.as_str(),
-            "ref" | "computed" | "toRef" | "customRef" | "shallowRef" | "useTemplateRef" | "toRefs"
-        ) || !is_declared_global(file, name.as_str())
-        {
-            continue;
-        }
-        for rid in ids {
-            let id = sem.scoping().get_reference(*rid).node_id();
-            if let (_, AstKind::CallExpression(c)) = js::parent(sem, id)
-                && js::skip_parens(&c.callee).span() == sem.nodes().kind(id).span()
-            {
-                globals.push((c, name.to_string()));
-            }
-        }
-    }
-    globals.sort_by_key(|(c, _)| c.span.start);
-    for (c, name) in globals {
+    // `tracker.iterateGlobalReferences(map)`: calls of the declared globals.
+    for (name, c) in crate::utils::tpl_analysis::global_calls(
+        file,
+        &[
+            "ref",
+            "computed",
+            "toRef",
+            "customRef",
+            "shallowRef",
+            "useTemplateRef",
+            "toRefs",
+        ],
+    ) {
         ex.define_ref(c, &name);
     }
     // `defineModel()` calls (an unresolved / auto-defined global).
@@ -369,7 +359,7 @@ enum Nest<'a> {
 
 /// `ReferenceTracker.iterateGlobalReferences` only sees globals declared in the config
 /// (`globalScope.set`), not every unresolved name (e.g. Nuxt auto-imports stay invisible).
-fn is_declared_global(file: &LintFile, name: &str) -> bool {
+pub(crate) fn is_declared_global(file: &LintFile, name: &str) -> bool {
     file.globals
         .get(name)
         .is_some_and(|v| !matches!(v.as_str(), Some("off")) && !v.is_null())

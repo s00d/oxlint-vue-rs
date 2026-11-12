@@ -104,6 +104,8 @@ fn verify(ctx: &mut Ctx, e: &Element, o: Contents) {
                 ),
                 Some(Fix::replace(before_range, "\n".repeat(max + 1))),
             );
+            let loc = ctx.mixed_loc(before_range, false, true);
+            ctx.set_last_loc(loc);
         }
         if ac == 0 {
             ctx.report_fix(
@@ -123,6 +125,8 @@ fn verify(ctx: &mut Ctx, e: &Element, o: Contents) {
                 ),
                 Some(Fix::replace(after_range, "\n".repeat(max + 1))),
             );
+            let loc = ctx.mixed_loc(after_range, true, false);
+            ctx.set_last_loc(loc);
         }
     } else {
         if bc > 0 {
@@ -132,6 +136,8 @@ fn verify(ctx: &mut Ctx, e: &Element, o: Contents) {
                 format!("There should be no line break after '<{tag}>'."),
                 Some(Fix::remove(before_range)),
             );
+            let loc = ctx.mixed_loc(before_range, false, true);
+            ctx.set_last_loc(loc);
         }
         if ac > 0 {
             ctx.report_fix(
@@ -140,6 +146,8 @@ fn verify(ctx: &mut Ctx, e: &Element, o: Contents) {
                 format!("There should be no line break after '<{tag}>'."),
                 Some(Fix::remove(after_range)),
             );
+            let loc = ctx.mixed_loc(after_range, true, false);
+            ctx.set_last_loc(loc);
         }
     }
 }

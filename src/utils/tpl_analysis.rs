@@ -608,7 +608,8 @@ pub const ES_GLOBALS: &[&str] = &[
     "Temporal",
 ];
 
-/// `tracker.iterateGlobalReferences({ name: { [CALL]: true } })`: calls of unresolved globals.
+/// `tracker.iterateGlobalReferences({ name: { [CALL]: true } })`: calls of unresolved globals
+/// declared in the config (`LintFile.globals`); an undeclared name is invisible to ESLint.
 // ponytail: `window.x()` / `globalThis.x()` member forms are not followed.
 pub fn global_calls<'a>(
     file: &LintFile<'a>,
@@ -619,13 +620,14 @@ pub fn global_calls<'a>(
     };
     let mut out = Vec::new();
     for (name, ids) in sem.scoping().root_unresolved_references() {
-        if !names.contains(&name.as_str()) {
+        if !names.contains(&name.as_str())
+            || !crate::utils::ref_object_references::is_declared_global(file, name.as_str())
+        {
             continue;
         }
         for rid in ids {
             let id = sem.scoping().get_reference(*rid).node_id();
-            if let Some(p) = sem.parent_of(id)
-                && let AstKind::CallExpression(c) = sem.nodes().kind(p)
+            if let (_, AstKind::CallExpression(c)) = js::parent(sem, id)
                 && js::skip_parens(&c.callee).span() == sem.nodes().kind(id).span()
             {
                 out.push((name.to_string(), c));

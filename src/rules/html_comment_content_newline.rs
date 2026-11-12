@@ -30,7 +30,7 @@ struct R {
 impl Rule for R {
     fn run(&self, ctx: &mut Ctx) {
         let Some(doc) = ctx.doc() else { return };
-        let lines = ctx.file.lines;
+        let lines = ctx.file.eslint_lines;
         let line = |o: u32| lines.line_of(o);
         for c in html_comments(doc, &self.exceptions, false) {
             let Some(value) = c.value else { continue };

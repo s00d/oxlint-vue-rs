@@ -185,6 +185,7 @@ tys!(
     VForExpression,
     VOnExpression,
     VSlotScopeExpression,
+    VDocumentFragment,
     // Nodes the indent visitor has no handler for (JSX, …): their tokens are ignored.
     Unknown,
 );
@@ -360,15 +361,19 @@ impl F {
 }
 
 pub mod flag {
-    pub const COMPUTED: u8 = 1;
-    pub const ASYNC: u8 = 2;
-    pub const DELEGATE: u8 = 4;
-    pub const AWAIT: u8 = 8;
-    pub const OPTIONAL: u8 = 16;
+    pub const COMPUTED: u16 = 1;
+    pub const ASYNC: u16 = 2;
+    pub const DELEGATE: u16 = 4;
+    pub const AWAIT: u16 = 8;
+    pub const OPTIONAL: u16 = 16;
     /// `VElement` named `pre` / `textarea`.
-    pub const PRE: u8 = 32;
+    pub const PRE: u16 = 32;
     /// `VText` whose value is whitespace only.
-    pub const EMPTY_TEXT: u8 = 64;
+    pub const EMPTY_TEXT: u16 = 64;
+    pub const SHORTHAND: u16 = 128;
+    pub const METHOD: u16 = 256;
+    /// `UpdateExpression.prefix`.
+    pub const PREFIX: u16 = 512;
 }
 
 #[derive(Clone, Copy, Debug)]
@@ -383,7 +388,7 @@ pub struct Node {
     pub start: u32,
     pub end: u32,
     pub parent: u32,
-    pub flags: u8,
+    pub flags: u16,
     fs: u32,
     fl: u32,
 }
@@ -393,6 +398,8 @@ pub struct Tree {
     pub nodes: Vec<Node>,
     fields: Vec<(F, Slot)>,
     items: Vec<u32>,
+    /// ESTree `operator` of Binary / Logical / Assignment / Unary / Update expressions.
+    pub ops: std::collections::HashMap<u32, &'static str>,
 }
 
 impl Tree {
@@ -409,7 +416,7 @@ impl Tree {
     pub fn parent(&self, n: u32) -> u32 {
         self.nodes[n as usize].parent
     }
-    pub fn has(&self, n: u32, f: u8) -> bool {
+    pub fn has(&self, n: u32, f: u16) -> bool {
         self.nodes[n as usize].flags & f != 0
     }
     fn node_fields(&self, n: u32) -> &[(F, Slot)] {
@@ -531,7 +538,7 @@ impl<'s> Builder<'s> {
         self.t.items.extend_from_slice(cs);
         self.scratch.push((f, Slot::Many(a, cs.len() as u32)));
     }
-    fn flag(&mut self, id: u32, f: u8, on: bool) {
+    fn flag(&mut self, id: u32, f: u16, on: bool) {
         if on {
             self.t.nodes[id as usize].flags |= f;
         }
@@ -1142,6 +1149,7 @@ impl<'s> Builder<'s> {
                     .map(|bp| {
                         let pid = self.open(Ty::Property, sp(bp.span));
                         self.flag(pid, flag::COMPUTED, bp.computed);
+                        self.flag(pid, flag::SHORTHAND, bp.shorthand);
                         let k = self.prop_key(&bp.key);
                         self.one(F::Key, k);
                         let v = self.binding(&bp.value, None, None, &[]);
@@ -1463,6 +1471,7 @@ impl<'s> Builder<'s> {
             MemberExpression::ComputedMemberExpression(c) => {
                 let id = self.open(Ty::MemberExpression, sp(c.span));
                 self.flag(id, flag::COMPUTED, true);
+                self.flag(id, flag::OPTIONAL, c.optional);
                 let o = self.expr(&c.object);
                 self.one(F::Object, o);
                 let p = self.expr(&c.expression);
@@ -1471,6 +1480,7 @@ impl<'s> Builder<'s> {
             }
             MemberExpression::StaticMemberExpression(s) => {
                 let id = self.open(Ty::MemberExpression, sp(s.span));
+                self.flag(id, flag::OPTIONAL, s.optional);
                 let o = self.expr(&s.object);
                 self.one(F::Object, o);
                 let p = self.ident(s.property.span);
@@ -1479,6 +1489,7 @@ impl<'s> Builder<'s> {
             }
             MemberExpression::PrivateFieldExpression(s) => {
                 let id = self.open(Ty::MemberExpression, sp(s.span));
+                self.flag(id, flag::OPTIONAL, s.optional);
                 let o = self.expr(&s.object);
                 self.one(F::Object, o);
                 let p = self.leaf(Ty::PrivateIdentifier, sp(s.field.span));
@@ -1490,6 +1501,7 @@ impl<'s> Builder<'s> {
 
     fn call(&mut self, c: &CallExpression) -> u32 {
         let id = self.open(Ty::CallExpression, sp(c.span));
+        self.flag(id, flag::OPTIONAL, c.optional);
         let callee = self.expr(&c.callee);
         self.one(F::Callee, callee);
         let ta = self.type_args(c.type_arguments.as_deref());
@@ -1566,6 +1578,7 @@ impl<'s> Builder<'s> {
             }
             Expression::AssignmentExpression(a) => {
                 let id = self.open(Ty::AssignmentExpression, sp(a.span));
+                self.t.ops.insert(id, a.operator.as_str());
                 let l = self.target(&a.left);
                 self.one(F::Left, l);
                 let r = self.expr(&a.right);
@@ -1580,6 +1593,7 @@ impl<'s> Builder<'s> {
             }
             Expression::BinaryExpression(b) => {
                 let id = self.open(Ty::BinaryExpression, sp(b.span));
+                self.t.ops.insert(id, b.operator.as_str());
                 let l = self.expr(&b.left);
                 self.one(F::Left, l);
                 let r = self.expr(&b.right);
@@ -1588,6 +1602,7 @@ impl<'s> Builder<'s> {
             }
             Expression::PrivateInExpression(b) => {
                 let id = self.open(Ty::BinaryExpression, sp(b.span));
+                self.t.ops.insert(id, "in");
                 let l = self.leaf(Ty::PrivateIdentifier, sp(b.left.span));
                 self.one(F::Left, l);
                 let r = self.expr(&b.right);
@@ -1596,6 +1611,7 @@ impl<'s> Builder<'s> {
             }
             Expression::LogicalExpression(b) => {
                 let id = self.open(Ty::LogicalExpression, sp(b.span));
+                self.t.ops.insert(id, b.operator.as_str());
                 let l = self.expr(&b.left);
                 self.one(F::Left, l);
                 let r = self.expr(&b.right);
@@ -1665,12 +1681,15 @@ impl<'s> Builder<'s> {
             }
             Expression::UnaryExpression(u) => {
                 let id = self.open(Ty::UnaryExpression, sp(u.span));
+                self.t.ops.insert(id, u.operator.as_str());
                 let a = self.expr(&u.argument);
                 self.one(F::Argument, a);
                 self.close(id)
             }
             Expression::UpdateExpression(u) => {
                 let id = self.open(Ty::UpdateExpression, sp(u.span));
+                self.t.ops.insert(id, u.operator.as_str());
+                self.flag(id, flag::PREFIX, u.prefix);
                 let a = self.simple_target(&u.argument);
                 self.one(F::Argument, a);
                 self.close(id)
@@ -1727,6 +1746,8 @@ impl<'s> Builder<'s> {
                 ObjectPropertyKind::ObjectProperty(p) => {
                     let pid = self.open(Ty::Property, sp(p.span));
                     self.flag(pid, flag::COMPUTED, p.computed);
+                    self.flag(pid, flag::SHORTHAND, p.shorthand);
+                    self.flag(pid, flag::METHOD, p.method);
                     let k = self.prop_key(&p.key);
                     self.one(F::Key, k);
                     let v = self.expr(&p.value);
@@ -1785,6 +1806,7 @@ impl<'s> Builder<'s> {
                     .map(|p| match p {
                         AssignmentTargetProperty::AssignmentTargetPropertyIdentifier(p) => {
                             let pid = self.open(Ty::Property, sp(p.span));
+                            self.flag(pid, flag::SHORTHAND, true);
                             let k = self.ident(p.binding.span);
                             self.one(F::Key, k);
                             let v = match &p.init {
@@ -2107,6 +2129,7 @@ impl<'s> Builder<'s> {
                     TSLiteral::TemplateLiteral(t) => self.template(t),
                     TSLiteral::UnaryExpression(u) => {
                         let uid = self.open(Ty::UnaryExpression, sp(u.span));
+                        self.t.ops.insert(uid, u.operator.as_str());
                         let a = self.expr(&u.argument);
                         self.one(F::Argument, a);
                         self.close(uid)
@@ -2373,6 +2396,13 @@ impl Builder<'_> {
         let id = self.open(Ty::VExpressionContainer, sp(span));
         let x = self.expr(e);
         self.one(F::Expression, x);
+        self.close(id)
+    }
+
+    /// The `VDocumentFragment` root over already built top-level nodes.
+    pub fn fragment(&mut self, span: Span, children: &[u32]) -> u32 {
+        let id = self.open(Ty::VDocumentFragment, sp(span));
+        self.many(F::Children, children);
         self.close(id)
     }
 

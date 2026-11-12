@@ -1,14 +1,20 @@
 //! An ESLint selector (esquery) engine over the ESTree-shaped [`Tree`] of `indent/tree.rs`.
 //!
-//! ponytail: supported subset — type / `*`, `[path]`, `[path op value]` (`=`, `!=`, `<`, `<=`,
-//! `>`, `>=`; string, number, regexp `/re/flags`, bare literal values; dotted paths through child
-//! fields, `length` of lists), `.field`, combinators ` `, `>`, `~`, `+`, selector lists,
-//! `:not()`, `:matches()` / `:is()`, `:has()`, `:first-child`, `:last-child`, `:nth-child(n)`,
-//! `:nth-last-child(n)`, `:statement`, `:expression`, `:declaration`, `:function`, `:pattern`.
-//! Not supported (never match): `type()` values, `:nth-child(an+b)`, `:scope`, `:exit`.
-//! Leaf properties come from the caller (`leaf`), so only the ones it knows can be matched.
+//! Mirrors esquery 1.7: type / `*`, `[path]`, `[path op value]` (`=`, `!=` with string, number,
+//! bare name, `/re/flags` or `type(t)` values; `<`, `<=`, `>`, `>=` with JS coercion), dotted
+//! paths through child fields, list indices and `length`, `.field`, combinators ` `, `>`, `~`,
+//! `+`, selector lists, `:not()`, `:matches()` / `:is()`, `:has()`, `:first-child`,
+//! `:last-child`, `:nth-child(n)`, `:nth-last-child(n)`, `:statement`, `:expression`,
+//! `:declaration`, `:function`, `:pattern`.
+//! ponytail: `:scope` / `:exit` never match; leaf properties are the ones [`leaf`] knows.
 
-use crate::utils::indent::tree::{F, NONE, Tree, Ty};
+use std::collections::HashMap;
+
+use oxc::span::Span;
+
+use crate::ast::{AttributeKey, AttributeValue, DirectiveArgument, Document};
+use crate::utils::indent::tree::{F, NONE, Tree, Ty, flag};
+use crate::utils::tpl_misc::js_to_number;
 
 /// A property value (`getPath` result).
 #[derive(Debug, Clone, PartialEq)]
@@ -20,31 +26,113 @@ pub enum Val {
     Undefined,
     Node(u32),
     List(Vec<u32>),
+    /// A BigInt (decimal digits).
+    BigInt(String),
+    /// A `RegExp` object (its `/source/flags` text).
+    RegExp(String),
+    /// The ESTree `Literal.regex` object: `{ pattern, flags }`.
+    RegexInfo(String, String),
 }
 
 impl Val {
     /// JS template-string conversion (`${value}`).
     fn js_string(&self) -> String {
         match self {
-            Val::Str(s) => s.clone(),
+            Val::Str(s) | Val::BigInt(s) | Val::RegExp(s) => s.clone(),
             Val::Num(n) => crate::utils::js::js_number(*n),
             Val::Bool(b) => b.to_string(),
             Val::Null => "null".into(),
             Val::Undefined => "undefined".into(),
-            Val::Node(_) => "[object Object]".into(),
-            Val::List(_) => String::new(),
+            Val::Node(_) | Val::RegexInfo(..) => "[object Object]".into(),
+            Val::List(l) => l
+                .iter()
+                .map(|&x| if x == NONE { "" } else { "[object Object]" })
+                .collect::<Vec<_>>()
+                .join(","),
         }
     }
     fn present(&self) -> bool {
         !matches!(self, Val::Null | Val::Undefined)
     }
+    /// `typeof`.
+    fn type_of(&self) -> &'static str {
+        match self {
+            Val::Str(_) => "string",
+            Val::Num(_) => "number",
+            Val::Bool(_) => "boolean",
+            Val::Undefined => "undefined",
+            Val::BigInt(_) => "bigint",
+            _ => "object",
+        }
+    }
+}
+
+/// JS `a < b` (`IsLessThan`); `None` = undefined (a NaN operand).
+fn js_less(a: &Val, b: &Val) -> Option<bool> {
+    // ToPrimitive: objects become strings.
+    let prim = |v: &Val| match v {
+        Val::Node(_) | Val::List(_) | Val::RegExp(_) | Val::RegexInfo(..) => {
+            Val::Str(v.js_string())
+        }
+        o => o.clone(),
+    };
+    let (a, b) = (prim(a), prim(b));
+    if let (Val::Str(x), Val::Str(y)) = (&a, &b) {
+        return Some(x.encode_utf16().lt(y.encode_utf16()));
+    }
+    // ToNumeric; a BigInt is compared through f64.
+    // ponytail: BigInts beyond 2^53 lose precision.
+    let num = |v: &Val| match v {
+        Val::Num(n) => *n,
+        Val::Bool(b) => f64::from(u8::from(*b)),
+        Val::Null => 0.0,
+        Val::Str(s) => js_to_number(s).unwrap_or(f64::NAN),
+        Val::BigInt(d) => d.parse().unwrap_or(f64::NAN),
+        _ => f64::NAN,
+    };
+    let big_str = |s: &Val, other: &Val| matches!((s, other), (Val::Str(_), Val::BigInt(_)));
+    // StringToBigInt of a non-integer string is undefined.
+    if (big_str(&a, &b) || big_str(&b, &a))
+        && [&a, &b]
+            .iter()
+            .any(|v| matches!(v, Val::Str(s) if js_to_number(s).is_none_or(|n| n.fract() != 0.0)))
+    {
+        return None;
+    }
+    let (x, y) = (num(&a), num(&b));
+    (!x.is_nan() && !y.is_nan()).then_some(x < y)
 }
 
 #[derive(Debug, Clone)]
 enum Value {
-    Literal(String),
+    Str(String),
+    Num(f64),
     Regex(crate::utils::regexp::JsRegex),
+    Type(String),
     Unsupported,
+}
+
+/// esquery `strUnescape`.
+fn str_unescape(s: &str) -> String {
+    let mut out = String::new();
+    let mut it = s.chars();
+    while let Some(c) = it.next() {
+        if c != '\\' {
+            out.push(c);
+            continue;
+        }
+        match it.next() {
+            Some('b') => out.push('\u{8}'),
+            Some('f') => out.push('\u{c}'),
+            Some('n') => out.push('\n'),
+            Some('r') => out.push('\r'),
+            Some('t') => out.push('\t'),
+            Some('v') => out.push('\u{b}'),
+            Some(o) => out.push(o),
+            None => {}
+        }
+    }
+    out
 }
 
 #[derive(Debug, Clone, Copy, PartialEq)]
@@ -226,56 +314,95 @@ impl P<'_> {
         };
         self.i += len;
         self.ws();
+        let rest = &self.src[self.i..];
+        let eq = matches!(op, Op::Eq | Op::Ne);
         let value = match self.peek() {
-            Some(q @ (b'"' | b'\'')) => {
-                self.i += 1;
-                let mut v = String::new();
-                while let Some(c) = self.peek() {
+            Some(b't') if eq && rest.starts_with("type(") => {
+                self.i += 5;
+                let st = self.i;
+                while self.peek().is_some_and(|c| c != b')' && c != b' ') {
                     self.i += 1;
-                    if c == q {
-                        break;
-                    }
-                    if c == b'\\' {
-                        if let Some(n) = self.peek() {
-                            v.push(n as char);
-                            self.i += 1;
-                        }
-                        continue;
-                    }
-                    let ch = self.src[self.i - 1..].chars().next().unwrap_or(' ');
-                    v.push(ch);
-                    self.i += ch.len_utf8() - 1;
                 }
-                Value::Literal(v)
+                let t = self.src[st..self.i].to_string();
+                if self.peek() == Some(b')') {
+                    self.i += 1;
+                    Value::Type(t)
+                } else {
+                    Value::Unsupported
+                }
             }
-            Some(b'/') => {
+            Some(b'/') if eq => {
                 self.i += 1;
                 let st = self.i;
-                while self.peek().is_some_and(|c| c != b'/') {
-                    if self.peek() == Some(b'\\') {
-                        self.i += 1;
+                let mut class = false;
+                while let Some(c) = self.peek() {
+                    match c {
+                        b'\\' => self.i += 1,
+                        b'[' => class = true,
+                        b']' => class = false,
+                        b'/' if !class => break,
+                        _ => {}
                     }
                     self.i += 1;
                 }
                 let pat = self.src[st..self.i.min(self.s.len())].to_string();
                 self.i += 1;
-                let flags = self.ident();
-                crate::utils::regexp::JsRegex::with_flags(&pat, &flags)
-                    .map_or(Value::Unsupported, Value::Regex)
-            }
-            _ => {
-                let st = self.i;
+                let fs = self.i;
                 while self
                     .peek()
-                    .is_some_and(|c| c != b']' && !c.is_ascii_whitespace())
+                    .is_some_and(|c| matches!(c, b'i' | b'm' | b's' | b'u'))
                 {
                     self.i += 1;
                 }
-                let v = self.src[st..self.i].to_string();
-                if v.starts_with("type(") {
+                let flags = self.src[fs.min(self.s.len())..self.i.min(self.s.len())].to_string();
+                crate::utils::regexp::JsRegex::with_flags(&pat, &flags)
+                    .map_or(Value::Unsupported, Value::Regex)
+            }
+            Some(q @ (b'"' | b'\'')) => {
+                self.i += 1;
+                let st = self.i;
+                while let Some(c) = self.peek() {
+                    if c == q {
+                        break;
+                    }
+                    if c == b'\\' {
+                        self.i += 1;
+                    }
+                    self.i += 1;
+                }
+                let raw = &self.src[st..self.i.min(self.s.len())];
+                self.i += 1;
+                Value::Str(str_unescape(raw))
+            }
+            Some(c) if c.is_ascii_digit() || c == b'.' => {
+                // `([0-9]* ".")? [0-9]+`
+                let st = self.i;
+                while self.peek().is_some_and(|c| c.is_ascii_digit()) {
+                    self.i += 1;
+                }
+                if self.peek() == Some(b'.') {
+                    self.i += 1;
+                    while self.peek().is_some_and(|c| c.is_ascii_digit()) {
+                        self.i += 1;
+                    }
+                }
+                self.src[st..self.i]
+                    .parse::<f64>()
+                    .map_or(Value::Unsupported, Value::Num)
+            }
+            _ => {
+                // `identifierName`: `[^ [\],():#!=><~+.]+`
+                let st = self.i;
+                while self
+                    .peek()
+                    .is_some_and(|c| !b" [],():#!=><~+.".contains(&c))
+                {
+                    self.i += 1;
+                }
+                if self.i == st {
                     Value::Unsupported
                 } else {
-                    Value::Literal(v)
+                    Value::Str(self.src[st..self.i].to_string())
                 }
             }
         };
@@ -327,12 +454,170 @@ pub fn parse(src: &str) -> Vec<Selector> {
     list
 }
 
-/// Leaf property getter: `(node, name) -> value` (`Val::Undefined` when unknown).
-pub type Leaf<'l> = &'l dyn Fn(u32, &str) -> Val;
+/// Template node properties read from the document, by range.
+#[derive(Default)]
+struct VProps {
+    /// VElement / VIdentifier: (name, rawName).
+    names: HashMap<(u32, u32), (String, String)>,
+    /// VLiteral / VText: value.
+    values: HashMap<(u32, u32), String>,
+}
+
+impl VProps {
+    fn new(doc: &Document) -> Self {
+        let mut p = VProps::default();
+        let r = |s: Span| (s.start, s.end);
+        for e in &doc.elements {
+            p.names
+                .insert(r(e.span), (e.name.clone(), e.raw_name.clone()));
+            for a in e.attributes() {
+                let mut ids = Vec::new();
+                match &a.key {
+                    AttributeKey::Plain(k) => ids.push(k),
+                    AttributeKey::Directive(k) => {
+                        ids.push(&k.name);
+                        if let Some(DirectiveArgument::Static(i)) = &k.argument {
+                            ids.push(i);
+                        }
+                        ids.extend(k.modifiers.iter().filter(|m| !m.raw_name.is_empty()));
+                    }
+                }
+                for i in ids {
+                    p.names
+                        .insert(r(i.span), (i.name.clone(), i.raw_name.clone()));
+                }
+                if let Some(AttributeValue::Literal(l)) = &a.value {
+                    p.values.insert(r(l.span), l.value.clone());
+                }
+            }
+        }
+        for t in &doc.texts {
+            p.values.insert(r(t.span), t.value.clone());
+        }
+        p
+    }
+}
+
+/// JS string literal value (common escapes).
+fn unquote(raw: &str) -> String {
+    let body = &raw[1..raw.len().saturating_sub(1).max(1)];
+    let mut out = String::new();
+    let mut it = body.chars();
+    while let Some(c) = it.next() {
+        if c != '\\' {
+            out.push(c);
+            continue;
+        }
+        match it.next() {
+            Some('n') => out.push('\n'),
+            Some('t') => out.push('\t'),
+            Some('r') => out.push('\r'),
+            Some('b') => out.push('\u{8}'),
+            Some('f') => out.push('\u{c}'),
+            Some('v') => out.push('\u{b}'),
+            Some('0') => out.push('\0'),
+            Some('u') => {
+                let hex: String = it.by_ref().take(4).collect();
+                if let Some(ch) = u32::from_str_radix(&hex, 16).ok().and_then(char::from_u32) {
+                    out.push(ch);
+                }
+            }
+            Some('\n') | None => {}
+            Some(o) => out.push(o),
+        }
+    }
+    out
+}
+
+/// BigInt literal text (without `n`, no separators) → decimal digits.
+fn bigint_digits(t: &str) -> String {
+    let lower = t.to_ascii_lowercase();
+    let radix = [("0x", 16), ("0o", 8), ("0b", 2)]
+        .into_iter()
+        .find_map(|(p, r)| lower.strip_prefix(p).map(|d| (d, r)));
+    match radix {
+        Some((d, r)) => {
+            u128::from_str_radix(d, r).map_or_else(|_| t.to_string(), |v| v.to_string())
+        }
+        None => t.to_string(),
+    }
+}
+
+/// ESTree leaf properties (`Val::Undefined` when unknown).
+fn leaf(tree: &Tree, src: &str, vp: &VProps, n: u32, name: &str) -> Val {
+    let node = tree.node(n);
+    let text = &src[node.start as usize..node.end as usize];
+    let key = (node.start, node.end);
+    let ident = |t: &str| {
+        let t = t.trim_start_matches('#');
+        t.chars()
+            .take_while(|c| c.is_alphanumeric() || *c == '_' || *c == '$')
+            .collect::<String>()
+    };
+    let regex = text.starts_with('/');
+    let bigint = !regex && text.ends_with('n') && !text.starts_with(['"', '\'']);
+    match (node.ty, name) {
+        (Ty::Identifier | Ty::PrivateIdentifier, "name") => Val::Str(ident(text)),
+        (Ty::Literal, "raw") => Val::Str(text.to_string()),
+        (Ty::Literal, "value") => match text {
+            "true" => Val::Bool(true),
+            "false" => Val::Bool(false),
+            "null" => Val::Null,
+            t if t.starts_with(['"', '\'']) => Val::Str(unquote(t)),
+            t if regex => Val::RegExp(t.to_string()),
+            t if bigint => Val::BigInt(bigint_digits(&t[..t.len() - 1].replace('_', ""))),
+            t => js_to_number(&t.replace('_', "")).map_or(Val::Undefined, Val::Num),
+        },
+        (Ty::Literal, "regex") if regex => {
+            let end = text.rfind('/').unwrap_or(0);
+            Val::RegexInfo(text[1..end.max(1)].to_string(), text[end + 1..].to_string())
+        }
+        (Ty::Literal, "bigint") if bigint => {
+            Val::Str(bigint_digits(&text[..text.len() - 1].replace('_', "")))
+        }
+        (
+            Ty::BinaryExpression
+            | Ty::LogicalExpression
+            | Ty::AssignmentExpression
+            | Ty::UnaryExpression
+            | Ty::UpdateExpression,
+            "operator",
+        ) => tree
+            .ops
+            .get(&n)
+            .map_or(Val::Undefined, |o| Val::Str((*o).to_string())),
+        (Ty::UnaryExpression, "prefix") => Val::Bool(true),
+        (Ty::UpdateExpression, "prefix") => Val::Bool(tree.has(n, flag::PREFIX)),
+        (Ty::Property, "shorthand") => Val::Bool(tree.has(n, flag::SHORTHAND)),
+        (Ty::Property, "method") => Val::Bool(tree.has(n, flag::METHOD)),
+        (Ty::VariableDeclaration, "kind") => Val::Str(ident(text)),
+        (_, "computed") => Val::Bool(tree.has(n, flag::COMPUTED)),
+        (_, "optional") => Val::Bool(tree.has(n, flag::OPTIONAL)),
+        (_, "async") => Val::Bool(tree.has(n, flag::ASYNC)),
+        (Ty::VAttribute, "directive") => {
+            let k = tree.get(n, F::Key);
+            Val::Bool(k != NONE && tree.ty(k) == Ty::VDirectiveKey)
+        }
+        (Ty::VElement | Ty::VIdentifier, "name") => vp
+            .names
+            .get(&key)
+            .map_or(Val::Undefined, |v| Val::Str(v.0.clone())),
+        (Ty::VElement | Ty::VIdentifier, "rawName") => vp
+            .names
+            .get(&key)
+            .map_or(Val::Undefined, |v| Val::Str(v.1.clone())),
+        (Ty::VLiteral | Ty::VText, "value") => vp
+            .values
+            .get(&key)
+            .map_or(Val::Undefined, |v| Val::Str(v.clone())),
+        _ => Val::Undefined,
+    }
+}
 
 pub struct Matcher<'t> {
     pub tree: &'t Tree,
-    pub leaf: Leaf<'t>,
+    src: &'t str,
+    vp: VProps,
 }
 
 fn field_name(f: F) -> String {
@@ -344,7 +629,16 @@ fn field_name(f: F) -> String {
     }
 }
 
-impl Matcher<'_> {
+impl<'t> Matcher<'t> {
+    /// `doc`: the SFC document, for template node names and values.
+    pub fn new(tree: &'t Tree, src: &'t str, doc: Option<&Document>) -> Self {
+        Matcher {
+            tree,
+            src,
+            vp: doc.map(VProps::new).unwrap_or_default(),
+        }
+    }
+
     fn child_field(&self, n: u32, name: &str) -> Option<Val> {
         let mut kids = Vec::new();
         self.tree.children(n, &mut kids);
@@ -372,12 +666,28 @@ impl Matcher<'_> {
                         Val::Str(self.tree.ty(x).name().to_string())
                     } else {
                         self.child_field(x, seg)
-                            .unwrap_or_else(|| (self.leaf)(x, seg))
+                            .unwrap_or_else(|| leaf(self.tree, self.src, &self.vp, x, seg))
                     }
                 }
                 Val::List(l) if seg == "length" => Val::Num(l.len() as f64),
+                Val::List(l) => match seg.parse::<usize>().ok().and_then(|i| l.get(i)) {
+                    Some(&x) if x == NONE => Val::Null,
+                    Some(&x) => Val::Node(x),
+                    None => Val::Undefined,
+                },
                 Val::Str(s) if seg == "length" => Val::Num(s.encode_utf16().count() as f64),
-                _ => return Val::Undefined,
+                Val::Str(s) => {
+                    let u: Vec<u16> = s.encode_utf16().collect();
+                    match seg.parse::<usize>().ok().and_then(|i| u.get(i)) {
+                        Some(&c) => Val::Str(String::from_utf16_lossy(&[c])),
+                        None => Val::Undefined,
+                    }
+                }
+                Val::RegexInfo(p, _) if seg == "pattern" => Val::Str(p),
+                Val::RegexInfo(_, f) if seg == "flags" => Val::Str(f),
+                // `getPath` stops at null / undefined.
+                v @ (Val::Null | Val::Undefined) => return v,
+                _ => Val::Undefined,
             };
         }
         cur
@@ -391,27 +701,30 @@ impl Matcher<'_> {
             Atom::Attr(path, None) => self.get_path(n, path).present(),
             Atom::Attr(path, Some((op, value))) => {
                 let v = self.get_path(n, path);
+                let lit = |l: &Value| match l {
+                    Value::Str(s) => Some(Val::Str(s.clone())),
+                    Value::Num(x) => Some(Val::Num(*x)),
+                    _ => None,
+                };
                 match (op, value) {
                     (_, Value::Unsupported) => false,
-                    (Op::Eq | Op::Ne, Value::Regex(re)) => {
-                        let m = matches!(&v, Val::Str(s) if re.is_match(s));
-                        m == (*op == Op::Eq)
+                    (Op::Eq, Value::Regex(re)) => matches!(&v, Val::Str(s) if re.is_match(s)),
+                    // `!re.test(value)` coerces the value to a string.
+                    (Op::Ne, Value::Regex(re)) => !re.is_match(&v.js_string()),
+                    (Op::Eq | Op::Ne, Value::Type(t)) => (v.type_of() == t) == (*op == Op::Eq),
+                    (Op::Eq | Op::Ne, l) => {
+                        let l = lit(l).map(|l| l.js_string()).unwrap_or_default();
+                        (v.js_string() == l) == (*op == Op::Eq)
                     }
-                    (Op::Eq | Op::Ne, Value::Literal(l)) => {
-                        (v.js_string() == *l) == (*op == Op::Eq)
-                    }
-                    (_, Value::Literal(l)) => {
-                        let (Val::Num(x), Ok(y)) = (&v, l.parse::<f64>()) else {
-                            return false;
-                        };
+                    (_, l) => {
+                        let Some(l) = lit(l) else { return false };
                         match op {
-                            Op::Lt => *x < y,
-                            Op::Le => *x <= y,
-                            Op::Gt => *x > y,
-                            _ => *x >= y,
+                            Op::Lt => js_less(&v, &l) == Some(true),
+                            Op::Gt => js_less(&l, &v) == Some(true),
+                            Op::Le => js_less(&l, &v) == Some(false),
+                            _ => js_less(&v, &l) == Some(false),
                         }
                     }
-                    _ => false,
                 }
             }
             Atom::Field(f) => t.field_of(n).is_some_and(|x| field_name(x) == *f),
