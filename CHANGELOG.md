@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+- The rules can run inside oxlint itself (plain `oxlint`, its editor extension) with an oxlint that has oxc PR
+  #28720 (`sourceCode.actualText`, `context.report({ actualRange })`): the JS plugin calls the Rust core through a
+  Node addon (`napi/`, shipped as `oxlint-vue-rs.node` in the platform packages). Released oxlint is unaffected
+  (the plugin stays a no-op); the CLI keeps oxlint's run of the plugin quiet (`OXLINT_VUE_RS_CLI`), so nothing is
+  reported twice.
 - `npm run publish:npm` / release workflow: the 30 s pause applies only before a package name's first publish.
 - README restructured (badges, quick start, documentation index).
 

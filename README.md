@@ -35,9 +35,10 @@ All of [eslint-plugin-vue](https://eslint.vuejs.org/) for projects that use [oxl
 npm i -D oxlint oxlint-vue-rs     # pnpm add -D / yarn add -D work the same
 ```
 
-The npm package holds the oxlint plugin, the presets and a small launcher. The native binary comes from one
-platform package, `@oxlint-vue-rs/<os>-<cpu>[-gnu|-musl]`, which npm picks for your machine (macOS arm64/x64,
-Linux x64/arm64 glibc and musl, Windows x64/arm64). Nothing is compiled on install.
+The npm package holds the oxlint plugin, the presets and a small launcher. The native binary (and the Node addon
+the plugin uses under an oxlint with oxc PR #28720) comes from one platform package,
+`@oxlint-vue-rs/<os>-<cpu>[-gnu|-musl]`, which npm picks for your machine (macOS arm64/x64, Linux x64/arm64 glibc
+and musl, Windows x64/arm64). Nothing is compiled on install.
 
 Without Node: `cargo install oxlint-vue-rs` (Rust 1.97+), or a binary from the
 [releases](https://github.com/s00d/oxlint-vue-rs/releases).
@@ -71,8 +72,44 @@ oxlint yet. oxlint-vue-rs ships two pieces:
 2. the **`oxlint-vue-rs` binary**, which reads the same config, lints `.vue` files and — when oxlint is installed —
    also runs oxlint on the same paths and prints one merged report (`--no-oxlint` runs only the Vue rules).
 
-When oxlint lets plugins see the whole SFC (oxc PR #28720, or "language plugins"), the plugin will call the same
-Rust core directly — see [TODO.md](TODO.md) and [docs/architecture.md](docs/architecture.md).
+With an oxlint that lets plugins see the whole SFC, the plugin runs the rules itself — see the next section.
+
+## Running inside oxlint (oxc PR #28720)
+
+[oxc PR #28720](https://github.com/oxc-project/oxc/pull/28720) (open, not in a release yet) gives JS plugins the whole
+`.vue` file: `sourceCode.actualText`, `context.report({ actualRange })` and template-only SFCs. The plugin detects
+it and then runs the rules **inside oxlint** — plain `oxlint`, `oxlint --fix` and the oxlint editor extension (LSP)
+report `vue-rs/*` problems with no extra command. Same config, nothing to change.
+
+- Each enabled `vue-rs/*` rule registers itself for the file; the Rust core (a Node addon, `oxlint-vue-rs.node`
+  in the platform package) parses the file once and runs all of them; each rule reports its problems with
+  `actualRange` (UTF-16 offsets of `actualText`), fixes and suggestions.
+- Released oxlint (1.93 and older): the plugin sees no `actualText` and stays a no-op, as before.
+- `oxlint-vue-rs` (the CLI) still works and gives the same problems; when it runs oxlint it sets
+  `OXLINT_VUE_RS_CLI=1`, which keeps the plugin quiet in that run, so nothing is reported twice.
+- `OXLINT_VUE_RS_ADDON=/path/to/addon.node` overrides the addon (e.g. a local `cargo build -p oxlint-vue-rs-napi`).
+
+To try it, build oxlint from the PR (Rust + Node; see the oxc repo's `justfile`):
+
+```bash
+git clone https://github.com/oxc-project/oxc && cd oxc
+git fetch origin pull/28720/head && git checkout FETCH_HEAD
+pnpm install && pnpm -C apps/oxlint run build    # release NAPI build + JS
+cd your-project && node /path/to/oxc/apps/oxlint/dist/cli.js            # = oxlint
+```
+
+Differences from the CLI under that oxlint (oxlint's own behaviour, the same for all its rules):
+
+- `oxlint --fix` applies one round of fixes; run it again for fixes that unlock others (the CLI repeats up to 10×).
+- Columns are counted in UTF-8 bytes on lines with non-ASCII text (ESLint and the CLI count UTF-16 units); byte
+  ranges and lines match. A few reports carry an ESLint location that is not their range (`max-len`'s column,
+  indent rules after tabs): oxlint shows the range start.
+- A block `/* eslint-disable */` in `<script>` also suppresses a report that starts before it and overlaps it.
+- Script disable comments for `vue-rs/*` rules are applied by the plugin, so oxlint's
+  `--report-unused-disable-directives` calls them unused; template comments (`<!-- eslint-disable -->`) are only
+  handled by the plugin.
+- The plugin runs on oxlint's single JS thread: on element-plus (1022 `.vue` files, all rules) plain `oxlint` with
+  the plugin takes ~1.5 s, `oxlint-vue-rs --no-oxlint` ~0.4 s.
 
 ## Configure
 
@@ -166,7 +203,10 @@ could not write), 2 usage or config error. `OXLINT_VUE_RS_BINARY=/path/to/binary
 ```bash
 cargo test                                   # upstream cases, parser fixtures, robustness, CLI, unit tests
 UPSTREAM_RULE=html-indent UPSTREAM_VERBOSE=1 cargo test --test upstream
-cargo clippy --all-targets -- -D warnings && cargo fmt --check
+cargo clippy --workspace --all-targets -- -D warnings && cargo fmt --all --check
+cargo build --release --workspace          # CLI + Node addon (napi/)
+OXLINT_PR=/path/to/oxc/apps/oxlint/dist/cli.js OXLINT_RELEASED=node_modules/.bin/oxlint \
+  node --test tests/oxlint-plugin/oxlint-plugin.test.mjs
 scripts/bench.sh <corpora> <node-ref-dir> <eslint-config>     # benchmark
 ```
 
@@ -176,9 +216,11 @@ scripts/bench.sh <corpora> <node-ref-dir> <eslint-config>     # benchmark
 | `src/rules/` | one file per rule |
 | `src/utils/` | shared helpers, ESTree-shaped tree and ESLint token store for the stylistic/indent rules |
 | `src/config.rs`, `src/directives.rs`, `src/main.rs` | `.oxlintrc.json`, disable comments, CLI |
-| `npm/`, `scripts/npm/` | oxlint plugin, presets, launcher; packaging and publishing |
+| `napi/` | Node addon: the core for the oxlint JS plugin (`lint()` → problems with UTF-16 ranges) |
+| `npm/`, `scripts/npm/` | oxlint plugin (runs the rules under oxc PR #28720), presets, launcher; packaging and publishing |
 | `tests/upstream/` | eslint-plugin-vue's RuleTester cases with real ESLint results (MIT, license file there) |
 | `tests/parser-fixtures/` | vue-eslint-parser AST fixtures (MIT) |
+| `tests/oxlint-plugin/` | e2e: rules inside an oxlint built from oxc PR #28720 vs the CLI (`OXLINT_PR=… node --test …`) |
 
 ## License
 

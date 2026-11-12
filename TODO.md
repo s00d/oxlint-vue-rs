@@ -9,9 +9,14 @@
     (+ optional TS transform with mappings to the original file).
   - Plan: expose our Rust SFC/template parser (`src/parser`) as the language plugin's `parse`, and our rules as
     regular rules over that AST; drop the wrapper CLI path.
-- [ ] **PR #28720** (`sourceCode.actualText`, `context.report({ actualRange })`, template-only SFCs passed to JS
-  plugins): https://github.com/oxc-project/oxc/pull/28720. When merged, the JS shim plugin calls the Rust core
-  (NAPI) and reports into `<template>` directly inside oxlint, LSP included.
+- [x] **PR #28720** (`sourceCode.actualText`, `context.report({ actualRange })`, template-only SFCs passed to JS
+  plugins): https://github.com/oxc-project/oxc/pull/28720. The plugin feature-detects it and runs the core through
+  the Node addon (`napi/`); e2e-tested against an oxlint built from the PR head (`tests/oxlint-plugin/`).
+  - [ ] When the PR lands in a release: bump the `oxlint` peer range note, run the e2e test against it in CI.
+  - [ ] oxlint-side differences (README "Running inside oxlint"): one `--fix` round, UTF-8 columns, overlap
+    semantics of block `eslint-disable`, `--report-unused-disable-directives` on script comments for `vue-rs/*`.
+  - [ ] Release workflow: the musl addon build (`-crt-static`, `musl-gcc`) and the Windows addons are untested
+    until a dry-run release.
 - [ ] Custom parsers for JS plugins (closed PR #24262, "likely to come back in the new year").
 - [ ] Rust upstream helpers worth adopting: #29123 (parse a JS expression at an offset), #29235 (template nodes in
   the script's scope analysis), `oxc-htmlish-parser` crate (official template parser, ranges only today).
