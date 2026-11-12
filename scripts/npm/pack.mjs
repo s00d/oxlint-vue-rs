@@ -1,6 +1,8 @@
 #!/usr/bin/env node
 // Assemble npm packages into dist-npm/:
-//   node scripts/npm/pack.mjs platform <target-triple> <path-to-binary>   → dist-npm/platforms/<os-cpu[-libc]>/ (@oxlint-vue-rs/<os-cpu[-libc]>)
+//   node scripts/npm/pack.mjs platform <target-triple> <path-to-binary> [<path-to-addon>]
+//     → dist-npm/platforms/<os-cpu[-libc]>/ (@oxlint-vue-rs/<os-cpu[-libc]>): the CLI binary and the Node addon
+//       (napi/ cdylib, shipped as `oxlint-vue-rs.node`) the oxlint JS plugin loads
 //   node scripts/npm/pack.mjs main                                       → dist-npm/oxlint-vue-rs/
 // Versions come from Cargo.toml so every package matches the crate. The shim's rule list is
 // npm/rules.json as committed. Each package directory is recreated from scratch.
@@ -12,7 +14,7 @@ const root = fileURLToPath(new URL('../..', import.meta.url))
 const out = path.join(root, 'dist-npm')
 const version = fs.readFileSync(path.join(root, 'Cargo.toml'), 'utf8').match(/^version\s*=\s*"([^"]+)"/m)[1]
 const platforms = JSON.parse(fs.readFileSync(path.join(root, 'npm/platforms.json'), 'utf8'))
-const [mode, target, binary] = process.argv.slice(2)
+const [mode, target, binary, addon] = process.argv.slice(2)
 
 const common = {
   version,
@@ -30,15 +32,16 @@ if (mode === 'platform') {
   const exe = p.os === 'win32' ? 'oxlint-vue-rs.exe' : 'oxlint-vue-rs'
   fs.copyFileSync(binary, path.join(dir, exe))
   fs.chmodSync(path.join(dir, exe), 0o755)
+  if (addon) fs.copyFileSync(addon, path.join(dir, 'oxlint-vue-rs.node'))
   const pkg = {
     name: p.pkg,
     ...common,
-    description: `oxlint-vue-rs native binary for ${p.os}-${p.cpu}${p.libc ? ` (${p.libc})` : ''}`,
+    description: `oxlint-vue-rs native binary${addon ? ' and Node addon' : ''} for ${p.os}-${p.cpu}${p.libc ? ` (${p.libc})` : ''}`,
     os: [p.os],
     cpu: [p.cpu],
     ...(p.libc ? { libc: [p.libc] } : {}),
     type: 'commonjs',
-    files: [exe, 'LICENSE'],
+    files: [exe, ...(addon ? ['oxlint-vue-rs.node'] : []), 'LICENSE'],
     preferUnplugged: true,
   }
   fs.writeFileSync(path.join(dir, 'package.json'), JSON.stringify(pkg, null, 2) + '\n')
@@ -58,6 +61,6 @@ if (mode === 'platform') {
   fs.writeFileSync(path.join(dir, 'package.json'), JSON.stringify(pkg, null, 2) + '\n')
   console.log(dir)
 } else {
-  console.error('usage: pack.mjs platform <target> <binary> | pack.mjs main')
+  console.error('usage: pack.mjs platform <target> <binary> [<addon>] | pack.mjs main')
   process.exit(2)
 }

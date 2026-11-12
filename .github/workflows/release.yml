@@ -38,7 +38,7 @@ jobs:
           components: clippy, rustfmt
       - uses: Swatinem/rust-cache@v2
       - run: cargo fmt --check
-      - run: cargo clippy --all-targets -- -D warnings
+      - run: cargo clippy --workspace --all-targets -- -D warnings
       - run: cargo test --release --locked
 
   build:
@@ -67,6 +67,16 @@ jobs:
       - if: matrix.musl
         run: sudo apt-get update && sudo apt-get install -y musl-tools
       - run: cargo build --release --locked --target ${{ matrix.target }}
+      # Node addon for the oxlint JS plugin (napi/ cdylib). musl: a dynamic library needs a dynamic CRT.
+      - name: Build Node addon
+        shell: bash
+        run: |
+          if [ "${{ matrix.musl }}" = "true" ]; then
+            export RUSTFLAGS="-C target-feature=-crt-static"
+            triple=$(echo "${{ matrix.target }}" | tr 'a-z-' 'A-Z_')
+            export "CARGO_TARGET_${triple}_LINKER=musl-gcc"
+          fi
+          cargo build --release --locked --target ${{ matrix.target }} -p oxlint-vue-rs-napi
       - name: Smoke test
         shell: bash
         run: |
@@ -85,6 +95,15 @@ jobs:
             [ "$rc" -eq 1 ] || { echo "::error::smoke test: expected exit 1, got $rc"; exit 1; }
           fi
           mkdir -p out && cp "$bin" out/
+          lib=target/${{ matrix.target }}/release
+          for f in liboxlint_vue_rs_napi.so liboxlint_vue_rs_napi.dylib oxlint_vue_rs_napi.dll; do
+            [ -f "$lib/$f" ] && cp "$lib/$f" out/oxlint-vue-rs.node
+          done
+          [ -f out/oxlint-vue-rs.node ] || { echo "::error::Node addon not built"; exit 1; }
+          # The addon loads in this runner's Node unless it is the x86_64 macOS build on arm64.
+          if [ "${{ matrix.target }}" != "x86_64-apple-darwin" ]; then
+            node -e "const r = JSON.parse(require('./out/oxlint-vue-rs.node').lint('<template><div v-for=\"i in x\">{{i}}</div></template>', 'a.vue', '[[\"require-v-for-key\",[]]]', '{}', '{}', 'vue-rs')); if (r.length !== 1) process.exit(1)"
+          fi
       - uses: actions/upload-artifact@v4
         with:
           name: bin-${{ matrix.target }}
@@ -111,8 +130,8 @@ jobs:
         run: |
           for dir in artifacts/bin-*; do
             target=${dir#artifacts/bin-}
-            bins=("$dir"/oxlint-vue-rs*)
-            node scripts/npm/pack.mjs platform "$target" "${bins[0]}"
+            bin="$dir/oxlint-vue-rs"; [ -f "$bin.exe" ] && bin="$bin.exe"
+            node scripts/npm/pack.mjs platform "$target" "$bin" "$dir/oxlint-vue-rs.node"
           done
           node scripts/npm/pack.mjs main
           ls dist-npm
@@ -169,7 +188,12 @@ jobs:
           mkdir -p rel
           for dir in artifacts/bin-*; do
             target=${dir#artifacts/bin-}
-            for f in "$dir"/*; do cp "$f" "rel/$(basename "${f%.exe}")-$target$( [[ $f == *.exe ]] && echo .exe)"; done
+            for f in "$dir"/*; do
+              case "$f" in
+                *.node) cp "$f" "rel/oxlint-vue-rs-$target.node" ;;
+                *) cp "$f" "rel/$(basename "${f%.exe}")-$target$( [[ $f == *.exe ]] && echo .exe)" ;;
+              esac
+            done
           done
           if gh release view "$version" >/dev/null 2>&1; then
             gh release upload "$version" rel/* artifacts/npm-tarballs/*.tgz --clobber

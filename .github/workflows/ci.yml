@@ -23,14 +23,16 @@ jobs:
           components: clippy, rustfmt
       - uses: Swatinem/rust-cache@v2
       - run: cargo fmt --check
-      - run: cargo clippy --all-targets -- -D warnings
+      - run: cargo clippy --workspace --all-targets -- -D warnings
       - run: cargo test
       - name: npm package smoke test
         if: runner.os != 'Windows'
         shell: bash
         run: |
           cargo build --release
+          cargo build --release -p oxlint-vue-rs-napi
+          addon=$(ls target/release/liboxlint_vue_rs_napi.so target/release/liboxlint_vue_rs_napi.dylib 2>/dev/null | head -n1)
           node scripts/npm/pack.mjs main
-          node scripts/npm/pack.mjs platform "$(rustc -vV | sed -n 's/^host: //p')" target/release/oxlint-vue-rs
+          node scripts/npm/pack.mjs platform "$(rustc -vV | sed -n 's/^host: //p')" target/release/oxlint-vue-rs "$addon"
           for p in dist-npm/platforms/* dist-npm/oxlint-vue-rs; do npx --yes publint@0.3 run "$p" --strict; done
           node -e "import('./dist-npm/oxlint-vue-rs/index.js').then(m => { if (Object.keys(m.default.rules).length !== 210) process.exit(1) })"
