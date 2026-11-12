@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Fix: in TS templates, a union type in a cast (`x as string | undefined`) is no longer parsed as a Vue 2 filter
+  (false `no-deprecated-filter`). Deliberate difference from vue-eslint-parser — see docs/compatibility.md.
 - `npm run publish:npm` / release workflow: the 30 s pause applies only before a package name's first publish.
 - README restructured (badges, quick start, documentation index).
 

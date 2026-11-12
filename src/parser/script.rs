@@ -456,11 +456,16 @@ impl<'a, 'g> ExprParser<'a, 'g> {
         allow_empty: bool,
         allow_filters: bool,
     ) -> PResult<'a> {
-        let parts = if allow_filters {
+        let mut parts = if allow_filters {
             split_filters(code)
         } else {
             vec![code]
         };
+        // `x as string | undefined`: in a TS template the `|` is a union type, not a Vue 2 filter.
+        // (vue-eslint-parser splits it anyway; we keep filters only where a `|` is an expression operator.)
+        if parts.len() > 1 && self.ts && self.pipes_only_in_ts_types(code, &parts) {
+            parts = vec![code];
+        }
         if parts.len() <= 1 {
             return self.parse_expression_body(code, m, allow_empty);
         }
@@ -492,6 +497,34 @@ impl<'a, 'g> ExprParser<'a, 'g> {
             filters,
         });
         Ok(ret)
+    }
+
+    /// Whether the whole of `code` parses as a TS expression and every filter-separating `|` of
+    /// `parts` lies inside a TS type (`as` / `satisfies` / type arguments …).
+    fn pipes_only_in_ts_types(&self, code: &str, parts: &[&str]) -> bool {
+        struct Types(Vec<Span>);
+        impl<'b> Visit<'b> for Types {
+            fn visit_ts_type(&mut self, it: &TSType<'b>) {
+                self.0.push(it.span());
+            }
+        }
+        let src = self.alloc.alloc_str(&format!("({code})"));
+        let st = SourceType::default()
+            .with_module(true)
+            .with_typescript(true)
+            .with_jsx(self.jsx);
+        let Ok(expr) = Parser::new(self.alloc, src, st).parse_expression() else {
+            return false;
+        };
+        let mut types = Types(Vec::new());
+        types.visit_expression(&expr);
+        let mut at = 0u32;
+        parts[..parts.len() - 1].iter().all(|p| {
+            at += p.len() as u32;
+            let pipe = at + 1; // `(` prefix
+            at += 1;
+            types.0.iter().any(|t| t.start <= pipe && pipe < t.end)
+        })
     }
 
     fn parse_filter(&self, code: &str, m: &Mapper) -> Result<FilterResult<'a>, ExprError> {

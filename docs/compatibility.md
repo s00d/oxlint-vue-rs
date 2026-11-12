@@ -82,7 +82,16 @@ ESLint is); oxlint-vue its 25 template rules plus oxlint's defaults. Single-thre
 - `--fix` on copies of the corpora converges (a re-run reports nothing fixable).
 - Mutation testing (`cargo mutants`), see [mutation.md](mutation.md).
 
-## 5. Known gaps
+## 5. Deliberate differences from eslint-plugin-vue
+
+- **TS union types in template casts are not Vue 2 filters.** With `<script lang="ts">`, an expression like
+  `attrs.style as string | undefined` is a TS cast with a union type. vue-eslint-parser still splits it at `|` as a
+  Vue 2 filter, so eslint-plugin-vue reports `no-deprecated-filter` there (and other rules see a filter sequence).
+  oxlint-vue-rs keeps the expression whole when every `|` lies inside a TS type (`as`, `satisfies`, type
+  arguments); a real filter such as `{{ msg | upper }}` is still reported. On the corpora this removes exactly the
+  3 such false positives (on-nuxt-3) and changes nothing else.
+
+## 6. Known gaps
 
 See [TODO.md](../TODO.md) "Parity gaps". In short: type-aware cases (no TypeScript type checker), a few selector
 engines are subsets (`block-order`, `no-restricted-syntax`, indent `ignores`), parser options not supported

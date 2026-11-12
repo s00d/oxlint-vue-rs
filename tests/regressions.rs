@@ -271,3 +271,19 @@ fn max_lines_per_block_crlf_blank_lines() {
         vec!["1:1"]
     );
 }
+
+// A TS union inside a template cast is not a Vue 2 filter (vue-eslint-parser splits it; we don't).
+#[test]
+fn ts_union_in_template_is_not_a_filter() {
+    let ts = "<script setup lang=\"ts\">\nconst attrs = useAttrs()\n</script>\n<template>\n  <input :style=\"attrs.style as string | undefined\">\n  <i :a=\"x satisfies A | B\" :b=\"f<A | B>(y)\" />\n  <p>{{ msg | upper }}</p>\n</template>\n";
+    assert_eq!(
+        reports("no-deprecated-filter", json!([]), Value::Null, ts),
+        vec!["7:9"]
+    );
+    // Plain JS: `|` is still a filter.
+    let js = "<template>\n  <p>{{ msg | upper }}</p>\n</template>\n";
+    assert_eq!(
+        reports("no-deprecated-filter", json!([]), Value::Null, js),
+        vec!["2:9"]
+    );
+}
