@@ -1,0 +1,4 @@
+# Byte offsets in test data depend on exact line endings: never convert.
+* text=auto eol=lf
+*.vue text eol=lf
+*.json text eol=lf

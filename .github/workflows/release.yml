@@ -24,7 +24,7 @@ jobs:
   test:
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@stable
         with:
           components: clippy, rustfmt
@@ -39,8 +39,8 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - { target: aarch64-apple-darwin, runner: macos-14 }
-          - { target: x86_64-apple-darwin, runner: macos-14 }
+          - { target: aarch64-apple-darwin, runner: macos-15 }
+          - { target: x86_64-apple-darwin, runner: macos-15 }
           - { target: x86_64-unknown-linux-gnu, runner: ubuntu-22.04 }
           - { target: aarch64-unknown-linux-gnu, runner: ubuntu-22.04-arm }
           - { target: x86_64-unknown-linux-musl, runner: ubuntu-22.04, musl: true }
@@ -49,7 +49,7 @@ jobs:
           - { target: aarch64-pc-windows-msvc, runner: windows-11-arm }
     runs-on: ${{ matrix.runner }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
       - uses: dtolnay/rust-toolchain@stable
         with:
           targets: ${{ matrix.target }}
@@ -80,8 +80,8 @@ jobs:
     needs: build
     runs-on: ubuntu-22.04
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v5
         with:
           node-version: 22
           registry-url: https://registry.npmjs.org
