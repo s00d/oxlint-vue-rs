@@ -81,7 +81,8 @@ fn normalize_modules(file: &LintFile, module: &str) -> Vec<String> {
     let module_path = if module.starts_with('.') {
         // ponytail: ESLint resolves against `context.cwd`; we use the process cwd.
         safe_resolve(&std::env::current_dir().unwrap_or_default().join(module))
-    } else if Path::new(module).is_absolute() {
+    } else if Path::new(module).is_absolute() || module.starts_with(['/', '\\']) {
+        // Node's `path.isAbsolute` also accepts a rooted path without a drive on Windows.
         safe_resolve(Path::new(module))
     } else {
         return vec![module.to_string()];

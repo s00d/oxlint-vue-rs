@@ -98,6 +98,7 @@ jobs:
           done
           node scripts/npm/pack.mjs main
           ls dist-npm
+          mkdir -p tarballs
           for p in dist-npm/*; do (cd "$p" && npm pack --pack-destination ../../tarballs); done
       - name: publint
         shell: bash
