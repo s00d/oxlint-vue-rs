@@ -331,6 +331,15 @@ impl Rule for NoUndefProperties {
                             order.push(key);
                         }
                         let mut c = ctxs.remove(&key).unwrap_or_else(CompCtx::new);
+                        // `extends` / `mixins` merge in options we do not see (usually imported): any property
+                        // may come from them, so nothing is reported (upstream reports their members).
+                        // ponytail: mixin objects are not resolved, even same-file ones; resolve them if this
+                        // hides too much.
+                        c.unknown |= js::properties(o).any(|p| match js::prop_name(p).as_deref() {
+                            Some("extends") => true,
+                            Some("mixins") => !matches!(js::skip_parens(&p.value), Expression::ArrayExpression(a) if a.elements.is_empty()),
+                            _ => false,
+                        });
                         for p in vc::iterate_properties_full(
                             o,
                             &["props", "asyncData", "data", "computed", "setup", "methods", "inject"],

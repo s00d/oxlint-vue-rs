@@ -114,6 +114,11 @@ ESLint is); oxlint-vue its 25 template rules plus oxlint's defaults. Single-thre
   there. eslint-plugin-vue reports every ref then; we report none for that component. Removes 37 false positives
   (element-plus `select`/`select-v2` spread returns 23, `table` 13; vue-pure-admin `Amap` reading
   `instance.refs.mapview` 1). `getCurrentInstance().<other property>` keeps the check.
+- **`no-undef-properties` reports nothing in a component with `extends` or non-empty `mixins`.** Vue merges
+  those options into the component, and they are usually imported, so any property may be defined there.
+  eslint-plugin-vue reports their members: all 2134 reports on primevue (`ptmi`, `cx`, … from
+  `extends: BaseComponent`) and 1400 of 2817 on gitlab (mixins). Cost: 1 lost true positive on vue-element-admin
+  (`onlyOneChild`, assigned in `data()` but never declared, in a component with an unrelated mixin).
 - **`no-ref-as-operand` checks right operands of `&&` / `||` in a test** (`if (a && hasNext)` with a `ref`
   `hasNext`): ported from eslint-plugin-vue's main branch (#3148, after 10.12.1). All 3 such reports on the new
   corpora (halo, vue-pure-admin) are real bugs: the ref object is always truthy.

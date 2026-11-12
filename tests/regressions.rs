@@ -409,3 +409,18 @@ fn no_unused_refs_current_instance() {
     let other = "<script setup>\nconst app = getCurrentInstance().appContext\n</script>\n<template><div ref=\"map\" /></template>";
     assert_eq!(r(other), ["4:20"]);
 }
+
+// `extends` / `mixins` merge in options defined elsewhere: their members are defined (upstream reports
+// e.g. every PrimeVue `ptmi` from `extends: BaseComponent`).
+#[test]
+fn no_undef_properties_inherited_options() {
+    let r = |c: &str| reports("no-undef-properties", json!([]), Value::Null, c);
+    let tpl = "<template><i>{{ ptmi }}</i></template>\n";
+    let ext = "<script>\nimport Base from './Base'\nexport default { extends: Base }\n</script>";
+    assert!(r(&format!("{tpl}{ext}")).is_empty());
+    let mix = "<script>\nimport M from './m'\nexport default { mixins: [M], methods: { f() { return this.fromMixin } } }\n</script>";
+    assert!(r(&format!("{tpl}{mix}")).is_empty());
+    // An empty `mixins` adds nothing (ESLint-verified).
+    let none = "<script>\nexport default { mixins: [] }\n</script>";
+    assert_eq!(r(&format!("{tpl}{none}")), ["1:17"]);
+}
