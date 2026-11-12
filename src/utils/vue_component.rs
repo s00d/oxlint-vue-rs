@@ -447,6 +447,19 @@ impl<'a> FnNode<'a> {
 }
 
 /// `setup` functions of a Vue object (`onSetupFunctionEnter`): properties named `setup` whose value
+/// `extends` / non-empty `mixins`: options merged in from objects we usually cannot see (imported), so the
+/// component's property set is open.
+// ponytail: mixin objects are not resolved, even same-file ones; resolve them if this hides too much.
+pub fn inherits_options(obj: &ObjectExpression) -> bool {
+    js::properties(obj).any(|p| match js::prop_name(p).as_deref() {
+        Some("extends") => true,
+        Some("mixins") => {
+            !matches!(js::skip_parens(&p.value), Expression::ArrayExpression(a) if a.elements.is_empty())
+        }
+        _ => false,
+    })
+}
+
 /// is a function expression or arrow.
 pub fn setup_functions<'a>(obj: &'a ObjectExpression<'a>) -> Vec<FnNode<'a>> {
     js::properties(obj)

@@ -10,8 +10,8 @@
   (eslint-plugin-vue writes `` `${x} b} ``).
 - Fix: `no-undef-properties` no longer reports type names used in template expressions
   (`$event.target as HTMLInputElement`, `(el: Element) => …`) — they are erased by the compiler.
-- `no-undef-properties` reports nothing in a component with `extends` or non-empty `mixins` (their members
-  were reported as undefined, e.g. every PrimeVue component).
+- `no-undef-properties` and `no-unused-properties` report nothing in a component with `extends` or non-empty
+  `mixins` (their members were reported as undefined, e.g. every PrimeVue component; props they read as unused).
 - Fix: `no-unused-refs` reports nothing for a component whose `setup()` returns a spread / non-literal object or
   whose `getCurrentInstance()` is stored or passed on (`instance.refs.x` reads a ref).
 - Fix: `prefer-define-options`'s fix no longer deletes blank lines above the removed `export default`.

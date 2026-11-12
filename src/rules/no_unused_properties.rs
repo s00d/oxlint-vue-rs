@@ -68,6 +68,8 @@ struct Container<'a> {
     props: Vec<Prop<'a>>,
     refs: Vec<Refs<'a>>,
     refs_for_props: Vec<Refs<'a>>,
+    /// `extends` / `mixins` may read any property (upstream reports those as unused).
+    inherits: bool,
 }
 
 fn is_jsdoc(src: &str, s: Span) -> bool {
@@ -254,6 +256,7 @@ impl Rule for NoUnusedProperties {
                     AstKind::ObjectExpression(o) if vue_ids.contains(&o.node_id()) => {
                         let k = get(o.node_id(), &mut order);
                         let c = containers.entry(k).or_default();
+                        c.inherits |= vc::inherits_options(o);
                         for w in vc::iterate_properties_full(o, &["watch", "expose"]) {
                             if w.group == "watch" {
                                 c.refs.push(ex.extract_from_path(&w.name, w.span));
@@ -369,6 +372,9 @@ impl Rule for NoUnusedProperties {
         // Report.
         for k in order {
             let c = containers.remove(&k).unwrap_or_default();
+            if c.inherits {
+                continue;
+            }
             let refs = merge(c.refs.iter().cloned().chain(tpl_refs.iter().cloned()).collect());
             let props_refs = merge(c.refs_for_props);
             for p in &c.props {

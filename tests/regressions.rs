@@ -424,3 +424,13 @@ fn no_undef_properties_inherited_options() {
     let none = "<script>\nexport default { mixins: [] }\n</script>";
     assert_eq!(r(&format!("{tpl}{none}")), ["1:17"]);
 }
+
+// A mixin may read any property of the component (gitlab disables the rule inline for exactly this).
+#[test]
+fn no_unused_properties_inherited_options() {
+    let r = |c: &str| reports("no-unused-properties", json!([]), Value::Null, c);
+    let mix = "<script>\nimport M from './m'\nexport default { mixins: [M], props: { mr: Object } }\n</script>";
+    assert!(r(mix).is_empty());
+    let plain = "<script>\nexport default { props: { mr: Object } }\n</script>";
+    assert_eq!(r(plain), ["2:27"]);
+}
