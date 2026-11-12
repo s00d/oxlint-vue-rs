@@ -23,18 +23,20 @@ cargo publish
 
 Actions → **release** → Run workflow, `github_release: true`, `npm_publish: false`. It tests, builds the 8 platform
 binaries, assembles and publint-checks the npm packages, and creates the GitHub release `X.Y.Z` with the binaries
-and the npm tarballs (`oxlint-vue-rs-X.Y.Z.tgz` + one `oxlint-vue-rs-<platform>-X.Y.Z.tgz` per platform).
+and the npm tarballs (`oxlint-vue-rs-X.Y.Z.tgz` + one per platform package `@oxlint-vue-rs/<platform>`, packed as
+`oxlint-vue-rs-<platform>-X.Y.Z.tgz`).
 
 ## 4. npm (by hand, from the release tarballs)
 
 ```bash
 npm login            # once
-npm run publish:npm  # version from Cargo.toml; `npm run publish:npm -- X.Y.Z --dry-run` to check first
+npm run publish:npm  # version from Cargo.toml; `-- X.Y.Z --dry-run` to check first; `--delay 60` to wait longer
 ```
 
 `scripts/npm/publish.mjs` downloads the release's tarballs with `gh`, publishes the 8 platform packages first and
 the main package last (it depends on them through `optionalDependencies`), and skips versions already on npm, so a
-re-run finishes a partial publish.
+re-run finishes a partial publish. It waits 30 s between publishes (`--delay`), because many new, similarly
+named packages in a row trip npm's spam detection.
 
 Check: `npm view oxlint-vue-rs@X.Y.Z optionalDependencies`, then in an empty directory
 `npm i -D oxlint oxlint-vue-rs && npx oxlint-vue-rs --version`.

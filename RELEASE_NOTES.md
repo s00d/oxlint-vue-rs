@@ -1,3 +1,8 @@
+**0.1.1** — npm packaging: the prebuilt binaries now ship as scoped packages `@oxlint-vue-rs/<platform>`
+(installed automatically by `npm i -D oxlint oxlint-vue-rs`). No rule changes since 0.1.0.
+
+---
+
 First release of **oxlint-vue-rs**: every eslint-plugin-vue 10.12.1 rule that oxlint 1.93 does not implement
 natively — 210 rules, `<template>` rules included — written in Rust on the oxc toolchain.
 

@@ -3,6 +3,7 @@
 //
 //   npm run publish:npm                    # version from Cargo.toml
 //   npm run publish:npm -- 0.1.0 --dry-run # check without publishing
+//   npm run publish:npm -- --delay 60      # seconds between publishes (default 30), to stay clear of npm's spam detection
 //
 // Downloads the release's *.tgz with `gh`, publishes the platform packages first and the main package last
 // (it depends on them through optionalDependencies), and skips versions already on npm, so a re-run finishes
@@ -17,8 +18,12 @@ const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..')
 const repo = 's00d/oxlint-vue-rs'
 const args = process.argv.slice(2)
 const dryRun = args.includes('--dry-run')
+const delayAt = args.indexOf('--delay')
+const delaySec = delayAt >= 0 ? Number(args[delayAt + 1]) : 30
+if (!Number.isFinite(delaySec) || delaySec < 0) throw new Error('--delay needs a number of seconds')
+const sleep = (s) => Atomics.wait(new Int32Array(new SharedArrayBuffer(4)), 0, 0, s * 1000)
 const version =
-  args.find((a) => !a.startsWith('--')) ??
+  args.find((a, i) => !a.startsWith('--') && args[i - 1] !== '--delay') ??
   fs.readFileSync(path.join(root, 'Cargo.toml'), 'utf8').match(/^version\s*=\s*"([^"]+)"/m)[1]
 const platforms = JSON.parse(fs.readFileSync(path.join(root, 'npm/platforms.json'), 'utf8')).map((p) => p.pkg)
 
@@ -31,22 +36,31 @@ const published = (name) => {
   }
 }
 
+// `npm pack` names `@scope/name` as `scope-name-<version>.tgz`.
+const tgz = (name) => `${name.replace(/^@/, '').replace('/', '-')}-${version}.tgz`
+
 const dir = fs.mkdtempSync(path.join(os.tmpdir(), `oxlint-vue-rs-npm-${version}-`))
 try {
   console.log(`release ${version}: downloading tarballs from github.com/${repo} …`)
   run('gh', ['release', 'download', version, '-R', repo, '-p', '*.tgz', '-D', dir], { stdio: 'inherit' })
   const order = [...platforms, 'oxlint-vue-rs']
   for (const name of order) {
-    const file = path.join(dir, `${name}-${version}.tgz`)
+    const file = path.join(dir, tgz(name))
     if (!fs.existsSync(file)) throw new Error(`release ${version} has no ${path.basename(file)}`)
   }
+  let first = true
   for (const name of order) {
     if (published(name)) {
       console.log(`skip     ${name}@${version} (already on npm)`)
       continue
     }
-    const argv = ['publish', path.join(dir, `${name}-${version}.tgz`), '--access', 'public']
+    const argv = ['publish', path.join(dir, tgz(name)), '--access', 'public']
     if (dryRun) argv.push('--dry-run')
+    if (!first && !dryRun && delaySec > 0) {
+      console.log(`wait     ${delaySec}s`)
+      sleep(delaySec)
+    }
+    first = false
     console.log(`${dryRun ? 'dry-run ' : 'publish '} ${name}@${version}`)
     // stdin/stdout stay interactive for npm's own auth; stderr is captured to recognise known failures.
     const r = spawnSync('npm', argv, { stdio: ['inherit', 'inherit', 'pipe'], encoding: 'utf8' })

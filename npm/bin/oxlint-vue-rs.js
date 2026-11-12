@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Launcher: runs the prebuilt native binary from the platform package npm installed for this machine
-// (optionalDependencies `oxlint-vue-rs-<os>-<cpu>[-<libc>]`). OXLINT_VUE_RS_BINARY overrides the path.
+// (optionalDependencies `@oxlint-vue-rs/<os>-<cpu>[-<libc>]`). OXLINT_VUE_RS_BINARY overrides the path.
 import { spawnSync } from 'node:child_process'
 import { createRequire } from 'node:module'
 import { existsSync } from 'node:fs'
@@ -20,7 +20,7 @@ function isMusl() {
 function binaryPath() {
   if (process.env.OXLINT_VUE_RS_BINARY) return process.env.OXLINT_VUE_RS_BINARY
   const libc = platform === 'linux' ? (isMusl() ? '-musl' : '-gnu') : ''
-  const pkg = `oxlint-vue-rs-${platform}-${arch}${libc}`
+  const pkg = `@oxlint-vue-rs/${platform}-${arch}${libc}`
   const exe = platform === 'win32' ? 'oxlint-vue-rs.exe' : 'oxlint-vue-rs'
   try {
     return require.resolve(`${pkg}/${exe}`)

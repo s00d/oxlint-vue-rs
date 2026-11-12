@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 // Assemble npm packages into dist-npm/:
-//   node scripts/npm/pack.mjs platform <target-triple> <path-to-binary>   → dist-npm/<platform pkg>/
+//   node scripts/npm/pack.mjs platform <target-triple> <path-to-binary>   → dist-npm/platforms/<os-cpu[-libc]>/ (@oxlint-vue-rs/<os-cpu[-libc]>)
 //   node scripts/npm/pack.mjs main                                       → dist-npm/oxlint-vue-rs/
 // Versions come from Cargo.toml so every package matches the crate. The shim's rule list is
 // npm/rules.json as committed. Each package directory is recreated from scratch.
@@ -24,7 +24,7 @@ const common = {
 if (mode === 'platform') {
   const p = platforms.find((x) => x.target === target)
   if (!p) throw new Error(`unknown target ${target}`)
-  const dir = path.join(out, p.pkg)
+  const dir = path.join(out, 'platforms', p.pkg.split('/').pop())
   fs.rmSync(dir, { recursive: true, force: true })
   fs.mkdirSync(dir, { recursive: true })
   const exe = p.os === 'win32' ? 'oxlint-vue-rs.exe' : 'oxlint-vue-rs'

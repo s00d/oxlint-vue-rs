@@ -32,7 +32,7 @@ npx oxlint-vue-rs src               # runs oxlint + the Vue rules, one report
 ```
 
 The npm package carries the oxlint plugin, the presets and a small launcher; the native binary comes from a
-platform package (`oxlint-vue-rs-<os>-<cpu>[-gnu|-musl]`, installed automatically through
+platform package (`@oxlint-vue-rs/<os>-<cpu>[-gnu|-musl]`, installed automatically through
 `optionalDependencies`: macOS arm64/x64, Linux x64/arm64 glibc and musl, Windows x64/arm64). Nothing is compiled on
 install. `OXLINT_VUE_RS_BINARY=/path/to/binary` overrides the binary.
 

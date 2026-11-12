@@ -32,5 +32,5 @@ jobs:
           cargo build --release
           node scripts/npm/pack.mjs main
           node scripts/npm/pack.mjs platform "$(rustc -vV | sed -n 's/^host: //p')" target/release/oxlint-vue-rs
-          for p in dist-npm/*; do npx --yes publint@0.3 run "$p" --strict; done
+          for p in dist-npm/platforms/* dist-npm/oxlint-vue-rs; do npx --yes publint@0.3 run "$p" --strict; done
           node -e "import('./dist-npm/oxlint-vue-rs/index.js').then(m => { if (Object.keys(m.default.rules).length !== 210) process.exit(1) })"

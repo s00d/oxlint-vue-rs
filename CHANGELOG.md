@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.1.1 — 2026-11-12
+
+- npm: the prebuilt binaries ship as scoped packages `@oxlint-vue-rs/<os>-<cpu>[-gnu|-musl]` (the unscoped
+  `oxlint-vue-rs-<platform>` names of 0.1.0 tripped npm's spam detection and were never fully published).
+  Install is unchanged: `npm i -D oxlint oxlint-vue-rs`.
+- `npm run publish:npm` publishes a release's packages from this repo (skips what npm already accepted).
+
 ## 0.1.0 — 2026-11-12
 
 First release.
