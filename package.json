@@ -4,6 +4,7 @@
   "description": "Repository scripts. The published npm package lives in npm/ (assembled by scripts/npm/pack.mjs).",
   "scripts": {
     "publish:npm": "node scripts/npm/publish.mjs",
-    "pack:npm": "node scripts/npm/pack.mjs main"
+    "pack:npm": "node scripts/npm/pack.mjs main",
+    "unpublish:legacy": "node scripts/npm/unpublish-legacy.mjs"
   }
 }
