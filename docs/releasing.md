@@ -30,13 +30,13 @@ and the npm tarballs (`oxlint-vue-rs-X.Y.Z.tgz` + one per platform package `@oxl
 
 ```bash
 npm login            # once
-npm run publish:npm  # version from Cargo.toml; `-- X.Y.Z --dry-run` to check first; `--delay 60` to wait longer
+npm run publish:npm  # version from Cargo.toml; `-- X.Y.Z --dry-run` to check first; `--delay 60` for new names
 ```
 
 `scripts/npm/publish.mjs` downloads the release's tarballs with `gh`, publishes the 8 platform packages first and
 the main package last (it depends on them through `optionalDependencies`), and skips versions already on npm, so a
-re-run finishes a partial publish. It waits 30 s between publishes (`--delay`), because many new, similarly
-named packages in a row trip npm's spam detection.
+re-run finishes a partial publish. It waits 30 s (`--delay`) only before publishing a package name that does not exist on
+npm yet — many new, similarly named packages in a row trip npm's spam detection; updates are not delayed.
 
 Check: `npm view oxlint-vue-rs@X.Y.Z optionalDependencies`, then in an empty directory
 `npm i -D oxlint oxlint-vue-rs && npx oxlint-vue-rs --version`.

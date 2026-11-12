@@ -140,8 +140,9 @@ jobs:
             if npm view "$name@$version" version >/dev/null 2>&1; then
               echo "$name@$version is already on npm, skipped"
             else
+              # Space out only brand-new names: many new similar names at once trip npm's spam detection.
+              npm view "$name" name >/dev/null 2>&1 || sleep 30
               (cd "$1" && npm publish --access public --provenance)
-              sleep 30 # space out publishes: many new similar names at once trip npm's spam detection
             fi
           }
           # platform packages first, the main package (which depends on them) last

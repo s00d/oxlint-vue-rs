@@ -3,7 +3,7 @@
 //
 //   npm run publish:npm                    # version from Cargo.toml
 //   npm run publish:npm -- 0.1.0 --dry-run # check without publishing
-//   npm run publish:npm -- --delay 60      # seconds between publishes (default 30), to stay clear of npm's spam detection
+//   npm run publish:npm -- --delay 60      # seconds before each NEW package name (default 30); updates don't wait
 //
 // Downloads the release's *.tgz with `gh`, publishes the platform packages first and the main package last
 // (it depends on them through optionalDependencies), and skips versions already on npm, so a re-run finishes
@@ -28,6 +28,14 @@ const version =
 const platforms = JSON.parse(fs.readFileSync(path.join(root, 'npm/platforms.json'), 'utf8')).map((p) => p.pkg)
 
 const run = (cmd, argv, opts = {}) => execFileSync(cmd, argv, { stdio: ['ignore', 'pipe', 'inherit'], encoding: 'utf8', ...opts })
+// Whether the package name exists on npm at all (any version, incl. moderation placeholders).
+const nameExists = (name) => {
+  try {
+    return run('npm', ['view', name, 'name'], { stdio: ['ignore', 'pipe', 'ignore'] }).trim() === name
+  } catch {
+    return false
+  }
+}
 const published = (name) => {
   try {
     return run('npm', ['view', `${name}@${version}`, 'version'], { stdio: ['ignore', 'pipe', 'ignore'] }).trim() === version
@@ -56,8 +64,9 @@ try {
     }
     const argv = ['publish', path.join(dir, tgz(name)), '--access', 'public']
     if (dryRun) argv.push('--dry-run')
-    if (!first && !dryRun && delaySec > 0) {
-      console.log(`wait     ${delaySec}s`)
+    // Only brand-new names need spacing out (npm's spam detection reacts to many new similar names at once).
+    if (!first && !dryRun && delaySec > 0 && !nameExists(name)) {
+      console.log(`wait     ${delaySec}s (new package name)`)
       sleep(delaySec)
     }
     first = false
