@@ -7,13 +7,6 @@ use oxc::span::Span;
 
 use crate::rule::LintFile;
 
-fn tokens<'a>(file: &LintFile<'a>) -> impl DoubleEndedIterator<Item = Span> + Clone + 'a {
-    file.script_tokens
-        .iter()
-        .map(|t| Span::new(t.start(), t.end()))
-        .filter(|s| s.start < s.end)
-}
-
 fn comments<'a>(file: &LintFile<'a>) -> &'a [oxc::ast::Comment] {
     file.program.map_or(&[], |p| &p.comments[..])
 }
@@ -83,16 +76,25 @@ pub fn token_after_where(file: &LintFile, pos: u32, pred: impl Fn(&str) -> bool)
 }
 
 /// `getTokensBetween(a, b, { includeComments })`: tokens fully inside `start..end`, in order.
+/// Binary-searched: tokens and comments are sorted by start, so this is O(log n + k), not O(n) per call.
 pub fn tokens_between(file: &LintFile, start: u32, end: u32, include_comments: bool) -> Vec<Span> {
-    let mut v: Vec<Span> = tokens(file)
-        .filter(|s| s.start >= start && s.end <= end)
+    let toks = file.script_tokens;
+    let lo = toks.partition_point(|t| t.start() < start);
+    let hi = toks.partition_point(|t| t.start() < end);
+    let mut v: Vec<Span> = toks[lo..hi.max(lo)]
+        .iter()
+        .map(|t| Span::new(t.start(), t.end()))
+        .filter(|s| s.start < s.end && s.end <= end)
         .collect();
     if include_comments {
+        let cs = comments(file);
+        let lo = cs.partition_point(|c| c.span.start < start);
+        let hi = cs.partition_point(|c| c.span.start < end);
         v.extend(
-            comments(file)
+            cs[lo..hi.max(lo)]
                 .iter()
                 .map(|c| c.span)
-                .filter(|s| s.start >= start && s.end <= end),
+                .filter(|s| s.end <= end),
         );
         v.sort_by_key(|s| s.start);
     }

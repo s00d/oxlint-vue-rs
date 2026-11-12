@@ -238,3 +238,36 @@ fn max_len_iterates_eslint_lines() {
     .0;
     assert!(at.is_empty());
 }
+
+// Final audit #4: a `//` comment right before `</script>` is not trailing (ESLint: 2:31).
+#[test]
+fn max_len_line_comment_before_script_end_tag() {
+    let code = "<script>\nexport default {} // inline comment xxxxxxxx</script>\n";
+    for opt in ["ignoreTrailingComments", "ignoreComments"] {
+        assert_eq!(
+            reports(
+                "max-len",
+                json!([{ "code": 30, opt: true }]),
+                Value::Null,
+                code
+            ),
+            vec!["2:31"],
+            "{opt}"
+        );
+    }
+}
+
+// Final audit #2: CRLF is one line break for `skipBlankLines` (SourceCode.splitLines).
+#[test]
+fn max_lines_per_block_crlf_blank_lines() {
+    let code = "<template>\r\n  <div/>\r\n  <div/>\r\n</template>\r\n";
+    assert_eq!(
+        reports(
+            "max-lines-per-block",
+            json!([{ "template": 1, "skipBlankLines": true }]),
+            Value::Null,
+            code
+        ),
+        vec!["1:1"]
+    );
+}

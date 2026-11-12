@@ -30,8 +30,10 @@ impl Rule for R {
             let mut count =
                 lines.line_of(b.span.end) as i64 - lines.line_of(b.span.start) as i64 - 1;
             if self.skip_blank_lines {
+                // `SourceCode.splitLines`: /\r\n|[\r\n\u2028\u2029]/ — CRLF is one break.
                 count -= doc
                     .slice(b.span)
+                    .replace("\r\n", "\n")
                     .split(['\n', '\r', '\u{2028}', '\u{2029}'])
                     .filter(|l| l.trim().is_empty())
                     .count() as i64;

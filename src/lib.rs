@@ -327,7 +327,21 @@ pub fn lint_source(
             }];
         }
         tokens = alloc.alloc_slice_copy(&ret.tokens);
-        let p: &oxc::ast::ast::Program = alloc.alloc(ret.program);
+        let mut prog = ret.program;
+        // The script is parsed from a masked copy of the file, so a `//` comment right before `</script>`
+        // would run on over the masked tag. vue-eslint-parser ends it at the block end: clamp it.
+        if is_sfc {
+            for c in prog.comments.iter_mut() {
+                if c.is_line()
+                    && let Some(b) = scripts
+                        .iter()
+                        .find(|b| b.content.start <= c.span.start && c.span.start < b.content.end)
+                {
+                    c.span.end = c.span.end.min(b.content.end);
+                }
+            }
+        }
+        let p: &oxc::ast::ast::Program = alloc.alloc(prog);
         program = Some(p);
     }
     let semantic_holder = program.map(|p| {
