@@ -27,19 +27,14 @@ and the npm tarballs (`oxlint-vue-rs-X.Y.Z.tgz` + one `oxlint-vue-rs-<platform>-
 
 ## 4. npm (by hand, from the release tarballs)
 
-The main package depends on the platform packages through `optionalDependencies`, so publish the 8 platform
-packages first and the main package last.
-
 ```bash
-mkdir -p /tmp/ovr-npm && cd /tmp/ovr-npm
-gh release download X.Y.Z -R s00d/oxlint-vue-rs -p '*.tgz'
-npm login                       # once; an account with 2FA will ask for a one-time password on publish
-for f in oxlint-vue-rs-*-X.Y.Z.tgz; do
-  case "$f" in oxlint-vue-rs-X.Y.Z.tgz) continue ;; esac
-  npm publish "$f" --access public
-done
-npm publish oxlint-vue-rs-X.Y.Z.tgz --access public
+npm login            # once
+npm run publish:npm  # version from Cargo.toml; `npm run publish:npm -- X.Y.Z --dry-run` to check first
 ```
+
+`scripts/npm/publish.mjs` downloads the release's tarballs with `gh`, publishes the 8 platform packages first and
+the main package last (it depends on them through `optionalDependencies`), and skips versions already on npm, so a
+re-run finishes a partial publish.
 
 Check: `npm view oxlint-vue-rs@X.Y.Z optionalDependencies`, then in an empty directory
 `npm i -D oxlint oxlint-vue-rs && npx oxlint-vue-rs --version`.
