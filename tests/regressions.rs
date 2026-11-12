@@ -108,3 +108,106 @@ fn script_indent_checks_leading_comments() {
         ["6:1"]
     );
 }
+
+#[test]
+fn indent_ignores_use_full_esquery() {
+    let tpl = "<template>\n<div>\n<span>\n  y\n</span>\n  <b>\nx</b>\n</div>\n</template>";
+    let hi = |sel: &str| {
+        reports(
+            "html-indent",
+            json!([2, { "ignores": [sel] }]),
+            Value::Null,
+            tpl,
+        )
+    };
+    assert_eq!(hi("VElement[name=span]"), ["2:1", "6:1", "7:1", "8:1"]);
+    assert!(hi("VElement[name=template] VElement").is_empty());
+    assert!(hi("VElement:not([name=span]) > VElement").is_empty());
+    assert_eq!(
+        hi("VElement:has(VText) ~ VElement, VElement[rawName=B]"),
+        ["2:1", "3:1", "4:1", "5:1", "8:1"]
+    );
+    let attrs = "<template>\n<div\n:a=\"1\"\n   :b=\"2\"\n/>\n</template>";
+    assert_eq!(
+        reports(
+            "html-indent",
+            json!([2, { "ignores": ["VAttribute[directive=true][key.argument.name=b]"] }]),
+            Value::Null,
+            attrs
+        ),
+        ["2:1", "3:1", "5:1"]
+    );
+
+    let si = |sel: &[&str], code: &str| {
+        reports(
+            "script-indent",
+            json!([2, { "ignores": sel }]),
+            Value::Null,
+            code,
+        )
+    };
+    let gql = "<script>\nconst q = gql(\n      \"a\",\n   \"b\"\n)\nfoo(\n      1\n)\n</script>";
+    assert_eq!(si(&["CallExpression[callee.name=\"gql\"] *"], gql), ["7:1"]);
+    let calls = "<script>\nfoo(\n      1,\n   a?.b(\n  2)\n)\n</script>";
+    let sels = [
+        "CallExpression[optional=true] > *",
+        "CallExpression[arguments.0.value=1] > Literal",
+    ];
+    assert!(si(&sels, calls).is_empty());
+    let ops = "<script>\nconst a = 1 +\n      2\nlet b = c ||\n         d\n</script>";
+    let sels = [
+        "BinaryExpression[operator=\"+\"] > *",
+        "VariableDeclaration[kind=let] *",
+    ];
+    assert!(si(&sels, ops).is_empty());
+}
+
+#[test]
+fn restricted_syntax_estree_parity() {
+    let t = "<template>\n  <div :a=\"foo(1)\" :b=\"{ x: 1, y, m() {} }\" :c=\"a.b?.c\" :d=\"f?.(2)\" :e=\"a?.[0]\" />\n</template>\n<script>\nfoo(2)\n</script>";
+    let r =
+        |code: &str, sel: &str| reports("no-restricted-syntax", json!([sel]), Value::Null, code);
+    assert_eq!(r(t, "Program"), ["1:1"]);
+    assert_eq!(r(t, "Program:exit"), ["1:1"]);
+    assert_eq!(r(t, "VDocumentFragment > VElement"), ["1:1", "4:1"]);
+    assert_eq!(r(t, "Property[shorthand=true]"), ["2:32"]);
+    assert_eq!(r(t, "Property[method=false]"), ["2:26", "2:32"]);
+    assert_eq!(r(t, "MemberExpression[optional=true]"), ["2:49", "2:73"]);
+    assert_eq!(r(t, "CallExpression[optional=true]"), ["2:61"]);
+    assert_eq!(r(t, "CallExpression[arguments.0.value=1]"), ["2:12"]);
+    assert_eq!(r(t, "Identifier[name.0=f]"), ["2:12", "2:61"]);
+    assert_eq!(
+        r(t, ":first-child"),
+        ["1:1", "1:11", "2:16", "2:26", "2:65", "2:8", "4:9"]
+    );
+
+    let t2 = "<template><p :a=\"a /* c */ + b\" @click=\"a = /* x */ b\" :c=\"- /* c */ a\" :d=\"x++\" /></template>";
+    assert_eq!(r(t2, "BinaryExpression[operator=\"+\"]"), ["1:18"]);
+    assert_eq!(r(t2, "AssignmentExpression[operator=\"=\"]"), ["1:41"]);
+    assert_eq!(r(t2, "UnaryExpression[operator=\"-\"]"), ["1:60"]);
+    assert_eq!(r(t2, "UpdateExpression[prefix=false]"), ["1:77"]);
+
+    let t3 = "<template><p :a=\"true\" :b=\"null\" :c=\"/re/gi\" :d=\"1n\" :e=\"'s'\" :f=\"0x1Fn\" :g=\"2\" :h=\"'10'\" :i=\"false\" :j=\"''\" :k=\"1_000\" /></template>";
+    assert_eq!(r(t3, "Literal[regex.flags=gi]"), ["1:38"]);
+    assert_eq!(r(t3, "Literal[bigint=\"31\"]"), ["1:67"]);
+    assert_eq!(
+        r(t3, "Literal[value>0]"),
+        ["1:114", "1:18", "1:50", "1:67", "1:78", "1:85"]
+    );
+    assert_eq!(
+        r(t3, "Literal[value<=1]"),
+        ["1:106", "1:18", "1:28", "1:50", "1:95"]
+    );
+    assert_eq!(r(t3, "Literal[value=/^\\d+$/]"), ["1:85"]);
+    assert_eq!(
+        r(t3, "Literal[value!=/^\\d+$/]"),
+        ["1:106", "1:18", "1:28", "1:38", "1:58", "1:95"]
+    );
+    assert_eq!(r(t3, "Literal[value=type(bigint)]"), ["1:50", "1:67"]);
+    assert_eq!(
+        r(t3, "Literal[value>\"1\"]"),
+        ["1:114", "1:58", "1:67", "1:78", "1:85"]
+    );
+    assert_eq!(r(t3, "Literal[value=1.0]"), ["1:50"]);
+    assert!(r(t3, "Literal[value=\"1.0\"]").is_empty());
+}

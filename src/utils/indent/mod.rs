@@ -15,8 +15,9 @@ use serde_json::Value;
 use crate::ast::TokenKind;
 use crate::rule::{Ctx, Fix, RuleOptions};
 
+use crate::utils::esquery::Matcher;
 use store::{Store, Tok};
-use tree::{Builder, F};
+use tree::Builder;
 
 pub struct Opts {
     pub indent_char: char,
@@ -28,7 +29,8 @@ pub struct Opts {
     pub close_self: i32,
     pub switch_case: i32,
     pub align_attrs: bool,
-    pub ignores: Vec<Selector>,
+    /// `ignores` selectors (each pattern's selector list, flattened).
+    pub ignores: Vec<crate::utils::esquery::Selector>,
 }
 
 fn int(v: &Value) -> Option<i32> {
@@ -91,7 +93,7 @@ impl Opts {
             o.ignores = a
                 .iter()
                 .filter_map(Value::as_str)
-                .map(Selector::parse)
+                .flat_map(crate::utils::esquery::parse)
                 .collect();
         }
         o
@@ -105,99 +107,6 @@ pub struct Report {
     pub loc: [u32; 4],
     pub message: String,
     pub fix: (u32, u32, String),
-}
-
-#[derive(Clone, Copy, Debug)]
-pub enum Comb {
-    Descendant,
-    Child,
-}
-
-#[derive(Debug)]
-pub enum Simple {
-    Any,
-    Type(String),
-    Attr(String, Option<String>),
-    Field(F),
-    /// Unsupported selector syntax: never matches.
-    Never,
-}
-
-/// A small esquery subset for the `ignores` option: `Type`, `*`, `[attr]` / `[attr=value]`,
-/// `.field`, descendant and `>` child combinators.
-// ponytail: no :not/:matches/sibling selectors; add when a real config needs them.
-#[derive(Debug)]
-pub struct Selector {
-    /// Compounds left to right, each with the combinator that precedes it.
-    parts: Vec<(Comb, Vec<Simple>)>,
-}
-
-impl Selector {
-    pub fn parse(src: &str) -> Selector {
-        let mut parts: Vec<(Comb, Vec<Simple>)> = Vec::new();
-        let mut comb = Comb::Descendant;
-        let s = src.trim();
-        let b = s.as_bytes();
-        let mut i = 0;
-        let mut cur: Vec<Simple> = Vec::new();
-        let ident = |i: &mut usize| {
-            let st = *i;
-            while *i < b.len() && (b[*i].is_ascii_alphanumeric() || b[*i] == b'_' || b[*i] == b'$')
-            {
-                *i += 1;
-            }
-            s[st..*i].to_string()
-        };
-        while i < b.len() {
-            match b[i] {
-                b' ' | b'>' => {
-                    let mut child = false;
-                    while i < b.len() && (b[i] == b' ' || b[i] == b'>') {
-                        child |= b[i] == b'>';
-                        i += 1;
-                    }
-                    if !cur.is_empty() {
-                        parts.push((comb, std::mem::take(&mut cur)));
-                    }
-                    comb = if child { Comb::Child } else { Comb::Descendant };
-                }
-                b'*' => {
-                    cur.push(Simple::Any);
-                    i += 1;
-                }
-                b'.' => {
-                    i += 1;
-                    let name = ident(&mut i);
-                    cur.push(F::from_name(&name).map_or(Simple::Never, Simple::Field));
-                }
-                b'[' => {
-                    let end = s[i..].find(']').map_or(s.len(), |e| i + e);
-                    let inner = &s[i + 1..end];
-                    let simple = match inner.split_once('=') {
-                        Some((k, v)) => Simple::Attr(
-                            k.trim().to_string(),
-                            Some(v.trim().trim_matches(['"', '\'']).to_string()),
-                        ),
-                        None => Simple::Attr(inner.trim().to_string(), None),
-                    };
-                    cur.push(simple);
-                    i = end + 1;
-                }
-                c if c.is_ascii_alphabetic() => {
-                    let name = ident(&mut i);
-                    cur.push(Simple::Type(name));
-                }
-                _ => {
-                    cur.push(Simple::Never);
-                    i += 1;
-                }
-            }
-        }
-        if !cur.is_empty() {
-            parts.push((comb, cur));
-        }
-        Selector { parts }
-    }
 }
 
 fn push_reports(ctx: &mut Ctx, reports: Vec<Report>) {
@@ -245,7 +154,8 @@ pub fn run_html(ctx: &mut Ctx, opts: &Opts) {
     let mut b = Builder::new(src);
     let root_id = b.element(doc, root);
     let tree = b.t;
-    let mut e = engine::Engine::new(&tree, &store, opts, ctx.file.lines, root_id);
+    let m = (!opts.ignores.is_empty()).then(|| Matcher::new(&tree, src, Some(doc)));
+    let mut e = engine::Engine::new(&tree, &store, opts, ctx.file.lines, root_id, m);
     e.run();
     let reports = std::mem::take(&mut e.out);
     push_reports(ctx, reports);
@@ -338,7 +248,8 @@ pub fn run_script(ctx: &mut Ctx, opts: &Opts) {
     let mut b = Builder::new(src);
     let root_id = b.program(program, range);
     let tree = b.t;
-    let mut e = engine::Engine::new(&tree, &store, opts, ctx.file.lines, root_id);
+    let m = (!opts.ignores.is_empty()).then(|| Matcher::new(&tree, src, None));
+    let mut e = engine::Engine::new(&tree, &store, opts, ctx.file.lines, root_id, m);
     e.run();
     let reports = std::mem::take(&mut e.out);
     push_reports(ctx, reports);

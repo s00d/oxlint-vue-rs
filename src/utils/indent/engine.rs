@@ -6,7 +6,8 @@ use crate::utils::tpl_style::{is_js_ws, js_trim};
 
 use super::store::{NONE, Store};
 use super::tree::{F, Tree, Ty, flag};
-use super::{Opts, Report, Selector};
+use super::{Opts, Report};
+use crate::utils::esquery::Matcher;
 
 #[derive(Clone, Copy, Debug)]
 struct Off {
@@ -26,6 +27,8 @@ pub struct Engine<'e, 'a> {
     infos: Vec<Off>,
     ignored: Vec<bool>,
     root: u32,
+    /// Matcher for `o.ignores` (`None` when there are none).
+    ign: Option<Matcher<'e>>,
     pub out: Vec<Report>,
 }
 
@@ -84,6 +87,7 @@ impl<'e, 'a> Engine<'e, 'a> {
         o: &'e Opts,
         lines: &'e crate::LineIndex,
         root: u32,
+        ign: Option<Matcher<'e>>,
     ) -> Self {
         Engine {
             t,
@@ -94,6 +98,7 @@ impl<'e, 'a> Engine<'e, 'a> {
             infos: Vec::new(),
             ignored: vec![false; s.len()],
             root,
+            ign,
             out: Vec::new(),
         }
     }
@@ -567,8 +572,11 @@ impl<'e, 'a> Engine<'e, 'a> {
     // ------------------------------------------------------------------
 
     fn exit(&mut self, n: u32) {
-        let ignores = &self.o.ignores;
-        if ignores.iter().any(|s| s.matches(self.t, n)) {
+        if self
+            .ign
+            .as_ref()
+            .is_some_and(|m| m.matches_any(n, &self.o.ignores))
+        {
             self.ignore(n);
         }
         if self.t.ty(n) == Ty::Unknown {
@@ -2413,55 +2421,4 @@ fn split_lines_keep(text: &str) -> Vec<&str> {
 fn block_prefix_len(l: &str) -> Option<usize> {
     let ws = l.len() - l.trim_start_matches(is_js_ws).len();
     l[ws..].starts_with('*').then_some(ws + 1)
-}
-
-impl Selector {
-    pub fn matches(&self, t: &Tree, n: u32) -> bool {
-        let Some((last, rest)) = self.parts.split_last() else {
-            return false;
-        };
-        if !last.1.iter().all(|s| s.matches(t, n)) {
-            return false;
-        }
-        let mut cur = n;
-        let mut combinator = last.0;
-        for part in rest.iter().rev() {
-            match combinator {
-                super::Comb::Child => {
-                    cur = t.parent(cur);
-                    if cur == NONE || !part.1.iter().all(|s| s.matches(t, cur)) {
-                        return false;
-                    }
-                }
-                super::Comb::Descendant => loop {
-                    cur = t.parent(cur);
-                    if cur == NONE {
-                        return false;
-                    }
-                    if part.1.iter().all(|s| s.matches(t, cur)) {
-                        break;
-                    }
-                },
-            }
-            combinator = part.0;
-        }
-        true
-    }
-}
-
-impl super::Simple {
-    fn matches(&self, t: &Tree, n: u32) -> bool {
-        match self {
-            super::Simple::Any => true,
-            super::Simple::Type(name) => t.ty(n).name() == name,
-            super::Simple::Attr(name, value) => match (name.as_str(), value.as_deref()) {
-                ("computed", Some(v)) => t.has(n, flag::COMPUTED) == (v == "true"),
-                ("computed", None) => t.has(n, flag::COMPUTED),
-                ("type", Some(v)) => t.ty(n).name() == v,
-                _ => false,
-            },
-            super::Simple::Field(f) => t.field_of(n) == Some(*f),
-            super::Simple::Never => false,
-        }
-    }
 }
