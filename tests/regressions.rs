@@ -383,3 +383,29 @@ fn template_type_names_are_not_properties() {
         ["6:9"]
     );
 }
+
+// `setup()` returning a spread (or a non-literal) exposes bindings we cannot list; any of them may be the
+// ref a `ref="x"` binds to (upstream reports every such ref as unused).
+#[test]
+fn no_unused_refs_unknown_setup_return() {
+    let r = |c: &str| reports("no-unused-refs", json!([]), Value::Null, c);
+    let tpl = "<template><div ref=\"a\" /><div ref=\"b\" /></template>\n";
+    let spread = "<script>\nexport default { setup() { const api = useX(); return { ...api, c: 1 } } }\n</script>";
+    assert!(r(&format!("{tpl}{spread}")).is_empty());
+    let ident = "<script>\nexport default { setup: () => useX() }\n</script>";
+    assert!(r(&format!("{tpl}{ident}")).is_empty());
+    // A literal object is still checked (ESLint-verified).
+    let known = "<script>\nexport default { setup() { return { a: ref() } } }\n</script>";
+    assert_eq!(r(&format!("{tpl}{known}")), ["1:35"]);
+}
+
+// `getCurrentInstance().refs` is the Composition API's `this.$refs` (upstream ignores it).
+#[test]
+fn no_unused_refs_current_instance() {
+    let r = |c: &str| reports("no-unused-refs", json!([]), Value::Null, c);
+    let used = "<script setup>\nconst instance = getCurrentInstance()\nonMounted(() => draw(instance.refs.map))\n</script>\n<template><div ref=\"map\" /></template>";
+    assert!(r(used).is_empty());
+    // Only another property of the instance: refs are still checked.
+    let other = "<script setup>\nconst app = getCurrentInstance().appContext\n</script>\n<template><div ref=\"map\" /></template>";
+    assert_eq!(r(other), ["4:20"]);
+}

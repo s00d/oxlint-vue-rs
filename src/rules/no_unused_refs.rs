@@ -111,6 +111,34 @@ impl Used {
     }
 }
 
+/// `setup()` returns bindings we cannot list (`return { ...api }`, `return api`): any of them may be the
+/// ref a `ref="x"` binds to, so nothing is reported (upstream reports them all as unused).
+fn setup_returns_unknown(obj: &ObjectExpression) -> bool {
+    let unknown = |e: &Expression| match js::skip_parens(e) {
+        Expression::ObjectExpression(o) => o
+            .properties
+            .iter()
+            .any(|p| matches!(p, ObjectPropertyKind::SpreadProperty(_))),
+        Expression::FunctionExpression(_) | Expression::ArrowFunctionExpression(_) => false,
+        _ => true,
+    };
+    let returns = |b: &FunctionBody| {
+        b.statements.iter().any(
+            |s| matches!(s, Statement::ReturnStatement(r) if r.argument.as_ref().is_some_and(unknown)),
+        )
+    };
+    js::properties(obj)
+        .filter(|p| js::prop_name(p).as_deref() == Some("setup"))
+        .any(|p| match js::skip_parens(&p.value) {
+            Expression::FunctionExpression(f) => f.body.as_ref().is_some_and(|b| returns(b)),
+            Expression::ArrowFunctionExpression(f) => match &f.body {
+                ArrowFunctionBody::FunctionBody(b) => returns(b),
+                body => body.as_expression().is_some_and(unknown),
+            },
+            _ => false,
+        })
+}
+
 fn is_transparent(k: &AstKind) -> bool {
     matches!(k, AstKind::ChainExpression(_) | AstKind::ParenthesizedExpression(_))
 }
@@ -128,6 +156,7 @@ impl Rule for NoUnusedRefs {
         }
         for o in vc::vue_objects(file) {
             used.names.extend(vc::iterate_properties(o.obj, &["setup"]).into_iter().map(|p| p.name));
+            used.unknown |= setup_returns_unknown(o.obj);
         }
         if let Some(sem) = file.semantic {
             let nodes = sem.nodes();
@@ -136,6 +165,18 @@ impl Rule for NoUnusedRefs {
                     AstKind::IdentifierReference(id) if id.name == "$refs" => (id.span, n.id()),
                     AstKind::StaticMemberExpression(m) if m.property.name == "$refs" => (m.span, n.id()),
                     AstKind::CallExpression(c) => {
+                        // `getCurrentInstance().refs` is `this.$refs`; once the instance is stored or passed on
+                        // (`useStyle(table)`), any ref may be read elsewhere.
+                        // ponytail: any use but `getCurrentInstance().<other prop>` counts as unknown; track the
+                        // instance variable's members if that hides real unused refs.
+                        if matches!(&c.callee, Expression::Identifier(id) if id.name == "getCurrentInstance")
+                            && !matches!(
+                                nodes.parent_kind(n.id()),
+                                AstKind::StaticMemberExpression(m) if !matches!(m.property.name.as_str(), "refs" | "proxy")
+                            )
+                        {
+                            used.unknown = true;
+                        }
                         if let Some(a) = c.arguments.first().and_then(|a| a.as_expression())
                             && js::is_string_literal(a)
                             && matches!(&c.callee, Expression::Identifier(id) if id.name == "useTemplateRef")

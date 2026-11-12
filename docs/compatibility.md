@@ -108,6 +108,12 @@ ESLint is); oxlint-vue its 25 template rules plus oxlint's defaults. Single-thre
   names), so `no-undef-properties` reports DOM types as undefined. We skip every type-position name. This removes
   45 false `no-undef-properties` (old corpora: on-nuxt-3 15, ui 13, vue-vben-admin 3, nuxt-i18n-next 1; new:
   directus 7, vitepress 3, hoppscotch 2, slidev 1) and nothing else.
+- **`no-unused-refs` does not guess when the refs are reachable elsewhere.** `setup()` returning
+  `{ ...api }` (or a non-literal) exposes bindings we cannot list, and a stored or passed-on
+  `getCurrentInstance()` exposes `instance.refs` (the Composition API's `this.$refs`): any template ref may be read
+  there. eslint-plugin-vue reports every ref then; we report none for that component. Removes 37 false positives
+  (element-plus `select`/`select-v2` spread returns 23, `table` 13; vue-pure-admin `Amap` reading
+  `instance.refs.mapview` 1). `getCurrentInstance().<other property>` keeps the check.
 - **`no-ref-as-operand` checks right operands of `&&` / `||` in a test** (`if (a && hasNext)` with a `ref`
   `hasNext`): ported from eslint-plugin-vue's main branch (#3148, after 10.12.1). All 3 such reports on the new
   corpora (halo, vue-pure-admin) are real bugs: the ref object is always truthy.

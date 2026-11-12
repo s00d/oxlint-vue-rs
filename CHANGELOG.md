@@ -10,6 +10,8 @@
   (eslint-plugin-vue writes `` `${x} b} ``).
 - Fix: `no-undef-properties` no longer reports type names used in template expressions
   (`$event.target as HTMLInputElement`, `(el: Element) => …`) — they are erased by the compiler.
+- Fix: `no-unused-refs` reports nothing for a component whose `setup()` returns a spread / non-literal object or
+  whose `getCurrentInstance()` is stored or passed on (`instance.refs.x` reads a ref).
 - Fix: `prefer-define-options`'s fix no longer deletes blank lines above the removed `export default`.
 
 ## 0.1.2 — 2026-11-12
