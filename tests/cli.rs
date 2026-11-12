@@ -275,6 +275,43 @@ fn bom_is_stripped_and_restored() {
     assert_eq!(d.read("b.vue"), "\u{feff}<template><div /></template>\n");
 }
 
+// `--fix` runs until stable: `order-in-components` moves one property per pass, so this list needs
+// more than ESLint's 10 passes. A BOM + CRLF file keeps both.
+#[test]
+fn fix_runs_until_stable() {
+    let d = Dir::new("passes");
+    let keys = [
+        "watch",
+        "methods",
+        "computed",
+        "setup",
+        "data",
+        "props",
+        "model",
+        "inject",
+        "provide",
+        "emits",
+        "mixins",
+        "filters",
+        "directives",
+        "components",
+        "name",
+    ];
+    let body: String = keys.iter().map(|k| format!("  {k}: {{}},\r\n")).collect();
+    d.file(
+        "a.vue",
+        &format!("\u{feff}<script>\r\nexport default {{\r\n{body}}}\r\n</script>\r\n"),
+    );
+    let (code, _, err) = d.run("", &["--fix", "-D", "order-in-components", "a.vue"]);
+    assert_eq!(code, 0, "{err}");
+    let out = d.read("a.vue");
+    assert!(
+        out.starts_with("\u{feff}<script>\r\nexport default {\r\n  name: {},\r\n"),
+        "{out:?}"
+    );
+    assert!(!out.replace("\r\n", "").contains('\n'), "{out:?}");
+}
+
 // Expected positions below are ESLint + eslint-plugin-vue output for the same inputs.
 
 // L2: in an SFC only `\n` breaks lines (vue-eslint-parser); lone CR and U+2028 do not.

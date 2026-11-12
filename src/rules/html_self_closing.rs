@@ -79,9 +79,14 @@ impl Rule for R {
             if m == Mode::Always && !st.self_closing {
                 let end = e.end_tag.map_or(e.span.end, |t| t.start);
                 // HTML whitespace only: Vue keeps U+00A0, U+3000, … as text (JS `trim()` drops them).
-                // In `<pre>` / `<textarea>` whitespace is content too.
+                // In (an element inside) `<pre>` / `<textarea>` whitespace is content too.
                 let content = &src[st.span.end as usize..end as usize];
-                let pre = matches!(e.name.as_str(), "pre" | "textarea");
+                let mut pre = matches!(e.name.as_str(), "pre" | "textarea");
+                let mut up = e.parent;
+                while let Some(id) = up {
+                    pre |= doc.element(id).name == "pre";
+                    up = doc.element(id).parent;
+                }
                 if (pre && content.is_empty())
                     || (!pre
                         && content

@@ -21,6 +21,16 @@ upstream test input and on the real-project corpora, compiled with Vue before an
   name cannot be converted. `component-name-in-template-casing`: no fix that leaves the name unchanged.
 - Fix: `require-macro-variable-name`'s suggestion renames the uses too, and is not offered when the name is taken.
 - Fix: `require-name-property`'s suggestion and `no-empty-component-block`'s fix keep comments.
+- Fix: `padding-line-between-tags` no longer fixes a gap with text or a same-line space (`</b> <i>`, `a<br />b`):
+  the inserted line break removed or added a rendered space. Still reported.
+- Fix: `no-useless-mustaches` gives no fix for the first / last mustache of an element next to whitespace-only
+  text (`<b>\n  {{ 'a' }}\n</b>` renders `a`, the fixed text ` a `).
+- Fix: `padding-lines-in-component-definition` no longer treats comment lines as blank lines; its fix deleted all
+  but the last line of a comment between two properties.
+- Fix: `prefer-separate-static-class` keeps the comments inside a `:class` list.
+- `--fix` repeats until the file is stable, up to 50 passes (was 10, like ESLint), and stops on a cycle: on the
+  real-project corpora ~3% of files needed 11–30 passes with every rule on (reordering rules move one item per
+  pass), and were left half-fixed.
 
 ## 0.1.3 — 2026-11-12
 

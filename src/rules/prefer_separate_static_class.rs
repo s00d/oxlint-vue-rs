@@ -99,10 +99,17 @@ fn find(x: &Expression, pos: Option<ListPos>, out: &mut Vec<Found>) {
     }
 }
 
+/// Remove a list element with its comma. Comments between the two stay (eslint-plugin-vue removes the
+/// whole range and the comments with it).
 fn remove_with_comma(doc: &Document, node: Span) -> Fix {
+    let comment_in = |s: u32, e: u32| doc.comments.iter().any(|c| s <= c.span.start && c.span.end <= e);
+    let pair = |a: Span, b: Span| Fix::merge(doc.source, vec![Fix::remove(a), Fix::remove(b)]).expect("disjoint");
     if let Some(prev) = token_before(doc, node.start)
         && doc.slice(prev.span) == ","
     {
+        if comment_in(prev.span.end, node.start) {
+            return pair(prev.span, node);
+        }
         return Fix::remove(Span::new(prev.span.start, node.end));
     }
     let mut after = tokens_after(doc, node.end);
@@ -110,6 +117,9 @@ fn remove_with_comma(doc: &Document, node: Span) -> Fix {
         && doc.slice(n1.span) == ","
         && (n2.kind != crate::ast::TokenKind::Punctuator || !matches!(doc.slice(n2.span), "]" | "}"))
     {
+        if comment_in(node.end, n2.span.start) {
+            return pair(node, n1.span);
+        }
         return Fix::remove(Span::new(node.start, n2.span.start));
     }
     Fix::remove(node)

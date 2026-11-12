@@ -128,7 +128,7 @@ The binary works, but oxlint cannot load the JS plugin there and `./node_modules
 ```bash
 oxlint-vue-rs                    # current directory: oxlint (if installed) + Vue rules, one report
 oxlint-vue-rs src --no-oxlint    # only the Vue rules
-oxlint-vue-rs --fix              # apply fixes (repeats until stable, max 10 passes)
+oxlint-vue-rs --fix              # apply fixes (repeats until stable, max 50 passes)
 oxlint-vue-rs -D all src         # every rule as an error, ignoring the config's rule list
 oxlint-vue-rs -f json            # json (oxlint-like) | unix | github | default
 oxlint-vue-rs --rules            # list rules

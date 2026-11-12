@@ -34,7 +34,7 @@ Options:
                              names go to oxlint when it runs)
   -W, --warn <RULE>          warn on a rule    (`all` = every implemented rule)
   -D, --deny <RULE>          error on a rule   (`all` = every implemented rule)
-      --fix                  apply fixes (up to 10 passes per file)
+      --fix                  apply fixes (until stable, up to 50 passes per file)
       --fix-suggestions      also apply the first suggestion of each diagnostic
   -f, --format <FMT>         default | json | unix | github
       --quiet                report errors only
@@ -428,6 +428,15 @@ fn write_fixed(path: &Path, read: &str, text: &str) -> Result<(), String> {
     res.map_err(err)
 }
 
+const MAX_FIX_PASSES: usize = 50;
+
+fn hash(s: &str) -> u64 {
+    use std::hash::{Hash, Hasher};
+    let mut h = std::collections::hash_map::DefaultHasher::new();
+    s.hash(&mut h);
+    h.finish()
+}
+
 fn lint_file(
     t: &Target,
     args: &Args,
@@ -468,7 +477,10 @@ fn lint_file(
     let mut diags = lint_source(&source, path, &opts, &rules);
     if args.fix {
         let original = source.clone();
-        for _ in 0..10 {
+        // ESLint stops after 10 passes; reorderings (`attributes-order`, `order-in-components`: one
+        // move per pass) combined with layout rules can need ~30 on real files. Stop on a cycle.
+        let mut seen = vec![hash(&source)];
+        for _ in 0..MAX_FIX_PASSES {
             let mut ds = diags.clone();
             if args.fix_suggestions {
                 for d in &mut ds {
@@ -483,6 +495,11 @@ fn lint_file(
                 Some(next) if next != source => {
                     source = next;
                     diags = lint_source(&source, path, &opts, &rules);
+                    let h = hash(&source);
+                    if seen.contains(&h) {
+                        break;
+                    }
+                    seen.push(h);
                 }
                 _ => break,
             }

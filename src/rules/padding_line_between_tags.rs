@@ -26,6 +26,18 @@ struct R {
     confs: Vec<Conf>,
 }
 
+/// `s` without its `<!-- … -->` comments.
+fn strip_comments(s: &str) -> String {
+    let mut out = String::new();
+    let mut rest = s;
+    while let Some(i) = rest.find("<!--") {
+        out.push_str(&rest[..i]);
+        rest = rest[i..].find("-->").map_or("", |j| &rest[i + j + 3..]);
+    }
+    out.push_str(rest);
+    out
+}
+
 fn is_blank(s: &str) -> bool {
     s.chars().all(is_js_ws)
 }
@@ -119,23 +131,28 @@ impl Rule for R {
                 }
             }
             if blank == Blank::Always {
+                // Vue drops whitespace between tags only when it holds a line break: a line break
+                // written into `</b> <i>` removes the rendered space, and one next to text
+                // (`a<br />b`) adds a space to it. Fix only a gap of whitespace / comments that is
+                // empty or already breaks the line (eslint-plugin-vue fixes every gap).
+                let gap = strip_comments(&src[end_tag.end as usize..sib.span.start as usize]);
+                let safe = gap.chars().all(|c| matches!(c, ' ' | '\t' | '\n' | '\r' | '\x0c'))
+                    && (gap.is_empty() || gap.contains('\n'));
                 let fix = match diff {
-                    1 => Some(Fix::insert(block.span.end, "\n")),
+                    1 => Fix::insert(block.span.end, "\n"),
                     0 => {
                         let t = R::line_text(ctx, line(end_tag.start));
                         let sp = &t[..t.len() - t.trim_start_matches(is_js_ws).len()];
-                        Some(Fix::insert(end_tag.end, format!("\n\n{sp}")))
+                        Fix::insert(end_tag.end, format!("\n\n{sp}"))
                     }
-                    _ => None,
+                    _ => continue,
                 };
-                if let Some(fix) = fix {
-                    ctx.report_fix(
-                        sib.span,
-                        Some("always"),
-                        "Expected blank line before this tag.",
-                        Some(fix),
-                    );
-                }
+                ctx.report_fix(
+                    sib.span,
+                    Some("always"),
+                    "Expected blank line before this tag.",
+                    safe.then_some(fix),
+                );
             } else {
                 if diff <= 1 {
                     continue;

@@ -23,7 +23,13 @@ use oxlint_vue_rs::{
 };
 use serde_json::Value;
 
-pub const MAX_PASSES: usize = 10;
+/// The CLI's pass limit (`MAX_FIX_PASSES`); `FIXCHECK_MAX_PASSES` overrides it (to measure how many passes fixes need).
+pub fn max_passes() -> usize {
+    std::env::var("FIXCHECK_MAX_PASSES")
+        .ok()
+        .and_then(|v| v.parse().ok())
+        .unwrap_or(50)
+}
 
 /// What the fix loop did to one input.
 #[derive(Debug, Default)]
@@ -87,7 +93,7 @@ pub fn fix_loop(
             problems.push("noop-fix".to_string());
             break;
         }
-        if passes == MAX_PASSES {
+        if passes == max_passes() {
             problems.push("no-converge".to_string());
             break;
         }

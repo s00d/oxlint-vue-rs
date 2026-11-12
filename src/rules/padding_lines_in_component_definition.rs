@@ -4,7 +4,7 @@ use oxc::ast::ast::*;
 use oxc::span::{GetSpan, Span};
 use serde_json::Value;
 
-use crate::rule::{Ctx, Fix, Rule, RuleOptions};
+use crate::rule::{Ctx, Fix, LintFile, Rule, RuleOptions};
 use crate::utils::js::{self, ObjectOrArray};
 use crate::utils::{tokens, vue_component as vc};
 
@@ -44,6 +44,30 @@ fn split_last_line(s: &str) -> &str {
     &s[idx.unwrap_or(0)..]
 }
 
+/// Whitespace-only lines (with their line break) between `start` and `end`, outside comments; the
+/// partial first and last lines do not count.
+fn blank_lines(file: &LintFile, start: u32, end: u32) -> Vec<Span> {
+    let mut masked = file.source.as_bytes()[start as usize..end as usize].to_vec();
+    for c in tokens::comment_spans(file) {
+        for i in c.start.max(start)..c.end.min(end) {
+            masked[(i - start) as usize] = b'x';
+        }
+    }
+    let mut out = Vec::new();
+    let mut line_start = None;
+    for (i, b) in masked.iter().enumerate() {
+        if *b == b'\n' {
+            if let Some(ls) = line_start
+                && masked[ls..i].iter().all(|b| matches!(b, b' ' | b'\t' | b'\r'))
+            {
+                out.push(Span::new(start + ls as u32, start + i as u32 + 1));
+            }
+            line_start = Some(i + 1);
+        }
+    }
+    out
+}
+
 impl Padding {
     fn verify(
         &self,
@@ -74,16 +98,27 @@ impl Padding {
                     tokens::line(file, report.start) as i64 - tokens::line(file, cur.end) as i64;
                 let comma_end = tokens::token_after_where(file, cur.end, |s| s == ",")
                     .map_or(cur.end, |c| c.end);
+                // Lines between two properties can be comments: only whitespace-only lines are
+                // blank, and only those are removed (eslint-plugin-vue counts comment lines as blank
+                // and its fix deletes all but the last comment line).
+                let blanks = blank_lines(file, comma_end, next.start);
                 let replace = || {
                     let padding = file.slice(Span::new(comma_end, report.start));
-                    Fix::replace(
-                        Span::new(comma_end, report.start),
-                        format!("\n{}", split_last_line(padding)),
-                    )
+                    if tokens::comment_spans(file)
+                        .any(|c| comma_end <= c.start && c.end <= report.start)
+                    {
+                        Fix::merge(file.source, blanks.iter().map(|b| Fix::remove(*b)).collect())
+                            .expect("called with blank lines")
+                    } else {
+                        Fix::replace(
+                            Span::new(comma_end, report.start),
+                            format!("\n{}", split_last_line(padding)),
+                        )
+                    }
                 };
                 if group && tokens::is_single_line(file, cur) && tokens::is_single_line(file, next)
                 {
-                    if range > 1 {
+                    if range > 1 && !blanks.is_empty() {
                         ctx.report_fix(
                             report,
                             Some("groupSingleLineProperties"),
@@ -108,7 +143,7 @@ impl Padding {
                         "Expected blank line before this definition.",
                         Some(Fix::insert(comma_end, text)),
                     );
-                } else if range > 1 && option.as_str() == Some("never") {
+                } else if range > 1 && !blanks.is_empty() && option.as_str() == Some("never") {
                     ctx.report_fix(
                         report,
                         Some("never"),

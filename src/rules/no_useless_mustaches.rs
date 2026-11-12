@@ -4,7 +4,7 @@ use std::sync::LazyLock;
 
 use crate::utils::regexp::JsRegex as Regex;
 
-use crate::ast::{ExprParent, VExpression};
+use crate::ast::{Child, Document, ExprContainer, ExprParent, VExpression};
 use crate::rule::{Ctx, Fix, Rule, RuleOptions};
 use crate::utils::js::{is_string_literal, string_literal_value};
 use crate::utils::tpl_misc::{body_exprs, has_js_comment, has_useful_escape, string_raw};
@@ -55,6 +55,32 @@ fn char_at(src: &str, pos: Option<usize>) -> String {
     pos.and_then(|p| src.get(p..)).and_then(|s| s.chars().next()).map(String::from).unwrap_or_default()
 }
 
+/// Vue drops a whitespace-only text node at the start / end of an element (`condense`), but keeps it
+/// as a space once it is part of a text node. `<b>\n  {{ ':' }}\n</b>` renders ":", `<b>\n  :\n</b>`
+/// renders " : " (eslint-plugin-vue fixes it anyway).
+fn merges_dropped_whitespace(doc: &Document, c: &ExprContainer) -> bool {
+    let ExprParent::Element(Some(p)) = c.parent else {
+        return false;
+    };
+    let parent = doc.element(p);
+    if parent.name == "pre" {
+        return false;
+    }
+    let kids = &parent.children;
+    let Some(i) = kids.iter().position(|k| *k == Child::Expr(c.id)) else {
+        return false;
+    };
+    let ws_text = |k: Option<&Child>| match k {
+        Some(Child::Text(t)) => doc
+            .text(*t)
+            .value
+            .chars()
+            .all(|c| matches!(c, ' ' | '\t' | '\n' | '\r' | '\x0c')),
+        _ => false,
+    };
+    (i == 1 && ws_text(kids.first())) || (i + 2 == kids.len() && ws_text(kids.last()))
+}
+
 impl Rule for R {
     fn run(&self, ctx: &mut Ctx) {
         let Some(doc) = ctx.doc() else { return };
@@ -76,7 +102,7 @@ impl Rule for R {
             if self.ignore_escape && has_escape {
                 continue;
             }
-            let fix = (!has_comment && !has_escape)
+            let fix = (!has_comment && !has_escape && !merges_dropped_whitespace(doc, c))
                 .then(|| strip_quotes(doc.slice(expr_span(x))))
                 .flatten()
                 .filter(|t| {

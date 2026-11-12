@@ -146,7 +146,14 @@ ESLint is); oxlint-vue its 25 template rules plus oxlint's defaults. Single-thre
     `component-options-name-casing` for names that do not convert to an identifier (it wrote `Fio.fio: X`).
   - `require-macro-variable-name`'s suggestion renames uses in the script and the template (eslint-plugin-vue
     renames only the declaration) and is not offered when the new name is taken.
-  - `require-name-property` (suggestion) and `no-empty-component-block` keep comments.
+  - `require-name-property` (suggestion), `no-empty-component-block`, `prefer-separate-static-class` and
+    `padding-lines-in-component-definition` keep comments; the last one no longer counts comment lines as blank
+    lines (eslint-plugin-vue reports two comment lines between single-line properties and deletes the first).
+  - Vue drops whitespace between tags only when it holds a line break, and drops whitespace-only text at the
+    start / end of an element: `padding-line-between-tags` does not fix a gap with text or a same-line space
+    (`</b> <i>`, `a<br />b`), `no-useless-mustaches` does not fix the first / last mustache next to such
+    whitespace (6 upstream cases skipped for this).
+  - `--fix` runs up to 50 passes (ESLint: 10) and stops on a cycle.
 
 ## 6. Known gaps
 

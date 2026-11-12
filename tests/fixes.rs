@@ -17,8 +17,6 @@ use serde_json::{Value, json};
 
 /// (rule, problem tag): known and accepted, with the reason.
 const ACCEPTED: &[(&str, &str, &str)] = &[
-    // eslint-plugin-vue moves one property per report: a long list needs more than 10 passes.
-    ("order-in-components", "no-converge", "one move per pass"),
     // Removing a block / an element's children is the purpose of these fixes.
     ("no-empty-component-block", "blocks", "removes blocks"),
     (
@@ -417,4 +415,60 @@ fn empty_block_fix_keeps_comments() {
     let ds = lint_source(code, Path::new("t.vue"), &FileOptions::default(), &rules);
     assert_eq!(ds.len(), 1);
     assert_eq!(apply_fixes(code, &ds), None);
+}
+
+#[test]
+fn padding_between_tags_keeps_rendered_spaces() {
+    // `</b> <i>`: a line break there makes Vue drop the space; one after `<br />` before text adds a
+    // space to the text. Both are still reported.
+    let code = "<template>\n  <p><b>a</b> <i>b</i></p>\n  <p>x<br />y<br />z</p>\n</template>";
+    let opts: Vec<Value> = Vec::new();
+    let rules = [fixcheck::rule("padding-line-between-tags", &opts, &Value::Null).unwrap()];
+    let ds = lint_source(code, Path::new("t.vue"), &FileOptions::default(), &rules);
+    assert_eq!(ds.len(), 3);
+    assert_eq!(
+        apply_fixes(code, &ds).as_deref(),
+        Some("<template>\n  <p><b>a</b> <i>b</i></p>\n\n  <p>x<br />y<br />z</p>\n</template>")
+    );
+}
+
+#[test]
+fn useless_mustache_fix_keeps_dropped_whitespace_dropped() {
+    // `<b>\n  {{ 'a' }}\n</b>` renders "a"; `<b>\n  a\n</b>` renders " a ".
+    let f = |c: &str| fix("no-useless-mustaches", json!([]), c);
+    assert_eq!(f("<template><b>\n  {{ 'a' }}\n</b></template>"), None);
+    assert_eq!(
+        f("<template><b>x {{ 'a' }} y</b></template>").as_deref(),
+        Some("<template><b>x a y</b></template>")
+    );
+}
+
+#[test]
+fn component_padding_keeps_comment_lines() {
+    let code = "<script>\nexport default {\n  props: {\n    data: {\n      required: true,\n      // one\n      // two\n      type: Number,\n\n      default: 1,\n    },\n  },\n}\n</script>";
+    // Single-line properties are grouped (default): two comment lines are not a blank line, the real
+    // blank line before `default` goes.
+    assert_eq!(
+        fix("padding-lines-in-component-definition", json!([]), code).as_deref(),
+        Some(
+            "<script>\nexport default {\n  props: {\n    data: {\n      required: true,\n      // one\n      // two\n      type: Number,\n      default: 1,\n    },\n  },\n}\n</script>"
+        )
+    );
+}
+
+#[test]
+fn separate_static_class_keeps_comments() {
+    let code =
+        "<template><div :class=\"[\n  'a',\n  // why\n  'b',\n  { c: d },\n]\" /></template>";
+    let out = fix("prefer-separate-static-class", json!([]), code).unwrap();
+    assert!(
+        out.contains("// why") && out.contains("class=\"a b\""),
+        "{out}"
+    );
+}
+
+#[test]
+fn self_closing_inside_pre() {
+    let code = "<template><pre><code v-html=\"x\">\n</code></pre></template>";
+    assert_eq!(fix("html-self-closing", json!([]), code), None);
 }
