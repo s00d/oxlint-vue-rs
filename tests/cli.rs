@@ -471,3 +471,183 @@ fn with_oxlint_required_errors_when_missing() {
         String::from_utf8_lossy(&out.stderr)
     );
 }
+
+// M2: an oxlint.config.ts we cannot read, with no JSON config: warning; exit 2 unless the command line
+// enables a rule of ours.
+#[test]
+fn js_config_without_json_config() {
+    let d = Dir::new("jscfg");
+    d.file("oxlint.config.ts", "export default {}\n")
+        .file("src/a.vue", VFOR);
+    let (code, _, err) = d.run("", &["src"]);
+    assert_eq!(code, 2, "{err}");
+    assert!(
+        err.contains("oxlint.config.ts") && err.contains(".oxlintrc.json"),
+        "{err}"
+    );
+    let (code, _, err) = d.run("", &["-D", "require-v-for-key", "src"]);
+    assert_eq!(code, 1, "{err}");
+    d.file(".oxlintrc.json", "{}");
+    let (code, _, err) = d.run("", &["src"]);
+    assert_eq!((code, err.as_str()), (0, ""));
+}
+
+// M3: `vue/<our rule>` keys are reported with the alias to use; unknown names keep the user's prefix.
+#[test]
+fn misnamed_and_unknown_rule_warnings() {
+    let d = Dir::new("misnamed");
+    d.file(
+        ".oxlintrc.json",
+        r#"{ "jsPlugins": [{ "name": "vx", "specifier": "oxlint-vue-rs" }],
+            "rules": { "vue/html-indent": "warn", "vue/no-dupe-keys": "error", "vx/not-a-rule": "error" } }"#,
+    )
+    .file("a.vue", BARE);
+    let (code, _, err) = d.run("", &[]);
+    assert_eq!(code, 0, "{err}");
+    assert!(
+        err.contains("\"vue/html-indent\" is an oxlint-vue-rs rule, use \"vx/html-indent\""),
+        "{err}"
+    );
+    assert!(!err.contains("no-dupe-keys"), "{err}");
+    assert!(err.contains("unknown rule vx/not-a-rule"), "{err}");
+}
+
+// Rules in settings["vue-rs"].rules (setup without the JS plugin) run like `rules`.
+#[test]
+fn rules_from_settings() {
+    let d = Dir::new("settings-rules");
+    d.file(
+        ".oxlintrc.json",
+        r#"{ "settings": { "vue-rs": { "rules": { "vue-rs/require-v-for-key": "error" } } } }"#,
+    )
+    .file("a.vue", VFOR);
+    let (code, out, err) = d.run("", &["-f", "unix"]);
+    assert_eq!(code, 1, "{err}");
+    assert_eq!(unix(&out), vec!["a.vue:2:3 vue-rs/require-v-for-key"]);
+}
+
+// M4: presets are the whole upstream config (native vue/* rules too, the rest of them off).
+#[test]
+fn presets_include_native_rules() {
+    let root = Path::new(env!("CARGO_MANIFEST_DIR"));
+    let inv: serde_json::Value = serde_json::from_str(
+        &std::fs::read_to_string(root.join("tests/rules-inventory.json")).unwrap(),
+    )
+    .unwrap();
+    for p in [
+        "essential",
+        "recommended",
+        "vue2-strongly-recommended",
+        "settings/recommended",
+    ] {
+        let v: serde_json::Value = serde_json::from_str(
+            &std::fs::read_to_string(root.join(format!("npm/configs/{p}.json"))).unwrap(),
+        )
+        .unwrap();
+        assert_eq!(v["plugins"], serde_json::json!(["vue"]), "{p}");
+        for n in inv["native"].as_array().unwrap() {
+            assert!(
+                v["rules"]
+                    .get(format!("vue/{}", n.as_str().unwrap()))
+                    .is_some(),
+                "{p} {n}"
+            );
+        }
+    }
+}
+
+// L11: --fix leaves a read-only file alone and reports it.
+#[cfg(unix)]
+#[test]
+fn fix_skips_read_only_files() {
+    use std::os::unix::fs::PermissionsExt;
+    let d = Dir::new("readonly");
+    d.file("a.vue", "<template><div></div></template>\n");
+    let p = d.0.join("a.vue");
+    std::fs::set_permissions(&p, std::fs::Permissions::from_mode(0o444)).unwrap();
+    if std::fs::OpenOptions::new().write(true).open(&p).is_ok() {
+        return; // root ignores permissions
+    }
+    let (code, _, err) = d.run("", &["--fix", "-D", "html-self-closing", "a.vue"]);
+    assert_eq!(code, 1, "{err}");
+    assert!(err.contains("fixes not written"), "{err}");
+    assert_eq!(d.read("a.vue"), "<template><div></div></template>\n");
+}
+
+// L4: a closed stdout (`| head`) is not a panic.
+#[cfg(unix)]
+#[test]
+fn closed_stdout_exits_quietly() {
+    let d = Dir::new("epipe");
+    for i in 0..50 {
+        d.file(&format!("a{i}.vue"), VFOR);
+    }
+    for args in [&["--no-oxlint", "-D", "all", "."][..], &["--rules"][..]] {
+        let mut child = Command::new(BIN)
+            .args(args)
+            .current_dir(&d.0)
+            .stdout(std::process::Stdio::piped())
+            .stderr(std::process::Stdio::piped())
+            .spawn()
+            .unwrap();
+        drop(child.stdout.take());
+        let out = child.wait_with_output().unwrap();
+        let err = String::from_utf8_lossy(&out.stderr);
+        assert!(!err.contains("panicked"), "{err}");
+        assert!(
+            matches!(out.status.code(), Some(0 | 1)),
+            "{:?} {err}",
+            out.status
+        );
+    }
+}
+
+// L10: ignore options and -A/-W/-D names that are not ours go to oxlint; ours stay here.
+#[cfg(unix)]
+#[test]
+fn oxlint_gets_ignore_and_foreign_rule_flags() {
+    use std::os::unix::fs::PermissionsExt;
+    let d = Dir::new("fwd");
+    d.file("a.vue", BARE).file(
+        "node_modules/.bin/oxlint",
+        "#!/bin/sh\nfor a in \"$@\"; do echo \"$a\"; done > args.txt\necho '{\"diagnostics\": [], \"number_of_files\": 1}'\n",
+    );
+    std::fs::set_permissions(
+        d.0.join("node_modules/.bin/oxlint"),
+        std::fs::Permissions::from_mode(0o755),
+    )
+    .unwrap();
+    let (code, _, err) = d.run(
+        "",
+        &[
+            "--with-oxlint",
+            "--no-ignore",
+            "--ignore-pattern",
+            "gen/**",
+            "-D",
+            "no-debugger",
+            "-W",
+            "vue/no-dupe-keys",
+            "-D",
+            "require-v-for-key",
+            "-A",
+            "all",
+            "-D",
+            "vue/html-indent",
+        ],
+    );
+    assert_eq!(code, 0, "{err}");
+    let args: Vec<String> = d.read("args.txt").lines().map(String::from).collect();
+    let has = |a: &[&str]| args.windows(a.len()).any(|w| w == a);
+    assert!(
+        has(&["--no-ignore"]) && has(&["--ignore-pattern=gen/**"]),
+        "{args:?}"
+    );
+    assert!(
+        has(&["-D", "no-debugger"]) && has(&["-W", "vue/no-dupe-keys"]),
+        "{args:?}"
+    );
+    for ours in ["require-v-for-key", "all", "vue/html-indent"] {
+        assert!(!args.iter().any(|a| a == ours), "{ours} {args:?}");
+    }
+}
