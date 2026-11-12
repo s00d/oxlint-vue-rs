@@ -120,7 +120,7 @@ ESLint is); oxlint-vue its 25 template rules plus oxlint's defaults. Single-thre
   `extends: BaseComponent`) and 1400 of 2817 on gitlab (mixins). Cost: 1 lost true positive on vue-element-admin
   (`onlyOneChild`, assigned in `data()` but never declared, in a component with an unrelated mixin).
   Likewise `no-unused-properties` skips such components, since the merged options may read any property
-  (removes 18: gitlab 11 — several already silenced inline "used by the mixin" —, primevue 6, vue-element-admin 1).
+  (removes 18: gitlab 11 — several already silenced inline "used by the mixin" —, primevue 6; vue-element-admin 1, a true positive lost: its mixin does not read `autoResize`).
 - **`no-ref-as-operand` checks right operands of `&&` / `||` in a test** (`if (a && hasNext)` with a `ref`
   `hasNext`): ported from eslint-plugin-vue's main branch (#3148, after 10.12.1). All 3 such reports on the new
   corpora (halo, vue-pure-admin) are real bugs: the ref object is always truthy.

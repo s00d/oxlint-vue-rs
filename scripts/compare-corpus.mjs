@@ -38,14 +38,16 @@ for (const f of eslint) {
       continue
     }
     const r = m.ruleId.replace(/^vue\//, '')
-    want.set(key(f.filePath, m.line, m.column, r), m.message)
+    const k = key(f.filePath, m.line, m.column, r)
+    want.set(k, [...(want.get(k) ?? []), m.message])
   }
 }
 const got = new Map()
 for (const d of ours.diagnostics) {
   const r = d.code.split('/').slice(1).join('/')
   const s = d.labels[0].span
-  got.set(key(d.filename, s.line, s.column, r), d.message)
+  const k = key(d.filename, s.line, s.column, r)
+  got.set(k, [...(got.get(k) ?? []), d.message])
 }
 const ruleSet = new Set(rules ?? [...got.keys()].map((k) => k.split('\u0000')[3]))
 const stats = {}
@@ -55,20 +57,36 @@ const bump = (r, k, sample) => {
   stats[r][k]++
   if (sample) ((ex[r] ??= {})[k] ??= []).push(sample)
 }
-for (const [k, msg] of want) {
+// Several problems can start at one position (nested ternaries): compare them as multisets, so report
+// order does not matter.
+const where = (k) => k.split('\u0000').slice(0, 3).join(':')
+for (const [k, msgs] of want) {
   const r = k.split('\u0000')[3]
   if (!ruleSet.has(r)) continue
-  if (!got.has(k)) bump(r, 'missing', `${k.split('\u0000').slice(0, 3).join(':')} ${msg}`)
-  else if (got.get(k) !== msg) bump(r, 'msgDiff', `${k.split('\u0000').slice(0, 3).join(':')}\n      eslint: ${msg}\n      ours:   ${got.get(k)}`)
-  else bump(r, 'match')
+  const rest = [...(got.get(k) ?? [])]
+  const unmatched = []
+  for (const m of msgs) {
+    const i = rest.indexOf(m)
+    if (i >= 0) {
+      rest.splice(i, 1)
+      bump(r, 'match')
+    } else unmatched.push(m)
+  }
+  for (const m of unmatched) {
+    if (rest.length) bump(r, 'msgDiff', `${where(k)}\n      eslint: ${m}\n      ours:   ${rest.shift()}`)
+    else bump(r, 'missing', `${where(k)} ${m}`)
+  }
+  if (rest.length) got.set(k, rest)
+  else got.delete(k)
 }
-for (const [k, msg] of got) {
+for (const [k, msgs] of got) {
   const r = k.split('\u0000')[3]
   if (!ruleSet.has(r)) continue
-  if (want.has(k)) continue
-  // ESLint could not parse the file: it reports nothing there, so this is not comparable.
-  if (fatalFiles.has(k.split('\u0000')[0])) bump(r, 'unparsedByEslint')
-  else bump(r, 'extra', `${k.split('\u0000').slice(0, 3).join(':')} ${msg}`)
+  for (const msg of msgs) {
+    // ESLint could not parse the file: it reports nothing there, so this is not comparable.
+    if (fatalFiles.has(k.split('\u0000')[0])) bump(r, 'unparsedByEslint')
+    else bump(r, 'extra', `${where(k)} ${msg}`)
+  }
 }
 let total = { match: 0, msgDiff: 0, missing: 0, extra: 0, unparsedByEslint: 0 }
 for (const r of Object.keys(stats).sort()) {
