@@ -1,0 +1,24 @@
+[package]
+name = "oxlint-vue-rs-napi"
+version = "0.1.1"
+edition = "2024"
+rust-version = "1.97"
+license = "MIT"
+description = "Node addon: the oxlint-vue-rs core for its oxlint JS plugin"
+publish = false
+
+[lib]
+crate-type = ["cdylib"]
+# A test binary cannot link the Node-API symbols; npm/test/*.test.mjs covers the addon through Node.
+test = false
+doctest = false
+
+[dependencies]
+oxlint-vue-rs = { path = ".." }
+# napi-rs: the Node-API binding (one sync function, strings in / JSON string out).
+napi = { version = "3", default-features = false, features = ["napi4"] }
+napi-derive = "3"
+serde_json = "1"
+
+[build-dependencies]
+napi-build = "2"

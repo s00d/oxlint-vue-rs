@@ -12,7 +12,7 @@
     "./configs/*": "./configs/*.json",
     "./package.json": "./package.json"
   },
-  "files": ["index.js", "rules.json", "configs", "bin", "README.md", "LICENSE"],
+  "files": ["index.js", "platform.js", "rules.json", "configs", "bin", "README.md", "LICENSE"],
   "engines": { "node": ">=18" },
   "peerDependencies": { "oxlint": ">=1.0.0" },
   "peerDependenciesMeta": { "oxlint": { "optional": true } },
