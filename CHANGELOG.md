@@ -1,6 +1,6 @@
 # Changelog
 
-## Unreleased
+## 0.1.4 — 2026-11-12
 
 Fixes checked by a new harness (`tests/fixes.rs`, `scripts/fix-check.mjs`): every fix and suggestion on every
 upstream test input and on the real-project corpora, compiled with Vue before and after.

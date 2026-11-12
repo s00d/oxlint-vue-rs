@@ -700,7 +700,7 @@ dependencies = [
 
 [[package]]
 name = "oxlint-vue-rs"
-version = "0.1.3"
+version = "0.1.4"
 dependencies = [
  "feruca",
  "globset",
