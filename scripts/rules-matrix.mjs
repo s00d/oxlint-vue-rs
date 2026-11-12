@@ -7,8 +7,9 @@
 //   corpus-summary.json:  { "<rule>": { "match": n, "missing": n, "extra": n, "msgDiff": n } } (optional)
 import fs from 'node:fs'
 import { execFileSync } from 'node:child_process'
+import { fileURLToPath } from 'node:url'
 
-const root = new URL('..', import.meta.url).pathname
+const root = fileURLToPath(new URL('..', import.meta.url))
 const inv = JSON.parse(fs.readFileSync(root + 'tests/rules-inventory.json', 'utf8'))
 const status = JSON.parse(fs.readFileSync(process.argv[2], 'utf8'))
 const corpus = process.argv[3] ? JSON.parse(fs.readFileSync(process.argv[3], 'utf8')) : {}

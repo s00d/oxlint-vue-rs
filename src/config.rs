@@ -7,6 +7,10 @@
 //! A bare `"jsPlugins": ["oxlint-vue-rs"]` uses the default name `vue-rs`.
 //!
 //! Supported keys: `rules`, `overrides[{files, rules}]`, `ignorePatterns`, `settings`, `extends` (paths).
+//!
+//! Our rules may also live in `settings["vue-rs"].rules` (same keys and values as `rules`). oxlint ignores
+//! `settings`, so that setup needs no `jsPlugins` entry and oxlint skips its JS plugin pipeline (faster
+//! plain `oxlint` runs), at the cost of oxlint no longer validating those rule names.
 
 use std::path::{Component, Path, PathBuf};
 
@@ -46,6 +50,10 @@ pub struct Config {
     pub settings: Value,
     /// oxlint `globals` (name → "readonly" | "writable" | "off").
     pub globals: Value,
+    /// Config problems that are not errors (printed as warnings).
+    pub warnings: Vec<String>,
+    /// `vue/<rule>` keys naming one of our rules (oxlint rejects them; ignored here).
+    misnamed: Vec<String>,
 }
 
 /// Strip `//` and `/* */` comments and trailing commas (JSONC → JSON).
@@ -203,6 +211,16 @@ impl Config {
         if cfg.prefixes.is_empty() {
             cfg.prefixes.push(DEFAULT_PREFIX.to_string());
         }
+        for n in std::mem::take(&mut cfg.misnamed) {
+            let w = format!(
+                "{}: \"vue/{n}\" is an oxlint-vue-rs rule, use \"{}/{n}\" (oxlint rejects \"vue/{n}\"; the entry is ignored)",
+                path.display(),
+                cfg.prefixes[0]
+            );
+            if !cfg.warnings.contains(&w) {
+                cfg.warnings.push(w);
+            }
+        }
         if !cfg.ignore_patterns.is_empty() {
             cfg.ignore = Some(
                 gitignore(&cfg.base, &cfg.ignore_patterns)
@@ -253,6 +271,24 @@ impl Config {
         if !prefixes.iter().any(|p| p == DEFAULT_PREFIX) {
             prefixes.push(DEFAULT_PREFIX.to_string());
         }
+        // `settings["vue-rs"].rules` first (keys with or without our prefix), then `rules`.
+        if let Some(Value::Object(r)) = obj
+            .get("settings")
+            .and_then(|s| s.get(DEFAULT_PREFIX))
+            .and_then(|s| s.get("rules"))
+        {
+            for (k, v) in r {
+                let name = strip_prefix(&prefixes, k).unwrap_or(k);
+                let s = parse_rule_setting(v).map_err(|e| {
+                    format!(
+                        "{}: settings.{DEFAULT_PREFIX}.rules {k}: {e}",
+                        path.display()
+                    )
+                })?;
+                self.rules.retain(|(n, _)| n != name);
+                self.rules.push((name.to_string(), s));
+            }
+        }
         if let Some(Value::Object(r)) = obj.get("rules") {
             for (k, v) in r {
                 if let Some(name) = strip_prefix(&prefixes, k) {
@@ -260,6 +296,8 @@ impl Config {
                         .map_err(|e| format!("{}: rule {k}: {e}", path.display()))?;
                     self.rules.retain(|(n, _)| n != name);
                     self.rules.push((name.to_string(), s));
+                } else {
+                    self.check_misnamed(k);
                 }
             }
         }
@@ -280,6 +318,8 @@ impl Config {
                     for (k, v) in r {
                         if let Some(name) = strip_prefix(&prefixes, k) {
                             ov.rules.push((name.to_string(), parse_rule_setting(v)?));
+                        } else {
+                            self.check_misnamed(k);
                         }
                     }
                 }
@@ -308,6 +348,15 @@ impl Config {
             }
         }
         Ok(())
+    }
+
+    fn check_misnamed(&mut self, key: &str) {
+        if let Some(n) = key.strip_prefix("vue/")
+            && crate::rules::ALL.iter().any(|d| d.name == n)
+            && !self.misnamed.iter().any(|m| m == n)
+        {
+            self.misnamed.push(n.to_string());
+        }
     }
 
     /// Effective rules for a file (base rules, then matching overrides in order).
@@ -425,6 +474,17 @@ pub fn find_config(start: &Path) -> Option<PathBuf> {
         d = cur.parent();
     }
     None
+}
+
+/// oxlint's JS/TS config (`oxlint.config.ts` …) from `start` upwards. We do not read it (it needs a JS
+/// runtime); the CLI warns when one is found but no JSON config is.
+pub fn find_js_config(start: &Path) -> Option<PathBuf> {
+    start.ancestors().find_map(|d| {
+        ["ts", "mts", "js", "mjs"]
+            .iter()
+            .map(|x| d.join(format!("oxlint.config.{x}")))
+            .find(|p| p.is_file())
+    })
 }
 
 #[cfg(test)]
@@ -616,6 +676,30 @@ mod tests {
         let e = Config::load(&p).unwrap_err();
         std::fs::remove_dir_all(&dir).ok();
         assert!(e.contains("missing.json"), "{e}");
+    }
+
+    #[test]
+    fn misnamed_vue_keys_and_settings_rules() {
+        let d = tmp(
+            "misnamed",
+            &[(
+                ".oxlintrc.json",
+                r#"{ "jsPlugins": [{ "name": "vx", "specifier": "oxlint-vue-rs" }],
+                "rules": { "vue/html-indent": "warn", "vue/no-dupe-keys": "error" },
+                "overrides": [{ "files": ["*.vue"], "rules": { "vue/html-indent": "off" } }],
+                "settings": { "vue-rs": { "rules": { "html-quotes": "warn", "vue-rs/v-on-style": ["error", "longform"], "vx/html-end-tags": 1 } } } }"#,
+            )],
+        );
+        let c = Config::load(&d.join(".oxlintrc.json")).unwrap();
+        assert_eq!(c.warnings.len(), 1, "{:?}", c.warnings);
+        assert!(
+            c.warnings[0].contains("use \"vx/html-indent\""),
+            "{:?}",
+            c.warnings
+        );
+        let names: Vec<_> = c.rules.iter().map(|(n, _)| n.as_str()).collect();
+        assert_eq!(names, ["html-quotes", "v-on-style", "html-end-tags"]);
+        assert_eq!(c.rules[1].1.options, [serde_json::json!("longform")]);
     }
 
     #[test]
