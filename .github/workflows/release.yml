@@ -1,8 +1,10 @@
 # Build prebuilt binaries for every platform and (optionally) publish the npm packages.
 #
 # Run manually: Actions → release → Run workflow. `publish: false` (default) only builds and uploads the
-# packages as workflow artifacts (a dry run). `publish: true` publishes to npm (needs the NPM_TOKEN secret)
-# and creates a GitHub release with the binaries for tag v<version> (version from Cargo.toml).
+# packages as workflow artifacts (a dry run). `publish: true` publishes to npm (NPM_TOKEN secret, or npm
+# trusted publishing / OIDC when the secret is unset) and creates a GitHub release with the binaries for tag
+# v<version> (version from Cargo.toml). Re-running is safe: versions already on npm and an existing release
+# are skipped / updated instead of failing.
 name: release
 
 on:
@@ -13,9 +15,9 @@ on:
         type: boolean
         default: false
 
+# Least privilege: jobs only read the repo; `npm` and `github-release` widen it for what they need.
 permissions:
-  contents: write
-  id-token: write # npm provenance
+  contents: read
 
 env:
   CARGO_TERM_COLOR: always
@@ -31,7 +33,7 @@ jobs:
       - uses: Swatinem/rust-cache@v2
       - run: cargo fmt --check
       - run: cargo clippy --all-targets -- -D warnings
-      - run: cargo test --release
+      - run: cargo test --release --locked
 
   build:
     needs: test
@@ -64,10 +66,17 @@ jobs:
         run: |
           bin=target/${{ matrix.target }}/release/oxlint-vue-rs
           [ -f "$bin.exe" ] && bin="$bin.exe"
-          if [ "${{ matrix.target }}" != "x86_64-apple-darwin" ]; then
-            "$bin" --version
+          run=("$bin")
+          # x86_64 macOS binary on the arm64 runner: through Rosetta when it is installed.
+          if [ "${{ matrix.target }}" = "x86_64-apple-darwin" ]; then
+            if arch -x86_64 /usr/bin/true 2>/dev/null; then run=(arch -x86_64 "$bin"); else run=(); echo "::notice::no Rosetta, smoke test skipped"; fi
+          fi
+          if [ ${#run[@]} -gt 0 ]; then
+            "${run[@]}" --version
             printf '<template><div v-for="i in x">{{i}}</div></template>\n' > smoke.vue
-            "$bin" -D require-v-for-key smoke.vue && exit 1 || true
+            # exactly 1 = problems found; 0 = rule did not fire, 2 = usage error, 101 = panic
+            set +e; "${run[@]}" --no-oxlint -D require-v-for-key smoke.vue; rc=$?; set -e
+            [ "$rc" -eq 1 ] || { echo "::error::smoke test: expected exit 1, got $rc"; exit 1; }
           fi
           mkdir -p out && cp "$bin" out/
       - uses: actions/upload-artifact@v4
@@ -79,6 +88,9 @@ jobs:
   npm:
     needs: build
     runs-on: ubuntu-22.04
+    permissions:
+      contents: read
+      id-token: write # npm provenance / trusted publishing
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-node@v5
@@ -93,13 +105,13 @@ jobs:
         run: |
           for dir in artifacts/bin-*; do
             target=${dir#artifacts/bin-}
-            bin=$(ls "$dir"/oxlint-vue-rs* | head -1)
-            node scripts/npm/pack.mjs platform "$target" "$bin"
+            bins=("$dir"/oxlint-vue-rs*)
+            node scripts/npm/pack.mjs platform "$target" "${bins[0]}"
           done
           node scripts/npm/pack.mjs main
           ls dist-npm
           mkdir -p tarballs
-          for p in dist-npm/*; do (cd "$p" && npm pack --pack-destination ../../tarballs); done
+          for p in dist-npm/*; do (cd "$p" && npm pack --pack-destination "$GITHUB_WORKSPACE/tarballs"); done
       - name: publint
         shell: bash
         run: for p in dist-npm/*; do npx --yes publint@0.3 run "$p" --strict; done
@@ -110,14 +122,37 @@ jobs:
       - name: Publish to npm
         if: inputs.publish
         env:
+          # Empty secret → npm >= 11.5 uses trusted publishing (OIDC); the first publish of a name needs a token.
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
         shell: bash
         run: |
+          npm install -g npm@^11.5.1
+          publish() {
+            local name version
+            name=$(node -p 'require(require("path").resolve(process.argv[1], "package.json")).name' "$1")
+            version=$(node -p 'require(require("path").resolve(process.argv[1], "package.json")).version' "$1")
+            if npm view "$name@$version" version >/dev/null 2>&1; then
+              echo "$name@$version is already on npm, skipped"
+            else
+              (cd "$1" && npm publish --access public --provenance)
+            fi
+          }
           # platform packages first, the main package (which depends on them) last
-          for p in dist-npm/oxlint-vue-rs-*; do (cd "$p" && npm publish --access public --provenance); done
-          (cd dist-npm/oxlint-vue-rs && npm publish --access public --provenance)
+          for p in dist-npm/oxlint-vue-rs-*; do publish "$p"; done
+          publish dist-npm/oxlint-vue-rs
+
+  github-release:
+    needs: npm
+    if: inputs.publish
+    runs-on: ubuntu-22.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
       - name: GitHub release
-        if: inputs.publish
         env:
           GH_TOKEN: ${{ github.token }}
         shell: bash
@@ -128,4 +163,8 @@ jobs:
             target=${dir#artifacts/bin-}
             for f in "$dir"/*; do cp "$f" "rel/$(basename "${f%.exe}")-$target$( [[ $f == *.exe ]] && echo .exe)"; done
           done
-          gh release create "v$version" rel/* tarballs/*.tgz --title "v$version" --generate-notes --latest
+          if gh release view "v$version" >/dev/null 2>&1; then
+            gh release upload "v$version" rel/* artifacts/npm-tarballs/*.tgz --clobber
+          else
+            gh release create "v$version" rel/* artifacts/npm-tarballs/*.tgz --title "v$version" --generate-notes --latest
+          fi
