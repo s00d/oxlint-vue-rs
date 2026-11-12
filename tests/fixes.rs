@@ -573,6 +573,9 @@ fn inline_handler_fix_compiles() {
     let opts = json!(["inline"]);
     let code = "<template><b @click=\"() => {\n  f()\n  g()\n}\" /></template>";
     assert_eq!(fix("v-on-handler-style", opts.clone(), code), None);
+    // Vue does not scope declarations in an inline handler: `g(x)` would read `_ctx.x`.
+    let decl = "<template><b @click=\"() => { const x = f(); g(x) }\" /></template>";
+    assert_eq!(fix("v-on-handler-style", opts.clone(), decl), None);
     assert_eq!(
         fix(
             "v-on-handler-style",

@@ -3,7 +3,7 @@
 // each fix for validity, behaviour preservation, convergence and lost text.
 //
 // usage:
-//   node scripts/fix-check.mjs upstream --ref <node-dir> --out <dir> [--variants] [--rules a,b]
+//   node scripts/fix-check.mjs upstream --ref <node-dir> --out <dir> [--variants] [--rules a,b] [--bin <fix_check>]
 //   node scripts/fix-check.mjs corpus <dir>... --ref <node-dir> --out <dir> [--variants] [--rules a,b] [--sample N]
 //
 // <node-dir> holds node_modules with eslint-plugin-vue (rule metadata and option schemas),
@@ -161,7 +161,7 @@ if (mode === 'upstream') {
     }
   }
 } else if (mode === 'corpus') {
-  const dirs = argv.slice(1).filter((a, i, all) => !a.startsWith('--') && !['--ref', '--out', '--rules', '--jobs', '--sample'].includes(all[i - 1]))
+  const dirs = argv.slice(1).filter((a, i, all) => !a.startsWith('--') && !['--ref', '--out', '--rules', '--jobs', '--sample', '--bin'].includes(all[i - 1]))
   const walk = (d) => {
     for (const e of fs.readdirSync(d, { withFileTypes: true })) {
       const p = path.join(d, e.name)
@@ -192,8 +192,9 @@ fs.writeFileSync(path.join(outDir, 'configs.json'), JSON.stringify(configs))
 console.log(`${units.length} units, ${configs.length} configs (${fixable.length} fixable rules, ${suggesting.length} with suggestions)`)
 
 // --- Rust side -----------------------------------------------------------------------------------
-const bin = path.join(ROOT, 'target/release/examples/fix_check')
-if (!flag('--no-build')) execFileSync('cargo', ['build', '--release', '--example', 'fix_check'], { cwd: ROOT, stdio: 'inherit' })
+// --bin <path>: another build of examples/fix_check (e.g. an older checkout, for before/after numbers).
+const bin = opt('--bin') ? path.resolve(opt('--bin')) : path.join(ROOT, 'target/release/examples/fix_check')
+if (!flag('--no-build') && !opt('--bin')) execFileSync('cargo', ['build', '--release', '--example', 'fix_check'], { cwd: ROOT, stdio: 'inherit' })
 execFileSync(bin, [path.join(outDir, 'units.jsonl'), path.join(outDir, 'configs.json'), path.join(outDir, 'records.jsonl')], {
   stdio: ['ignore', 'inherit', 'inherit'],
 })

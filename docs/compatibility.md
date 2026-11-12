@@ -159,7 +159,7 @@ ESLint is); oxlint-vue its 25 template rules plus oxlint's defaults. Single-thre
   - `this-in-template` (`always`) does not report Vue's allowed globals (`Math`, `console`, …) or TS type names
     (`this.Math` is undefined) and fixes a shorthand property as `{ a: this.a }`.
   - No fix that changes what an element is (`component-name-in-template-casing` `<Address>` → `<address>`) or
-    does not compile (`v-on-handler-style` unwrapping several statements without `;`).
+    does not compile or scope (`v-on-handler-style` unwrapping several statements without `;`, or declarations).
   - Fixes that undo each other are not offered: `define-macros-order` with a duplicated macro,
     `padding-lines-in-component-definition` on a `// @vue/component` object nested in an option.
   - `--fix` runs up to 50 passes (ESLint: 10) and stops on a cycle.

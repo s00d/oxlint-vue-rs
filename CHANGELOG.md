@@ -36,8 +36,9 @@ upstream test input and on the real-project corpora, compiled with Vue before an
   and writes `{ a: this.a }` for a shorthand property (eslint-plugin-vue wrote `{ this.a }`).
 - Fix: `component-name-in-template-casing` gives no fix that turns a component into an HTML element (`<Address>` →
   `<address>`).
-- Fix: `v-on-handler-style` (`inline`) does not unwrap a function body that Vue would not compile as an inline
-  handler (several statements without `;`).
+- Fix: `v-on-handler-style` (`inline`) unwraps only function bodies of expression statements (several of them
+  only with a `;`): Vue compiles `a()\nb()` as one expression and does not scope declarations in an inline
+  handler (`const x = f(); g(x)` reads `_ctx.x`).
 - Fix: fixes that undid each other forever: `define-macros-order` with a macro called twice,
   `padding-lines-in-component-definition` with a `// @vue/component` object inside an option, spacing rules in an
   unparsable `<style>` `v-bind()`.
