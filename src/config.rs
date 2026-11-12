@@ -621,7 +621,10 @@ mod tests {
     #[test]
     fn absolute_is_lexical() {
         // Lexical: same result as the already-normal path (Windows adds the current drive to `/a/c`).
-        assert_eq!(absolute(Path::new("/a/./b/../c")), absolute(Path::new("/a/c")));
+        assert_eq!(
+            absolute(Path::new("/a/./b/../c")),
+            absolute(Path::new("/a/c"))
+        );
         #[cfg(unix)]
         assert_eq!(absolute(Path::new("/a/./b/../c")), PathBuf::from("/a/c"));
     }
