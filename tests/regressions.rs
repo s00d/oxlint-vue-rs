@@ -434,3 +434,14 @@ fn no_unused_properties_inherited_options() {
     let plain = "<script>\nexport default { props: { mr: Object } }\n</script>";
     assert_eq!(r(plain), ["2:27"]);
 }
+
+// ESLint-verified: an alias reused in several union members contributes its props once (upstream
+// collects an alias's flattened nodes in a `Set`); we reported each prop once per member.
+#[test]
+fn type_props_alias_in_union_once() {
+    let code = "<script setup lang=\"ts\">\ntype Base<T> = {\n  items?: T\n  editor: string\n}\ntype Props<T> = (Base<T> & { a?: 1 }) | (Base<T> & { b?: 2 })\nconst p = defineProps<Props<number>>()\n</script>";
+    assert_eq!(
+        reports("require-prop-comment", json!([]), Value::Null, code),
+        ["3:3", "4:3", "6:30", "6:54"]
+    );
+}

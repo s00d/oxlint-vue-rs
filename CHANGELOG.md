@@ -14,6 +14,8 @@
   `mixins` (their members were reported as undefined, e.g. every PrimeVue component; props they read as unused).
 - Fix: `no-unused-refs` reports nothing for a component whose `setup()` returns a spread / non-literal object or
   whose `getCurrentInstance()` is stored or passed on (`instance.refs.x` reads a ref).
+- Fix: props of a type alias used in several members of a union (`(Base & A) | (Base & B)`) were reported once per
+  member (`require-prop-comment` and other prop rules); now once, as eslint-plugin-vue.
 - Fix: `prefer-define-options`'s fix no longer deletes blank lines above the removed `export default`.
 
 ## 0.1.2 — 2026-11-12

@@ -1258,6 +1258,18 @@ fn flatten<'a>(
                 cache.insert(key, (Vec::new(), false));
                 let mut inner = Vec::new();
                 flatten(file, &a.type_annotation, cache, &mut inner);
+                // Upstream collects an alias's nodes in a `Set`: `A<T> & X | A<T> & Y` yields `A`'s members once.
+                let mut seen = Vec::new();
+                inner.retain(|f| {
+                    let id = match f {
+                        Flat::Interface(b) => std::ptr::from_ref(*b).cast::<()>(),
+                        Flat::Type(t) => std::ptr::from_ref(*t).cast::<()>(),
+                    };
+                    !seen.contains(&id) && {
+                        seen.push(id);
+                        true
+                    }
+                });
                 cache.insert(key, (inner.clone(), true));
                 out.extend(inner);
             }
