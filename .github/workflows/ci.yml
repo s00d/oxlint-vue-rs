@@ -31,7 +31,12 @@ jobs:
         run: |
           cargo build --release
           cargo build --release -p oxlint-vue-rs-napi
-          addon=$(ls target/release/liboxlint_vue_rs_napi.so target/release/liboxlint_vue_rs_napi.dylib 2>/dev/null | head -n1)
+          # (`set -eo pipefail` in Actions: pick the addon without a failing `ls` of the missing variant)
+          addon=""
+          for f in target/release/liboxlint_vue_rs_napi.so target/release/liboxlint_vue_rs_napi.dylib; do
+            if [ -f "$f" ]; then addon="$f"; fi
+          done
+          [ -n "$addon" ] || { echo "addon not built" >&2; exit 1; }
           node scripts/npm/pack.mjs main
           node scripts/npm/pack.mjs platform "$(rustc -vV | sed -n 's/^host: //p')" target/release/oxlint-vue-rs "$addon"
           for p in dist-npm/platforms/* dist-npm/oxlint-vue-rs; do npx --yes publint@0.3 run "$p" --strict; done
