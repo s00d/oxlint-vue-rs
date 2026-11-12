@@ -8,7 +8,7 @@
 mod entities;
 mod html;
 mod intermediate;
-mod script;
+pub(crate) mod script;
 mod template;
 mod tokenizer;
 

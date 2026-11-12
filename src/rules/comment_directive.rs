@@ -47,7 +47,7 @@ fn parse(value: &str) -> Option<(&'static str, Vec<(usize, &str)>)> {
 }
 
 /// `value.split(/\s-{2,}\s/u, 1)[0]`.
-fn strip(value: &str) -> &str {
+pub(crate) fn strip(value: &str) -> &str {
     let b: Vec<(usize, char)> = value.char_indices().collect();
     for (k, &(i, c)) in b.iter().enumerate() {
         if !c.is_whitespace() {

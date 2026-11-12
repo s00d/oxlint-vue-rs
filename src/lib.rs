@@ -21,9 +21,38 @@ pub use rule::{Ctx, Diagnostic, Fix, LintFile, Rule, RuleDef, RuleOptions, Scrip
 /// Line starts + UTF-16 aware column conversion (ESLint reports UTF-16 columns).
 pub struct LineIndex {
     starts: Vec<u32>,
+    /// Per line: all ASCII, so a column is a byte difference (no UTF-16 re-encoding).
+    ascii: Vec<bool>,
 }
 
 impl LineIndex {
+    /// Line table for `src`: vue-eslint-parser's (`\n` only) for an SFC, ESLint's otherwise.
+    pub fn for_source(src: &str, sfc: bool) -> Self {
+        if sfc { Self::sfc(src) } else { Self::new(src) }
+    }
+    /// vue-eslint-parser `LinesAndColumns`: an SFC breaks lines only on `\n` (CR, U+2028/9 don't).
+    pub fn sfc(src: &str) -> Self {
+        let mut starts = vec![0];
+        starts.extend(
+            src.bytes()
+                .enumerate()
+                .filter(|&(_, b)| b == b'\n')
+                .map(|(i, _)| i as u32 + 1),
+        );
+        Self::with_ascii(src, starts)
+    }
+
+    fn with_ascii(src: &str, starts: Vec<u32>) -> Self {
+        let b = src.as_bytes();
+        let ascii = (0..starts.len())
+            .map(|i| {
+                let end = starts.get(i + 1).map_or(b.len(), |&e| e as usize);
+                b[starts[i] as usize..end].is_ascii()
+            })
+            .collect();
+        Self { starts, ascii }
+    }
+    /// ESLint line breaks (`\n`, `\r\n`, `\r`, U+2028, U+2029) for plain scripts.
     pub fn new(src: &str) -> Self {
         let mut starts = vec![0];
         let b = src.as_bytes();
@@ -48,13 +77,17 @@ impl LineIndex {
             }
             i += 1;
         }
-        Self { starts }
+        Self::with_ascii(src, starts)
     }
     /// 1-based line, 1-based UTF-16 column (ESLint/RuleTester convention).
     pub fn line_col(&self, src: &str, offset: u32) -> (u32, u32) {
         let line = self.starts.partition_point(|&s| s <= offset) - 1;
         let start = self.starts[line] as usize;
         let end = (offset as usize).min(src.len());
+        if self.ascii.get(line) == Some(&true) {
+            return (line as u32 + 1, end.saturating_sub(start) as u32 + 1);
+        }
+        // ponytail: a long non-ASCII line re-encodes its prefix per lookup; cache if that shows up.
         let col: usize = src
             .get(start..end)
             .map_or(end.saturating_sub(start), |s| s.encode_utf16().count());
@@ -181,7 +214,11 @@ fn guess_script_lang(source: &str) -> (bool, bool) {
     (ts, jsx)
 }
 
-/// Lint one source text with the given rules.
+/// `Diagnostic::rule` of a fatal script parse error (ESLint: `ruleId: null`, `fatal: true`).
+pub const PARSING_ERROR: &str = "";
+
+/// Lint one source text with the given rules. A script syntax error yields only one
+/// [`PARSING_ERROR`] diagnostic, like ESLint.
 pub fn lint_source(
     source: &str,
     path: &Path,
@@ -189,10 +226,10 @@ pub fn lint_source(
     rules: &[ConfiguredRule],
 ) -> Vec<Diagnostic> {
     let alloc = Allocator::default();
-    let lines = LineIndex::new(source);
     let is_sfc = opts
         .sfc
         .unwrap_or_else(|| path.extension().is_some_and(|e| e == "vue"));
+    let lines = LineIndex::for_source(source, is_sfc);
     let ext = path.extension().and_then(|e| e.to_str()).unwrap_or("");
 
     let mut doc = None;
@@ -249,11 +286,36 @@ pub fn lint_source(
             })
             .with_config(TokensParserConfig)
             .parse();
-        if !ret.fatal_error {
-            tokens = alloc.alloc_slice_copy(&ret.tokens);
-            let p: &oxc::ast::ast::Program = alloc.alloc(ret.program);
-            program = Some(p);
+        // ESLint: a script syntax error is a fatal "Parsing error" for the file and no rule runs.
+        // Only oxc's fatal errors: recoverable ones include checks typescript-eslint / espree skip
+        // (e.g. TS modifier order).
+        if ret.fatal_error {
+            let d = ret.diagnostics.errors().next();
+            let label = d.and_then(|d| d.labels.first());
+            let at = label.map_or(0, |l| l.offset() as usize);
+            let text = label
+                .and_then(|l| script_src.get(at..at + l.len() as usize))
+                .unwrap_or("");
+            let (msg, at) = parser::script::espree_like_message(
+                d.map_or("Parsing error.", |d| &d.message),
+                text,
+                at,
+            );
+            let at = at.min(source.len()) as u32;
+            return vec![Diagnostic {
+                rule: PARSING_ERROR,
+                span: Span::new(at, at),
+                message: format!("Parsing error: {msg}"),
+                message_id: None,
+                fix: None,
+                suggestions: Vec::new(),
+                severity: Severity::Error,
+                loc: None,
+            }];
         }
+        tokens = alloc.alloc_slice_copy(&ret.tokens);
+        let p: &oxc::ast::ast::Program = alloc.alloc(ret.program);
+        program = Some(p);
     }
     let semantic_holder = program.map(|p| {
         SemanticBuilder::new()

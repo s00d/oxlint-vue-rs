@@ -8,8 +8,10 @@
 //!
 //! Supported keys: `rules`, `overrides[{files, rules}]`, `ignorePatterns`, `settings`, `extends` (paths).
 
-use std::path::{Path, PathBuf};
+use std::path::{Component, Path, PathBuf};
 
+use globset::{GlobBuilder, GlobSet, GlobSetBuilder};
+use ignore::gitignore::{Gitignore, GitignoreBuilder};
 use serde_json::{Map, Value};
 
 use crate::Severity;
@@ -25,19 +27,22 @@ pub struct RuleSetting {
 
 #[derive(Debug, Clone, Default)]
 pub struct Override {
-    pub files: Vec<String>,
+    /// `files` globs, matched against the path relative to the config directory.
+    pub files: GlobSet,
     pub rules: Vec<(String, RuleSetting)>,
 }
 
 #[derive(Debug, Clone, Default)]
 pub struct Config {
-    /// Directory globs are relative to.
+    /// Absolute directory globs are relative to.
     pub base: PathBuf,
     /// Accepted rule prefixes (alias names of the shim plugin).
     pub prefixes: Vec<String>,
     pub rules: Vec<(String, RuleSetting)>,
     pub overrides: Vec<Override>,
     pub ignore_patterns: Vec<String>,
+    /// `ignorePatterns` compiled with gitignore semantics, rooted at `base`.
+    ignore: Option<Gitignore>,
     pub settings: Value,
     /// oxlint `globals` (name → "readonly" | "writable" | "off").
     pub globals: Value,
@@ -52,16 +57,18 @@ pub fn strip_jsonc(src: &str) -> String {
     while i < b.len() {
         let c = b[i];
         if in_str {
-            out.push(c as char);
-            if c == b'\\' && i + 1 < b.len() {
-                out.push(b[i + 1] as char);
-                i += 2;
-                continue;
-            }
+            // Copy whole UTF-8 sequences (an escaped char too).
+            let len = if c == b'\\' && i + 1 < b.len() {
+                1 + utf8_len(b[i + 1])
+            } else {
+                utf8_len(c)
+            };
+            let len = len.min(b.len() - i);
+            out.push_str(&src[i..i + len]);
             if c == b'"' {
                 in_str = false;
             }
-            i += 1;
+            i += len;
             continue;
         }
         match c {
@@ -83,9 +90,24 @@ pub fn strip_jsonc(src: &str) -> String {
                 i += 2;
             }
             b',' => {
+                // Look past whitespace and comments for a closing bracket.
                 let mut j = i + 1;
-                while j < b.len() && b[j].is_ascii_whitespace() {
-                    j += 1;
+                loop {
+                    if j < b.len() && b[j].is_ascii_whitespace() {
+                        j += 1;
+                    } else if b.get(j) == Some(&b'/') && b.get(j + 1) == Some(&b'/') {
+                        while j < b.len() && b[j] != b'\n' {
+                            j += 1;
+                        }
+                    } else if b.get(j) == Some(&b'/') && b.get(j + 1) == Some(&b'*') {
+                        j += 2;
+                        while j + 1 < b.len() && !(b[j] == b'*' && b[j + 1] == b'/') {
+                            j += 1;
+                        }
+                        j += 2;
+                    } else {
+                        break;
+                    }
                 }
                 if !matches!(b.get(j), Some(b'}' | b']')) {
                     out.push(',');
@@ -171,17 +193,33 @@ fn is_ours(spec: &str) -> bool {
 
 impl Config {
     pub fn load(path: &Path) -> Result<Config, String> {
+        let path = absolute(path);
         let mut cfg = Config {
             base: path.parent().map(Path::to_path_buf).unwrap_or_default(),
             settings: Value::Object(Map::new()),
             ..Default::default()
         };
-        cfg.merge_file(path, 0)?;
+        cfg.merge_file(&path, 0)?;
         if cfg.prefixes.is_empty() {
             cfg.prefixes.push(DEFAULT_PREFIX.to_string());
         }
-        // Resolve rules now that every prefix is known.
+        if !cfg.ignore_patterns.is_empty() {
+            cfg.ignore = Some(
+                gitignore(&cfg.base, &cfg.ignore_patterns)
+                    .map_err(|e| format!("{}: ignorePatterns: {e}", path.display()))?,
+            );
+        }
         Ok(cfg)
+    }
+
+    /// The config used when no config file is found.
+    pub fn empty(base: &Path) -> Config {
+        Config {
+            base: absolute(base),
+            prefixes: vec![DEFAULT_PREFIX.into()],
+            settings: Value::Object(Map::new()),
+            ..Default::default()
+        }
     }
 
     fn merge_file(&mut self, path: &Path, depth: usize) -> Result<(), String> {
@@ -197,10 +235,13 @@ impl Config {
         let dir = path.parent().unwrap_or(Path::new("."));
         if let Some(Value::Array(ext)) = obj.get("extends") {
             for e in ext.iter().filter_map(Value::as_str) {
-                let p = resolve_extends(dir, e);
-                if let Some(p) = p {
-                    self.merge_file(&p, depth + 1)?;
-                }
+                let p = resolve_extends(dir, e).ok_or_else(|| {
+                    format!(
+                        "{}: invalid config file: extends {e:?} not found",
+                        path.display()
+                    )
+                })?;
+                self.merge_file(&p, depth + 1)?;
             }
         }
         for p in plugin_prefixes(obj) {
@@ -224,16 +265,13 @@ impl Config {
         }
         if let Some(Value::Array(ovs)) = obj.get("overrides") {
             for o in ovs {
-                let files = o
+                let pats: Vec<&str> = o
                     .get("files")
                     .and_then(Value::as_array)
-                    .map(|a| {
-                        a.iter()
-                            .filter_map(Value::as_str)
-                            .map(String::from)
-                            .collect()
-                    })
+                    .map(|a| a.iter().filter_map(Value::as_str).collect())
                     .unwrap_or_default();
+                let files = override_globs(&pats)
+                    .map_err(|e| format!("{}: overrides.files: {e}", path.display()))?;
                 let mut ov = Override {
                     files,
                     rules: Vec::new(),
@@ -273,12 +311,14 @@ impl Config {
     }
 
     /// Effective rules for a file (base rules, then matching overrides in order).
+    /// `file` is absolute (see [`absolute`]).
     pub fn rules_for(&self, file: &Path) -> Vec<(String, RuleSetting)> {
         let mut out = self.rules.clone();
-        let rel = file.strip_prefix(&self.base).unwrap_or(file);
-        let rel = rel.to_string_lossy().replace('\\', "/");
+        let Ok(rel) = file.strip_prefix(&self.base) else {
+            return out;
+        };
         for o in &self.overrides {
-            if o.files.iter().any(|g| glob_match(g, &rel)) {
+            if o.files.is_match(rel) {
                 for (n, s) in &o.rules {
                     out.retain(|(m, _)| m != n);
                     out.push((n.clone(), s.clone()));
@@ -288,16 +328,62 @@ impl Config {
         out
     }
 
+    /// `ignorePatterns` (gitignore semantics, relative to the config directory). `file` is absolute.
     pub fn is_ignored(&self, file: &Path) -> bool {
-        let rel = file
-            .strip_prefix(&self.base)
-            .unwrap_or(file)
-            .to_string_lossy()
-            .replace('\\', "/");
-        self.ignore_patterns.iter().any(|g| {
-            glob_match(g, &rel) || glob_match(&format!("{}/**", g.trim_end_matches('/')), &rel)
-        })
+        match (&self.ignore, file.strip_prefix(&self.base)) {
+            (Some(gi), Ok(rel)) => gi.matched_path_or_any_parents(rel, false).is_ignore(),
+            _ => false,
+        }
     }
+}
+
+/// gitignore-style matcher rooted at `root` (oxlint `ignorePatterns`, `--ignore-pattern`).
+pub fn gitignore(root: &Path, patterns: &[String]) -> Result<Gitignore, String> {
+    let mut b = GitignoreBuilder::new(root);
+    for p in patterns {
+        b.add_line(None, p).map_err(|e| e.to_string())?;
+    }
+    b.build().map_err(|e| e.to_string())
+}
+
+/// oxlint override globs: a pattern without `/` matches at any depth (`**/` prefix), `*` stops at `/`.
+fn override_globs(pats: &[&str]) -> Result<GlobSet, String> {
+    let mut b = GlobSetBuilder::new();
+    for p in pats {
+        let p = p.strip_prefix("./").unwrap_or(p);
+        let p = if p.contains('/') {
+            p.to_string()
+        } else {
+            format!("**/{p}")
+        };
+        b.add(
+            GlobBuilder::new(&p)
+                .literal_separator(true)
+                .build()
+                .map_err(|e| e.to_string())?,
+        );
+    }
+    b.build().map_err(|e| e.to_string())
+}
+
+/// `cwd`-joined path with `.` / `..` resolved lexically (symlinks kept).
+pub fn absolute(p: &Path) -> PathBuf {
+    let joined = if p.is_absolute() {
+        p.to_path_buf()
+    } else {
+        std::env::current_dir().unwrap_or_default().join(p)
+    };
+    let mut out = PathBuf::new();
+    for c in joined.components() {
+        match c {
+            Component::CurDir => {}
+            Component::ParentDir => {
+                out.pop();
+            }
+            c => out.push(c),
+        }
+    }
+    out
 }
 
 fn strip_prefix<'k>(prefixes: &[String], key: &'k str) -> Option<&'k str> {
@@ -341,59 +427,73 @@ pub fn find_config(start: &Path) -> Option<PathBuf> {
     None
 }
 
-/// Minimal glob: `**` (any dirs), `*` (no `/`), `?`, `{a,b}`; a pattern without `/` matches the basename anywhere.
-pub fn glob_match(pat: &str, path: &str) -> bool {
-    if let Some(open) = pat.find('{')
-        && let Some(close) = pat[open..].find('}').map(|c| c + open)
-    {
-        return pat[open + 1..close].split(',').any(|alt| {
-            glob_match(
-                &format!("{}{}{}", &pat[..open], alt, &pat[close + 1..]),
-                path,
-            )
-        });
-    }
-    let pat = pat.strip_prefix("./").unwrap_or(pat);
-    if !pat.contains('/') {
-        let base = path.rsplit('/').next().unwrap_or(path);
-        return wild(pat.as_bytes(), base.as_bytes()) || wild(pat.as_bytes(), path.as_bytes());
-    }
-    wild(pat.as_bytes(), path.as_bytes())
-}
-
-fn wild(p: &[u8], s: &[u8]) -> bool {
-    if p.is_empty() {
-        return s.is_empty();
-    }
-    if p.starts_with(b"**") {
-        let rest = p[2..].strip_prefix(b"/").unwrap_or(&p[2..]);
-        if wild(rest, s) {
-            return true;
-        }
-        return (0..s.len()).any(|i| (s[i] == b'/' || p.len() == 2) && wild(rest, &s[i + 1..]))
-            || (p.len() == 2);
-    }
-    match p[0] {
-        b'*' => (0..=s.len())
-            .take_while(|&i| i == 0 || s[i - 1] != b'/')
-            .any(|i| wild(&p[1..], &s[i..])),
-        b'?' => !s.is_empty() && s[0] != b'/' && wild(&p[1..], &s[1..]),
-        c => !s.is_empty() && s[0] == c && wild(&p[1..], &s[1..]),
-    }
-}
-
 #[cfg(test)]
 mod tests {
     use super::*;
 
+    // Cases checked against oxlint 1.93 overrides.
     #[test]
     fn globs() {
-        assert!(glob_match("**/*.vue", "a/b/C.vue"));
-        assert!(glob_match("*.vue", "a/b/C.vue"));
-        assert!(glob_match("src/**", "src/a/b.vue"));
-        assert!(glob_match("src/*.{vue,ts}", "src/a.ts"));
-        assert!(!glob_match("src/*.vue", "src/a/b.vue"));
-        assert!(glob_match("**/test/**", "x/test/y/z.vue"));
+        let m = |p: &str, f: &str| override_globs(&[p]).unwrap().is_match(f);
+        assert!(m("**/*.vue", "a/b/C.vue"));
+        assert!(m("*.vue", "a/b/C.vue"));
+        assert!(m("x.vue", "src/deep/x.vue"));
+        assert!(m("src/**", "src/a/b.vue"));
+        assert!(m("./src/**", "src/a/b.vue"));
+        assert!(m("src/*.{vue,ts}", "src/a.ts"));
+        assert!(m("src/[d]eep/*", "src/deep/x.vue"));
+        assert!(!m("src/*.vue", "src/a/b.vue"));
+        assert!(!m("deep/*.vue", "src/deep/x.vue"));
+        assert!(!m("/src/**", "src/a.vue"));
+        assert!(!m("src", "src/a.vue"));
+        assert!(m("**/test/**", "x/test/y/z.vue"));
+    }
+
+    #[test]
+    fn ignore_patterns_are_gitignore() {
+        let cfg = Config {
+            base: PathBuf::from("/r"),
+            ignore: Some(
+                gitignore(
+                    Path::new("/r"),
+                    &["/build".into(), "gen/**".into(), "!gen/keep/**".into()],
+                )
+                .unwrap(),
+            ),
+            ..Default::default()
+        };
+        assert!(cfg.is_ignored(Path::new("/r/build/a.vue")));
+        assert!(!cfg.is_ignored(Path::new("/r/x/build/a.vue")));
+        assert!(cfg.is_ignored(Path::new("/r/gen/b.vue")));
+        assert!(!cfg.is_ignored(Path::new("/r/gen/keep/c.vue")));
+        assert!(!cfg.is_ignored(Path::new("/elsewhere/gen/b.vue")));
+    }
+
+    #[test]
+    fn jsonc_non_ascii_and_comment_after_trailing_comma() {
+        let v: Value = serde_json::from_str(&strip_jsonc(
+            "{ \"a\": [\"©\", \"\\\"→\"], // c\n \"b\": 1, // c\n /* d */ }",
+        ))
+        .unwrap();
+        assert_eq!(v["a"][0], "©");
+        assert_eq!(v["a"][1], "\"→");
+        assert_eq!(v["b"], 1);
+    }
+
+    #[test]
+    fn missing_extends_is_an_error() {
+        let dir = std::env::temp_dir().join(format!("ovr-ext-{}", std::process::id()));
+        std::fs::create_dir_all(&dir).unwrap();
+        let p = dir.join("c.json");
+        std::fs::write(&p, r#"{ "extends": ["./missing.json"] }"#).unwrap();
+        let e = Config::load(&p).unwrap_err();
+        std::fs::remove_dir_all(&dir).ok();
+        assert!(e.contains("missing.json"), "{e}");
+    }
+
+    #[test]
+    fn absolute_is_lexical() {
+        assert_eq!(absolute(Path::new("/a/./b/../c")), PathBuf::from("/a/c"));
     }
 
     #[test]

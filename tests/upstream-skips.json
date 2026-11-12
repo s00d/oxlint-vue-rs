@@ -6,5 +6,7 @@
   "no-restricted-call-after-await#invalid8": "`module` option is require.resolve() of the eslint-plugin-vue checkout on the capture machine; not portable",
   "no-deprecated-filter#valid2": "vue-eslint-parser `vueFeatures.filter: false` parser option (filters parsed as bitwise OR) is not supported; we always parse Vue 2 filters",
   "script-indent#invalid161": "oxc parser limitation: `implements Baz1\\n<\\nT\\n>` (type arguments on a new line in an implements clause) is a fatal parse error in oxc 0.158, so there is no program to lint",
-  "script-indent#invalid162": "oxc parser limitation: `implements Baz1\\n<\\nT\\n>` (type arguments on a new line in an implements clause) is a fatal parse error in oxc 0.158, so there is no program to lint"
+  "script-indent#invalid162": "oxc parser limitation: `implements Baz1\\n<\\nT\\n>` (type arguments on a new line in an implements clause) is a fatal parse error in oxc 0.158, so there is no program to lint",
+  "script-indent#valid171": "oxc 0.158 fails to parse a type argument list on its own line after `implements X` (fatal `Unexpected token <`), so the file now gets a fatal Parsing error like ESLint would on an unparsable script; typescript-eslint parses it",
+  "script-indent#valid172": "oxc 0.158 fails to parse a type argument list on its own line after `implements X` (fatal `Unexpected token <`), so the file now gets a fatal Parsing error like ESLint would on an unparsable script; typescript-eslint parses it"
 }

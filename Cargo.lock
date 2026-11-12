@@ -636,6 +636,7 @@ name = "oxlint-vue-rs"
 version = "0.1.0"
 dependencies = [
  "feruca",
+ "globset",
  "ignore",
  "node-semver",
  "oxc",

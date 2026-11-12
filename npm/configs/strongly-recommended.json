@@ -59,7 +59,13 @@
     "vue-rs/singleline-html-element-content-newline": "warn",
     "vue-rs/use-v-on-exact": "error",
     "vue-rs/v-bind-style": "warn",
-    "vue-rs/v-on-event-hyphenation": "warn",
+    "vue-rs/v-on-event-hyphenation": [
+      "warn",
+      "always",
+      {
+        "autofix": true
+      }
+    ],
     "vue-rs/v-on-style": "warn",
     "vue-rs/v-slot-style": "warn",
     "vue-rs/valid-attribute-name": "error",

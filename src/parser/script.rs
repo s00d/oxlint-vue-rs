@@ -958,7 +958,7 @@ impl<'a, 'g> ExprParser<'a, 'g> {
 
 /// Approximate espree's wording for the most common oxc syntax errors (vue/no-parsing-error
 /// reports the message). Returns (message, wrapper offset).
-fn espree_like_message(msg: &str, text: &str, w: usize) -> (String, usize) {
+pub(crate) fn espree_like_message(msg: &str, text: &str, w: usize) -> (String, usize) {
     // ponytail: a handful of mappings; other oxc messages pass through unchanged.
     if msg == "Unexpected token" && !text.is_empty() {
         return (format!("Unexpected token {text}"), w);

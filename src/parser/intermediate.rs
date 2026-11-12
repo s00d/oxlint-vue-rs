@@ -73,7 +73,7 @@ pub(super) struct Intermediate<'a> {
     current: Option<IToken>,
     /// Whether the last attribute of the current start tag is "open" (`this.attribute != null`).
     attribute: bool,
-    attribute_names: Vec<String>,
+    attribute_names: std::collections::HashSet<String>,
     /// Index into `tokens` of the pending `{{`.
     expression_start: Option<usize>,
     /// Indices into `tokens` of the deferred tokens after `{{`.
@@ -88,7 +88,7 @@ impl<'a> Intermediate<'a> {
             tokenizer,
             current: None,
             attribute: false,
-            attribute_names: Vec::new(),
+            attribute_names: std::collections::HashSet::new(),
             expression_start: None,
             expression_tokens: Vec::new(),
             tokens: Vec::new(),
@@ -217,10 +217,9 @@ impl<'a> Intermediate<'a> {
                     Some(IToken::StartTag(_)) => {}
                     _ => return None,
                 }
-                if self.attribute_names.contains(&name) {
+                if !self.attribute_names.insert(name.clone()) {
                     self.report(start, "duplicate-attribute");
                 }
-                self.attribute_names.push(name.clone());
                 if let Some(IToken::StartTag(t)) = &mut self.current {
                     t.attributes.push(RawAttr {
                         start,

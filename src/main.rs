@@ -1,13 +1,15 @@
 //! `oxlint-vue-rs` CLI: lints `.vue` files (template + script rules oxlint lacks) with the same
 //! `.oxlintrc.json`. `--with-oxlint` also runs oxlint on the same paths and merges both outputs.
 
+use std::collections::{HashMap, HashSet};
 use std::path::{Path, PathBuf};
 use std::process::{Command, ExitCode};
 use std::sync::Mutex;
 
 use oxlint_vue_rs::config::{self, Config, RuleSetting};
 use oxlint_vue_rs::{
-    ConfiguredRule, FileOptions, Severity, apply_fixes, configure, lint_source, rules,
+    ConfiguredRule, FileOptions, LineIndex, PARSING_ERROR, Severity, apply_fixes, configure,
+    lint_source, rules,
 };
 use serde_json::{Value, json};
 
@@ -16,7 +18,10 @@ const HELP: &str = "oxlint-vue-rs — eslint-plugin-vue rules for oxlint project
 Usage: oxlint-vue-rs [OPTIONS] [PATH]... [-- OXLINT_ARGS...]
 
 Options:
-  -c, --config <FILE>        oxlint config (default: nearest .oxlintrc.json)
+  -c, --config <FILE>        oxlint config for every file (default: the nearest .oxlintrc.json
+                             of each file, like oxlint's nested configs)
+      --disable-nested-config
+                             only use the config found from the current directory upwards
   -A, --allow <RULE>         turn a rule off   (vue-rs/<rule>, vue/<rule> or <rule>)
   -W, --warn <RULE>          warn on a rule    (`all` = every implemented rule)
   -D, --deny <RULE>          error on a rule   (`all` = every implemented rule)
@@ -26,7 +31,8 @@ Options:
       --quiet                report errors only
       --deny-warnings        exit 1 on warnings
       --max-warnings <N>     exit 1 when warnings exceed N
-      --ignore-pattern <P>   extra ignore glob (repeatable)
+      --ignore-pattern <P>   extra gitignore-style pattern, relative to the current directory
+                             (repeatable)
       --no-ignore            do not read .gitignore / ignorePatterns
       --hidden               also lint files in hidden (dot) directories
       --no-inline-config     ignore eslint-disable / oxlint-disable comments
@@ -41,6 +47,7 @@ Options:
 #[derive(Default)]
 struct Args {
     config: Option<PathBuf>,
+    disable_nested_config: bool,
     cli_rules: Vec<(String, Option<Severity>)>,
     fix: bool,
     fix_suggestions: bool,
@@ -87,6 +94,7 @@ fn parse_args() -> Result<Args, String> {
                 std::process::exit(0);
             }
             "-c" | "--config" => a.config = Some(val("--config")?.into()),
+            "--disable-nested-config" => a.disable_nested_config = true,
             "-A" | "--allow" => a.cli_rules.push((val("-A")?, None)),
             "-W" | "--warn" => a.cli_rules.push((val("-W")?, Some(Severity::Warn))),
             "-D" | "--deny" => a.cli_rules.push((val("-D")?, Some(Severity::Error))),
@@ -95,7 +103,12 @@ fn parse_args() -> Result<Args, String> {
                 a.fix = true;
                 a.fix_suggestions = true;
             }
-            "-f" | "--format" => a.format = val("--format")?,
+            "-f" | "--format" => {
+                a.format = val("--format")?;
+                if !matches!(a.format.as_str(), "default" | "json" | "unix" | "github") {
+                    return Err(format!("--format: unknown format {:?}", a.format));
+                }
+            }
             "--quiet" => a.quiet = true,
             "--deny-warnings" => a.deny_warnings = true,
             "--max-warnings" => {
@@ -146,6 +159,9 @@ struct Report {
     code: String,
     message: String,
     fixable: bool,
+    /// oxlint's `help` / `url` (passed through in `--format json`).
+    help: Option<String>,
+    url: Option<String>,
 }
 
 fn rule_name(raw: &str, prefixes: &[String]) -> String {
@@ -215,53 +231,174 @@ fn instantiate(
     out
 }
 
-fn collect_files(args: &Args, cfg: &Config) -> Vec<PathBuf> {
-    let mut files = Vec::new();
+/// A file to lint: path as shown (relative to cwd when under it), absolute path, config index.
+struct Target {
+    shown: PathBuf,
+    abs: PathBuf,
+    cfg: usize,
+}
+
+/// Configs by file: `-c` (one for all), or the nearest config of each file (oxlint nested configs;
+/// a nested config replaces its parents, it is not merged with them).
+struct Configs {
+    cwd: PathBuf,
+    fixed: Option<usize>,
+    list: Vec<Config>,
+    by_path: HashMap<PathBuf, usize>,
+    by_dir: HashMap<PathBuf, usize>,
+}
+
+impl Configs {
+    fn new(args: &Args, cwd: &Path) -> Result<Configs, String> {
+        let mut c = Configs {
+            cwd: cwd.to_path_buf(),
+            fixed: None,
+            list: Vec::new(),
+            by_path: HashMap::new(),
+            by_dir: HashMap::new(),
+        };
+        if let Some(p) = &args.config {
+            c.fixed = Some(c.load(Some(config::absolute(p)))?);
+        } else if args.disable_nested_config {
+            c.fixed = Some(c.for_dir(cwd)?);
+        }
+        Ok(c)
+    }
+
+    fn load(&mut self, path: Option<PathBuf>) -> Result<usize, String> {
+        let key = path.clone().unwrap_or_default();
+        if let Some(&i) = self.by_path.get(&key) {
+            return Ok(i);
+        }
+        let cfg = match &path {
+            Some(p) => Config::load(p)?,
+            None => Config::empty(&self.cwd),
+        };
+        self.list.push(cfg);
+        self.by_path.insert(key, self.list.len() - 1);
+        Ok(self.list.len() - 1)
+    }
+
+    /// Config for files in `dir` (absolute).
+    fn for_dir(&mut self, dir: &Path) -> Result<usize, String> {
+        if let Some(i) = self.fixed {
+            return Ok(i);
+        }
+        if let Some(&i) = self.by_dir.get(dir) {
+            return Ok(i);
+        }
+        let i = self.load(config::find_config(dir))?;
+        self.by_dir.insert(dir.to_path_buf(), i);
+        Ok(i)
+    }
+
+    /// The config `--print-config` shows (the one for the current directory).
+    fn for_cwd(&mut self) -> Result<usize, String> {
+        let cwd = self.cwd.clone();
+        self.for_dir(&cwd)
+    }
+}
+
+/// Path as reported: relative to `cwd` when under it (as oxlint prints it), else absolute.
+fn shown(abs: &Path, cwd: &Path) -> PathBuf {
+    abs.strip_prefix(cwd)
+        .map_or_else(|_| abs.to_path_buf(), Path::to_path_buf)
+}
+
+fn collect_files(args: &Args, cfgs: &mut Configs) -> Result<Vec<Target>, String> {
+    let cwd = cfgs.cwd.clone();
+    let mut found = Vec::new();
     for p in &args.paths {
-        if p.is_file() {
-            files.push(p.clone());
+        let abs = config::absolute(p);
+        if abs.is_file() {
+            found.push(abs);
             continue;
         }
-        let mut wb = ignore::WalkBuilder::new(p);
+        if !abs.is_dir() {
+            return Err(format!("{}: no such file or directory", p.display()));
+        }
+        let mut wb = ignore::WalkBuilder::new(&abs);
         wb.hidden(!args.hidden)
             .git_ignore(!args.no_ignore)
             .git_exclude(!args.no_ignore)
             .ignore(!args.no_ignore)
             .require_git(false);
         for e in wb.build().filter_map(Result::ok) {
-            let path = e.path();
             if e.file_type().is_some_and(|t| t.is_file())
-                && path.extension().is_some_and(|x| x == "vue")
+                && e.path().extension().is_some_and(|x| x == "vue")
             {
-                files.push(path.to_path_buf());
+                found.push(e.into_path());
             }
         }
     }
-    if !args.no_ignore {
-        files.retain(|f| !cfg.is_ignored(f));
-    }
-    if !args.ignore_patterns.is_empty() {
-        files.retain(|f| {
-            let s = f.to_string_lossy().replace('\\', "/");
-            !args.ignore_patterns.iter().any(|g| {
-                config::glob_match(g, &s)
-                    || config::glob_match(&format!("{}/**", g.trim_end_matches('/')), &s)
-            })
+    let cli_ignore = config::gitignore(&cwd, &args.ignore_patterns)
+        .map_err(|e| format!("--ignore-pattern: {e}"))?;
+    // One entry per real file, however it was spelled (`.`, `x.vue`, `$PWD/x.vue`, a symlink).
+    let mut seen = HashSet::new();
+    let mut files = Vec::new();
+    for abs in found {
+        if !seen.insert(std::fs::canonicalize(&abs).unwrap_or_else(|_| abs.clone())) {
+            continue;
+        }
+        let dir = abs.parent().unwrap_or(&abs).to_path_buf();
+        let cfg = cfgs.for_dir(&dir)?;
+        if !args.no_ignore && cfgs.list[cfg].is_ignored(&abs) {
+            continue;
+        }
+        if let Ok(rel) = abs.strip_prefix(&cwd)
+            && cli_ignore
+                .matched_path_or_any_parents(rel, false)
+                .is_ignore()
+        {
+            continue;
+        }
+        files.push(Target {
+            shown: shown(&abs, &cwd),
+            abs,
+            cfg,
         });
     }
-    files.sort();
-    files.dedup();
-    files
+    files.sort_by(|a, b| a.shown.cmp(&b.shown));
+    Ok(files)
+}
+
+/// Write `text` over `path` atomically (temp file + rename, keeping permissions), unless the file
+/// changed since it was read as `read`.
+fn write_fixed(path: &Path, read: &str, text: &str) -> Result<(), String> {
+    let err = |e: std::io::Error| format!("{}: {e}", path.display());
+    if std::fs::read_to_string(path).map_err(err)? != read {
+        return Err(format!(
+            "{}: changed while linting, fixes not written",
+            path.display()
+        ));
+    }
+    let perms = std::fs::metadata(path).map_err(err)?.permissions();
+    let name = path.file_name().unwrap_or_default().to_string_lossy();
+    let tmp = path.with_file_name(format!(".{name}.oxlint-vue-rs-{}.tmp", std::process::id()));
+    let res = std::fs::write(&tmp, text)
+        .and_then(|()| std::fs::set_permissions(&tmp, perms))
+        .and_then(|()| std::fs::rename(&tmp, path));
+    if res.is_err() {
+        std::fs::remove_file(&tmp).ok();
+    }
+    res.map_err(err)
 }
 
 fn lint_file(
-    path: &Path,
+    t: &Target,
     args: &Args,
     cfg: &Config,
     unknown: &Mutex<Vec<String>>,
 ) -> Result<Vec<Report>, String> {
-    let mut source =
-        std::fs::read_to_string(path).map_err(|e| format!("{}: {e}", path.display()))?;
+    let path = t.abs.as_path();
+    let text = std::fs::read_to_string(path).map_err(|e| format!("{}: {e}", t.shown.display()))?;
+    // ESLint lints the text without a BOM and puts it back on fix output.
+    let bom = if text.starts_with('\u{feff}') {
+        "\u{feff}"
+    } else {
+        ""
+    };
+    let mut source = text[bom.len()..].to_string();
     let rules = instantiate(
         &effective_rules(cfg, path, &args.cli_rules),
         &cfg.settings,
@@ -301,10 +438,10 @@ fn lint_file(
             }
         }
         if source != original {
-            std::fs::write(path, &source).map_err(|e| format!("{}: {e}", path.display()))?;
+            write_fixed(path, &text, &format!("{bom}{source}"))?;
         }
     }
-    let lines = oxlint_vue_rs::LineIndex::new(&source);
+    let lines = LineIndex::for_source(&source, path.extension().is_some_and(|e| e == "vue"));
     let prefix = cfg
         .prefixes
         .first()
@@ -315,7 +452,7 @@ fn lint_file(
         .map(|d| {
             let [line, column, end_line, end_column] = d.location(&lines, &source);
             Report {
-                file: path.to_path_buf(),
+                file: t.shown.clone(),
                 line,
                 column,
                 end_line,
@@ -323,9 +460,15 @@ fn lint_file(
                 offset: d.span.start,
                 length: d.span.end - d.span.start,
                 severity: d.severity,
-                code: format!("{prefix}/{}", d.rule),
+                code: if d.rule == PARSING_ERROR {
+                    String::new()
+                } else {
+                    format!("{prefix}/{}", d.rule)
+                },
                 message: d.message,
                 fixable: d.fix.is_some(),
+                help: None,
+                url: None,
             }
         })
         .collect())
@@ -343,8 +486,15 @@ fn find_oxlint(start: &Path) -> PathBuf {
     PathBuf::from("oxlint")
 }
 
+/// oxlint's diagnostics, its `number_of_files` and whether it failed (its exit status).
+struct OxlintRun {
+    reports: Vec<Report>,
+    files: usize,
+    failed: bool,
+}
+
 /// Run oxlint with `--format json` and convert its diagnostics.
-fn run_oxlint(args: &Args, cwd: &Path) -> Result<Vec<Report>, String> {
+fn run_oxlint(args: &Args, cwd: &Path) -> Result<OxlintRun, String> {
     let bin = find_oxlint(cwd);
     let mut cmd = Command::new(&bin);
     cmd.arg("--format").arg("json");
@@ -369,18 +519,33 @@ fn run_oxlint(args: &Args, cwd: &Path) -> Result<Vec<Report>, String> {
         )
     })?;
     let mut reports = Vec::new();
+    // Source + line table per file, for end positions of multi-line spans.
+    let mut sources: HashMap<PathBuf, Option<(String, LineIndex)>> = HashMap::new();
     for d in v["diagnostics"].as_array().into_iter().flatten() {
         let label = &d["labels"][0]["span"];
         let line = label["line"].as_u64().unwrap_or(0) as u32;
         let column = label["column"].as_u64().unwrap_or(0) as u32;
+        let offset = label["offset"].as_u64().unwrap_or(0) as u32;
+        let length = label["length"].as_u64().unwrap_or(0) as u32;
+        let abs = config::absolute(&cwd.join(d["filename"].as_str().unwrap_or("")));
+        let src = sources.entry(abs.clone()).or_insert_with(|| {
+            let s = std::fs::read_to_string(&abs).ok()?;
+            let l = LineIndex::for_source(&s, abs.extension().is_some_and(|e| e == "vue"));
+            Some((s, l))
+        });
+        let (end_line, end_column) = match src {
+            Some((s, l)) if (offset + length) as usize <= s.len() => l.line_col(s, offset + length),
+            _ => (line, column + length),
+        };
+        let text = |k: &str| d[k].as_str().filter(|s| !s.is_empty()).map(String::from);
         reports.push(Report {
-            file: PathBuf::from(d["filename"].as_str().unwrap_or("")),
+            file: shown(&abs, cwd),
             line,
             column,
-            end_line: line,
-            end_column: column + label["length"].as_u64().unwrap_or(0) as u32,
-            offset: label["offset"].as_u64().unwrap_or(0) as u32,
-            length: label["length"].as_u64().unwrap_or(0) as u32,
+            end_line,
+            end_column,
+            offset,
+            length,
             severity: if d["severity"] == "error" {
                 Severity::Error
             } else {
@@ -389,9 +554,15 @@ fn run_oxlint(args: &Args, cwd: &Path) -> Result<Vec<Report>, String> {
             code: d["code"].as_str().unwrap_or("oxlint").to_string(),
             message: d["message"].as_str().unwrap_or("").to_string(),
             fixable: false,
+            help: text("help"),
+            url: text("url"),
         });
     }
-    Ok(reports)
+    Ok(OxlintRun {
+        reports,
+        files: v["number_of_files"].as_u64().unwrap_or(0) as usize,
+        failed: !out.status.success(),
+    })
 }
 
 fn print(reports: &[Report], format: &str, files: usize) {
@@ -407,14 +578,20 @@ fn print(reports: &[Report], format: &str, files: usize) {
             let diags: Vec<Value> = reports
                 .iter()
                 .map(|r| {
-                    json!({
+                    let mut v = json!({
                         "message": r.message,
                         "code": r.code,
                         "severity": if r.severity == Severity::Error { "error" } else { "warning" },
                         "filename": r.file.to_string_lossy(),
                         "fixable": r.fixable,
                         "labels": [{"span": {"offset": r.offset, "length": r.length, "line": r.line, "column": r.column, "endLine": r.end_line, "endColumn": r.end_column}}],
-                    })
+                    });
+                    for (k, x) in [("help", &r.help), ("url", &r.url)] {
+                        if let Some(x) = x {
+                            v[k] = x.as_str().into();
+                        }
+                    }
+                    v
                 })
                 .collect();
             println!(
@@ -432,13 +609,17 @@ fn print(reports: &[Report], format: &str, files: usize) {
                 } else {
                     "Warning"
                 };
+                let code = if r.code.is_empty() {
+                    String::new()
+                } else {
+                    format!("/{}", r.code)
+                };
                 println!(
-                    "{}:{}:{}: {} [{sev}/{}]",
+                    "{}:{}:{}: {} [{sev}{code}]",
                     r.file.display(),
                     r.line,
                     r.column,
                     r.message,
-                    r.code
                 );
             }
         }
@@ -449,19 +630,15 @@ fn print(reports: &[Report], format: &str, files: usize) {
                 } else {
                     "warning"
                 };
-                let msg = r
-                    .message
-                    .replace('%', "%25")
-                    .replace('\r', "%0D")
-                    .replace('\n', "%0A");
+                let msg = gh_escape(&r.message, false);
                 println!(
                     "::{sev} file={},line={},col={},endLine={},endColumn={},title={}::{msg}",
-                    r.file.display(),
+                    gh_escape(&r.file.to_string_lossy(), true),
                     r.line,
                     r.column,
                     r.end_line,
                     r.end_column,
-                    r.code
+                    gh_escape(&r.code, true)
                 );
             }
         }
@@ -480,10 +657,11 @@ fn print(reports: &[Report], format: &str, files: usize) {
                 } else {
                     "warning"
                 };
-                println!(
+                let line = format!(
                     "  {:>4}:{:<4} {sev}  {}  {}",
                     r.line, r.column, r.message, r.code
                 );
+                println!("{}", line.trim_end());
             }
             if !reports.is_empty() {
                 println!();
@@ -498,9 +676,25 @@ fn print(reports: &[Report], format: &str, files: usize) {
     }
 }
 
+/// GitHub workflow command escaping (`property` values also escape `:` and `,`).
+fn gh_escape(s: &str, property: bool) -> String {
+    let s = s
+        .replace('%', "%25")
+        .replace('\r', "%0D")
+        .replace('\n', "%0A");
+    if property {
+        s.replace(':', "%3A").replace(',', "%2C")
+    } else {
+        s
+    }
+}
+
 fn s(n: usize) -> &'static str {
     if n == 1 { "" } else { "s" }
 }
+
+/// Worker thread stack (deeply nested templates / expressions).
+const WORKER_STACK: usize = 256 << 20;
 
 fn main() -> ExitCode {
     let args = match parse_args() {
@@ -510,23 +704,27 @@ fn main() -> ExitCode {
             return ExitCode::from(2);
         }
     };
-    let cwd = std::env::current_dir().unwrap_or_else(|_| PathBuf::from("."));
-    let cfg_path = args.config.clone().or_else(|| config::find_config(&cwd));
-    let cfg = match &cfg_path {
-        Some(p) => match Config::load(p) {
-            Ok(c) => c,
-            Err(e) => {
-                eprintln!("error: {e}");
-                return ExitCode::from(2);
-            }
-        },
-        None => Config {
-            base: cwd.clone(),
-            prefixes: vec![config::DEFAULT_PREFIX.into()],
-            settings: json!({}),
-            ..Default::default()
-        },
+    let cwd = config::absolute(&std::env::current_dir().unwrap_or_else(|_| PathBuf::from(".")));
+    let mut cfgs = match Configs::new(&args, &cwd) {
+        Ok(c) => c,
+        Err(e) => {
+            eprintln!("error: {e}");
+            return ExitCode::from(2);
+        }
     };
+    let cwd_cfg = match cfgs.for_cwd() {
+        Ok(i) => i,
+        Err(e) => {
+            eprintln!("error: {e}");
+            return ExitCode::from(2);
+        }
+    };
+    let cfg = &cfgs.list[cwd_cfg];
+    let cfg_path = cfgs
+        .by_path
+        .iter()
+        .find(|&(p, &i)| i == cwd_cfg && !p.as_os_str().is_empty())
+        .map(|(p, _)| p.clone());
 
     if args.list_rules {
         for d in rules::ALL {
@@ -545,7 +743,7 @@ fn main() -> ExitCode {
         return ExitCode::SUCCESS;
     }
     if args.print_config {
-        let rules = effective_rules(&cfg, &cwd.join("x.vue"), &args.cli_rules);
+        let rules = effective_rules(cfg, &cwd.join("x.vue"), &args.cli_rules);
         let obj: serde_json::Map<String, Value> = rules
             .into_iter()
             .map(|(n, s)| {
@@ -569,7 +767,18 @@ fn main() -> ExitCode {
         return ExitCode::SUCCESS;
     }
 
-    let files = collect_files(&args, &cfg);
+    let files = match collect_files(&args, &mut cfgs) {
+        Ok(f) => f,
+        Err(e) => {
+            eprintln!("error: {e}");
+            return ExitCode::from(2);
+        }
+    };
+    if files.is_empty() && !args.with_oxlint {
+        println!("No files found to lint. Please check your paths and ignore patterns.");
+        return ExitCode::from(1);
+    }
+    let cfgs = &cfgs.list;
     let unknown = Mutex::new(Vec::new());
     let threads = args
         .threads
@@ -580,33 +789,43 @@ fn main() -> ExitCode {
     let failures: Mutex<Vec<String>> = Mutex::new(Vec::new());
     std::thread::scope(|sc| {
         for _ in 0..threads.min(files.len().max(1)) {
-            sc.spawn(|| {
+            // Deeply nested input recurses deeply (parser, oxc, rules); a stack overflow would abort
+            // the whole run, which `catch_unwind` cannot catch.
+            let worker = std::thread::Builder::new().stack_size(WORKER_STACK);
+            let spawned = worker.spawn_scoped(sc, || {
                 loop {
                     let i = next.fetch_add(1, std::sync::atomic::Ordering::Relaxed);
                     let Some(f) = files.get(i) else { break };
                     match std::panic::catch_unwind(std::panic::AssertUnwindSafe(|| {
-                        lint_file(f, &args, &cfg, &unknown)
+                        lint_file(f, &args, &cfgs[f.cfg], &unknown)
                     })) {
                         Ok(Ok(r)) => results.lock().unwrap().extend(r),
                         Ok(Err(e)) => failures.lock().unwrap().push(e),
                         Err(_) => failures.lock().unwrap().push(format!(
                             "{}: internal error (panic) — please report",
-                            f.display()
+                            f.shown.display()
                         )),
                     }
                 }
             });
+            if let Err(e) = spawned {
+                failures
+                    .lock()
+                    .unwrap()
+                    .push(format!("cannot start a worker thread: {e}"));
+            }
         }
     });
     let mut reports = results.into_inner().unwrap();
     let mut file_count = files.len();
+    let mut oxlint_failed = false;
     if args.with_oxlint {
         match run_oxlint(&args, &cwd) {
             Ok(r) => {
-                let extra: std::collections::HashSet<_> =
-                    r.iter().map(|x| x.file.clone()).collect();
-                file_count = file_count.max(extra.len());
-                reports.extend(r);
+                // oxlint also lints the `.vue` files we did.
+                file_count = file_count.max(r.files);
+                oxlint_failed = r.failed;
+                reports.extend(r.reports);
             }
             Err(e) => {
                 eprintln!("error: {e}");
@@ -633,7 +852,7 @@ fn main() -> ExitCode {
     let warnings = reports.len() - errors;
     let too_many =
         args.max_warnings.is_some_and(|m| warnings > m) || (args.deny_warnings && warnings > 0);
-    if errors > 0 || too_many || !fails.is_empty() {
+    if errors > 0 || too_many || !fails.is_empty() || oxlint_failed {
         ExitCode::from(1)
     } else {
         ExitCode::SUCCESS
