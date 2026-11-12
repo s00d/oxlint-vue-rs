@@ -6,7 +6,7 @@ prefix (`0.1.0`).
 ## 1. Version, changelog, tag
 
 ```bash
-# bump `version` in Cargo.toml, add the CHANGELOG entry, update RELEASE_NOTES.md
+# bump `version` in Cargo.toml, add the CHANGELOG entry, replace RELEASE_NOTES.md with this release's notes only (it is the GitHub release body; history lives in CHANGELOG.md)
 cargo test && cargo clippy --all-targets -- -D warnings && cargo fmt --check
 git commit -am "release: X.Y.Z" && git push
 git tag X.Y.Z && git push origin X.Y.Z
