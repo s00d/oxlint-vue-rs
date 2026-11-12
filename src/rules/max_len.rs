@@ -61,8 +61,11 @@ impl Rule for R {
     fn run(&self, ctx: &mut Ctx) {
         let file = ctx.file;
         let src = ctx.source();
+        // Upstream iterates ESLint `sourceCode.lines` (all line terminators) but takes the lines of
+        // tokens, comments and blocks from parser locations (`\n` only); both index the same arrays.
         let lines = file.lines;
-        let n = lines.line_count();
+        let text_lines = file.eslint_lines;
+        let n = lines.line_count().max(text_lines.line_count());
         let pos = |o: u32| -> (usize, u32) {
             let (l, c) = lines.line_col(src, o);
             (l as usize - 1, c - 1)
@@ -170,7 +173,7 @@ impl Rule for R {
             }
         }
 
-        for i in 0..n {
+        for i in 0..text_lines.line_count() {
             let in_script = script_range.is_some_and(|(a, b)| a <= i && i <= b);
             let in_template = template_range.is_some_and(|(a, b)| a <= i && i <= b);
             if (!in_script && !in_template)
@@ -182,8 +185,8 @@ impl Rule for R {
             {
                 continue;
             }
-            let start = lines.line_start(i).unwrap_or(0);
-            let end = lines.line_start(i + 1).unwrap_or(src.len() as u32);
+            let start = text_lines.line_start(i).unwrap_or(0);
+            let end = text_lines.line_start(i + 1).unwrap_or(src.len() as u32);
             let line = src[start as usize..end as usize]
                 .trim_end_matches(['\n', '\r', '\u{2028}', '\u{2029}']);
             let line_len16 = utf16_len(line);

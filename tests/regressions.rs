@@ -18,7 +18,7 @@ fn run(rule: &str, opts: Value, globals: Value, code: &str) -> (Vec<String>, Opt
         .unwrap();
     let rules = [cfg];
     let diags = lint_source(code, Path::new("t.vue"), &fo, &rules);
-    let lines = LineIndex::new(code);
+    let lines = LineIndex::for_source(code, true);
     let mut at: Vec<String> = diags
         .iter()
         .map(|d| {
@@ -210,4 +210,31 @@ fn restricted_syntax_estree_parity() {
     );
     assert_eq!(r(t3, "Literal[value=1.0]"), ["1:50"]);
     assert!(r(t3, "Literal[value=\"1.0\"]").is_empty());
+}
+
+/// ESLint `getLocFromIndex` breaks lines on CR and U+2028/9 too; parser node locs only on `\n`.
+#[test]
+fn eslint_loc_line_terminators() {
+    let r = |rule: &str, code: &str| reports(rule, json!([]), Value::Null, code);
+    let ls = "<template>\n  <div title=\"a\u{2028}b\">\n    <!--a\u{2028}b-->\n  </div>\n</template>\na\u{2028}b stray\n";
+    assert_eq!(r("html-comment-content-spacing", ls), ["4:9", "5:2"]);
+    assert_eq!(r("no-irregular-whitespace", ls), ["2:16", "4:10"]);
+    assert_eq!(r("no-content-outside-block", ls), ["8:1"]);
+    let btn = "<template>a\u{2028}b<div/>a\u{2028}b</template>\n<script>a\u{2028}b\nconst a = 1\na\u{2028}b</script>";
+    assert_eq!(r("block-tag-newline", btn), ["1:11", "1:23", "2:9", "4:4"]);
+}
+
+/// max-len walks ESLint `sourceCode.lines` (CR-only lines are separate lines) but takes block
+/// line ranges from parser locations, so here only ESLint line 1 is "in the template".
+#[test]
+fn max_len_iterates_eslint_lines() {
+    let code = "<template>\r  <div title=\"xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx\"></div>\r</template>\n";
+    let at = run(
+        "max-len",
+        json!([{ "code": 40, "template": 40 }]),
+        Value::Null,
+        code,
+    )
+    .0;
+    assert!(at.is_empty());
 }

@@ -105,11 +105,15 @@ impl Rule for CommentDirective {
             let value_start = c.span.start + 4; // `<!--`
             for (i, name) in rules {
                 let s = value_start + i as u32;
+                let span = Span::new(s, s + name.len() as u32);
                 ctx.report_id(
-                    Span::new(s, s + name.len() as u32),
+                    span,
                     "unusedRule",
                     format!("Unused {ty} directive (no problems were reported from '{name}')."),
                 );
+                // `sourceCode.getLocFromIndex`
+                let loc = ctx.mixed_loc(span, true, true);
+                ctx.set_last_loc(loc);
             }
         }
     }

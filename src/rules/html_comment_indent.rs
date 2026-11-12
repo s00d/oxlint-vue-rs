@@ -36,7 +36,7 @@ fn display(s: &str, unit_char: Option<char>) -> String {
 
 /// (line text, line start offset) of a 0-based line.
 fn line_text<'a>(ctx: &Ctx<'_, 'a>, line: usize) -> (&'a str, u32) {
-    let lines = ctx.file.lines;
+    let lines = ctx.file.eslint_lines;
     let src = ctx.source();
     let start = lines.line_start(line).unwrap_or(src.len() as u32);
     let end = lines.line_start(line + 1).unwrap_or(src.len() as u32) as usize;
@@ -133,7 +133,7 @@ impl R {
 impl Rule for R {
     fn run(&self, ctx: &mut Ctx) {
         let Some(doc) = ctx.doc() else { return };
-        let lines = ctx.file.lines;
+        let lines = ctx.file.eslint_lines;
         for c in html_comments(doc, &[], true) {
             let open_line = lines.line_of(c.open.start);
             let base = indent_of(line_text(ctx, open_line).0).to_string();

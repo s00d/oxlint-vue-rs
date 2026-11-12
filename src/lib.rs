@@ -214,6 +214,17 @@ fn guess_script_lang(source: &str) -> (bool, bool) {
     (ts, jsx)
 }
 
+/// Rules whose upstream reports take their location from ESLint `sourceCode.getLocFromIndex`
+/// (`utils/html-comments.ts`, explicit `loc`s), so lines also break on CR and U+2028/9 in an SFC.
+/// Other reports use parser node locations ([`LineIndex::sfc`]).
+const ESLINT_LOC: &[&str] = &[
+    "html-comment-content-spacing",
+    "html-comment-content-newline",
+    "html-comment-indent",
+    "no-irregular-whitespace",
+    "no-content-outside-block",
+];
+
 /// `Diagnostic::rule` of a fatal script parse error (ESLint: `ruleId: null`, `fatal: true`).
 pub const PARSING_ERROR: &str = "";
 
@@ -230,6 +241,8 @@ pub fn lint_source(
         .sfc
         .unwrap_or_else(|| path.extension().is_some_and(|e| e == "vue"));
     let lines = LineIndex::for_source(source, is_sfc);
+    let eslint_lines =
+        (is_sfc && source.contains(['\r', '\u{2028}', '\u{2029}'])).then(|| LineIndex::new(source));
     let ext = path.extension().and_then(|e| e.to_str()).unwrap_or("");
 
     let mut doc = None;
@@ -338,6 +351,7 @@ pub fn lint_source(
         settings: &opts.settings,
         globals: &opts.globals,
         lines: &lines,
+        eslint_lines: eslint_lines.as_ref().unwrap_or(&lines),
     };
     let mut out = Vec::new();
     for r in rules {
@@ -348,6 +362,16 @@ pub fn lint_source(
             out: &mut out,
         };
         r.rule.run(&mut ctx);
+    }
+    if let Some(el) = &eslint_lines {
+        for d in out
+            .iter_mut()
+            .filter(|d| d.loc.is_none() && ESLINT_LOC.contains(&d.rule))
+        {
+            let (l, c) = el.line_col(source, d.span.start);
+            let (e, ec) = el.line_col(source, d.span.end);
+            d.loc = Some([l, c, e, ec]);
+        }
     }
     out.sort_by_key(|d| (d.span.start, d.span.end));
     if opts.no_inline_config {
