@@ -9,7 +9,7 @@ oxlint **1.93.0** native `vue/*` rules vs oxlint-vue-rs.
 | **oxlint-vue-rs** (use `vue-rs/<rule>`) | 210 |
 | missing | 0 |
 
-Upstream RuleTester cases for oxlint-vue-rs rules: **6841/6878 pass**, 37 skipped
+Upstream RuleTester cases for oxlint-vue-rs rules: **6839/6878 pass**, 39 skipped
 (type-aware or unsupported parser options; reasons below), 0 failing. A case passes when every diagnostic
 (line, column, end line, end column, message), the fix output and every suggestion equal the real eslint-plugin-vue run.
 
@@ -233,7 +233,7 @@ show 0 there.
 | [restricted-component-names](https://eslint.vuejs.org/rules/restricted-component-names.html) | uncategorized |  | **oxlint-vue-rs** | 5/5 | 17272 match, 0 missing, 0 extra |  |
 | [return-in-computed-property](https://eslint.vuejs.org/rules/return-in-computed-property.html) | essential |  | oxlint native | — | — |  |
 | [return-in-emits-validator](https://eslint.vuejs.org/rules/return-in-emits-validator.html) | essential |  | oxlint native | — | — |  |
-| [script-indent](https://eslint.vuejs.org/rules/script-indent.html) | uncategorized | fix | **oxlint-vue-rs** | 522/524 (2 skipped) | 1810 match, 0 missing, 0 extra | skip invalid161: oxc parser limitation: `implements Baz1\n<\nT\n>` (type arguments on a new line in an implements clause) is a fatal parse error in oxc 0.158, so there is no program to lint; skip invalid162: oxc parser limitation: `implements Baz1\n<\nT\n>` (type arguments on a new line in an implements clause) is a fatal parse error in oxc 0.158, so there is no program to lint |
+| [script-indent](https://eslint.vuejs.org/rules/script-indent.html) | uncategorized | fix | **oxlint-vue-rs** | 520/524 (4 skipped) | 1810 match, 0 missing, 0 extra | skip invalid161: oxc parser limitation: `implements Baz1\n<\nT\n>` (type arguments on a new line in an implements clause) is a fatal parse error in oxc 0.158, so there is no program to lint; skip invalid162: oxc parser limitation: `implements Baz1\n<\nT\n>` (type arguments on a new line in an implements clause) is a fatal parse error in oxc 0.158, so there is no program to lint; skip valid171: oxc 0.158 fails to parse a type argument list on its own line after `implements X` (fatal `Unexpected token <`), so the file now gets a fatal Parsing error like ESLint would on an unparsable script; typescript-eslint parses it; skip valid172: oxc 0.158 fails to parse a type argument list on its own line after `implements X` (fatal `Unexpected token <`), so the file now gets a fatal Parsing error like ESLint would on an unparsable script; typescript-eslint parses it |
 | [singleline-html-element-content-newline](https://eslint.vuejs.org/rules/singleline-html-element-content-newline.html) | strongly-recommended | fix | **oxlint-vue-rs** | 44/44 | 5768 match, 0 missing, 0 extra |  |
 | [slot-name-casing](https://eslint.vuejs.org/rules/slot-name-casing.html) | uncategorized |  | **oxlint-vue-rs** | 10/10 | 225 match, 0 missing, 0 extra |  |
 | [sort-keys](https://eslint.vuejs.org/rules/sort-keys.html) | uncategorized |  | **oxlint-vue-rs** | 224/224 | 13304 match, 0 missing, 0 extra |  |

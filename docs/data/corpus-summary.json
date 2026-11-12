@@ -242,7 +242,7 @@
   "msgDiff": 0,
   "missing": 0,
   "extra": 0,
-  "unparsedByEslint": 4
+  "unparsedByEslint": 3
  },
  "v-for-delimiter-style": {
   "match": 25,

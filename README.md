@@ -4,7 +4,7 @@ All of [eslint-plugin-vue](https://eslint.vuejs.org/) for projects that use [oxl
 **210 rules oxlint does not have** — `<template>` rules included — written in Rust on the oxc toolchain.
 
 - **Same behaviour as eslint-plugin-vue 10.12.1.** Same rule names, options, messages, locations, fixes and
-  suggestions; 6841/6878 of eslint-plugin-vue's own test cases pass (the rest need a TypeScript type checker or
+  suggestions; 6839/6878 of eslint-plugin-vue's own test cases pass (the rest need a TypeScript type checker, hit an oxc parser limit, or
   parser options we don't support), and on 9 real projects (4121 `.vue` files) the output is identical to
   eslint-plugin-vue: 151 548 matching problems, 0 missing, 0 extra. See [docs/compatibility.md](docs/compatibility.md).
 - **Fast.** All 210 rules over those 4121 files take 2.3 s (eslint-plugin-vue: 45 s).

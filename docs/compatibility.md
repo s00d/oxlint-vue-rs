@@ -14,15 +14,17 @@ suggestion outputs.
 | | |
 |---|---:|
 | cases | 6878 |
-| pass | **6841** |
-| skipped | 37 |
+| pass | **6839** |
+| skipped | 39 |
 | failing | 0 |
 
-Skips: 29 type-aware cases (they need a TypeScript program — `languageOptions.project`) and 8 listed with reasons
-in `tests/upstream-skips.json` (unsupported parser options such as `vueFeatures.filter: false`, `v-bind()` in
-`<style>` for `no-parsing-error`, two oxc parse failures, cases that depend on the capture machine's paths, one
-spurious ESLint parse error). Dropped from the data set: 3 `no-parsing-error` cases with lone UTF-16 surrogates
-(not representable in UTF-8) and the 5 `jsx-uses-vars` cases, which exercise ESLint's core `no-unused-vars`.
+Skips: 29 type-aware cases (they need a TypeScript program — `languageOptions.project`) and 10 listed with reasons
+in `tests/upstream-skips.json`: 4 where oxc 0.158 cannot parse a type argument list on its own line after
+`implements X` (`script-indent`), `v-bind()` in `<style>` for `no-parsing-error`, the `vueFeatures.filter: false`
+parser option, an upstream capture that parsed TS template expressions as JS, two cases that depend on the capture
+machine's paths, and one spurious ESLint parse error. Dropped from the data set: 3 `no-parsing-error` cases with lone
+UTF-16 surrogates (not representable in UTF-8) and the 5 `jsx-uses-vars` cases, which exercise ESLint's core
+`no-unused-vars`.
 
 vue-eslint-parser port: 266/280 of its own AST fixtures match (tree, every token, errors, references, variables);
 14 need parser options we do not support (pug, custom template tokenizers, babel, ecmaVersion 5, `filter: false`,
