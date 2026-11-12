@@ -17,8 +17,9 @@ oxlint yet. oxlint-vue-rs therefore ships two pieces:
 
 1. an oxlint **JS plugin** (`oxlint-vue-rs`, alias `vue-rs`) that registers every rule name, so the rules can be
    configured in `.oxlintrc.json` and oxlint (and its editor extension) accepts the config;
-2. the **`oxlint-vue-rs` binary**, which reads the same config and lints `.vue` files. With `--with-oxlint` it
-   also runs oxlint and prints one merged report.
+2. the **`oxlint-vue-rs` binary**, which reads the same config and lints `.vue` files — and, when oxlint is
+   installed, also runs oxlint on the same paths and prints one merged report. So `oxlint-vue-rs` replaces the
+   `oxlint` command in your scripts (`--no-oxlint` to run only the Vue rules).
 
 When oxlint lets plugins see the whole SFC (oxc PR #28720, or "language plugins"), the plugin will call the same
 Rust core directly — see [TODO.md](TODO.md) and [docs/architecture.md](docs/architecture.md).
@@ -27,7 +28,7 @@ Rust core directly — see [TODO.md](TODO.md) and [docs/architecture.md](docs/ar
 
 ```bash
 npm i -D oxlint oxlint-vue-rs     # pnpm add -D / yarn add -D work the same
-npx oxlint-vue-rs --with-oxlint src
+npx oxlint-vue-rs src               # runs oxlint + the Vue rules, one report
 ```
 
 The npm package carries the oxlint plugin, the presets and a small launcher; the native binary comes from a
@@ -73,8 +74,8 @@ in scripts, and `<!-- eslint-disable… -->` in templates.
 ## Run
 
 ```bash
-oxlint-vue-rs src                 # lint .vue files under src with .oxlintrc.json
-oxlint-vue-rs --with-oxlint src   # also run oxlint (node_modules/.bin or PATH), merged output
+oxlint-vue-rs src                 # oxlint (if installed) + Vue rules, same .oxlintrc.json, merged output
+oxlint-vue-rs --no-oxlint src     # only the Vue rules
 oxlint-vue-rs --fix src           # apply fixes (repeats until stable, max 10 passes)
 oxlint-vue-rs -D all src          # every rule as an error, ignoring the config's rule list
 oxlint-vue-rs -f json src         # json (oxlint-like) | unix | github | default
@@ -91,7 +92,7 @@ oxlint-vue-rs --rules             # list rules
 | `--ignore-pattern <glob>`, `--no-ignore`, `--hidden` | file selection (`.gitignore` is honoured) |
 | `--no-inline-config` | ignore disable comments |
 | `--threads <n>` | worker threads (default: all cores) |
-| `--with-oxlint [-- <oxlint args>]` | run oxlint too and merge |
+| `--no-oxlint` / `--with-oxlint` | skip oxlint / require it (default: run it when found); `-- <args>` go to oxlint |
 | `--print-config` | resolved rules |
 
 Exit code: 0 clean, 1 problems (or warnings with `--deny-warnings` / over `--max-warnings`), 2 usage/config error.

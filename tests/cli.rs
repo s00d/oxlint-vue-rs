@@ -25,8 +25,17 @@ impl Dir {
     }
     /// (exit code, stdout, stderr), run in `self/<sub>`.
     fn run(&self, sub: &str, args: &[&str]) -> (i32, String, String) {
+        // Keep these runs independent of an oxlint on the machine unless a test asks for it.
+        let mut all: Vec<&str> = args.to_vec();
+        if !args
+            .iter()
+            .any(|a| *a == "--with-oxlint" || *a == "--auto-oxlint")
+        {
+            all.insert(0, "--no-oxlint");
+        }
+        all.retain(|a| *a != "--auto-oxlint");
         let out = Command::new(BIN)
-            .args(args)
+            .args(&all)
             .current_dir(self.0.join(sub))
             .output()
             .unwrap();
@@ -139,6 +148,7 @@ fn missing_path_and_no_files() {
 }
 
 // M8: one file under several spellings is linted once; --fix writes atomically, keeps permissions.
+#[cfg(unix)]
 #[test]
 fn aliases_dedup_and_fix_keeps_permissions() {
     use std::os::unix::fs::PermissionsExt;
@@ -359,6 +369,7 @@ fn github_format_escapes_and_unknown_format() {
 }
 
 // M7: oxlint's paths are merged with ours, its file count and exit status are used.
+#[cfg(unix)]
 #[test]
 fn with_oxlint_merges_paths_count_and_status() {
     let d = Dir::new("m7");
@@ -416,4 +427,47 @@ fn presets_match_upstream_gaps() {
             serde_json::json!(["warn", "always", {"autofix": true}])
         );
     }
+}
+
+/// oxlint runs by default when it is in node_modules/.bin; `--no-oxlint` skips it.
+#[cfg(unix)]
+#[test]
+fn oxlint_runs_by_default_when_installed() {
+    use std::os::unix::fs::PermissionsExt;
+    let d = Dir::new("auto-oxlint");
+    d.file("src/A.vue", "<template><p>hi</p></template>\n")
+        .file(
+            "node_modules/.bin/oxlint",
+            "#!/bin/sh\ncat <<'E'\n{\"diagnostics\": [{\"message\": \"from oxlint\", \"code\": \"eslint(x)\", \"severity\": \"warning\", \"filename\": \"src/A.vue\", \"labels\": [{\"span\": {\"offset\": 0, \"length\": 1, \"line\": 1, \"column\": 1}}]}], \"number_of_files\": 1}\nE\n",
+        );
+    std::fs::set_permissions(
+        d.0.join("node_modules/.bin/oxlint"),
+        std::fs::Permissions::from_mode(0o755),
+    )
+    .unwrap();
+    let (_, out, err) = d.run("", &["--auto-oxlint", "-f", "json"]);
+    assert!(
+        out.contains("from oxlint"),
+        "auto mode must run oxlint: {out} {err}"
+    );
+    let (_, out, _) = d.run("", &["-f", "json"]); // helper adds --no-oxlint
+    assert!(!out.contains("from oxlint"), "{out}");
+}
+
+#[test]
+fn with_oxlint_required_errors_when_missing() {
+    let d = Dir::new("need-oxlint");
+    d.file("src/A.vue", "<template><p>hi</p></template>\n");
+    let out = Command::new(BIN)
+        .args(["--with-oxlint", "src"])
+        .current_dir(&d.0)
+        .env("PATH", "")
+        .output()
+        .unwrap();
+    assert_eq!(
+        out.status.code(),
+        Some(2),
+        "{}",
+        String::from_utf8_lossy(&out.stderr)
+    );
 }

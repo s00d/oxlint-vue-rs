@@ -1,5 +1,6 @@
 //! `oxlint-vue-rs` CLI: lints `.vue` files (template + script rules oxlint lacks) with the same
-//! `.oxlintrc.json`. `--with-oxlint` also runs oxlint on the same paths and merges both outputs.
+//! `.oxlintrc.json`. When oxlint is installed (node_modules/.bin or PATH) it also runs oxlint on the same
+//! paths and merges both outputs, so one command replaces `oxlint` (`--no-oxlint` to skip it).
 
 use std::collections::{HashMap, HashSet};
 use std::path::{Path, PathBuf};
@@ -37,8 +38,9 @@ Options:
       --hidden               also lint files in hidden (dot) directories
       --no-inline-config     ignore eslint-disable / oxlint-disable comments
       --threads <N>          worker threads (default: all cores)
-      --with-oxlint          also run oxlint (from node_modules/.bin or PATH) and merge results;
-                             arguments after `--` go to oxlint
+      --no-oxlint            do not run oxlint (by default it runs when found in node_modules/.bin
+                             or PATH, with the same paths/config, and the outputs are merged)
+      --with-oxlint          require oxlint (error when it is not found); arguments after `--` go to oxlint
       --rules                list rules and implementation status
       --print-config         print the resolved rule configuration
   -h, --help                 this help
@@ -60,7 +62,8 @@ struct Args {
     hidden: bool,
     no_inline_config: bool,
     threads: Option<usize>,
-    with_oxlint: bool,
+    /// `None` = auto (run oxlint when found), `Some(true)` = required, `Some(false)` = never.
+    with_oxlint: Option<bool>,
     oxlint_args: Vec<String>,
     list_rules: bool,
     print_config: bool,
@@ -129,7 +132,8 @@ fn parse_args() -> Result<Args, String> {
                         .map_err(|_| "--threads: not a number")?,
                 )
             }
-            "--with-oxlint" => a.with_oxlint = true,
+            "--with-oxlint" => a.with_oxlint = Some(true),
+            "--no-oxlint" => a.with_oxlint = Some(false),
             "--rules" => a.list_rules = true,
             "--print-config" => a.print_config = true,
             "--" => {
@@ -474,16 +478,26 @@ fn lint_file(
         .collect())
 }
 
-fn find_oxlint(start: &Path) -> PathBuf {
+/// oxlint from the nearest `node_modules/.bin`, else from PATH.
+fn find_oxlint(start: &Path) -> Option<PathBuf> {
+    let names: &[&str] = if cfg!(windows) {
+        &["oxlint.cmd", "oxlint.exe", "oxlint"]
+    } else {
+        &["oxlint"]
+    };
     let mut d = Some(start);
     while let Some(cur) = d {
-        let p = cur.join("node_modules/.bin/oxlint");
-        if p.is_file() {
-            return p;
+        for n in names {
+            let p = cur.join("node_modules/.bin").join(n);
+            if p.is_file() {
+                return Some(p);
+            }
         }
         d = cur.parent();
     }
-    PathBuf::from("oxlint")
+    std::env::split_paths(&std::env::var_os("PATH")?)
+        .flat_map(|dir| names.iter().map(move |n| dir.join(n)))
+        .find(|p| p.is_file())
 }
 
 /// oxlint's diagnostics, its `number_of_files` and whether it failed (its exit status).
@@ -494,9 +508,8 @@ struct OxlintRun {
 }
 
 /// Run oxlint with `--format json` and convert its diagnostics.
-fn run_oxlint(args: &Args, cwd: &Path) -> Result<OxlintRun, String> {
-    let bin = find_oxlint(cwd);
-    let mut cmd = Command::new(&bin);
+fn run_oxlint(args: &Args, bin: &Path, cwd: &Path) -> Result<OxlintRun, String> {
+    let mut cmd = Command::new(bin);
     cmd.arg("--format").arg("json");
     if let Some(c) = &args.config {
         cmd.arg("--config").arg(c);
@@ -774,7 +787,20 @@ fn main() -> ExitCode {
             return ExitCode::from(2);
         }
     };
-    if files.is_empty() && !args.with_oxlint {
+    let oxlint_bin = match args.with_oxlint {
+        Some(false) => None,
+        auto_or_required => match find_oxlint(&cwd) {
+            Some(b) => Some(b),
+            None if auto_or_required == Some(true) => {
+                eprintln!(
+                    "error: --with-oxlint: oxlint not found in node_modules/.bin or PATH (npm i -D oxlint)"
+                );
+                return ExitCode::from(2);
+            }
+            None => None,
+        },
+    };
+    if files.is_empty() && oxlint_bin.is_none() {
         println!("No files found to lint. Please check your paths and ignore patterns.");
         return ExitCode::from(1);
     }
@@ -819,8 +845,8 @@ fn main() -> ExitCode {
     let mut reports = results.into_inner().unwrap();
     let mut file_count = files.len();
     let mut oxlint_failed = false;
-    if args.with_oxlint {
-        match run_oxlint(&args, &cwd) {
+    if let Some(bin) = &oxlint_bin {
+        match run_oxlint(&args, bin, &cwd) {
             Ok(r) => {
                 // oxlint also lints the `.vue` files we did.
                 file_count = file_count.max(r.files);
