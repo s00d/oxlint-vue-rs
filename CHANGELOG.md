@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- `npm run publish:npm` / release workflow: the 30 s pause applies only before a package name's first publish.
+- README restructured (badges, quick start, documentation index).
+
 ## 0.1.1 — 2026-11-12
 
 - npm: the prebuilt binaries ship as scoped packages `@oxlint-vue-rs/<os>-<cpu>[-gnu|-musl]` (the unscoped
