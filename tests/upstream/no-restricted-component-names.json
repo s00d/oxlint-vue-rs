@@ -1,0 +1,650 @@
+[
+ {
+  "rule": "no-restricted-component-names",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        name: 'Disallow'\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "Disallow",
+   "Disallow2"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using component name `Disallow` is not allowed.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallow",
+     "message": "Using component name `Disallow` is not allowed.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-names#invalid0"
+ },
+ {
+  "rule": "no-restricted-component-names",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      new Vue({\n        name: 'Disallow',\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "Disallow"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using component name `Disallow` is not allowed.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallow",
+     "message": "Using component name `Disallow` is not allowed.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-names#invalid1"
+ },
+ {
+  "rule": "no-restricted-component-names",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup>\n      defineOptions({\n        name: 'Disallow'\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "Disallow"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using component name `Disallow` is not allowed.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallow",
+     "message": "Using component name `Disallow` is not allowed.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-names#invalid2"
+ },
+ {
+  "rule": "no-restricted-component-names",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script setup>\n      defineOptions({\n        name: 'FooBar'\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "/^Foo(Bar|Baz)/"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using component name `FooBar` is not allowed.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallow",
+     "message": "Using component name `FooBar` is not allowed.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-names#invalid3"
+ },
+ {
+  "rule": "no-restricted-component-names",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script setup>\n      defineOptions({\n        name: 'Disallow',\n        inheritAttrs: false,\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "name": "Disallow",
+    "message": "Custom message",
+    "suggest": "Allow"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom message",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `Allow`.",
+       "output": "\n      <script setup>\n      defineOptions({\n        name: \"Allow\",\n        inheritAttrs: false,\n      })\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallow",
+     "message": "Custom message",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "suggest",
+       "desc": "Instead, change to `Allow`.",
+       "output": "\n      <script setup>\n      defineOptions({\n        name: \"Allow\",\n        inheritAttrs: false,\n      })\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-names#invalid4"
+ },
+ {
+  "rule": "no-restricted-component-names",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script setup>\n      defineOptions({\n        name: 'Disallow',\n        inheritAttrs: false,\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "name": "Disallow",
+    "suggest": "Allow"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using component name `Disallow` is not allowed.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `Allow`.",
+       "output": "\n      <script setup>\n      defineOptions({\n        name: \"Allow\",\n        inheritAttrs: false,\n      })\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallow",
+     "message": "Using component name `Disallow` is not allowed.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "suggest",
+       "desc": "Instead, change to `Allow`.",
+       "output": "\n      <script setup>\n      defineOptions({\n        name: \"Allow\",\n        inheritAttrs: false,\n      })\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-names#invalid5"
+ },
+ {
+  "rule": "no-restricted-component-names",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script setup>\n      defineOptions({\n        name: 'Disallow',\n        inheritAttrs: false,\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "name": "Disallow",
+    "message": "Custom message"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom message",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallow",
+     "message": "Custom message",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-names#invalid6"
+ },
+ {
+  "rule": "no-restricted-component-names",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script setup>\n      defineOptions({\n        name: 1\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "1"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using component name `1` is not allowed.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallow",
+     "message": "Using component name `1` is not allowed.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-names#invalid7"
+ },
+ {
+  "rule": "no-restricted-component-names",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script setup>\n      defineOptions({\n        name: 'disallowed-component',\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "DisallowedComponent"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using component name `disallowed-component` is not allowed.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallow",
+     "message": "Using component name `disallowed-component` is not allowed.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-names#invalid8"
+ },
+ {
+  "rule": "no-restricted-component-names",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script setup>\n      defineOptions({\n        name: 'DisallowedComponent',\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "disallowed-component"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using component name `DisallowedComponent` is not allowed.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 36
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallow",
+     "message": "Using component name `DisallowedComponent` is not allowed.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-names#invalid9"
+ },
+ {
+  "rule": "no-restricted-component-names",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        name: 'Allow'\n      }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-names#valid0"
+ },
+ {
+  "rule": "no-restricted-component-names",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      new Vue({\n        name: 'Allow',\n      })\n    ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-names#valid1"
+ },
+ {
+  "rule": "no-restricted-component-names",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup>\n      defineOptions({\n        name: 'Allow'\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-names#valid2"
+ }
+]

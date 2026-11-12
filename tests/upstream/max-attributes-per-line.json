@@ -1,0 +1,748 @@
+[
+ {
+  "rule": "max-attributes-per-line",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><component name=\"John Doe\" age=\"30\"></component></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'age' should be on a new line.",
+     "line": 1,
+     "column": 38,
+     "endLine": 1,
+     "endColumn": 46
+    }
+   ],
+   "output": "<template><component name=\"John Doe\"\nage=\"30\"></component></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeOnNewLine",
+     "message": "'age' should be on a new line.",
+     "line": 1,
+     "column": 38,
+     "endLine": 1,
+     "endColumn": 46,
+     "fix": {
+      "range": [
+       36,
+       37
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><component name=\"John Doe\"\nage=\"30\"></component></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "max-attributes-per-line#invalid0"
+ },
+ {
+  "rule": "max-attributes-per-line",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><component :name=\"user.name\" :age=\"user.age\"></component></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "':age' should be on a new line.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 55
+    }
+   ],
+   "output": "<template><component :name=\"user.name\"\n:age=\"user.age\"></component></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeOnNewLine",
+     "message": "':age' should be on a new line.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 55,
+     "fix": {
+      "range": [
+       38,
+       39
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><component :name=\"user.name\"\n:age=\"user.age\"></component></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "max-attributes-per-line#invalid1"
+ },
+ {
+  "rule": "max-attributes-per-line",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><component :is=\"test\" v-bind=\"user\"></component></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-bind' should be on a new line.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 46
+    }
+   ],
+   "output": "<template><component :is=\"test\"\nv-bind=\"user\"></component></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeOnNewLine",
+     "message": "'v-bind' should be on a new line.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 46,
+     "fix": {
+      "range": [
+       31,
+       32
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><component :is=\"test\"\nv-bind=\"user\"></component></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "max-attributes-per-line#invalid2"
+ },
+ {
+  "rule": "max-attributes-per-line",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><component :name=\"user.name\" @buy=\"buyProduct\"></component></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'@buy' should be on a new line.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 57
+    }
+   ],
+   "output": "<template><component :name=\"user.name\"\n@buy=\"buyProduct\"></component></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeOnNewLine",
+     "message": "'@buy' should be on a new line.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 57,
+     "fix": {
+      "range": [
+       38,
+       39
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><component :name=\"user.name\"\n@buy=\"buyProduct\"></component></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "max-attributes-per-line#invalid3"
+ },
+ {
+  "rule": "max-attributes-per-line",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><component :name=\"user.name\" @click.stop></component></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'@click.stop' should be on a new line.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 51
+    }
+   ],
+   "output": "<template><component :name=\"user.name\"\n@click.stop></component></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeOnNewLine",
+     "message": "'@click.stop' should be on a new line.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 51,
+     "fix": {
+      "range": [
+       38,
+       39
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><component :name=\"user.name\"\n@click.stop></component></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "max-attributes-per-line#invalid4"
+ },
+ {
+  "rule": "max-attributes-per-line",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><component :name=\"user.name\" v-if=\"something\"></component></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-if' should be on a new line.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 56
+    }
+   ],
+   "output": "<template><component :name=\"user.name\"\nv-if=\"something\"></component></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeOnNewLine",
+     "message": "'v-if' should be on a new line.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 56,
+     "fix": {
+      "range": [
+       38,
+       39
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><component :name=\"user.name\"\nv-if=\"something\"></component></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "max-attributes-per-line#invalid5"
+ },
+ {
+  "rule": "max-attributes-per-line",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><component name=\"John Doe\"    v-bind:age=\"user.age\"></component></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-bind:age' should be on a new line.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 62
+    }
+   ],
+   "output": "<template><component name=\"John Doe\"\nv-bind:age=\"user.age\"></component></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeOnNewLine",
+     "message": "'v-bind:age' should be on a new line.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 62,
+     "fix": {
+      "range": [
+       36,
+       40
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><component name=\"John Doe\"\nv-bind:age=\"user.age\"></component></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "max-attributes-per-line#invalid6"
+ },
+ {
+  "rule": "max-attributes-per-line",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><component name=\"John Doe\" age=\"30\" job=\"Vet\"></component></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": {
+     "max": 2
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'job' should be on a new line.",
+     "line": 1,
+     "column": 47,
+     "endLine": 1,
+     "endColumn": 56
+    }
+   ],
+   "output": "<template><component name=\"John Doe\" age=\"30\"\njob=\"Vet\"></component></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeOnNewLine",
+     "message": "'job' should be on a new line.",
+     "line": 1,
+     "column": 47,
+     "endLine": 1,
+     "endColumn": 56,
+     "fix": {
+      "range": [
+       45,
+       46
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><component name=\"John Doe\" age=\"30\"\njob=\"Vet\"></component></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "max-attributes-per-line#invalid7"
+ },
+ {
+  "rule": "max-attributes-per-line",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><component\n        name=\"John Doe\" age=\"30\"\n        job=\"Vet\">\n        </component>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": 3,
+    "multiline": 1
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'age' should be on a new line.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 33
+    }
+   ],
+   "output": "<template><component\n        name=\"John Doe\"\nage=\"30\"\n        job=\"Vet\">\n        </component>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeOnNewLine",
+     "message": "'age' should be on a new line.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       44,
+       45
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><component\n        name=\"John Doe\"\nage=\"30\"\n        job=\"Vet\">\n        </component>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "max-attributes-per-line#invalid8"
+ },
+ {
+  "rule": "max-attributes-per-line",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><component\n        name=\"John Doe\" age=\"30\"\n        job=\"Vet\">\n        </component>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "multiline": {
+     "max": 1
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'age' should be on a new line.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 33
+    }
+   ],
+   "output": "<template><component\n        name=\"John Doe\"\nage=\"30\"\n        job=\"Vet\">\n        </component>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeOnNewLine",
+     "message": "'age' should be on a new line.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       44,
+       45
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><component\n        name=\"John Doe\"\nage=\"30\"\n        job=\"Vet\">\n        </component>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "max-attributes-per-line#invalid9"
+ },
+ {
+  "rule": "max-attributes-per-line",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><component></component></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-attributes-per-line#valid0"
+ },
+ {
+  "rule": "max-attributes-per-line",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><component\n        name=\"John Doe\"\n        age=\"30\"\n        job=\"Vet\"\n      ></component></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-attributes-per-line#valid1"
+ },
+ {
+  "rule": "max-attributes-per-line",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><component\n        name=\"John Doe\"\n        age=\"30\"\n      >\n      </component></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-attributes-per-line#valid2"
+ },
+ {
+  "rule": "max-attributes-per-line",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><component\n        name=\"John Doe\"\n        age=\"30\">\n      </component>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": 1
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-attributes-per-line#valid3"
+ },
+ {
+  "rule": "max-attributes-per-line",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><component job=\"Vet\"\n        name=\"John Doe\"\n        age=\"30\">\n        </component>\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-attributes-per-line#valid4"
+ }
+]

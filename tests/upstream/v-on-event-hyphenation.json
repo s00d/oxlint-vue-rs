@@ -1,0 +1,958 @@
+[
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n          <VueComponent @customEvent=\"onEvent\"/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "v-on event '@customEvent' must be hyphenated.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 47
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "v-on event '@customEvent' must be hyphenated.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#invalid0"
+ },
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n          <VueComponent @customEvent=\"onEvent\"/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "always",
+   {
+    "autofix": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "v-on event '@customEvent' must be hyphenated.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 47
+    }
+   ],
+   "output": "\n      <template>\n          <VueComponent @custom-event=\"onEvent\"/>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "v-on event '@customEvent' must be hyphenated.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 47,
+     "fix": {
+      "range": [
+       43,
+       54
+      ],
+      "text": "custom-event"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n          <VueComponent @custom-event=\"onEvent\"/>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#invalid1"
+ },
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n          <VueComponent v-on:custom-event=\"events\"/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never",
+   {
+    "autofix": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "v-on event 'v-on:custom-event' can't be hyphenated.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 51
+    }
+   ],
+   "output": "\n      <template>\n          <VueComponent v-on:customEvent=\"events\"/>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "v-on event 'v-on:custom-event' can't be hyphenated.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 51,
+     "fix": {
+      "range": [
+       47,
+       59
+      ],
+      "text": "customEvent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n          <VueComponent v-on:customEvent=\"events\"/>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#invalid2"
+ },
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <VueComponent @update:modelValue=\"foo\"/>\n        <VueComponent @update:model-value=\"foo\"/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "always",
+   {
+    "autofix": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "v-on event '@update:modelValue' must be hyphenated.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 47
+    }
+   ],
+   "output": "\n      <template>\n        <VueComponent @update:model-value=\"foo\"/>\n        <VueComponent @update:model-value=\"foo\"/>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "v-on event '@update:modelValue' must be hyphenated.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 47,
+     "fix": {
+      "range": [
+       41,
+       58
+      ],
+      "text": "update:model-value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <VueComponent @update:model-value=\"foo\"/>\n        <VueComponent @update:model-value=\"foo\"/>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#invalid3"
+ },
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <VueComponent @update:modelValue=\"foo\"/>\n        <VueComponent @update:model-value=\"foo\"/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never",
+   {
+    "autofix": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "v-on event '@update:model-value' can't be hyphenated.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 48
+    }
+   ],
+   "output": "\n      <template>\n        <VueComponent @update:modelValue=\"foo\"/>\n        <VueComponent @update:modelValue=\"foo\"/>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "v-on event '@update:model-value' can't be hyphenated.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 48,
+     "fix": {
+      "range": [
+       90,
+       108
+      ],
+      "text": "update:modelValue"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <VueComponent @update:modelValue=\"foo\"/>\n        <VueComponent @update:modelValue=\"foo\"/>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#invalid4"
+ },
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <VueComponent @upDate:modelValue=\"foo\"/>\n        <VueComponent @up-date:modelValue=\"foo\"/>\n        <VueComponent @upDate:model-value=\"foo\"/>\n        <VueComponent @up-date:model-value=\"foo\"/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "always",
+   {
+    "autofix": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "v-on event '@upDate:modelValue' must be hyphenated.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 47
+    },
+    {
+     "message": "v-on event '@up-date:modelValue' must be hyphenated.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 48
+    },
+    {
+     "message": "v-on event '@upDate:model-value' must be hyphenated.",
+     "line": 5,
+     "column": 23,
+     "endLine": 5,
+     "endColumn": 48
+    }
+   ],
+   "output": "\n      <template>\n        <VueComponent @up-date:model-value=\"foo\"/>\n        <VueComponent @up-date:model-value=\"foo\"/>\n        <VueComponent @up-date:model-value=\"foo\"/>\n        <VueComponent @up-date:model-value=\"foo\"/>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "v-on event '@upDate:modelValue' must be hyphenated.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 47,
+     "fix": {
+      "range": [
+       41,
+       58
+      ],
+      "text": "up-date:model-value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "v-on event '@up-date:modelValue' must be hyphenated.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 48,
+     "fix": {
+      "range": [
+       90,
+       108
+      ],
+      "text": "up-date:model-value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "v-on event '@upDate:model-value' must be hyphenated.",
+     "line": 5,
+     "column": 23,
+     "endLine": 5,
+     "endColumn": 48,
+     "fix": {
+      "range": [
+       140,
+       158
+      ],
+      "text": "up-date:model-value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <VueComponent @up-date:model-value=\"foo\"/>\n        <VueComponent @up-date:model-value=\"foo\"/>\n        <VueComponent @up-date:model-value=\"foo\"/>\n        <VueComponent @up-date:model-value=\"foo\"/>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#invalid5"
+ },
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <VueComponent @upDate:modelValue=\"foo\"/>\n        <VueComponent @up-date:modelValue=\"foo\"/>\n        <VueComponent @upDate:model-value=\"foo\"/>\n        <VueComponent @up-date:model-value=\"foo\"/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never",
+   {
+    "autofix": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "v-on event '@up-date:modelValue' can't be hyphenated.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 48
+    },
+    {
+     "message": "v-on event '@upDate:model-value' can't be hyphenated.",
+     "line": 5,
+     "column": 23,
+     "endLine": 5,
+     "endColumn": 48
+    },
+    {
+     "message": "v-on event '@up-date:model-value' can't be hyphenated.",
+     "line": 6,
+     "column": 23,
+     "endLine": 6,
+     "endColumn": 49
+    }
+   ],
+   "output": "\n      <template>\n        <VueComponent @upDate:modelValue=\"foo\"/>\n        <VueComponent @upDate:modelValue=\"foo\"/>\n        <VueComponent @upDate:modelValue=\"foo\"/>\n        <VueComponent @upDate:modelValue=\"foo\"/>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "v-on event '@up-date:modelValue' can't be hyphenated.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 48,
+     "fix": {
+      "range": [
+       90,
+       108
+      ],
+      "text": "upDate:modelValue"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "v-on event '@upDate:model-value' can't be hyphenated.",
+     "line": 5,
+     "column": 23,
+     "endLine": 5,
+     "endColumn": 48,
+     "fix": {
+      "range": [
+       140,
+       158
+      ],
+      "text": "upDate:modelValue"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "v-on event '@up-date:model-value' can't be hyphenated.",
+     "line": 6,
+     "column": 23,
+     "endLine": 6,
+     "endColumn": 49,
+     "fix": {
+      "range": [
+       190,
+       209
+      ],
+      "text": "upDate:modelValue"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <VueComponent @upDate:modelValue=\"foo\"/>\n        <VueComponent @upDate:modelValue=\"foo\"/>\n        <VueComponent @upDate:modelValue=\"foo\"/>\n        <VueComponent @upDate:modelValue=\"foo\"/>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#invalid6"
+ },
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <VueComponent v-on:custom-event=\"events\"/>\n        <CustomComponent v-on:custom-event=\"events\"/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never",
+   {
+    "autofix": true,
+    "ignoreTags": [
+     "CustomComponent"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "v-on event 'v-on:custom-event' can't be hyphenated.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 49
+    }
+   ],
+   "output": "\n      <template>\n        <VueComponent v-on:customEvent=\"events\"/>\n        <CustomComponent v-on:custom-event=\"events\"/>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "v-on event 'v-on:custom-event' can't be hyphenated.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 49,
+     "fix": {
+      "range": [
+       45,
+       57
+      ],
+      "text": "customEvent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <VueComponent v-on:customEvent=\"events\"/>\n        <CustomComponent v-on:custom-event=\"events\"/>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#invalid7"
+ },
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <VueComponent v-on:customEvent=\"events\"/>\n        <CustomComponent v-on:customEvent=\"events\"/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "always",
+   {
+    "autofix": true,
+    "ignoreTags": [
+     "CustomComponent"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "v-on event 'v-on:customEvent' must be hyphenated.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 48
+    }
+   ],
+   "output": "\n      <template>\n        <VueComponent v-on:custom-event=\"events\"/>\n        <CustomComponent v-on:customEvent=\"events\"/>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "v-on event 'v-on:customEvent' must be hyphenated.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 48,
+     "fix": {
+      "range": [
+       45,
+       56
+      ],
+      "text": "custom-event"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <VueComponent v-on:custom-event=\"events\"/>\n        <CustomComponent v-on:customEvent=\"events\"/>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#invalid8"
+ },
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n    <template>\n        <VueComponent @custom-event=\"onEvent\"/>\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#valid0"
+ },
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n    <template>\n        <VueComponent :customEvent=\"onEvent\"/>\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#valid1"
+ },
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n    <template>\n        <VueComponent v-on=\"events\"/>\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#valid2"
+ },
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n    <template>\n        <div v-on:unknownEvent=\"onEvent\"/>\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#valid3"
+ },
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n          <VueComponent v-on:customEvent=\"events\"/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#valid4"
+ },
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n          <VueComponent v-on:customEvent=\"events\"/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never",
+   {
+    "ignore": [
+     "custom"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#valid5"
+ },
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n          <VueComponent v-on:custom-event=\"events\"/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never",
+   {
+    "ignore": [
+     "custom-event"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#valid6"
+ },
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n          <VueComponent v-on:custom-event=\"events\"/>\n          <custom-component v-on:custom-event=\"events\"/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never",
+   {
+    "ignoreTags": [
+     "/^Vue/",
+     "custom-component"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#valid7"
+ },
+ {
+  "rule": "v-on-event-hyphenation",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n          <VueComponent v-on:customEvent=\"events\"/>\n          <custom-component v-on:customEvent=\"events\"/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "always",
+   {
+    "ignoreTags": [
+     "/^Vue/",
+     "custom-component"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-event-hyphenation#valid8"
+ }
+]

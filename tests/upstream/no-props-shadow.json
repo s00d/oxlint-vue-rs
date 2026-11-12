@@ -1,0 +1,891 @@
+[
+ {
+  "rule": "no-props-shadow",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script setup>\n      import { ref } from 'vue'\n      defineProps(['foo'])\n      const foo = ref(false)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shadow",
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#invalid0"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import { computed } from 'vue'\n      const props = defineProps<{ isDisabled: boolean }>()\n      const isDisabled = computed(() => props.isDisabled ? 'yes' : 'no')\n      </script>\n      <template>\n        <h1>Disabled: {{ isDisabled }}</h1>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Declaration of 'isDisabled' shadows the prop with the same name.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shadow",
+     "message": "Declaration of 'isDisabled' shadows the prop with the same name.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#invalid1"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup>\n      const props = defineProps({ foo: String })\n      const foo = props.foo.trim()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shadow",
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#invalid2"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script setup>\n      defineProps(['foo'])\n      function foo() {}\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 4,
+     "column": 16,
+     "endLine": 4,
+     "endColumn": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shadow",
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 4,
+     "column": 16,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#invalid3"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script setup>\n      defineProps(['foo'])\n      class foo {}\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shadow",
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#invalid4"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script setup>\n      import foo from './foo'\n      defineProps(['foo'])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 17
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shadow",
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#invalid5"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script setup>\n      defineProps(['foo', 'bar'])\n      let foo = 1\n      var bar = 2\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 14
+    },
+    {
+     "message": "Declaration of 'bar' shadows the prop with the same name.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 14
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shadow",
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 14,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "shadow",
+     "message": "Declaration of 'bar' shadows the prop with the same name.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 14,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#invalid6"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      interface Props {\n        foo: string\n      }\n      defineProps<Props>()\n      const foo = 'bar'\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 7,
+     "column": 13,
+     "endLine": 7,
+     "endColumn": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shadow",
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 7,
+     "column": 13,
+     "endLine": 7,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#invalid7"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const props = withDefaults(defineProps<{ foo?: string }>(), { foo: 'bar' })\n      const foo = props.foo\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shadow",
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#invalid8"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script>\n      const foo = 1\n      </script>\n      <script setup>\n      defineProps(['foo'])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 3,
+     "column": 13,
+     "endLine": 3,
+     "endColumn": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shadow",
+     "message": "Declaration of 'foo' shadows the prop with the same name.",
+     "line": 3,
+     "column": 13,
+     "endLine": 3,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#invalid9"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script setup>\n      const props = defineProps(['foo'])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#valid0"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script setup>\n      const { foo } = defineProps({ foo: String })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#valid1"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const { foo, bar } = defineProps<{ foo: string, bar: number }>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#valid2"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      interface Props {\n        foo: string\n      }\n      const { foo = 'default' } = withDefaults(defineProps<Props>(), { foo: 'default' })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#valid3"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script setup>\n      import { ref } from 'vue'\n      const props = defineProps(['foo'])\n      const bar = ref(props.foo)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#valid4"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script setup>\n      defineProps(['foo'])\n      function bar() {\n        const foo = 1\n        return foo\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#valid5"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script setup>\n      defineProps(['foo'])\n      const bar = (foo) => foo\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#valid6"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script setup>\n      defineProps(['bar'])\n      const foo = defineModel('foo')\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#valid7"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      interface foo {\n        bar: string\n      }\n      defineProps<{ foo: string }>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#valid8"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import type { foo } from './foo'\n      import { type bar } from './bar'\n      defineProps<{ foo: foo, bar: string }>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#valid9"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <script>\n      const foo = 1\n      export default {\n        props: ['foo'],\n        setup() {\n          const foo = 2\n          return { bar: foo }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#valid10"
+ },
+ {
+  "rule": "no-props-shadow",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <script setup>\n      const foo = 1\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-props-shadow#valid11"
+ }
+]

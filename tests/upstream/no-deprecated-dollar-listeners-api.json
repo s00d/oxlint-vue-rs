@@ -1,0 +1,506 @@
+[
+ {
+  "rule": "no-deprecated-dollar-listeners-api",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div v-on=\"$listeners\"/>\n        </template>\n        <script>\n        export default {\n          computed: {\n            foo () {\n              return this.$listeners\n            }\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "deprecated",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 32
+    },
+    {
+     "messageId": "deprecated",
+     "line": 9,
+     "column": 27,
+     "endLine": 9,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "The `$listeners` is deprecated.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "deprecated",
+     "message": "The `$listeners` is deprecated.",
+     "line": 9,
+     "column": 27,
+     "endLine": 9,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-listeners-api#invalid0"
+ },
+ {
+  "rule": "no-deprecated-dollar-listeners-api",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <div v-for=\"listener in $listeners\"/>\n          <div :foo=\"$listeners\"/>\n        </template>\n        <script>\n        export default {\n          computed: {\n            foo () {\n              fn(this.$listeners)\n            }\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "deprecated",
+     "line": 3,
+     "column": 35,
+     "endLine": 3,
+     "endColumn": 45
+    },
+    {
+     "messageId": "deprecated",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 32
+    },
+    {
+     "messageId": "deprecated",
+     "line": 10,
+     "column": 23,
+     "endLine": 10,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "The `$listeners` is deprecated.",
+     "line": 3,
+     "column": 35,
+     "endLine": 3,
+     "endColumn": 45,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "deprecated",
+     "message": "The `$listeners` is deprecated.",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "deprecated",
+     "message": "The `$listeners` is deprecated.",
+     "line": 10,
+     "column": 23,
+     "endLine": 10,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-listeners-api#invalid1"
+ },
+ {
+  "rule": "no-deprecated-dollar-listeners-api",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n          computed: {\n            foo () {\n              const vm = this\n              return vm.$listeners\n            }\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "deprecated",
+     "line": 7,
+     "column": 25,
+     "endLine": 7,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "The `$listeners` is deprecated.",
+     "line": 7,
+     "column": 25,
+     "endLine": 7,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-listeners-api#invalid2"
+ },
+ {
+  "rule": "no-deprecated-dollar-listeners-api",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n          computed: {\n            foo () {\n              const vm = this\n              function fn() {\n                return vm.$listeners\n              }\n              return fn()\n            }\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "deprecated",
+     "line": 8,
+     "column": 27,
+     "endLine": 8,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "The `$listeners` is deprecated.",
+     "line": 8,
+     "column": 27,
+     "endLine": 8,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-listeners-api#invalid3"
+ },
+ {
+  "rule": "no-deprecated-dollar-listeners-api",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n          computed: {\n            foo () {\n              const vm = this\n              const a = vm?.$listeners\n              const b = this?.$listeners\n            }\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "deprecated",
+     "line": 7,
+     "column": 29,
+     "endLine": 7,
+     "endColumn": 39
+    },
+    {
+     "messageId": "deprecated",
+     "line": 8,
+     "column": 31,
+     "endLine": 8,
+     "endColumn": 41
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "The `$listeners` is deprecated.",
+     "line": 7,
+     "column": 29,
+     "endLine": 7,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "deprecated",
+     "message": "The `$listeners` is deprecated.",
+     "line": 8,
+     "column": 31,
+     "endLine": 8,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-listeners-api#invalid4"
+ },
+ {
+  "rule": "no-deprecated-dollar-listeners-api",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div v-bind=\"$attrs\"/>\n        </template>\n        <script>\n        export default {\n          mounted () {\n            this.$emit('start')\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-listeners-api#valid0"
+ },
+ {
+  "rule": "no-deprecated-dollar-listeners-api",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n          methods: {\n            click () {\n              this.$emit('click')\n            }\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-listeners-api#valid1"
+ },
+ {
+  "rule": "no-deprecated-dollar-listeners-api",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n        }\n        const another = function () {\n          console.log(this.$listeners)\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-listeners-api#valid2"
+ },
+ {
+  "rule": "no-deprecated-dollar-listeners-api",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <div foo=\"$listeners\"/>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-listeners-api#valid3"
+ },
+ {
+  "rule": "no-deprecated-dollar-listeners-api",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <template>\n          <div v-on=\"() => {\n            function click ($listeners) {\n              fn(foo.$listeners)\n              fn($listeners)\n            }\n          }\"/>\n          <div v-for=\"$listeners in list\">\n            <div v-on=\"$listeners\">\n          </div>\n          <VueComp>\n            <template v-slot=\"{$listeners}\">\n              <div v-on=\"$listeners\">\n            </template>\n          </VueComp>\n        </template>\n        <script>\n        export default {\n          methods: {\n            click ($listeners) {\n              foo.$listeners\n            }\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-listeners-api#valid4"
+ },
+ {
+  "rule": "no-deprecated-dollar-listeners-api",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n          computed: {\n            foo () {\n              const {vm} = this\n              return vm.$listeners\n            }\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-listeners-api#valid5"
+ }
+]

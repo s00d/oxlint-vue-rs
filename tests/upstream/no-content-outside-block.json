@@ -1,0 +1,771 @@
+[
+ {
+  "rule": "no-content-outside-block",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div>666</div>\n        </template>\n\n        console.log(1);\n\n        <script>\n          console.log(2);\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpectedContent",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 24,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "output": "\n        <template>\n          <div>666</div>\n        </template>\n\n        \n\n        <script>\n          console.log(2);\n        </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedContent",
+     "message": "Unexpected content outside of the top-level blocks. It is dropped by the compiler.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "desc": "Remove the content outside of the top-level blocks.",
+       "output": "\n        <template>\n          <div>666</div>\n        </template>\n\n        \n\n        <script>\n          console.log(2);\n        </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-content-outside-block#invalid0"
+ },
+ {
+  "rule": "no-content-outside-block",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        hello world\n\n        <template>\n          <div>666</div>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpectedContent",
+     "line": 2,
+     "column": 9,
+     "endLine": 2,
+     "endColumn": 20,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "output": "\n        \n\n        <template>\n          <div>666</div>\n        </template>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedContent",
+     "message": "Unexpected content outside of the top-level blocks. It is dropped by the compiler.",
+     "line": 2,
+     "column": 9,
+     "endLine": 2,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "desc": "Remove the content outside of the top-level blocks.",
+       "output": "\n        \n\n        <template>\n          <div>666</div>\n        </template>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-content-outside-block#invalid1"
+ },
+ {
+  "rule": "no-content-outside-block",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <div>666</div>\n        </template>\n\n        trailing text\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpectedContent",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 22,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "output": "\n        <template>\n          <div>666</div>\n        </template>\n\n        \n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedContent",
+     "message": "Unexpected content outside of the top-level blocks. It is dropped by the compiler.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "desc": "Remove the content outside of the top-level blocks.",
+       "output": "\n        <template>\n          <div>666</div>\n        </template>\n\n        \n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-content-outside-block#invalid2"
+ },
+ {
+  "rule": "no-content-outside-block",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        before\n\n        <template>\n          <div>666</div>\n        </template>\n\n        middle\n\n        <script>\n          export default {}\n        </script>\n\n        after\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpectedContent",
+     "line": 2,
+     "column": 9,
+     "endLine": 2,
+     "endColumn": 15,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "output": "\n        \n\n        <template>\n          <div>666</div>\n        </template>\n\n        middle\n\n        <script>\n          export default {}\n        </script>\n\n        after\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "unexpectedContent",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 15,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "output": "\n        before\n\n        <template>\n          <div>666</div>\n        </template>\n\n        \n\n        <script>\n          export default {}\n        </script>\n\n        after\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "unexpectedContent",
+     "line": 14,
+     "column": 9,
+     "endLine": 14,
+     "endColumn": 14,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "output": "\n        before\n\n        <template>\n          <div>666</div>\n        </template>\n\n        middle\n\n        <script>\n          export default {}\n        </script>\n\n        \n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedContent",
+     "message": "Unexpected content outside of the top-level blocks. It is dropped by the compiler.",
+     "line": 2,
+     "column": 9,
+     "endLine": 2,
+     "endColumn": 15,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "desc": "Remove the content outside of the top-level blocks.",
+       "output": "\n        \n\n        <template>\n          <div>666</div>\n        </template>\n\n        middle\n\n        <script>\n          export default {}\n        </script>\n\n        after\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "unexpectedContent",
+     "message": "Unexpected content outside of the top-level blocks. It is dropped by the compiler.",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 15,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "desc": "Remove the content outside of the top-level blocks.",
+       "output": "\n        before\n\n        <template>\n          <div>666</div>\n        </template>\n\n        \n\n        <script>\n          export default {}\n        </script>\n\n        after\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "unexpectedContent",
+     "message": "Unexpected content outside of the top-level blocks. It is dropped by the compiler.",
+     "line": 14,
+     "column": 9,
+     "endLine": 14,
+     "endColumn": 14,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "desc": "Remove the content outside of the top-level blocks.",
+       "output": "\n        before\n\n        <template>\n          <div>666</div>\n        </template>\n\n        middle\n\n        <script>\n          export default {}\n        </script>\n\n        \n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-content-outside-block#invalid3"
+ },
+ {
+  "rule": "no-content-outside-block",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <template>\n          <div>666</div>\n        </template>\n\n        console.log(1);\n        console.log(2);\n\n        <script>\n          export default {}\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpectedContent",
+     "line": 6,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 24,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "output": "\n        <template>\n          <div>666</div>\n        </template>\n\n        \n\n        <script>\n          export default {}\n        </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedContent",
+     "message": "Unexpected content outside of the top-level blocks. It is dropped by the compiler.",
+     "line": 6,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "desc": "Remove the content outside of the top-level blocks.",
+       "output": "\n        <template>\n          <div>666</div>\n        </template>\n\n        \n\n        <script>\n          export default {}\n        </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-content-outside-block#invalid4"
+ },
+ {
+  "rule": "no-content-outside-block",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "hello",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpectedContent",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 6,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "output": ""
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedContent",
+     "message": "Unexpected content outside of the top-level blocks. It is dropped by the compiler.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 6,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "desc": "Remove the content outside of the top-level blocks.",
+       "output": ""
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-content-outside-block#invalid5"
+ },
+ {
+  "rule": "no-content-outside-block",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        <docs>\n          Some documentation.\n        </docs>\n\n        stray\n\n        <template>\n          <div>666</div>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpectedContent",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 14,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "output": "\n        <docs>\n          Some documentation.\n        </docs>\n\n        \n\n        <template>\n          <div>666</div>\n        </template>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedContent",
+     "message": "Unexpected content outside of the top-level blocks. It is dropped by the compiler.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 14,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "desc": "Remove the content outside of the top-level blocks.",
+       "output": "\n        <docs>\n          Some documentation.\n        </docs>\n\n        \n\n        <template>\n          <div>666</div>\n        </template>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-content-outside-block#invalid6"
+ },
+ {
+  "rule": "no-content-outside-block",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        <template>\n          <div>666</div>\n        </template>\n\n        foo\n        <!-- comment -->\n        bar\n\n        <script>\n          export default {}\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpectedContent",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 12,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "output": "\n        <template>\n          <div>666</div>\n        </template>\n\n        \n        <!-- comment -->\n        bar\n\n        <script>\n          export default {}\n        </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "unexpectedContent",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 12,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "output": "\n        <template>\n          <div>666</div>\n        </template>\n\n        foo\n        <!-- comment -->\n        \n\n        <script>\n          export default {}\n        </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedContent",
+     "message": "Unexpected content outside of the top-level blocks. It is dropped by the compiler.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 12,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "desc": "Remove the content outside of the top-level blocks.",
+       "output": "\n        <template>\n          <div>666</div>\n        </template>\n\n        \n        <!-- comment -->\n        bar\n\n        <script>\n          export default {}\n        </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "unexpectedContent",
+     "message": "Unexpected content outside of the top-level blocks. It is dropped by the compiler.",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 12,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeContent",
+       "desc": "Remove the content outside of the top-level blocks.",
+       "output": "\n        <template>\n          <div>666</div>\n        </template>\n\n        foo\n        <!-- comment -->\n        \n\n        <script>\n          export default {}\n        </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-content-outside-block#invalid7"
+ },
+ {
+  "rule": "no-content-outside-block",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-content-outside-block#valid0"
+ },
+ {
+  "rule": "no-content-outside-block",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <div>666</div>\n        </template>\n\n        <script>\n          export default {}\n        </script>\n\n        <style>\n          div {\n            color: red;\n          }\n        </style>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-content-outside-block#valid1"
+ },
+ {
+  "rule": "no-content-outside-block",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <script>\n          console.log(1)\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-content-outside-block#valid2"
+ },
+ {
+  "rule": "no-content-outside-block",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <!-- leading comment -->\n        <template>\n          <div>666</div>\n        </template>\n        <!-- comment between the blocks -->\n        <script>\n          export default {}\n        </script>\n        <!-- trailing comment -->\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-content-outside-block#valid3"
+ },
+ {
+  "rule": "no-content-outside-block",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <docs>\n          Some documentation.\n        </docs>\n\n        <i18n>\n          { \"en\": { \"hello\": \"hello\" } }\n        </i18n>\n\n        <template>\n          <div>666</div>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-content-outside-block#valid4"
+ },
+ {
+  "rule": "no-content-outside-block",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "console.log(1)",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-content-outside-block#valid5"
+ }
+]

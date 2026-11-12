@@ -1,0 +1,218 @@
+[
+ {
+  "rule": "max-lines-per-block",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n\n        <div></div>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "template": 1
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Block has too many lines (2). Maximum allowed is 1.",
+     "line": 2,
+     "column": 7,
+     "endLine": 5,
+     "endColumn": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "tooManyLines",
+     "message": "Block has too many lines (2). Maximum allowed is 1.",
+     "line": 2,
+     "column": 7,
+     "endLine": 5,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-lines-per-block#invalid0"
+ },
+ {
+  "rule": "max-lines-per-block",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n\n        const a = 1\n        console.log(a)\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": 1,
+    "skipBlankLines": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Block has too many lines (2). Maximum allowed is 1.",
+     "line": 2,
+     "column": 7,
+     "endLine": 6,
+     "endColumn": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "tooManyLines",
+     "message": "Block has too many lines (2). Maximum allowed is 1.",
+     "line": 2,
+     "column": 7,
+     "endLine": 6,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-lines-per-block#invalid1"
+ },
+ {
+  "rule": "max-lines-per-block",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n        console.log(1)\n      </script>\n      <template>\n        <div></div>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "template": 1
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-lines-per-block#valid0"
+ },
+ {
+  "rule": "max-lines-per-block",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n\n        <div></div>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "template": 1,
+    "skipBlankLines": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-lines-per-block#valid1"
+ },
+ {
+  "rule": "max-lines-per-block",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n        </div>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": 1,
+    "style": 1
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-lines-per-block#valid2"
+ }
+]

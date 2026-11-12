@@ -1,0 +1,1 @@
+{"ts":false,"skip":null,"hasTemplateBody":true,"tokens":[["HTMLTagOpen",0,9,"template"],["HTMLTagClose",9,10,""],["HTMLWhitespace",10,15,"\n    "],["HTMLText",15,16,"<"]],"comments":[],"errors":[["eof-before-tag-name",16]],"elements":[["template","template","xhtml",0,16]],"references":[],"variables":[]}

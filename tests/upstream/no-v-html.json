@@ -1,0 +1,400 @@
+[
+ {
+  "rule": "no-v-html",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div v-html=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-html' directive can lead to XSS attack.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "'v-html' directive can lead to XSS attack.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-html#invalid0"
+ },
+ {
+  "rule": "no-v-html",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><ul v-html:aaa=\"userHTML\"></ul></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-html' directive can lead to XSS attack.",
+     "line": 1,
+     "column": 15,
+     "endLine": 1,
+     "endColumn": 36
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "'v-html' directive can lead to XSS attack.",
+     "line": 1,
+     "column": 15,
+     "endLine": 1,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-html#invalid1"
+ },
+ {
+  "rule": "no-v-html",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><section v-html/></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-html' directive can lead to XSS attack.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "'v-html' directive can lead to XSS attack.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-html#invalid2"
+ },
+ {
+  "rule": "no-v-html",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div v-html=\"unsafeString\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignorePattern": "^html"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-html' directive can lead to XSS attack.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "'v-html' directive can lead to XSS attack.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-html#invalid3"
+ },
+ {
+  "rule": "no-v-html",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-html#valid0"
+ },
+ {
+  "rule": "no-v-html",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-html#valid1"
+ },
+ {
+  "rule": "no-v-html",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div v-if=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-html#valid2"
+ },
+ {
+  "rule": "no-v-html",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div v-if=\"foo\" v-bind=\"bar\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-html#valid3"
+ },
+ {
+  "rule": "no-v-html",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div v-html=\"htmlKnownToBeSafe\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignorePattern": "^html"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-html#valid4"
+ },
+ {
+  "rule": "no-v-html",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div v-html=\"$sanitize(test)\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignorePattern": "^\\$sanitize\\("
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-html#valid5"
+ }
+]

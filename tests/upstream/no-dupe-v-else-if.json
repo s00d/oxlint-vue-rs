@@ -1,0 +1,4361 @@
+[
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"foo\" />\n        <div v-else-if=\"foo\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid0"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"isSomething(x)\" />\n        <div v-else-if=\"isSomething(x)\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 39
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid1"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"a\" />\n        <div v-else-if=\"b\" />\n        <div v-else-if=\"c && d\" />\n        <div v-else-if=\"c && d\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid2"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"n === 1\" />\n        <div v-else-if=\"n === 2\" />\n        <div v-else-if=\"n === 3\" />\n        <div v-else-if=\"n === 2\" />\n        <div v-else-if=\"n === 5\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 32
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid3"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"a || b\" />\n        <div v-else-if=\"a\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid4"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"a\" />\n        <div v-else-if=\"b\" />\n        <div v-else-if=\"a || b\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid5"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"a\" />\n        <div v-else-if=\"a && b\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid6"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"a && b\" />\n        <div v-else-if=\"a && b && c\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 36
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid7"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"a || b\" />\n        <div v-else-if=\"b && c\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid8"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"a\" />\n        <div v-else-if=\"b && c\" />\n        <div v-else-if=\"d && (c && e && b || a)\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 5,
+     "column": 31,
+     "endLine": 5,
+     "endColumn": 47
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 5,
+     "column": 31,
+     "endLine": 5,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid9"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"foo\" />\n        <div v-else-if=\"foo && bar\" />\n        <div v-else-if=\"baz && foo\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 28
+    },
+    {
+     "messageId": "unexpected",
+     "line": 5,
+     "column": 32,
+     "endLine": 5,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 5,
+     "column": 32,
+     "endLine": 5,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid10"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"a && b\" />\n        <div v-else-if=\"a && b && c\" />\n        <div v-else-if=\"a && c && b\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 36
+    },
+    {
+     "messageId": "unexpected",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 36
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid11"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"a || b\" />\n        <div v-else-if=\"a\" />\n        <div v-else-if=\"b\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 26
+    },
+    {
+     "messageId": "unexpected",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid12"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if      =\"((f && e) || d) && c || (b && a)\" />\n        <div v-else-if =\"(a && b) || (c && (d || (e && f)))\" />\n        <div v-else-if =\"(a && b) || (c && (d || (e && f)))\" />\n      </template>\n      ",
+  "filename": "foo.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 60
+    },
+    {
+     "messageId": "unexpected",
+     "line": 5,
+     "column": 26,
+     "endLine": 5,
+     "endColumn": 60
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 60,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 5,
+     "column": 26,
+     "endLine": 5,
+     "endColumn": 60,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid13"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"a\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 44
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid14"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b\" /><div v-else-if=\"a\" /><div v-else-if=\"c\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 64,
+     "endLine": 1,
+     "endColumn": 65
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 64,
+     "endLine": 1,
+     "endColumn": 65,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid15"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b\" /><div v-else-if=\"a\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 64,
+     "endLine": 1,
+     "endColumn": 65
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 64,
+     "endLine": 1,
+     "endColumn": 65,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid16"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b\" /><div v-else-if=\"c\" /><div v-else-if=\"a\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 85,
+     "endLine": 1,
+     "endColumn": 86
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 85,
+     "endLine": 1,
+     "endColumn": 86,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid17"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b\" /><div v-else-if=\"b\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 64,
+     "endLine": 1,
+     "endColumn": 65
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 64,
+     "endLine": 1,
+     "endColumn": 65,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid18"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b\" /><div v-else-if=\"c\" /><div v-else-if=\"b\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 85,
+     "endLine": 1,
+     "endColumn": 86
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 85,
+     "endLine": 1,
+     "endColumn": 86,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid19"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b\" /><div v-else-if=\"c\" /><div v-else-if=\"b\" /><div v-else-if=\"d\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 85,
+     "endLine": 1,
+     "endColumn": 86
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 85,
+     "endLine": 1,
+     "endColumn": 86,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid20"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b\" /><div v-else-if=\"c\" /><div v-else-if=\"d\" /><div v-else-if=\"b\" /><div v-else-if=\"e\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 106,
+     "endLine": 1,
+     "endColumn": 107
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 106,
+     "endLine": 1,
+     "endColumn": 107,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid21"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"a\" /><div v-else-if=\"a\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 44
+    },
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 64,
+     "endLine": 1,
+     "endColumn": 65
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 64,
+     "endLine": 1,
+     "endColumn": 65,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid22"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b\" /><div v-else-if=\"a\" /><div v-else-if=\"b\" /><div v-else-if=\"a\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 64,
+     "endLine": 1,
+     "endColumn": 65
+    },
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 85,
+     "endLine": 1,
+     "endColumn": 86
+    },
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 106,
+     "endLine": 1,
+     "endColumn": 107
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 64,
+     "endLine": 1,
+     "endColumn": 65,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 85,
+     "endLine": 1,
+     "endColumn": 86,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 106,
+     "endLine": 1,
+     "endColumn": 107,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid23"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "<template><div v-if=\"a\"><div v-if=\"b\" /></div><div v-else-if=\"a\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 63,
+     "endLine": 1,
+     "endColumn": 64
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 63,
+     "endLine": 1,
+     "endColumn": 64,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid24"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 25,
+  "name": null,
+  "code": "<template><div v-if=\"a === 1\" /><div v-else-if=\"a === 1\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 49,
+     "endLine": 1,
+     "endColumn": 56
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 49,
+     "endLine": 1,
+     "endColumn": 56,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid25"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 26,
+  "name": null,
+  "code": "<template><div v-if=\"1 < a\" /><div v-else-if=\"1 < a\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 47,
+     "endLine": 1,
+     "endColumn": 52
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 47,
+     "endLine": 1,
+     "endColumn": 52,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid26"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 27,
+  "name": null,
+  "code": "<template><div v-if=\"true\" /><div v-else-if=\"true\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 46,
+     "endLine": 1,
+     "endColumn": 50
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 46,
+     "endLine": 1,
+     "endColumn": 50,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid27"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 28,
+  "name": null,
+  "code": "<template><div v-if=\"a && b\" /><div v-else-if=\"a && b\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 54
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 54,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid28"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 29,
+  "name": null,
+  "code": "<template><div v-if=\"a && b || c\" /><div v-else-if=\"a && b || c\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 53,
+     "endLine": 1,
+     "endColumn": 64
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 53,
+     "endLine": 1,
+     "endColumn": 64,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid29"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 30,
+  "name": null,
+  "code": "<template><div v-if=\"f(a)\" /><div v-else-if=\"f(a)\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 46,
+     "endLine": 1,
+     "endColumn": 50
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 46,
+     "endLine": 1,
+     "endColumn": 50,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid30"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 31,
+  "name": null,
+  "code": "<template><div v-if=\"a === 1\" /><div v-else-if=\"a===1\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 49,
+     "endLine": 1,
+     "endColumn": 54
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 49,
+     "endLine": 1,
+     "endColumn": 54,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid31"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 32,
+  "name": null,
+  "code": "<template><div v-if=\"a === 1\" /><div v-else-if=\"a === /* comment */ 1\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 49,
+     "endLine": 1,
+     "endColumn": 70
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 49,
+     "endLine": 1,
+     "endColumn": 70,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid32"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 33,
+  "name": null,
+  "code": "<template><div v-if=\"a || b\" /><div v-else-if=\"a\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 49
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid33"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 34,
+  "name": null,
+  "code": "<template><div v-if=\"a || b\" /><div v-else-if=\"a\" /><div v-else-if=\"b\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 49
+    },
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 69,
+     "endLine": 1,
+     "endColumn": 70
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 69,
+     "endLine": 1,
+     "endColumn": 70,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid34"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 35,
+  "name": null,
+  "code": "<template><div v-if=\"a || b\" /><div v-else-if=\"b || a\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 54
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 54,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid35"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 36,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b\" /><div v-else-if=\"a || b\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 64,
+     "endLine": 1,
+     "endColumn": 70
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 64,
+     "endLine": 1,
+     "endColumn": 70,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid36"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 37,
+  "name": null,
+  "code": "<template><div v-if=\"a || b\" /><div v-else-if=\"c || d\" /><div v-else-if=\"a || d\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 74,
+     "endLine": 1,
+     "endColumn": 80
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 74,
+     "endLine": 1,
+     "endColumn": 80,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid37"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 38,
+  "name": null,
+  "code": "<template><div v-if=\"(a === b && fn(c)) || d\" /><div v-else-if=\"fn(c) && a === b\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 65,
+     "endLine": 1,
+     "endColumn": 81
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 65,
+     "endLine": 1,
+     "endColumn": 81,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid38"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 39,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"a && b\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 44
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid39"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 40,
+  "name": null,
+  "code": "<template><div v-if=\"a && b\" /><div v-else-if=\"a && b && c\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 59
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 59,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid40"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 41,
+  "name": null,
+  "code": "<template><div v-if=\"a || c\" /><div v-else-if=\"a && b || c\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 59
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 59,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid41"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 42,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b\" /><div v-else-if=\"c && a || b\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 64,
+     "endLine": 1,
+     "endColumn": 75
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 64,
+     "endLine": 1,
+     "endColumn": 75,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid42"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 43,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b\" /><div v-else-if=\"c && (a || b)\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 70,
+     "endLine": 1,
+     "endColumn": 76
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 70,
+     "endLine": 1,
+     "endColumn": 76,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid43"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 44,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b && c\" /><div v-else-if=\"d && (a || e && c && b)\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 75,
+     "endLine": 1,
+     "endColumn": 91
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 75,
+     "endLine": 1,
+     "endColumn": 91,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid44"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 45,
+  "name": null,
+  "code": "<template><div v-if=\"a || b && c\" /><div v-else-if=\"b && c && d\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 53,
+     "endLine": 1,
+     "endColumn": 64
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 53,
+     "endLine": 1,
+     "endColumn": 64,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid45"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 46,
+  "name": null,
+  "code": "<template><div v-if=\"a || b\" /><div v-else-if=\"b && c\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 49
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid46"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 47,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b\" /><div v-else-if=\"(a || b) && c\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 65,
+     "endLine": 1,
+     "endColumn": 71
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 65,
+     "endLine": 1,
+     "endColumn": 71,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid47"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 48,
+  "name": null,
+  "code": "<template><div v-if=\"(a && (b || c)) || d\" /><div v-else-if=\"(c || b) && e && a\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 62,
+     "endLine": 1,
+     "endColumn": 80
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 62,
+     "endLine": 1,
+     "endColumn": 80,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid48"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 49,
+  "name": null,
+  "code": "<template><div v-if=\"a && b || b && c\" /><div v-else-if=\"a && b && c\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 58,
+     "endLine": 1,
+     "endColumn": 69
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 58,
+     "endLine": 1,
+     "endColumn": 69,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid49"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 50,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b && c\" /><div v-else-if=\"d && (c && e && b || a)\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 75,
+     "endLine": 1,
+     "endColumn": 91
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 75,
+     "endLine": 1,
+     "endColumn": 91,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid50"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 51,
+  "name": null,
+  "code": "<template><div v-if=\"a || (b && (c || d))\" /><div v-else-if=\"(d || c) && b\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 62,
+     "endLine": 1,
+     "endColumn": 75
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 62,
+     "endLine": 1,
+     "endColumn": 75,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid51"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 52,
+  "name": null,
+  "code": "<template><div v-if=\"a || b\" /><div v-else-if=\"(b || a) && c\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 49,
+     "endLine": 1,
+     "endColumn": 55
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 49,
+     "endLine": 1,
+     "endColumn": 55,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid52"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 53,
+  "name": null,
+  "code": "<template><div v-if=\"a || b\" /><div v-else-if=\"c\" /><div v-else-if=\"d\" /><div v-else-if=\"b && (a || c)\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 90,
+     "endLine": 1,
+     "endColumn": 91
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 90,
+     "endLine": 1,
+     "endColumn": 91,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid53"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 54,
+  "name": null,
+  "code": "<template><div v-if=\"a || b || c\" /><div v-else-if=\"a || (b && d) || (c && e)\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 53,
+     "endLine": 1,
+     "endColumn": 78
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 53,
+     "endLine": 1,
+     "endColumn": 78,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid54"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 55,
+  "name": null,
+  "code": "<template><div v-if=\"a || (b || c)\" /><div v-else-if=\"a || (b && c)\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 55,
+     "endLine": 1,
+     "endColumn": 68
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 55,
+     "endLine": 1,
+     "endColumn": 68,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid55"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 56,
+  "name": null,
+  "code": "<template><div v-if=\"a || b\" /><div v-else-if=\"c\" /><div v-else-if=\"d\" /><div v-else-if=\"(a || c) && (b || d)\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 91,
+     "endLine": 1,
+     "endColumn": 97
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 91,
+     "endLine": 1,
+     "endColumn": 97,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid56"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 57,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b\" /><div v-else-if=\"c && (a || d && b)\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 70,
+     "endLine": 1,
+     "endColumn": 81
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 70,
+     "endLine": 1,
+     "endColumn": 81,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid57"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 58,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"a || a\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 49
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid58"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 59,
+  "name": null,
+  "code": "<template><div v-if=\"a || a\" /><div v-else-if=\"a || a\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 54
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 54,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid59"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 60,
+  "name": null,
+  "code": "<template><div v-if=\"a || a\" /><div v-else-if=\"a\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 49
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid60"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 61,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"a && a\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 44
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid61"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 62,
+  "name": null,
+  "code": "<template><div v-if=\"a && a\" /><div v-else-if=\"a && a\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 49
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid62"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "invalid",
+  "idx": 63,
+  "name": null,
+  "code": "<template><div v-if=\"a && a\" /><div v-else-if=\"a\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 49
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "This branch can never execute. Its condition is a duplicate or covered by previous conditions in the `v-if` / `v-else-if` chain.",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#invalid63"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"foo\" />\n        <div v-else-if=\"bar\" />\n        <div v-else-if=\"baz\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid0"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"foo\" >\n          <div v-else-if=\"foo\" />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid1"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"foo\" />\n        <div v-else-if=\"bar\" />\n        <div v-if=\"bar\" />\n        <div v-else-if=\"foo\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid2"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"isSomething(x)\" />\n        <div v-else-if=\"isSomethingElse(x)\" />\n\n        <div v-if=\"a\" />\n        <div v-else-if=\"b\" />\n        <div v-else-if=\"c && d\" />\n        <div v-else-if=\"c && e\" />\n\n        <div v-if=\"n === 1\" />\n        <div v-else-if=\"n === 2\" />\n        <div v-else-if=\"n === 3\" />\n        <div v-else-if=\"n === 4\" />\n        <div v-else-if=\"n === 5\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid3"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"foo\" />\n        <div />\n        <div v-else-if=\"foo\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid4"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if />\n        <div v-else-if />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid5"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"foo.\" />\n        <div v-else-if=\"foo.\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid6"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <div v-else-if=\"foo.\" />\n        <div v-else-if=\"foo\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid7"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid8"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b\" /><div v-else-if=\"c\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid9"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div v-if=\"true\" /><div v-else-if=\"false\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid10"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div v-if=\"1\" /><div v-else-if=\"2\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid11"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div v-if=\"f\" /><div v-else-if=\"f()\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid12"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div v-if=\"f(a)\" /><div v-else-if=\"g(a)\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid13"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div v-if=\"f(a)\" /><div v-else-if=\"f(b)\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid14"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div v-if=\"a === 1\" /><div v-else-if=\"a === 2\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid15"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div v-if=\"a === 1\" /><div v-else-if=\"b === 1\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid16"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid17"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><div v-if=\"a\"><div v-if=\"a\" /></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid18"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><div v-if=\"a\"><div v-if=\"b\" /></div><div v-else-if=\"b\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid19"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><div v-if=\"a\"><div v-if=\"b\" /><div v-else-if=\"a\" /></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid20"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"!!a\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid21"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "<template><div v-if=\"a === 1\" /><div v-else-if=\"a === (1)\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid22"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "<template><div v-if=\"a || b\" /><div v-else-if=\"c || d\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid23"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "<template><div v-if=\"a || b\" /><div v-else-if=\"a || c\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid24"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"a || b\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid25"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b\" /><div v-else-if=\"a || b || c\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid26"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "<template><div v-if=\"a && b\" /><div v-else-if=\"a\" /><div v-else-if=\"b\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid27"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 28,
+  "name": null,
+  "code": "<template><div v-if=\"a && b\" /><div v-else-if=\"b && c\" /><div v-else-if=\"a && c\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid28"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 29,
+  "name": null,
+  "code": "<template><div v-if=\"a && b\" /><div v-else-if=\"b || c\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid29"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 30,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b && (a || c)\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid30"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 31,
+  "name": null,
+  "code": "<template><div v-if=\"a\" /><div v-else-if=\"b && (c || d && a)\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid31"
+ },
+ {
+  "rule": "no-dupe-v-else-if",
+  "kind": "valid",
+  "idx": 32,
+  "name": null,
+  "code": "<template><div v-if=\"a && b && c\" /><div v-else-if=\"a && b && (c || d)\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-dupe-v-else-if#valid32"
+ }
+]

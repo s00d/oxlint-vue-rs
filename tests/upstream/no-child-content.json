@@ -1,0 +1,795 @@
+[
+ {
+  "rule": "no-child-content",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div v-html=\"foo\">bar</div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Child content is disallowed because it will be overwritten by the v-html directive.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 32,
+     "suggestions": [
+      {
+       "messageId": "removeChildContent",
+       "output": "<template><div v-html=\"foo\"></div></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallowedChildContent",
+     "message": "Child content is disallowed because it will be overwritten by the v-html directive.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeChildContent",
+       "desc": "Remove child content.",
+       "output": "<template><div v-html=\"foo\"></div></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-child-content#invalid0"
+ },
+ {
+  "rule": "no-child-content",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-html=\"foo\">{{ bar }}</div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Child content is disallowed because it will be overwritten by the v-html directive.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 38,
+     "suggestions": [
+      {
+       "messageId": "removeChildContent",
+       "output": "<template><div v-html=\"foo\"></div></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallowedChildContent",
+     "message": "Child content is disallowed because it will be overwritten by the v-html directive.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeChildContent",
+       "desc": "Remove child content.",
+       "output": "<template><div v-html=\"foo\"></div></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-child-content#invalid1"
+ },
+ {
+  "rule": "no-child-content",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div v-html=\"foo\"><span /></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Child content is disallowed because it will be overwritten by the v-html directive.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 37,
+     "suggestions": [
+      {
+       "messageId": "removeChildContent",
+       "output": "<template><div v-html=\"foo\"></div></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallowedChildContent",
+     "message": "Child content is disallowed because it will be overwritten by the v-html directive.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeChildContent",
+       "desc": "Remove child content.",
+       "output": "<template><div v-html=\"foo\"></div></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-child-content#invalid2"
+ },
+ {
+  "rule": "no-child-content",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div v-html=\"foo\"><!-- bar --></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Child content is disallowed because it will be overwritten by the v-html directive.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 41,
+     "suggestions": [
+      {
+       "messageId": "removeChildContent",
+       "output": "<template><div v-html=\"foo\"></div></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallowedChildContent",
+     "message": "Child content is disallowed because it will be overwritten by the v-html directive.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeChildContent",
+       "desc": "Remove child content.",
+       "output": "<template><div v-html=\"foo\"></div></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-child-content#invalid3"
+ },
+ {
+  "rule": "no-child-content",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <template>\n          <div v-html=\"foo\">\n            <!-- this is a test -->\n            <span>foo</span>\n            bar\n          </div>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Child content is disallowed because it will be overwritten by the v-html directive.",
+     "line": 3,
+     "column": 29,
+     "endLine": 7,
+     "endColumn": 11,
+     "suggestions": [
+      {
+       "messageId": "removeChildContent",
+       "output": "\n        <template>\n          <div v-html=\"foo\"></div>\n        </template>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallowedChildContent",
+     "message": "Child content is disallowed because it will be overwritten by the v-html directive.",
+     "line": 3,
+     "column": 29,
+     "endLine": 7,
+     "endColumn": 11,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeChildContent",
+       "desc": "Remove child content.",
+       "output": "\n        <template>\n          <div v-html=\"foo\"></div>\n        </template>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-child-content#invalid4"
+ },
+ {
+  "rule": "no-child-content",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div v-text=\"foo\">bar</div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Child content is disallowed because it will be overwritten by the v-text directive.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 32,
+     "suggestions": [
+      {
+       "messageId": "removeChildContent",
+       "output": "<template><div v-text=\"foo\"></div></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallowedChildContent",
+     "message": "Child content is disallowed because it will be overwritten by the v-text directive.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeChildContent",
+       "desc": "Remove child content.",
+       "output": "<template><div v-text=\"foo\"></div></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-child-content#invalid5"
+ },
+ {
+  "rule": "no-child-content",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div v-t=\"foo\">bar</div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "additionalDirectives": [
+     "t"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Child content is disallowed because it will be overwritten by the v-t directive.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 29,
+     "suggestions": [
+      {
+       "messageId": "removeChildContent",
+       "output": "<template><div v-t=\"foo\"></div></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallowedChildContent",
+     "message": "Child content is disallowed because it will be overwritten by the v-t directive.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeChildContent",
+       "desc": "Remove child content.",
+       "output": "<template><div v-t=\"foo\"></div></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-child-content#invalid6"
+ },
+ {
+  "rule": "no-child-content",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div v-html=\"foo\">baz</div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "additionalDirectives": [
+     "t"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Child content is disallowed because it will be overwritten by the v-html directive.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 32,
+     "suggestions": [
+      {
+       "messageId": "removeChildContent",
+       "output": "<template><div v-html=\"foo\"></div></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallowedChildContent",
+     "message": "Child content is disallowed because it will be overwritten by the v-html directive.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "removeChildContent",
+       "desc": "Remove child content.",
+       "output": "<template><div v-html=\"foo\"></div></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-child-content#invalid7"
+ },
+ {
+  "rule": "no-child-content",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div>foo</div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-child-content#valid0"
+ },
+ {
+  "rule": "no-child-content",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-foo=\"bar\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-child-content#valid1"
+ },
+ {
+  "rule": "no-child-content",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div v-html=\"foo\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-child-content#valid2"
+ },
+ {
+  "rule": "no-child-content",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div v-text=\"foo\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-child-content#valid3"
+ },
+ {
+  "rule": "no-child-content",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div v-html=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-child-content#valid4"
+ },
+ {
+  "rule": "no-child-content",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div v-html=\"foo\"> </div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-child-content#valid5"
+ },
+ {
+  "rule": "no-child-content",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        <template>\n          <div v-html=\"foo\">\n          </div>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-child-content#valid6"
+ },
+ {
+  "rule": "no-child-content",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div v-t=\"foo\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "additionalDirectives": [
+     "t"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-child-content#valid7"
+ },
+ {
+  "rule": "no-child-content",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div v-html=\"foo\" /><!-- bar --></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-child-content#valid8"
+ }
+]

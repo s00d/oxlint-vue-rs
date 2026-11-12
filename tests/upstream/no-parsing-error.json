@@ -1,0 +1,5725 @@
+[
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template>{{a b c}}</template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: Unexpected token b.",
+     "line": 1,
+     "column": 15
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: Unexpected token b.",
+     "line": 1,
+     "column": 15,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid0"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div>{{a b c}}</div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: Unexpected token b.",
+     "line": 1,
+     "column": 20
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: Unexpected token b.",
+     "line": 1,
+     "column": 20,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid1"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div v-show=\"a b c\">hello</div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: Unexpected token b.",
+     "line": 1,
+     "column": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: Unexpected token b.",
+     "line": 1,
+     "column": 26,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid2"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div v-show=\"a;b;\">hello</div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: Unexpected token ;.",
+     "line": 1,
+     "column": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: Unexpected token ;.",
+     "line": 1,
+     "column": 25,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid3"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div v-show=\" \">hello</div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: Expected to be an expression, but got empty.",
+     "line": 1,
+     "column": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: Expected to be an expression, but got empty.",
+     "line": 1,
+     "column": 24,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid4"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div v-for=\"foo\">hello</div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: Expected to be an alias, but got empty.",
+     "line": 1,
+     "column": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: Expected to be an alias, but got empty.",
+     "line": 1,
+     "column": 23,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid5"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div v-for=\"foo() in list\">hello</div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: Unexpected token (.",
+     "line": 1,
+     "column": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: Unexpected token (.",
+     "line": 1,
+     "column": 26,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid6"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><!--></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "abrupt-closing-of-empty-comment": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: abrupt-closing-of-empty-comment.",
+     "line": 1,
+     "column": 15
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: abrupt-closing-of-empty-comment.",
+     "line": 1,
+     "column": 15,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid7"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><!---></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "abrupt-closing-of-empty-comment": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: abrupt-closing-of-empty-comment.",
+     "line": 1,
+     "column": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: abrupt-closing-of-empty-comment.",
+     "line": 1,
+     "column": 16,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid8"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template>&#qux;</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "absence-of-digits-in-numeric-character-reference": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: absence-of-digits-in-numeric-character-reference.",
+     "line": 1,
+     "column": 13
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: absence-of-digits-in-numeric-character-reference.",
+     "line": 1,
+     "column": 13,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid9"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><![CDATA[cdata]]></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "cdata-in-html-content": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: cdata-in-html-content.",
+     "line": 1,
+     "column": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: cdata-in-html-content.",
+     "line": 1,
+     "column": 19,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid10"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template>&#1234567;</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "character-reference-outside-unicode-range": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: character-reference-outside-unicode-range.",
+     "line": 1,
+     "column": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: character-reference-outside-unicode-range.",
+     "line": 1,
+     "column": 21,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid11"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template>\u0003</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "control-character-in-input-stream": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: control-character-in-input-stream.",
+     "line": 1,
+     "column": 10
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: control-character-in-input-stream.",
+     "line": 1,
+     "column": 10,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid12"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "<template>&#0003;</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "control-character-reference": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: control-character-reference.",
+     "line": 1,
+     "column": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: control-character-reference.",
+     "line": 1,
+     "column": 18,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid13"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><",
+  "filename": "test.js",
+  "options": [
+   {
+    "eof-before-tag-name": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: eof-before-tag-name.",
+     "line": 1,
+     "column": 12
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: eof-before-tag-name.",
+     "line": 1,
+     "column": 12,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid14"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><svg><![CDATA[cdata",
+  "filename": "test.js",
+  "options": [
+   {
+    "eof-in-cdata": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: eof-in-cdata.",
+     "line": 1,
+     "column": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: eof-in-cdata.",
+     "line": 1,
+     "column": 30,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid15"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><!--comment",
+  "filename": "test.js",
+  "options": [
+   {
+    "eof-in-comment": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: eof-in-comment.",
+     "line": 1,
+     "column": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: eof-in-comment.",
+     "line": 1,
+     "column": 22,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid16"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><div class=\"\"",
+  "filename": "test.js",
+  "options": [
+   {
+    "eof-in-tag": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: eof-in-tag.",
+     "line": 1,
+     "column": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: eof-in-tag.",
+     "line": 1,
+     "column": 24,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid17"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><!--comment--!></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "incorrectly-closed-comment": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: incorrectly-closed-comment.",
+     "line": 1,
+     "column": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: incorrectly-closed-comment.",
+     "line": 1,
+     "column": 25,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid18"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><!ELEMENT br EMPTY></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "incorrectly-opened-comment": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: incorrectly-opened-comment.",
+     "line": 1,
+     "column": 13
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: incorrectly-opened-comment.",
+     "line": 1,
+     "column": 13,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid19"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><👍>/template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "invalid-first-character-of-tag-name": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: invalid-first-character-of-tag-name.",
+     "line": 1,
+     "column": 12
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: invalid-first-character-of-tag-name.",
+     "line": 1,
+     "column": 12,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid20"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><div id=></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "missing-attribute-value": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: missing-attribute-value.",
+     "line": 1,
+     "column": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: missing-attribute-value.",
+     "line": 1,
+     "column": 19,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid21"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "<template></></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "missing-end-tag-name": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: missing-end-tag-name.",
+     "line": 1,
+     "column": 13
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: missing-end-tag-name.",
+     "line": 1,
+     "column": 13,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid22"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "<template>&amp</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "missing-semicolon-after-character-reference": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: missing-semicolon-after-character-reference.",
+     "line": 1,
+     "column": 14
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: missing-semicolon-after-character-reference.",
+     "line": 1,
+     "column": 14,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid23"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "<template><div id=\"foo\"class=\"bar\"></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "missing-whitespace-between-attributes": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: missing-whitespace-between-attributes.",
+     "line": 1,
+     "column": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: missing-whitespace-between-attributes.",
+     "line": 1,
+     "column": 24,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid24"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 25,
+  "name": null,
+  "code": "<template><!--a<!--b--></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "nested-comment": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: nested-comment.",
+     "line": 1,
+     "column": 20
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: nested-comment.",
+     "line": 1,
+     "column": 20,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid25"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 26,
+  "name": null,
+  "code": "<template>&#xFFFE;</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "noncharacter-character-reference": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: noncharacter-character-reference.",
+     "line": 1,
+     "column": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: noncharacter-character-reference.",
+     "line": 1,
+     "column": 19,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid26"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 27,
+  "name": null,
+  "code": "<template>￾</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "noncharacter-in-input-stream": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: noncharacter-in-input-stream.",
+     "line": 1,
+     "column": 10
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: noncharacter-in-input-stream.",
+     "line": 1,
+     "column": 10,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid27"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 28,
+  "name": null,
+  "code": "<template>&#0000;</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "null-character-reference": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: null-character-reference.",
+     "line": 1,
+     "column": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: null-character-reference.",
+     "line": 1,
+     "column": 18,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid28"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 29,
+  "name": null,
+  "code": "<template>&#xD800;</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "surrogate-character-reference": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: surrogate-character-reference.",
+     "line": 1,
+     "column": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: surrogate-character-reference.",
+     "line": 1,
+     "column": 19,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid29"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 31,
+  "name": null,
+  "code": "<template><div a\"bc=\"\"></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "unexpected-character-in-attribute-name": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: unexpected-character-in-attribute-name.",
+     "line": 1,
+     "column": 17
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: unexpected-character-in-attribute-name.",
+     "line": 1,
+     "column": 17,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid31"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 32,
+  "name": null,
+  "code": "<template><div foo=bar\"></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "unexpected-character-in-unquoted-attribute-value": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: unexpected-character-in-unquoted-attribute-value.",
+     "line": 1,
+     "column": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: unexpected-character-in-unquoted-attribute-value.",
+     "line": 1,
+     "column": 23,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid32"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 33,
+  "name": null,
+  "code": "<template><div =foo></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "unexpected-equals-sign-before-attribute-name": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: unexpected-equals-sign-before-attribute-name.",
+     "line": 1,
+     "column": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: unexpected-equals-sign-before-attribute-name.",
+     "line": 1,
+     "column": 16,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid33"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 34,
+  "name": null,
+  "code": "<template>\u0000</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "unexpected-null-character": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: unexpected-null-character.",
+     "line": 1,
+     "column": 11
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: unexpected-null-character.",
+     "line": 1,
+     "column": 11,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid34"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 35,
+  "name": null,
+  "code": "<template><?xml?></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "unexpected-question-mark-instead-of-tag-name": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: unexpected-question-mark-instead-of-tag-name.",
+     "line": 1,
+     "column": 12
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: unexpected-question-mark-instead-of-tag-name.",
+     "line": 1,
+     "column": 12,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid35"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 36,
+  "name": null,
+  "code": "<template><div id=\"\" / class=\"\"></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "unexpected-solidus-in-tag": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: unexpected-solidus-in-tag.",
+     "line": 1,
+     "column": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: unexpected-solidus-in-tag.",
+     "line": 1,
+     "column": 23,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid36"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 37,
+  "name": null,
+  "code": "<template>&unknown;</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "unknown-named-character-reference": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: unknown-named-character-reference.",
+     "line": 1,
+     "column": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: unknown-named-character-reference.",
+     "line": 1,
+     "column": 19,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid37"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 38,
+  "name": null,
+  "code": "<template><div></div id=\"\"></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "end-tag-with-attributes": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: end-tag-with-attributes.",
+     "line": 1,
+     "column": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: end-tag-with-attributes.",
+     "line": 1,
+     "column": 22,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid38"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 39,
+  "name": null,
+  "code": "<template><div id=\"\" id=\"\"></div></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "duplicate-attribute": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: duplicate-attribute.",
+     "line": 1,
+     "column": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: duplicate-attribute.",
+     "line": 1,
+     "column": 22,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid39"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 40,
+  "name": null,
+  "code": "<template><div></div/></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "end-tag-with-trailing-solidus": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: end-tag-with-trailing-solidus.",
+     "line": 1,
+     "column": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: end-tag-with-trailing-solidus.",
+     "line": 1,
+     "column": 21,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid40"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 41,
+  "name": null,
+  "code": "<template><div/></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "non-void-html-element-start-tag-with-trailing-solidus": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: non-void-html-element-start-tag-with-trailing-solidus.",
+     "line": 1,
+     "column": 11
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: non-void-html-element-start-tag-with-trailing-solidus.",
+     "line": 1,
+     "column": 11,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid41"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 42,
+  "name": null,
+  "code": "<template></div></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "x-invalid-end-tag": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: x-invalid-end-tag.",
+     "line": 1,
+     "column": 11
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: x-invalid-end-tag.",
+     "line": 1,
+     "column": 11,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid42"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 43,
+  "name": null,
+  "code": "<template><div xmlns=\"\"></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "x-invalid-namespace": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: x-invalid-namespace.",
+     "line": 1,
+     "column": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: x-invalid-namespace.",
+     "line": 1,
+     "column": 16,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid43"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 44,
+  "name": null,
+  "code": "<template><!--></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: abrupt-closing-of-empty-comment.",
+     "line": 1,
+     "column": 15
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: abrupt-closing-of-empty-comment.",
+     "line": 1,
+     "column": 15,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid44"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 45,
+  "name": null,
+  "code": "<template><!---></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: abrupt-closing-of-empty-comment.",
+     "line": 1,
+     "column": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: abrupt-closing-of-empty-comment.",
+     "line": 1,
+     "column": 16,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid45"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 46,
+  "name": null,
+  "code": "<template>&#qux;</template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: absence-of-digits-in-numeric-character-reference.",
+     "line": 1,
+     "column": 13
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: absence-of-digits-in-numeric-character-reference.",
+     "line": 1,
+     "column": 13,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid46"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 47,
+  "name": null,
+  "code": "<template><![CDATA[cdata]]></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: cdata-in-html-content.",
+     "line": 1,
+     "column": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: cdata-in-html-content.",
+     "line": 1,
+     "column": 19,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid47"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 48,
+  "name": null,
+  "code": "<template>&#1234567;</template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: character-reference-outside-unicode-range.",
+     "line": 1,
+     "column": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: character-reference-outside-unicode-range.",
+     "line": 1,
+     "column": 21,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid48"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 49,
+  "name": null,
+  "code": "<template>\u0003</template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: control-character-in-input-stream.",
+     "line": 1,
+     "column": 10
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: control-character-in-input-stream.",
+     "line": 1,
+     "column": 10,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid49"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 50,
+  "name": null,
+  "code": "<template>&#0003;</template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: control-character-reference.",
+     "line": 1,
+     "column": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: control-character-reference.",
+     "line": 1,
+     "column": 18,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid50"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 51,
+  "name": null,
+  "code": "<template><",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: eof-before-tag-name.",
+     "line": 1,
+     "column": 12
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: eof-before-tag-name.",
+     "line": 1,
+     "column": 12,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid51"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 52,
+  "name": null,
+  "code": "<template><svg><![CDATA[cdata",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: eof-in-cdata.",
+     "line": 1,
+     "column": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: eof-in-cdata.",
+     "line": 1,
+     "column": 30,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid52"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 53,
+  "name": null,
+  "code": "<template><!--comment",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: eof-in-comment.",
+     "line": 1,
+     "column": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: eof-in-comment.",
+     "line": 1,
+     "column": 22,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid53"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 54,
+  "name": null,
+  "code": "<template><div class=\"\"",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: eof-in-tag.",
+     "line": 1,
+     "column": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: eof-in-tag.",
+     "line": 1,
+     "column": 24,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid54"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 55,
+  "name": null,
+  "code": "<template><!--comment--!></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: incorrectly-closed-comment.",
+     "line": 1,
+     "column": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: incorrectly-closed-comment.",
+     "line": 1,
+     "column": 25,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid55"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 56,
+  "name": null,
+  "code": "<template><!ELEMENT br EMPTY></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: incorrectly-opened-comment.",
+     "line": 1,
+     "column": 13
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: incorrectly-opened-comment.",
+     "line": 1,
+     "column": 13,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid56"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 57,
+  "name": null,
+  "code": "<template><👍>/template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: invalid-first-character-of-tag-name.",
+     "line": 1,
+     "column": 12
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: invalid-first-character-of-tag-name.",
+     "line": 1,
+     "column": 12,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid57"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 58,
+  "name": null,
+  "code": "<template><div id=></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: missing-attribute-value.",
+     "line": 1,
+     "column": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: missing-attribute-value.",
+     "line": 1,
+     "column": 19,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid58"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 59,
+  "name": null,
+  "code": "<template></></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: missing-end-tag-name.",
+     "line": 1,
+     "column": 13
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: missing-end-tag-name.",
+     "line": 1,
+     "column": 13,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid59"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 60,
+  "name": null,
+  "code": "<template>&amp</template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: missing-semicolon-after-character-reference.",
+     "line": 1,
+     "column": 14
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: missing-semicolon-after-character-reference.",
+     "line": 1,
+     "column": 14,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid60"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 61,
+  "name": null,
+  "code": "<template><div id=\"foo\"class=\"bar\"></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: missing-whitespace-between-attributes.",
+     "line": 1,
+     "column": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: missing-whitespace-between-attributes.",
+     "line": 1,
+     "column": 24,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid61"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 62,
+  "name": null,
+  "code": "<template><!--a<!--b--></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: nested-comment.",
+     "line": 1,
+     "column": 20
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: nested-comment.",
+     "line": 1,
+     "column": 20,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid62"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 63,
+  "name": null,
+  "code": "<template>&#xFFFE;</template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: noncharacter-character-reference.",
+     "line": 1,
+     "column": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: noncharacter-character-reference.",
+     "line": 1,
+     "column": 19,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid63"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 64,
+  "name": null,
+  "code": "<template>￾</template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: noncharacter-in-input-stream.",
+     "line": 1,
+     "column": 10
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: noncharacter-in-input-stream.",
+     "line": 1,
+     "column": 10,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid64"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 65,
+  "name": null,
+  "code": "<template>&#0000;</template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: null-character-reference.",
+     "line": 1,
+     "column": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: null-character-reference.",
+     "line": 1,
+     "column": 18,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid65"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 66,
+  "name": null,
+  "code": "<template>&#xD800;</template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: surrogate-character-reference.",
+     "line": 1,
+     "column": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: surrogate-character-reference.",
+     "line": 1,
+     "column": 19,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid66"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 68,
+  "name": null,
+  "code": "<template><div a\"bc=\"\"></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: unexpected-character-in-attribute-name.",
+     "line": 1,
+     "column": 17
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: unexpected-character-in-attribute-name.",
+     "line": 1,
+     "column": 17,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid68"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 69,
+  "name": null,
+  "code": "<template><div foo=bar\"></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: unexpected-character-in-unquoted-attribute-value.",
+     "line": 1,
+     "column": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: unexpected-character-in-unquoted-attribute-value.",
+     "line": 1,
+     "column": 23,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid69"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 70,
+  "name": null,
+  "code": "<template><div =foo></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: unexpected-equals-sign-before-attribute-name.",
+     "line": 1,
+     "column": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: unexpected-equals-sign-before-attribute-name.",
+     "line": 1,
+     "column": 16,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid70"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 71,
+  "name": null,
+  "code": "<template>\u0000</template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: unexpected-null-character.",
+     "line": 1,
+     "column": 11
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: unexpected-null-character.",
+     "line": 1,
+     "column": 11,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid71"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 72,
+  "name": null,
+  "code": "<template><?xml?></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: unexpected-question-mark-instead-of-tag-name.",
+     "line": 1,
+     "column": 12
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: unexpected-question-mark-instead-of-tag-name.",
+     "line": 1,
+     "column": 12,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid72"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 73,
+  "name": null,
+  "code": "<template><div id=\"\" / class=\"\"></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: unexpected-solidus-in-tag.",
+     "line": 1,
+     "column": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: unexpected-solidus-in-tag.",
+     "line": 1,
+     "column": 23,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid73"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 74,
+  "name": null,
+  "code": "<template>&unknown;</template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: unknown-named-character-reference.",
+     "line": 1,
+     "column": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: unknown-named-character-reference.",
+     "line": 1,
+     "column": 19,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid74"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 75,
+  "name": null,
+  "code": "<template><div></div id=\"\"></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: end-tag-with-attributes.",
+     "line": 1,
+     "column": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: end-tag-with-attributes.",
+     "line": 1,
+     "column": 22,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid75"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 76,
+  "name": null,
+  "code": "<template><div id=\"\" id=\"\"></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: duplicate-attribute.",
+     "line": 1,
+     "column": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: duplicate-attribute.",
+     "line": 1,
+     "column": 22,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid76"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 77,
+  "name": null,
+  "code": "<template><div></div/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: end-tag-with-trailing-solidus.",
+     "line": 1,
+     "column": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: end-tag-with-trailing-solidus.",
+     "line": 1,
+     "column": 21,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid77"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 78,
+  "name": null,
+  "code": "<template></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: x-invalid-end-tag.",
+     "line": 1,
+     "column": 11
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: x-invalid-end-tag.",
+     "line": 1,
+     "column": 11,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid78"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 79,
+  "name": null,
+  "code": "<template><div xmlns=\"\"></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: x-invalid-namespace.",
+     "line": 1,
+     "column": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: x-invalid-namespace.",
+     "line": 1,
+     "column": 16,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid79"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 80,
+  "name": null,
+  "code": "\n        <template></template>\n        <style>\n          .text {\n            color: v-bind(color.);\n            font-size: v-bind('font size');\n          }\n        </style>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: Unexpected end of expression.",
+     "line": 5,
+     "column": 33
+    },
+    {
+     "message": "Parsing error: Unexpected token size.",
+     "line": 6,
+     "column": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: Unexpected end of expression.",
+     "line": 5,
+     "column": 33,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: Unexpected token size.",
+     "line": 6,
+     "column": 37,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid80"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "invalid",
+  "idx": 81,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default {}\n      </script>\n      <template>\n        <div>{{ (value as string).toUpperCase() }}</div>\n        <div>{{ user!.name }}</div>\n        <button @click=\"(e: MouseEvent) => onClick(e)\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Parsing error: Unexpected token as.",
+     "line": 6,
+     "column": 24
+    },
+    {
+     "message": "Parsing error: Unexpected token !.",
+     "line": 7,
+     "column": 21
+    },
+    {
+     "message": "Parsing error: Unexpected token :.",
+     "line": 8,
+     "column": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: Unexpected token as.",
+     "line": 6,
+     "column": 24,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: Unexpected token !.",
+     "line": 7,
+     "column": 21,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "parsingError",
+     "message": "Parsing error: Unexpected token :.",
+     "line": 8,
+     "column": 27,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#invalid81"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid0"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>a b c</template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid1"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>{{a + b + c}}</template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid2"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><svg class=\"icon\"><use xlink:href=\"#chevron\"></use></svg></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid3"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><svg viewBox=\"0 0 40 40\"></svg></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid4"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<table><tr><td></td></tr></table>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid5"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<a @click=\"foo(); bar()\">link</a>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid6"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template v-for=\"x of list\"><slot name=\"item\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid7"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><!--></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "abrupt-closing-of-empty-comment": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid8"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><!---></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "abrupt-closing-of-empty-comment": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid9"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template>&#qux;</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "absence-of-digits-in-numeric-character-reference": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid10"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><![CDATA[cdata]]></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "cdata-in-html-content": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid11"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template>&#1234567;</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "character-reference-outside-unicode-range": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid12"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template>\u0003</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "control-character-in-input-stream": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid13"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "<template>&#0003;</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "control-character-reference": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid14"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><",
+  "filename": "test.js",
+  "options": [
+   {
+    "eof-before-tag-name": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid15"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><svg><![CDATA[cdata",
+  "filename": "test.js",
+  "options": [
+   {
+    "eof-in-cdata": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid16"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><!--comment",
+  "filename": "test.js",
+  "options": [
+   {
+    "eof-in-comment": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid17"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><div class=\"\"",
+  "filename": "test.js",
+  "options": [
+   {
+    "eof-in-tag": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid18"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><!--comment--!></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "incorrectly-closed-comment": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid19"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><!ELEMENT br EMPTY></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "incorrectly-opened-comment": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid20"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><👍>/template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "invalid-first-character-of-tag-name": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid21"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "<template><div id=></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "missing-attribute-value": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid22"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "<template></></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "missing-end-tag-name": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid23"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "<template>&amp</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "missing-semicolon-after-character-reference": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid24"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "<template><div id=\"foo\"class=\"bar\"></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "missing-whitespace-between-attributes": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid25"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "<template><!--a<!--b--></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "nested-comment": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid26"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "<template>&#xFFFE;</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "noncharacter-character-reference": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid27"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 28,
+  "name": null,
+  "code": "<template>￾</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "noncharacter-in-input-stream": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid28"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 29,
+  "name": null,
+  "code": "<template>&#0000;</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "null-character-reference": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid29"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 30,
+  "name": null,
+  "code": "<template>&#xD800;</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "surrogate-character-reference": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid30"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 32,
+  "name": null,
+  "code": "<template><div a\"bc=\"\"></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "unexpected-character-in-attribute-name": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid32"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 33,
+  "name": null,
+  "code": "<template><div foo=bar\"></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "unexpected-character-in-unquoted-attribute-value": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid33"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 34,
+  "name": null,
+  "code": "<template><div =foo></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "unexpected-equals-sign-before-attribute-name": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid34"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 35,
+  "name": null,
+  "code": "<template>\u0000</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "unexpected-null-character": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid35"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 36,
+  "name": null,
+  "code": "<template><?xml?></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "unexpected-question-mark-instead-of-tag-name": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid36"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 37,
+  "name": null,
+  "code": "<template><div id=\"\" / class=\"\"></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "unexpected-solidus-in-tag": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid37"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 38,
+  "name": null,
+  "code": "<template>&unknown;</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "unknown-named-character-reference": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid38"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 39,
+  "name": null,
+  "code": "<template><div></div id=\"\"></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "end-tag-with-attributes": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid39"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 40,
+  "name": null,
+  "code": "<template><div id=\"\" id=\"\"></div></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "duplicate-attribute": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid40"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 41,
+  "name": null,
+  "code": "<template><div></div/></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "end-tag-with-trailing-solidus": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid41"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 42,
+  "name": null,
+  "code": "<template><div/></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "non-void-html-element-start-tag-with-trailing-solidus": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid42"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 43,
+  "name": null,
+  "code": "<template></div></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "x-invalid-end-tag": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid43"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 44,
+  "name": null,
+  "code": "<template><div xmlns=\"\"></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "x-invalid-namespace": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid44"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 45,
+  "name": null,
+  "code": "<template><div/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid45"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 46,
+  "name": null,
+  "code": "<template><div v-show=\"\">hello</div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid46"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 47,
+  "name": null,
+  "code": "<template><div>{{ }}</div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid47"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 48,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <p>\n            <Address\n              value=\"\"\n              onchange=\"await setTokenAddress(event.target.value)\"/>\n          </p>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid48"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 49,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import { ref } from 'vue'\n      const value = ref<unknown>('')\n      </script>\n      <template>\n        <div>{{ (value as string).toUpperCase() }}</div>\n        <div>{{ user!.name }}</div>\n        <div>{{ value satisfies string }}</div>\n        <div>{{ format<string>(value) }}</div>\n        <button @click=\"(e: MouseEvent) => onClick(e)\" />\n        <input @input=\"emit(($event.target as HTMLInputElement).value)\" />\n        <input :value=\"(el as HTMLInputElement).value\" />\n        <MyList v-slot=\"{ item }: { item: Item }\">{{ item.id }}</MyList>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid49"
+ },
+ {
+  "rule": "no-parsing-error",
+  "kind": "valid",
+  "idx": 50,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default {}\n      </script>\n      <template>\n        <div>{{ (value as string).toUpperCase() }}</div>\n        <div>{{ user!.name }}</div>\n        <button @click=\"(e: MouseEvent) => onClick(e)\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-parsing-error#valid50"
+ }
+]

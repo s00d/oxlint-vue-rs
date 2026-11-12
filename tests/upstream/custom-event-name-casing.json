@@ -1,0 +1,1372 @@
+[
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"$emit('fooBar')\">\n      </template>\n      <script>\n      export default {\n        setup(props, context) {\n          return {\n            onInput(value) {\n              context.emit('barBaz')\n            }\n          }\n        },\n        methods: {\n          onClick() {\n            this.$emit('bazQux')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom event name 'fooBar' must be kebab-case.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 33
+    },
+    {
+     "message": "Custom event name 'barBaz' must be kebab-case.",
+     "line": 11,
+     "column": 28,
+     "endLine": 11,
+     "endColumn": 36
+    },
+    {
+     "message": "Custom event name 'bazQux' must be kebab-case.",
+     "line": 17,
+     "column": 24,
+     "endLine": 17,
+     "endColumn": 32
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'fooBar' must be kebab-case.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'barBaz' must be kebab-case.",
+     "line": 11,
+     "column": 28,
+     "endLine": 11,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'bazQux' must be kebab-case.",
+     "line": 17,
+     "column": 24,
+     "endLine": 17,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#invalid0"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"$emit?.('fooBar')\">\n      </template>\n      <script>\n      export default {\n        setup(props, context) {\n          return {\n            onInput(value) {\n              context?.emit?.('barBaz')\n            }\n          }\n        },\n        methods: {\n          onClick() {\n            this?.$emit?.('bazQux')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom event name 'fooBar' must be kebab-case.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 35
+    },
+    {
+     "message": "Custom event name 'barBaz' must be kebab-case.",
+     "line": 11,
+     "column": 31,
+     "endLine": 11,
+     "endColumn": 39
+    },
+    {
+     "message": "Custom event name 'bazQux' must be kebab-case.",
+     "line": 17,
+     "column": 27,
+     "endLine": 17,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'fooBar' must be kebab-case.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'barBaz' must be kebab-case.",
+     "line": 11,
+     "column": 31,
+     "endLine": 11,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'bazQux' must be kebab-case.",
+     "line": 17,
+     "column": 27,
+     "endLine": 17,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#invalid1"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"$emit?.('fooBar')\">\n      </template>\n      <script>\n      export default {\n        setup(props, context) {\n          return {\n            onInput(value) {\n              (context?.emit)?.('barBaz')\n            }\n          }\n        },\n        methods: {\n          onClick() {\n            (this?.$emit)?.('bazQux')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom event name 'fooBar' must be kebab-case.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 35
+    },
+    {
+     "message": "Custom event name 'barBaz' must be kebab-case.",
+     "line": 11,
+     "column": 33,
+     "endLine": 11,
+     "endColumn": 41
+    },
+    {
+     "message": "Custom event name 'bazQux' must be kebab-case.",
+     "line": 17,
+     "column": 29,
+     "endLine": 17,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'fooBar' must be kebab-case.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'barBaz' must be kebab-case.",
+     "line": 11,
+     "column": 33,
+     "endLine": 11,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'bazQux' must be kebab-case.",
+     "line": 17,
+     "column": 29,
+     "endLine": 17,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#invalid2"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"$emit('input/update')\">\n      </template>\n      <script>\n      export default {\n        setup(props, context) {\n          return {\n            onInput(value) {\n              context.emit('search/update')\n            }\n          }\n        },\n        methods: {\n          onClick() {\n            this.$emit('click/row')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case",
+   {
+    "ignores": [
+     "/^[a-z]+(?:-[a-z]+)*:[a-z]+(?:-[a-z]+)*$/u"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom event name 'input/update' must be kebab-case.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 39
+    },
+    {
+     "message": "Custom event name 'search/update' must be kebab-case.",
+     "line": 11,
+     "column": 28,
+     "endLine": 11,
+     "endColumn": 43
+    },
+    {
+     "message": "Custom event name 'click/row' must be kebab-case.",
+     "line": 17,
+     "column": 24,
+     "endLine": 17,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'input/update' must be kebab-case.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'search/update' must be kebab-case.",
+     "line": 11,
+     "column": 28,
+     "endLine": 11,
+     "endColumn": 43,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'click/row' must be kebab-case.",
+     "line": 17,
+     "column": 24,
+     "endLine": 17,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#invalid3"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"$emit('input/update')\">\n      </template>\n      <script>\n      export default {\n        setup(props, context) {\n          return {\n            onInput(value) {\n              context.emit('search/update')\n            }\n          }\n        },\n        methods: {\n          onClick() {\n            this.$emit('click/row')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case",
+   {
+    "ignores": [
+     "input:update",
+     "search:update",
+     "click:row"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom event name 'input/update' must be kebab-case.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 39
+    },
+    {
+     "message": "Custom event name 'search/update' must be kebab-case.",
+     "line": 11,
+     "column": 28,
+     "endLine": 11,
+     "endColumn": 43
+    },
+    {
+     "message": "Custom event name 'click/row' must be kebab-case.",
+     "line": 17,
+     "column": 24,
+     "endLine": 17,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'input/update' must be kebab-case.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'search/update' must be kebab-case.",
+     "line": 11,
+     "column": 28,
+     "endLine": 11,
+     "endColumn": 43,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'click/row' must be kebab-case.",
+     "line": 17,
+     "column": 24,
+     "endLine": 17,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#invalid4"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"$emit('foo-bar')\">\n      </template>\n      <script>\n      export default {\n        setup(props, context) {\n          return {\n            onInput(value) {\n              context.emit('bar-baz')\n            }\n          }\n        },\n        methods: {\n          onClick() {\n            this.$emit('baz-qux')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "camelCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom event name 'foo-bar' must be camelCase.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 34
+    },
+    {
+     "message": "Custom event name 'bar-baz' must be camelCase.",
+     "line": 11,
+     "column": 28,
+     "endLine": 11,
+     "endColumn": 37
+    },
+    {
+     "message": "Custom event name 'baz-qux' must be camelCase.",
+     "line": 17,
+     "column": 24,
+     "endLine": 17,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'foo-bar' must be camelCase.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'bar-baz' must be camelCase.",
+     "line": 11,
+     "column": 28,
+     "endLine": 11,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'baz-qux' must be camelCase.",
+     "line": 17,
+     "column": 24,
+     "endLine": 17,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#invalid5"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"$emit('foo-bar')\">\n      </template>\n      <script>\n      export default {\n        setup(props, context) {\n          return {\n            onInput(value) {\n              context.emit('bar-baz')\n            }\n          }\n        },\n        methods: {\n          onClick() {\n            this.$emit('baz-qux')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom event name 'foo-bar' must be camelCase.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 34
+    },
+    {
+     "message": "Custom event name 'bar-baz' must be camelCase.",
+     "line": 11,
+     "column": 28,
+     "endLine": 11,
+     "endColumn": 37
+    },
+    {
+     "message": "Custom event name 'baz-qux' must be camelCase.",
+     "line": 17,
+     "column": 24,
+     "endLine": 17,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'foo-bar' must be camelCase.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'bar-baz' must be camelCase.",
+     "line": 11,
+     "column": 28,
+     "endLine": 11,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'baz-qux' must be camelCase.",
+     "line": 17,
+     "column": 24,
+     "endLine": 17,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#invalid6"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script setup>\n      const emit = defineEmits({})\n      emit('fooBar')\n      emit('foo-bar')\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom event name 'foo-bar' must be camelCase.",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'foo-bar' must be camelCase.",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#invalid7"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script setup>\n      const emit = defineEmits({})\n      emit(`foo-bar`) // template literal\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom event name 'foo-bar' must be camelCase.",
+     "line": 4,
+     "column": 12,
+     "endLine": 4,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'foo-bar' must be camelCase.",
+     "line": 4,
+     "column": 12,
+     "endLine": 4,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#invalid8"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script setup>\n      const emit = defineEmits({})\n      emit('foo-bar')\n      </script>\n\n      <template>\n      <button @click=\"emit('foo-bar')\">Foo</button>\n      <button @click=\"$emit('foo-bar')\">Foo</button>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom event name 'foo-bar' must be camelCase.",
+     "line": 4,
+     "column": 12,
+     "endLine": 4,
+     "endColumn": 21
+    },
+    {
+     "message": "Custom event name 'foo-bar' must be camelCase.",
+     "line": 8,
+     "column": 28,
+     "endLine": 8,
+     "endColumn": 37
+    },
+    {
+     "message": "Custom event name 'foo-bar' must be camelCase.",
+     "line": 9,
+     "column": 29,
+     "endLine": 9,
+     "endColumn": 38
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'foo-bar' must be camelCase.",
+     "line": 4,
+     "column": 12,
+     "endLine": 4,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'foo-bar' must be camelCase.",
+     "line": 8,
+     "column": 28,
+     "endLine": 8,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'foo-bar' must be camelCase.",
+     "line": 9,
+     "column": 29,
+     "endLine": 9,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#invalid9"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"$emit('update:fooBar')\">\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom event name 'update:fooBar' must be kebab-case.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 40
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'update:fooBar' must be kebab-case.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#invalid10"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"$emit('update:my-prop')\">\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "camelCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom event name 'update:my-prop' must be camelCase.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 41
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Custom event name 'update:my-prop' must be camelCase.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#invalid11"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"$emit('foo-bar')\">\n      </template>\n      <script>\n      export default {\n        setup(props, context) {\n          return {\n            onInput(value) {\n              context.emit('update:foo-bar', value)\n              context.emit('foo-bar')\n            }\n          }\n        },\n        methods: {\n          onClick() {\n            this.$emit('foo-bar')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#valid0"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"$emit('update:foo-bar', value)\">\n      </template>\n      <script>\n      export default {\n        setup(props, {emit}) {\n          return {\n            onInput(value) {\n              emit('update:foo-bar', value)\n              emit('foo-bar')\n            }\n          }\n        },\n        methods: {\n          onClick() {\n            this.$emit('update:foo-bar', value)\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#valid1"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"emit('fooBar')\">\n      </template>\n      <script>\n      export default {\n        setup(context) {\n          return {\n            onInput(value) {\n              context.emit('barBaz')\n            }\n          }\n        },\n        methods: {\n          onClick() {\n            $emit('bazQux')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#valid2"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"$emit(fooBar)\">\n      </template>\n      <script>\n      export default {\n        setup(props, context) {\n          return {\n            onInput(value) {\n              context.emit(barBaz)\n            }\n          }\n        },\n        methods: {\n          onClick() {\n            this.$emit(bazQux)\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#valid3"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(prop, ...context) {\n          return {\n            onInput(value) {\n              context.emit('barBaz')\n            }\n          }\n        },\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#valid4"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(prop, [context]) {\n          return {\n            onInput(value) {\n              context.emit('barBaz')\n            }\n          }\n        },\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#valid5"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(prop, {e}) {\n          return {\n            onInput(value) {\n              e('barBaz')\n            }\n          }\n        },\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#valid6"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"$emit('fooBar')\">\n      </template>\n      <script>\n      export default {\n        setup(props, context) {\n          return {\n            onInput(value) {\n              context.emit('barBaz')\n            }\n          }\n        },\n        methods: {\n          onClick() {\n            this.$emit('bazQux')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case",
+   {
+    "ignores": [
+     "fooBar",
+     "barBaz",
+     "bazQux"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#valid7"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"$emit('input:update')\">\n        <input\n          @click=\"$emit('search:update')\">\n        <input\n          @click=\"$emit('click:row')\">\n      </template>\n      <script>\n      export default {\n        setup(props, context) {\n          return {\n            onInput(value) {\n              context.emit('input:update')\n              context.emit('search:update')\n              context.emit('click:row')\n            }\n          }\n        },\n        methods: {\n          onClick() {\n            this.$emit('input:update')\n            this.$emit('search:update')\n            this.$emit('click:row')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case",
+   {
+    "ignores": [
+     "/^[a-z]+(?:-[a-z]+)*:[a-z]+(?:-[a-z]+)*$/u"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#valid8"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"$emit('fooBar')\">\n      </template>\n      <script>\n      export default {\n        setup(props, context) {\n          return {\n            onInput(value) {\n              context.emit('barBaz')\n            }\n          }\n        },\n        methods: {\n          onClick() {\n            this.$emit('bazQux')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "camelCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#valid9"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"$emit('fooBar')\">\n      </template>\n      <script>\n      export default {\n        setup(props, context) {\n          return {\n            onInput(value) {\n              context.emit('barBaz')\n            }\n          }\n        },\n        methods: {\n          onClick() {\n            this.$emit('bazQux')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#valid10"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @click=\"$emit('foo-bar')\">\n      </template>\n      <script>\n      export default {\n        setup(props, context) {\n          return {\n            onInput(value) {\n              context.emit('bar-baz')\n            }\n          }\n        },\n        methods: {\n          onClick() {\n            this.$emit('baz-qux')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#valid11"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <script setup>\n      const emit = defineEmits({})\n      emit('foo-bar')\n      </script>\n\n      <template>\n      <button @click=\"emit('foo-bar')\">Foo</button>\n      <button @click=\"$emit('foo-bar')\">Foo</button>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#valid12"
+ },
+ {
+  "rule": "custom-event-name-casing",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('fooBar:barBaz')\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "camelCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "custom-event-name-casing#valid13"
+ }
+]

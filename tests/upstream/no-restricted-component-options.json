@@ -1,0 +1,704 @@
+[
+ {
+  "rule": "no-restricted-component-options",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        /* ✗ BAD */\n        init: function () {},\n        beforeCompile: function () {},\n        compiled: function () {},\n        activate: function () {},\n        ready: function () {},\n        attached: function () {},\n        detached: function () {},\n\n        /* ✓ GOOD */\n        beforeCreate: function () {},\n        activated: function () {},\n        mounted: function () {},\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "init",
+   "beforeCompile",
+   "compiled",
+   "activate",
+   "ready",
+   "/^(?:at|de)tached$/"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `init` is not allowed.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 13
+    },
+    {
+     "message": "Using `beforeCompile` is not allowed.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 22
+    },
+    {
+     "message": "Using `compiled` is not allowed.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 17
+    },
+    {
+     "message": "Using `activate` is not allowed.",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 17
+    },
+    {
+     "message": "Using `ready` is not allowed.",
+     "line": 9,
+     "column": 9,
+     "endLine": 9,
+     "endColumn": 14
+    },
+    {
+     "message": "Using `attached` is not allowed.",
+     "line": 10,
+     "column": 9,
+     "endLine": 10,
+     "endColumn": 17
+    },
+    {
+     "message": "Using `detached` is not allowed.",
+     "line": 11,
+     "column": 9,
+     "endLine": 11,
+     "endColumn": 17
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedOption",
+     "message": "Using `init` is not allowed.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 13,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedOption",
+     "message": "Using `beforeCompile` is not allowed.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedOption",
+     "message": "Using `compiled` is not allowed.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedOption",
+     "message": "Using `activate` is not allowed.",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedOption",
+     "message": "Using `ready` is not allowed.",
+     "line": 9,
+     "column": 9,
+     "endLine": 9,
+     "endColumn": 14,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedOption",
+     "message": "Using `attached` is not allowed.",
+     "line": 10,
+     "column": 9,
+     "endLine": 10,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedOption",
+     "message": "Using `detached` is not allowed.",
+     "line": 11,
+     "column": 9,
+     "endLine": 11,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-options#invalid0"
+ },
+ {
+  "rule": "no-restricted-component-options",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n          size: Number,\n          name: {\n            type: String,\n            required: true,\n            /* ✗ BAD */\n            twoWay: true\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    "props",
+    "/.*/",
+    "twoWay"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `props.name.twoWay` is not allowed.",
+     "line": 10,
+     "column": 13,
+     "endLine": 10,
+     "endColumn": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedOption",
+     "message": "Using `props.name.twoWay` is not allowed.",
+     "line": 10,
+     "column": 13,
+     "endLine": 10,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-options#invalid1"
+ },
+ {
+  "rule": "no-restricted-component-options",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n          size: Number,\n          name: {\n            type: String,\n            required: true,\n            /* ✗ BAD */\n            twoWay: true\n          }\n        },\n        init: function () {},\n        beforeCompile: function () {},\n        compiled: function () {},\n        activate: function () {},\n        ready: function () {},\n        attached: function () {},\n        detached: function () {},\n\n        beforeCreate: function () {},\n        activated: function () {},\n        mounted: function () {},\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "name": "init",
+    "message": "Use \"beforeCreate\" instead."
+   },
+   {
+    "name": "/^(?:at|de)tached$/",
+    "message": "\"attached\" and \"detached\" is deprecated."
+   },
+   {
+    "name": [
+     "props",
+     "/.*/",
+     "twoWay"
+    ],
+    "message": "\"props.*.twoWay\" cannot be used."
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "\"props.*.twoWay\" cannot be used.",
+     "line": 10,
+     "column": 13,
+     "endLine": 10,
+     "endColumn": 19
+    },
+    {
+     "message": "Use \"beforeCreate\" instead.",
+     "line": 13,
+     "column": 9,
+     "endLine": 13,
+     "endColumn": 13
+    },
+    {
+     "message": "\"attached\" and \"detached\" is deprecated.",
+     "line": 18,
+     "column": 9,
+     "endLine": 18,
+     "endColumn": 17
+    },
+    {
+     "message": "\"attached\" and \"detached\" is deprecated.",
+     "line": 19,
+     "column": 9,
+     "endLine": 19,
+     "endColumn": 17
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedOption",
+     "message": "\"props.*.twoWay\" cannot be used.",
+     "line": 10,
+     "column": 13,
+     "endLine": 10,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedOption",
+     "message": "Use \"beforeCreate\" instead.",
+     "line": 13,
+     "column": 9,
+     "endLine": 13,
+     "endColumn": 13,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedOption",
+     "message": "\"attached\" and \"detached\" is deprecated.",
+     "line": 18,
+     "column": 9,
+     "endLine": 18,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedOption",
+     "message": "\"attached\" and \"detached\" is deprecated.",
+     "line": 19,
+     "column": 9,
+     "endLine": 19,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-options#invalid2"
+ },
+ {
+  "rule": "no-restricted-component-options",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n          size: Number,\n          [name]: {\n            type: String,\n            required: true,\n            /* ✗ BAD */\n            twoWay: true\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    "props",
+    "*",
+    "twoWay"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `props.*.twoWay` is not allowed.",
+     "line": 10,
+     "column": 13,
+     "endLine": 10,
+     "endColumn": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedOption",
+     "message": "Using `props.*.twoWay` is not allowed.",
+     "line": 10,
+     "column": 13,
+     "endLine": 10,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-options#invalid3"
+ },
+ {
+  "rule": "no-restricted-component-options",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        foo: {\n          ...bar\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    "foo",
+    "*"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo.*` is not allowed.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 17
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedOption",
+     "message": "Using `foo.*` is not allowed.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-options#invalid4"
+ },
+ {
+  "rule": "no-restricted-component-options",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<script setup> defineOptions({ Foo: 'Foo' }) </script>",
+  "filename": "test.vue",
+  "options": [
+   "Foo"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `Foo` is not allowed.",
+     "line": 1,
+     "column": 32,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedOption",
+     "message": "Using `Foo` is not allowed.",
+     "line": 1,
+     "column": 32,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-options#invalid5"
+ },
+ {
+  "rule": "no-restricted-component-options",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        /* ✗ BAD */\n        init: function () {},\n        beforeCompile: function () {},\n        compiled: function () {},\n        activate: function () {},\n        ready: function () {},\n        attached: function () {},\n        detached: function () {},\n\n        /* ✓ GOOD */\n        beforeCreate: function () {},\n        activated: function () {},\n        mounted: function () {},\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-options#valid0"
+ },
+ {
+  "rule": "no-restricted-component-options",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n          size: Number,\n          name: {\n            type: String,\n            required: true,\n            /* ✗ BAD */\n            twoWay: true\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-options#valid1"
+ },
+ {
+  "rule": "no-restricted-component-options",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        /* ✓ GOOD */\n        beforeCreate: function () {},\n        activated: function () {},\n        mounted: function () {},\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "init",
+   "beforeCompile",
+   "compiled",
+   "activate",
+   "ready",
+   "/^(?:at|de)tached$/"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-options#valid2"
+ },
+ {
+  "rule": "no-restricted-component-options",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        foo: {\n          ...bar,\n          baz\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    "foo",
+    "*",
+    "baz"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-options#valid3"
+ },
+ {
+  "rule": "no-restricted-component-options",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        foo: {\n          ...bar,\n          baz\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    "foo",
+    "bar"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-options#valid4"
+ },
+ {
+  "rule": "no-restricted-component-options",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<script setup> defineOptions({ name: 'Foo' }) </script>",
+  "filename": "test.vue",
+  "options": [
+   "Foo"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-component-options#valid5"
+ }
+]

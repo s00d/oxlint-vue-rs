@@ -1,0 +1,1566 @@
+[
+ {
+  "rule": "no-empty-component-block",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 22
+    }
+   ],
+   "output": ""
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       0,
+       21
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#invalid0"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template> </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": ""
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       0,
+       22
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#invalid1"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>\n</template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 2,
+     "endColumn": 12
+    }
+   ],
+   "output": ""
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 2,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       0,
+       22
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#invalid2"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template />",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 13
+    }
+   ],
+   "output": ""
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       0,
+       12
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#invalid3"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template src=\"\" />",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 20
+    }
+   ],
+   "output": ""
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       0,
+       19
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#invalid4"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template></template><script></script>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 22
+    },
+    {
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ],
+   "output": "<script></script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       0,
+       21
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       21,
+       38
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<script></script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#invalid5"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template /><script />",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 13
+    },
+    {
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 13,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<script />"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       0,
+       12
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 13,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       12,
+       22
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<script />",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#invalid6"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template src=\"\" /><script src=\"\" />",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 20
+    },
+    {
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 37
+    }
+   ],
+   "output": "<script src=\"\" />"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       0,
+       19
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 37,
+     "fix": {
+      "range": [
+       19,
+       36
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<script src=\"\" />",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#invalid7"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template></template><script></script><style></style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 22
+    },
+    {
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 39
+    },
+    {
+     "message": "`<style>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 54
+    }
+   ],
+   "output": "<script></script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       0,
+       21
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       21,
+       38
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "`<style>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 54,
+     "fix": {
+      "range": [
+       38,
+       53
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<script></script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#invalid8"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template /><script /><style />",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 13
+    },
+    {
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 13,
+     "endLine": 1,
+     "endColumn": 23
+    },
+    {
+     "message": "`<style>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ],
+   "output": "<script />"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       0,
+       12
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 13,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       12,
+       22
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "`<style>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       22,
+       31
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<script />",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#invalid9"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template src=\"\" /><script src=\"\" /><style src=\"\" />",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 20
+    },
+    {
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 37
+    },
+    {
+     "message": "`<style>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 37,
+     "endLine": 1,
+     "endColumn": 53
+    }
+   ],
+   "output": "<script src=\"\" />"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       0,
+       19
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 37,
+     "fix": {
+      "range": [
+       19,
+       36
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "`<style>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 37,
+     "endLine": 1,
+     "endColumn": 53,
+     "fix": {
+      "range": [
+       36,
+       52
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<script src=\"\" />",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#invalid10"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template></template> <script></script> <style></style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 22
+    },
+    {
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 40
+    },
+    {
+     "message": "`<style>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 56
+    }
+   ],
+   "output": "  "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       0,
+       21
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       22,
+       39
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "`<style>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 56,
+     "fix": {
+      "range": [
+       40,
+       55
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "  ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#invalid11"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template /> <script /> <style />",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 13
+    },
+    {
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 24
+    },
+    {
+     "message": "`<style>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "  "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       0,
+       12
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       13,
+       23
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "`<style>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       24,
+       33
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "  ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#invalid12"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "<template src=\"\" /> <script src=\"\" /> <style src=\"\" />",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 20
+    },
+    {
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 38
+    },
+    {
+     "message": "`<style>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 55
+    }
+   ],
+   "output": "  "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`<template>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       0,
+       19
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       20,
+       37
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "`<style>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 55,
+     "fix": {
+      "range": [
+       38,
+       54
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "  ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#invalid13"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><p></p></template> <script src=\"\" /> <style src=\"\" />",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 47
+    },
+    {
+     "message": "`<style>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 64
+    }
+   ],
+   "output": "<template><p></p></template>  "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`<script>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 47,
+     "fix": {
+      "range": [
+       29,
+       46
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "`<style>` is empty. Empty block is not allowed.",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 64,
+     "fix": {
+      "range": [
+       47,
+       63
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><p></p></template>  ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#invalid14"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><p>foo</p></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#valid0"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>  foobar   </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#valid1"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><p>foo</p></template><script>console.log('foo')</script>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#valid2"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><p>foo</p></template><script>console.log('foo')</script><style>p{display: inline;}</style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#valid3"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template src=\"./template.html\"></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#valid4"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template src=\"./template.html\" />",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#valid5"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template src=\"./template.html\"></template><script src=\"./script.js\"></script>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#valid6"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template src=\"./template.html\" /><script src=\"./script.js\" />",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#valid7"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template src=\"./template.html\"></template><script src=\"./script.js\"></script><style src=\"./style.css\"></style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#valid8"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template src=\"./template.html\" /><script src=\"./script.js\" /><style src=\"./style.css\" />",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#valid9"
+ },
+ {
+  "rule": "no-empty-component-block",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "var a = 1",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-empty-component-block#valid10"
+ }
+]

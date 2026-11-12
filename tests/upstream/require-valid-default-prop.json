@@ -1,0 +1,4219 @@
+[
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: [Number, String],\n            default: {}\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a number or string.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a number or string.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid0"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: [Number, Object],\n            default: {}\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a number or function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a number or function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid1"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Number,\n            default: ''\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a number.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a number.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid2"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Number,\n            default: false\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a number.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a number.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid3"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Number,\n            default: {}\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a number.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a number.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid4"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Number,\n            default: []\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a number.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a number.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid5"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: String,\n            default: 2\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid6"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: String,\n            default: {}\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid7"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: String,\n            default: []\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid8"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Boolean,\n            default: ''\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a boolean.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a boolean.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid9"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Boolean,\n            default: 5\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a boolean.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a boolean.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid10"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Boolean,\n            default: {}\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a boolean.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a boolean.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid11"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Boolean,\n            default: []\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a boolean.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a boolean.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid12"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Object,\n            default: ''\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid13"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Object,\n            default: 55\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid14"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Object,\n            default: false\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid15"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Object,\n            default: {}\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid16"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Object,\n            default: []\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid17"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Array,\n            default: ''\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid18"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Array,\n            default: 55\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid19"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Array,\n            default: false\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid20"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Array,\n            default: {}\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid21"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Array,\n            default: []\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid22"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: [Object, Number],\n            default: {}\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a function or number.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a function or number.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid23"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "export default (Vue as VueConstructor<Vue>).extend({\n        props: {\n          foo: {\n            type: [Object, Number],\n            default: {}\n          } as PropOptions<object>\n        }\n      });",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "ts",
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a function or number.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a function or number.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid24"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 25,
+  "name": null,
+  "code": "export default {\n        props: {\n          'foo': {\n            type: Object,\n            default: ''\n          },\n          ['bar']: {\n            type: Object,\n            default: ''\n          },\n          [baz]: {\n            type: Object,\n            default: ''\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    },
+    {
+     "message": "Type of the default value for 'bar' prop must be a function.",
+     "line": 9,
+     "column": 22,
+     "endLine": 9,
+     "endColumn": 24
+    },
+    {
+     "message": "Type of the default value for '[baz]' prop must be a function.",
+     "line": 13,
+     "column": 22,
+     "endLine": 13,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'bar' prop must be a function.",
+     "line": 9,
+     "column": 22,
+     "endLine": 9,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for '[baz]' prop must be a function.",
+     "line": 13,
+     "column": 22,
+     "endLine": 13,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid25"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 26,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: String,\n            default: 1n\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid26"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 27,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Number,\n            default() {\n              return ''\n            }\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a number.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a number.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid27"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 28,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Object,\n            default() {\n              return ''\n            }\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a object.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a object.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid28"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 29,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: String,\n            default() {\n              return 123\n            }\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid29"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 30,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Number,\n            default: () => {\n              return ''\n            }\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a number.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a number.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid30"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 31,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Object,\n            default: () => {\n              return ''\n            }\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a object.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a object.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid31"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 32,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: String,\n            default: () => {\n              return 123\n            }\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid32"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 33,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Number,\n            default: () => ''\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a number.",
+     "line": 5,
+     "column": 28,
+     "endLine": 5,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a number.",
+     "line": 5,
+     "column": 28,
+     "endLine": 5,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid33"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 34,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Object,\n            default: () => ''\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a object.",
+     "line": 5,
+     "column": 28,
+     "endLine": 5,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a object.",
+     "line": 5,
+     "column": 28,
+     "endLine": 5,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid34"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 35,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: String,\n            default: () => 123\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 5,
+     "column": 28,
+     "endLine": 5,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 5,
+     "column": 28,
+     "endLine": 5,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid35"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 36,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Function,\n            default: 1\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid36"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 37,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: [String, Boolean],\n            default() {\n              switch (kind) {\n                case 1: return 1\n                case 2: return '' // OK\n                case 3: return {}\n                case 4: return Foo // ignore?\n                case 5: return () => {}\n                case 6: return false // OK\n              }\n\n              function foo () {\n                return 1 // ignore?\n              }\n            }\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a string or boolean.",
+     "line": 7,
+     "column": 32,
+     "endLine": 7,
+     "endColumn": 33
+    },
+    {
+     "message": "Type of the default value for 'foo' prop must be a string or boolean.",
+     "line": 9,
+     "column": 32,
+     "endLine": 9,
+     "endColumn": 34
+    },
+    {
+     "message": "Type of the default value for 'foo' prop must be a string or boolean.",
+     "line": 11,
+     "column": 32,
+     "endLine": 11,
+     "endColumn": 40
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string or boolean.",
+     "line": 7,
+     "column": 32,
+     "endLine": 7,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string or boolean.",
+     "line": 9,
+     "column": 32,
+     "endLine": 9,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string or boolean.",
+     "line": 11,
+     "column": 32,
+     "endLine": 11,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid37"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 38,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: String,\n            default: Number?.()\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 32
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid38"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 39,
+  "name": null,
+  "code": "export default Vue.extend({\n          props: {\n            foo: {\n              type: Array as PropType<string[]>,\n              default: []\n            }\n          }\n        });\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "ts",
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 24,
+     "endLine": 5,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 24,
+     "endLine": 5,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid39"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 40,
+  "name": null,
+  "code": "export default Vue.extend({\n          props: {\n            foo: {\n              type: Object as PropType<{ [key: number]: number }>,\n              default: {}\n            }\n          }\n        });\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "ts",
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 24,
+     "endLine": 5,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 24,
+     "endLine": 5,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid40"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 41,
+  "name": null,
+  "code": "export default Vue.extend({\n          props: {\n            foo: {\n              type: Function as PropType<() => number>,\n              default: 10\n            }\n          }\n        });\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "ts",
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 24,
+     "endLine": 5,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a function.",
+     "line": 5,
+     "column": 24,
+     "endLine": 5,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid41"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 42,
+  "name": null,
+  "code": "\n      <script setup>\n        defineProps({\n          foo: {\n            type: String,\n            default: () => 123\n          }\n        })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 6,
+     "column": 28,
+     "endLine": 6,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 6,
+     "column": 28,
+     "endLine": 6,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid42"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 43,
+  "name": null,
+  "code": "\n      <script setup>\n        withDefaults(defineProps<{foo:string}>(),{\n          foo: () => 123\n        })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid43"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 44,
+  "name": null,
+  "code": "\n      <script setup>\n        const defaults = { foo: () => 123 }\n        withDefaults(defineProps<{foo:string}>(), defaults)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 3,
+     "column": 39,
+     "endLine": 3,
+     "endColumn": 42
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 3,
+     "column": 39,
+     "endLine": 3,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid44"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 45,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import {Props2 as Props} from './test01'\n      withDefaults(defineProps<Props>(), {\n        a: 42,\n        b: 's',\n        c: {},\n        d: [],\n        e: [42],\n        f: {},\n        g: { foo: 'foo' },\n        h: ['foo', 'bar'],\n        i: ['foo', 'bar'],\n      })\n      </script>",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'a' prop must be a string.",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 14
+    },
+    {
+     "message": "Type of the default value for 'b' prop must be a number.",
+     "line": 6,
+     "column": 12,
+     "endLine": 6,
+     "endColumn": 15
+    },
+    {
+     "message": "Type of the default value for 'c' prop must be a boolean.",
+     "line": 7,
+     "column": 12,
+     "endLine": 7,
+     "endColumn": 14
+    },
+    {
+     "message": "Type of the default value for 'd' prop must be a boolean.",
+     "line": 8,
+     "column": 12,
+     "endLine": 8,
+     "endColumn": 14
+    },
+    {
+     "message": "Type of the default value for 'e' prop must be a string or number.",
+     "line": 9,
+     "column": 12,
+     "endLine": 9,
+     "endColumn": 16
+    },
+    {
+     "message": "Type of the default value for 'f' prop must be a function.",
+     "line": 10,
+     "column": 12,
+     "endLine": 10,
+     "endColumn": 14
+    },
+    {
+     "message": "Type of the default value for 'g' prop must be a function.",
+     "line": 11,
+     "column": 12,
+     "endLine": 11,
+     "endColumn": 26
+    },
+    {
+     "message": "Type of the default value for 'h' prop must be a function.",
+     "line": 12,
+     "column": 12,
+     "endLine": 12,
+     "endColumn": 26
+    },
+    {
+     "message": "Type of the default value for 'i' prop must be a function.",
+     "line": 13,
+     "column": 12,
+     "endLine": 13,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'a' prop must be a string.",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 14,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'b' prop must be a number.",
+     "line": 6,
+     "column": 12,
+     "endLine": 6,
+     "endColumn": 15,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'c' prop must be a boolean.",
+     "line": 7,
+     "column": 12,
+     "endLine": 7,
+     "endColumn": 14,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'd' prop must be a boolean.",
+     "line": 8,
+     "column": 12,
+     "endLine": 8,
+     "endColumn": 14,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'e' prop must be a string or number.",
+     "line": 9,
+     "column": 12,
+     "endLine": 9,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'f' prop must be a function.",
+     "line": 10,
+     "column": 12,
+     "endLine": 10,
+     "endColumn": 14,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'g' prop must be a function.",
+     "line": 11,
+     "column": 12,
+     "endLine": 11,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'h' prop must be a function.",
+     "line": 12,
+     "column": 12,
+     "endLine": 12,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'i' prop must be a function.",
+     "line": 13,
+     "column": 12,
+     "endLine": 13,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid45"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 46,
+  "name": null,
+  "code": "\n      <script setup>\n        const { foo = 123 } = defineProps({\n          foo: String\n        })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid46"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 47,
+  "name": null,
+  "code": "\n      <script setup>\n        const { foo = 123 } = defineProps({\n          foo: {\n            type: String,\n            default: 123\n          }\n        })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 26
+    },
+    {
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid47"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 48,
+  "name": null,
+  "code": "\n      <script setup>\n        const { foo = [] } = defineProps({\n          foo: {\n            type: Number,\n          }\n        })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a number.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a number.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid48"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 49,
+  "name": null,
+  "code": "\n      <script setup>\n        const { foo = 42 } = defineProps({\n          foo: {\n            type: Array,\n          }\n        })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a array.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a array.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid49"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 50,
+  "name": null,
+  "code": "\n      <script setup>\n        const { foo = [] } = defineProps({\n          foo: {\n            type: Array,\n            default: () => {\n              return 42\n            }\n          }\n        })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a array.",
+     "line": 7,
+     "column": 22,
+     "endLine": 7,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a array.",
+     "line": 7,
+     "column": 22,
+     "endLine": 7,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid50"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 51,
+  "name": null,
+  "code": "\n      <script setup>\n        const { foo = (()=>[]) } = defineProps({\n          foo: {\n            type: Array,\n          }\n        })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a array.",
+     "line": 3,
+     "column": 24,
+     "endLine": 3,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a array.",
+     "line": 3,
+     "column": 24,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid51"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 52,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      type MaybeString<T extends string | number> = `${T}`\n      const { foo = 1 } = defineProps<{ foo: MaybeString<1, 2>}>()\n      </script>\n      ",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'foo' prop must be a string.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid52"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 53,
+  "name": null,
+  "code": "\n      <script setup>\n        defineModel({ type: Boolean, default: 'hello' })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'modelValue' prop must be a boolean.",
+     "line": 3,
+     "column": 47,
+     "endLine": 3,
+     "endColumn": 54
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'modelValue' prop must be a boolean.",
+     "line": 3,
+     "column": 47,
+     "endLine": 3,
+     "endColumn": 54,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid53"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 54,
+  "name": null,
+  "code": "\n      <script setup>\n        defineModel('count', { type: Number, default: false })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'count' prop must be a number.",
+     "line": 3,
+     "column": 55,
+     "endLine": 3,
+     "endColumn": 60
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'count' prop must be a number.",
+     "line": 3,
+     "column": 55,
+     "endLine": 3,
+     "endColumn": 60,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid54"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 55,
+  "name": null,
+  "code": "\n      <script setup>\n        defineModel({ type: Array, default: [] })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'modelValue' prop must be a function.",
+     "line": 3,
+     "column": 45,
+     "endLine": 3,
+     "endColumn": 47
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'modelValue' prop must be a function.",
+     "line": 3,
+     "column": 45,
+     "endLine": 3,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid55"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 56,
+  "name": null,
+  "code": "\n      <script setup>\n        defineModel({ type: Object, default: {} })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'modelValue' prop must be a function.",
+     "line": 3,
+     "column": 46,
+     "endLine": 3,
+     "endColumn": 48
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'modelValue' prop must be a function.",
+     "line": 3,
+     "column": 46,
+     "endLine": 3,
+     "endColumn": 48,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid56"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 57,
+  "name": null,
+  "code": "\n      <script setup>\n        defineModel({ type: String, default: () => 123 })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'modelValue' prop must be a string.",
+     "line": 3,
+     "column": 52,
+     "endLine": 3,
+     "endColumn": 55
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'modelValue' prop must be a string.",
+     "line": 3,
+     "column": 52,
+     "endLine": 3,
+     "endColumn": 55,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid57"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "invalid",
+  "idx": 58,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n        defineModel<string>({ default: 123 })\n      </script>\n      ",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Type of the default value for 'modelValue' prop must be a string.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 43
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidType",
+     "message": "Type of the default value for 'modelValue' prop must be a string.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 43,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#invalid58"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "export default {\n        ...foo,\n        props: { ...foo }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid0"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "export default {\n        props: { foo: null }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid1"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "export default {\n        props: ['foo']\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid2"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: [Object, Number],\n            default: 10\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid3"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "Vue.component('example', {\n        props: {\n          foo: null,\n          foo: Number,\n          foo: [String, Number],\n          foo: { },\n          foo: { type: String },\n          foo: { type: Number, default: VAR_BAR },\n          foo: { type: Number, default: 100 },\n          foo: { type: Number, default: Number.MAX_VALUE },\n          foo: { type: Number, default: Foo.BAR },\n          foo: { type: {}, default: '' },\n          foo: { type: [String, Number], default: '' },\n          foo: { type: [String, Number], default: 0 },\n          foo: { type: String, default: '' },\n          foo: { type: String, default: `` },\n          foo: { type: Boolean, default: false },\n          foo: { type: Object, default: () => { } },\n          foo: { type: Array, default () { } },\n          foo: { type: String, default () { } },\n          foo: { type: Number, default () { } },\n          foo: { type: Boolean, default () { } },\n          foo: { type: Symbol, default () { } },\n          foo: { type: Array, default () { } },\n          foo: { type: Symbol, default: Symbol('a') },\n          foo: { type: String, default: `Foo` },\n          foo: { type: Foo, default: Foo('a') },\n          foo: { type: String, default: `Foo` },\n          foo: { type: BigInt, default: 1n },\n          foo: { type: String, default: null },\n          foo: { type: String, default () { return Foo } },\n          foo: { type: Number, default () { return Foo } },\n          foo: { type: Object, default () { return Foo } },\n          foo: { type: Object, default: null },\n        }\n      })",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid4"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        export default (Vue as VueConstructor<Vue>).extend({\n          props: {\n            foo: {\n              type: [Object, Number],\n              default: 10\n            } as PropOptions<object>\n          }\n        });\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "ts",
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid5"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: [Number],\n            default() {\n              return 10\n            }\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid6"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: [Function, Number],\n            default() {\n              return 's'\n            }\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid7"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: [Number],\n            default: () => 10\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid8"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: [Function, Number],\n            default: () => 's'\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid9"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: [,Object, Number],\n            default: 10\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid10"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "export default {\n        props: {\n          foo: {\n            type: Number,\n            default: Number?.()\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid11"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "export default Vue.extend({\n          props: {\n            foo: {\n              type: Array as PropType<string[]>,\n              default: () => []\n            }\n          }\n        });\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "ts",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid12"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "export default Vue.extend({\n          props: {\n            foo: {\n              type: Object as PropType<{ [key: number]: number }>,\n              default: () => {}\n            }\n          }\n        });\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "ts",
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid13"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "export default Vue.extend({\n          props: {\n            foo: {\n              type: Function as PropType<() => number>,\n              default: () => 10\n            }\n          }\n        });\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "ts",
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid14"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "<script setup lang=\"ts\">\n      export interface SomePropInterface {\n        someProp?: false | string;\n        str?: 'foo' | 'bar';\n        num?: 1 | 2;\n      }\n\n      withDefaults(defineProps<SomePropInterface>(), {\n        someProp: false,\n        str: 'foo',\n        num: 1\n      });\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid15"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import {Props2 as Props} from './test01'\n      withDefaults(defineProps<Props>(), {\n        a: 's',\n        b: 42,\n        c: true,\n        d: false,\n        e: 's',\n        f: () => 42,\n        g: ()=>({ foo: 'foo' }),\n        h: ()=>(['foo', 'bar']),\n        i: ()=>(['foo', 'bar']),\n      })\n      </script>",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid16"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <script setup>\n        const { foo = 'abc' } = defineProps({\n          foo: {\n            type: String,\n          }\n        })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid17"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n        const { foo = [] } = defineProps({\n          foo: {\n            type: Array,\n          }\n        })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid18"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      type MaybeString<T extends number> = T | `${T}`\n      const { foo = 1 } = defineProps<{ foo: MaybeString<1, 2>}>()\n      </script>\n      ",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid19"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <script setup>\n        defineModel({ type: Boolean })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid20"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <script setup>\n        defineModel({ type: String, required: true })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid21"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      <script setup>\n        defineModel({ type: Boolean, default: false })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid22"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "\n      <script setup>\n        defineModel('count', { type: Number, default: 0 })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid23"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "\n      <script setup>\n        defineModel({ type: String, default: 'hello' })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid24"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "\n      <script setup>\n        defineModel({ type: Array, default: () => [] })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid25"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "\n      <script setup>\n        defineModel({ type: Object, default: () => ({}) })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid26"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n        defineModel<string>({ default: 'hello' })\n      </script>\n      ",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid27"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 28,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n        defineModel<boolean>({ default: false })\n      </script>\n      ",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid28"
+ },
+ {
+  "rule": "require-valid-default-prop",
+  "kind": "valid",
+  "idx": 29,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n        defineModel<string>({ required: true })\n      </script>\n      ",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-valid-default-prop#valid29"
+ }
+]

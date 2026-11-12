@@ -1,0 +1,1678 @@
+[
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div class=foo></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ],
+   "output": "<template><div class=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       21,
+       24
+      ],
+      "text": "\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid0"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div class='foo'></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 27
+    }
+   ],
+   "output": "<template><div class=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       21,
+       26
+      ],
+      "text": "\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid1"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :class=foo></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div :class=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       22,
+       25
+      ],
+      "text": "\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid2"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :class='foo'></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ],
+   "output": "<template><div :class=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       22,
+       27
+      ],
+      "text": "\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid3"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :class=foo+\"bar\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ],
+   "output": "<template><div :class=\"foo+&quot;bar&quot;\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       22,
+       31
+      ],
+      "text": "\"foo+&quot;bar&quot;\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"foo+&quot;bar&quot;\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid4"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div class=foo></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "double"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ],
+   "output": "<template><div class=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       21,
+       24
+      ],
+      "text": "\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid5"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div class='foo'></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "double"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 27
+    }
+   ],
+   "output": "<template><div class=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       21,
+       26
+      ],
+      "text": "\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid6"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div :class=foo></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "double"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div :class=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       22,
+       25
+      ],
+      "text": "\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid7"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div :class='foo'></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "double"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ],
+   "output": "<template><div :class=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       22,
+       27
+      ],
+      "text": "\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid8"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div :class=foo+\"bar\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "double"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ],
+   "output": "<template><div :class=\"foo+&quot;bar&quot;\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       22,
+       31
+      ],
+      "text": "\"foo+&quot;bar&quot;\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"foo+&quot;bar&quot;\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid9"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div class=foo></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "single"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by single quotes.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ],
+   "output": "<template><div class='foo'></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by single quotes.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       21,
+       24
+      ],
+      "text": "'foo'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class='foo'></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid10"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div class=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "single"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by single quotes.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 27
+    }
+   ],
+   "output": "<template><div class='foo'></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by single quotes.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       21,
+       26
+      ],
+      "text": "'foo'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class='foo'></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid11"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div :class=foo></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "single"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by single quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div :class='foo'></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by single quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       22,
+       25
+      ],
+      "text": "'foo'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class='foo'></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid12"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div :class=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "single"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by single quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ],
+   "output": "<template><div :class='foo'></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by single quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       22,
+       27
+      ],
+      "text": "'foo'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class='foo'></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid13"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div :class=foo+'bar'></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "single"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by single quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ],
+   "output": "<template><div :class='foo+&apos;bar&apos;'></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by single quotes.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       22,
+       31
+      ],
+      "text": "'foo+&apos;bar&apos;'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class='foo+&apos;bar&apos;'></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid14"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div attr='foo'></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "double",
+   {
+    "avoidEscape": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div attr=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       20,
+       25
+      ],
+      "text": "\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div attr=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid15"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div attr=\"bar\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "single",
+   {
+    "avoidEscape": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by single quotes.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div attr='bar'></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by single quotes.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       20,
+       25
+      ],
+      "text": "'bar'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div attr='bar'></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid16"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><div attr=foo\"bar></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "double",
+   {
+    "avoidEscape": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ],
+   "output": "<template><div attr='foo\"bar'></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       20,
+       27
+      ],
+      "text": "'foo\"bar'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div attr='foo\"bar'></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid17"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><div attr=foo'bar></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "single",
+   {
+    "avoidEscape": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by single quotes.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ],
+   "output": "<template><div attr=\"foo'bar\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by single quotes.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       20,
+       27
+      ],
+      "text": "\"foo'bar\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div attr=\"foo'bar\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid18"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><div attr=foo\"bar'baz></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "double",
+   {
+    "avoidEscape": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ],
+   "output": "<template><div attr=\"foo&quot;bar'baz\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by double quotes.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       20,
+       31
+      ],
+      "text": "\"foo&quot;bar'baz\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div attr=\"foo&quot;bar'baz\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid19"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><div attr=foo\"bar'baz></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "single",
+   {
+    "avoidEscape": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected to be enclosed by single quotes.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ],
+   "output": "<template><div attr='foo\"bar&apos;baz'></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected to be enclosed by single quotes.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       20,
+       31
+      ],
+      "text": "'foo\"bar&apos;baz'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div attr='foo\"bar&apos;baz'></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#invalid20"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#valid0"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div class=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#valid1"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :class=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#valid2"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div class=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "double"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#valid3"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :class=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "double"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#valid4"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div class='foo'></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "single"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#valid5"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div :class='foo'></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "single"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#valid6"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div attr='foo\"bar'></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "double",
+   {
+    "avoidEscape": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#valid7"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div attr=\"foo'bar\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "single",
+   {
+    "avoidEscape": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#valid8"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div :foo /></template>",
+  "filename": "test.js",
+  "options": [
+   "double"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#valid9"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div :foo /></template>",
+  "filename": "test.js",
+  "options": [
+   "single"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#valid10"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div class=\"foo></div></template>",
+  "filename": "test.js",
+  "options": [
+   "single"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#valid11"
+ },
+ {
+  "rule": "html-quotes",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div class='foo></div></template>",
+  "filename": "test.js",
+  "options": [
+   "double"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-quotes#valid12"
+ }
+]

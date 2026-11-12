@@ -1,0 +1,3107 @@
+[
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      import { ref } from 'vue'\n      let count = ref(0)\n\n      count++ // error\n      console.log(count + 1) // error\n      console.log(1 + count) // error\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 5,
+     "column": 7,
+     "endLine": 5,
+     "endColumn": 12
+    },
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 6,
+     "column": 19,
+     "endLine": 6,
+     "endColumn": 24
+    },
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 7,
+     "column": 23,
+     "endLine": 7,
+     "endColumn": 28
+    }
+   ],
+   "output": "\n      import { ref } from 'vue'\n      let count = ref(0)\n\n      count.value++ // error\n      console.log(count.value + 1) // error\n      console.log(1 + count.value) // error\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 5,
+     "column": 7,
+     "endLine": 5,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       70,
+       70
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 6,
+     "column": 19,
+     "endLine": 6,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       105,
+       105
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 7,
+     "column": 23,
+     "endLine": 7,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       147,
+       147
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      import { ref } from 'vue'\n      let count = ref(0)\n\n      count.value++ // error\n      console.log(count.value + 1) // error\n      console.log(1 + count.value) // error\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid0"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n        import { ref } from 'vue'\n        export default {\n          setup() {\n            let count = ref(0)\n\n            count++ // error\n            console.log(count + 1) // error\n            console.log(1 + count) // error\n            return {\n              count\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "requireDotValue",
+     "line": 8,
+     "column": 13,
+     "endLine": 8,
+     "endColumn": 18
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 9,
+     "column": 25,
+     "endLine": 9,
+     "endColumn": 30
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 10,
+     "column": 29,
+     "endLine": 10,
+     "endColumn": 34
+    }
+   ],
+   "output": "\n      <script>\n        import { ref } from 'vue'\n        export default {\n          setup() {\n            let count = ref(0)\n\n            count.value++ // error\n            console.log(count.value + 1) // error\n            console.log(1 + count.value) // error\n            return {\n              count\n            }\n          }\n        }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 8,
+     "column": 13,
+     "endLine": 8,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       144,
+       144
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 9,
+     "column": 25,
+     "endLine": 9,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       185,
+       185
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 10,
+     "column": 29,
+     "endLine": 10,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       233,
+       233
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n        import { ref } from 'vue'\n        export default {\n          setup() {\n            let count = ref(0)\n\n            count.value++ // error\n            console.log(count.value + 1) // error\n            console.log(1 + count.value) // error\n            return {\n              count\n            }\n          }\n        }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid1"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n        import { ref } from '@vue/composition-api'\n        export default {\n          setup() {\n            let count = ref(0)\n\n            count++ // error\n            console.log(count + 1) // error\n            console.log(1 + count) // error\n            return {\n              count\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "requireDotValue",
+     "line": 8,
+     "column": 13,
+     "endLine": 8,
+     "endColumn": 18
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 9,
+     "column": 25,
+     "endLine": 9,
+     "endColumn": 30
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 10,
+     "column": 29,
+     "endLine": 10,
+     "endColumn": 34
+    }
+   ],
+   "output": "\n      <script>\n        import { ref } from '@vue/composition-api'\n        export default {\n          setup() {\n            let count = ref(0)\n\n            count.value++ // error\n            console.log(count.value + 1) // error\n            console.log(1 + count.value) // error\n            return {\n              count\n            }\n          }\n        }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 8,
+     "column": 13,
+     "endLine": 8,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       161,
+       161
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 9,
+     "column": 25,
+     "endLine": 9,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       202,
+       202
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 10,
+     "column": 29,
+     "endLine": 10,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       250,
+       250
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n        import { ref } from '@vue/composition-api'\n        export default {\n          setup() {\n            let count = ref(0)\n\n            count.value++ // error\n            console.log(count.value + 1) // error\n            console.log(1 + count.value) // error\n            return {\n              count\n            }\n          }\n        }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid2"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      import { ref } from 'vue'\n      const foo = ref(true)\n      if (foo) {\n        //\n      }\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "requireDotValue",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 14
+    }
+   ],
+   "output": "\n      import { ref } from 'vue'\n      const foo = ref(true)\n      if (foo.value) {\n        //\n      }\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       74,
+       74
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      import { ref } from 'vue'\n      const foo = ref(true)\n      if (foo.value) {\n        //\n      }\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid3"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      import { ref } from 'vue'\n      const foo = ref(true)\n      switch (foo) {\n        //\n      }\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "requireDotValue",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n      import { ref } from 'vue'\n      const foo = ref(true)\n      switch (foo.value) {\n        //\n      }\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       78,
+       78
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      import { ref } from 'vue'\n      const foo = ref(true)\n      switch (foo.value) {\n        //\n      }\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid4"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      import { ref } from 'vue'\n      const foo = ref(0)\n      var a = -foo\n      var b = +foo\n      var c = !foo\n      var d = ~foo\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "requireDotValue",
+     "line": 4,
+     "column": 16,
+     "endLine": 4,
+     "endColumn": 19
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 5,
+     "column": 16,
+     "endLine": 5,
+     "endColumn": 19
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 6,
+     "column": 16,
+     "endLine": 6,
+     "endColumn": 19
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 7,
+     "column": 16,
+     "endLine": 7,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n      import { ref } from 'vue'\n      const foo = ref(0)\n      var a = -foo.value\n      var b = +foo.value\n      var c = !foo.value\n      var d = ~foo.value\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 4,
+     "column": 16,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       76,
+       76
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 5,
+     "column": 16,
+     "endLine": 5,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       95,
+       95
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 6,
+     "column": 16,
+     "endLine": 6,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       114,
+       114
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 7,
+     "column": 16,
+     "endLine": 7,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       133,
+       133
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      import { ref } from 'vue'\n      const foo = ref(0)\n      var a = -foo.value\n      var b = +foo.value\n      var c = !foo.value\n      var d = ~foo.value\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid5"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      import { ref } from 'vue'\n      let foo = ref(0)\n      foo += 1\n      foo -= 1\n      baz += foo\n      baz -= foo\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "requireDotValue",
+     "line": 4,
+     "column": 7,
+     "endLine": 4,
+     "endColumn": 10
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 5,
+     "column": 7,
+     "endLine": 5,
+     "endColumn": 10
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 17
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 7,
+     "column": 14,
+     "endLine": 7,
+     "endColumn": 17
+    }
+   ],
+   "output": "\n      import { ref } from 'vue'\n      let foo = ref(0)\n      foo.value += 1\n      foo.value -= 1\n      baz += foo.value\n      baz -= foo.value\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 4,
+     "column": 7,
+     "endLine": 4,
+     "endColumn": 10,
+     "fix": {
+      "range": [
+       65,
+       65
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 5,
+     "column": 7,
+     "endLine": 5,
+     "endColumn": 10,
+     "fix": {
+      "range": [
+       80,
+       80
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       102,
+       102
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 7,
+     "column": 14,
+     "endLine": 7,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       119,
+       119
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      import { ref } from 'vue'\n      let foo = ref(0)\n      foo.value += 1\n      foo.value -= 1\n      baz += foo.value\n      baz -= foo.value\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid6"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      import { ref } from 'vue'\n      const foo = ref(true)\n      var a = foo || other\n      var b = foo && other\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "requireDotValue",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 18
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n      import { ref } from 'vue'\n      const foo = ref(true)\n      var a = foo.value || other\n      var b = foo.value && other\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       78,
+       78
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       105,
+       105
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      import { ref } from 'vue'\n      const foo = ref(true)\n      var a = foo.value || other\n      var b = foo.value && other\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid7"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      import { ref } from 'vue'\n      const foo = ref(true)\n      if (other && foo) {}\n      if (a || (b && foo)) {}\n      var c = !(other ?? foo)\n      var d = other || foo ? x : y\n      switch (other || foo) {}\n      var e = (other || foo) + 1\n      var f = `${other || foo}`\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "requireDotValue",
+     "line": 4,
+     "column": 20,
+     "endLine": 4,
+     "endColumn": 23
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 25
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 6,
+     "column": 26,
+     "endLine": 6,
+     "endColumn": 29
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 7,
+     "column": 24,
+     "endLine": 7,
+     "endColumn": 27
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 8,
+     "column": 24,
+     "endLine": 8,
+     "endColumn": 27
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 9,
+     "column": 25,
+     "endLine": 9,
+     "endColumn": 28
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 10,
+     "column": 27,
+     "endLine": 10,
+     "endColumn": 30
+    }
+   ],
+   "output": "\n      import { ref } from 'vue'\n      const foo = ref(true)\n      if (other && foo.value) {}\n      if (a || (b && foo.value)) {}\n      var c = !(other ?? foo.value)\n      var d = other || foo.value ? x : y\n      switch (other || foo.value) {}\n      var e = (other || foo.value) + 1\n      var f = `${other || foo.value}`\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 4,
+     "column": 20,
+     "endLine": 4,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       83,
+       83
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       112,
+       112
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 6,
+     "column": 26,
+     "endLine": 6,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       146,
+       146
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 7,
+     "column": 24,
+     "endLine": 7,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       174,
+       174
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 8,
+     "column": 24,
+     "endLine": 8,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       209,
+       209
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 9,
+     "column": 25,
+     "endLine": 9,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       241,
+       241
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 10,
+     "column": 27,
+     "endLine": 10,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       276,
+       276
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      import { ref } from 'vue'\n      const foo = ref(true)\n      if (other && foo.value) {}\n      if (a || (b && foo.value)) {}\n      var c = !(other ?? foo.value)\n      var d = other || foo.value ? x : y\n      switch (other || foo.value) {}\n      var e = (other || foo.value) + 1\n      var f = `${other || foo.value}`\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid8"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      import { ref } from 'vue'\n      let foo = ref(true)\n      var a = foo ? x : y\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "requireDotValue",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n      import { ref } from 'vue'\n      let foo = ref(true)\n      var a = foo.value ? x : y\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       76,
+       76
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      import { ref } from 'vue'\n      let foo = ref(true)\n      var a = foo.value ? x : y\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid9"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <script>\n        import { ref } from 'vue'\n        let count = ref(0)\n        export default {\n          setup() {\n            count++ // error\n            console.log(count + 1) // error\n            console.log(1 + count) // error\n            return {\n              count\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "requireDotValue",
+     "line": 7,
+     "column": 13,
+     "endLine": 7,
+     "endColumn": 18
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 8,
+     "column": 25,
+     "endLine": 8,
+     "endColumn": 30
+    },
+    {
+     "messageId": "requireDotValue",
+     "line": 9,
+     "column": 29,
+     "endLine": 9,
+     "endColumn": 34
+    }
+   ],
+   "output": "\n      <script>\n        import { ref } from 'vue'\n        let count = ref(0)\n        export default {\n          setup() {\n            count.value++ // error\n            console.log(count.value + 1) // error\n            console.log(1 + count.value) // error\n            return {\n              count\n            }\n          }\n        }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 7,
+     "column": 13,
+     "endLine": 7,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       139,
+       139
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 8,
+     "column": 25,
+     "endLine": 8,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       180,
+       180
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 9,
+     "column": 29,
+     "endLine": 9,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       228,
+       228
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n        import { ref } from 'vue'\n        let count = ref(0)\n        export default {\n          setup() {\n            count.value++ // error\n            console.log(count.value + 1) // error\n            console.log(1 + count.value) // error\n            return {\n              count\n            }\n          }\n        }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid10"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <script>\n        import { ref, computed, toRef, customRef, shallowRef } from 'vue'\n        let count = ref(0)\n        let cntcnt = computed(()=>count.value+count.value)\n\n        const state = reactive({\n          foo: 1,\n          bar: 2\n        })\n\n        const fooRef = toRef(state, 'foo')\n\n        let value = 'hello'\n        const cref = customRef((track, trigger) => {\n          return {\n            get() {\n              track()\n              return value\n            },\n            set(newValue) {\n              clearTimeout(timeout)\n              timeout = setTimeout(() => {\n                value = newValue\n                trigger()\n              }, delay)\n            }\n          }\n        })\n\n        const foo = shallowRef({})\n\n        count++ // error\n        cntcnt++ // error\n\n        const s = `${fooRef} : ${cref}` // error x 2\n\n        const n = foo + 1 // error\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 33,
+     "column": 9,
+     "endLine": 33,
+     "endColumn": 14
+    },
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `computed()`.",
+     "line": 34,
+     "column": 9,
+     "endLine": 34,
+     "endColumn": 15
+    },
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `toRef()`.",
+     "line": 36,
+     "column": 22,
+     "endLine": 36,
+     "endColumn": 28
+    },
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `customRef()`.",
+     "line": 36,
+     "column": 34,
+     "endLine": 36,
+     "endColumn": 38
+    },
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `shallowRef()`.",
+     "line": 38,
+     "column": 19,
+     "endLine": 38,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <script>\n        import { ref, computed, toRef, customRef, shallowRef } from 'vue'\n        let count = ref(0)\n        let cntcnt = computed(()=>count.value+count.value)\n\n        const state = reactive({\n          foo: 1,\n          bar: 2\n        })\n\n        const fooRef = toRef(state, 'foo')\n\n        let value = 'hello'\n        const cref = customRef((track, trigger) => {\n          return {\n            get() {\n              track()\n              return value\n            },\n            set(newValue) {\n              clearTimeout(timeout)\n              timeout = setTimeout(() => {\n                value = newValue\n                trigger()\n              }, delay)\n            }\n          }\n        })\n\n        const foo = shallowRef({})\n\n        count.value++ // error\n        cntcnt.value++ // error\n\n        const s = `${fooRef.value} : ${cref.value}` // error x 2\n\n        const n = foo.value + 1 // error\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 33,
+     "column": 9,
+     "endLine": 33,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       762,
+       762
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `computed()`.",
+     "line": 34,
+     "column": 9,
+     "endLine": 34,
+     "endColumn": 15,
+     "fix": {
+      "range": [
+       788,
+       788
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `toRef()`.",
+     "line": 36,
+     "column": 22,
+     "endLine": 36,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       828,
+       828
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `customRef()`.",
+     "line": 36,
+     "column": 34,
+     "endLine": 36,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       838,
+       838
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `shallowRef()`.",
+     "line": 38,
+     "column": 19,
+     "endLine": 38,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       876,
+       876
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n        import { ref, computed, toRef, customRef, shallowRef } from 'vue'\n        let count = ref(0)\n        let cntcnt = computed(()=>count.value+count.value)\n\n        const state = reactive({\n          foo: 1,\n          bar: 2\n        })\n\n        const fooRef = toRef(state, 'foo')\n\n        let value = 'hello'\n        const cref = customRef((track, trigger) => {\n          return {\n            get() {\n              track()\n              return value\n            },\n            set(newValue) {\n              clearTimeout(timeout)\n              timeout = setTimeout(() => {\n                value = newValue\n                trigger()\n              }, delay)\n            }\n          }\n        })\n\n        const foo = shallowRef({})\n\n        count.value++ // error\n        cntcnt.value++ // error\n\n        const s = `${fooRef.value} : ${cref.value}` // error x 2\n\n        const n = foo.value + 1 // error\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid11"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <script>\n        import { ref, computed, toRef, customRef, shallowRef } from 'vue'\n        const foo = shallowRef({})\n        foo.bar = 123\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "requireDotValue",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 12
+    }
+   ],
+   "output": "\n      <script>\n        import { ref, computed, toRef, customRef, shallowRef } from 'vue'\n        const foo = shallowRef({})\n        foo.value.bar = 123\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `shallowRef()`.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       136,
+       136
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n        import { ref, computed, toRef, customRef, shallowRef } from 'vue'\n        const foo = shallowRef({})\n        foo.value.bar = 123\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid12"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <script setup>\n        import { useTemplateRef, watch } from 'vue'\n        const props = defineProps(['src'])\n        const img = useTemplateRef('img')\n        watch(\n          () => props.src,\n          () => {\n            if (typeof window == 'undefined' || typeof img == 'undefined') return\n            img.value.classList.remove('loaded')\n          }\n        )\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `useTemplateRef()`.",
+     "line": 9,
+     "column": 56,
+     "endLine": 9,
+     "endColumn": 59
+    }
+   ],
+   "output": "\n      <script setup>\n        import { useTemplateRef, watch } from 'vue'\n        const props = defineProps(['src'])\n        const img = useTemplateRef('img')\n        watch(\n          () => props.src,\n          () => {\n            if (typeof window == 'undefined' || typeof img.value == 'undefined') return\n            img.value.classList.remove('loaded')\n          }\n        )\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `useTemplateRef()`.",
+     "line": 9,
+     "column": 56,
+     "endLine": 9,
+     "endColumn": 59,
+     "fix": {
+      "range": [
+       277,
+       277
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script setup>\n        import { useTemplateRef, watch } from 'vue'\n        const props = defineProps(['src'])\n        const img = useTemplateRef('img')\n        watch(\n          () => props.src,\n          () => {\n            if (typeof window == 'undefined' || typeof img.value == 'undefined') return\n            img.value.classList.remove('loaded')\n          }\n        )\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid13"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <script>\n        import { ref } from 'vue'\n        const foo = ref(123)\n        const bar = foo?.bar\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "requireDotValue",
+     "line": 5,
+     "column": 21,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ],
+   "output": "\n      <script>\n        import { ref } from 'vue'\n        const foo = ref(123)\n        const bar = foo.value?.bar\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 5,
+     "column": 21,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       102,
+       102
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n        import { ref } from 'vue'\n        const foo = ref(123)\n        const bar = foo.value?.bar\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid14"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <script>\n      import { ref } from 'vue'\n      let foo = undefined;\n\n      if (!foo) {\n        foo = ref(5);\n      }\n      let bar = foo;\n      bar = 4;\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 10,
+     "column": 7,
+     "endLine": 10,
+     "endColumn": 10
+    }
+   ],
+   "output": "\n      <script>\n      import { ref } from 'vue'\n      let foo = undefined;\n\n      if (!foo) {\n        foo = ref(5);\n      }\n      let bar = foo;\n      bar.value = 4;\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 10,
+     "column": 7,
+     "endLine": 10,
+     "endColumn": 10,
+     "fix": {
+      "range": [
+       154,
+       154
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n      import { ref } from 'vue'\n      let foo = undefined;\n\n      if (!foo) {\n        foo = ref(5);\n      }\n      let bar = foo;\n      bar.value = 4;\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid15"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <script>\n      let model = defineModel();\n      console.log(model);\n      function process() {\n        if (model) console.log('foo')\n      }\n      function update(value) {\n        model = value;\n      }\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `defineModel()`.",
+     "line": 6,
+     "column": 13,
+     "endLine": 6,
+     "endColumn": 18
+    },
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `defineModel()`.",
+     "line": 9,
+     "column": 9,
+     "endLine": 9,
+     "endColumn": 14
+    }
+   ],
+   "output": "\n      <script>\n      let model = defineModel();\n      console.log(model);\n      function process() {\n        if (model.value) console.log('foo')\n      }\n      function update(value) {\n        model.value = value;\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `defineModel()`.",
+     "line": 6,
+     "column": 13,
+     "endLine": 6,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       119,
+       119
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `defineModel()`.",
+     "line": 9,
+     "column": 9,
+     "endLine": 9,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       192,
+       192
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n      let model = defineModel();\n      console.log(model);\n      function process() {\n        if (model.value) console.log('foo')\n      }\n      function update(value) {\n        model.value = value;\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid16"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <script setup>\n      let [model, mod] = defineModel();\n      console.log(model);\n      function process() {\n        if (model) console.log('foo')\n      }\n      function update(value) {\n        model = value;\n      }\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `defineModel()`.",
+     "line": 6,
+     "column": 13,
+     "endLine": 6,
+     "endColumn": 18
+    },
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `defineModel()`.",
+     "line": 9,
+     "column": 9,
+     "endLine": 9,
+     "endColumn": 14
+    }
+   ],
+   "output": "\n      <script setup>\n      let [model, mod] = defineModel();\n      console.log(model);\n      function process() {\n        if (model.value) console.log('foo')\n      }\n      function update(value) {\n        model.value = value;\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `defineModel()`.",
+     "line": 6,
+     "column": 13,
+     "endLine": 6,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       132,
+       132
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `defineModel()`.",
+     "line": 9,
+     "column": 9,
+     "endLine": 9,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       205,
+       205
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script setup>\n      let [model, mod] = defineModel();\n      console.log(model);\n      function process() {\n        if (model.value) console.log('foo')\n      }\n      function update(value) {\n        model.value = value;\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid17"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <script setup>\n      import { ref } from 'vue'\n      const emits = defineEmits(['test'])\n      const count = ref(0)\n\n      function update() {\n        emits('test', count)\n      }\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 8,
+     "column": 23,
+     "endLine": 8,
+     "endColumn": 28
+    }
+   ],
+   "output": "\n      <script setup>\n      import { ref } from 'vue'\n      const emits = defineEmits(['test'])\n      const count = ref(0)\n\n      function update() {\n        emits('test', count.value)\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 8,
+     "column": 23,
+     "endLine": 8,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       177,
+       177
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script setup>\n      import { ref } from 'vue'\n      const emits = defineEmits(['test'])\n      const count = ref(0)\n\n      function update() {\n        emits('test', count.value)\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid18"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <script>\n      import { ref, defineComponent } from 'vue'\n\n      export default defineComponent({\n        emits: ['incremented'],\n        setup(_, ctx) {\n          const counter = ref(0)\n\n          ctx.emit('incremented', counter)\n\n          return {\n            counter\n          }\n        }\n      })\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 10,
+     "column": 35,
+     "endLine": 10,
+     "endColumn": 42
+    }
+   ],
+   "output": "\n      <script>\n      import { ref, defineComponent } from 'vue'\n\n      export default defineComponent({\n        emits: ['incremented'],\n        setup(_, ctx) {\n          const counter = ref(0)\n\n          ctx.emit('incremented', counter.value)\n\n          return {\n            counter\n          }\n        }\n      })\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 10,
+     "column": 35,
+     "endLine": 10,
+     "endColumn": 42,
+     "fix": {
+      "range": [
+       236,
+       236
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n      import { ref, defineComponent } from 'vue'\n\n      export default defineComponent({\n        emits: ['incremented'],\n        setup(_, ctx) {\n          const counter = ref(0)\n\n          ctx.emit('incremented', counter.value)\n\n          return {\n            counter\n          }\n        }\n      })\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid19"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <script>\n      import { ref, defineComponent } from 'vue'\n\n      export default defineComponent({\n        emits: ['incremented'],\n        setup(_, { emit }) {\n          const counter = ref(0)\n\n          emit('incremented', counter)\n\n          return {\n            counter\n          }\n        }\n      })\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 10,
+     "column": 31,
+     "endLine": 10,
+     "endColumn": 38
+    }
+   ],
+   "output": "\n      <script>\n      import { ref, defineComponent } from 'vue'\n\n      export default defineComponent({\n        emits: ['incremented'],\n        setup(_, { emit }) {\n          const counter = ref(0)\n\n          emit('incremented', counter.value)\n\n          return {\n            counter\n          }\n        }\n      })\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 10,
+     "column": 31,
+     "endLine": 10,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       237,
+       237
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n      import { ref, defineComponent } from 'vue'\n\n      export default defineComponent({\n        emits: ['incremented'],\n        setup(_, { emit }) {\n          const counter = ref(0)\n\n          emit('incremented', counter.value)\n\n          return {\n            counter\n          }\n        }\n      })\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid20"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <script>\n      import { ref, defineComponent } from 'vue'\n\n      export default defineComponent({\n        emits: ['incremented'],\n        setup(_, { emit }) {\n          const counter = ref(0)\n\n          emit('incremented', 'xxx', counter)\n\n          return {\n            counter\n          }\n        }\n      })\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 10,
+     "column": 38,
+     "endLine": 10,
+     "endColumn": 45
+    }
+   ],
+   "output": "\n      <script>\n      import { ref, defineComponent } from 'vue'\n\n      export default defineComponent({\n        emits: ['incremented'],\n        setup(_, { emit }) {\n          const counter = ref(0)\n\n          emit('incremented', 'xxx', counter.value)\n\n          return {\n            counter\n          }\n        }\n      })\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 10,
+     "column": 38,
+     "endLine": 10,
+     "endColumn": 45,
+     "fix": {
+      "range": [
+       244,
+       244
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n      import { ref, defineComponent } from 'vue'\n\n      export default defineComponent({\n        emits: ['incremented'],\n        setup(_, { emit }) {\n          const counter = ref(0)\n\n          emit('incremented', 'xxx', counter.value)\n\n          return {\n            counter\n          }\n        }\n      })\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid21"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      let count = ref(0)\n\n      count++ // error\n      console.log(count + 1) // error\n      console.log(1 + count) // error\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": {
+    "ref": "readonly"
+   }
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 4,
+     "column": 7,
+     "endLine": 4,
+     "endColumn": 12
+    },
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 5,
+     "column": 19,
+     "endLine": 5,
+     "endColumn": 24
+    },
+    {
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 6,
+     "column": 23,
+     "endLine": 6,
+     "endColumn": 28
+    }
+   ],
+   "output": "\n      let count = ref(0)\n\n      count.value++ // error\n      console.log(count.value + 1) // error\n      console.log(1 + count.value) // error\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 4,
+     "column": 7,
+     "endLine": 4,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       38,
+       38
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 5,
+     "column": 19,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       73,
+       73
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireDotValue",
+     "message": "Must use `.value` to read or write the value wrapped by `ref()`.",
+     "line": 6,
+     "column": 23,
+     "endLine": 6,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       115,
+       115
+      ],
+      "text": ".value"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      let count = ref(0)\n\n      count.value++ // error\n      console.log(count.value + 1) // error\n      console.log(1 + count.value) // error\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid22"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import { ref } from 'vue'\n      const useMyRef = () => ref(true)\n      const ctx = useMyRef()\n      if (ctx) {}\n      </script>\n      ",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Must use `.value` to read or write the value of a ref.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 14
+    }
+   ],
+   "output": "\n      <script setup lang=\"ts\">\n      import { ref } from 'vue'\n      const useMyRef = () => ref(true)\n      const ctx = useMyRef()\n      if (ctx.value) {}\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid23"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import type { ComputedRef, Ref, ShallowRef } from 'vue'\n      declare function useOk(): Ref<boolean>\n      declare function useDouble(): ComputedRef<number>\n      declare function useList(): ShallowRef<string[]>\n      const ok = useOk()\n      const double = useDouble()\n      const list = useList()\n      const msg = ok ? 'yes' : 'no'\n      const next = double + 1\n      const text = `${list}`\n      </script>\n      ",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Must use `.value` to read or write the value of a ref.",
+     "line": 10,
+     "column": 19,
+     "endLine": 10,
+     "endColumn": 21
+    },
+    {
+     "message": "Must use `.value` to read or write the value of a ref.",
+     "line": 11,
+     "column": 20,
+     "endLine": 11,
+     "endColumn": 26
+    },
+    {
+     "message": "Must use `.value` to read or write the value of a ref.",
+     "line": 12,
+     "column": 23,
+     "endLine": 12,
+     "endColumn": 27
+    }
+   ],
+   "output": "\n      <script setup lang=\"ts\">\n      import type { ComputedRef, Ref, ShallowRef } from 'vue'\n      declare function useOk(): Ref<boolean>\n      declare function useDouble(): ComputedRef<number>\n      declare function useList(): ShallowRef<string[]>\n      const ok = useOk()\n      const double = useDouble()\n      const list = useList()\n      const msg = ok.value ? 'yes' : 'no'\n      const next = double.value + 1\n      const text = `${list.value}`\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#invalid24"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    const count = ref(0)\n    console.log(count.value) // 0\n\n    count.value++\n    console.log(count.value) // 1\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid0"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n    <script>\n      import { ref } from 'vue'\n      export default {\n        setup() {\n          const count = ref(0)\n          console.log(count.value) // 0\n\n          count.value++\n          console.log(count.value) // 1\n          return {\n            count\n          }\n        }\n      }\n    </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid1"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n    <script>\n      import { ref } from '@vue/composition-api'\n      export default {\n        setup() {\n          const count = ref(0)\n          console.log(count.value) // 0\n\n          count.value++\n          console.log(count.value) // 1\n          return {\n            count\n          }\n        }\n      }\n    </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid2"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    const count = ref(0)\n    if (count.value) {}\n    switch (count.value) {}\n    var foo = -count.value\n    var foo = +count.value\n    count.value++\n    count.value--\n    count.value + 1\n    1 - count.value\n    count.value || other\n    count.value && other\n    var foo = count.value ? x : y\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid3"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    const foo = ref(true)\n    if (bar) foo\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid4"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    const foo = ref(true)\n    var a = other || foo // ignore\n    var b = other && foo // ignore\n\n    let bar = ref(true)\n    var a = bar || other\n    var b = bar || other\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid5"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    const foo = ref(true)\n    var a = x ? other || foo : other && foo\n    var b = (other ?? foo).value\n    if ((other || foo).value) {}\n    bar(other || foo)\n    tag`${other || foo}`\n\n    let baz = ref(true)\n    if (other && baz) {}\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid6"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    let count = not_ref(0)\n\n    count++\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid7"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    const foo = ref(0)\n    const bar = ref(0)\n    var baz = x ? foo : bar\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid8"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    // Probably wrong, but not checked by this rule.\n    const {value} = ref(0)\n    value++\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid9"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    const count = ref(0)\n    function foo() {\n      let count = 0\n      count++\n    }\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid10"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n    import { ref } from 'unknown'\n    const count = ref(0)\n    count++\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid11"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    const count = ref\n    count++\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid12"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    const count = ref(0)\n    foo = count\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid13"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    const count = ref(0)\n    const foo = count\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid14"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <script>\n        import { ref, computed, toRef, customRef, shallowRef } from 'vue'\n        const foo = shallowRef({})\n        foo[bar] = 123\n      </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid15"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <script>\n        import { ref, computed, toRef, customRef, shallowRef } from 'vue'\n        const foo = shallowRef({})\n        const isComp = foo.effect\n      </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid16"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <script setup>\n        import { useTemplateRef } from 'vue'\n        const img = useTemplateRef('img')\n        function enlarge() {\n          if (!img.value) return\n          img.value.classList.add('enlarged')\n        }\n      </script>\n      <template>\n        <img ref=\"img\" />\n        <button v-if=\"img\" @click=\"enlarge\" />\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid17"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <script>\n      import { ref } from 'vue'\n      let foo;\n\n      if (!foo) {\n        foo = ref(5);\n      }\n      </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid18"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <script>\n      import { ref } from 'vue'\n      let foo = undefined;\n\n      if (!foo) {\n        foo = ref(5);\n      }\n      </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid19"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <script>\n      import { ref } from 'vue'\n      const foo = ref(0)\n      func(foo)\n      function func(foo) {}\n      </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid20"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <script>\n      import { ref } from 'vue'\n      const foo = ref(0)\n      tag`${foo}`\n      function tag(arr, ...args) {}\n      </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid21"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "\n    <script setup>\n    const model = defineModel();\n    console.log(model.value);\n    function process() {\n      if (model.value) console.log('foo')\n    }\n    function update(value) {\n      model.value = value;\n    }\n    </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid22"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "\n    <script setup>\n    const [model, mod] = defineModel();\n    console.log(model.value);\n    function process() {\n      if (model.value) console.log('foo')\n    }\n    function update(value) {\n      model.value = value;\n    }\n    </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid23"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "\n    <script setup>\n    const emit = defineEmits(['test'])\n    const [model, mod] = defineModel();\n\n    function update() {\n      emit('test', model.value)\n    }\n    </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid24"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "\n    <script>\n    import { ref, defineComponent } from 'vue'\n\n    export default defineComponent({\n      emits: ['incremented'],\n      setup(_, ctx) {\n        const counter = ref(0)\n\n        ctx.emit('incremented', counter.value)\n\n        return {\n          counter\n        }\n      }\n    })\n    </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid25"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "\n    <script>\n    import { ref, defineComponent } from 'vue'\n\n    export default defineComponent({\n      emits: ['incremented'],\n      setup(_, { emit }) {\n        const counter = ref(0)\n\n        emit('incremented', counter.value)\n\n        return {\n          counter\n        }\n      }\n    })\n    </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid26"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "\n    <script>\n    import { ref, defineComponent } from 'vue'\n\n    export default defineComponent({\n      emits: ['incremented'],\n      setup(_, { emit }) {\n        const counter = ref(0)\n\n        emit('incremented', counter.value, 'xxx')\n\n        return {\n          counter\n        }\n      }\n    })\n    </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid27"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 28,
+  "name": null,
+  "code": "\n    <script>\n    import { ref, defineComponent } from 'vue'\n\n    export default defineComponent({\n      emits: ['incremented'],\n      setup(_, { emit }) {\n        const counter = ref(0)\n\n        emit('incremented', 'xxx')\n\n        return {\n          counter\n        }\n      }\n    })\n    </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid28"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 29,
+  "name": null,
+  "code": "\n    <script>\n    import { ref, defineComponent } from 'vue'\n\n    export default defineComponent({\n      emits: ['incremented'],\n      setup(_, { emit }) {\n        const counter = ref(0)\n\n        emit('incremented')\n\n        return {\n          counter\n        }\n      }\n    })\n    </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid29"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 30,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import type { Ref } from 'vue'\n      declare function useOk(): Ref<boolean>\n      const ok = useOk()\n      const msg = ok ? 'yes' : 'no'\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid30"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 31,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import type { MaybeRef, Ref } from 'vue'\n      declare function useMaybe(): MaybeRef<number>\n      declare function useCount(): number\n      declare function useOk(): Ref<boolean>\n      const maybe = useMaybe()\n      const count = useCount()\n      const ok = useOk()\n      if (maybe) {}\n      count++\n      const msg = ok.value ? 'yes' : 'no'\n      </script>\n      ",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid31"
+ },
+ {
+  "rule": "no-ref-as-operand",
+  "kind": "valid",
+  "idx": 32,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import { ref, type Ref } from 'vue'\n      declare function useOk(): Ref<boolean>\n      let ok = useOk()\n      ok = ref(false)\n      </script>\n      ",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-as-operand#valid32"
+ }
+]

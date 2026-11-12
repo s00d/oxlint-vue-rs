@@ -1,0 +1,188 @@
+[
+ {
+  "rule": "eqeqeq",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :attr=\"a == 1\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected '===' and instead saw '=='.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 27,
+     "suggestions": [
+      {
+       "desc": "Use '===' instead of '=='.",
+       "output": "<template><div :attr=\"a === 1\" /></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Expected '===' and instead saw '=='.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceOperator",
+       "desc": "Use '===' instead of '=='.",
+       "output": "<template><div :attr=\"a === 1\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "eqeqeq#invalid0"
+ },
+ {
+  "rule": "eqeqeq",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <style>\n      .text {\n        color: v-bind(a == 1 ? 'red' : 'blue')\n      }\n      </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected '===' and instead saw '=='.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 27,
+     "suggestions": [
+      {
+       "desc": "Use '===' instead of '=='.",
+       "output": "\n      <style>\n      .text {\n        color: v-bind(a === 1 ? 'red' : 'blue')\n      }\n      </style>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Expected '===' and instead saw '=='.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceOperator",
+       "desc": "Use '===' instead of '=='.",
+       "output": "\n      <style>\n      .text {\n        color: v-bind(a === 1 ? 'red' : 'blue')\n      }\n      </style>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "eqeqeq#invalid1"
+ },
+ {
+  "rule": "eqeqeq",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :attr=\"a === 1\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "eqeqeq#valid0"
+ },
+ {
+  "rule": "eqeqeq",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n    <style>\n    .text {\n      color: v-bind(a === 1 ? 'red' : 'blue')\n    }\n    </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "eqeqeq#valid1"
+ }
+]

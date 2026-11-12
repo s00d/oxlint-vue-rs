@@ -1,0 +1,35 @@
+[
+ {
+  "rule": "jsx-uses-vars",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      import SomeComponent from './SomeComponent.jsx';\n      export default {\n        render () {\n          return (\n            <SomeComponent msg=\"Hello world\"></SomeComponent>\n          )\n        },\n      };\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "jsx-uses-vars#valid0"
+ }
+]

@@ -1,0 +1,483 @@
+[
+ {
+  "rule": "comma-dangle",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <button @click=\"() => fn([a, b,])\" ></button>\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected trailing comma.",
+     "line": 3,
+     "column": 41,
+     "endLine": 3,
+     "endColumn": 42
+    }
+   ],
+   "output": "\n        <template>\n          <button @click=\"() => fn([a, b])\" ></button>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected trailing comma.",
+     "line": 3,
+     "column": 41,
+     "endLine": 3,
+     "endColumn": 42,
+     "fix": {
+      "range": [
+       59,
+       62
+      ],
+      "text": "b]"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <button @click=\"() => fn([a, b])\" ></button>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-dangle#invalid0"
+ },
+ {
+  "rule": "comma-dangle",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <CustomButton @click=\"($event, ) => fn()\" />\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "functions": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected trailing comma.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 41
+    }
+   ],
+   "output": "\n        <template>\n          <CustomButton @click=\"($event ) => fn()\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected trailing comma.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 41,
+     "fix": {
+      "range": [
+       53,
+       62
+      ],
+      "text": "$event )"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <CustomButton @click=\"($event ) => fn()\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-dangle#invalid1"
+ },
+ {
+  "rule": "comma-dangle",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <button @click=\"() => {\n            fn([a, b, ])\n            fn([\n              a,\n              b\n            ])\n          }\"></button>\n        </template>",
+  "filename": "test.js",
+  "options": [
+   "always-multiline"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected trailing comma.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 22
+    },
+    {
+     "message": "Missing trailing comma.",
+     "line": 7,
+     "column": 16,
+     "endLine": 8,
+     "endColumn": 1
+    }
+   ],
+   "output": "\n        <template>\n          <button @click=\"() => {\n            fn([a, b ])\n            fn([\n              a,\n              b,\n            ])\n          }\"></button>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected trailing comma.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       73,
+       77
+      ],
+      "text": "b ]"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missing",
+     "message": "Missing trailing comma.",
+     "line": 7,
+     "column": 16,
+     "endLine": 8,
+     "endColumn": 1,
+     "fix": {
+      "range": [
+       127,
+       142
+      ],
+      "text": "b,\n            ]"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <button @click=\"() => {\n            fn([a, b ])\n            fn([\n              a,\n              b,\n            ])\n          }\"></button>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-dangle#invalid2"
+ },
+ {
+  "rule": "comma-dangle",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <button :[[a,b,][1]]=\"a\" ></button>\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected trailing comma.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 24
+    }
+   ],
+   "output": "\n      <template>\n        <button :[[a,b][1]]=\"a\" ></button>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected trailing comma.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       39,
+       42
+      ],
+      "text": "b]"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <button :[[a,b][1]]=\"a\" ></button>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-dangle#invalid3"
+ },
+ {
+  "rule": "comma-dangle",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <button :[[a,b][1]]=\"a\" ></button>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Missing trailing comma.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 24
+    }
+   ],
+   "output": "\n      <template>\n        <button :[[a,b,][1]]=\"a\" ></button>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "Missing trailing comma.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       39,
+       41
+      ],
+      "text": "b,]"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <button :[[a,b,][1]]=\"a\" ></button>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-dangle#invalid4"
+ },
+ {
+  "rule": "comma-dangle",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template>\n      <button @click=\"() => fn([a, b])\" ></button>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-dangle#valid0"
+ },
+ {
+  "rule": "comma-dangle",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <CustomButton @click=\"($event) => fn()\" />\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "functions": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-dangle#valid1"
+ },
+ {
+  "rule": "comma-dangle",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <button @click=\"() => fn([a, b, ])\" ></button>\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "arrays": "ignore"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-dangle#valid2"
+ },
+ {
+  "rule": "comma-dangle",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <button :[[a,b][1]]=\"a\" ></button>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-dangle#valid3"
+ },
+ {
+  "rule": "comma-dangle",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <button :[[a,b,][1]]=\"a\" ></button>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-dangle#valid4"
+ }
+]

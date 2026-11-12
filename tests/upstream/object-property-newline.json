@@ -1,0 +1,271 @@
+[
+ {
+  "rule": "object-property-newline",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div :foo=\"{a: 1, b: [2, {a: 3, b: 4}]}\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Object properties must go on a new line.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 28
+    },
+    {
+     "message": "Object properties must go on a new line.",
+     "line": 3,
+     "column": 41,
+     "endLine": 3,
+     "endColumn": 42
+    }
+   ],
+   "output": "\n      <template>\n        <div :foo=\"{a: 1,\nb: [2, {a: 3,\nb: 4}]}\" />\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "propertiesOnNewline",
+     "message": "Object properties must go on a new line.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       43,
+       44
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "propertiesOnNewline",
+     "message": "Object properties must go on a new line.",
+     "line": 3,
+     "column": 41,
+     "endLine": 3,
+     "endColumn": 42,
+     "fix": {
+      "range": [
+       57,
+       58
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div :foo=\"{a: 1,\nb: [2, {a: 3,\nb: 4}]}\" />\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-property-newline#invalid0"
+ },
+ {
+  "rule": "object-property-newline",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div :foo=\"{a: 1, b: 2,\n          c: 3}\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowAllPropertiesOnSameLine": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Object properties must go on a new line if they aren't all on the same line.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 28
+    }
+   ],
+   "output": "\n      <template>\n        <div :foo=\"{a: 1,\nb: 2,\n          c: 3}\" />\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "propertiesOnNewlineAll",
+     "message": "Object properties must go on a new line if they aren't all on the same line.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       43,
+       44
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div :foo=\"{a: 1,\nb: 2,\n          c: 3}\" />\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-property-newline#invalid1"
+ },
+ {
+  "rule": "object-property-newline",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n    <template>\n      <div :foo=\"{a: 1,\n        b: [2, {a: 3,\n          b: 4}]}\" />\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-property-newline#valid0"
+ },
+ {
+  "rule": "object-property-newline",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n    <template>\n      <div :foo=\"{a: 1,\n        b: 2}\" />\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-property-newline#valid1"
+ },
+ {
+  "rule": "object-property-newline",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n    <template>\n      <div :[{a:1,b:2}]=\"value\" />\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-property-newline#valid2"
+ },
+ {
+  "rule": "object-property-newline",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <div :foo=\"{a: 1, b: [2, {a: 3, b: 4}]}\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowAllPropertiesOnSameLine": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-property-newline#valid3"
+ }
+]

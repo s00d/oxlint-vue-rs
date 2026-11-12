@@ -1,0 +1,271 @@
+[
+ {
+  "rule": "static-class-names-order",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div class=\"b a\"></div></template>",
+  "filename": "two-classes.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Classes should be ordered alphabetically.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 27
+    }
+   ],
+   "output": "<template><div class=\"a b\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeOrdered",
+     "message": "Classes should be ordered alphabetically.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       21,
+       26
+      ],
+      "text": "\"a b\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"a b\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "static-class-names-order#invalid0"
+ },
+ {
+  "rule": "static-class-names-order",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>\n          <div class=\"c b a\">\n          </div>\n        </template>",
+  "filename": "three-classes.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Classes should be ordered alphabetically.",
+     "line": 2,
+     "column": 16,
+     "endLine": 2,
+     "endColumn": 29
+    }
+   ],
+   "output": "<template>\n          <div class=\"a b c\">\n          </div>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeOrdered",
+     "message": "Classes should be ordered alphabetically.",
+     "line": 2,
+     "column": 16,
+     "endLine": 2,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       32,
+       39
+      ],
+      "text": "\"a b c\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n          <div class=\"a b c\">\n          </div>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "static-class-names-order#invalid1"
+ },
+ {
+  "rule": "static-class-names-order",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div></div></template>",
+  "filename": "no-classes.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "static-class-names-order#valid0"
+ },
+ {
+  "rule": "static-class-names-order",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div class=\"a\"></div></template>",
+  "filename": "one-class.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "static-class-names-order#valid1"
+ },
+ {
+  "rule": "static-class-names-order",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div class=\"a b c\"></div></template>",
+  "filename": "single-space.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "static-class-names-order#valid2"
+ },
+ {
+  "rule": "static-class-names-order",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div class=\"a       b       c\"></div></template>",
+  "filename": "multiple-spaces.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "static-class-names-order#valid3"
+ },
+ {
+  "rule": "static-class-names-order",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div class=\"a  b  c\"></div></template>",
+  "filename": "tabs.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "static-class-names-order#valid4"
+ }
+]

@@ -1,0 +1,257 @@
+[
+ {
+  "rule": "no-deprecated-v-on-native-modifier",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><input v-on:keyup.native='fore'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "deprecated",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "'.native' modifier on 'v-on' directive is deprecated.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-native-modifier#invalid0"
+ },
+ {
+  "rule": "no-deprecated-v-on-native-modifier",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><input v-on:keyup.foo.native.bar='fore'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "deprecated",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "'.native' modifier on 'v-on' directive is deprecated.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-native-modifier#invalid1"
+ },
+ {
+  "rule": "no-deprecated-v-on-native-modifier",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><input v-on:keyup.enter='fire'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-native-modifier#valid0"
+ },
+ {
+  "rule": "no-deprecated-v-on-native-modifier",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><input @keyup.enter='fire'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-native-modifier#valid1"
+ },
+ {
+  "rule": "no-deprecated-v-on-native-modifier",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><input v-native:foo.native.foo.bar='fire'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-native-modifier#valid2"
+ },
+ {
+  "rule": "no-deprecated-v-on-native-modifier",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><input @native.enter='fire'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-native-modifier#valid3"
+ },
+ {
+  "rule": "no-deprecated-v-on-native-modifier",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><input :keydown.native='fire'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-native-modifier#valid4"
+ }
+]

@@ -1,0 +1,644 @@
+[
+ {
+  "rule": "no-lone-template",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <template>...</template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` require directive.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDirective",
+     "message": "`<template>` require directive.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-lone-template#invalid0"
+ },
+ {
+  "rule": "no-lone-template",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <template/>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` require directive.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 20
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDirective",
+     "message": "`<template>` require directive.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-lone-template#invalid1"
+ },
+ {
+  "rule": "no-lone-template",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <template v-on:id=\"a\">...</template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreAccessible": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` require directive.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDirective",
+     "message": "`<template>` require directive.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-lone-template#invalid2"
+ },
+ {
+  "rule": "no-lone-template",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <template v-bind=\"id\">...</template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreAccessible": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` require directive.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDirective",
+     "message": "`<template>` require directive.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-lone-template#invalid3"
+ },
+ {
+  "rule": "no-lone-template",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <template v-bind:[foo]=\"id\">...</template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreAccessible": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` require directive.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDirective",
+     "message": "`<template>` require directive.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-lone-template#invalid4"
+ },
+ {
+  "rule": "no-lone-template",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <template class=\"b\">...</template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreAccessible": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`<template>` require directive.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireDirective",
+     "message": "`<template>` require directive.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-lone-template#invalid5"
+ },
+ {
+  "rule": "no-lone-template",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <template v-if=\"foo\">...</template>\n        <template v-else-if=\"bar\">...</template>\n        <template v-else>...</template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-lone-template#valid0"
+ },
+ {
+  "rule": "no-lone-template",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <template v-for=\"e in list\">...</template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-lone-template#valid1"
+ },
+ {
+  "rule": "no-lone-template",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <template v-slot>...</template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-lone-template#valid2"
+ },
+ {
+  "rule": "no-lone-template",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <CoolButton>\n         <template slot=\"foo\">...</template>\n        </CoolButton>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-lone-template#valid3"
+ },
+ {
+  "rule": "no-lone-template",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <CoolButton>\n         <template slot-scope=\"foo\">...</template>\n        </CoolButton>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-lone-template#valid4"
+ },
+ {
+  "rule": "no-lone-template",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <CoolButton>\n         <template scope=\"foo\">...</template>\n        </CoolButton>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-lone-template#valid5"
+ },
+ {
+  "rule": "no-lone-template",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <template id=\"a\">...</template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreAccessible": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-lone-template#valid6"
+ },
+ {
+  "rule": "no-lone-template",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <template :id=\"a\">...</template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreAccessible": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-lone-template#valid7"
+ },
+ {
+  "rule": "no-lone-template",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <template ref=\"b\">...</template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreAccessible": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-lone-template#valid8"
+ },
+ {
+  "rule": "no-lone-template",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <template :ref=\"b\">...</template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreAccessible": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-lone-template#valid9"
+ }
+]

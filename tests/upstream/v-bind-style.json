@@ -1,0 +1,2046 @@
+[
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div v-bind:foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected 'v-bind' before ':'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ],
+   "output": "<template><div :foo=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedLonghand",
+     "message": "Unexpected 'v-bind' before ':'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       15,
+       21
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :foo=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid0"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-bind:foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected 'v-bind' before ':'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ],
+   "output": "<template><div :foo=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedLonghand",
+     "message": "Unexpected 'v-bind' before ':'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       15,
+       21
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :foo=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid1"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "longform"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'v-bind' before ':'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div v-bind:foo=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedLonghand",
+     "message": "Expected 'v-bind' before ':'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       15,
+       15
+      ],
+      "text": "v-bind"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-bind:foo=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid2"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div .foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "longform"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'v-bind:' instead of '.'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div v-bind:foo.prop=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedLonghandForProp",
+     "message": "Expected 'v-bind:' instead of '.'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       15,
+       19
+      ],
+      "text": "v-bind:foo.prop"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-bind:foo.prop=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid3"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div .foo.sync=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "longform"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'v-bind:' instead of '.'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 31
+    }
+   ],
+   "output": "<template><div v-bind:foo.prop.sync=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedLonghandForProp",
+     "message": "Expected 'v-bind:' instead of '.'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       15,
+       19
+      ],
+      "text": "v-bind:foo.prop"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-bind:foo.prop.sync=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid4"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div .foo.prop=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "longform"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'v-bind:' instead of '.'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 31
+    }
+   ],
+   "output": "<template><div v-bind:foo.prop=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedLonghandForProp",
+     "message": "Expected 'v-bind:' instead of '.'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       15,
+       16
+      ],
+      "text": "v-bind:"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-bind:foo.prop=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid5"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div .foo.sync.prop=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "longform"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'v-bind:' instead of '.'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 36
+    }
+   ],
+   "output": "<template><div v-bind:foo.sync.prop=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedLonghandForProp",
+     "message": "Expected 'v-bind:' instead of '.'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 36,
+     "fix": {
+      "range": [
+       15,
+       16
+      ],
+      "text": "v-bind:"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-bind:foo.sync.prop=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid6"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div v-bind:foo /></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected 'v-bind' before ':'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div :foo /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedLonghand",
+     "message": "Unexpected 'v-bind' before ':'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       15,
+       21
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :foo /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid7"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div :foo /></template>",
+  "filename": "test.vue",
+  "options": [
+   "longform"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'v-bind' before ':'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 20
+    }
+   ],
+   "output": "<template><div v-bind:foo /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedLonghand",
+     "message": "Expected 'v-bind' before ':'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       15,
+       15
+      ],
+      "text": "v-bind"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-bind:foo /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid8"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div :foo /></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand",
+   {
+    "sameNameShorthand": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 20
+    }
+   ],
+   "output": "<template><div :foo=\"foo\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedShorthand",
+     "message": "Unexpected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       19,
+       19
+      ],
+      "text": "=\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :foo=\"foo\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid9"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div v-bind:foo /></template>",
+  "filename": "test.vue",
+  "options": [
+   "longform",
+   {
+    "sameNameShorthand": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div v-bind:foo=\"foo\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedShorthand",
+     "message": "Unexpected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       25,
+       25
+      ],
+      "text": "=\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-bind:foo=\"foo\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid10"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div :foo.prop /></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand",
+   {
+    "sameNameShorthand": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ],
+   "output": "<template><div :foo.prop=\"foo\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedShorthand",
+     "message": "Unexpected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       24,
+       24
+      ],
+      "text": "=\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :foo.prop=\"foo\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid11"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div .foo /></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand",
+   {
+    "sameNameShorthand": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 20
+    }
+   ],
+   "output": "<template><div .foo=\"foo\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedShorthand",
+     "message": "Unexpected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       19,
+       19
+      ],
+      "text": "=\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div .foo=\"foo\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid12"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div .foo /></template>",
+  "filename": "test.vue",
+  "options": [
+   "longform",
+   {
+    "sameNameShorthand": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 20
+    },
+    {
+     "message": "Expected 'v-bind:' instead of '.'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 20
+    }
+   ],
+   "output": "<template><div v-bind:foo.prop /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedShorthand",
+     "message": "Unexpected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       19,
+       19
+      ],
+      "text": "=\"foo\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedLonghandForProp",
+     "message": "Expected 'v-bind:' instead of '.'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       15,
+       19
+      ],
+      "text": "v-bind:foo.prop"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-bind:foo.prop /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid13"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div :foo-bar /></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand",
+   {
+    "sameNameShorthand": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ],
+   "output": "<template><div :foo-bar=\"fooBar\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedShorthand",
+     "message": "Unexpected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       23,
+       23
+      ],
+      "text": "=\"fooBar\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :foo-bar=\"fooBar\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid14"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div :foo_bar /></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand",
+   {
+    "sameNameShorthand": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ],
+   "output": "<template><div :foo_bar=\"foo_bar\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedShorthand",
+     "message": "Unexpected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       23,
+       23
+      ],
+      "text": "=\"foo_bar\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :foo_bar=\"foo_bar\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid15"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div :foo=\"foo\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand",
+   {
+    "sameNameShorthand": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div :foo /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedShorthand",
+     "message": "Expected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       19,
+       25
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :foo /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid16"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><div :foo_bar=\"foo_bar\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand",
+   {
+    "sameNameShorthand": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><div :foo_bar /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedShorthand",
+     "message": "Expected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       23,
+       33
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :foo_bar /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid17"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><div v-bind:foo=\"foo\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   "longform",
+   {
+    "sameNameShorthand": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ],
+   "output": "<template><div v-bind:foo /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedShorthand",
+     "message": "Expected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       25,
+       31
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-bind:foo /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid18"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><div :foo.prop=\"foo\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand",
+   {
+    "sameNameShorthand": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 31
+    }
+   ],
+   "output": "<template><div :foo.prop /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedShorthand",
+     "message": "Expected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       24,
+       30
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :foo.prop /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid19"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><div .foo=\"foo\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand",
+   {
+    "sameNameShorthand": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div .foo /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedShorthand",
+     "message": "Expected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       19,
+       25
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div .foo /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid20"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><div :foo-bar=\"fooBar\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand",
+   {
+    "sameNameShorthand": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 33
+    }
+   ],
+   "output": "<template><div :foo-bar /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedShorthand",
+     "message": "Expected same-name shorthand.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       23,
+       32
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :foo-bar /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#invalid21"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid0"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-bind=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid1"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid2"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid3"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div v-bind:foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "longform",
+   {
+    "sameNameShorthand": "ignore"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid4"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div :foo.prop=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid5"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div .foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid6"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div :foo.prop=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid7"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div .foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid8"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div :foo=\"foo\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand",
+   {
+    "sameNameShorthand": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid9"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div v-bind:foo=\"foo\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   "longform",
+   {
+    "sameNameShorthand": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid10"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n      <div :foo.prop=\"foo\" />\n      <div .foo=\"foo\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "shorthand",
+   {
+    "sameNameShorthand": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid11"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div v-bind:foo.prop=\"foo\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   "longform",
+   {
+    "sameNameShorthand": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid12"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div :foo-bar=\"fooBar\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand",
+   {
+    "sameNameShorthand": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid13"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div :foo /></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand",
+   {
+    "sameNameShorthand": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid14"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div v-bind:foo /></template>",
+  "filename": "test.vue",
+  "options": [
+   "longform",
+   {
+    "sameNameShorthand": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid15"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <template>\n      <div :foo.prop />\n      <div .foo />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "shorthand",
+   {
+    "sameNameShorthand": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid16"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><div v-bind:foo.prop /></template>",
+  "filename": "test.vue",
+  "options": [
+   "longform",
+   {
+    "sameNameShorthand": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid17"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><div :foo-bar/></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand",
+   {
+    "sameNameShorthand": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid18"
+ },
+ {
+  "rule": "v-bind-style",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><div :foo-bar=\"foo_bar\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand",
+   {
+    "sameNameShorthand": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-bind-style#valid19"
+ }
+]

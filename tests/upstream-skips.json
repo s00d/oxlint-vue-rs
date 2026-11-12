@@ -1,0 +1,10 @@
+{
+  "no-restricted-call-after-await#invalid6": "relative `module` options resolve against ESLint's context.cwd, which was the capture machine's eslint-plugin-vue checkout (not the test process cwd)",
+  "require-prop-comment#invalid6": "ESLint capture hit a spurious fatal parse error (typescript-eslint 'Expression expected.') so it reports nothing; oxc parses the code fine",
+  "no-parsing-error#invalid80": "parser gap: `v-bind()` expressions inside <style> are not parsed (vue-eslint-parser src/style/ is not ported), so their syntax errors are absent",
+  "no-parsing-error#invalid81": "capture parsed template expressions with espree despite <script lang=\"ts\">; we always parse them as TypeScript when a script block is TS (the typescript-eslint setup every TS project uses)",
+  "no-restricted-call-after-await#invalid8": "`module` option is require.resolve() of the eslint-plugin-vue checkout on the capture machine; not portable",
+  "no-deprecated-filter#valid2": "vue-eslint-parser `vueFeatures.filter: false` parser option (filters parsed as bitwise OR) is not supported; we always parse Vue 2 filters",
+  "script-indent#invalid161": "oxc parser limitation: `implements Baz1\\n<\\nT\\n>` (type arguments on a new line in an implements clause) is a fatal parse error in oxc 0.158, so there is no program to lint",
+  "script-indent#invalid162": "oxc parser limitation: `implements Baz1\\n<\\nT\\n>` (type arguments on a new line in an implements clause) is a fatal parse error in oxc 0.158, so there is no program to lint"
+}

@@ -1,0 +1,114 @@
+[
+ {
+  "rule": "no-deprecated-v-is",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div v-is=\"'MyComponent'\" />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`v-is` directive is deprecated.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenVIs",
+     "message": "`v-is` directive is deprecated.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-is#invalid0"
+ },
+ {
+  "rule": "no-deprecated-v-is",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template>\n      <div is=\"vue:MyComponent\" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-is#valid0"
+ },
+ {
+  "rule": "no-deprecated-v-is",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>\n      <component is=\"MyComponent\" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-is#valid1"
+ }
+]

@@ -1,0 +1,286 @@
+[
+ {
+  "rule": "prefer-define-options",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n      export default { name: 'Foo' }\n      </script>\n      <script setup>\n      const props = defineProps(['foo'])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Use `defineOptions` instead of default export.",
+     "line": 3,
+     "column": 7,
+     "endLine": 3,
+     "endColumn": 37
+    }
+   ],
+   "output": "\n      <script setup>\ndefineOptions({ name: 'Foo' })\n\n      const props = defineProps(['foo'])\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferDefineOptions",
+     "message": "Use `defineOptions` instead of default export.",
+     "line": 3,
+     "column": 7,
+     "endLine": 3,
+     "endColumn": 37,
+     "fix": {
+      "range": [
+       0,
+       89
+      ],
+      "text": "\n      <script setup>\ndefineOptions({ name: 'Foo' })\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script setup>\ndefineOptions({ name: 'Foo' })\n\n      const props = defineProps(['foo'])\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-define-options#invalid0"
+ },
+ {
+  "rule": "prefer-define-options",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      export default { name: 'Foo' }\n      </script>\n      <script setup>\n      defineOptions({})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Use `defineOptions` instead of default export.",
+     "line": 3,
+     "column": 7,
+     "endLine": 3,
+     "endColumn": 37
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferDefineOptions",
+     "message": "Use `defineOptions` instead of default export.",
+     "line": 3,
+     "column": 7,
+     "endLine": 3,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-define-options#invalid1"
+ },
+ {
+  "rule": "prefer-define-options",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n      export const A = 42\n      export default { name: 'Foo' }\n      </script>\n      <script setup>\n      const props = defineProps(['foo'])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Use `defineOptions` instead of default export.",
+     "line": 4,
+     "column": 7,
+     "endLine": 4,
+     "endColumn": 37
+    }
+   ],
+   "output": "\n      <script>\n      export const A = 42\n      </script>\n      <script setup>\ndefineOptions({ name: 'Foo' })\n\n      const props = defineProps(['foo'])\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferDefineOptions",
+     "message": "Use `defineOptions` instead of default export.",
+     "line": 4,
+     "column": 7,
+     "endLine": 4,
+     "endColumn": 37,
+     "fix": {
+      "range": [
+       41,
+       115
+      ],
+      "text": "\n      </script>\n      <script setup>\ndefineOptions({ name: 'Foo' })\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n      export const A = 42\n      </script>\n      <script setup>\ndefineOptions({ name: 'Foo' })\n\n      const props = defineProps(['foo'])\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-define-options#invalid2"
+ },
+ {
+  "rule": "prefer-define-options",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script setup>\n      import { ref } from 'vue'\n      const props = defineProps(['foo'])\n      </script>\n      <script>\n      export default { name: 'Foo' }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Use `defineOptions` instead of default export.",
+     "line": 7,
+     "column": 7,
+     "endLine": 7,
+     "endColumn": 37
+    }
+   ],
+   "output": "\n      <script setup>\n      import { ref } from 'vue'\ndefineOptions({ name: 'Foo' })\n\n      const props = defineProps(['foo'])\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferDefineOptions",
+     "message": "Use `defineOptions` instead of default export.",
+     "line": 7,
+     "column": 7,
+     "endLine": 7,
+     "endColumn": 37,
+     "fix": {
+      "range": [
+       53,
+       178
+      ],
+      "text": "\ndefineOptions({ name: 'Foo' })\n\n      const props = defineProps(['foo'])\n      </script>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script setup>\n      import { ref } from 'vue'\ndefineOptions({ name: 'Foo' })\n\n      const props = defineProps(['foo'])\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-define-options#invalid3"
+ },
+ {
+  "rule": "prefer-define-options",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script setup>\n      defineOptions({ name: 'Foo' })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-define-options#valid0"
+ },
+ {
+  "rule": "prefer-define-options",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      export default { name: 'Foo' }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-define-options#valid1"
+ }
+]

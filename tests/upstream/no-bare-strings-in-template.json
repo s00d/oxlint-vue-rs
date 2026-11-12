@@ -1,0 +1,892 @@
+[
+ {
+  "rule": "no-bare-strings-in-template",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <h1>Lorem ipsum</h1>\n        <div\n          title=\"Lorem ipsum\"\n          aria-label=\"Lorem ipsum\"\n          aria-placeholder=\"Lorem ipsum\"\n          aria-roledescription=\"Lorem ipsum\"\n          aria-valuetext=\"Lorem ipsum\"\n        />\n        <img alt=\"Lorem ipsum\">\n        <input placeholder=\"Lorem ipsum\">\n        <h1 v-text=\"'Lorem ipsum'\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected non-translated string used.",
+     "line": 3,
+     "column": 13,
+     "endLine": 3,
+     "endColumn": 24
+    },
+    {
+     "message": "Unexpected non-translated string used in `title`.",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 30
+    },
+    {
+     "message": "Unexpected non-translated string used in `aria-label`.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 35
+    },
+    {
+     "message": "Unexpected non-translated string used in `aria-placeholder`.",
+     "line": 7,
+     "column": 28,
+     "endLine": 7,
+     "endColumn": 41
+    },
+    {
+     "message": "Unexpected non-translated string used in `aria-roledescription`.",
+     "line": 8,
+     "column": 32,
+     "endLine": 8,
+     "endColumn": 45
+    },
+    {
+     "message": "Unexpected non-translated string used in `aria-valuetext`.",
+     "line": 9,
+     "column": 26,
+     "endLine": 9,
+     "endColumn": 39
+    },
+    {
+     "message": "Unexpected non-translated string used in `alt`.",
+     "line": 11,
+     "column": 18,
+     "endLine": 11,
+     "endColumn": 31
+    },
+    {
+     "message": "Unexpected non-translated string used in `placeholder`.",
+     "line": 12,
+     "column": 28,
+     "endLine": 12,
+     "endColumn": 41
+    },
+    {
+     "message": "Unexpected non-translated string used in `v-text`.",
+     "line": 13,
+     "column": 20,
+     "endLine": 13,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected non-translated string used.",
+     "line": 3,
+     "column": 13,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedInAttr",
+     "message": "Unexpected non-translated string used in `title`.",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedInAttr",
+     "message": "Unexpected non-translated string used in `aria-label`.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedInAttr",
+     "message": "Unexpected non-translated string used in `aria-placeholder`.",
+     "line": 7,
+     "column": 28,
+     "endLine": 7,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedInAttr",
+     "message": "Unexpected non-translated string used in `aria-roledescription`.",
+     "line": 8,
+     "column": 32,
+     "endLine": 8,
+     "endColumn": 45,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedInAttr",
+     "message": "Unexpected non-translated string used in `aria-valuetext`.",
+     "line": 9,
+     "column": 26,
+     "endLine": 9,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedInAttr",
+     "message": "Unexpected non-translated string used in `alt`.",
+     "line": 11,
+     "column": 18,
+     "endLine": 11,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedInAttr",
+     "message": "Unexpected non-translated string used in `placeholder`.",
+     "line": 12,
+     "column": 28,
+     "endLine": 12,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedInAttr",
+     "message": "Unexpected non-translated string used in `v-text`.",
+     "line": 13,
+     "column": 20,
+     "endLine": 13,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-bare-strings-in-template#invalid0"
+ },
+ {
+  "rule": "no-bare-strings-in-template",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <h1>Lorem</h1>\n        <h1>Lorem ipsum</h1>\n        <h1>ipsum</h1>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowlist": [
+     "Lorem"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 24
+    },
+    {
+     "messageId": "unexpected",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected non-translated string used.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected non-translated string used.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-bare-strings-in-template#invalid1"
+ },
+ {
+  "rule": "no-bare-strings-in-template",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <h1>foo</h1>\n        <h1>foo_bar</h1>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowlist": [
+     "foo"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 20
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected non-translated string used.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-bare-strings-in-template#invalid2"
+ },
+ {
+  "rule": "no-bare-strings-in-template",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <h1 foo=\"Lorem ipsum\" />\n        <h1 bar=\"Lorem ipsum\" />\n        <h2 foo=\"Lorem ipsum\" />\n        <h2 bar=\"Lorem ipsum\" />\n        <div foo=\"Lorem ipsum\" />\n        <div bar=\"Lorem ipsum\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "attributes": {
+     "/^h\\d$/": [
+      "foo"
+     ],
+     "h1": [
+      "bar"
+     ]
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected non-translated string used in `foo`.",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 30
+    },
+    {
+     "message": "Unexpected non-translated string used in `bar`.",
+     "line": 4,
+     "column": 17,
+     "endLine": 4,
+     "endColumn": 30
+    },
+    {
+     "message": "Unexpected non-translated string used in `foo`.",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedInAttr",
+     "message": "Unexpected non-translated string used in `foo`.",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedInAttr",
+     "message": "Unexpected non-translated string used in `bar`.",
+     "line": 4,
+     "column": 17,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedInAttr",
+     "message": "Unexpected non-translated string used in `foo`.",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-bare-strings-in-template#invalid3"
+ },
+ {
+  "rule": "no-bare-strings-in-template",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <h1 v-foo=\"'Lorem ipsum'\" />\n        <h1 v-bar=\"'Lorem ipsum'\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "directives": [
+     "v-foo"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected non-translated string used in `v-foo`.",
+     "line": 3,
+     "column": 19,
+     "endLine": 3,
+     "endColumn": 34
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedInAttr",
+     "message": "Unexpected non-translated string used in `v-foo`.",
+     "line": 3,
+     "column": 19,
+     "endLine": 3,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-bare-strings-in-template#invalid4"
+ },
+ {
+  "rule": "no-bare-strings-in-template",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <h1>123, foo is invalid, 321</h1>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowlist": [
+     "/^\\d+$/g"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 3,
+     "column": 13,
+     "endLine": 3,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected non-translated string used.",
+     "line": 3,
+     "column": 13,
+     "endLine": 3,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-bare-strings-in-template#invalid5"
+ },
+ {
+  "rule": "no-bare-strings-in-template",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <h1>foo123bar</h1>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowlist": [
+     "/\\d+/",
+     "foo"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 3,
+     "column": 13,
+     "endLine": 3,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected non-translated string used.",
+     "line": 3,
+     "column": 13,
+     "endLine": 3,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-bare-strings-in-template#invalid6"
+ },
+ {
+  "rule": "no-bare-strings-in-template",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n    <template>\n      <h1>{{ $t('foo.bar') }}</h1>\n      <h1>{{ foo }}</h1>\n      <h1 v-t=\"'foo.bar'\"></h1>\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-bare-strings-in-template#valid0"
+ },
+ {
+  "rule": "no-bare-strings-in-template",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n    <template>\n      <h1 v-text=\"'Lorem ipsum' + foo\" />\n      <h1 v-text=\"foo\" />\n      <h1 v-text=\"1\" />\n      <h1 v-text=\"true\" />\n      <h1 v-text />\n      <h1 v-text=\"\" />\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-bare-strings-in-template#valid1"
+ },
+ {
+  "rule": "no-bare-strings-in-template",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n    <template>\n      <h1>#</h1>\n      <div title=\"#\" />\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-bare-strings-in-template#valid2"
+ },
+ {
+  "rule": "no-bare-strings-in-template",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n    <template>\n      <div>(</div>\n      <div>)</div>\n      <div>,</div>\n      <div>.</div>\n      <div>&</div>\n      <div>+</div>\n      <div>-</div>\n      <div>=</div>\n      <div>*</div>\n      <div>/</div>\n      <div>#</div>\n      <div>%</div>\n      <div>!</div>\n      <div>?</div>\n      <div>:</div>\n      <div>[</div>\n      <div>]</div>\n      <div>{</div>\n      <div>}</div>\n      <div title=\"<\"></div>\n      <div title=\">\"></div>\n      <div>•</div>\n      <div>—</div>\n      <div> </div>\n      <div>|</div>\n      <div>&lpar;</div>\n      <div>&rpar;</div>\n      <div>&comma;</div>\n      <div>&period;</div>\n      <div>&amp;</div>\n      <div>&AMP;</div>\n      <div>&plus;</div>\n      <div>&minus;</div>\n      <div>&equals;</div>\n      <div>&ast;</div>\n      <div>&midast;</div>\n      <div>&sol;</div>\n      <div>&num;</div>\n      <div>&percnt;</div>\n      <div>&excl;</div>\n      <div>&quest;</div>\n      <div>&colon;</div>\n      <div>&lsqb;</div>\n      <div>&lbrack;</div>\n      <div>&rsqb;</div>\n      <div>&rbrack;</div>\n      <div>&lcub;</div>\n      <div>&lbrace;</div>\n      <div>&rcub;</div>\n      <div>&rbrace;</div>\n      <div>&lt;</div>\n      <div>&LT;</div>\n      <div>&gt;</div>\n      <div>&GT;</div>\n      <div>&bull;</div>\n      <div>&bullet;</div>\n      <div>&mdash;</div>\n      <div>&ndash;</div>\n      <div>&nbsp;</div>\n      <div>&Tab;</div>\n      <div>&NewLine;</div>\n      <div>&verbar;</div>\n      <div>&vert;</div>\n      <div>&VerticalLine;</div>\n\n      <div>\n        ( ) , . & + - = * / # % ! ? : [ ] { }   • —   | &lpar; &rpar; &comma; &period; &amp; &AMP; &plus; &minus; &equals; &ast; &midast; &sol; &num; &percnt; &excl; &quest; &colon; &lsqb; &lbrack; &rsqb; &rbrack; &lcub; &lbrace; &rcub; &rbrace; &lt; &LT; &gt; &GT; &bull; &bullet; &mdash; &ndash; &nbsp; &Tab; &NewLine; &verbar; &vert; &VerticalLine;\n      </div>\n\n      <div\n        title=\"( ) , . & + - = * / # % ! ? : [ ] { } < > • —   | &lpar; &rpar; &comma; &period; &amp; &AMP; &plus; &minus; &equals; &ast; &midast; &sol; &num; &percnt; &excl; &quest; &colon; &lsqb; &lbrack; &rsqb; &rbrack; &lcub; &lbrace; &rcub; &rbrace; &lt; &LT; &gt; &GT; &bull; &bullet; &mdash; &ndash; &nbsp; &Tab; &NewLine; &verbar; &vert; &VerticalLine;\"\n      />\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-bare-strings-in-template#valid3"
+ },
+ {
+  "rule": "no-bare-strings-in-template",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <h1> foo </h1>\n        <h1> foo_bar </h1>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowlist": [
+     "foo",
+     "foo_bar"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-bare-strings-in-template#valid4"
+ },
+ {
+  "rule": "no-bare-strings-in-template",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <h1>@@</h1>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowlist": [
+     "@@"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-bare-strings-in-template#valid5"
+ },
+ {
+  "rule": "no-bare-strings-in-template",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <h1>123 321</h1>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowlist": [
+     "/\\d+/g"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-bare-strings-in-template#valid6"
+ },
+ {
+  "rule": "no-bare-strings-in-template",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <h1>$foo</h1>\n        <h1>$bar</h1>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowlist": [
+     "/\\$\\w+/"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-bare-strings-in-template#valid7"
+ },
+ {
+  "rule": "no-bare-strings-in-template",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <h1>foo123foo</h1>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowlist": [
+     "/\\d+/",
+     "foo"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-bare-strings-in-template#valid8"
+ }
+]

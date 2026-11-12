@@ -1,0 +1,1430 @@
+{
+ "block-lang": {
+  "match": 3949,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 9
+ },
+ "require-prop-comment": {
+  "match": 2600,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "multiline-ternary": {
+  "match": 2432,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "object-curly-spacing": {
+  "match": 6757,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 4
+ },
+ "quote-props": {
+  "match": 4003,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "require-explicit-slots": {
+  "match": 915,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "padding-line-between-tags": {
+  "match": 14055,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-undef-components": {
+  "match": 11918,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 11
+ },
+ "restricted-component-names": {
+  "match": 17272,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 14
+ },
+ "define-macros-order": {
+  "match": 505,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "sort-keys": {
+  "match": 13304,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 39
+ },
+ "max-len": {
+  "match": 16323,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 3
+ },
+ "max-attributes-per-line": {
+  "match": 20627,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 4
+ },
+ "no-v-html": {
+  "match": 119,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "enforce-style-attribute": {
+  "match": 134,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 4
+ },
+ "prefer-use-template-ref": {
+  "match": 332,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "padding-lines-in-component-definition": {
+  "match": 769,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "singleline-html-element-content-newline": {
+  "match": 5768,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-bare-strings-in-template": {
+  "match": 5813,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "html-closing-bracket-newline": {
+  "match": 235,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "html-indent": {
+  "match": 236,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "multiline-html-element-content-newline": {
+  "match": 202,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-static-inline-styles": {
+  "match": 1244,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 2
+ },
+ "no-root-v-if": {
+  "match": 113,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-unused-refs": {
+  "match": 69,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "html-comment-content-newline": {
+  "match": 134,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "html-comment-indent": {
+  "match": 129,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "static-class-names-order": {
+  "match": 3966,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "component-name-in-template-casing": {
+  "match": 664,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 1
+ },
+ "prefer-separate-static-class": {
+  "match": 91,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "comma-dangle": {
+  "match": 485,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "prefer-true-attribute-shorthand": {
+  "match": 123,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "require-emit-validator": {
+  "match": 116,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "v-on-handler-style": {
+  "match": 1652,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "multi-word-component-names": {
+  "match": 1535,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 4
+ },
+ "v-for-delimiter-style": {
+  "match": 25,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "html-self-closing": {
+  "match": 673,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-ref-object-reactivity-loss": {
+  "match": 50,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-multiple-template-root": {
+  "match": 467,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-literals-in-template": {
+  "match": 1084,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 1
+ },
+ "prefer-template": {
+  "match": 77,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-template-target-blank": {
+  "match": 72,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "dot-notation": {
+  "match": 7,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "require-typed-object-prop": {
+  "match": 7,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-props-shadow": {
+  "match": 381,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-setup-props-reactivity-loss": {
+  "match": 173,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-negated-v-if-condition": {
+  "match": 95,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "v-if-else-key": {
+  "match": 290,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "array-element-newline": {
+  "match": 1037,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 2
+ },
+ "html-button-has-type": {
+  "match": 128,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-implicit-coercion": {
+  "match": 565,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "object-property-newline": {
+  "match": 839,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "slot-name-casing": {
+  "match": 225,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "require-explicit-emits": {
+  "match": 44,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-shadow-native-events": {
+  "match": 374,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "custom-event-name-casing": {
+  "match": 153,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-empty-component-block": {
+  "match": 76,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-undef-directives": {
+  "match": 170,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-extra-parens": {
+  "match": 452,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-undef-properties": {
+  "match": 460,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-console": {
+  "match": 9,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "script-indent": {
+  "match": 1810,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 1
+ },
+ "no-content-outside-block": {
+  "match": 1,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "prefer-single-event-payload": {
+  "match": 111,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-negated-condition": {
+  "match": 41,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "require-expose": {
+  "match": 142,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "require-name-property": {
+  "match": 47,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-duplicate-attr-inheritance": {
+  "match": 29,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "require-macro-variable-name": {
+  "match": 288,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "new-line-between-multi-line-property": {
+  "match": 612,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-unused-emit-declarations": {
+  "match": 15,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-v-text": {
+  "match": 51,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-v-text-v-html-on-component": {
+  "match": 2,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-boolean-default": {
+  "match": 404,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-unused-properties": {
+  "match": 100,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-multiple-objects-in-class": {
+  "match": 2,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-constant-condition": {
+  "match": 9,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "padding-line-between-blocks": {
+  "match": 177,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "prefer-v-model": {
+  "match": 10,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-define-model-default": {
+  "match": 163,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "eqeqeq": {
+  "match": 23,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "attributes-order": {
+  "match": 153,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "use-v-on-exact": {
+  "match": 1,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "dot-location": {
+  "match": 6,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "prefer-define-options": {
+  "match": 5,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-deprecated-filter": {
+  "match": 22,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "camelcase": {
+  "match": 2,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-parsing-error": {
+  "match": 2,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-v-slot": {
+  "match": 1,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-unused-vars": {
+  "match": 3,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-useless-v-bind": {
+  "match": 34,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-template-shadow": {
+  "match": 12,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-use-v-else-with-v-for": {
+  "match": 7,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-useless-mustaches": {
+  "match": 15,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "html-quotes": {
+  "match": 1,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "order-in-components": {
+  "match": 2,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "attribute-hyphenation": {
+  "match": 1,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "array-bracket-newline": {
+  "match": 18,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "block-tag-newline": {
+  "match": 29,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "space-infix-ops": {
+  "match": 94,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "brace-style": {
+  "match": 2,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "object-shorthand": {
+  "match": 29,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "component-api-style": {
+  "match": 290,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "comma-spacing": {
+  "match": 38,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "key-spacing": {
+  "match": 47,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "component-options-name-casing": {
+  "match": 7,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-mutating-props": {
+  "match": 9,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-deprecated-dollar-listeners-api": {
+  "match": 3,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-deprecated-v-on-native-modifier": {
+  "match": 9,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-deprecated-v-bind-sync": {
+  "match": 14,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-deprecated-slot-attribute": {
+  "match": 28,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-deprecated-slot-scope-attribute": {
+  "match": 69,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "html-closing-bracket-spacing": {
+  "match": 2,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "array-bracket-spacing": {
+  "match": 1,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "v-on-event-hyphenation": {
+  "match": 8,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "match-component-import-name": {
+  "match": 5,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-unused-components": {
+  "match": 1,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-deprecated-router-link-tag-prop": {
+  "match": 1,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-multi-spaces": {
+  "match": 1,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "space-in-parens": {
+  "match": 3,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "html-comment-content-spacing": {
+  "match": 5,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-deprecated-functional-template": {
+  "match": 3,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "space-unary-ops": {
+  "match": 3,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-empty-pattern": {
+  "match": 1,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-duplicate-class-names": {
+  "match": 1,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-useless-concat": {
+  "match": 1,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "arrow-spacing": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "block-order": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "block-spacing": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "comma-style": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "first-attribute-linebreak": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "func-call-spacing": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "html-end-tags": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "keyword-spacing": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "match-component-file-name": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "max-lines-per-block": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "max-template-depth": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "mustache-interpolation-spacing": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-child-content": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-custom-modifiers-on-v-model": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-deprecated-dollar-scopedslots-api": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-deprecated-html-element-is": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-deprecated-inline-template": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-deprecated-scope-attribute": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-deprecated-v-is": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-deprecated-v-on-number-modifiers": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-dupe-v-else-if": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-duplicate-attributes": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-irregular-whitespace": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-lone-template": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-loss-of-precision": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-potential-component-option-typo": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-ref-as-operand": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-restricted-block": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-restricted-call-after-await": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-restricted-class": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-restricted-component-names": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-restricted-component-options": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-restricted-custom-event": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-restricted-html-elements": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-restricted-props": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-restricted-static-attribute": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-restricted-syntax": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-restricted-v-bind": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-restricted-v-on": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-spaces-around-equal-signs-in-attribute": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-sparse-arrays": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-template-key": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-textarea-mustache": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-unsupported-features": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-use-computed-property-like-method": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-use-v-if-with-v-for": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-useless-template-attributes": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "no-v-for-template-key-on-child": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "object-curly-newline": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "one-component-per-file": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "operator-linebreak": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "prefer-prop-type-boolean-first": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "require-component-is": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "require-toggle-inside-transition": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "require-v-for-key": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "require-valid-default-prop": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "template-curly-spacing": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "this-in-template": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "v-bind-style": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "v-on-style": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "v-slot-style": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-attribute-name": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-template-root": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-v-bind": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-v-cloak": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-v-else": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-v-else-if": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-v-for": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-v-html": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-v-if": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-v-is": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-v-memo": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-v-model": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-v-on": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-v-once": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-v-pre": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-v-show": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ },
+ "valid-v-text": {
+  "match": 0,
+  "msgDiff": 0,
+  "missing": 0,
+  "extra": 0,
+  "unparsedByEslint": 0
+ }
+}

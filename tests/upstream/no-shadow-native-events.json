@@ -1,0 +1,2625 @@
+[
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('click')\"/>\n      </template>\n      <script>\n      export default {\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid0"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: ['click'],\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 7,
+     "column": 17,
+     "endLine": 7,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 7,
+     "column": 17,
+     "endLine": 7,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid1"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: {click(){}}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 7,
+     "column": 17,
+     "endLine": 7,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 7,
+     "column": 17,
+     "endLine": 7,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid2"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        methods: {\n          onClick() {\n            this.$emit('click')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid3"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        methods: {\n          onClick() {\n            const vm = this\n            vm.$emit('click')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 8,
+     "column": 22,
+     "endLine": 8,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 8,
+     "column": 22,
+     "endLine": 8,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid4"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(p, context) {\n          context.emit('click')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 5,
+     "column": 24,
+     "endLine": 5,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 5,
+     "column": 24,
+     "endLine": 5,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid5"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(p, {emit}) {\n          emit('click')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 5,
+     "column": 16,
+     "endLine": 5,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 5,
+     "column": 16,
+     "endLine": 5,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid6"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(p, {emit:fire}) {\n          fire('click')\n          fire('keydown')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 5,
+     "column": 16,
+     "endLine": 5,
+     "endColumn": 23
+    },
+    {
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 6,
+     "column": 16,
+     "endLine": 6,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 5,
+     "column": 16,
+     "endLine": 5,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 6,
+     "column": 16,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid7"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        methods: {\n          click () {\n            const vm = this\n            vm?.$emit?.('click')\n            ;(vm?.$emit)?.('keydown')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 7,
+     "column": 25,
+     "endLine": 7,
+     "endColumn": 32
+    },
+    {
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 8,
+     "column": 28,
+     "endLine": 8,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 7,
+     "column": 25,
+     "endLine": 7,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 8,
+     "column": 28,
+     "endLine": 8,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid8"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(p, c) {\n          c?.emit?.('click')\n          ;(c?.emit)?.('keydown')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 5,
+     "column": 21,
+     "endLine": 5,
+     "endColumn": 28
+    },
+    {
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 5,
+     "column": 21,
+     "endLine": 5,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid9"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('click')\"/>\n      </template>\n      <script setup>\n      defineEmits(['click'])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 35
+    },
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 6,
+     "column": 20,
+     "endLine": 6,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 6,
+     "column": 20,
+     "endLine": 6,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid10"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('click')\"/>\n      </template>\n      <script setup lang=\"ts\">\n      defineEmits<{\n        (e: 'click'): void\n      }>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 35
+    },
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid11"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('click')\"/>\n      </template>\n      <script setup lang=\"ts\">\n      defineEmits<(e: 'click') => void>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 35
+    },
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 6,
+     "column": 19,
+     "endLine": 6,
+     "endColumn": 39
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 6,
+     "column": 19,
+     "endLine": 6,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid12"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('click')\"/>\n      </template>\n      <script setup>\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid13"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<(e: 'click') => void>()\n      emit('click');\n      emit('keydown')\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 32,
+     "endLine": 3,
+     "endColumn": 52
+    },
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 4,
+     "column": 12,
+     "endLine": 4,
+     "endColumn": 19
+    },
+    {
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 32,
+     "endLine": 3,
+     "endColumn": 52,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 4,
+     "column": 12,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid14"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <script setup>\n      const emit = defineEmits([`click`])\n      emit(`click`);\n      emit(`keydown`)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 33,
+     "endLine": 3,
+     "endColumn": 40
+    },
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 4,
+     "column": 12,
+     "endLine": 4,
+     "endColumn": 19
+    },
+    {
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 33,
+     "endLine": 3,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 4,
+     "column": 12,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid15"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<{click: []}>()\n      emit('foo')\n      emit('keydown')\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 33,
+     "endLine": 3,
+     "endColumn": 42
+    },
+    {
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 33,
+     "endLine": 3,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid16"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      type Emits = {click: []}\n      const emit = defineEmits<Emits>()\n      emit('click')\n      emit('keydown')\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 30
+    },
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 19
+    },
+    {
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 6,
+     "column": 12,
+     "endLine": 6,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 6,
+     "column": 12,
+     "endLine": 6,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid17"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import {Emits2 as Emits} from './test01'\n      const emit = defineEmits<Emits>()\n      </script>",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 4,
+     "column": 32,
+     "endLine": 4,
+     "endColumn": 37
+    },
+    {
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 4,
+     "column": 32,
+     "endLine": 4,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 4,
+     "column": 32,
+     "endLine": 4,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 4,
+     "column": 32,
+     "endLine": 4,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid18"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"emit('keydown')\"/>\n      </template>\n      <script setup lang=\"ts\">\n      const emit = defineEmits<(e: 'click') => void>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 36
+    },
+    {
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 6,
+     "column": 32,
+     "endLine": 6,
+     "endColumn": 52
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"keydown\".",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "violation",
+     "message": "Avoid shadowing the native event \"click\".",
+     "line": 6,
+     "column": 32,
+     "endLine": 6,
+     "endColumn": 52,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#invalid19"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('buttonClick')\"/>\n      </template>\n      <script>\n      export default {\n        emits: ['inputClick']\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid0"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('welcome')\"/>\n      </template>\n      <script>\n      export default {\n        emits: {welcome:null}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid1"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('welcome')\"/>\n      </template>\n      <script>\n      export default {\n        emits: {welcome(){}}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid2"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        methods: {\n          onClick() {\n            this.$emit('welcome')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid3"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        methods: {\n          onClick() {\n            const vm = this\n            vm.$emit('welcome')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid4"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(p, context) {\n          context.emit('welcome')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid5"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(p, {emit}) {\n          emit('welcome')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid6"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(props, context) {\n          context.emit = 'foo'\n          context='foo'\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid7"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(props, {emit}) {\n          emit='foo'\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid8"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('welcome')\"/>\n      </template>\n      <script>\n      export default {\n        'emits': ['welcome']\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid9"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: ['welcome']\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid10"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid11"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        methods: {\n          onClick() {\n            $emit('foo')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid12"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        methods: {\n          onClick() {\n            this.bar.$emit('foo')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid13"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(p, ...context) {\n          context.emit('foo')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid14"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(p, [emit]) {\n          emit('foo')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid15"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(p, {$emit}) {\n          $emit('foo')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid16"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(context) {\n          context.emit('foo')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid17"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit(foo)\"/>\n        <div @click=\"$emit()\"/>\n        <div @click=\"$emit(1)\"/>\n        <div @click=\"$emit(true)\"/>\n        <div @click=\"$emit(null)\"/>\n        <div @click=\"$emit(/regex/)\"/>\n      </template>\n      <script>\n      export default {\n        emits: ['welcome']\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid18"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(p, context) {\n          context.emit(foo)\n          context.emit()\n          context.emit(1)\n          context.emit(true)\n          context.emit(null)\n          context.emit(/regex/)\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid19"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        methods: {\n          onClick() {\n            this.$emit(foo)\n            this.$emit()\n            this.$emit(1)\n            this.$emit(true)\n            this.$emit(null)\n            this.$emit(/regex/)\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid20"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(p, context) {\n          context.fire('foo')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid21"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        methods: {\n          onClick() {\n            this.$fire('foo')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid22"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "\n      <script>\n      function fn() {\n        this.$emit('foo')\n      }\n      export default {\n        emits: ['welcome'],\n        methods: {\n          onClick() {\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid23"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup: ((p, context) => {\n          context.emit('foo')\n        })()\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid24"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: ['onFoo'],\n        methods: {\n          fn() { this.$emit('foo') }\n        },\n        setup(p, ctx) {\n          ctx.emit('foo')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid25"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script setup>\n      defineEmits(['foo'])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid26"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script setup>\n      defineEmits({foo:null})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid27"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 28,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script setup lang=\"ts\">\n      defineEmits<{\n        (e: 'foo'): void\n      }>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid28"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 29,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script setup lang=\"ts\">\n      defineEmits<(e: 'foo') => void>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid29"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 30,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n        <div @click=\"$emit('bar')\"/>\n      </template>\n      <script setup lang=\"ts\">\n      defineEmits<(e: 'foo' | 'bar') => void>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid30"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 31,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"emit('foo')\"/>\n        <div @click=\"emit('bar')\"/>\n      </template>\n      <script setup lang=\"ts\">\n      const emit = defineEmits<(e: 'foo' | 'bar') => void>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid31"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 32,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: unknown,\n        setup(_, {emit}) {\n          emit('bar')\n        },\n        methods: {\n          click() {\n            this.$emit('baz')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid32"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 33,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script setup>\n      const emit = defineEmits(unknown)\n      emit('bar')\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid33"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 34,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: {...foo}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid34"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 35,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: [foo]\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid35"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 36,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: [...foo]\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid36"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 37,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: unknown,\n        methods: {\n          fn() { this.$emit('bar') }\n        },\n        setup(p, ctx) {\n          ctx.emit('baz')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid37"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 38,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script setup>\n      defineProps(unknown)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid38"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 39,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: [foo],\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid39"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 40,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: [...foo],\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid40"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 41,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<{foo: [], bar:[number]}>()\n      emit('foo')\n      emit('bar', 42)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid41"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 42,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      type Emits = {foo: [], bar:[number]}\n      const emit = defineEmits<Emits>()\n      emit('foo')\n      emit('bar', 42)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid42"
+ },
+ {
+  "rule": "no-shadow-native-events",
+  "kind": "valid",
+  "idx": 43,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import {Emits1 as Emits} from './test01'\n      const emit = defineEmits<Emits>()\n      emit('foo')\n      emit('bar')\n      emit('baz')\n      </script>",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-shadow-native-events#valid43"
+ }
+]

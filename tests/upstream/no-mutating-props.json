@@ -1,0 +1,2839 @@
+[
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <div v-if=\"prop1 = [1, 2]\"></div>\n            <div v-if=\"prop2++\"></div>\n            <div v-text=\"prop3.shift()\"></div>\n            <div v-text=\"prop4.slice(0).shift()\"></div>\n            <div v-if=\"this.prop5 = [1, 2] && this.someProp\"></div>\n            <div v-if=\"this.prop6++ && this.someProp < 10\"></div>\n            <div v-text=\"this.prop7.shift()\"></div>\n            <div v-text=\"this.prop8.slice(0).shift()\"></div>\n            <div v-if=\"delete prop9.a\"></div>\n          </div>\n        </template>\n        <script>\n          export default {\n            props: ['prop1', 'prop2', 'prop3', 'prop4', 'prop5', 'prop6', 'prop7', 'prop8', 'prop9']\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"prop1\" prop.",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 38
+    },
+    {
+     "message": "Unexpected mutation of \"prop2\" prop.",
+     "line": 5,
+     "column": 24,
+     "endLine": 5,
+     "endColumn": 31
+    },
+    {
+     "message": "Unexpected mutation of \"prop3\" prop.",
+     "line": 6,
+     "column": 26,
+     "endLine": 6,
+     "endColumn": 39
+    },
+    {
+     "message": "Unexpected mutation of \"prop5\" prop.",
+     "line": 8,
+     "column": 24,
+     "endLine": 8,
+     "endColumn": 60
+    },
+    {
+     "message": "Unexpected mutation of \"prop6\" prop.",
+     "line": 9,
+     "column": 24,
+     "endLine": 9,
+     "endColumn": 36
+    },
+    {
+     "message": "Unexpected mutation of \"prop7\" prop.",
+     "line": 10,
+     "column": 26,
+     "endLine": 10,
+     "endColumn": 44
+    },
+    {
+     "message": "Unexpected mutation of \"prop9\" prop.",
+     "line": 12,
+     "column": 24,
+     "endLine": 12,
+     "endColumn": 38
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop1\" prop.",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop2\" prop.",
+     "line": 5,
+     "column": 24,
+     "endLine": 5,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop3\" prop.",
+     "line": 6,
+     "column": 26,
+     "endLine": 6,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop5\" prop.",
+     "line": 8,
+     "column": 24,
+     "endLine": 8,
+     "endColumn": 60,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop6\" prop.",
+     "line": 9,
+     "column": 24,
+     "endLine": 9,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop7\" prop.",
+     "line": 10,
+     "column": 26,
+     "endLine": 10,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop9\" prop.",
+     "line": 12,
+     "column": 24,
+     "endLine": 12,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid0"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <div v-text=\"prop1?.shift?.()\"></div>\n            <div v-text=\"prop2?.slice?.(0)?.shift?.()\"></div>\n            <div v-if=\"this?.prop3\"></div>\n            <div v-if=\"this?.prop4 < 10\"></div>\n            <div v-text=\"this?.prop5?.shift?.()\"></div>\n            <div v-text=\"this?.prop6?.slice?.(0)?.shift?.()\"></div>\n          </div>\n        </template>\n        <script>\n          export default {\n            props: ['prop1', 'prop2', 'prop3', 'prop4', 'prop5', 'prop6']\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"prop1\" prop.",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 42
+    },
+    {
+     "message": "Unexpected mutation of \"prop5\" prop.",
+     "line": 8,
+     "column": 26,
+     "endLine": 8,
+     "endColumn": 48
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop1\" prop.",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop5\" prop.",
+     "line": 8,
+     "column": 26,
+     "endLine": 8,
+     "endColumn": 48,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid1"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <div v-text=\"(prop1?.shift)?.()\"></div>\n            <div v-text=\"(this?.prop2)?.shift?.()\"></div>\n            <div v-text=\"(this?.prop3?.shift)?.()\"></div>\n          </div>\n        </template>\n        <script>\n          export default {\n            props: ['prop1', 'prop2', 'prop3']\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"prop1\" prop.",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 44
+    },
+    {
+     "message": "Unexpected mutation of \"prop2\" prop.",
+     "line": 5,
+     "column": 26,
+     "endLine": 5,
+     "endColumn": 50
+    },
+    {
+     "message": "Unexpected mutation of \"prop3\" prop.",
+     "line": 6,
+     "column": 26,
+     "endLine": 6,
+     "endColumn": 50
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop1\" prop.",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop2\" prop.",
+     "line": 5,
+     "column": 26,
+     "endLine": 5,
+     "endColumn": 50,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop3\" prop.",
+     "line": 6,
+     "column": 26,
+     "endLine": 6,
+     "endColumn": 50,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid2"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <input v-model=\"prop1.text\">\n            <input v-model=\"prop2\">\n            <input v-model=\"this.prop3.text\">\n            <input v-model=\"this.prop4\">\n          </div>\n        </template>\n        <script>\n          export default {\n            props: ['prop1', 'prop2', 'prop3', 'prop4']\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"prop1\" prop.",
+     "line": 4,
+     "column": 29,
+     "endLine": 4,
+     "endColumn": 39
+    },
+    {
+     "message": "Unexpected mutation of \"prop2\" prop.",
+     "line": 5,
+     "column": 29,
+     "endLine": 5,
+     "endColumn": 34
+    },
+    {
+     "message": "Unexpected mutation of \"prop3\" prop.",
+     "line": 6,
+     "column": 29,
+     "endLine": 6,
+     "endColumn": 44
+    },
+    {
+     "message": "Unexpected mutation of \"prop4\" prop.",
+     "line": 7,
+     "column": 29,
+     "endLine": 7,
+     "endColumn": 39
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop1\" prop.",
+     "line": 4,
+     "column": 29,
+     "endLine": 4,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop2\" prop.",
+     "line": 5,
+     "column": 29,
+     "endLine": 5,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop3\" prop.",
+     "line": 6,
+     "column": 29,
+     "endLine": 6,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop4\" prop.",
+     "line": 7,
+     "column": 29,
+     "endLine": 7,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid3"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            props: {\n              todo: {\n                type: Object,\n                required: true\n              },\n              items: {\n                type: Array,\n                default: []\n              }\n            },\n            methods: {\n              openModal() {\n                ++this.items\n                this.todo.type = 'completed'\n                this.items.push('something')\n                delete this.todo.type\n              }\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"items\" prop.",
+     "line": 16,
+     "column": 17,
+     "endLine": 16,
+     "endColumn": 29
+    },
+    {
+     "message": "Unexpected mutation of \"todo\" prop.",
+     "line": 17,
+     "column": 17,
+     "endLine": 17,
+     "endColumn": 45
+    },
+    {
+     "message": "Unexpected mutation of \"items\" prop.",
+     "line": 18,
+     "column": 17,
+     "endLine": 18,
+     "endColumn": 45
+    },
+    {
+     "message": "Unexpected mutation of \"todo\" prop.",
+     "line": 19,
+     "column": 17,
+     "endLine": 19,
+     "endColumn": 38
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"items\" prop.",
+     "line": 16,
+     "column": 17,
+     "endLine": 16,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"todo\" prop.",
+     "line": 17,
+     "column": 17,
+     "endLine": 17,
+     "endColumn": 45,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"items\" prop.",
+     "line": 18,
+     "column": 17,
+     "endLine": 18,
+     "endColumn": 45,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"todo\" prop.",
+     "line": 19,
+     "column": 17,
+     "endLine": 19,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid4"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            props: ['foo', 'bar', 'baz'],\n            methods: {\n              openModal() {\n                this?.foo?.push?.('something')\n                ;(this?.bar)?.push?.('something')\n                ;(this?.baz?.push)?.('something')\n              }\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"foo\" prop.",
+     "line": 7,
+     "column": 17,
+     "endLine": 7,
+     "endColumn": 47
+    },
+    {
+     "message": "Unexpected mutation of \"bar\" prop.",
+     "line": 8,
+     "column": 18,
+     "endLine": 8,
+     "endColumn": 50
+    },
+    {
+     "message": "Unexpected mutation of \"baz\" prop.",
+     "line": 9,
+     "column": 18,
+     "endLine": 9,
+     "endColumn": 50
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"foo\" prop.",
+     "line": 7,
+     "column": 17,
+     "endLine": 7,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"bar\" prop.",
+     "line": 8,
+     "column": 18,
+     "endLine": 8,
+     "endColumn": 50,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"baz\" prop.",
+     "line": 9,
+     "column": 18,
+     "endLine": 9,
+     "endColumn": 50,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid5"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <template v-for=\"(test, index) of data\">\n              <template v-for=\"(prop, index) of data\">\n                <input v-model=\"prop\">\n              </template>\n              <input v-model=\"prop\">\n            </template>\n          </div>\n        </template>\n        <script>\n          export default {\n            props: ['prop']\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"prop\" prop.",
+     "line": 8,
+     "column": 31,
+     "endLine": 8,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop\" prop.",
+     "line": 8,
+     "column": 31,
+     "endLine": 8,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid6"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <template v-for=\"prop of data\">\n              <input v-model=\"this.prop\">\n              <div v-text=\"prop.shift()\"></div>\n              <div v-text=\"this.prop.shift()\"></div>\n            </template>\n          </div>\n        </template>\n        <script>\n          export default {\n            props: ['prop']\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"prop\" prop.",
+     "line": 5,
+     "column": 31,
+     "endLine": 5,
+     "endColumn": 40
+    },
+    {
+     "message": "Unexpected mutation of \"prop\" prop.",
+     "line": 7,
+     "column": 28,
+     "endLine": 7,
+     "endColumn": 45
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop\" prop.",
+     "line": 5,
+     "column": 31,
+     "endLine": 5,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop\" prop.",
+     "line": 7,
+     "column": 28,
+     "endLine": 7,
+     "endColumn": 45,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid7"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <MyComponent :data.sync=\"this.prop\" />\n            <MyComponent :data.sync=\"prop\" />\n            <MyComponent :data=\"this.prop\" />\n            <MyComponent :data=\"prop\" />\n            <template v-for=\"prop of data\">\n              <MyComponent :data.sync=\"prop\" />\n              <MyComponent :data.sync=\"this.prop\" />\n            </template>\n          </div>\n        </template>\n        <script>\n          export default {\n            props: ['prop']\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"prop\" prop.",
+     "line": 4,
+     "column": 38,
+     "endLine": 4,
+     "endColumn": 47
+    },
+    {
+     "message": "Unexpected mutation of \"prop\" prop.",
+     "line": 5,
+     "column": 38,
+     "endLine": 5,
+     "endColumn": 42
+    },
+    {
+     "message": "Unexpected mutation of \"prop\" prop.",
+     "line": 10,
+     "column": 40,
+     "endLine": 10,
+     "endColumn": 49
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop\" prop.",
+     "line": 4,
+     "column": 38,
+     "endLine": 4,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop\" prop.",
+     "line": 5,
+     "column": 38,
+     "endLine": 5,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop\" prop.",
+     "line": 10,
+     "column": 40,
+     "endLine": 10,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid8"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <div v-if=\"prop1 = [1, 2]\"></div>\n            <div v-if=\"prop2++\"></div>\n            <div v-text=\"prop3.shift()\"></div>\n            <div v-text=\"prop4.slice(0).shift()\"></div>\n            <div v-if=\"this.prop5 = [1, 2] && this.someProp\"></div>\n            <div v-if=\"this.prop6++ && this.someProp < 10\"></div>\n            <div v-text=\"this.prop7.shift()\"></div>\n            <div v-text=\"this.prop8.slice(0).shift()\"></div>\n            <div v-if=\"delete prop9.a\"></div>\n            <div v-if=\"delete this.prop10\"></div>\n          </div>\n        </template>\n        <script>\n          export default {\n            props: ['prop1', 'prop2', 'prop3', 'prop4', 'prop5', 'prop6', 'prop7', 'prop8', 'prop9', 'prop10'],\n            method: {\n              deleteProp() {\n                delete this.prop9.a\n                delete this.prop10\n              }\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "shallowOnly": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"prop1\" prop.",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 38
+    },
+    {
+     "message": "Unexpected mutation of \"prop2\" prop.",
+     "line": 5,
+     "column": 24,
+     "endLine": 5,
+     "endColumn": 31
+    },
+    {
+     "message": "Unexpected mutation of \"prop5\" prop.",
+     "line": 8,
+     "column": 24,
+     "endLine": 8,
+     "endColumn": 60
+    },
+    {
+     "message": "Unexpected mutation of \"prop6\" prop.",
+     "line": 9,
+     "column": 24,
+     "endLine": 9,
+     "endColumn": 36
+    },
+    {
+     "message": "Unexpected mutation of \"prop10\" prop.",
+     "line": 13,
+     "column": 24,
+     "endLine": 13,
+     "endColumn": 42
+    },
+    {
+     "message": "Unexpected mutation of \"prop10\" prop.",
+     "line": 22,
+     "column": 17,
+     "endLine": 22,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop1\" prop.",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop2\" prop.",
+     "line": 5,
+     "column": 24,
+     "endLine": 5,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop5\" prop.",
+     "line": 8,
+     "column": 24,
+     "endLine": 8,
+     "endColumn": 60,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop6\" prop.",
+     "line": 9,
+     "column": 24,
+     "endLine": 9,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop10\" prop.",
+     "line": 13,
+     "column": 24,
+     "endLine": 13,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"prop10\" prop.",
+     "line": 22,
+     "column": 17,
+     "endLine": 22,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid9"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            setup(props) {\n              props.a ++\n              props.b = 1\n              props.c.push(1)\n              delete props.d\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 25
+    },
+    {
+     "message": "Unexpected mutation of \"b\" prop.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 26
+    },
+    {
+     "message": "Unexpected mutation of \"c\" prop.",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 30
+    },
+    {
+     "message": "Unexpected mutation of \"d\" prop.",
+     "line": 8,
+     "column": 15,
+     "endLine": 8,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"b\" prop.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"c\" prop.",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"d\" prop.",
+     "line": 8,
+     "column": 15,
+     "endLine": 8,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid10"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            setup({a,b,c, d: [e, , f]}) {\n              a.foo ++\n              b.foo = 1\n              c.push(1)\n\n              c.x.push(1)\n              delete c.y\n              e.foo++\n              f.foo++\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 23
+    },
+    {
+     "message": "Unexpected mutation of \"b\" prop.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 24
+    },
+    {
+     "message": "Unexpected mutation of \"c\" prop.",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 24
+    },
+    {
+     "message": "Unexpected mutation of \"c\" prop.",
+     "line": 9,
+     "column": 15,
+     "endLine": 9,
+     "endColumn": 26
+    },
+    {
+     "message": "Unexpected mutation of \"c\" prop.",
+     "line": 10,
+     "column": 15,
+     "endLine": 10,
+     "endColumn": 25
+    },
+    {
+     "message": "Unexpected mutation of \"d\" prop.",
+     "line": 11,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 22
+    },
+    {
+     "message": "Unexpected mutation of \"d\" prop.",
+     "line": 12,
+     "column": 15,
+     "endLine": 12,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"b\" prop.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"c\" prop.",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"c\" prop.",
+     "line": 9,
+     "column": 15,
+     "endLine": 9,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"c\" prop.",
+     "line": 10,
+     "column": 15,
+     "endLine": 10,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"d\" prop.",
+     "line": 11,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"d\" prop.",
+     "line": 12,
+     "column": 15,
+     "endLine": 12,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid11"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            setup({a: foo, b: [...bar], c: baz = 1}) {\n              foo.x ++\n              delete foo.y\n              bar.x = 1\n              baz.push(1)\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 23
+    },
+    {
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 27
+    },
+    {
+     "message": "Unexpected mutation of \"b\" prop.",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 24
+    },
+    {
+     "message": "Unexpected mutation of \"c\" prop.",
+     "line": 8,
+     "column": 15,
+     "endLine": 8,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"b\" prop.",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"c\" prop.",
+     "line": 8,
+     "column": 15,
+     "endLine": 8,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid12"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            setup({...props}) {\n              props.a ++\n              props.b = 1\n              props.c.push(1)\n              delete props.d\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 25
+    },
+    {
+     "message": "Unexpected mutation of \"b\" prop.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 26
+    },
+    {
+     "message": "Unexpected mutation of \"c\" prop.",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 30
+    },
+    {
+     "message": "Unexpected mutation of \"d\" prop.",
+     "line": 8,
+     "column": 15,
+     "endLine": 8,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"b\" prop.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"c\" prop.",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"d\" prop.",
+     "line": 8,
+     "column": 15,
+     "endLine": 8,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid13"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            setup(props) {\n              props[a] ++\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"[a]\" prop.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"[a]\" prop.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid14"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            setup({[a]: c}) {\n              c.foo ++\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"[a]\" prop.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"[a]\" prop.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid15"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n        <script setup>\n          const props = defineProps()\n        </script>\n\n        <template>\n          <input v-model=\"props[foo]\" >\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"[foo]\" prop.",
+     "line": 7,
+     "column": 27,
+     "endLine": 7,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"[foo]\" prop.",
+     "line": 7,
+     "column": 27,
+     "endLine": 7,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid16"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n        <template>\n          <input v-model=\"value\">\n          <input v-model=\"props.value\">\n        </template>\n        <script setup>\n        const props = defineProps({\n          value: String,\n        })\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"value\" prop.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 32
+    },
+    {
+     "message": "Unexpected mutation of \"value\" prop.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 38
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"value\" prop.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"value\" prop.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid17"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n        <script setup>\n        const props = defineProps({\n          value: String,\n        })\n        props.value++\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"value\" prop.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"value\" prop.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid18"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "\n        <script setup>\n        const {value} = defineProps({\n          value: Object,\n        })\n        value.value++\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"value\" prop.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"value\" prop.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid19"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "\n        <script setup lang=\"ts\">\n        const props = withDefaults(defineProps<Props>(), {\n          msg: 'hello'\n        })\n        props.value++\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"value\" prop.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"value\" prop.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid20"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            setup(props) {\n              props.a ++\n              props.b = 1\n              props.c.push(1)\n              delete props.d\n\n              function foo() {\n                props.a ++\n              }\n            }\n          }\n        </script>\n\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "shallowOnly": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 25
+    },
+    {
+     "message": "Unexpected mutation of \"b\" prop.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 26
+    },
+    {
+     "message": "Unexpected mutation of \"d\" prop.",
+     "line": 8,
+     "column": 15,
+     "endLine": 8,
+     "endColumn": 29
+    },
+    {
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 11,
+     "column": 17,
+     "endLine": 11,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"b\" prop.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"d\" prop.",
+     "line": 8,
+     "column": 15,
+     "endLine": 8,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 11,
+     "column": 17,
+     "endLine": 11,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid21"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "\n        <template>\n          <input v-model=\"foo\">\n          <input v-model=\"bar\">\n          <input v-model=\"window\">\n          <input v-model=\"Infinity\">\n        </template>\n        <script setup>\n        import { ref } from 'vue'\n        const { Infinity, obj } = defineProps({\n          foo: String,\n          bar: String,\n          Infinity: String,\n          window: String,\n          obj: Object\n        })\n        const foo = ref('')\n        obj.id = 2\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"bar\" prop.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 30
+    },
+    {
+     "message": "Unexpected mutation of \"window\" prop.",
+     "line": 5,
+     "column": 27,
+     "endLine": 5,
+     "endColumn": 33
+    },
+    {
+     "message": "Unexpected mutation of \"Infinity\" prop.",
+     "line": 6,
+     "column": 27,
+     "endLine": 6,
+     "endColumn": 35
+    },
+    {
+     "message": "Unexpected mutation of \"obj\" prop.",
+     "line": 18,
+     "column": 9,
+     "endLine": 18,
+     "endColumn": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"bar\" prop.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"window\" prop.",
+     "line": 5,
+     "column": 27,
+     "endLine": 5,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"Infinity\" prop.",
+     "line": 6,
+     "column": 27,
+     "endLine": 6,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"obj\" prop.",
+     "line": 18,
+     "column": 9,
+     "endLine": 18,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid22"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "\n        <template>\n          <button @click=\"props.a ++\"/>\n          <button @click=\"a ++\"/>\n          <button @click=\"props.b.push(1)\"/>\n          <button @click=\"b.push(1)\"/>\n          <input v-model=\"props.a\"/>\n          <input v-model=\"props.a.b\"/>\n        </template>\n        <script setup>\n          const props = defineProps({\n            a: Number,\n            b: Array,\n          })\n          props.a ++\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "shallowOnly": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 37
+    },
+    {
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 31
+    },
+    {
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 7,
+     "column": 27,
+     "endLine": 7,
+     "endColumn": 34
+    },
+    {
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 15,
+     "column": 11,
+     "endLine": 15,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 7,
+     "column": 27,
+     "endLine": 7,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"a\" prop.",
+     "line": 15,
+     "column": 11,
+     "endLine": 15,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid23"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            props: ['data'],\n            methods: {\n              update() {\n                return Object.assign(this.data, { extra: 'value' })\n              }\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mutation of \"data\" prop.",
+     "line": 7,
+     "column": 24,
+     "endLine": 7,
+     "endColumn": 68
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedMutation",
+     "message": "Unexpected mutation of \"data\" prop.",
+     "line": 7,
+     "column": 24,
+     "endLine": 7,
+     "endColumn": 68,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#invalid24"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <div v-if=\"foo\"></div>\n            <div v-if=\"prop1 = [1, 2]\"></div>\n            <div v-if=\"prop2++\"></div>\n            <div v-text=\"prop3.shift()\"></div>\n            <div v-text=\"prop4.slice(0).shift()\"></div>\n            <div v-if=\"this.prop5 = [1, 2] && this.someProp\"></div>\n            <div v-if=\"this.prop6++ && this.someProp < 10\"></div>\n            <div v-text=\"this.prop7.shift()\"></div>\n            <div v-text=\"this.prop8.slice(0).shift()\"></div>\n          </div>\n        </template>\n        <script>\n          export default {\n            props: ['foo']\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid0"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <input v-model=\"prop1.text\">\n            <input v-model=\"prop2\">\n            <input v-model=\"this.prop3.text\">\n            <input v-model=\"this.prop4\">\n            <input :value=\"prop5.text\" @input=\"$emit('input', $event.target.value)\">\n            <div v-for=\"prop5 of data\">\n              <input v-model=\"prop5\">\n            </div>\n            <div v-for=\"(prop6, index) of data\">\n              <input v-model=\"prop6\">\n            </div>\n            <template v-for=\"(test, index) of data\">\n              <template v-for=\"(prop6, index) of data\">\n                <input v-model=\"prop6\">\n                <div v-text=\"prop6.shift()\"></div>\n              </template>\n            </template>\n          </div>\n        </template>\n        <script>\n          export default {\n            props: ['prop5', 'prop6', 'prop7', 'prop8']\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid1"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <input v-model=\"prop1.text\">\n            <input v-model=\"prop2\">\n            <input v-model=\"this.prop3.text\">\n            <input v-model=\"this.prop4\">\n          </div>\n        </template>\n        <script>\n          export default {\n            props: ['prop5', 'prop6', 'prop7', 'prop8']\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid2"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <input v-for=\"i in prop.slice()\">\n            <input v-for=\"i in prop.foo.slice()\">\n          </div>\n        </template>\n        <script>\n          export default {\n            props: ['prop']\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid3"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            props: {\n              todo: {\n                type: Object,\n                required: true\n              },\n              items: {\n                type: Array,\n                default: []\n              }\n            },\n            methods: {\n              openModal() {\n                this.$emit('someEvent', this.todo)\n                const a = this.items.slice(0).push('something') // no mutation because of `slice(0)`\n              }\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid4"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <template>\n          <div v-if=\"prop\">\n            <div v-for=\"prop in data\">\n              <MyComp @click=\"prop.foo++\"></MyComp>\n              <input v-model=\"prop\">\n            </div>\n            <input v-model=\"prop()\">\n            <input v-model=\"foo\">\n            <input @click=\"prop().foo++\">\n            <input v-model=\"foo[this]\">\n            <input v-model=\"foo[this.prop]\">\n            <input v-model=\"this\">\n            <MyComp @click=\"bar = {prop: foo++}\"></MyComp>\n          </div>\n        </template>\n        <script>\n          export default {\n            props: ['prop'],\n            methods: {\n              onKeydown() {\n                const vm = this\n                foo.prop = 1\n                vm()()()\n                vm.prop()()\n                prop++\n                prop = 1\n                const bar = {prop: foo}\n                prop[this] ++\n              }\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid5"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <button @click=\"foo++\"></button>\n            <button @click=\"foo+=1\"></button>\n            <button @click=\"foo.push($event)\"></button>\n            <input v-model=\"foo\">\n            <input v-model=\"this.foo\">\n          </div>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid6"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <input v-model=\"prop1.text\">\n            <input v-model=\"this.prop2.text\">\n            <button @click=\"prop3.text = '1'\"></button>\n            <button @click=\"prop3.count++\"></button>\n            <button @click=\"prop3.list.push(1)\"></button>\n            <button @click=\"prop3.parent.text = '2'\"></button>\n            <button @click=\"delete prop3.parent.text\"></button>\n          </div>\n        </template>\n        <script>\n          export default {\n            props: ['prop1', 'prop2', 'prop3'],\n            methods: {\n                onKeydown() {\n                  this.prop3.text = '2'\n                  this.prop3.count ++\n                  this.prop3.list.push(1)\n                  this.prop3.parent.text = '2'\n                  delete this.prop3.parent.text\n                }\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "shallowOnly": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid7"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            setup(props) {\n              props ++\n              props = 1\n              props.push(1)\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid8"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            setup({a}) {\n              a ++\n              a = 1\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid9"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            setup({...props}) {\n              props ++\n              props = 1\n              props.push(1)\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid10"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            ssss(props) {\n              props.a ++\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid11"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            setup(props) {\n              const a = props.a\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid12"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            setup() {\n              props.a++\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid13"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            setup(...props) {\n              props.a++\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid14"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            setup([props]) {\n              props.a++\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid15"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n        <script>\n        // not <script setup>\n        const {value} = defineProps({\n          value: Object,\n        })\n        value.value++\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid16"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n        <script>\n        // not <script setup>\n        const {value} = defineProps({\n          value: Object,\n        })\n        value.value++\n        </script>\n        <script setup>\n        value.value++\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid17"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          props: ['prop'],\n          setup(props) {\n            props.prop.sortAscending()\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid18"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            setup(props) {\n                props.prop1.text = '2'\n                props.prop1.count ++\n                props.prop1.list.push(1)\n                props.prop1.parent.text = '2'\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "shallowOnly": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid19"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            setup({a,b,c, d: [e, , f]}) {\n              a.foo ++\n              b.foo = 1\n              c.push(1)\n\n              c.x.push(1)\n              delete c.y\n              e.foo++\n              f.foo++\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "shallowOnly": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid20"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "\n        <template>\n          <input v-model=\"foo\">\n          <input v-model=\"bar\">\n          <input v-model=\"Infinity\">\n        </template>\n        <script setup>\n        import { ref } from 'vue'\n        import { bar } from './my-script'\n        defineProps({\n          foo: String,\n          bar: String,\n          Infinity: Number\n        })\n        const foo = ref('')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid21"
+ },
+ {
+  "rule": "no-mutating-props",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            props: ['data'],\n            methods: {\n              update() {\n                return Object.assign({}, this.data, { extra: 'value' })\n              }\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-mutating-props#valid22"
+ }
+]

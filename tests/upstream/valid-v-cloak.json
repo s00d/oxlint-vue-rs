@@ -1,0 +1,364 @@
+[
+ {
+  "rule": "valid-v-cloak",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div v-cloak:aaa></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-cloak' directives require no argument.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedArgument",
+     "message": "'v-cloak' directives require no argument.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-cloak#invalid0"
+ },
+ {
+  "rule": "valid-v-cloak",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-cloak.aaa></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-cloak' directives require no modifier.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedModifier",
+     "message": "'v-cloak' directives require no modifier.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-cloak#invalid1"
+ },
+ {
+  "rule": "valid-v-cloak",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div v-cloak=\"aaa\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-cloak' directives require no attribute value.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedValue",
+     "message": "'v-cloak' directives require no attribute value.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-cloak#invalid2"
+ },
+ {
+  "rule": "valid-v-cloak",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div v-cloak=\".\"></div></template>",
+  "filename": "parsing-error.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-cloak' directives require no attribute value.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedValue",
+     "message": "'v-cloak' directives require no attribute value.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-cloak#invalid3"
+ },
+ {
+  "rule": "valid-v-cloak",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div v-cloak=\"/**/\" /></template>",
+  "filename": "comment-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-cloak' directives require no attribute value.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedValue",
+     "message": "'v-cloak' directives require no attribute value.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-cloak#invalid4"
+ },
+ {
+  "rule": "valid-v-cloak",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div v-cloak=\"\" /></template>",
+  "filename": "empty-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-cloak' directives require no attribute value.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedValue",
+     "message": "'v-cloak' directives require no attribute value.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-cloak#invalid5"
+ },
+ {
+  "rule": "valid-v-cloak",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-cloak#valid0"
+ },
+ {
+  "rule": "valid-v-cloak",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-cloak></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-cloak#valid1"
+ }
+]

@@ -1,0 +1,728 @@
+[
+ {
+  "rule": "no-restricted-class",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div class=\"forbidden allowed\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "forbidden"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 41
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenClass",
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-class#invalid0"
+ },
+ {
+  "rule": "no-restricted-class",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :class=\"'forbidden' + ' ' + 'allowed' + someVar\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "forbidden"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenClass",
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-class#invalid1"
+ },
+ {
+  "rule": "no-restricted-class",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :class=\"{'forbidden': someBool, someVar: true}\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "forbidden"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 36
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenClass",
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-class#invalid2"
+ },
+ {
+  "rule": "no-restricted-class",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :class=\"{forbidden: someBool}\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "forbidden"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenClass",
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-class#invalid3"
+ },
+ {
+  "rule": "no-restricted-class",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :class=\"`forbidden ${someVar}`\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "forbidden"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenClass",
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-class#invalid4"
+ },
+ {
+  "rule": "no-restricted-class",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div :class=\"'forbidden'\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "forbidden"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenClass",
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-class#invalid5"
+ },
+ {
+  "rule": "no-restricted-class",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div :class=\"['forbidden', 'allowed']\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "forbidden"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 36
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenClass",
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-class#invalid6"
+ },
+ {
+  "rule": "no-restricted-class",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div :class=\"['allowed forbidden', someString]\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "forbidden"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 44
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenClass",
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-class#invalid7"
+ },
+ {
+  "rule": "no-restricted-class",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div class=\"forbidden allowed\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "/^for(bidden|gotten)/"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 41
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenClass",
+     "message": "'forbidden' class is not allowed.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-class#invalid8"
+ },
+ {
+  "rule": "no-restricted-class",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div class=\"allowed\">Content</div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-class#valid0"
+ },
+ {
+  "rule": "no-restricted-class",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div class>Content</div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-class#valid1"
+ },
+ {
+  "rule": "no-restricted-class",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :class>Content</div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-class#valid2"
+ },
+ {
+  "rule": "no-restricted-class",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div class=\"allowed\"\">Content</div></template>",
+  "filename": "test.js",
+  "options": [
+   "forbidden"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-class#valid3"
+ },
+ {
+  "rule": "no-restricted-class",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :class=\"'allowed' + forbidden\">Content</div></template>",
+  "filename": "test.js",
+  "options": [
+   "forbidden"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-class#valid4"
+ },
+ {
+  "rule": "no-restricted-class",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div @class=\"forbidden\">Content</div></template>",
+  "filename": "test.js",
+  "options": [
+   "forbidden"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-class#valid5"
+ },
+ {
+  "rule": "no-restricted-class",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div :class=\"'' + {forbidden: true}\">Content</div></template>",
+  "filename": "test.js",
+  "options": [
+   "forbidden"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-class#valid6"
+ },
+ {
+  "rule": "no-restricted-class",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div class=\"allowed\">Content</div></template>",
+  "filename": "test.js",
+  "options": [
+   "/^for(bidden|gotten)/"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-class#valid7"
+ }
+]

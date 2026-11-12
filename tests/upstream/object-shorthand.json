@@ -1,0 +1,182 @@
+[
+ {
+  "rule": "object-shorthand",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"{height: height}\"></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected property shorthand.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 37
+    }
+   ],
+   "output": "\n      <template>\n        <div :style=\"{height}\"></div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedPropertyShorthand",
+     "message": "Expected property shorthand.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 37,
+     "fix": {
+      "range": [
+       40,
+       54
+      ],
+      "text": "height"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div :style=\"{height}\"></div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-shorthand#invalid0"
+ },
+ {
+  "rule": "object-shorthand",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"{height}\"></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected longform property syntax.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 29
+    }
+   ],
+   "output": "\n      <template>\n        <div :style=\"{height: height}\"></div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedPropertyLongform",
+     "message": "Expected longform property syntax.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       46,
+       46
+      ],
+      "text": ": height"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div :style=\"{height: height}\"></div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-shorthand#invalid1"
+ },
+ {
+  "rule": "object-shorthand",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"{height}\"></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-shorthand#valid0"
+ },
+ {
+  "rule": "object-shorthand",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"{height: height}\"></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-shorthand#valid1"
+ }
+]

@@ -1,0 +1,20 @@
+{
+  "name": "oxlint-vue-rs",
+  "version": "0.1.0",
+  "description": "All eslint-plugin-vue rules oxlint lacks (template + script), native Rust core; oxlint JS plugin + CLI",
+  "type": "module",
+  "license": "MIT",
+  "main": "./index.js",
+  "bin": { "oxlint-vue-rs": "bin/oxlint-vue-rs.js" },
+  "exports": {
+    ".": "./index.js",
+    "./configs/*.json": "./configs/*.json",
+    "./configs/*": "./configs/*.json",
+    "./package.json": "./package.json"
+  },
+  "files": ["index.js", "rules.json", "configs", "bin", "README.md", "LICENSE"],
+  "engines": { "node": ">=18" },
+  "peerDependencies": { "oxlint": ">=1.0.0" },
+  "peerDependenciesMeta": { "oxlint": { "optional": true } },
+  "keywords": ["oxlint", "oxc", "vue", "eslint-plugin-vue", "linter", "sfc", "template"]
+}

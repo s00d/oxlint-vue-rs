@@ -1,0 +1,826 @@
+[
+ {
+  "rule": "valid-v-else",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><template v-else><div></div></template></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-else' directives require being preceded by the element which has a 'v-if' or 'v-else-if' directive.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingVIf",
+     "message": "'v-else' directives require being preceded by the element which has a 'v-if' or 'v-else-if' directive.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#invalid0"
+ },
+ {
+  "rule": "valid-v-else",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-else></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-else' directives require being preceded by the element which has a 'v-if' or 'v-else-if' directive.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingVIf",
+     "message": "'v-else' directives require being preceded by the element which has a 'v-if' or 'v-else-if' directive.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#invalid1"
+ },
+ {
+  "rule": "valid-v-else",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div><div v-else></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-else' directives require being preceded by the element which has a 'v-if' or 'v-else-if' directive.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingVIf",
+     "message": "'v-else' directives require being preceded by the element which has a 'v-if' or 'v-else-if' directive.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#invalid2"
+ },
+ {
+  "rule": "valid-v-else",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div><div></div><div v-else></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-else' directives require being preceded by the element which has a 'v-if' or 'v-else-if' directive.",
+     "line": 1,
+     "column": 32,
+     "endLine": 1,
+     "endColumn": 38
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingVIf",
+     "message": "'v-else' directives require being preceded by the element which has a 'v-if' or 'v-else-if' directive.",
+     "line": 1,
+     "column": 32,
+     "endLine": 1,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#invalid3"
+ },
+ {
+  "rule": "valid-v-else",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div><div if=\"foo\"></div><div v-else></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-else' directives require being preceded by the element which has a 'v-if' or 'v-else-if' directive.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 47
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingVIf",
+     "message": "'v-else' directives require being preceded by the element which has a 'v-if' or 'v-else-if' directive.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#invalid4"
+ },
+ {
+  "rule": "valid-v-else",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div><div v-if=\"foo\"></div><div></div><div v-else></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-else' directives require being preceded by the element which has a 'v-if' or 'v-else-if' directive.",
+     "line": 1,
+     "column": 54,
+     "endLine": 1,
+     "endColumn": 60
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingVIf",
+     "message": "'v-else' directives require being preceded by the element which has a 'v-if' or 'v-else-if' directive.",
+     "line": 1,
+     "column": 54,
+     "endLine": 1,
+     "endColumn": 60,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#invalid5"
+ },
+ {
+  "rule": "valid-v-else",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div><div v-if=\"foo\"></div><div v-else v-if=\"bar\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-else' and 'v-if' directives can't exist on the same element. You may want 'v-else-if' directives.",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 49
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "withVIf",
+     "message": "'v-else' and 'v-if' directives can't exist on the same element. You may want 'v-else-if' directives.",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#invalid6"
+ },
+ {
+  "rule": "valid-v-else",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div><div v-if=\"foo\"></div><div v-else v-else-if=\"foo\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-else' and 'v-else-if' directives can't exist on the same element.",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 49
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "withVElseIf",
+     "message": "'v-else' and 'v-else-if' directives can't exist on the same element.",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#invalid7"
+ },
+ {
+  "rule": "valid-v-else",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div><div v-if=\"foo\"></div><div v-else:aaa></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-else' directives require no argument.",
+     "line": 1,
+     "column": 50,
+     "endLine": 1,
+     "endColumn": 53
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedArgument",
+     "message": "'v-else' directives require no argument.",
+     "line": 1,
+     "column": 50,
+     "endLine": 1,
+     "endColumn": 53,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#invalid8"
+ },
+ {
+  "rule": "valid-v-else",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div><div v-if=\"foo\"></div><div v-else.aaa></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-else' directives require no modifier.",
+     "line": 1,
+     "column": 50,
+     "endLine": 1,
+     "endColumn": 53
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedModifier",
+     "message": "'v-else' directives require no modifier.",
+     "line": 1,
+     "column": 50,
+     "endLine": 1,
+     "endColumn": 53,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#invalid9"
+ },
+ {
+  "rule": "valid-v-else",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div><div v-if=\"foo\"></div><div v-else=\"foo\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-else' directives require no attribute value.",
+     "line": 1,
+     "column": 50,
+     "endLine": 1,
+     "endColumn": 55
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedValue",
+     "message": "'v-else' directives require no attribute value.",
+     "line": 1,
+     "column": 50,
+     "endLine": 1,
+     "endColumn": 55,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#invalid10"
+ },
+ {
+  "rule": "valid-v-else",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div v-if=\"foo\"></div><div v-else=\".\"></div></template>",
+  "filename": "parsing-error.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-else' directives require no attribute value.",
+     "line": 1,
+     "column": 45,
+     "endLine": 1,
+     "endColumn": 48
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedValue",
+     "message": "'v-else' directives require no attribute value.",
+     "line": 1,
+     "column": 45,
+     "endLine": 1,
+     "endColumn": 48,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#invalid11"
+ },
+ {
+  "rule": "valid-v-else",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div v-if=\"foo\"></div><div v-else=\"/**/\"></div></template>",
+  "filename": "comment-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-else' directives require no attribute value.",
+     "line": 1,
+     "column": 45,
+     "endLine": 1,
+     "endColumn": 51
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedValue",
+     "message": "'v-else' directives require no attribute value.",
+     "line": 1,
+     "column": 45,
+     "endLine": 1,
+     "endColumn": 51,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#invalid12"
+ },
+ {
+  "rule": "valid-v-else",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div v-if=\"foo\"></div><div v-else=\"\"></div></template>",
+  "filename": "empty-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-else' directives require no attribute value.",
+     "line": 1,
+     "column": 45,
+     "endLine": 1,
+     "endColumn": 47
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedValue",
+     "message": "'v-else' directives require no attribute value.",
+     "line": 1,
+     "column": 45,
+     "endLine": 1,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#invalid13"
+ },
+ {
+  "rule": "valid-v-else",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#valid0"
+ },
+ {
+  "rule": "valid-v-else",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div><div v-if=\"foo\"></div><div v-else></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#valid1"
+ },
+ {
+  "rule": "valid-v-else",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div><div v-if=\"foo\"></div><div v-else-if=\"foo\"></div><div v-else></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#valid2"
+ },
+ {
+  "rule": "valid-v-else",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template>\n    <c1 v-if=\"1\" />\n    <c2 v-else-if=\"1\" />\n    <c3 v-else />\n</template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-else#valid3"
+ }
+]

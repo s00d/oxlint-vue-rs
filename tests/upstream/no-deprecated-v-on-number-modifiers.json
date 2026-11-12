@@ -1,0 +1,1564 @@
+[
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><input v-on:keyup.34='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 31
+    }
+   ],
+   "output": "<template><input v-on:keyup.page-down='onArrowUp'></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       28,
+       30
+      ],
+      "text": "page-down"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><input v-on:keyup.page-down='onArrowUp'></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid0"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><input v-on:keyup.34.native='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 31
+    }
+   ],
+   "output": "<template><input v-on:keyup.page-down.native='onArrowUp'></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       28,
+       30
+      ],
+      "text": "page-down"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><input v-on:keyup.page-down.native='onArrowUp'></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid1"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><input v-on:keyup.unknown.34='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 37,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ],
+   "output": "<template><input v-on:keyup.unknown.page-down='onArrowUp'></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 37,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       36,
+       38
+      ],
+      "text": "page-down"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><input v-on:keyup.unknown.page-down='onArrowUp'></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid2"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><input v-on:[dynamicArg].34='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 38
+    }
+   ],
+   "output": "<template><input v-on:[dynamicArg].page-down='onArrowUp'></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       35,
+       37
+      ],
+      "text": "page-down"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><input v-on:[dynamicArg].page-down='onArrowUp'></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid3"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><input v-on:[dynamicArg].unknown.34='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 44,
+     "endLine": 1,
+     "endColumn": 46
+    }
+   ],
+   "output": "<template><input v-on:[dynamicArg].unknown.page-down='onArrowUp'></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 44,
+     "endLine": 1,
+     "endColumn": 46,
+     "fix": {
+      "range": [
+       43,
+       45
+      ],
+      "text": "page-down"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><input v-on:[dynamicArg].unknown.page-down='onArrowUp'></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid4"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><input v-on:[dynamicArg].34.unknown='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 38
+    }
+   ],
+   "output": "<template><input v-on:[dynamicArg].page-down.unknown='onArrowUp'></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       35,
+       37
+      ],
+      "text": "page-down"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><input v-on:[dynamicArg].page-down.unknown='onArrowUp'></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid5"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><input @keyup.34='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 27
+    }
+   ],
+   "output": "<template><input @keyup.page-down='onArrowUp'></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       24,
+       26
+      ],
+      "text": "page-down"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><input @keyup.page-down='onArrowUp'></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid6"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><input @keyup.34.native='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 27
+    }
+   ],
+   "output": "<template><input @keyup.page-down.native='onArrowUp'></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       24,
+       26
+      ],
+      "text": "page-down"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><input @keyup.page-down.native='onArrowUp'></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid7"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><input @keyup.unknown.34='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ],
+   "output": "<template><input @keyup.unknown.page-down='onArrowUp'></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       32,
+       34
+      ],
+      "text": "page-down"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><input @keyup.unknown.page-down='onArrowUp'></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid8"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><input @[dynamicArg].34='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 32,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><input @[dynamicArg].page-down='onArrowUp'></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 32,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       31,
+       33
+      ],
+      "text": "page-down"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><input @[dynamicArg].page-down='onArrowUp'></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid9"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><input @[dynamicArg].unknown.34='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 42
+    }
+   ],
+   "output": "<template><input @[dynamicArg].unknown.page-down='onArrowUp'></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 42,
+     "fix": {
+      "range": [
+       39,
+       41
+      ],
+      "text": "page-down"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><input @[dynamicArg].unknown.page-down='onArrowUp'></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid10"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><input @[dynamicArg].34.unknown='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 32,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><input @[dynamicArg].page-down.unknown='onArrowUp'></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 32,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       31,
+       33
+      ],
+      "text": "page-down"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><input @[dynamicArg].page-down.unknown='onArrowUp'></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid11"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><input @keyup.10='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 27
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid12"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><input @keyup.10.native='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 27
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid13"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><input @keyup.unknown.10='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid14"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><input @[dynamicArg].unknown.10='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 42
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid15"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <template>\n        <input @keydown.48='onKeydown'>\n        <input @keydown.57='onKeydown'>\n        <input @keydown.91='onKeydown'>\n        <input @keydown.92='onKeydown'>\n        <input @keydown.93='onKeydown'>\n        <input @keydown.96='onKeydown'>\n        <input @keydown.111='onKeydown'>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 27
+    },
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 27
+    },
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 27
+    },
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 27
+    },
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 7,
+     "column": 25,
+     "endLine": 7,
+     "endColumn": 27
+    },
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 8,
+     "column": 25,
+     "endLine": 8,
+     "endColumn": 27
+    },
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 9,
+     "column": 25,
+     "endLine": 9,
+     "endColumn": 28
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 7,
+     "column": 25,
+     "endLine": 7,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 8,
+     "column": 25,
+     "endLine": 8,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 9,
+     "column": 25,
+     "endLine": 9,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid16"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <template>\n        <input @keydown.19='onKeydown'>\n        <input @keydown.37='onKeydown'>\n        <input @keydown.38='onKeydown'>\n        <input @keydown.39='onKeydown'>\n        <input @keydown.40='onKeydown'>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 27
+    },
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 27
+    },
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 27
+    },
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 27
+    },
+    {
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 7,
+     "column": 25,
+     "endLine": 7,
+     "endColumn": 27
+    }
+   ],
+   "output": "\n      <template>\n        <input @keydown.pause='onKeydown'>\n        <input @keydown.arrow-left='onKeydown'>\n        <input @keydown.arrow-up='onKeydown'>\n        <input @keydown.arrow-right='onKeydown'>\n        <input @keydown.arrow-down='onKeydown'>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       42,
+       44
+      ],
+      "text": "pause"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       82,
+       84
+      ],
+      "text": "arrow-left"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       122,
+       124
+      ],
+      "text": "arrow-up"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       162,
+       164
+      ],
+      "text": "arrow-right"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "numberModifierIsDeprecated",
+     "message": "'KeyboardEvent.keyCode' modifier on 'v-on' directive is deprecated. Using 'KeyboardEvent.key' instead.",
+     "line": 7,
+     "column": 25,
+     "endLine": 7,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       202,
+       204
+      ],
+      "text": "arrow-down"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <input @keydown.pause='onKeydown'>\n        <input @keydown.arrow-left='onKeydown'>\n        <input @keydown.arrow-up='onKeydown'>\n        <input @keydown.arrow-right='onKeydown'>\n        <input @keydown.arrow-down='onKeydown'>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#invalid17"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><input v-on:keyup.page-down='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#valid0"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><input @keyup.page-down='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#valid1"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><input v-on:keyup.9='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#valid2"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><input @keyup.9='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#valid3"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><input v-on:keyup.0='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#valid4"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><input @keyup.0='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#valid5"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><input v-on:keyup.4='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#valid6"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><input @keyup.4='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#valid7"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><input v-on:keyup.page-down.native='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#valid8"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><input @keyup.page-down.native='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#valid9"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><input v-on:keyup.0.native='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#valid10"
+ },
+ {
+  "rule": "no-deprecated-v-on-number-modifiers",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><input @keyup.0.native='onArrowUp'></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-on-number-modifiers#valid11"
+ }
+]

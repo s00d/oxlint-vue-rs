@@ -1,0 +1,653 @@
+[
+ {
+  "rule": "require-name-property",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        export default {\n        }\n      ",
+  "filename": "InvalidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Required name property is not set.",
+     "line": 2,
+     "column": 24,
+     "endLine": 3,
+     "endColumn": 10,
+     "suggestions": [
+      {
+       "desc": "Add name property to component.",
+       "output": "\n        export default {\n          name: 'InvalidComponent'\n        }\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingName",
+     "message": "Required name property is not set.",
+     "line": 2,
+     "column": 24,
+     "endLine": 3,
+     "endColumn": 10,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addName",
+       "desc": "Add name property to component.",
+       "output": "\n        export default {\n          name: 'InvalidComponent'\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-name-property#invalid0"
+ },
+ {
+  "rule": "require-name-property",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        export default defineComponent({\n        })\n      ",
+  "filename": "InvalidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Required name property is not set.",
+     "line": 2,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 10,
+     "suggestions": [
+      {
+       "desc": "Add name property to component.",
+       "output": "\n        export default defineComponent({\n          name: 'InvalidComponent'\n        })\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingName",
+     "message": "Required name property is not set.",
+     "line": 2,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 10,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addName",
+       "desc": "Add name property to component.",
+       "output": "\n        export default defineComponent({\n          name: 'InvalidComponent'\n        })\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-name-property#invalid1"
+ },
+ {
+  "rule": "require-name-property",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        export default defineComponent({ })\n      ",
+  "filename": "InvalidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Required name property is not set.",
+     "line": 2,
+     "column": 40,
+     "endLine": 2,
+     "endColumn": 43,
+     "suggestions": [
+      {
+       "desc": "Add name property to component.",
+       "output": "\n        export default defineComponent({\n          name: 'InvalidComponent'\n        })\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingName",
+     "message": "Required name property is not set.",
+     "line": 2,
+     "column": 40,
+     "endLine": 2,
+     "endColumn": 43,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addName",
+       "desc": "Add name property to component.",
+       "output": "\n        export default defineComponent({\n          name: 'InvalidComponent'\n        })\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-name-property#invalid2"
+ },
+ {
+  "rule": "require-name-property",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        export default { }\n      ",
+  "filename": "InvalidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Required name property is not set.",
+     "line": 2,
+     "column": 24,
+     "endLine": 2,
+     "endColumn": 27,
+     "suggestions": [
+      {
+       "desc": "Add name property to component.",
+       "output": "\n        export default {\n          name: 'InvalidComponent'\n        }\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingName",
+     "message": "Required name property is not set.",
+     "line": 2,
+     "column": 24,
+     "endLine": 2,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addName",
+       "desc": "Add name property to component.",
+       "output": "\n        export default {\n          name: 'InvalidComponent'\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-name-property#invalid3"
+ },
+ {
+  "rule": "require-name-property",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        export default {\n        nameNot: 'IssaNameNot'\n        }\n      ",
+  "filename": "InvalidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Required name property is not set.",
+     "line": 2,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 10,
+     "suggestions": [
+      {
+       "desc": "Add name property to component.",
+       "output": "\n        export default {\n        name: 'InvalidComponent',\n        nameNot: 'IssaNameNot'\n        }\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingName",
+     "message": "Required name property is not set.",
+     "line": 2,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 10,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addName",
+       "desc": "Add name property to component.",
+       "output": "\n        export default {\n        name: 'InvalidComponent',\n        nameNot: 'IssaNameNot'\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-name-property#invalid4"
+ },
+ {
+  "rule": "require-name-property",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        export default defineComponent({\n          nameNot: 'IssaNameNot'\n        })\n      ",
+  "filename": "InvalidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Required name property is not set.",
+     "line": 2,
+     "column": 40,
+     "endLine": 4,
+     "endColumn": 10,
+     "suggestions": [
+      {
+       "desc": "Add name property to component.",
+       "output": "\n        export default defineComponent({\n          name: 'InvalidComponent',\n          nameNot: 'IssaNameNot'\n        })\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingName",
+     "message": "Required name property is not set.",
+     "line": 2,
+     "column": 40,
+     "endLine": 4,
+     "endColumn": 10,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addName",
+       "desc": "Add name property to component.",
+       "output": "\n        export default defineComponent({\n          name: 'InvalidComponent',\n          nameNot: 'IssaNameNot'\n        })\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-name-property#invalid5"
+ },
+ {
+  "rule": "require-name-property",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        export default {\n          computed: {\n            name() { return 'name' }\n          }\n        }\n      ",
+  "filename": "InvalidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Required name property is not set.",
+     "line": 2,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 10,
+     "suggestions": [
+      {
+       "desc": "Add name property to component.",
+       "output": "\n        export default {\n          name: 'InvalidComponent',\n          computed: {\n            name() { return 'name' }\n          }\n        }\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingName",
+     "message": "Required name property is not set.",
+     "line": 2,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 10,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addName",
+       "desc": "Add name property to component.",
+       "output": "\n        export default {\n          name: 'InvalidComponent',\n          computed: {\n            name() { return 'name' }\n          }\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-name-property#invalid6"
+ },
+ {
+  "rule": "require-name-property",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        export default {\n          [name]: 'IssaName'\n        }\n      ",
+  "filename": "InvalidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Required name property is not set.",
+     "line": 2,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 10,
+     "suggestions": [
+      {
+       "desc": "Add name property to component.",
+       "output": "\n        export default {\n          name: 'InvalidComponent',\n          [name]: 'IssaName'\n        }\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingName",
+     "message": "Required name property is not set.",
+     "line": 2,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 10,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addName",
+       "desc": "Add name property to component.",
+       "output": "\n        export default {\n          name: 'InvalidComponent',\n          [name]: 'IssaName'\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-name-property#invalid7"
+ },
+ {
+  "rule": "require-name-property",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        export default {\n          name: 'IssaName'\n        }\n      ",
+  "filename": "ValidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-name-property#valid0"
+ },
+ {
+  "rule": "require-name-property",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        export default {\n          name: undefined\n        }\n      ",
+  "filename": "ValidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-name-property#valid1"
+ },
+ {
+  "rule": "require-name-property",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        export default {\n          name: ''\n        }\n      ",
+  "filename": "ValidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-name-property#valid2"
+ },
+ {
+  "rule": "require-name-property",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        Vue.mixin({\n          methods: {\n            $foo () {}\n          }\n        })\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-name-property#valid3"
+ },
+ {
+  "rule": "require-name-property",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n      }\n      </script>\n      <script setup>\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-name-property#valid4"
+ }
+]

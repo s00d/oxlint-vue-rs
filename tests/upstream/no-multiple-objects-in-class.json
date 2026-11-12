@@ -1,0 +1,245 @@
+[
+ {
+  "rule": "no-multiple-objects-in-class",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div v-bind:class=\"[{'foo': isFoo}, {'bar': isBar}]\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected multiple objects. Merge objects.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 63
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected multiple objects. Merge objects.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 63,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multiple-objects-in-class#invalid0"
+ },
+ {
+  "rule": "no-multiple-objects-in-class",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :class=\"[{'foo': isFoo}, {'bar': isBar}]\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected multiple objects. Merge objects.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 57
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected multiple objects. Merge objects.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 57,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multiple-objects-in-class#invalid1"
+ },
+ {
+  "rule": "no-multiple-objects-in-class",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div v-bind:class=\"[,{'foo': isFoo}, {'bar': isBar}]\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected multiple objects. Merge objects.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 64
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected multiple objects. Merge objects.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 64,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multiple-objects-in-class#invalid2"
+ },
+ {
+  "rule": "no-multiple-objects-in-class",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :class=\"[{'foo': isFoo}]\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multiple-objects-in-class#valid0"
+ },
+ {
+  "rule": "no-multiple-objects-in-class",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :class=\"[{'foo': isFoo, 'bar': isBar}]\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multiple-objects-in-class#valid1"
+ },
+ {
+  "rule": "no-multiple-objects-in-class",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div v-foo:class=\"[{'foo': isFoo}, {'bar': isBar}]\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multiple-objects-in-class#valid2"
+ }
+]

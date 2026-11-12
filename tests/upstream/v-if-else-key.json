@@ -1,0 +1,1010 @@
+[
+ {
+  "rule": "v-if-else-key",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <OuterComponent v-if=\"showOuterComponent\">\n              <InnerComponent v-if=\"showInnerComponent1\" />\n              <InnerComponent v-else />\n            </OuterComponent>\n            <OuterComponent v-else>\n              <InnerComponent :key=\"key1\" />\n              <InnerComponent :key=\"key2\" />\n            </OuterComponent>\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            OuterComponent,\n            InnerComponent\n          }\n        }\n        </script>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Conditionally rendered repeated component 'OuterComponent' expected to have a 'key' attribute.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 55
+    },
+    {
+     "message": "Conditionally rendered repeated component 'InnerComponent' expected to have a 'key' attribute.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 60
+    },
+    {
+     "message": "Conditionally rendered repeated component 'InnerComponent' expected to have a 'key' attribute.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 40
+    },
+    {
+     "message": "Conditionally rendered repeated component 'OuterComponent' expected to have a 'key' attribute.",
+     "line": 8,
+     "column": 13,
+     "endLine": 8,
+     "endColumn": 36
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n            <OuterComponent key=\"outer-component-1\" v-if=\"showOuterComponent\">\n              <InnerComponent key=\"inner-component-1\" v-if=\"showInnerComponent1\" />\n              <InnerComponent key=\"inner-component-2\" v-else />\n            </OuterComponent>\n            <OuterComponent key=\"outer-component-2\" v-else>\n              <InnerComponent :key=\"key1\" />\n              <InnerComponent :key=\"key2\" />\n            </OuterComponent>\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            OuterComponent,\n            InnerComponent\n          }\n        }\n        </script>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'OuterComponent' expected to have a 'key' attribute.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 55,
+     "fix": {
+      "range": [
+       63,
+       63
+      ],
+      "text": " key=\"outer-component-1\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'InnerComponent' expected to have a 'key' attribute.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 60,
+     "fix": {
+      "range": [
+       120,
+       120
+      ],
+      "text": " key=\"inner-component-1\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'InnerComponent' expected to have a 'key' attribute.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       180,
+       180
+      ],
+      "text": " key=\"inner-component-2\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'OuterComponent' expected to have a 'key' attribute.",
+     "line": 8,
+     "column": 13,
+     "endLine": 8,
+     "endColumn": 36,
+     "fix": {
+      "range": [
+       248,
+       248
+      ],
+      "text": " key=\"outer-component-2\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n            <OuterComponent key=\"outer-component-1\" v-if=\"showOuterComponent\">\n              <InnerComponent key=\"inner-component-1\" v-if=\"showInnerComponent1\" />\n              <InnerComponent key=\"inner-component-2\" v-else />\n            </OuterComponent>\n            <OuterComponent key=\"outer-component-2\" v-else>\n              <InnerComponent :key=\"key1\" />\n              <InnerComponent :key=\"key2\" />\n            </OuterComponent>\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            OuterComponent,\n            InnerComponent\n          }\n        }\n        </script>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-if-else-key#invalid0"
+ },
+ {
+  "rule": "v-if-else-key",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <OuterComponent v-if=\"showOuterComponent\">\n              <InnerComponent v-if=\"showInnerComponent1\">\n                <DifferentScopeComponent />\n              </InnerComponent>\n              <InnerComponent v-else />\n            </OuterComponent>\n            <OuterComponent v-else>\n              <InnerComponent />\n              <InnerComponent />\n            </OuterComponent>\n            <DifferentScopeComponent />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            OuterComponent,\n            InnerComponent\n          }\n        }\n        </script>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Conditionally rendered repeated component 'OuterComponent' expected to have a 'key' attribute.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 55
+    },
+    {
+     "message": "Conditionally rendered repeated component 'InnerComponent' expected to have a 'key' attribute.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 58
+    },
+    {
+     "message": "Conditionally rendered repeated component 'InnerComponent' expected to have a 'key' attribute.",
+     "line": 8,
+     "column": 15,
+     "endLine": 8,
+     "endColumn": 40
+    },
+    {
+     "message": "Conditionally rendered repeated component 'OuterComponent' expected to have a 'key' attribute.",
+     "line": 10,
+     "column": 13,
+     "endLine": 10,
+     "endColumn": 36
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n            <OuterComponent key=\"outer-component-1\" v-if=\"showOuterComponent\">\n              <InnerComponent key=\"inner-component-1\" v-if=\"showInnerComponent1\">\n                <DifferentScopeComponent />\n              </InnerComponent>\n              <InnerComponent key=\"inner-component-2\" v-else />\n            </OuterComponent>\n            <OuterComponent key=\"outer-component-2\" v-else>\n              <InnerComponent />\n              <InnerComponent />\n            </OuterComponent>\n            <DifferentScopeComponent />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            OuterComponent,\n            InnerComponent\n          }\n        }\n        </script>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'OuterComponent' expected to have a 'key' attribute.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 55,
+     "fix": {
+      "range": [
+       63,
+       63
+      ],
+      "text": " key=\"outer-component-1\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'InnerComponent' expected to have a 'key' attribute.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 58,
+     "fix": {
+      "range": [
+       120,
+       120
+      ],
+      "text": " key=\"inner-component-1\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'InnerComponent' expected to have a 'key' attribute.",
+     "line": 8,
+     "column": 15,
+     "endLine": 8,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       254,
+       254
+      ],
+      "text": " key=\"inner-component-2\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'OuterComponent' expected to have a 'key' attribute.",
+     "line": 10,
+     "column": 13,
+     "endLine": 10,
+     "endColumn": 36,
+     "fix": {
+      "range": [
+       322,
+       322
+      ],
+      "text": " key=\"outer-component-2\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n            <OuterComponent key=\"outer-component-1\" v-if=\"showOuterComponent\">\n              <InnerComponent key=\"inner-component-1\" v-if=\"showInnerComponent1\">\n                <DifferentScopeComponent />\n              </InnerComponent>\n              <InnerComponent key=\"inner-component-2\" v-else />\n            </OuterComponent>\n            <OuterComponent key=\"outer-component-2\" v-else>\n              <InnerComponent />\n              <InnerComponent />\n            </OuterComponent>\n            <DifferentScopeComponent />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            OuterComponent,\n            InnerComponent\n          }\n        }\n        </script>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-if-else-key#invalid1"
+ },
+ {
+  "rule": "v-if-else-key",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <OuterComponent v-if=\"showOuterComponent\">\n              <InnerComponent v-if=\"showInnerComponent1\" />\n              <InnerComponent v-else />\n            </OuterComponent>\n            <InnerComponent v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            OuterComponent,\n            InnerComponent\n          }\n        }\n        </script>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Conditionally rendered repeated component 'InnerComponent' expected to have a 'key' attribute.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 60
+    },
+    {
+     "message": "Conditionally rendered repeated component 'InnerComponent' expected to have a 'key' attribute.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 40
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n            <OuterComponent v-if=\"showOuterComponent\">\n              <InnerComponent key=\"inner-component-1\" v-if=\"showInnerComponent1\" />\n              <InnerComponent key=\"inner-component-2\" v-else />\n            </OuterComponent>\n            <InnerComponent v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            OuterComponent,\n            InnerComponent\n          }\n        }\n        </script>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'InnerComponent' expected to have a 'key' attribute.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 60,
+     "fix": {
+      "range": [
+       120,
+       120
+      ],
+      "text": " key=\"inner-component-1\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'InnerComponent' expected to have a 'key' attribute.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       180,
+       180
+      ],
+      "text": " key=\"inner-component-2\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n            <OuterComponent v-if=\"showOuterComponent\">\n              <InnerComponent key=\"inner-component-1\" v-if=\"showInnerComponent1\" />\n              <InnerComponent key=\"inner-component-2\" v-else />\n            </OuterComponent>\n            <InnerComponent v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            OuterComponent,\n            InnerComponent\n          }\n        }\n        </script>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-if-else-key#invalid2"
+ },
+ {
+  "rule": "v-if-else-key",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <ComponentA v-if=\"foo\" />\n            <ComponentA v-else-if=\"bar\" />\n            <ComponentB v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            ComponentA,\n            ComponentB\n          }\n        }\n        </script>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 38
+    },
+    {
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 43
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n            <ComponentA key=\"component-a-1\" v-if=\"foo\" />\n            <ComponentA key=\"component-a-2\" v-else-if=\"bar\" />\n            <ComponentB v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            ComponentA,\n            ComponentB\n          }\n        }\n        </script>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       59,
+       59
+      ],
+      "text": " key=\"component-a-1\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 43,
+     "fix": {
+      "range": [
+       97,
+       97
+      ],
+      "text": " key=\"component-a-2\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n            <ComponentA key=\"component-a-1\" v-if=\"foo\" />\n            <ComponentA key=\"component-a-2\" v-else-if=\"bar\" />\n            <ComponentB v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            ComponentA,\n            ComponentB\n          }\n        }\n        </script>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-if-else-key#invalid3"
+ },
+ {
+  "rule": "v-if-else-key",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <ComponentA v-if=\"foo\" />\n            <ComponentB v-else-if=\"bar\" />\n            <ComponentA v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            ComponentA,\n            ComponentB\n          }\n        }\n        </script>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 38
+    },
+    {
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 6,
+     "column": 13,
+     "endLine": 6,
+     "endColumn": 34
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n            <ComponentA key=\"component-a-1\" v-if=\"foo\" />\n            <ComponentB v-else-if=\"bar\" />\n            <ComponentA key=\"component-a-2\" v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            ComponentA,\n            ComponentB\n          }\n        }\n        </script>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       59,
+       59
+      ],
+      "text": " key=\"component-a-1\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 6,
+     "column": 13,
+     "endLine": 6,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       140,
+       140
+      ],
+      "text": " key=\"component-a-2\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n            <ComponentA key=\"component-a-1\" v-if=\"foo\" />\n            <ComponentB v-else-if=\"bar\" />\n            <ComponentA key=\"component-a-2\" v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            ComponentA,\n            ComponentB\n          }\n        }\n        </script>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-if-else-key#invalid4"
+ },
+ {
+  "rule": "v-if-else-key",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <ComponentA v-if=\"foo\" />\n            <ComponentA v-else />\n\n            <ComponentA v-if=\"bar\" />\n            <ComponentA v-else-if=\"baz\" />\n            <ComponentA v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            ComponentA\n          }\n        }\n        </script>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 38
+    },
+    {
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 34
+    },
+    {
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 7,
+     "column": 13,
+     "endLine": 7,
+     "endColumn": 38
+    },
+    {
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 8,
+     "column": 13,
+     "endLine": 8,
+     "endColumn": 43
+    },
+    {
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 9,
+     "column": 13,
+     "endLine": 9,
+     "endColumn": 34
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n            <ComponentA key=\"component-a-1\" v-if=\"foo\" />\n            <ComponentA key=\"component-a-2\" v-else />\n\n            <ComponentA key=\"component-a-3\" v-if=\"bar\" />\n            <ComponentA key=\"component-a-4\" v-else-if=\"baz\" />\n            <ComponentA key=\"component-a-5\" v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            ComponentA\n          }\n        }\n        </script>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       59,
+       59
+      ],
+      "text": " key=\"component-a-1\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       97,
+       97
+      ],
+      "text": " key=\"component-a-2\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 7,
+     "column": 13,
+     "endLine": 7,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       132,
+       132
+      ],
+      "text": " key=\"component-a-3\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 8,
+     "column": 13,
+     "endLine": 8,
+     "endColumn": 43,
+     "fix": {
+      "range": [
+       170,
+       170
+      ],
+      "text": " key=\"component-a-4\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 9,
+     "column": 13,
+     "endLine": 9,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       213,
+       213
+      ],
+      "text": " key=\"component-a-5\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n            <ComponentA key=\"component-a-1\" v-if=\"foo\" />\n            <ComponentA key=\"component-a-2\" v-else />\n\n            <ComponentA key=\"component-a-3\" v-if=\"bar\" />\n            <ComponentA key=\"component-a-4\" v-else-if=\"baz\" />\n            <ComponentA key=\"component-a-5\" v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            ComponentA\n          }\n        }\n        </script>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-if-else-key#invalid5"
+ },
+ {
+  "rule": "v-if-else-key",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <ComponentA v-if=\"foo\" :key=\"id\" />\n            <ComponentA v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            ComponentA\n          }\n        }\n        </script>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 34
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n            <ComponentA v-if=\"foo\" :key=\"id\" />\n            <ComponentA key=\"component-a-2\" v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            ComponentA\n          }\n        }\n        </script>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireKey",
+     "message": "Conditionally rendered repeated component 'ComponentA' expected to have a 'key' attribute.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       107,
+       107
+      ],
+      "text": " key=\"component-a-2\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n            <ComponentA v-if=\"foo\" :key=\"id\" />\n            <ComponentA key=\"component-a-2\" v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            ComponentA\n          }\n        }\n        </script>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-if-else-key#invalid6"
+ },
+ {
+  "rule": "v-if-else-key",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <CustomComponent v-if=\"some-condition\" key=\"key1\" />\n            <CustomComponent v-else key=\"key2\" />\n          </div>\n        </template>\n        <script>\n        export default {\n            components: {\n                CustomComponent\n            }\n        }\n        </script>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-if-else-key#valid0"
+ },
+ {
+  "rule": "v-if-else-key",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n    <div>\n      <CustomComponent v-if=\"some-condition\" />\n      <CustomComponent />\n    </div>\n        </template>\n        <script>\n        export default {\n            components: {\n                CustomComponent\n            }\n        }\n        </script>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-if-else-key#valid1"
+ },
+ {
+  "rule": "v-if-else-key",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <div v-if=\"some-condition\" >\n              <CustomComponent />\n            </div>\n            <CustomComponent v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n            components: {\n                CustomComponent\n            }\n        }\n        </script>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-if-else-key#valid2"
+ },
+ {
+  "rule": "v-if-else-key",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <slot v-if=\"some-condition\" />\n            <slot v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n            components: {\n                CustomComponent\n            }\n        }\n        </script>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-if-else-key#valid3"
+ },
+ {
+  "rule": "v-if-else-key",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <div v-if=\"someCondition\" />\n            <div v-else-if=\"otherCondition\" />\n            <div v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n            components: {\n                CustomComponent\n            }\n        }\n        </script>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-if-else-key#valid4"
+ },
+ {
+  "rule": "v-if-else-key",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <div v-if=\"foo\" />\n            <span v-else />\n          </div>\n        </template>\n        <script>\n        export default {\n            components: {\n                CustomComponent\n            }\n        }\n        </script>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-if-else-key#valid5"
+ },
+ {
+  "rule": "v-if-else-key",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <div>\n              <ComponentA v-if=\"foo\" /> \n              <ComponentB v-else-if=\"bar\" /> \n            </div>\n            <div>\n              <div>\n                <ComponentA v-if=\"foo\" />\n                <ComponentB v-else-if=\"baz\" /> \n              </div>\n              <div>\n                <ComponentA v-if=\"foo\" />\n                <ComponentB v-else-if=\"baz\" />\n              </div>\n            </div>\n            <div>\n              <ComponentA v-if=\"foo\" />\n              <ComponentB v-else /> \n            </div>\n            <div>\n              <div v-if=\"foo\" />\n              <ComponentB v-else />\n            </div>\n          </div>\n        </template>\n        <script>\n        export default {\n          components: {\n            ComponentA,\n            ComponentB\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-if-else-key#valid6"
+ },
+ {
+  "rule": "v-if-else-key",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <div>\n              <CustomComponent v-if=\"foo\" />\n              <div v-else />\n            </div>\n      \n            <CustomComponent v-if=\"bar\" />\n          </div>\n        </template>\n        <script>\n        export default {\n            components: {\n                CustomComponent\n            }\n        }\n        </script>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-if-else-key#valid7"
+ },
+ {
+  "rule": "v-if-else-key",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        <template>\n          <tile>\n            <template v-if=\"state === 'foo'\">\n                <ComponentA>…</ComponentA>\n                <ComponentB>…</ComponentB>\n            </template>\n            <ComponentA v-else-if=\"state === 'bar'\" key=\"a\">…</ComponentA>\n            <ComponentA v-else-if=\"state === 'bar'\" key=\"b\">…</ComponentA>\n          </tile>\n        </template>\n        <script>\n        export default {\n            components: {\n                ComponentA,\n                ComponentB\n            }\n        }\n        </script>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-if-else-key#valid8"
+ },
+ {
+  "rule": "v-if-else-key",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <CustomComponent v-if=\"some-condition\" :key=\"key1\" />\n            <CustomComponent v-else-if=\"other-condition\" v-bind:key=\"key2\" />\n            <CustomComponent v-else key=\"key3\" />\n          </div>\n        </template>\n        <script>\n        export default {\n            components: {\n                CustomComponent\n            }\n        }\n        </script>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-if-else-key#valid9"
+ }
+]

@@ -1,0 +1,403 @@
+[
+ {
+  "rule": "template-curly-spacing",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div :class=\"[`foo-${ bar }`]\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected space(s) after '${'.",
+     "line": 3,
+     "column": 30,
+     "endLine": 3,
+     "endColumn": 31
+    },
+    {
+     "message": "Unexpected space(s) before '}'.",
+     "line": 3,
+     "column": 34,
+     "endLine": 3,
+     "endColumn": 35
+    }
+   ],
+   "output": "\n      <template>\n        <div :class=\"[`foo-${bar}`]\" />\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfter",
+     "message": "Unexpected space(s) after '${'.",
+     "line": 3,
+     "column": 30,
+     "endLine": 3,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       47,
+       48
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBefore",
+     "message": "Unexpected space(s) before '}'.",
+     "line": 3,
+     "column": 34,
+     "endLine": 3,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       51,
+       52
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div :class=\"[`foo-${bar}`]\" />\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "template-curly-spacing#invalid0"
+ },
+ {
+  "rule": "template-curly-spacing",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div :class=\"[`foo-${bar}`]\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected space(s) after '${'.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 30
+    },
+    {
+     "message": "Expected space(s) before '}'.",
+     "line": 3,
+     "column": 33,
+     "endLine": 3,
+     "endColumn": 34
+    }
+   ],
+   "output": "\n      <template>\n        <div :class=\"[`foo-${ bar }`]\" />\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedAfter",
+     "message": "Expected space(s) after '${'.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       47,
+       47
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBefore",
+     "message": "Expected space(s) before '}'.",
+     "line": 3,
+     "column": 33,
+     "endLine": 3,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       50,
+       50
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div :class=\"[`foo-${ bar }`]\" />\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "template-curly-spacing#invalid1"
+ },
+ {
+  "rule": "template-curly-spacing",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <style>\n      .text {\n        padding: v-bind(`${ a }px`)\n      }\n      </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected space(s) after '${'.",
+     "line": 4,
+     "column": 28,
+     "endLine": 4,
+     "endColumn": 29
+    },
+    {
+     "message": "Unexpected space(s) before '}'.",
+     "line": 4,
+     "column": 30,
+     "endLine": 4,
+     "endColumn": 31
+    }
+   ],
+   "output": "\n      <style>\n      .text {\n        padding: v-bind(`${a}px`)\n      }\n      </style>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfter",
+     "message": "Unexpected space(s) after '${'.",
+     "line": 4,
+     "column": 28,
+     "endLine": 4,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       56,
+       57
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBefore",
+     "message": "Unexpected space(s) before '}'.",
+     "line": 4,
+     "column": 30,
+     "endLine": 4,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       58,
+       59
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <style>\n      .text {\n        padding: v-bind(`${a}px`)\n      }\n      </style>",
+   "other": null,
+   "crash": null
+  },
+  "id": "template-curly-spacing#invalid2"
+ },
+ {
+  "rule": "template-curly-spacing",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n    <template>\n      <div :class=\"[`foo-${bar}`]\" />\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "template-curly-spacing#valid0"
+ },
+ {
+  "rule": "template-curly-spacing",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n    <template>\n      <div :[`foo${bar}`]=\"value\" />\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "template-curly-spacing#valid1"
+ },
+ {
+  "rule": "template-curly-spacing",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div :class=\"[`foo-${ bar }`]\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "template-curly-spacing#valid2"
+ },
+ {
+  "rule": "template-curly-spacing",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <div :[`foo${bar}`]=\"value\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "template-curly-spacing#valid3"
+ },
+ {
+  "rule": "template-curly-spacing",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <style>\n      .text {\n        padding: v-bind(`${a}px`)\n      }\n      </style>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "template-curly-spacing#valid4"
+ }
+]

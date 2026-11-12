@@ -1,0 +1,488 @@
+[
+ {
+  "rule": "html-end-tags",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div><div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'<div>' should have end tag.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 16
+    }
+   ],
+   "output": "<template><div><div></div></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingEndTag",
+     "message": "'<div>' should have end tag.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       26,
+       26
+      ],
+      "text": "</div>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><div></div></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-end-tags#invalid0"
+ },
+ {
+  "rule": "html-end-tags",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div><p></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'<p>' should have end tag.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 19
+    }
+   ],
+   "output": "<template><div><p></p></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingEndTag",
+     "message": "'<p>' should have end tag.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       18,
+       18
+      ],
+      "text": "</p>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><p></p></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-end-tags#invalid1"
+ },
+ {
+  "rule": "html-end-tags",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-end-tags#valid0"
+ },
+ {
+  "rule": "html-end-tags",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div><div></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-end-tags#valid1"
+ },
+ {
+  "rule": "html-end-tags",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div><p></p></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-end-tags#valid2"
+ },
+ {
+  "rule": "html-end-tags",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div><br></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-end-tags#valid3"
+ },
+ {
+  "rule": "html-end-tags",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div><input></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-end-tags#valid4"
+ },
+ {
+  "rule": "html-end-tags",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div><img></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-end-tags#valid5"
+ },
+ {
+  "rule": "html-end-tags",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div><self-closing-custom-element/></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-end-tags#valid6"
+ },
+ {
+  "rule": "html-end-tags",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div><div/></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-end-tags#valid7"
+ },
+ {
+  "rule": "html-end-tags",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div a=\"b>test</div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-end-tags#valid8"
+ },
+ {
+  "rule": "html-end-tags",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div><!--</div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-end-tags#valid9"
+ },
+ {
+  "rule": "html-end-tags",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div><svg><![CDATA[test</svg></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-end-tags#valid10"
+ },
+ {
+  "rule": "html-end-tags",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <p>\n            <Address\n              value=\"\"\n              onchange=\"await setTokenAddress(event.target.value)\"/>\n          </p>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-end-tags#valid11"
+ }
+]

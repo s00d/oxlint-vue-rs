@@ -1,0 +1,954 @@
+[
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <RouterLink tag=\"div\" to=\"/\">Home</RouterLink>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'tag' property on 'RouterLink' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "'tag' property on 'RouterLink' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#invalid0"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <router-link tag=\"div\" to=\"/\">Home</router-link>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'tag' property on 'router-link' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "'tag' property on 'router-link' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#invalid1"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <RouterLink tag=\"div\" to=\"/\">Home</RouterLink>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "components": [
+     "RouterLink"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'tag' property on 'RouterLink' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "'tag' property on 'RouterLink' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#invalid2"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <RouterLink tag=\"div\" to=\"/\">Home</RouterLink>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "components": [
+     "router-link"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'tag' property on 'RouterLink' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "'tag' property on 'RouterLink' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#invalid3"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <router-link tag=\"div\" to=\"/\">Home</router-link>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "components": [
+     "RouterLink"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'tag' property on 'router-link' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "'tag' property on 'router-link' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#invalid4"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <RouterLink :tag=\"someVariable\" to=\"/\">Home</RouterLink>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'tag' property on 'RouterLink' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "'tag' property on 'RouterLink' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#invalid5"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <router-link :tag=\"someVariable\" to=\"/\">Home</router-link>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'tag' property on 'router-link' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "'tag' property on 'router-link' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#invalid6"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <RouterLink :tag=\"someVariable\" to=\"/\">Home</RouterLink>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "components": [
+     "RouterLink"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'tag' property on 'RouterLink' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "'tag' property on 'RouterLink' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#invalid7"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <router-link :tag=\"someVariable\" to=\"/\">Home</router-link>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "components": [
+     "RouterLink"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'tag' property on 'router-link' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "'tag' property on 'router-link' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#invalid8"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <NuxtLink tag=\"div\" to=\"/\">Home</NuxtLink>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "components": [
+     "NuxtLink"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'tag' property on 'NuxtLink' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 19,
+     "endLine": 3,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "'tag' property on 'NuxtLink' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 19,
+     "endLine": 3,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#invalid9"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <nuxt-link tag=\"div\" to=\"/\">Home</nuxt-link>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "components": [
+     "NuxtLink"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'tag' property on 'nuxt-link' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "'tag' property on 'nuxt-link' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#invalid10"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <NuxtLink :tag=\"someVariable\" to=\"/\">Home</NuxtLink>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "components": [
+     "NuxtLink"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'tag' property on 'NuxtLink' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "'tag' property on 'NuxtLink' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#invalid11"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template>\n        <nuxt-link :tag=\"someVariable\" to=\"/\">Home</nuxt-link>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "components": [
+     "NuxtLink"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'tag' property on 'nuxt-link' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "'tag' property on 'nuxt-link' component is deprecated. Use scoped slots instead.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#invalid12"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <RouterLink to=\"/\">Home</RouterLink>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#valid0"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <router-link to=\"/\">Home</router-link>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#valid1"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <RouterLink to=\"/\">\n          <div>Home</div>\n        </RouterLink>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#valid2"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <router-link to=\"/\">\n          <div>Home</div>\n        </router-link>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#valid3"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <NuxtLink to=\"/\">Home</NuxtLink>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#valid4"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <nuxt-link to=\"/\">Home</nuxt-link>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#valid5"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <NuxtLink to=\"/\">\n          <div>Home</div>\n        </NuxtLink>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#valid6"
+ },
+ {
+  "rule": "no-deprecated-router-link-tag-prop",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <nuxt-link to=\"/\">\n          <div>Home</div>\n        </nuxt-link>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-router-link-tag-prop#valid7"
+ }
+]

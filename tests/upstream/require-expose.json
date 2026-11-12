@@ -1,0 +1,680 @@
+[
+ {
+  "rule": "require-expose",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          methods: {\n            foo() {},\n            bar() {},\n          }\n        }\n      </script>\n      ",
+  "filename": "ValidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The public properties of the component must be explicitly declared using `expose`. If the component does not have public properties, declare it empty.",
+     "line": 3,
+     "column": 24,
+     "endLine": 8,
+     "endColumn": 10,
+     "suggestions": [
+      {
+       "desc": "Add the `expose` option to give an empty array.",
+       "output": "\n      <script>\n        export default {\nexpose: [],\n          methods: {\n            foo() {},\n            bar() {},\n          }\n        }\n      </script>\n      "
+      },
+      {
+       "desc": "Add the `expose` option to declare all properties.",
+       "output": "\n      <script>\n        export default {\nexpose: [\"foo\", \"bar\"],\n          methods: {\n            foo() {},\n            bar() {},\n          }\n        }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExpose",
+     "message": "The public properties of the component must be explicitly declared using `expose`. If the component does not have public properties, declare it empty.",
+     "line": 3,
+     "column": 24,
+     "endLine": 8,
+     "endColumn": 10,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addExposeOptionForEmpty",
+       "desc": "Add the `expose` option to give an empty array.",
+       "output": "\n      <script>\n        export default {\nexpose: [],\n          methods: {\n            foo() {},\n            bar() {},\n          }\n        }\n      </script>\n      "
+      },
+      {
+       "messageId": "addExposeOptionForAll",
+       "desc": "Add the `expose` option to declare all properties.",
+       "output": "\n      <script>\n        export default {\nexpose: [\"foo\", \"bar\"],\n          methods: {\n            foo() {},\n            bar() {},\n          }\n        }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-expose#invalid0"
+ },
+ {
+  "rule": "require-expose",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          setup(_, ctx) {\n            return {\n              foo() {},\n              bar() {}\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "ValidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The public properties of the component must be explicitly declared using `expose`. If the component does not have public properties, declare it empty.",
+     "line": 3,
+     "column": 24,
+     "endLine": 10,
+     "endColumn": 10,
+     "suggestions": [
+      {
+       "desc": "Add the `expose` option to give an empty array.",
+       "output": "\n      <script>\n        export default {\nexpose: [],\n          setup(_, ctx) {\n            return {\n              foo() {},\n              bar() {}\n            }\n          }\n        }\n      </script>\n      "
+      },
+      {
+       "desc": "Add the `expose` option to declare all properties.",
+       "output": "\n      <script>\n        export default {\nexpose: [\"foo\", \"bar\"],\n          setup(_, ctx) {\n            return {\n              foo() {},\n              bar() {}\n            }\n          }\n        }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExpose",
+     "message": "The public properties of the component must be explicitly declared using `expose`. If the component does not have public properties, declare it empty.",
+     "line": 3,
+     "column": 24,
+     "endLine": 10,
+     "endColumn": 10,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addExposeOptionForEmpty",
+       "desc": "Add the `expose` option to give an empty array.",
+       "output": "\n      <script>\n        export default {\nexpose: [],\n          setup(_, ctx) {\n            return {\n              foo() {},\n              bar() {}\n            }\n          }\n        }\n      </script>\n      "
+      },
+      {
+       "messageId": "addExposeOptionForAll",
+       "desc": "Add the `expose` option to declare all properties.",
+       "output": "\n      <script>\n        export default {\nexpose: [\"foo\", \"bar\"],\n          setup(_, ctx) {\n            return {\n              foo() {},\n              bar() {}\n            }\n          }\n        }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-expose#invalid1"
+ },
+ {
+  "rule": "require-expose",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          props: ['x'],\n          methods: {\n            foo() {},\n            bar() {},\n          }\n        }\n      </script>\n      ",
+  "filename": "ValidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "requireExpose",
+     "line": 3,
+     "column": 24,
+     "endLine": 9,
+     "endColumn": 10,
+     "suggestions": [
+      {
+       "desc": "Add the `expose` option to give an empty array.",
+       "output": "\n      <script>\n        export default {\n          props: ['x'],\nexpose: [],\n          methods: {\n            foo() {},\n            bar() {},\n          }\n        }\n      </script>\n      "
+      },
+      {
+       "desc": "Add the `expose` option to declare all properties.",
+       "output": "\n      <script>\n        export default {\n          props: ['x'],\nexpose: [\"x\", \"foo\", \"bar\"],\n          methods: {\n            foo() {},\n            bar() {},\n          }\n        }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExpose",
+     "message": "The public properties of the component must be explicitly declared using `expose`. If the component does not have public properties, declare it empty.",
+     "line": 3,
+     "column": 24,
+     "endLine": 9,
+     "endColumn": 10,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addExposeOptionForEmpty",
+       "desc": "Add the `expose` option to give an empty array.",
+       "output": "\n      <script>\n        export default {\n          props: ['x'],\nexpose: [],\n          methods: {\n            foo() {},\n            bar() {},\n          }\n        }\n      </script>\n      "
+      },
+      {
+       "messageId": "addExposeOptionForAll",
+       "desc": "Add the `expose` option to declare all properties.",
+       "output": "\n      <script>\n        export default {\n          props: ['x'],\nexpose: [\"x\", \"foo\", \"bar\"],\n          methods: {\n            foo() {},\n            bar() {},\n          }\n        }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-expose#invalid2"
+ },
+ {
+  "rule": "require-expose",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n        }\n      </script>\n      ",
+  "filename": "ValidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "requireExpose",
+     "line": 3,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 10,
+     "suggestions": [
+      {
+       "desc": "Add the `expose` option to give an empty array.",
+       "output": "\n      <script>\n        export default {\nexpose: []\n        }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExpose",
+     "message": "The public properties of the component must be explicitly declared using `expose`. If the component does not have public properties, declare it empty.",
+     "line": 3,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 10,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addExposeOptionForEmpty",
+       "desc": "Add the `expose` option to give an empty array.",
+       "output": "\n      <script>\n        export default {\nexpose: []\n        }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-expose#invalid3"
+ },
+ {
+  "rule": "require-expose",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n        export default {}\n      </script>\n      ",
+  "filename": "ValidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "requireExpose",
+     "line": 3,
+     "column": 24,
+     "endLine": 3,
+     "endColumn": 26,
+     "suggestions": [
+      {
+       "desc": "Add the `expose` option to give an empty array.",
+       "output": "\n      <script>\n        export default {\nexpose: []\n}\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExpose",
+     "message": "The public properties of the component must be explicitly declared using `expose`. If the component does not have public properties, declare it empty.",
+     "line": 3,
+     "column": 24,
+     "endLine": 3,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addExposeOptionForEmpty",
+       "desc": "Add the `expose` option to give an empty array.",
+       "output": "\n      <script>\n        export default {\nexpose: []\n}\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-expose#invalid4"
+ },
+ {
+  "rule": "require-expose",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          expose: ['foo'],\n          methods: {\n            foo() {},\n            bar() {},\n          }\n        }\n      </script>\n      ",
+  "filename": "ValidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-expose#valid0"
+ },
+ {
+  "rule": "require-expose",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          expose: [],\n          methods: {\n            foo() {},\n            bar() {},\n          }\n        }\n      </script>\n      ",
+  "filename": "ValidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-expose#valid1"
+ },
+ {
+  "rule": "require-expose",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          setup(_, {expose}) {\n            expose({\n              foo() {}\n            })\n            return {\n              bar() {}\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "ValidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-expose#valid2"
+ },
+ {
+  "rule": "require-expose",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          setup(_, {expose}) {\n            expose()\n            return {\n              foo() {},\n              bar() {}\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "ValidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-expose#valid3"
+ },
+ {
+  "rule": "require-expose",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          setup(_, ctx) {\n            ctx.expose({\n              foo() {}\n            })\n            return {\n              bar() {}\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "ValidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-expose#valid4"
+ },
+ {
+  "rule": "require-expose",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      Vue.mixin({\n        methods: {\n          foo () {}\n        }\n      })\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-expose#valid5"
+ },
+ {
+  "rule": "require-expose",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n      }\n      </script>\n      <script setup>\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-expose#valid6"
+ },
+ {
+  "rule": "require-expose",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          setup() {\n            return () => h('div')\n          }\n        }\n      </script>\n      ",
+  "filename": "ValidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-expose#valid7"
+ },
+ {
+  "rule": "require-expose",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          setup() {\n            function foo () {}\n            return foo\n          }\n        }\n      </script>\n      ",
+  "filename": "ValidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-expose#valid8"
+ },
+ {
+  "rule": "require-expose",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          setup() {\n            const foo = function () {}\n            return foo\n          }\n        }\n      </script>\n      ",
+  "filename": "ValidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-expose#valid9"
+ },
+ {
+  "rule": "require-expose",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          setup:() => function () {}\n        }\n      </script>\n      ",
+  "filename": "ValidComponent.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-expose#valid10"
+ }
+]

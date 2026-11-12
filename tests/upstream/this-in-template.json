@@ -1,0 +1,5142 @@
+[
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div>{{ this.foo }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div>{{ foo }}</div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       18,
+       26
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ foo }}</div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid0"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div>{{ this.foo() }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div>{{ foo() }}</div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       18,
+       26
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ foo() }}</div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid1"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div>{{ this.foo.bar() }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div>{{ foo.bar() }}</div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       18,
+       26
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ foo.bar() }}</div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid2"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :class=\"this.foo\"></div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ],
+   "output": "<template><div :class=\"foo\"></div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       23,
+       31
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"foo\"></div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid3"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :class=\"{foo: this.foo}\"></div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><div :class=\"{foo: foo}\"></div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       29,
+       37
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"{foo: foo}\"></div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid4"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div :class=\"{foo: this.foo()}\"></div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><div :class=\"{foo: foo()}\"></div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       29,
+       37
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"{foo: foo()}\"></div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid5"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div v-if=\"this.foo\"></div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div v-if=\"foo\"></div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       21,
+       29
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-if=\"foo\"></div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid6"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div v-for=\"foo in this.bar\"></div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><div v-for=\"foo in bar\"></div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       29,
+       37
+      ],
+      "text": "bar"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-for=\"foo in bar\"></div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid7"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div>{{ this?.foo }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div>{{ foo }}</div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       18,
+       27
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ foo }}</div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid8"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div>{{ this?.foo() }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div>{{ foo() }}</div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       18,
+       27
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ foo() }}</div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid9"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div>{{ this?.foo.bar() }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div>{{ foo.bar() }}</div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       18,
+       27
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ foo.bar() }}</div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid10"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div :class=\"this?.foo\"></div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ],
+   "output": "<template><div :class=\"foo\"></div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       23,
+       32
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"foo\"></div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid11"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div :class=\"{foo: this?.foo}\"></div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><div :class=\"{foo: foo}\"></div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       29,
+       38
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"{foo: foo}\"></div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid12"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div :class=\"{foo: this?.foo()}\"></div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><div :class=\"{foo: foo()}\"></div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       29,
+       38
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"{foo: foo()}\"></div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid13"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div v-if=\"this?.foo\"></div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div v-if=\"foo\"></div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       21,
+       30
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-if=\"foo\"></div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid14"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div v-for=\"foo in this?.bar\"></div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><div v-for=\"foo in bar\"></div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       29,
+       38
+      ],
+      "text": "bar"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-for=\"foo in bar\"></div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid15"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div>{{ this.foo }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div>{{ foo }}</div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       18,
+       26
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ foo }}</div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid16"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><div>{{ this.foo() }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div>{{ foo() }}</div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       18,
+       26
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ foo() }}</div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid17"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><div>{{ this.foo.bar() }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div>{{ foo.bar() }}</div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       18,
+       26
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ foo.bar() }}</div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid18"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><div :class=\"this.foo\"></div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ],
+   "output": "<template><div :class=\"foo\"></div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       23,
+       31
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"foo\"></div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid19"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><div :class=\"{foo: this.foo}\"></div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><div :class=\"{foo: foo}\"></div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       29,
+       37
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"{foo: foo}\"></div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid20"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><div :class=\"{foo: this.foo()}\"></div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><div :class=\"{foo: foo()}\"></div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       29,
+       37
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"{foo: foo()}\"></div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid21"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "<template><div v-if=\"this.foo\"></div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div v-if=\"foo\"></div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       21,
+       29
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-if=\"foo\"></div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid22"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "<template><div v-for=\"foo in this.bar\"></div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><div v-for=\"foo in bar\"></div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       29,
+       37
+      ],
+      "text": "bar"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-for=\"foo in bar\"></div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid23"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "<template><div>{{ this?.foo }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div>{{ foo }}</div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       18,
+       27
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ foo }}</div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid24"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 25,
+  "name": null,
+  "code": "<template><div>{{ this?.foo() }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div>{{ foo() }}</div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       18,
+       27
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ foo() }}</div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid25"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 26,
+  "name": null,
+  "code": "<template><div>{{ this?.foo.bar() }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div>{{ foo.bar() }}</div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       18,
+       27
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ foo.bar() }}</div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid26"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 27,
+  "name": null,
+  "code": "<template><div :class=\"this?.foo\"></div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ],
+   "output": "<template><div :class=\"foo\"></div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       23,
+       32
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"foo\"></div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid27"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 28,
+  "name": null,
+  "code": "<template><div :class=\"{foo: this?.foo}\"></div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><div :class=\"{foo: foo}\"></div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       29,
+       38
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"{foo: foo}\"></div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid28"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 29,
+  "name": null,
+  "code": "<template><div :class=\"{foo: this?.foo()}\"></div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><div :class=\"{foo: foo()}\"></div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       29,
+       38
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"{foo: foo()}\"></div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid29"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 30,
+  "name": null,
+  "code": "<template><div v-if=\"this?.foo\"></div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div v-if=\"foo\"></div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       21,
+       30
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-if=\"foo\"></div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid30"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 31,
+  "name": null,
+  "code": "<template><div v-for=\"foo in this?.bar\"></div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><div v-for=\"foo in bar\"></div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       29,
+       38
+      ],
+      "text": "bar"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-for=\"foo in bar\"></div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid31"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 32,
+  "name": null,
+  "code": "<template><div>{{ foo }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 22
+    }
+   ],
+   "output": "<template><div>{{ this.foo }}</div></template><!-- always -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       18,
+       18
+      ],
+      "text": "this."
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ this.foo }}</div></template><!-- always -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid32"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 33,
+  "name": null,
+  "code": "<template><div>{{ foo() }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 22
+    }
+   ],
+   "output": "<template><div>{{ this.foo() }}</div></template><!-- always -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       18,
+       18
+      ],
+      "text": "this."
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ this.foo() }}</div></template><!-- always -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid33"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 34,
+  "name": null,
+  "code": "<template><div>{{ foo.bar() }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 22
+    }
+   ],
+   "output": "<template><div>{{ this.foo.bar() }}</div></template><!-- always -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       18,
+       18
+      ],
+      "text": "this."
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ this.foo.bar() }}</div></template><!-- always -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid34"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 35,
+  "name": null,
+  "code": "<template><div :class=\"foo\"></div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'this'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 27
+    }
+   ],
+   "output": "<template><div :class=\"this.foo\"></div></template><!-- always -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected 'this'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       23,
+       23
+      ],
+      "text": "this."
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"this.foo\"></div></template><!-- always -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid35"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 36,
+  "name": null,
+  "code": "<template><div :class=\"{foo: foo}\"></div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 33
+    }
+   ],
+   "output": "<template><div :class=\"{foo: this.foo}\"></div></template><!-- always -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       29,
+       29
+      ],
+      "text": "this."
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"{foo: this.foo}\"></div></template><!-- always -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid36"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 37,
+  "name": null,
+  "code": "<template><div :class=\"{foo: foo()}\"></div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 33
+    }
+   ],
+   "output": "<template><div :class=\"{foo: this.foo()}\"></div></template><!-- always -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       29,
+       29
+      ],
+      "text": "this."
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"{foo: this.foo()}\"></div></template><!-- always -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid37"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 38,
+  "name": null,
+  "code": "<template><div v-if=\"foo\"></div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'this'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ],
+   "output": "<template><div v-if=\"this.foo\"></div></template><!-- always -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected 'this'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       21,
+       21
+      ],
+      "text": "this."
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-if=\"this.foo\"></div></template><!-- always -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid38"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 39,
+  "name": null,
+  "code": "<template><div v-for=\"foo in bar\"></div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 33
+    }
+   ],
+   "output": "<template><div v-for=\"foo in this.bar\"></div></template><!-- always -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected 'this'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       29,
+       29
+      ],
+      "text": "this."
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-for=\"foo in this.bar\"></div></template><!-- always -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid39"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 40,
+  "name": null,
+  "code": "<template><div>{{ this['xs'] }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div>{{ xs }}</div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       18,
+       28
+      ],
+      "text": "xs"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ xs }}</div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid40"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 41,
+  "name": null,
+  "code": "<template><div>{{ this['xs0AZ_foo'] }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div>{{ xs0AZ_foo }}</div></template><!--  -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       18,
+       35
+      ],
+      "text": "xs0AZ_foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ xs0AZ_foo }}</div></template><!--  -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid41"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 42,
+  "name": null,
+  "code": "<template><div>{{ this['xs'] }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div>{{ xs }}</div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       18,
+       28
+      ],
+      "text": "xs"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ xs }}</div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid42"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 43,
+  "name": null,
+  "code": "<template><div>{{ this['xs0AZ_foo'] }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div>{{ xs0AZ_foo }}</div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       18,
+       35
+      ],
+      "text": "xs0AZ_foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ xs0AZ_foo }}</div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid43"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 44,
+  "name": null,
+  "code": "<template><div v-if=\"fn(this.$foo)\"></div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ],
+   "output": "<template><div v-if=\"fn($foo)\"></div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       24,
+       33
+      ],
+      "text": "$foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-if=\"fn($foo)\"></div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid44"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "invalid",
+  "idx": 45,
+  "name": null,
+  "code": "<template><div :class=\"{ foo: this.$foo }\"></div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 31,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ],
+   "output": "<template><div :class=\"{ foo: $foo }\"></div></template><!-- never -->"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected usage of 'this'.",
+     "line": 1,
+     "column": 31,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       30,
+       39
+      ],
+      "text": "$foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"{ foo: $foo }\"></div></template><!-- never -->",
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#invalid45"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid0"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid1"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid2"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div>{{ foo.bar }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid3"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div v-for=\"foo in bar\">{{ foo }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid4"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div v-if=\"foo\">{{ foo }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid5"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div :class=\"foo\">{{ foo }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid6"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div :class=\"{this: foo}\">{{ foo }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid7"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div v-for=\"bar in foo\" v-if=\"bar\">{{ bar }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid8"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div v-if=\"foo()\">{{ bar }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid9"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div v-for=\"x of xs\">{{this.x}}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid10"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div v-for=\"x of xs\">{{this.x()}}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid11"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div v-for=\"x of xs\">{{this.x.y()}}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid12"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div v-for=\"x of xs\">{{this.x['foo']}}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid13"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div v-for=\"x of xs\">{{this['x']}}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid14"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "<template>\n        <div>\n          <div v-for=\"bar in foo\" v-if=\"bar\">{{ bar }}</div>\n          <div v-for=\"ssa in sss\" v-if=\"ssa\">\n            <div v-for=\"ssf in ssa\" v-if=\"ssa\">{{ ssf }}</div>\n          </div>\n        </div>\n      </template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid15"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div>{{ foo.bar }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid16"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><div v-for=\"foo in bar\">{{ foo }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid17"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><div v-if=\"foo\">{{ foo }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid18"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><div :class=\"foo\">{{ foo }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid19"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><div :class=\"{this: foo}\">{{ foo }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid20"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><div v-for=\"bar in foo\" v-if=\"bar\">{{ bar }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid21"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "<template><div v-if=\"foo()\">{{ bar }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid22"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "<template><div v-for=\"x of xs\">{{this.x}}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid23"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "<template><div v-for=\"x of xs\">{{this.x()}}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid24"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "<template><div v-for=\"x of xs\">{{this.x.y()}}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid25"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "<template><div v-for=\"x of xs\">{{this.x['foo']}}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid26"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "<template><div v-for=\"x of xs\">{{this['x']}}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid27"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 28,
+  "name": null,
+  "code": "<template>\n        <div>\n          <div v-for=\"bar in foo\" v-if=\"bar\">{{ bar }}</div>\n          <div v-for=\"ssa in sss\" v-if=\"ssa\">\n            <div v-for=\"ssf in ssa\" v-if=\"ssa\">{{ ssf }}</div>\n          </div>\n        </div>\n      </template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid28"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 29,
+  "name": null,
+  "code": "<template><div>{{ this.foo.bar }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid29"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 30,
+  "name": null,
+  "code": "<template><div v-for=\"foo in this.bar\">{{ foo }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid30"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 31,
+  "name": null,
+  "code": "<template><div v-if=\"this.foo\">{{ this.foo }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid31"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 32,
+  "name": null,
+  "code": "<template><div :class=\"this.foo\">{{ this.foo }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid32"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 33,
+  "name": null,
+  "code": "<template><div :class=\"{this: this.foo}\">{{ this.foo }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid33"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 34,
+  "name": null,
+  "code": "<template><div v-for=\"bar in this.foo\" v-if=\"bar\">{{ bar }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid34"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 35,
+  "name": null,
+  "code": "<template><div v-if=\"this.foo()\">{{ this.bar }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid35"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 36,
+  "name": null,
+  "code": "<template><div v-for=\"x of this.xs\">{{this.x}}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid36"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 37,
+  "name": null,
+  "code": "<template><div v-for=\"x of this.xs\">{{this.x()}}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid37"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 38,
+  "name": null,
+  "code": "<template><div v-for=\"x of this.xs\">{{this.x.y()}}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid38"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 39,
+  "name": null,
+  "code": "<template><div v-for=\"x of this.xs\">{{this.x['foo']}}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid39"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 40,
+  "name": null,
+  "code": "<template><div v-for=\"x of this.xs\">{{this['x']}}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid40"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 41,
+  "name": null,
+  "code": "<template>\n        <div>\n          <div v-for=\"bar in this.foo\" v-if=\"bar\">{{ bar }}</div>\n          <div v-for=\"ssa in this.sss\" v-if=\"ssa\">\n            <div v-for=\"ssf in ssa\" v-if=\"ssa\">{{ ssf }}</div>\n          </div>\n        </div>\n      </template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid41"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 42,
+  "name": null,
+  "code": "<template><div>{{ this?.foo.bar }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid42"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 43,
+  "name": null,
+  "code": "<template><div v-for=\"foo in this?.bar\">{{ foo }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid43"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 44,
+  "name": null,
+  "code": "<template><div v-if=\"this?.foo\">{{ this?.foo }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid44"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 45,
+  "name": null,
+  "code": "<template><div :class=\"this?.foo\">{{ this?.foo }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid45"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 46,
+  "name": null,
+  "code": "<template><div :class=\"{this: this?.foo}\">{{ this?.foo }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid46"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 47,
+  "name": null,
+  "code": "<template><div v-for=\"bar in this?.foo\" v-if=\"bar\">{{ bar }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid47"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 48,
+  "name": null,
+  "code": "<template><div v-if=\"this?.foo()\">{{ this?.bar }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid48"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 49,
+  "name": null,
+  "code": "<template><div v-for=\"x of this?.xs\">{{this.x}}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid49"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 50,
+  "name": null,
+  "code": "<template><div v-for=\"x of this?.xs\">{{this.x()}}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid50"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 51,
+  "name": null,
+  "code": "<template><div v-for=\"x of this?.xs\">{{this.x.y()}}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid51"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 52,
+  "name": null,
+  "code": "<template><div v-for=\"x of this?.xs\">{{this.x['foo']}}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid52"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 53,
+  "name": null,
+  "code": "<template><div v-for=\"x of this?.xs\">{{this['x']}}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid53"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 54,
+  "name": null,
+  "code": "<template>\n        <div>\n          <div v-for=\"bar in this?.foo\" v-if=\"bar\">{{ bar }}</div>\n          <div v-for=\"ssa in this?.sss\" v-if=\"ssa\">\n            <div v-for=\"ssf in ssa\" v-if=\"ssa\">{{ ssf }}</div>\n          </div>\n        </div>\n      </template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid54"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 55,
+  "name": null,
+  "code": "<template><div :parent=\"this\"></div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid55"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 56,
+  "name": null,
+  "code": "<template><div>{{ this.class }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid56"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 57,
+  "name": null,
+  "code": "<template><div>{{ this['0'] }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid57"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 58,
+  "name": null,
+  "code": "<template><div>{{ this['this'] }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid58"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 59,
+  "name": null,
+  "code": "<template><div>{{ this['foo bar'] }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid59"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 60,
+  "name": null,
+  "code": "<template><div>{{ }}</div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid60"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 61,
+  "name": null,
+  "code": "<template><div v-on:[x]=\"1\"></div></template><!--  -->",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid61"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 62,
+  "name": null,
+  "code": "<template><div :parent=\"this\"></div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid62"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 63,
+  "name": null,
+  "code": "<template><div>{{ this.class }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid63"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 64,
+  "name": null,
+  "code": "<template><div>{{ this['0'] }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid64"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 65,
+  "name": null,
+  "code": "<template><div>{{ this['this'] }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid65"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 66,
+  "name": null,
+  "code": "<template><div>{{ this['foo bar'] }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid66"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 67,
+  "name": null,
+  "code": "<template><div>{{ }}</div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid67"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 68,
+  "name": null,
+  "code": "<template><div v-on:[x]=\"1\"></div></template><!-- never -->",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid68"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 69,
+  "name": null,
+  "code": "<template><div :parent=\"this\"></div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid69"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 70,
+  "name": null,
+  "code": "<template><div>{{ this.class }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid70"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 71,
+  "name": null,
+  "code": "<template><div>{{ this['0'] }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid71"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 72,
+  "name": null,
+  "code": "<template><div>{{ this['this'] }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid72"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 73,
+  "name": null,
+  "code": "<template><div>{{ this['foo bar'] }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid73"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 74,
+  "name": null,
+  "code": "<template><div>{{ }}</div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid74"
+ },
+ {
+  "rule": "this-in-template",
+  "kind": "valid",
+  "idx": 75,
+  "name": null,
+  "code": "<template><div v-on:[x]=\"1\"></div></template><!-- always -->",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "this-in-template#valid75"
+ }
+]

@@ -1,0 +1,625 @@
+[
+ {
+  "rule": "no-deprecated-slot-scope-attribute",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <LinkList>\n          <template slot-scope=\"{a}\"><a /></template>\n        </LinkList>\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`slot-scope` are deprecated.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 31
+    }
+   ],
+   "output": "\n      <template>\n        <LinkList>\n          <template v-slot=\"{a}\"><a /></template>\n        </LinkList>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenSlotScopeAttribute",
+     "message": "`slot-scope` are deprecated.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       57,
+       73
+      ],
+      "text": "v-slot=\"{a}\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <LinkList>\n          <template v-slot=\"{a}\"><a /></template>\n        </LinkList>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-slot-scope-attribute#invalid0"
+ },
+ {
+  "rule": "no-deprecated-slot-scope-attribute",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <LinkList>\n          <template slot-scope><a /></template>\n        </LinkList>\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`slot-scope` are deprecated.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 31
+    }
+   ],
+   "output": "\n      <template>\n        <LinkList>\n          <template v-slot><a /></template>\n        </LinkList>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenSlotScopeAttribute",
+     "message": "`slot-scope` are deprecated.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       57,
+       67
+      ],
+      "text": "v-slot"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <LinkList>\n          <template v-slot><a /></template>\n        </LinkList>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-slot-scope-attribute#invalid1"
+ },
+ {
+  "rule": "no-deprecated-slot-scope-attribute",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <LinkList>\n          <a slot-scope=\"{a}\" />\n        </LinkList>\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`slot-scope` are deprecated.",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ],
+   "output": "\n      <template>\n        <LinkList>\n          <template v-slot=\"{a}\">\n<a />\n</template>\n        </LinkList>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenSlotScopeAttribute",
+     "message": "`slot-scope` are deprecated.",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       47,
+       69
+      ],
+      "text": "<template v-slot=\"{a}\">\n<a />\n</template>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <LinkList>\n          <template v-slot=\"{a}\">\n<a />\n</template>\n        </LinkList>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-slot-scope-attribute#invalid2"
+ },
+ {
+  "rule": "no-deprecated-slot-scope-attribute",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <LinkList>\n          <template slot-scope=\"{a}\" slot=\"foo\"><a /></template>\n        </LinkList>\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`slot-scope` are deprecated.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 31
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenSlotScopeAttribute",
+     "message": "`slot-scope` are deprecated.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-slot-scope-attribute#invalid3"
+ },
+ {
+  "rule": "no-deprecated-slot-scope-attribute",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <LinkList>\n          <template slot-scope=\"{a}\" :slot=\"arg\"><a /></template>\n        </LinkList>\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`slot-scope` are deprecated.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 31
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenSlotScopeAttribute",
+     "message": "`slot-scope` are deprecated.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-slot-scope-attribute#invalid4"
+ },
+ {
+  "rule": "no-deprecated-slot-scope-attribute",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <my-component>\n          <template v-for=\"x in xs\" slot-scope=\"{a}\" >\n          {{a}}\n          </template>\n        </my-component>\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`slot-scope` are deprecated.",
+     "line": 4,
+     "column": 37,
+     "endLine": 4,
+     "endColumn": 47
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenSlotScopeAttribute",
+     "message": "`slot-scope` are deprecated.",
+     "line": 4,
+     "column": 37,
+     "endLine": 4,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-slot-scope-attribute#invalid5"
+ },
+ {
+  "rule": "no-deprecated-slot-scope-attribute",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <my-component>\n          <template slot-scope=\"{a}\" >\n            {{a}}\n          </template>\n          <div />\n        </my-component>\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`slot-scope` are deprecated.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 31
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenSlotScopeAttribute",
+     "message": "`slot-scope` are deprecated.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-slot-scope-attribute#invalid6"
+ },
+ {
+  "rule": "no-deprecated-slot-scope-attribute",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template>\n      <LinkList>\n        <template v-slot:name><a /></template>\n      </LinkList>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-slot-scope-attribute#valid0"
+ },
+ {
+  "rule": "no-deprecated-slot-scope-attribute",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>\n      <LinkList>\n        <template #name><a /></template>\n      </LinkList>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-slot-scope-attribute#valid1"
+ },
+ {
+  "rule": "no-deprecated-slot-scope-attribute",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>\n      <LinkList>\n        <template v-slot=\"{a}\"><a /></template>\n      </LinkList>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-slot-scope-attribute#valid2"
+ },
+ {
+  "rule": "no-deprecated-slot-scope-attribute",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template>\n      <LinkList v-slot=\"{a}\">\n        <a />\n      </LinkList>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-slot-scope-attribute#valid3"
+ },
+ {
+  "rule": "no-deprecated-slot-scope-attribute",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template>\n      <LinkList>\n        <template #default=\"{a}\"><a /></template>\n      </LinkList>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-slot-scope-attribute#valid4"
+ },
+ {
+  "rule": "no-deprecated-slot-scope-attribute",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template>\n      <LinkList>\n        <a slot=\"name\" />\n      </LinkList>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-slot-scope-attribute#valid5"
+ },
+ {
+  "rule": "no-deprecated-slot-scope-attribute",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template>\n      <LinkList>\n        <template><a /></template>\n      </LinkList>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-slot-scope-attribute#valid6"
+ },
+ {
+  "rule": "no-deprecated-slot-scope-attribute",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template>\n      <LinkList>\n        <a />\n      </LinkList>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-slot-scope-attribute#valid7"
+ }
+]

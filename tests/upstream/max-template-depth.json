@@ -1,0 +1,338 @@
+[
+ {
+  "rule": "max-template-depth",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n      <div>\n        <div>\n          <div>\n            <div />\n          </div>\n        </div>\n      </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "maxDepth": 3
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Element is nested too deeply (depth of 4, maximum allowed is 3).",
+     "line": 6,
+     "column": 13,
+     "endLine": 6,
+     "endColumn": 20
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "templateTooDeep",
+     "message": "Element is nested too deeply (depth of 4, maximum allowed is 3).",
+     "line": 6,
+     "column": 13,
+     "endLine": 6,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-template-depth#invalid0"
+ },
+ {
+  "rule": "max-template-depth",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n      <side-container>\n        <child-component />\n      </side-container>\n      <main-container>\n        <child-component>\n          <nested-component>\n            <h1 />\n          </nested-component>\n        </child-component>\n      </main-container>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "maxDepth": 3
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Element is nested too deeply (depth of 4, maximum allowed is 3).",
+     "line": 9,
+     "column": 13,
+     "endLine": 9,
+     "endColumn": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "templateTooDeep",
+     "message": "Element is nested too deeply (depth of 4, maximum allowed is 3).",
+     "line": 9,
+     "column": 13,
+     "endLine": 9,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-template-depth#invalid1"
+ },
+ {
+  "rule": "max-template-depth",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n      <main-container>\n        <nav-bar>\n          <div />\n        </nav-bar>\n        <child-component>\n          <nested-component>\n            <div>\n              <div />\n            <div>\n          </nested-component>\n        </child-component>\n      </main-container>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "maxDepth": 3
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Element is nested too deeply (depth of 4, maximum allowed is 3).",
+     "line": 9,
+     "column": 13,
+     "endLine": 12,
+     "endColumn": 11
+    },
+    {
+     "message": "Element is nested too deeply (depth of 5, maximum allowed is 3).",
+     "line": 10,
+     "column": 15,
+     "endLine": 10,
+     "endColumn": 22
+    },
+    {
+     "message": "Element is nested too deeply (depth of 5, maximum allowed is 3).",
+     "line": 11,
+     "column": 13,
+     "endLine": 12,
+     "endColumn": 11
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "templateTooDeep",
+     "message": "Element is nested too deeply (depth of 4, maximum allowed is 3).",
+     "line": 9,
+     "column": 13,
+     "endLine": 12,
+     "endColumn": 11,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "templateTooDeep",
+     "message": "Element is nested too deeply (depth of 5, maximum allowed is 3).",
+     "line": 10,
+     "column": 15,
+     "endLine": 10,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "templateTooDeep",
+     "message": "Element is nested too deeply (depth of 5, maximum allowed is 3).",
+     "line": 11,
+     "column": 13,
+     "endLine": 12,
+     "endColumn": 11,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-template-depth#invalid2"
+ },
+ {
+  "rule": "max-template-depth",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n      <main-container>\n        <child-component>\n          <div />\n        </child-component>\n      </main-container>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "maxDepth": 3
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-template-depth#valid0"
+ },
+ {
+  "rule": "max-template-depth",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n      <main-container>\n        <ul>\n          <li>Item 1</li>\n        </ul>\n      </main-container>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "maxDepth": 4
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-template-depth#valid1"
+ },
+ {
+  "rule": "max-template-depth",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n      <main-container>\n        <child-component>\n          <sub-child-component>\n            <div />\n          </sub-child-component>\n        </child-component>\n      </main-container>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "maxDepth": 4
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-template-depth#valid2"
+ },
+ {
+  "rule": "max-template-depth",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n      <div>\n      </div>\n      <main-container>\n        <child-component>\n          <ul>\n            <li />\n          </ul>\n        </child-component>\n      </main-container>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "maxDepth": 4
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-template-depth#valid3"
+ }
+]

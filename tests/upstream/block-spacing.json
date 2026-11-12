@@ -1,0 +1,451 @@
+[
+ {
+  "rule": "block-spacing",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div :attr=\"function foo() {return true;}\" />\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "missing",
+     "data": {
+      "location": "after",
+      "token": "{"
+     },
+     "line": 3,
+     "column": 38,
+     "endLine": 3,
+     "endColumn": 39
+    },
+    {
+     "messageId": "missing",
+     "data": {
+      "location": "before",
+      "token": "}"
+     },
+     "line": 3,
+     "column": 51,
+     "endLine": 3,
+     "endColumn": 52
+    }
+   ],
+   "output": "\n        <template>\n          <div :attr=\"function foo() { return true; }\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "Requires a space after '{'.",
+     "line": 3,
+     "column": 38,
+     "endLine": 3,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       58,
+       58
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missing",
+     "message": "Requires a space before '}'.",
+     "line": 3,
+     "column": 51,
+     "endLine": 3,
+     "endColumn": 52,
+     "fix": {
+      "range": [
+       70,
+       70
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div :attr=\"function foo() { return true; }\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "block-spacing#invalid0"
+ },
+ {
+  "rule": "block-spacing",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <button @click=\"() => {return true;}\" />\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "missing",
+     "data": {
+      "location": "after",
+      "token": "{"
+     },
+     "line": 3,
+     "column": 33,
+     "endLine": 3,
+     "endColumn": 34
+    },
+    {
+     "messageId": "missing",
+     "data": {
+      "location": "before",
+      "token": "}"
+     },
+     "line": 3,
+     "column": 46,
+     "endLine": 3,
+     "endColumn": 47
+    }
+   ],
+   "output": "\n        <template>\n          <button @click=\"() => { return true; }\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "Requires a space after '{'.",
+     "line": 3,
+     "column": 33,
+     "endLine": 3,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       53,
+       53
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missing",
+     "message": "Requires a space before '}'.",
+     "line": 3,
+     "column": 46,
+     "endLine": 3,
+     "endColumn": 47,
+     "fix": {
+      "range": [
+       65,
+       65
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <button @click=\"() => { return true; }\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "block-spacing#invalid1"
+ },
+ {
+  "rule": "block-spacing",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <div :attr=\"function foo() { return true; }\" />\n        </template>",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "extra",
+     "data": {
+      "location": "after",
+      "token": "{"
+     },
+     "line": 3,
+     "column": 39,
+     "endLine": 3,
+     "endColumn": 40
+    },
+    {
+     "messageId": "extra",
+     "data": {
+      "location": "before",
+      "token": "}"
+     },
+     "line": 3,
+     "column": 52,
+     "endLine": 3,
+     "endColumn": 53
+    }
+   ],
+   "output": "\n        <template>\n          <div :attr=\"function foo() {return true;}\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "extra",
+     "message": "Unexpected space(s) after '{'.",
+     "line": 3,
+     "column": 39,
+     "endLine": 3,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       58,
+       59
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "extra",
+     "message": "Unexpected space(s) before '}'.",
+     "line": 3,
+     "column": 52,
+     "endLine": 3,
+     "endColumn": 53,
+     "fix": {
+      "range": [
+       71,
+       72
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div :attr=\"function foo() {return true;}\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "block-spacing#invalid2"
+ },
+ {
+  "rule": "block-spacing",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :[(function(){return(1)})()]=\"(function(){return(1)})()\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "missing",
+     "data": {
+      "location": "after",
+      "token": "{"
+     },
+     "line": 1,
+     "column": 57,
+     "endLine": 1,
+     "endColumn": 58
+    },
+    {
+     "messageId": "missing",
+     "data": {
+      "location": "before",
+      "token": "}"
+     },
+     "line": 1,
+     "column": 67,
+     "endLine": 1,
+     "endColumn": 68
+    }
+   ],
+   "output": "<template><div :[(function(){return(1)})()]=\"(function(){ return(1) })()\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "Requires a space after '{'.",
+     "line": 1,
+     "column": 57,
+     "endLine": 1,
+     "endColumn": 58,
+     "fix": {
+      "range": [
+       57,
+       57
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missing",
+     "message": "Requires a space before '}'.",
+     "line": 1,
+     "column": 67,
+     "endLine": 1,
+     "endColumn": 68,
+     "fix": {
+      "range": [
+       66,
+       66
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :[(function(){return(1)})()]=\"(function(){ return(1) })()\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "block-spacing#invalid3"
+ },
+ {
+  "rule": "block-spacing",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :attr=\"function foo() { return true; }\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-spacing#valid0"
+ },
+ {
+  "rule": "block-spacing",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :attr=\"function foo() {return true;}\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-spacing#valid1"
+ },
+ {
+  "rule": "block-spacing",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :[(function(){return(1)})()]=\"a\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-spacing#valid2"
+ }
+]

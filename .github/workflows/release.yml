@@ -1,0 +1,130 @@
+# Build prebuilt binaries for every platform and (optionally) publish the npm packages.
+#
+# Run manually: Actions → release → Run workflow. `publish: false` (default) only builds and uploads the
+# packages as workflow artifacts (a dry run). `publish: true` publishes to npm (needs the NPM_TOKEN secret)
+# and creates a GitHub release with the binaries for tag v<version> (version from Cargo.toml).
+name: release
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish to npm and create the GitHub release
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  id-token: write # npm provenance
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  test:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo fmt --check
+      - run: cargo clippy --all-targets -- -D warnings
+      - run: cargo test --release
+
+  build:
+    needs: test
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { target: aarch64-apple-darwin, runner: macos-14 }
+          - { target: x86_64-apple-darwin, runner: macos-14 }
+          - { target: x86_64-unknown-linux-gnu, runner: ubuntu-22.04 }
+          - { target: aarch64-unknown-linux-gnu, runner: ubuntu-22.04-arm }
+          - { target: x86_64-unknown-linux-musl, runner: ubuntu-22.04, musl: true }
+          - { target: aarch64-unknown-linux-musl, runner: ubuntu-22.04-arm, musl: true }
+          - { target: x86_64-pc-windows-msvc, runner: windows-2022 }
+          - { target: aarch64-pc-windows-msvc, runner: windows-11-arm }
+    runs-on: ${{ matrix.runner }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: ${{ matrix.target }}
+      - uses: Swatinem/rust-cache@v2
+        with:
+          key: ${{ matrix.target }}
+      - if: matrix.musl
+        run: sudo apt-get update && sudo apt-get install -y musl-tools
+      - run: cargo build --release --locked --target ${{ matrix.target }}
+      - name: Smoke test
+        shell: bash
+        run: |
+          bin=target/${{ matrix.target }}/release/oxlint-vue-rs
+          [ -f "$bin.exe" ] && bin="$bin.exe"
+          if [ "${{ matrix.target }}" != "x86_64-apple-darwin" ]; then
+            "$bin" --version
+            printf '<template><div v-for="i in x">{{i}}</div></template>\n' > smoke.vue
+            "$bin" -D require-v-for-key smoke.vue && exit 1 || true
+          fi
+          mkdir -p out && cp "$bin" out/
+      - uses: actions/upload-artifact@v4
+        with:
+          name: bin-${{ matrix.target }}
+          path: out/*
+          if-no-files-found: error
+
+  npm:
+    needs: build
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          registry-url: https://registry.npmjs.org
+      - uses: actions/download-artifact@v4
+        with:
+          path: artifacts
+      - name: Assemble packages
+        shell: bash
+        run: |
+          for dir in artifacts/bin-*; do
+            target=${dir#artifacts/bin-}
+            bin=$(ls "$dir"/oxlint-vue-rs* | head -1)
+            node scripts/npm/pack.mjs platform "$target" "$bin"
+          done
+          node scripts/npm/pack.mjs main
+          ls dist-npm
+          for p in dist-npm/*; do (cd "$p" && npm pack --pack-destination ../../tarballs); done
+      - name: publint
+        shell: bash
+        run: for p in dist-npm/*; do npx --yes publint@0.3 run "$p" --strict; done
+      - uses: actions/upload-artifact@v4
+        with:
+          name: npm-tarballs
+          path: tarballs/*.tgz
+      - name: Publish to npm
+        if: inputs.publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        shell: bash
+        run: |
+          # platform packages first, the main package (which depends on them) last
+          for p in dist-npm/oxlint-vue-rs-*; do (cd "$p" && npm publish --access public --provenance); done
+          (cd dist-npm/oxlint-vue-rs && npm publish --access public --provenance)
+      - name: GitHub release
+        if: inputs.publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          version=$(grep -m1 '^version' Cargo.toml | cut -d'"' -f2)
+          mkdir -p rel
+          for dir in artifacts/bin-*; do
+            target=${dir#artifacts/bin-}
+            for f in "$dir"/*; do cp "$f" "rel/$(basename "${f%.exe}")-$target$( [[ $f == *.exe ]] && echo .exe)"; done
+          done
+          gh release create "v$version" rel/* tarballs/*.tgz --title "v$version" --generate-notes --latest

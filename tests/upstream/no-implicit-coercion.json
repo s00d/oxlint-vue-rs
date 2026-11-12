@@ -1,0 +1,914 @@
+[
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :data-foo=\"!!foo\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected implicit coercion encountered. Use `Boolean(foo)` instead.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ],
+   "output": "<template><div :data-foo=\"Boolean(foo)\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "implicitCoercion",
+     "message": "Unexpected implicit coercion encountered. Use `Boolean(foo)` instead.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       26,
+       31
+      ],
+      "text": "Boolean(foo)"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :data-foo=\"Boolean(foo)\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#invalid0"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :data-foo=\"~foo.indexOf('.')\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected implicit coercion encountered. Use `foo.indexOf('.') !== -1` instead.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 44
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "implicitCoercion",
+     "message": "Unexpected implicit coercion encountered. Use `foo.indexOf('.') !== -1` instead.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#invalid1"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :data-foo=\"+foo\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected implicit coercion encountered. Use `Number(foo)` instead.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 31,
+     "suggestions": [
+      {
+       "messageId": "useRecommendation",
+       "data": {
+        "recommendation": "Number(foo)"
+       },
+       "output": "<template><div :data-foo=\"Number(foo)\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "implicitCoercion",
+     "message": "Unexpected implicit coercion encountered. Use `Number(foo)` instead.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "useRecommendation",
+       "desc": "Use `Number(foo)` instead.",
+       "output": "<template><div :data-foo=\"Number(foo)\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#invalid2"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :data-foo=\"1 * foo\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected implicit coercion encountered. Use `Number(foo)` instead.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 34,
+     "suggestions": [
+      {
+       "messageId": "useRecommendation",
+       "data": {
+        "recommendation": "Number(foo)"
+       },
+       "output": "<template><div :data-foo=\"Number(foo)\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "implicitCoercion",
+     "message": "Unexpected implicit coercion encountered. Use `Number(foo)` instead.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "useRecommendation",
+       "desc": "Use `Number(foo)` instead.",
+       "output": "<template><div :data-foo=\"Number(foo)\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#invalid3"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :data-foo=\"'' + foo\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected implicit coercion encountered. Use `String(foo)` instead.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 35,
+     "suggestions": [
+      {
+       "messageId": "useRecommendation",
+       "data": {
+        "recommendation": "String(foo)"
+       },
+       "output": "<template><div :data-foo=\"String(foo)\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "implicitCoercion",
+     "message": "Unexpected implicit coercion encountered. Use `String(foo)` instead.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "useRecommendation",
+       "desc": "Use `String(foo)` instead.",
+       "output": "<template><div :data-foo=\"String(foo)\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#invalid4"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div :data-foo=\"`` + foo\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected implicit coercion encountered. Use `String(foo)` instead.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 35,
+     "suggestions": [
+      {
+       "messageId": "useRecommendation",
+       "data": {
+        "recommendation": "String(foo)"
+       },
+       "output": "<template><div :data-foo=\"String(foo)\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "implicitCoercion",
+     "message": "Unexpected implicit coercion encountered. Use `String(foo)` instead.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "useRecommendation",
+       "desc": "Use `String(foo)` instead.",
+       "output": "<template><div :data-foo=\"String(foo)\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#invalid5"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div :data-foo=\"`${foo}`\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "disallowTemplateShorthand": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected implicit coercion encountered. Use `String(foo)` instead.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 35,
+     "suggestions": [
+      {
+       "messageId": "useRecommendation",
+       "data": {
+        "recommendation": "String(foo)"
+       },
+       "output": "<template><div :data-foo=\"String(foo)\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "implicitCoercion",
+     "message": "Unexpected implicit coercion encountered. Use `String(foo)` instead.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "useRecommendation",
+       "desc": "Use `String(foo)` instead.",
+       "output": "<template><div :data-foo=\"String(foo)\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#invalid6"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :data-foo=\"Boolean(foo)\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#valid0"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :data-foo=\"foo.indexOf('.') !== -1\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#valid1"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :data-foo=\"!!foo\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "boolean": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#valid2"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :data-foo=\"~foo.indexOf('.')\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "boolean": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#valid3"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :data-foo=\"Number(foo)\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#valid4"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div :data-foo=\"foo * 1/4\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#valid5"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div :data-foo=\"+foo\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "number": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#valid6"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div :data-foo=\"1 * foo\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "number": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#valid7"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div :data-foo=\"String(foo)\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#valid8"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div :data-foo=\"`${foo}`\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#valid9"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div :data-foo=\"'' + foo\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "string": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#valid10"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div :data-foo=\"`` + foo\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "string": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#valid11"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div :data-foo=\"!!foo\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allow": [
+     "!!"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#valid12"
+ },
+ {
+  "rule": "no-implicit-coercion",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div :data-foo=\"~foo.indexOf('.')\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allow": [
+     "~"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-implicit-coercion#valid13"
+ }
+]

@@ -1,0 +1,133 @@
+[
+ {
+  "rule": "no-v-model-argument",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><MyComponent v-model:foo=\"bar\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives require no argument.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 41
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "vModelRequireNoArgument",
+     "message": "'v-model' directives require no argument.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-model-argument#invalid0"
+ },
+ {
+  "rule": "no-v-model-argument",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><MyComponent v-model:foo.trim=\"bar\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives require no argument.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 46
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "vModelRequireNoArgument",
+     "message": "'v-model' directives require no argument.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-model-argument#invalid1"
+ },
+ {
+  "rule": "no-v-model-argument",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><MyComponent v-model=\"bar\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-model-argument#valid0"
+ }
+]

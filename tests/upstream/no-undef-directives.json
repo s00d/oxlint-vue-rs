@@ -1,0 +1,1259 @@
+[
+ {
+  "rule": "no-undef-directives",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div v-focus>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'v-focus' directive has been used, but not defined.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The 'v-focus' directive has been used, but not defined.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#invalid0"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script setup>\n      const vfocus = {} // should be vFocus\n      </script>\n      <template>\n        <div v-focus>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'v-focus' directive has been used, but not defined.",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The 'v-focus' directive has been used, but not defined.",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#invalid1"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup>\n      import { foo as bar } from './foo'\n      </script>\n      <template>\n        <div v-foo></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'v-foo' directive has been used, but not defined.",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The 'v-foo' directive has been used, but not defined.",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#invalid2"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script setup>\n      import focus from './focus'\n      </script>\n      <template>\n        <div v-focus>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'v-focus' directive has been used, but not defined.",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The 'v-focus' directive has been used, but not defined.",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#invalid3"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script setup>\n      import vClickOutside from './vClickOutside'\n      </script>\n      <template>\n        <div v-clickoutside>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'v-clickoutside' directive has been used, but not defined.",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The 'v-clickoutside' directive has been used, but not defined.",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#invalid4"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script setup>\n      import vClickoutside from './vClickOutside'\n      </script>\n      <template>\n        <div v-click-outside>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'v-click-outside' directive has been used, but not defined.",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The 'v-click-outside' directive has been used, but not defined.",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#invalid5"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <div v-foo:[arg]></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'v-foo' directive has been used, but not defined.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The 'v-foo' directive has been used, but not defined.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#invalid6"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <div v-foo.bar></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'v-foo' directive has been used, but not defined.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The 'v-foo' directive has been used, but not defined.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#invalid7"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <div v-foo:bar.baz></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'v-foo' directive has been used, but not defined.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The 'v-foo' directive has been used, but not defined.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#invalid8"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        directives: {\n          focus: {}\n        }\n      }\n      </script>\n      <template>\n        <div v-Focus>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'v-Focus' directive has been used, but not defined.",
+     "line": 10,
+     "column": 14,
+     "endLine": 10,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The 'v-Focus' directive has been used, but not defined.",
+     "line": 10,
+     "column": 14,
+     "endLine": 10,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#invalid9"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        directives: {\n          foobar: {}\n        }\n      }\n      </script>\n      <template>\n        <div v-foo-bar></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'v-foo-bar' directive has been used, but not defined.",
+     "line": 10,
+     "column": 14,
+     "endLine": 10,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The 'v-foo-bar' directive has been used, but not defined.",
+     "line": 10,
+     "column": 14,
+     "endLine": 10,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#invalid10"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <div v-foo-bar></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignore": [
+     "baz"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'v-foo-bar' directive has been used, but not defined.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The 'v-foo-bar' directive has been used, but not defined.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#invalid11"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template>\n        <div v-foo-bar></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignore": [
+     "/^bar/"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'v-foo-bar' directive has been used, but not defined.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The 'v-foo-bar' directive has been used, but not defined.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#invalid12"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template>\n        <div v-foo></div>\n        <div v-barfoobaz></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignore": [
+     "foo"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'v-barfoobaz' directive has been used, but not defined.",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The 'v-barfoobaz' directive has been used, but not defined.",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#invalid13"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div v-text=\"text\"></div>\n        <div v-html=\"html\"></div>\n        <div v-show=\"true\"></div>\n        <div v-if=\"true\"></div>\n        <div v-else-if=\"true\"></div>\n        <div v-else></div>\n        <div v-for=\"item in items\"></div>\n        <div v-bind:id=\"id\"></div>\n        <div :id=\"id\"></div>\n        <div v-on:click=\"click\"></div>\n        <div @click=\"click\"></div>\n        <div v-model=\"value\"></div>\n        <div v-pre></div>\n        <div v-cloak></div>\n        <div v-once></div>\n        <div v-memo=\"[value]\"></div>\n        <slot v-bind=\"item\"></slot>\n        <component v-bind:is=\"'div'\"></component>\n        <template v-slot:default></template>\n        <template #default></template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#valid0"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script setup>\n      import vFocus from './vFocus'\n      const vFoo = {}\n      </script>\n      <template>\n        <div v-focus>\n        <div v-foo></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#valid1"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup>\n      import vFocus from './vFocus'\n      </script>\n      <template>\n        <div v-Focus>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#valid2"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script setup>\n      import vFocus from './vFocus'\n      </script>\n      <template>\n        <div v-focus.foo>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#valid3"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script setup>\n      import vFocus from './vFocus'\n      </script>\n      <template>\n        <div v-focus:foo>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#valid4"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script setup>\n      import vFocus from './vFocus'\n      </script>\n      <template>\n        <div v-focus:foo.bar>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#valid5"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script setup>\n      import vFocus from './vFocus'\n      </script>\n      <template>\n        <div v-focus:[arg]>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#valid6"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script setup>\n      import {focus as vFocus} from './vFocus'\n      </script>\n      <template>\n        <div v-focus.foo>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#valid7"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script setup>\n      import vClickOutside from './vClickOutside'\n      </script>\n      <template>\n        <div v-click-outside>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#valid8"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script setup>\n      import vClickOutside from './vClickOutside'\n      </script>\n      <template>\n        <div v-clickOutside>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#valid9"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        directives: {\n          focus: {},\n        }\n      }\n      </script>\n      <template>\n        <div v-focus>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#valid10"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        directives: {\n          fooBar: {}\n        }\n      }\n      </script>\n      <template>\n        <div v-foo-bar></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#valid11"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        directives: {\n          fooBar: {}\n        }\n      }\n      </script>\n      <template>\n        <div v-fooBar></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#valid12"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        directives: {\n          'foo-bar': {}\n        }\n      }\n      </script>\n      <template>\n        <div v-foo-bar></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#valid13"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        directives: {\n          Focus: {}\n        }\n      }\n      </script>\n      <template>\n        <div v-focus>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#valid14"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <template>\n        <div v-foo></div>\n        <div v-barfoobaz></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignore": [
+     "/foo/"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#valid15"
+ },
+ {
+  "rule": "no-undef-directives",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <template>\n        <div v-fooBar></div>\n        <div v-foo-bar></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignore": [
+     "foo-bar"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-directives#valid16"
+ }
+]

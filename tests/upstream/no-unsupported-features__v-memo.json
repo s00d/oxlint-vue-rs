@@ -1,0 +1,230 @@
+[
+ {
+  "rule": "no-unsupported-features/v-memo",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div v-memo=\"foo\" />\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignores": [
+     "slot-scope-attribute",
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-slots",
+     "define-model",
+     "v-bind-same-name-shorthand"
+    ],
+    "version": "^3.1.0"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`v-memo` are not supported until Vue.js \"3.2.0\".",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 20
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenVMemo",
+     "message": "`v-memo` are not supported until Vue.js \"3.2.0\".",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/v-memo#invalid0"
+ },
+ {
+  "rule": "no-unsupported-features/v-memo",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div v-memo=\"foo\" />\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "version": "^3.2.0",
+    "ignores": [
+     "slot-scope-attribute",
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-slots",
+     "define-model",
+     "v-bind-same-name-shorthand"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/v-memo#valid0"
+ },
+ {
+  "rule": "no-unsupported-features/v-memo",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div :memo=\"foo\" />\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignores": [
+     "slot-scope-attribute",
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-slots",
+     "define-model",
+     "v-bind-same-name-shorthand"
+    ],
+    "version": "^3.1.0"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/v-memo#valid1"
+ },
+ {
+  "rule": "no-unsupported-features/v-memo",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div v-memo=\"foo\" />\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "version": "^2.5.0",
+    "ignores": [
+     "slot-scope-attribute",
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-slots",
+     "define-model",
+     "v-bind-same-name-shorthand",
+     "v-memo"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/v-memo#valid2"
+ }
+]

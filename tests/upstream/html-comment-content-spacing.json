@@ -1,0 +1,1279 @@
+[
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <!--comment-->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected space after '<!--'.",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 15
+    },
+    {
+     "message": "Expected space before '-->'.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n        <template>\n          <!-- comment -->\n        </template>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedAfterHTMLCommentOpen",
+     "message": "Expected space after '<!--'.",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 15,
+     "fix": {
+      "range": [
+       34,
+       34
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeHTMLCommentOpen",
+     "message": "Expected space before '-->'.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       41,
+       41
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <!-- comment -->\n        </template>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#invalid0"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <!-- comment -->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected space after '<!--'.",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 16
+    },
+    {
+     "message": "Unexpected space before '-->'.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 24
+    }
+   ],
+   "output": "\n        <template>\n          <!--comment-->\n        </template>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterHTMLCommentOpen",
+     "message": "Unexpected space after '<!--'.",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       34,
+       35
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBeforeHTMLCommentOpen",
+     "message": "Unexpected space before '-->'.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       42,
+       43
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <!--comment-->\n        </template>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#invalid1"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <!-- \t \t  \t\tcomment \t \t  \t\t-->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected space after '<!--'.",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 23
+    },
+    {
+     "message": "Unexpected space before '-->'.",
+     "line": 3,
+     "column": 30,
+     "endLine": 3,
+     "endColumn": 38
+    }
+   ],
+   "output": "\n        <template>\n          <!--comment-->\n        </template>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterHTMLCommentOpen",
+     "message": "Unexpected space after '<!--'.",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       34,
+       42
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBeforeHTMLCommentOpen",
+     "message": "Unexpected space before '-->'.",
+     "line": 3,
+     "column": 30,
+     "endLine": 3,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       49,
+       57
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <!--comment-->\n        </template>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#invalid2"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <!--++++++++++++++++comment++++++++++++++++-->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "always",
+   {
+    "exceptions": [
+     "+"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected space after exception block.",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 31
+    },
+    {
+     "message": "Expected space before exception block.",
+     "line": 3,
+     "column": 38,
+     "endLine": 3,
+     "endColumn": 38
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedAfterExceptionBlock",
+     "message": "Expected space after exception block.",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeExceptionBlock",
+     "message": "Expected space before exception block.",
+     "line": 3,
+     "column": 38,
+     "endLine": 3,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#invalid3"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <template>\n          <!--*****comment**-->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "always",
+   {
+    "exceptions": [
+     "*"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected space after exception block.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 20
+    },
+    {
+     "message": "Expected space before exception block.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 27
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedAfterExceptionBlock",
+     "message": "Expected space after exception block.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeExceptionBlock",
+     "message": "Expected space before exception block.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#invalid4"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <template>\n          <!--#+#-#+#-#+#-comment #+#-->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "always",
+   {
+    "exceptions": [
+     "#+#-"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected space after exception block.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 27
+    },
+    {
+     "message": "Expected space before '-->'.",
+     "line": 3,
+     "column": 38,
+     "endLine": 3,
+     "endColumn": 38
+    }
+   ],
+   "output": "\n        <template>\n          <!--#+#-#+#-#+#-comment #+# -->\n        </template>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedAfterExceptionBlock",
+     "message": "Expected space after exception block.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeHTMLCommentOpen",
+     "message": "Expected space before '-->'.",
+     "line": 3,
+     "column": 38,
+     "endLine": 3,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       57,
+       57
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <!--#+#-#+#-#+#-comment #+# -->\n        </template>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#invalid5"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        <template>\n          <!--*****comment++++-->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "always",
+   {
+    "exceptions": [
+     "*",
+     "++"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected space after exception block.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 20
+    },
+    {
+     "message": "Expected space before exception block.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 27
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedAfterExceptionBlock",
+     "message": "Expected space after exception block.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeExceptionBlock",
+     "message": "Expected space before exception block.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#invalid6"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        <template>\n          <!--*****comment+++++-->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "always",
+   {
+    "exceptions": [
+     "*",
+     "++"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected space after exception block.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 20
+    },
+    {
+     "message": "Expected space before exception block.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 28
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedAfterExceptionBlock",
+     "message": "Expected space after exception block.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeExceptionBlock",
+     "message": "Expected space before exception block.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#invalid7"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <!-- comment -->\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid0"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <!--\n            comment\n          -->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid1"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <!--\tcomment\t-->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid2"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <!--\ncomment\n-->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid3"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <template>\n          <!--comment-->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid4"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <template>\n          <!--++++++++++++++++ comment ++++++++++++++++-->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid5"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        <template>\n          <!--\n            comment\n          -->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid6"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        <template>\n          <!---->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid7"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        <template>\n          <!---->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid8"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        <template>\n          <!--\n\n          -->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid9"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        <template>\n          <!--\n\n          -->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid10"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        <template>\n          <!--++++++++++++++++\n            comment\n          ++++++++++++++++-->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "always",
+   {
+    "exceptions": [
+     "+"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid11"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n        <template>\n          <!--+-++-++-++-++-++-+\n            comment\n          +-++-++-++-++-++-+-->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "always",
+   {
+    "exceptions": [
+     "+-+"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid12"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n        <template>\n          <!--++++++++++++++++-->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "always",
+   {
+    "exceptions": [
+     "+"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid13"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n        <template>\n          <!--++++\n            comment\n          ++++-->\n          <!--****\n            comment\n          ****-->\n          <!--++xx\n            comment\n          ++xx-->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "always",
+   {
+    "exceptions": [
+     "+",
+     "*",
+     "++xx"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid14"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n        <template>\n          <!--++++++++++++++++ comment ++++++++++++++++-->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "never",
+   {
+    "exceptions": [
+     "+"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid15"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n        <template>\n          <!--\n            comment\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid16"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <template>\n        <!--[if IE 8]>\n        <div>IE8 only</div>\n        <![endif]-->\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid17"
+ },
+ {
+  "rule": "html-comment-content-spacing",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <template>\n        <!--[if !IE]><!-->\n        <div>not IE only</div>\n        <!--<![endif]-->\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-content-spacing#valid18"
+ }
+]

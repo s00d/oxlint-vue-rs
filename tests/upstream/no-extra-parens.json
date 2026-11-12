@@ -1,0 +1,1270 @@
+[
+ {
+  "rule": "no-extra-parens",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <button\n          :class=\"a + b + (c * d)\"\n          :class=\"[a + b + (c * d)]\"\n        />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 28
+    },
+    {
+     "messageId": "unexpected",
+     "line": 5,
+     "column": 28,
+     "endLine": 5,
+     "endColumn": 29
+    }
+   ],
+   "output": "\n      <template>\n        <button\n          :class=\"a + b + c * d\"\n          :class=\"[a + b + c * d]\"\n        />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       60,
+       67
+      ],
+      "text": "c * d"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 5,
+     "column": 28,
+     "endLine": 5,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       96,
+       103
+      ],
+      "text": "c * d"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <button\n          :class=\"a + b + c * d\"\n          :class=\"[a + b + c * d]\"\n        />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#invalid0"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <button\n          :class=\"{\n            a: (b || c),\n            [(d + e)]: f\n          }\"\n        />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 5,
+     "column": 16,
+     "endLine": 5,
+     "endColumn": 17
+    },
+    {
+     "messageId": "unexpected",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 15
+    }
+   ],
+   "output": "\n      <template>\n        <button\n          :class=\"{\n            a: b || c,\n            [d + e]: f\n          }\"\n        />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 5,
+     "column": 16,
+     "endLine": 5,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       69,
+       77
+      ],
+      "text": "b || c"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 15,
+     "fix": {
+      "range": [
+       92,
+       99
+      ],
+      "text": "d + e"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <button\n          :class=\"{\n            a: b || c,\n            [d + e]: f\n          }\"\n        />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#invalid1"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <button\n          :class=\"(a+b)+c\"\n        />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 20
+    }
+   ],
+   "output": "\n      <template>\n        <button\n          :class=\"a+b+c\"\n        />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       52,
+       57
+      ],
+      "text": "a+b"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <button\n          :class=\"a+b+c\"\n        />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#invalid2"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><button :class=\"(a+b)\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ],
+   "output": "<template><button :class=\"a+b\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       26,
+       31
+      ],
+      "text": "a+b"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><button :class=\"a+b\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#invalid3"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><button :class=\"(a+b) | filter\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ],
+   "output": "<template><button :class=\"a+b | filter\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       26,
+       31
+      ],
+      "text": "a+b"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><button :class=\"a+b | filter\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#invalid4"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><button :class=\"((a+b | bitwise))\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ],
+   "output": "<template><button :class=\"(a+b | bitwise)\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       27,
+       42
+      ],
+      "text": "a+b | bitwise"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><button :class=\"(a+b | bitwise)\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#invalid5"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><button>{{ (foo + bar) }}</button></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><button>{{ foo + bar }}</button></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       21,
+       32
+      ],
+      "text": "foo + bar"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><button>{{ foo + bar }}</button></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#invalid6"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><button>{{ (foo + bar) | filter }}</button></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><button>{{ foo + bar | filter }}</button></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       21,
+       32
+      ],
+      "text": "foo + bar"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><button>{{ foo + bar | filter }}</button></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#invalid7"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><button>{{ ((foo + bar | bitwise)) }}</button></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ],
+   "output": "<template><button>{{ (foo + bar | bitwise) }}</button></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       22,
+       43
+      ],
+      "text": "foo + bar | bitwise"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><button>{{ (foo + bar | bitwise) }}</button></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#invalid8"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><button>{{ ((foo | bitwise)) | filter }}</button></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ],
+   "output": "<template><button>{{ (foo | bitwise) | filter }}</button></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       22,
+       37
+      ],
+      "text": "foo | bitwise"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><button>{{ (foo | bitwise) | filter }}</button></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#invalid9"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><button>{{ (foo(bar|bitwise)) }}</button></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><button>{{ foo(bar|bitwise) }}</button></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       21,
+       39
+      ],
+      "text": "foo(bar|bitwise)"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><button>{{ foo(bar|bitwise) }}</button></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#invalid10"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><button>{{ ([foo|bitwise]) }}</button></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><button>{{ [foo|bitwise] }}</button></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       21,
+       36
+      ],
+      "text": "[foo|bitwise]"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><button>{{ [foo|bitwise] }}</button></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#invalid11"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><button>{{ ({foo:bar|bitwise}) }}</button></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><button>{{ {foo:bar|bitwise} }}</button></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       21,
+       40
+      ],
+      "text": "{foo:bar|bitwise}"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><button>{{ {foo:bar|bitwise} }}</button></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#invalid12"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><button>{{ ((function () {} ())) }}</button></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ],
+   "output": "<template><button>{{ (function () {} ()) }}</button></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       22,
+       41
+      ],
+      "text": "function () {} ()"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><button>{{ (function () {} ()) }}</button></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#invalid13"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><button>{{ ((function () {})()) }}</button></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><button>{{ (function () {})() }}</button></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       21,
+       41
+      ],
+      "text": "(function () {})()"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><button>{{ (function () {})() }}</button></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#invalid14"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <style>\n      .text {\n        color: v-bind('(a)')\n      }\n      </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n      <style>\n      .text {\n        color: v-bind('a')\n      }\n      </style>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unnecessary parentheses around expression.",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       52,
+       55
+      ],
+      "text": "a"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <style>\n      .text {\n        color: v-bind('a')\n      }\n      </style>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#invalid15"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template>\n      <button\n        :class=\"{\n          a: b || c,\n          [d + e]: f\n        }\"\n      />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#valid0"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>\n      <button\n        :class=\"a + b + c * d\"\n        :class=\"[a + b + c * d]\"\n      />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#valid1"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>\n      <button\n        :[(a+b)+c]=\"foo\"\n      />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#valid2"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template>\n      <button\n        :[(a+b)]=\"foo\"\n      />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#valid3"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><button :class=\"(a+b | bitwise)\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#valid4"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><button>{{ (foo + bar | bitwise) }}</button></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#valid5"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><button>{{ (foo | bitwise) | filter }}</button></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#valid6"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><button>{{ (function () {} ()) }}</button></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#valid7"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n    <style>\n    .text {\n      color: v-bind('a')\n    }\n    </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#valid8"
+ },
+ {
+  "rule": "no-extra-parens",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n    <style>\n    .text {\n      color: v-bind(a)\n    }\n    </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-extra-parens#valid9"
+ }
+]

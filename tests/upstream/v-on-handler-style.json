@@ -1,0 +1,4402 @@
+[
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"foo()\" />\n        <button @click=\"() => foo()\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline-function"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 30,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"foo\" />\n        <button @click=\"() => foo()\" />\n      </template>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 36,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"foo()\" />\n        <button @click=\"foo\" />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"foo\" />\n        <button @click=\"() => foo()\" />\n      </template>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"foo()\" />\n        <button @click=\"foo\" />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid0"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"foo()\" />\n        <button @click=\"() => foo()\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 30,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"foo\" />\n        <button @click=\"() => foo()\" />\n      </template>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 36,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"foo()\" />\n        <button @click=\"foo\" />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"foo\" />\n        <button @click=\"() => foo()\" />\n      </template>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"foo()\" />\n        <button @click=\"foo\" />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid1"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"foo()\" />\n        <button @click=\"() => foo()\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   "inline"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer inline handler over method handler in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 28
+    },
+    {
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 36
+    }
+   ],
+   "output": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"foo()\" />\n        <button @click=\"foo()\" />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferInlineOverMethod",
+     "message": "Prefer inline handler over method handler in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "preferInlineOverInlineFunction",
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 36,
+     "fix": {
+      "range": [
+       101,
+       112
+      ],
+      "text": "foo()"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"foo()\" />\n        <button @click=\"foo()\" />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid2"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"foo()\" />\n        <button @click=\"() => foo()\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   "inline-function"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer inline function over method handler in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 28
+    },
+    {
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 30
+    }
+   ],
+   "output": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"() => foo()\" />\n        <button @click=\"() => foo()\" />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferInlineFunctionOverMethod",
+     "message": "Prefer inline function over method handler in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "preferInlineFunctionOverInline",
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       67,
+       67
+      ],
+      "text": "() => "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"() => foo()\" />\n        <button @click=\"() => foo()\" />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid3"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div @click=\"foo( )\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline-function"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 30,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "<template><div @click=\"foo\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "<template><div @click=\"foo\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid4"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template>\n        <button @click=\"foo() /* comment */\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline-function"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 30
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid5"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template>\n        <button @click=\"foo() /* comment */\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline-function"
+   ],
+   {
+    "ignoreIncludesComment": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 30
+    }
+   ],
+   "output": "<template>\n        <button @click=\"() => foo() /* comment */\" />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferInlineFunctionOverInline",
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       35,
+       35
+      ],
+      "text": "() => "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n        <button @click=\"() => foo() /* comment */\" />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid6"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template>\n        <button @click=\"foo(/**/)\"/>\n        <button @click=\"/* comment */foo()\"/>\n        <button @click=foo()/*comment*/ />\n        <button @click=\"foo()// comment\n        \"/>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline-function"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 34
+    },
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 38,
+     "endLine": 3,
+     "endColumn": 43
+    },
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 29
+    },
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 30
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 38,
+     "endLine": 3,
+     "endColumn": 43,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid7"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"fn();\" />\n        <button @click=\"fn();;\" />\n        <button @click=\"{ fn(); }\" />\n        <button @click=\"{(fn());;;}\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline-function"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 30,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"fn\" />\n        <button @click=\"fn();;\" />\n        <button @click=\"{ fn(); }\" />\n        <button @click=\"{(fn());;;}\" />\n      </template>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 31,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"fn();\" />\n        <button @click=\"fn\" />\n        <button @click=\"{ fn(); }\" />\n        <button @click=\"{(fn());;;}\" />\n      </template>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 34,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"fn();\" />\n        <button @click=\"fn();;\" />\n        <button @click=\"fn\" />\n        <button @click=\"{(fn());;;}\" />\n      </template>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 36,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"fn();\" />\n        <button @click=\"fn();;\" />\n        <button @click=\"{ fn(); }\" />\n        <button @click=\"fn\" />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"fn\" />\n        <button @click=\"fn();;\" />\n        <button @click=\"{ fn(); }\" />\n        <button @click=\"{(fn());;;}\" />\n      </template>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"fn();\" />\n        <button @click=\"fn\" />\n        <button @click=\"{ fn(); }\" />\n        <button @click=\"{(fn());;;}\" />\n      </template>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"fn();\" />\n        <button @click=\"fn();;\" />\n        <button @click=\"fn\" />\n        <button @click=\"{(fn());;;}\" />\n      </template>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"fn();\" />\n        <button @click=\"fn();;\" />\n        <button @click=\"{ fn(); }\" />\n        <button @click=\"fn\" />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid8"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\" beforeSpace()\" />\n        <div @click='afterSpace() ' />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline-function"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 36,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <div @click=\"beforeSpace\" />\n        <div @click='afterSpace() ' />\n      </template>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 34,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <div @click=\" beforeSpace()\" />\n        <div @click='afterSpace' />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <div @click=\"beforeSpace\" />\n        <div @click='afterSpace() ' />\n      </template>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <div @click=\" beforeSpace()\" />\n        <div @click='afterSpace' />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid9"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\" &#x66;oo ( ) \" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline-function"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 26,
+     "endLine": 3,
+     "endColumn": 38,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"&#x66;oo\" />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 26,
+     "endLine": 3,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"&#x66;oo\" />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid10"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template><button @click=\"foo()\" /></template>\n      <script>\n      export default {\n        methods: {\n          foo() {}\n        }\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline-function"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 2,
+     "column": 33,
+     "endLine": 2,
+     "endColumn": 38
+    }
+   ],
+   "output": "\n      <template><button @click=\"foo\" /></template>\n      <script>\n      export default {\n        methods: {\n          foo() {}\n        }\n      }\n      </script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 2,
+     "column": 33,
+     "endLine": 2,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       33,
+       38
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template><button @click=\"foo\" /></template>\n      <script>\n      export default {\n        methods: {\n          foo() {}\n        }\n      }\n      </script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid11"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template><button @click=\"foo()\" /></template>\n      <script>\n      export default {\n        methods: {\n          foo: () => {}\n        }\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline-function"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 2,
+     "column": 33,
+     "endLine": 2,
+     "endColumn": 38
+    }
+   ],
+   "output": "\n      <template><button @click=\"foo\" /></template>\n      <script>\n      export default {\n        methods: {\n          foo: () => {}\n        }\n      }\n      </script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 2,
+     "column": 33,
+     "endLine": 2,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       33,
+       38
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template><button @click=\"foo\" /></template>\n      <script>\n      export default {\n        methods: {\n          foo: () => {}\n        }\n      }\n      </script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid12"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"changeFunc()\" />\n        <button @click=\"() => changeFunc()\" />\n      </template>\n      <script setup>\n      import { changeFunc } from './utils'\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 37,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"changeFunc\" />\n        <button @click=\"() => changeFunc()\" />\n      </template>\n      <script setup>\n      import { changeFunc } from './utils'\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 43,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"changeFunc()\" />\n        <button @click=\"changeFunc\" />\n      </template>\n      <script setup>\n      import { changeFunc } from './utils'\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"changeFunc\" />\n        <button @click=\"() => changeFunc()\" />\n      </template>\n      <script setup>\n      import { changeFunc } from './utils'\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 43,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"changeFunc()\" />\n        <button @click=\"changeFunc\" />\n      </template>\n      <script setup>\n      import { changeFunc } from './utils'\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid13"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"toggle()\" />\n        <button @click=\"reset()\" />\n      </template>\n      <script setup>\n      const { toggle } = useStore()\n      let reset = () => {}\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"toggle\" />\n        <button @click=\"reset()\" />\n      </template>\n      <script setup>\n      const { toggle } = useStore()\n      let reset = () => {}\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 32,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"toggle()\" />\n        <button @click=\"reset\" />\n      </template>\n      <script setup>\n      const { toggle } = useStore()\n      let reset = () => {}\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"toggle\" />\n        <button @click=\"reset()\" />\n      </template>\n      <script setup>\n      const { toggle } = useStore()\n      let reset = () => {}\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"toggle()\" />\n        <button @click=\"reset\" />\n      </template>\n      <script setup>\n      const { toggle } = useStore()\n      let reset = () => {}\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid14"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <template><button @click=\"toggle()\" /></template>\n      <script>\n      export default {\n        setup() {\n          return { toggle: (isOpen) => {} }\n        }\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 2,
+     "column": 33,
+     "endLine": 2,
+     "endColumn": 41,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template><button @click=\"toggle\" /></template>\n      <script>\n      export default {\n        setup() {\n          return { toggle: (isOpen) => {} }\n        }\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 2,
+     "column": 33,
+     "endLine": 2,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template><button @click=\"toggle\" /></template>\n      <script>\n      export default {\n        setup() {\n          return { toggle: (isOpen) => {} }\n        }\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid15"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"toggle()\" />\n        <button @click=\"() => toggle()\" />\n        <button @click=\"(isOpen) => toggle(isOpen)\" />\n      </template>\n      <script setup>\n      function toggle(isOpen) {}\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"toggle\" />\n        <button @click=\"() => toggle()\" />\n        <button @click=\"(isOpen) => toggle(isOpen)\" />\n      </template>\n      <script setup>\n      function toggle(isOpen) {}\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 39,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"toggle()\" />\n        <button @click=\"toggle\" />\n        <button @click=\"(isOpen) => toggle(isOpen)\" />\n      </template>\n      <script setup>\n      function toggle(isOpen) {}\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 51,
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <button @click=\"toggle()\" />\n        <button @click=\"() => toggle()\" />\n        <button @click=\"toggle\" />\n      </template>\n      <script setup>\n      function toggle(isOpen) {}\n      </script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"toggle\" />\n        <button @click=\"() => toggle()\" />\n        <button @click=\"(isOpen) => toggle(isOpen)\" />\n      </template>\n      <script setup>\n      function toggle(isOpen) {}\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"toggle()\" />\n        <button @click=\"toggle\" />\n        <button @click=\"(isOpen) => toggle(isOpen)\" />\n      </template>\n      <script setup>\n      function toggle(isOpen) {}\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 51,
+     "fix": {
+      "range": [
+       122,
+       148
+      ],
+      "text": "toggle"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <button @click=\"toggle()\" />\n        <button @click=\"() => toggle()\" />\n        <button @click=\"toggle\" />\n      </template>\n      <script setup>\n      function toggle(isOpen) {}\n      </script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid16"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"foo()\" />\n        <button @click=\"() => bar()\" />\n        <button @click=\"(a) => baz(a)\" />\n      </template>\n      <script setup>\n      function foo() {}\n      const bar = () => {}\n      const baz = function (a) {}\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 30,
+     "suggestions": []
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 36,
+     "suggestions": []
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 38,
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <button @click=\"foo\" />\n        <button @click=\"bar\" />\n        <button @click=\"baz\" />\n      </template>\n      <script setup>\n      function foo() {}\n      const bar = () => {}\n      const baz = function (a) {}\n      </script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       42,
+       47
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 36,
+     "fix": {
+      "range": [
+       76,
+       87
+      ],
+      "text": "bar"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       116,
+       129
+      ],
+      "text": "baz"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <button @click=\"foo\" />\n        <button @click=\"bar\" />\n        <button @click=\"baz\" />\n      </template>\n      <script setup>\n      function foo() {}\n      const bar = () => {}\n      const baz = function (a) {}\n      </script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid17"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "<template>\n        <button @click=\"foo(123)\" />\n        <button @click=\"foo.bar()\" />\n        <button @click=\"foo?.()\" />\n        <button @click=\"foo();foo();\" />\n        <button @click=\"{}\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline-function"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 33
+    },
+    {
+     "message": "Prefer method handler over inline handler in v-on. Note that you may need to create a new method.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 34
+    },
+    {
+     "message": "Prefer method handler over inline handler in v-on. Note that you may need to create a new method.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 32
+    },
+    {
+     "message": "Prefer method handler over inline handler in v-on. Note that you may need to create a new method.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 37
+    },
+    {
+     "message": "Prefer method handler over inline handler in v-on. Note that you may need to create a new method.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 27
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "preferMethodOverInlineWithoutIdCall",
+     "message": "Prefer method handler over inline handler in v-on. Note that you may need to create a new method.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "preferMethodOverInlineWithoutIdCall",
+     "message": "Prefer method handler over inline handler in v-on. Note that you may need to create a new method.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "preferMethodOverInlineWithoutIdCall",
+     "message": "Prefer method handler over inline handler in v-on. Note that you may need to create a new method.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "preferMethodOverInlineWithoutIdCall",
+     "message": "Prefer method handler over inline handler in v-on. Note that you may need to create a new method.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid18"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <template><button @click=\"foo()\" /></template>\n      <script>\n      export default {\n        methods: {\n          foo(a) {}\n        }\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline-function"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 2,
+     "column": 33,
+     "endLine": 2,
+     "endColumn": 38,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template><button @click=\"foo\" /></template>\n      <script>\n      export default {\n        methods: {\n          foo(a) {}\n        }\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 2,
+     "column": 33,
+     "endLine": 2,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template><button @click=\"foo\" /></template>\n      <script>\n      export default {\n        methods: {\n          foo(a) {}\n        }\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid19"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"foo()\" />\n        <button @click=\"bar()\" />\n        <button @click=\"baz()\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo(a, b) {},\n          bar(...a) {},\n          baz(a = 42) {},\n        }\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline-function"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 30,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"foo\" />\n        <button @click=\"bar()\" />\n        <button @click=\"baz()\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo(a, b) {},\n          bar(...a) {},\n          baz(a = 42) {},\n        }\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 30,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"foo()\" />\n        <button @click=\"bar\" />\n        <button @click=\"baz()\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo(a, b) {},\n          bar(...a) {},\n          baz(a = 42) {},\n        }\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 30,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"foo()\" />\n        <button @click=\"bar()\" />\n        <button @click=\"baz\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo(a, b) {},\n          bar(...a) {},\n          baz(a = 42) {},\n        }\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"foo\" />\n        <button @click=\"bar()\" />\n        <button @click=\"baz()\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo(a, b) {},\n          bar(...a) {},\n          baz(a = 42) {},\n        }\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"foo()\" />\n        <button @click=\"bar\" />\n        <button @click=\"baz()\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo(a, b) {},\n          bar(...a) {},\n          baz(a = 42) {},\n        }\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"foo()\" />\n        <button @click=\"bar()\" />\n        <button @click=\"baz\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo(a, b) {},\n          bar(...a) {},\n          baz(a = 42) {},\n        }\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid20"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"foo()\" />\n        <button @click=\"bar()\" />\n        <button @click=\"baz()\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo: (a, b) => {},\n          bar: (...a) => {},\n          baz: (a = 42) => {},\n        }\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline-function"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 30,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"foo\" />\n        <button @click=\"bar()\" />\n        <button @click=\"baz()\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo: (a, b) => {},\n          bar: (...a) => {},\n          baz: (a = 42) => {},\n        }\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 30,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"foo()\" />\n        <button @click=\"bar\" />\n        <button @click=\"baz()\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo: (a, b) => {},\n          bar: (...a) => {},\n          baz: (a = 42) => {},\n        }\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 30,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"foo()\" />\n        <button @click=\"bar()\" />\n        <button @click=\"baz\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo: (a, b) => {},\n          bar: (...a) => {},\n          baz: (a = 42) => {},\n        }\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"foo\" />\n        <button @click=\"bar()\" />\n        <button @click=\"baz()\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo: (a, b) => {},\n          bar: (...a) => {},\n          baz: (a = 42) => {},\n        }\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"foo()\" />\n        <button @click=\"bar\" />\n        <button @click=\"baz()\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo: (a, b) => {},\n          bar: (...a) => {},\n          baz: (a = 42) => {},\n        }\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"foo()\" />\n        <button @click=\"bar()\" />\n        <button @click=\"baz\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo: (a, b) => {},\n          bar: (...a) => {},\n          baz: (a = 42) => {},\n        }\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid21"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "<template>\n        <template v-for=\"e in list\">\n          <button @click=\"e()\" />\n        </template>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline-function"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 30,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "<template>\n        <template v-for=\"e in list\">\n          <button @click=\"e\" />\n        </template>\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInline",
+     "message": "Prefer method handler over inline handler in v-on.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "<template>\n        <template v-for=\"e in list\">\n          <button @click=\"e\" />\n        </template>\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid22"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "<template>\n        <template v-for=\"e in list\">\n          <button @click=\"handler(e)\" />\n          <button @click=\"handlers[e]()\" />\n          <button @click=\"handler(a(b), c(d), e + f)\" />\n          <button @click=\"e.foo()\" />\n        </template>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline-function"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 37
+    },
+    {
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 40
+    },
+    {
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 5,
+     "column": 27,
+     "endLine": 5,
+     "endColumn": 53
+    },
+    {
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 6,
+     "column": 27,
+     "endLine": 6,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template>\n        <template v-for=\"e in list\">\n          <button @click=\"() => handler(e)\" />\n          <button @click=\"() => handlers[e]()\" />\n          <button @click=\"() => handler(a(b), c(d), e + f)\" />\n          <button @click=\"() => e.foo()\" />\n        </template>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferInlineFunctionOverInline",
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 37,
+     "fix": {
+      "range": [
+       74,
+       74
+      ],
+      "text": "() => "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "preferInlineFunctionOverInline",
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       115,
+       115
+      ],
+      "text": "() => "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "preferInlineFunctionOverInline",
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 5,
+     "column": 27,
+     "endLine": 5,
+     "endColumn": 53,
+     "fix": {
+      "range": [
+       159,
+       159
+      ],
+      "text": "() => "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "preferInlineFunctionOverInline",
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 6,
+     "column": 27,
+     "endLine": 6,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       216,
+       216
+      ],
+      "text": "() => "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n        <template v-for=\"e in list\">\n          <button @click=\"() => handler(e)\" />\n          <button @click=\"() => handlers[e]()\" />\n          <button @click=\"() => handler(a(b), c(d), e + f)\" />\n          <button @click=\"() => e.foo()\" />\n        </template>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid23"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "<template>\n        <button @click=\"foo( )\" />\n        <button @click=\"count++\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   "inline-function"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 31
+    },
+    {
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 32
+    }
+   ],
+   "output": "<template>\n        <button @click=\"() => foo( )\" />\n        <button @click=\"() => count++\" />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferInlineFunctionOverInline",
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       35,
+       35
+      ],
+      "text": "() => "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "preferInlineFunctionOverInline",
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       70,
+       70
+      ],
+      "text": "() => "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n        <button @click=\"() => foo( )\" />\n        <button @click=\"() => count++\" />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid24"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 25,
+  "name": null,
+  "code": "<template><div @click=\"foo($event)\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   "inline-function"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferInlineFunctionOverInline",
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid25"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 26,
+  "name": null,
+  "code": "<template><div @click=foo() /></template>",
+  "filename": "test.vue",
+  "options": [
+   "inline-function"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferInlineFunctionOverInline",
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid26"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 27,
+  "name": null,
+  "code": "<template><button @click=\"{foo();foo();}\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   "inline-function"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 41
+    }
+   ],
+   "output": "<template><button @click=\"() => {foo();foo();}\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferInlineFunctionOverInline",
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 41,
+     "fix": {
+      "range": [
+       26,
+       26
+      ],
+      "text": "() => "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><button @click=\"() => {foo();foo();}\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid27"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 28,
+  "name": null,
+  "code": "<template><button @click=\"foo();foo();\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   "inline-function"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ],
+   "output": "<template><button @click=\"() => {foo();foo();}\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferInlineFunctionOverInline",
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       26,
+       38
+      ],
+      "text": "() => {foo();foo();}"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><button @click=\"() => {foo();foo();}\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid28"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 29,
+  "name": null,
+  "code": "<template><button @click=\"foo();\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   "inline-function"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 33
+    }
+   ],
+   "output": "<template><button @click=\"() => {foo();}\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferInlineFunctionOverInline",
+     "message": "Prefer inline function over inline handler in v-on.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       26,
+       32
+      ],
+      "text": "() => {foo();}"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><button @click=\"() => {foo();}\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid29"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 30,
+  "name": null,
+  "code": "<template>\n        <button @click=\"foo\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   "inline"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer inline handler over method handler in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 28
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferInlineOverMethod",
+     "message": "Prefer inline handler over method handler in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid30"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 31,
+  "name": null,
+  "code": "<template>\n        <button @click=\"() => foo()\" />\n        <button @click=\"(a, b) => foo(a, b)\" />\n        <button @click=\"() => { foo() }\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 36,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"(a, b) => foo(a, b)\" />\n        <button @click=\"() => { foo() }\" />\n      </template>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 44,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "<template>\n        <button @click=\"() => foo()\" />\n        <button @click=\"foo\" />\n        <button @click=\"() => { foo() }\" />\n      </template>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 40,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "<template>\n        <button @click=\"() => foo()\" />\n        <button @click=\"(a, b) => foo(a, b)\" />\n        <button @click=\"foo\" />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "<template>\n        <button @click=\"foo\" />\n        <button @click=\"(a, b) => foo(a, b)\" />\n        <button @click=\"() => { foo() }\" />\n      </template>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "<template>\n        <button @click=\"() => foo()\" />\n        <button @click=\"foo\" />\n        <button @click=\"() => { foo() }\" />\n      </template>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "<template>\n        <button @click=\"() => foo()\" />\n        <button @click=\"(a, b) => foo(a, b)\" />\n        <button @click=\"foo\" />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid31"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 32,
+  "name": null,
+  "code": "<template>\n        <button @click=\"() => foo() /* comment */\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 36
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid32"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 33,
+  "name": null,
+  "code": "<template>\n        <button @click=\"() => foo() /* comment */\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline"
+   ],
+   {
+    "ignoreIncludesComment": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 36
+    }
+   ],
+   "output": "<template>\n        <button @click=\"foo() /* comment */\" />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferInlineOverInlineFunction",
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 36,
+     "fix": {
+      "range": [
+       35,
+       46
+      ],
+      "text": "foo()"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n        <button @click=\"foo() /* comment */\" />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid33"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 34,
+  "name": null,
+  "code": "<template>\n        <button @click=\"(a, b) => foo(a, b)\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo(a, b) {}\n        }\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 44
+    }
+   ],
+   "output": "<template>\n        <button @click=\"foo\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo(a, b) {}\n        }\n      }\n      </script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 44,
+     "fix": {
+      "range": [
+       35,
+       54
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n        <button @click=\"foo\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo(a, b) {}\n        }\n      }\n      </script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid34"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 35,
+  "name": null,
+  "code": "<template>\n        <button @click=\"(a, b) => foo(a, b)\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo\n        }\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 44,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "<template>\n        <button @click=\"foo\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo\n        }\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "<template>\n        <button @click=\"foo\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo\n        }\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid35"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 36,
+  "name": null,
+  "code": "<template>\n        <MyButton @click=\"(a) => fn1(a)\" />\n        <MyButton @click=\"(a, b) => fn2(a, b)\" />\n        <MyButton @click=\"(a) => fn2(a)\" />\n      </template>\n      <script setup>\n      function fn1(a) {}\n      function fn2(a, b) {}\n      </script>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 2,
+     "column": 27,
+     "endLine": 2,
+     "endColumn": 40,
+     "suggestions": []
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 46,
+     "suggestions": []
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 40,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "<template>\n        <MyButton @click=\"(a) => fn1(a)\" />\n        <MyButton @click=\"(a, b) => fn2(a, b)\" />\n        <MyButton @click=\"fn2\" />\n      </template>\n      <script setup>\n      function fn1(a) {}\n      function fn2(a, b) {}\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": "<template>\n        <MyButton @click=\"fn1\" />\n        <MyButton @click=\"fn2\" />\n        <MyButton @click=\"(a) => fn2(a)\" />\n      </template>\n      <script setup>\n      function fn1(a) {}\n      function fn2(a, b) {}\n      </script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 2,
+     "column": 27,
+     "endLine": 2,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       37,
+       50
+      ],
+      "text": "fn1"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 46,
+     "fix": {
+      "range": [
+       81,
+       100
+      ],
+      "text": "fn2"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "<template>\n        <MyButton @click=\"(a) => fn1(a)\" />\n        <MyButton @click=\"(a, b) => fn2(a, b)\" />\n        <MyButton @click=\"fn2\" />\n      </template>\n      <script setup>\n      function fn1(a) {}\n      function fn2(a, b) {}\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": "<template>\n        <MyButton @click=\"fn1\" />\n        <MyButton @click=\"fn2\" />\n        <MyButton @click=\"(a) => fn2(a)\" />\n      </template>\n      <script setup>\n      function fn1(a) {}\n      function fn2(a, b) {}\n      </script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid36"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 37,
+  "name": null,
+  "code": "<template>\n        <button @click=\"() => handler(foo)\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 43
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 43,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid37"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 38,
+  "name": null,
+  "code": "<template>\n        <button @click=\"() => foo?.()\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline function in v-on. Note that you may need to create a new method.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 38
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInlineFunctionWithoutIdCall",
+     "message": "Prefer method handler over inline function in v-on. Note that you may need to create a new method.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid38"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 39,
+  "name": null,
+  "code": "<template>\n        <button @click=\"() => count++\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline function in v-on. Note that you may need to create a new method.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 38
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInlineFunctionWithoutIdCall",
+     "message": "Prefer method handler over inline function in v-on. Note that you may need to create a new method.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid39"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 40,
+  "name": null,
+  "code": "<template>\n        <button @click=\"() => { count++ }\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline function in v-on. Note that you may need to create a new method.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 42
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInlineFunctionWithoutIdCall",
+     "message": "Prefer method handler over inline function in v-on. Note that you may need to create a new method.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid40"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 41,
+  "name": null,
+  "code": "<template>\n        <button @click=\"(a, b) => foo(b, a)\" />\n        <button @click=\"(a, b) => foo(...a, b)\" />\n        <button @click=\"(...a) => foo(a)\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 44
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 47
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 41
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid41"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 42,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"(a) => foo(a)\" />\n        <button @click=\"(a) => bar(a)\" />\n        <button @click=\"(a, b) => baz(a, b)\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo(a, b) {},\n          bar(...a) {},\n          baz(a = 42) {},\n        }\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 38,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"foo\" />\n        <button @click=\"(a) => bar(a)\" />\n        <button @click=\"(a, b) => baz(a, b)\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo(a, b) {},\n          bar(...a) {},\n          baz(a = 42) {},\n        }\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 38,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"(a) => foo(a)\" />\n        <button @click=\"bar\" />\n        <button @click=\"(a, b) => baz(a, b)\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo(a, b) {},\n          bar(...a) {},\n          baz(a = 42) {},\n        }\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 44,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"(a) => foo(a)\" />\n        <button @click=\"(a) => bar(a)\" />\n        <button @click=\"baz\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo(a, b) {},\n          bar(...a) {},\n          baz(a = 42) {},\n        }\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"foo\" />\n        <button @click=\"(a) => bar(a)\" />\n        <button @click=\"(a, b) => baz(a, b)\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo(a, b) {},\n          bar(...a) {},\n          baz(a = 42) {},\n        }\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"(a) => foo(a)\" />\n        <button @click=\"bar\" />\n        <button @click=\"(a, b) => baz(a, b)\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo(a, b) {},\n          bar(...a) {},\n          baz(a = 42) {},\n        }\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"(a) => foo(a)\" />\n        <button @click=\"(a) => bar(a)\" />\n        <button @click=\"baz\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo(a, b) {},\n          bar(...a) {},\n          baz(a = 42) {},\n        }\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid42"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 43,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"(a) => foo(a)\" />\n        <button @click=\"(a) => bar(a)\" />\n        <button @click=\"(a, b) => baz(a, b)\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo: (a, b) => {},\n          bar: (...a) => {},\n          baz: (a = 42) => {},\n        }\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 38,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"foo\" />\n        <button @click=\"(a) => bar(a)\" />\n        <button @click=\"(a, b) => baz(a, b)\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo: (a, b) => {},\n          bar: (...a) => {},\n          baz: (a = 42) => {},\n        }\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 38,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"(a) => foo(a)\" />\n        <button @click=\"bar\" />\n        <button @click=\"(a, b) => baz(a, b)\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo: (a, b) => {},\n          bar: (...a) => {},\n          baz: (a = 42) => {},\n        }\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 44,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "\n      <template>\n        <button @click=\"(a) => foo(a)\" />\n        <button @click=\"(a) => bar(a)\" />\n        <button @click=\"baz\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo: (a, b) => {},\n          bar: (...a) => {},\n          baz: (a = 42) => {},\n        }\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"foo\" />\n        <button @click=\"(a) => bar(a)\" />\n        <button @click=\"(a, b) => baz(a, b)\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo: (a, b) => {},\n          bar: (...a) => {},\n          baz: (a = 42) => {},\n        }\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"(a) => foo(a)\" />\n        <button @click=\"bar\" />\n        <button @click=\"(a, b) => baz(a, b)\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo: (a, b) => {},\n          bar: (...a) => {},\n          baz: (a = 42) => {},\n        }\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "\n      <template>\n        <button @click=\"(a) => foo(a)\" />\n        <button @click=\"(a) => bar(a)\" />\n        <button @click=\"baz\" />\n      </template>\n      <script>\n      export default {\n        methods: {\n          foo: (a, b) => {},\n          bar: (...a) => {},\n          baz: (a = 42) => {},\n        }\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid43"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 44,
+  "name": null,
+  "code": "<template>\n        <template v-for=\"e in list\">\n          <button @click=\"() => e()\" />\n          <button @click=\"(a) => e(a)\" />\n          <button @click=\"(a, b) => e(a, b)\" />\n        </template>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 36,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "<template>\n        <template v-for=\"e in list\">\n          <button @click=\"e\" />\n          <button @click=\"(a) => e(a)\" />\n          <button @click=\"(a, b) => e(a, b)\" />\n        </template>\n      </template>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 38,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "<template>\n        <template v-for=\"e in list\">\n          <button @click=\"() => e()\" />\n          <button @click=\"e\" />\n          <button @click=\"(a, b) => e(a, b)\" />\n        </template>\n      </template>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 5,
+     "column": 27,
+     "endLine": 5,
+     "endColumn": 44,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "output": "<template>\n        <template v-for=\"e in list\">\n          <button @click=\"() => e()\" />\n          <button @click=\"(a) => e(a)\" />\n          <button @click=\"e\" />\n        </template>\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "<template>\n        <template v-for=\"e in list\">\n          <button @click=\"e\" />\n          <button @click=\"(a) => e(a)\" />\n          <button @click=\"(a, b) => e(a, b)\" />\n        </template>\n      </template>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "<template>\n        <template v-for=\"e in list\">\n          <button @click=\"() => e()\" />\n          <button @click=\"e\" />\n          <button @click=\"(a, b) => e(a, b)\" />\n        </template>\n      </template>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferMethodOverInlineFunction",
+     "message": "Prefer method handler over inline function in v-on.",
+     "line": 5,
+     "column": 27,
+     "endLine": 5,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithMethodHandler",
+       "desc": "Replace with method handler. Note that the method will receive the event arguments.",
+       "output": "<template>\n        <template v-for=\"e in list\">\n          <button @click=\"() => e()\" />\n          <button @click=\"(a) => e(a)\" />\n          <button @click=\"e\" />\n        </template>\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid44"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 45,
+  "name": null,
+  "code": "<template>\n        <template v-for=\"e in list\">\n          <button @click=\"() => handler(e)\" />\n          <button @click=\"() => handlers[e]()\" />\n          <button @click=\"() => handler(a(b), c(d), e + f)\" />\n          <button @click=\"() => e.foo()\" />\n        </template>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 43
+    },
+    {
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 46
+    },
+    {
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 5,
+     "column": 27,
+     "endLine": 5,
+     "endColumn": 59
+    },
+    {
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 6,
+     "column": 27,
+     "endLine": 6,
+     "endColumn": 40
+    }
+   ],
+   "output": "<template>\n        <template v-for=\"e in list\">\n          <button @click=\"handler(e)\" />\n          <button @click=\"handlers[e]()\" />\n          <button @click=\"handler(a(b), c(d), e + f)\" />\n          <button @click=\"e.foo()\" />\n        </template>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferInlineOverInlineFunction",
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 43,
+     "fix": {
+      "range": [
+       74,
+       90
+      ],
+      "text": "handler(e)"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "preferInlineOverInlineFunction",
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 46,
+     "fix": {
+      "range": [
+       121,
+       140
+      ],
+      "text": "handlers[e]()"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "preferInlineOverInlineFunction",
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 5,
+     "column": 27,
+     "endLine": 5,
+     "endColumn": 59,
+     "fix": {
+      "range": [
+       171,
+       203
+      ],
+      "text": "handler(a(b), c(d), e + f)"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "preferInlineOverInlineFunction",
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 6,
+     "column": 27,
+     "endLine": 6,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       234,
+       247
+      ],
+      "text": "e.foo()"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n        <template v-for=\"e in list\">\n          <button @click=\"handler(e)\" />\n          <button @click=\"handlers[e]()\" />\n          <button @click=\"handler(a(b), c(d), e + f)\" />\n          <button @click=\"e.foo()\" />\n        </template>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid45"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 46,
+  "name": null,
+  "code": "<template>\n        <button @click=\"() => foo(a, b)\" />\n        <button @click=\"() => count++\" />\n        <button @click=\"() => { count++; foo(); }\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   "inline"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 40
+    },
+    {
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 38
+    },
+    {
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 50
+    }
+   ],
+   "output": "<template>\n        <button @click=\"foo(a, b)\" />\n        <button @click=\"count++\" />\n        <button @click=\" count++; foo(); \" />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferInlineOverInlineFunction",
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       35,
+       50
+      ],
+      "text": "foo(a, b)"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "preferInlineOverInlineFunction",
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       79,
+       92
+      ],
+      "text": "count++"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "preferInlineOverInlineFunction",
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 50,
+     "fix": {
+      "range": [
+       121,
+       146
+      ],
+      "text": " count++; foo(); "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n        <button @click=\"foo(a, b)\" />\n        <button @click=\"count++\" />\n        <button @click=\" count++; foo(); \" />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid46"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 47,
+  "name": null,
+  "code": "<template>\n        <button @click=\"(a) => foo(a, b)\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   "inline"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 41
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferInlineOverInlineFunction",
+     "message": "Prefer inline handler over inline function in v-on.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid47"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "invalid",
+  "idx": 48,
+  "name": null,
+  "code": "<template>\n        <button @click=\"(a, b) => foo(a, b)\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   "inline"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer inline handler over inline function in v-on. Note that the custom event must be changed to a single payload.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 44
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferInlineOverInlineFunctionWithMultipleParams",
+     "message": "Prefer inline handler over inline function in v-on. Note that the custom event must be changed to a single payload.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#invalid48"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#valid0"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>\n        <button @click=\"foo\" />\n        <template v-for=\"e in list\">\n          <button @click=\"() => foo(e)\" />\n        </template>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline-function"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#valid1"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>\n        <button @click=\"foo\" />\n        <template v-for=\"e in list\">\n          <button @click=\"() => foo(e)\" />\n        </template>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#valid2"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template>\n        <button @click=\"foo\" />\n        <template v-for=\"e in list\">\n          <button @click=\"foo(e)\" />\n        </template>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   [
+    "method",
+    "inline"
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#valid3"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template>\n        <button @click=\"foo()\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   "inline"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#valid4"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template>\n        <button @click=\"() => foo()\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   "inline-function"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#valid5"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><button @[foo()]=\"bar\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#valid6"
+ },
+ {
+  "rule": "v-on-handler-style",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><button :click=\"foo()\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-handler-style#valid7"
+ }
+]

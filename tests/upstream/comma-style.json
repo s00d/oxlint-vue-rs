@@ -1,0 +1,517 @@
+[
+ {
+  "rule": "comma-style",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <CustomButton @click=\"() => fn({\n            a\n            , b\n          })\" />\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "',' should be placed last.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 14
+    }
+   ],
+   "output": "\n        <template>\n          <CustomButton @click=\"() => fn({\n            a,\n             b\n          })\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedCommaLast",
+     "message": "',' should be placed last.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       76,
+       91
+      ],
+      "text": ",\n             "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <CustomButton @click=\"() => fn({\n            a,\n             b\n          })\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-style#invalid0"
+ },
+ {
+  "rule": "comma-style",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <CustomButton v-slot=\"a,\n            b\n            ,c\" />\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "',' should be placed last.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 14
+    }
+   ],
+   "output": "\n        <template>\n          <CustomButton v-slot=\"a,\n            b,\n            c\" />\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedCommaLast",
+     "message": "',' should be placed last.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       68,
+       82
+      ],
+      "text": ",\n            "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <CustomButton v-slot=\"a,\n            b,\n            c\" />\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-style#invalid0@2"
+ },
+ {
+  "rule": "comma-style",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <CustomButton @click=\"($event\n            , data) => fn()\" />\n        </template>",
+  "filename": "test.js",
+  "options": [
+   "last",
+   {
+    "exceptions": {
+     "ArrowFunctionExpression": false
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "',' should be placed last.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 14
+    }
+   ],
+   "output": "\n        <template>\n          <CustomButton @click=\"($event,\n             data) => fn()\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedCommaLast",
+     "message": "',' should be placed last.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       59,
+       74
+      ],
+      "text": ",\n             "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <CustomButton @click=\"($event,\n             data) => fn()\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-style#invalid1"
+ },
+ {
+  "rule": "comma-style",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <CustomButton @click=\"($event,\n            data) => fn()\" />\n        </template>",
+  "filename": "test.js",
+  "options": [
+   "first",
+   {
+    "exceptions": {
+     "ArrowFunctionExpression": false
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "',' should be placed first.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 41
+    }
+   ],
+   "output": "\n        <template>\n          <CustomButton @click=\"($event\n            ,data) => fn()\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedCommaFirst",
+     "message": "',' should be placed first.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 41,
+     "fix": {
+      "range": [
+       59,
+       73
+      ],
+      "text": "\n            ,"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <CustomButton @click=\"($event\n            ,data) => fn()\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-style#invalid2"
+ },
+ {
+  "rule": "comma-style",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <CustomButton v-slot=\"foo,\n            bar\" >\n            <div/>\n          </CustomButton>\n        </template>",
+  "filename": "test.js",
+  "options": [
+   "first",
+   {
+    "exceptions": {
+     "FunctionExpression": false
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "',' should be placed first.",
+     "line": 3,
+     "column": 36,
+     "endLine": 3,
+     "endColumn": 37
+    }
+   ],
+   "output": "\n        <template>\n          <CustomButton v-slot=\"foo\n            ,bar\" >\n            <div/>\n          </CustomButton>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedCommaFirst",
+     "message": "',' should be placed first.",
+     "line": 3,
+     "column": 36,
+     "endLine": 3,
+     "endColumn": 37,
+     "fix": {
+      "range": [
+       55,
+       69
+      ],
+      "text": "\n            ,"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <CustomButton v-slot=\"foo\n            ,bar\" >\n            <div/>\n          </CustomButton>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-style#invalid3"
+ },
+ {
+  "rule": "comma-style",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <template>\n          <CustomButton v-slot=\"a,\n            b\n            ,c\" />\n        </template>",
+  "filename": "test.js",
+  "options": [
+   "last",
+   {
+    "exceptions": {
+     "FunctionExpression": false
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "',' should be placed last.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 14
+    }
+   ],
+   "output": "\n        <template>\n          <CustomButton v-slot=\"a,\n            b,\n            c\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedCommaLast",
+     "message": "',' should be placed last.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       68,
+       82
+      ],
+      "text": ",\n            "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <CustomButton v-slot=\"a,\n            b,\n            c\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-style#invalid4"
+ },
+ {
+  "rule": "comma-style",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template>\n      <CustomButton @click=\"() => fn({\n        a,\n        b\n      })\" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-style#valid0"
+ },
+ {
+  "rule": "comma-style",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <CustomButton @click=\"($event,\n            data) => fn()\" />\n        </template>",
+  "filename": "test.js",
+  "options": [
+   "last",
+   {
+    "exceptions": {
+     "ArrowFunctionExpression": false
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-style#valid1"
+ },
+ {
+  "rule": "comma-style",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <CustomButton @click=\"($event\n            , data) => fn()\" />\n        </template>",
+  "filename": "test.js",
+  "options": [
+   "first",
+   {
+    "exceptions": {
+     "ArrowFunctionExpression": false
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-style#valid2"
+ },
+ {
+  "rule": "comma-style",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <CustomButton v-slot=\"a,\n            b\n            ,c\" />\n        </template>",
+  "filename": "test.js",
+  "options": [
+   "first",
+   {
+    "exceptions": {
+     "FunctionExpression": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-style#valid3"
+ }
+]

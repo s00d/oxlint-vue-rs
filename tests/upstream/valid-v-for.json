@@ -1,0 +1,2288 @@
+[
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div><div v-for:aaa=\"x in list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-for' directives require no argument.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedArgument",
+     "message": "'v-for' directives require no argument.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid0"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div><div v-for.aaa=\"x in list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-for' directives require no modifier.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedModifier",
+     "message": "'v-for' directives require no modifier.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid1"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div><div v-for></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-for' directives require that attribute value.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedValue",
+     "message": "'v-for' directives require that attribute value.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid2"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div><div v-for=\"(,a,b) in list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Invalid empty alias.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 42
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidEmptyAlias",
+     "message": "Invalid empty alias.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid3"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div><div v-for=\"(a,,b) in list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Invalid empty alias.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 42
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidEmptyAlias",
+     "message": "Invalid empty alias.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid4"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div><div v-for=\"(a,b,,) in list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Invalid empty alias.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 43
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidEmptyAlias",
+     "message": "Invalid empty alias.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 43,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid5"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div><div v-for=\"(a,{b,c}) in list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Invalid alias '{b,c}'.",
+     "line": 1,
+     "column": 31,
+     "endLine": 1,
+     "endColumn": 36
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidAlias",
+     "message": "Invalid alias '{b,c}'.",
+     "line": 1,
+     "column": 31,
+     "endLine": 1,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid6"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div><div v-for=\"(a,b,{c,d}) in list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Invalid alias '{c,d}'.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 38
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidAlias",
+     "message": "Invalid alias '{c,d}'.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid7"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div><your-component v-for=\"x in list\"></your-component></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom elements in iteration require 'v-bind:key' directives.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 50
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireKey",
+     "message": "Custom elements in iteration require 'v-bind:key' directives.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 50,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid8"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div><div is=\"your-component\" v-for=\"x in list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom elements in iteration require 'v-bind:key' directives.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 59
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireKey",
+     "message": "Custom elements in iteration require 'v-bind:key' directives.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 59,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid9"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div><div :is=\"your-component\" v-for=\"x in list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom elements in iteration require 'v-bind:key' directives.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 60
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireKey",
+     "message": "Custom elements in iteration require 'v-bind:key' directives.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 60,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid10"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div><div v-bind:is=\"your-component\" v-for=\"x in list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom elements in iteration require 'v-bind:key' directives.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 66
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireKey",
+     "message": "Custom elements in iteration require 'v-bind:key' directives.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 66,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid11"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\" :key=\"100\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 49
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "keyUseFVorVars",
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid12"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div><custom-component v-for=\"x in list\" :key=\"100\"></custom-component></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 62
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "keyUseFVorVars",
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 62,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid13"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\" :key=\"foo\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 49
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "keyUseFVorVars",
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid14"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div><custom-component v-for=\"x in list\" :key=\"foo\"></custom-component></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 62
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "keyUseFVorVars",
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 62,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid15"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div><div v-for=\"(item, index) in suggestions\" :key></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 1,
+     "column": 58,
+     "endLine": 1,
+     "endColumn": 62
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "keyUseFVorVars",
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 1,
+     "column": 58,
+     "endLine": 1,
+     "endColumn": 62,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid16"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><div><template v-for=\"x of list\"><div v-for=\"foo of y\" :key=\"foo\"></div></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 1,
+     "column": 66,
+     "endLine": 1,
+     "endColumn": 76
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "keyUseFVorVars",
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 1,
+     "column": 66,
+     "endLine": 1,
+     "endColumn": 76,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid17"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n        <template>\n          <template v-for=\"x in xs\">\n            <template v-for=\"y in a.ys\">\n              <li v-for=\"z in y.zs\" :key=\"z.id\">\n                123\n              </li>\n            </template>\n          </template>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 5,
+     "column": 37,
+     "endLine": 5,
+     "endColumn": 48
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "keyUseFVorVars",
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 5,
+     "column": 37,
+     "endLine": 5,
+     "endColumn": 48,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid18"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "\n        <template>\n          <template v-for=\"x in xs\">\n            <template v-for=\"y in x.ys\">\n              <li v-for=\"z in a.zs\" :key=\"z.id\">\n                123\n              </li>\n            </template>\n          </template>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 5,
+     "column": 37,
+     "endLine": 5,
+     "endColumn": 48
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "keyUseFVorVars",
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 5,
+     "column": 37,
+     "endLine": 5,
+     "endColumn": 48,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid19"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "\n        <template>\n          <template v-for=\"x in xs\">\n            <template v-for=\"y in x.ys\">\n              <li v-for=\"z in x.zs\" :key=\"z.id\">\n                123\n              </li>\n            </template>\n          </template>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 5,
+     "column": 37,
+     "endLine": 5,
+     "endColumn": 48
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "keyUseFVorVars",
+     "message": "Expected 'v-bind:key' directive to use the variables which are defined by the 'v-for' directive.",
+     "line": 5,
+     "column": 37,
+     "endLine": 5,
+     "endColumn": 48,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid20"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><div v-for=\"\"></div></template>",
+  "filename": "empty-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-for' directives require that attribute value.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedValue",
+     "message": "'v-for' directives require that attribute value.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid21"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "<template><div><div v-for=\"(,a) in list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allowEmptyAlias": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Invalid empty alias.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 40
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidEmptyAlias",
+     "message": "Invalid empty alias.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#invalid22"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid0"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid1"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div><div v-for=\"x of list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid2"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div><div v-for=\"(x, i, k) in list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid3"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div><div v-for=\"(x, i, k) of list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid4"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div><div v-for=\"({id, name}, i, k) of list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid5"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div><div v-for=\"([id, name], i, k) of list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid6"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div><your-component v-for=\"x in list\" :key=\"x.id\"></your-component></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid7"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div><div is=\"your-component\" v-for=\"x in list\" :key=\"x.id\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid8"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div><div :is=\"your-component\" v-for=\"x in list\" :key=\"x.id\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid9"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div><template v-for=\"x in list\"><custom-component :key=\"x\"></custom-component></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid10"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div><template v-for=\"x in list\"><div :key=\"x\"></div></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid11"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div><template v-for=\"x in list\"><div></div></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid12"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><template v-for=\"x of list\"><slot name=\"item\" /></template></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid13"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><template v-for=\"x of list\">foo<div></div></template></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid14"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div><template v-for=\"x of list\"><div v-for=\"foo of x\" :key=\"foo\"></div></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid15"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n        <template>\n          <template v-for=\"x in xs\">\n            <template v-for=\"y in x.ys\">\n              <li v-for=\"z in y.zs\" :key=\"z.id\">\n                123\n              </li>\n            </template>\n          </template>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid16"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n        <template>\n          <template v-for=\"x in xs\">\n            <template v-for=\"y in ys\">\n              <li v-for=\"z in zs\" :key=\"x.id + y.id + z.id\">\n                123\n              </li>\n            </template>\n          </template>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid17"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><div><template v-for=\"x in list\" v-bind:key=\"x\"><div /></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid18"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><div><template v-for=\"x in list\" v-bind:key=\"x\"><MyComp /></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid19"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><div><template v-for=\"x in list\" :key=\"x\"><div /></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid20"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><div><template v-for=\"x in list\" :key=\"x\"><MyComp /></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid21"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "<template><div><template v-for=\"x in list\" :key=\"x.id\"><div /></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid22"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "<template><div><template v-for=\"x in list\" :key=\"x.id\"><MyComp /></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid23"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "<template><div><template v-for=\"(x, i) in list\" :key=\"i\"><div /></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid24"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "<template><div><template v-for=\"(x, i) in list\" :key=\"i\"><MyComp /></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid25"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "<template><div><template v-for=\"x in list\" :key=\"x\"><custom-component></custom-component></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid26"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "<template><div><slot v-for=\"x in list\" :key=\"x\"><div /></slot></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid27"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 28,
+  "name": null,
+  "code": "<template><div><slot v-for=\"x in list\" :key=\"x\"><MyComp /></slot></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid28"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 29,
+  "name": null,
+  "code": "<template><div v-for=\".\"></div></template>",
+  "filename": "parsing-error.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid29"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 30,
+  "name": null,
+  "code": "<template><div><template v-for=\"xin list\"><div></div></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid30"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 31,
+  "name": null,
+  "code": "<template><div v-for=\"/**/\"></div></template>",
+  "filename": "comment-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid31"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 32,
+  "name": null,
+  "code": "<template><div><div v-for=\"(,a) in list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allowEmptyAlias": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid32"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 33,
+  "name": null,
+  "code": "<template><div><div v-for=\"(,a,b) in list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allowEmptyAlias": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid33"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 34,
+  "name": null,
+  "code": "<template><div><div v-for=\"(a,,b) in list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allowEmptyAlias": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid34"
+ },
+ {
+  "rule": "valid-v-for",
+  "kind": "valid",
+  "idx": 35,
+  "name": null,
+  "code": "<template><div><div v-for=\"(a,b,,) in list\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allowEmptyAlias": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-for#valid35"
+ }
+]

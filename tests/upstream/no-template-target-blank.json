@@ -1,0 +1,723 @@
+[
+ {
+  "rule": "no-template-target-blank",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><a href=\"https://eslint.vuejs.org\" target=\"_blank\">link</a></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using target=\"_blank\" without rel=\"noopener noreferrer\" is a security risk.",
+     "line": 1,
+     "column": 46,
+     "endLine": 1,
+     "endColumn": 61,
+     "suggestions": [
+      {
+       "desc": "Add `rel=\"noopener noreferrer\"`.",
+       "output": "<template><a href=\"https://eslint.vuejs.org\" target=\"_blank\" rel=\"noopener noreferrer\">link</a></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingRel",
+     "message": "Using target=\"_blank\" without rel=\"noopener noreferrer\" is a security risk.",
+     "line": 1,
+     "column": 46,
+     "endLine": 1,
+     "endColumn": 61,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": null,
+       "desc": "Add `rel=\"noopener noreferrer\"`.",
+       "output": "<template><a href=\"https://eslint.vuejs.org\" target=\"_blank\" rel=\"noopener noreferrer\">link</a></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#invalid0"
+ },
+ {
+  "rule": "no-template-target-blank",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><a href=\"https://eslint.vuejs.org\" target=\"_blank\" rel=\"noopenernoreferrer\">link</a></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using target=\"_blank\" without rel=\"noopener noreferrer\" is a security risk.",
+     "line": 1,
+     "column": 46,
+     "endLine": 1,
+     "endColumn": 61,
+     "suggestions": [
+      {
+       "desc": "Change `rel` attribute value to `noopener noreferrer`.",
+       "output": "<template><a href=\"https://eslint.vuejs.org\" target=\"_blank\" rel=\"noopener noreferrer\">link</a></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingRel",
+     "message": "Using target=\"_blank\" without rel=\"noopener noreferrer\" is a security risk.",
+     "line": 1,
+     "column": 46,
+     "endLine": 1,
+     "endColumn": 61,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": null,
+       "desc": "Change `rel` attribute value to `noopener noreferrer`.",
+       "output": "<template><a href=\"https://eslint.vuejs.org\" target=\"_blank\" rel=\"noopener noreferrer\">link</a></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#invalid1"
+ },
+ {
+  "rule": "no-template-target-blank",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><a :href=\"link\" target=\"_blank\" rel=3>link</a></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using target=\"_blank\" without rel=\"noopener noreferrer\" is a security risk.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 42,
+     "suggestions": [
+      {
+       "desc": "Change `rel` attribute value to `noopener noreferrer`.",
+       "output": "<template><a :href=\"link\" target=\"_blank\" rel=\"noopener noreferrer\">link</a></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingRel",
+     "message": "Using target=\"_blank\" without rel=\"noopener noreferrer\" is a security risk.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": null,
+       "desc": "Change `rel` attribute value to `noopener noreferrer`.",
+       "output": "<template><a :href=\"link\" target=\"_blank\" rel=\"noopener noreferrer\">link</a></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#invalid2"
+ },
+ {
+  "rule": "no-template-target-blank",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><a :href=\"link\" target=\"_blank\">link</a></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using target=\"_blank\" without rel=\"noopener noreferrer\" is a security risk.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 42,
+     "suggestions": [
+      {
+       "desc": "Add `rel=\"noopener noreferrer\"`.",
+       "output": "<template><a :href=\"link\" target=\"_blank\" rel=\"noopener noreferrer\">link</a></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingRel",
+     "message": "Using target=\"_blank\" without rel=\"noopener noreferrer\" is a security risk.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": null,
+       "desc": "Add `rel=\"noopener noreferrer\"`.",
+       "output": "<template><a :href=\"link\" target=\"_blank\" rel=\"noopener noreferrer\">link</a></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#invalid3"
+ },
+ {
+  "rule": "no-template-target-blank",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><a href=\"https://eslint.vuejs.org\" target=\"_blank\" rel=\"noopener\">link</a></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using target=\"_blank\" without rel=\"noopener noreferrer\" is a security risk.",
+     "line": 1,
+     "column": 46,
+     "endLine": 1,
+     "endColumn": 61,
+     "suggestions": [
+      {
+       "desc": "Change `rel` attribute value to `noopener noreferrer`.",
+       "output": "<template><a href=\"https://eslint.vuejs.org\" target=\"_blank\" rel=\"noopener noreferrer\">link</a></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingRel",
+     "message": "Using target=\"_blank\" without rel=\"noopener noreferrer\" is a security risk.",
+     "line": 1,
+     "column": 46,
+     "endLine": 1,
+     "endColumn": 61,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": null,
+       "desc": "Change `rel` attribute value to `noopener noreferrer`.",
+       "output": "<template><a href=\"https://eslint.vuejs.org\" target=\"_blank\" rel=\"noopener noreferrer\">link</a></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#invalid4"
+ },
+ {
+  "rule": "no-template-target-blank",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><a>link</a></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#valid0"
+ },
+ {
+  "rule": "no-template-target-blank",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><a attr>link</a></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#valid1"
+ },
+ {
+  "rule": "no-template-target-blank",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><a target>link</a></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#valid2"
+ },
+ {
+  "rule": "no-template-target-blank",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><a href=\"https://eslint.vuejs.org\">link</a></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#valid3"
+ },
+ {
+  "rule": "no-template-target-blank",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><a :href=\"link\">link</a></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#valid4"
+ },
+ {
+  "rule": "no-template-target-blank",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><a :href=\"link\" target=\"_blank\" rel=\"noopener noreferrer\">link</a></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#valid5"
+ },
+ {
+  "rule": "no-template-target-blank",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><a href=\"https://eslint.vuejs.org\" target=\"_blank\" rel=\"noopener noreferrer\">link</a></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#valid6"
+ },
+ {
+  "rule": "no-template-target-blank",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><a href=\"https://eslint.vuejs.org\" target=\"_blank\" rel=\"noopener\">link</a></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowReferrer": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#valid7"
+ },
+ {
+  "rule": "no-template-target-blank",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><a href=\"/foo\" target=\"_blank\">link</a></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#valid8"
+ },
+ {
+  "rule": "no-template-target-blank",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><a href=\"/foo\" target=\"_blank\" rel=\"noopener noreferrer\">link</a></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#valid9"
+ },
+ {
+  "rule": "no-template-target-blank",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><a href=\"foo/bar\" target=\"_blank\">link</a></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#valid10"
+ },
+ {
+  "rule": "no-template-target-blank",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><a href=\"foo/bar\" target=\"_blank\" rel=\"noopener noreferrer\">link</a></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#valid11"
+ },
+ {
+  "rule": "no-template-target-blank",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><a :href=\"link\" target=\"_blank\">link</a></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "enforceDynamicLinks": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-target-blank#valid12"
+ }
+]

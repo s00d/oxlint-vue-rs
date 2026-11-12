@@ -1,0 +1,4099 @@
+[
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script setup lang=\"ts\">\n      defineModel<string>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "missing",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `defineEmits`.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid0"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      import sampleMixin from './sampleMixin'\n      export default {\n        mixins: [sampleMixin],\n        emits: ['welcome']\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "missing",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      import sampleMixin from './sampleMixin'\n      export default {\n        mixins: [sampleMixin],\n        emits: ['welcome', 'foo']\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      import sampleMixin from './sampleMixin'\n      export default {\n        mixins: [sampleMixin],\n        emits: ['welcome', 'foo']\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid1"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: ['welcome']\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreMixins": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "missing",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: ['welcome', 'foo']\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: ['welcome', 'foo']\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid2"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "missing",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\nemits: ['foo']\n      }\n      </script>\n      "
+      },
+      {
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\nemits: {'foo': null}\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addArrayEmitsOption",
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\nemits: ['foo']\n      }\n      </script>\n      "
+      },
+      {
+       "messageId": "addObjectEmitsOption",
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\nemits: {'foo': null}\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid3"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: ['welcome'],\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "missing",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: ['welcome', 'foo'],\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: ['welcome', 'foo'],\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid4"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: {welcome:null}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "missing",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: {welcome:null, 'foo': null}\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: {welcome:null, 'foo': null}\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid5"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: {welcome(){}}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "missing",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: {welcome(){}, 'foo': null}\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: {welcome(){}, 'foo': null}\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid6"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        methods: {\n          onClick() {\n            this.$emit('foo')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "missing",
+     "line": 7,
+     "column": 24,
+     "endLine": 7,
+     "endColumn": 29,
+     "suggestions": [
+      {
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <script>\n      export default {\n        emits: ['welcome', 'foo'],\n        methods: {\n          onClick() {\n            this.$emit('foo')\n          }\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 7,
+     "column": 24,
+     "endLine": 7,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <script>\n      export default {\n        emits: ['welcome', 'foo'],\n        methods: {\n          onClick() {\n            this.$emit('foo')\n          }\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid7"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        methods: {\n          onClick() {\n            const vm = this\n            vm.$emit('foo')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "missing",
+     "line": 8,
+     "column": 22,
+     "endLine": 8,
+     "endColumn": 27,
+     "suggestions": [
+      {
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <script>\n      export default {\n        emits: ['welcome', 'foo'],\n        methods: {\n          onClick() {\n            const vm = this\n            vm.$emit('foo')\n          }\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 8,
+     "column": 22,
+     "endLine": 8,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <script>\n      export default {\n        emits: ['welcome', 'foo'],\n        methods: {\n          onClick() {\n            const vm = this\n            vm.$emit('foo')\n          }\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid8"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(p, context) {\n          context.emit('foo')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "missing",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 29,
+     "suggestions": [
+      {
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <script>\n      export default {\n        emits: ['welcome', 'foo'],\n        setup(p, context) {\n          context.emit('foo')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <script>\n      export default {\n        emits: ['welcome', 'foo'],\n        setup(p, context) {\n          context.emit('foo')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid9"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(p, {emit}) {\n          emit('foo')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "missing",
+     "line": 6,
+     "column": 16,
+     "endLine": 6,
+     "endColumn": 21,
+     "suggestions": [
+      {
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <script>\n      export default {\n        emits: ['welcome', 'foo'],\n        setup(p, {emit}) {\n          emit('foo')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 6,
+     "column": 16,
+     "endLine": 6,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <script>\n      export default {\n        emits: ['welcome', 'foo'],\n        setup(p, {emit}) {\n          emit('foo')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid10"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(p, {emit:fire}) {\n          fire('foo')\n          fire('bar')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "missing",
+     "line": 6,
+     "column": 16,
+     "endLine": 6,
+     "endColumn": 21,
+     "suggestions": [
+      {
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <script>\n      export default {\n        emits: ['welcome', 'foo'],\n        setup(p, {emit:fire}) {\n          fire('foo')\n          fire('bar')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "missing",
+     "line": 7,
+     "column": 16,
+     "endLine": 7,
+     "endColumn": 21,
+     "suggestions": [
+      {
+       "desc": "Add the \"bar\" to `emits` option.",
+       "output": "\n      <script>\n      export default {\n        emits: ['welcome', 'bar'],\n        setup(p, {emit:fire}) {\n          fire('foo')\n          fire('bar')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 6,
+     "column": 16,
+     "endLine": 6,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <script>\n      export default {\n        emits: ['welcome', 'foo'],\n        setup(p, {emit:fire}) {\n          fire('foo')\n          fire('bar')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "missing",
+     "message": "The \"bar\" event has been triggered but not declared on `emits` option.",
+     "line": 7,
+     "column": 16,
+     "endLine": 7,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"bar\" to `emits` option.",
+       "output": "\n      <script>\n      export default {\n        emits: ['welcome', 'bar'],\n        setup(p, {emit:fire}) {\n          fire('foo')\n          fire('bar')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid11"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      // @vue/component\n      const Foo = {}\n      export default Foo\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      // @vue/component\n      const Foo = {\nemits: ['foo']\n}\n      export default Foo\n      </script>\n      "
+      },
+      {
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      // @vue/component\n      const Foo = {\nemits: {'foo': null}\n}\n      export default Foo\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addArrayEmitsOption",
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      // @vue/component\n      const Foo = {\nemits: ['foo']\n}\n      export default Foo\n      </script>\n      "
+      },
+      {
+       "messageId": "addObjectEmitsOption",
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      // @vue/component\n      const Foo = {\nemits: {'foo': null}\n}\n      export default Foo\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid12"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      // @vue/component\n      const Foo = {emits:{}}\n      export default {\n        emits: {}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      // @vue/component\n      const Foo = {emits:{}}\n      export default {\n        emits: {'foo': null}\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      // @vue/component\n      const Foo = {emits:{}}\n      export default {\n        emits: {'foo': null}\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid13"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      // @vue/component\n      const Foo = {emits: {}}\n      export default { emits: {} }\n      // @vue/component\n      const Bar = {emits: {}}\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "missing",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      // @vue/component\n      const Foo = {emits: {}}\n      export default { emits: {'foo': null} }\n      // @vue/component\n      const Bar = {emits: {}}\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      // @vue/component\n      const Foo = {emits: {}}\n      export default { emits: {'foo': null} }\n      // @vue/component\n      const Bar = {emits: {}}\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid14"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        components: {\n          // @vue/component\n          Foo: {\n            emits: ['foo'],\n            setup(p, {emit}) {\n              emit('bar')\n            }\n          }\n        },\n        emits: ['bar'],\n        setup(p, context) {\n          context.emit('foo')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        components: {\n          // @vue/component\n          Foo: {\n            emits: ['foo'],\n            setup(p, {emit}) {\n              emit('bar')\n            }\n          }\n        },\n        emits: ['bar', 'foo'],\n        setup(p, context) {\n          context.emit('foo')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "message": "The \"bar\" event has been triggered but not declared on `emits` option.",
+     "line": 12,
+     "column": 20,
+     "endLine": 12,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Add the \"bar\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        components: {\n          // @vue/component\n          Foo: {\n            emits: ['foo', 'bar'],\n            setup(p, {emit}) {\n              emit('bar')\n            }\n          }\n        },\n        emits: ['bar'],\n        setup(p, context) {\n          context.emit('foo')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 18,
+     "column": 24,
+     "endLine": 18,
+     "endColumn": 29,
+     "suggestions": [
+      {
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        components: {\n          // @vue/component\n          Foo: {\n            emits: ['foo'],\n            setup(p, {emit}) {\n              emit('bar')\n            }\n          }\n        },\n        emits: ['bar', 'foo'],\n        setup(p, context) {\n          context.emit('foo')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        components: {\n          // @vue/component\n          Foo: {\n            emits: ['foo'],\n            setup(p, {emit}) {\n              emit('bar')\n            }\n          }\n        },\n        emits: ['bar', 'foo'],\n        setup(p, context) {\n          context.emit('foo')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "missing",
+     "message": "The \"bar\" event has been triggered but not declared on `emits` option.",
+     "line": 12,
+     "column": 20,
+     "endLine": 12,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"bar\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        components: {\n          // @vue/component\n          Foo: {\n            emits: ['foo', 'bar'],\n            setup(p, {emit}) {\n              emit('bar')\n            }\n          }\n        },\n        emits: ['bar'],\n        setup(p, context) {\n          context.emit('foo')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 18,
+     "column": 24,
+     "endLine": 18,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        components: {\n          // @vue/component\n          Foo: {\n            emits: ['foo'],\n            setup(p, {emit}) {\n              emit('bar')\n            }\n          }\n        },\n        emits: ['bar', 'foo'],\n        setup(p, context) {\n          context.emit('foo')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid15"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        components: {\n          // @vue/component\n          Foo: {\n            emits: ['foo'],\n            methods: {\n              onClick() {\n                this.$emit('bar')\n              }\n            }\n          }\n        },\n        emits: ['bar'],\n        methods: {\n          onClick() {\n            this.$emit('foo')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        components: {\n          // @vue/component\n          Foo: {\n            emits: ['foo'],\n            methods: {\n              onClick() {\n                this.$emit('bar')\n              }\n            }\n          }\n        },\n        emits: ['bar', 'foo'],\n        methods: {\n          onClick() {\n            this.$emit('foo')\n          }\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "message": "The \"bar\" event has been triggered but not declared on `emits` option.",
+     "line": 13,
+     "column": 28,
+     "endLine": 13,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the \"bar\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        components: {\n          // @vue/component\n          Foo: {\n            emits: ['foo', 'bar'],\n            methods: {\n              onClick() {\n                this.$emit('bar')\n              }\n            }\n          }\n        },\n        emits: ['bar'],\n        methods: {\n          onClick() {\n            this.$emit('foo')\n          }\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 21,
+     "column": 24,
+     "endLine": 21,
+     "endColumn": 29,
+     "suggestions": [
+      {
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        components: {\n          // @vue/component\n          Foo: {\n            emits: ['foo'],\n            methods: {\n              onClick() {\n                this.$emit('bar')\n              }\n            }\n          }\n        },\n        emits: ['bar', 'foo'],\n        methods: {\n          onClick() {\n            this.$emit('foo')\n          }\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        components: {\n          // @vue/component\n          Foo: {\n            emits: ['foo'],\n            methods: {\n              onClick() {\n                this.$emit('bar')\n              }\n            }\n          }\n        },\n        emits: ['bar', 'foo'],\n        methods: {\n          onClick() {\n            this.$emit('foo')\n          }\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "missing",
+     "message": "The \"bar\" event has been triggered but not declared on `emits` option.",
+     "line": 13,
+     "column": 28,
+     "endLine": 13,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"bar\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        components: {\n          // @vue/component\n          Foo: {\n            emits: ['foo', 'bar'],\n            methods: {\n              onClick() {\n                this.$emit('bar')\n              }\n            }\n          }\n        },\n        emits: ['bar'],\n        methods: {\n          onClick() {\n            this.$emit('foo')\n          }\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 21,
+     "column": 24,
+     "endLine": 21,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        components: {\n          // @vue/component\n          Foo: {\n            emits: ['foo'],\n            methods: {\n              onClick() {\n                this.$emit('bar')\n              }\n            }\n          }\n        },\n        emits: ['bar', 'foo'],\n        methods: {\n          onClick() {\n            this.$emit('foo')\n          }\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid16"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: []\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: ['foo']\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"foo\" to `emits` option.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: ['foo']\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid17"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\n        props: {}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\n        props: {},\nemits: ['foo']\n      }\n      </script>\n      "
+      },
+      {
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\n        props: {},\nemits: {'foo': null}\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addArrayEmitsOption",
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\n        props: {},\nemits: ['foo']\n      }\n      </script>\n      "
+      },
+      {
+       "messageId": "addObjectEmitsOption",
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\n        props: {},\nemits: {'foo': null}\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid18"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\n        watch: {}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\nemits: ['foo'],\n        watch: {}\n      }\n      </script>\n      "
+      },
+      {
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\nemits: {'foo': null},\n        watch: {}\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addArrayEmitsOption",
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\nemits: ['foo'],\n        watch: {}\n      }\n      </script>\n      "
+      },
+      {
+       "messageId": "addObjectEmitsOption",
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\nemits: {'foo': null},\n        watch: {}\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid19"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\nemits: ['foo'],\n      }\n      </script>\n      "
+      },
+      {
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\nemits: {'foo': null},\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addArrayEmitsOption",
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\nemits: ['foo'],\n      }\n      </script>\n      "
+      },
+      {
+       "messageId": "addObjectEmitsOption",
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\nemits: {'foo': null},\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid20"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: ''\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\nemits: ['foo']\n      }\n      </script>\n      "
+      },
+      {
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\nemits: {'foo': null}\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addArrayEmitsOption",
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\nemits: ['foo']\n      }\n      </script>\n      "
+      },
+      {
+       "messageId": "addObjectEmitsOption",
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        name: '',\nemits: {'foo': null}\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid21"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        ...foo\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        ...foo,\nemits: ['foo']\n      }\n      </script>\n      "
+      },
+      {
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        ...foo,\nemits: {'foo': null}\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addArrayEmitsOption",
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        ...foo,\nemits: ['foo']\n      }\n      </script>\n      "
+      },
+      {
+       "messageId": "addObjectEmitsOption",
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        ...foo,\nemits: {'foo': null}\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid22"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        methods: {\n          click () {\n            const vm = this\n            vm?.$emit?.('foo')\n            ;(vm?.$emit)?.('bar')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 7,
+     "column": 25,
+     "endLine": 7,
+     "endColumn": 30,
+     "suggestions": [
+      {
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <script>\n      export default {\nemits: ['foo'],\n        methods: {\n          click () {\n            const vm = this\n            vm?.$emit?.('foo')\n            ;(vm?.$emit)?.('bar')\n          }\n        }\n      }\n      </script>\n      "
+      },
+      {
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <script>\n      export default {\nemits: {'foo': null},\n        methods: {\n          click () {\n            const vm = this\n            vm?.$emit?.('foo')\n            ;(vm?.$emit)?.('bar')\n          }\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "message": "The \"bar\" event has been triggered but not declared on `emits` option.",
+     "line": 8,
+     "column": 28,
+     "endLine": 8,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the `emits` option with array syntax and define \"bar\" event.",
+       "output": "\n      <script>\n      export default {\nemits: ['bar'],\n        methods: {\n          click () {\n            const vm = this\n            vm?.$emit?.('foo')\n            ;(vm?.$emit)?.('bar')\n          }\n        }\n      }\n      </script>\n      "
+      },
+      {
+       "desc": "Add the `emits` option with object syntax and define \"bar\" event.",
+       "output": "\n      <script>\n      export default {\nemits: {'bar': null},\n        methods: {\n          click () {\n            const vm = this\n            vm?.$emit?.('foo')\n            ;(vm?.$emit)?.('bar')\n          }\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 7,
+     "column": 25,
+     "endLine": 7,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addArrayEmitsOption",
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <script>\n      export default {\nemits: ['foo'],\n        methods: {\n          click () {\n            const vm = this\n            vm?.$emit?.('foo')\n            ;(vm?.$emit)?.('bar')\n          }\n        }\n      }\n      </script>\n      "
+      },
+      {
+       "messageId": "addObjectEmitsOption",
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <script>\n      export default {\nemits: {'foo': null},\n        methods: {\n          click () {\n            const vm = this\n            vm?.$emit?.('foo')\n            ;(vm?.$emit)?.('bar')\n          }\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "missing",
+     "message": "The \"bar\" event has been triggered but not declared on `emits` option.",
+     "line": 8,
+     "column": 28,
+     "endLine": 8,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addArrayEmitsOption",
+       "desc": "Add the `emits` option with array syntax and define \"bar\" event.",
+       "output": "\n      <script>\n      export default {\nemits: ['bar'],\n        methods: {\n          click () {\n            const vm = this\n            vm?.$emit?.('foo')\n            ;(vm?.$emit)?.('bar')\n          }\n        }\n      }\n      </script>\n      "
+      },
+      {
+       "messageId": "addObjectEmitsOption",
+       "desc": "Add the `emits` option with object syntax and define \"bar\" event.",
+       "output": "\n      <script>\n      export default {\nemits: {'bar': null},\n        methods: {\n          click () {\n            const vm = this\n            vm?.$emit?.('foo')\n            ;(vm?.$emit)?.('bar')\n          }\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid23"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(p, c) {\n          c?.emit?.('foo')\n          ;(c?.emit)?.('bar')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 5,
+     "column": 21,
+     "endLine": 5,
+     "endColumn": 26,
+     "suggestions": [
+      {
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <script>\n      export default {\nemits: ['foo'],\n        setup(p, c) {\n          c?.emit?.('foo')\n          ;(c?.emit)?.('bar')\n        }\n      }\n      </script>\n      "
+      },
+      {
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <script>\n      export default {\nemits: {'foo': null},\n        setup(p, c) {\n          c?.emit?.('foo')\n          ;(c?.emit)?.('bar')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "message": "The \"bar\" event has been triggered but not declared on `emits` option.",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 29,
+     "suggestions": [
+      {
+       "desc": "Add the `emits` option with array syntax and define \"bar\" event.",
+       "output": "\n      <script>\n      export default {\nemits: ['bar'],\n        setup(p, c) {\n          c?.emit?.('foo')\n          ;(c?.emit)?.('bar')\n        }\n      }\n      </script>\n      "
+      },
+      {
+       "desc": "Add the `emits` option with object syntax and define \"bar\" event.",
+       "output": "\n      <script>\n      export default {\nemits: {'bar': null},\n        setup(p, c) {\n          c?.emit?.('foo')\n          ;(c?.emit)?.('bar')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 5,
+     "column": 21,
+     "endLine": 5,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addArrayEmitsOption",
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <script>\n      export default {\nemits: ['foo'],\n        setup(p, c) {\n          c?.emit?.('foo')\n          ;(c?.emit)?.('bar')\n        }\n      }\n      </script>\n      "
+      },
+      {
+       "messageId": "addObjectEmitsOption",
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <script>\n      export default {\nemits: {'foo': null},\n        setup(p, c) {\n          c?.emit?.('foo')\n          ;(c?.emit)?.('bar')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "missing",
+     "message": "The \"bar\" event has been triggered but not declared on `emits` option.",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addArrayEmitsOption",
+       "desc": "Add the `emits` option with array syntax and define \"bar\" event.",
+       "output": "\n      <script>\n      export default {\nemits: ['bar'],\n        setup(p, c) {\n          c?.emit?.('foo')\n          ;(c?.emit)?.('bar')\n        }\n      }\n      </script>\n      "
+      },
+      {
+       "messageId": "addObjectEmitsOption",
+       "desc": "Add the `emits` option with object syntax and define \"bar\" event.",
+       "output": "\n      <script>\n      export default {\nemits: {'bar': null},\n        setup(p, c) {\n          c?.emit?.('foo')\n          ;(c?.emit)?.('bar')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid24"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 25,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: ['foo'],\n        methods: {\n          fn() { this.$emit('foo') }\n        },\n        setup(p, ctx) {\n          ctx.emit('foo')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allowProps": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "missing",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 36,
+     "suggestions": [
+      {
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: ['foo'],\nemits: ['foo'],\n        methods: {\n          fn() { this.$emit('foo') }\n        },\n        setup(p, ctx) {\n          ctx.emit('foo')\n        }\n      }\n      </script>\n      "
+      },
+      {
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: ['foo'],\nemits: {'foo': null},\n        methods: {\n          fn() { this.$emit('foo') }\n        },\n        setup(p, ctx) {\n          ctx.emit('foo')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "missing",
+     "line": 9,
+     "column": 29,
+     "endLine": 9,
+     "endColumn": 34,
+     "suggestions": [
+      {
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: ['foo'],\nemits: ['foo'],\n        methods: {\n          fn() { this.$emit('foo') }\n        },\n        setup(p, ctx) {\n          ctx.emit('foo')\n        }\n      }\n      </script>\n      "
+      },
+      {
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: ['foo'],\nemits: {'foo': null},\n        methods: {\n          fn() { this.$emit('foo') }\n        },\n        setup(p, ctx) {\n          ctx.emit('foo')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "missing",
+     "line": 12,
+     "column": 20,
+     "endLine": 12,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: ['foo'],\nemits: ['foo'],\n        methods: {\n          fn() { this.$emit('foo') }\n        },\n        setup(p, ctx) {\n          ctx.emit('foo')\n        }\n      }\n      </script>\n      "
+      },
+      {
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: ['foo'],\nemits: {'foo': null},\n        methods: {\n          fn() { this.$emit('foo') }\n        },\n        setup(p, ctx) {\n          ctx.emit('foo')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addArrayEmitsOption",
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: ['foo'],\nemits: ['foo'],\n        methods: {\n          fn() { this.$emit('foo') }\n        },\n        setup(p, ctx) {\n          ctx.emit('foo')\n        }\n      }\n      </script>\n      "
+      },
+      {
+       "messageId": "addObjectEmitsOption",
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: ['foo'],\nemits: {'foo': null},\n        methods: {\n          fn() { this.$emit('foo') }\n        },\n        setup(p, ctx) {\n          ctx.emit('foo')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 9,
+     "column": 29,
+     "endLine": 9,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addArrayEmitsOption",
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: ['foo'],\nemits: ['foo'],\n        methods: {\n          fn() { this.$emit('foo') }\n        },\n        setup(p, ctx) {\n          ctx.emit('foo')\n        }\n      }\n      </script>\n      "
+      },
+      {
+       "messageId": "addObjectEmitsOption",
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: ['foo'],\nemits: {'foo': null},\n        methods: {\n          fn() { this.$emit('foo') }\n        },\n        setup(p, ctx) {\n          ctx.emit('foo')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `emits` option.",
+     "line": 12,
+     "column": 20,
+     "endLine": 12,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addArrayEmitsOption",
+       "desc": "Add the `emits` option with array syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: ['foo'],\nemits: ['foo'],\n        methods: {\n          fn() { this.$emit('foo') }\n        },\n        setup(p, ctx) {\n          ctx.emit('foo')\n        }\n      }\n      </script>\n      "
+      },
+      {
+       "messageId": "addObjectEmitsOption",
+       "desc": "Add the `emits` option with object syntax and define \"foo\" event.",
+       "output": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: ['foo'],\nemits: {'foo': null},\n        methods: {\n          fn() { this.$emit('foo') }\n        },\n        setup(p, ctx) {\n          ctx.emit('foo')\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid25"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 26,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('bar')\"/>\n      </template>\n      <script setup>\n      defineEmits(['foo'])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the \"bar\" to `defineEmits`.",
+       "output": "\n      <template>\n        <div @click=\"$emit('bar')\"/>\n      </template>\n      <script setup>\n      defineEmits(['foo', 'bar'])\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"bar\" to `defineEmits`.",
+       "output": "\n      <template>\n        <div @click=\"$emit('bar')\"/>\n      </template>\n      <script setup>\n      defineEmits(['foo', 'bar'])\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid26"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 27,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('bar')\"/>\n      </template>\n      <script setup>\n      defineEmits({foo:null})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Add the \"bar\" to `defineEmits`.",
+       "output": "\n      <template>\n        <div @click=\"$emit('bar')\"/>\n      </template>\n      <script setup>\n      defineEmits({foo:null, 'bar': null})\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"bar\" to `defineEmits`.",
+       "output": "\n      <template>\n        <div @click=\"$emit('bar')\"/>\n      </template>\n      <script setup>\n      defineEmits({foo:null, 'bar': null})\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid27"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 28,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('bar')\"/>\n      </template>\n      <script setup lang=\"ts\">\n      defineEmits<{\n        (e: 'foo'): void\n      }>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid28"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 29,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('bar')\"/>\n      </template>\n      <script setup lang=\"ts\">\n      defineEmits<(e: 'foo') => void>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid29"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 30,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script setup>\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"foo\" event has been triggered but not declared on `defineEmits`.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"foo\" event has been triggered but not declared on `defineEmits`.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid30"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 31,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<(e: 'foo') => void>()\n      emit('foo');\n      emit('bar')\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 17
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid31"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 32,
+  "name": null,
+  "code": "\n      <script setup>\n      const emit = defineEmits([`foo`])\n      emit(`foo`);\n      emit(`bar`)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 17,
+     "suggestions": [
+      {
+       "desc": "Add the \"bar\" to `defineEmits`.",
+       "output": "\n      <script setup>\n      const emit = defineEmits([`foo`, 'bar'])\n      emit(`foo`);\n      emit(`bar`)\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addOneOption",
+       "desc": "Add the \"bar\" to `defineEmits`.",
+       "output": "\n      <script setup>\n      const emit = defineEmits([`foo`, 'bar'])\n      emit(`foo`);\n      emit(`bar`)\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid32"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 33,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<{foo: []}>()\n      emit('foo')\n      emit('bar')\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 17
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid33"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 34,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      type Emits = {foo: []}\n      const emit = defineEmits<Emits>()\n      emit('foo')\n      emit('bar')\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 6,
+     "column": 12,
+     "endLine": 6,
+     "endColumn": 17
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 6,
+     "column": 12,
+     "endLine": 6,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid34"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 35,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import {Emits1 as Emits} from './test01'\n      const emit = defineEmits<Emits>()\n      emit('foo')\n      emit('bar')\n      emit('baz')\n      emit('qux')\n      </script>",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"qux\" event has been triggered but not declared on `defineEmits`.",
+     "line": 8,
+     "column": 12,
+     "endLine": 8,
+     "endColumn": 17
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"qux\" event has been triggered but not declared on `defineEmits`.",
+     "line": 8,
+     "column": 12,
+     "endLine": 8,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid35"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "invalid",
+  "idx": 36,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"emit('bar')\"/>\n      </template>\n      <script setup lang=\"ts\">\n      const emit = defineEmits<(e: 'foo') => void>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 32
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The \"bar\" event has been triggered but not declared on `defineEmits`.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#invalid36"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('welcome')\"/>\n      </template>\n      <script>\n      export default {\n        emits: ['welcome']\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid0"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('welcome')\"/>\n      </template>\n      <script>\n      export default {\n        emits: {welcome:null}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid1"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('welcome')\"/>\n      </template>\n      <script>\n      export default {\n        emits: {welcome(){}}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid2"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        methods: {\n          onClick() {\n            this.$emit('welcome')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid3"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        methods: {\n          onClick() {\n            const vm = this\n            vm.$emit('welcome')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid4"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(p, context) {\n          context.emit('welcome')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid5"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(p, {emit}) {\n          emit('welcome')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid6"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(props, context) {\n          context.emit = 'foo'\n          context='foo'\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid7"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(props, {emit}) {\n          emit='foo'\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid8"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('welcome')\"/>\n      </template>\n      <script>\n      export default {\n        'emits': ['welcome']\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid9"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: ['welcome']\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid10"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid11"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        methods: {\n          onClick() {\n            $emit('foo')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid12"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        methods: {\n          onClick() {\n            this.bar.$emit('foo')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid13"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(p, ...context) {\n          context.emit('foo')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid14"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(p, [emit]) {\n          emit('foo')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid15"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(p, {$emit}) {\n          $emit('foo')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid16"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(context) {\n          context.emit('foo')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid17"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit(foo)\"/>\n        <div @click=\"$emit()\"/>\n        <div @click=\"$emit(1)\"/>\n        <div @click=\"$emit(true)\"/>\n        <div @click=\"$emit(null)\"/>\n        <div @click=\"$emit(/regex/)\"/>\n      </template>\n      <script>\n      export default {\n        emits: ['welcome']\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid18"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(p, context) {\n          context.emit(foo)\n          context.emit()\n          context.emit(1)\n          context.emit(true)\n          context.emit(null)\n          context.emit(/regex/)\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid19"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        methods: {\n          onClick() {\n            this.$emit(foo)\n            this.$emit()\n            this.$emit(1)\n            this.$emit(true)\n            this.$emit(null)\n            this.$emit(/regex/)\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid20"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup(p, context) {\n          context.fire('foo')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid21"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        methods: {\n          onClick() {\n            this.$fire('foo')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid22"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "\n      <script>\n      function fn() {\n        this.$emit('foo')\n      }\n      export default {\n        emits: ['welcome'],\n        methods: {\n          onClick() {\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid23"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['welcome'],\n        setup: ((p, context) => {\n          context.emit('foo')\n        })()\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid24"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: ['onFoo'],\n        methods: {\n          fn() { this.$emit('foo') }\n        },\n        setup(p, ctx) {\n          ctx.emit('foo')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allowProps": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid25"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      import sampleMixin from './sampleMixin'\n      export default {\n        mixins: [sampleMixin],\n        methods: {\n          fn() { this.$emit('bar') }\n        },\n        setup(p, ctx) {\n          ctx.emit('baz')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreMixins": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid26"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script setup>\n      defineEmits(['foo'])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid27"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 28,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script setup>\n      defineEmits({foo:null})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid28"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 29,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script setup lang=\"ts\">\n      defineEmits<{\n        (e: 'foo'): void\n      }>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid29"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 30,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script setup lang=\"ts\">\n      defineEmits<(e: 'foo') => void>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid30"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 31,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n        <div @click=\"$emit('bar')\"/>\n      </template>\n      <script setup lang=\"ts\">\n      defineEmits<(e: 'foo' | 'bar') => void>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid31"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 32,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"emit('foo')\"/>\n        <div @click=\"emit('bar')\"/>\n      </template>\n      <script setup lang=\"ts\">\n      const emit = defineEmits<(e: 'foo' | 'bar') => void>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid32"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 33,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: unknown,\n        setup(_, {emit}) {\n          emit('bar')\n        },\n        methods: {\n          click() {\n            this.$emit('baz')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid33"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 34,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script setup>\n      const emit = defineEmits(unknown)\n      emit('bar')\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid34"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 35,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: {...foo}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid35"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 36,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: [foo]\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid36"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 37,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        emits: [...foo]\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid37"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 38,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: unknown,\n        methods: {\n          fn() { this.$emit('bar') }\n        },\n        setup(p, ctx) {\n          ctx.emit('baz')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allowProps": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid38"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 39,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('foo')\"/>\n      </template>\n      <script setup>\n      defineProps(unknown)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allowProps": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid39"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 40,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: [foo],\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allowProps": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid40"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 41,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('foo')\"/>\n      </template>\n      <script>\n      export default {\n        props: [...foo],\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allowProps": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid41"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 42,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<{foo: [], bar:[number]}>()\n      emit('foo')\n      emit('bar', 42)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid42"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 43,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      type Emits = {foo: [], bar:[number]}\n      const emit = defineEmits<Emits>()\n      emit('foo')\n      emit('bar', 42)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid43"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 44,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import {Emits1 as Emits} from './test01'\n      const emit = defineEmits<Emits>()\n      emit('foo')\n      emit('bar')\n      emit('baz')\n      </script>",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid44"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 45,
+  "name": null,
+  "code": "\n      <template>\n        <input @input=\"$emit('update:modelValue', $event)\"/>\n      </template>\n      <script setup lang=\"ts\">\n      defineModel<string>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid45"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 46,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('update:visible', false)\"/>\n      </template>\n      <script setup lang=\"ts\">\n      defineModel<boolean>('visible')\n      defineEmits(['foo'])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid46"
+ },
+ {
+  "rule": "require-explicit-emits",
+  "kind": "valid",
+  "idx": 47,
+  "name": null,
+  "code": "\n      <template>\n        <div/>\n      </template>\n      <script setup lang=\"ts\">\n      const emit = defineEmits(['foo'])\n      defineModel()\n      emit('update:modelValue', 'a')\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-emits#valid47"
+ }
+]

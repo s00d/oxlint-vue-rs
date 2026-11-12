@@ -1,0 +1,779 @@
+[
+ {
+  "rule": "valid-attribute-name",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><p 0abc /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute name 0abc is not valid.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "attribute",
+     "message": "Attribute name 0abc is not valid.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#invalid0"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><p -def></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute name -def is not valid.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "attribute",
+     "message": "Attribute name -def is not valid.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#invalid1"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><p !ghi /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute name !ghi is not valid.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "attribute",
+     "message": "Attribute name !ghi is not valid.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#invalid2"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><p v-bind:0abc=\"\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute name 0abc is not valid.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "attribute",
+     "message": "Attribute name 0abc is not valid.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#invalid3"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><p :0abc=\"...\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute name 0abc is not valid.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "attribute",
+     "message": "Attribute name 0abc is not valid.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#invalid4"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><p foo /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#valid0"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><p foo=\"bar\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#valid1"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><p foo-bar /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#valid2"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><p _foo-bar /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#valid3"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><p :foo-bar /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#valid4"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><p foo.bar /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#valid5"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><p quux-.9 /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#valid6"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><MyComponent 0abc=\"foo\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#valid7"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><MyComponent :0abc=\"foo\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#valid8"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><a :href=\"url\"> ... </a></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#valid9"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div v-bind:class=\"{ active: isActive }\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#valid10"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><p v-if=\"seen\">Now you see me</p></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#valid11"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<a v-on:[eventName]=\"doSomething\"> ... </a>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#valid12"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<form v-on:submit.prevent=\"onSubmit\"> ... </form>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#valid13"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "<a @[event]=\"doSomething\"> ... </a>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#valid14"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div v-bind=\"...\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#valid15"
+ },
+ {
+  "rule": "valid-attribute-name",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div v-0abc=\"...\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-attribute-name#valid16"
+ }
+]

@@ -1,0 +1,195 @@
+[
+ {
+  "rule": "require-component-is",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><component is=\"type\"></component></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected '<component>' elements to have 'v-bind:is' attribute.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 44
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireComponentIs",
+     "message": "Expected '<component>' elements to have 'v-bind:is' attribute.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-component-is#invalid0"
+ },
+ {
+  "rule": "require-component-is",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><component v-foo:is=\"type\"></component></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected '<component>' elements to have 'v-bind:is' attribute.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 50
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireComponentIs",
+     "message": "Expected '<component>' elements to have 'v-bind:is' attribute.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 50,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-component-is#invalid1"
+ },
+ {
+  "rule": "require-component-is",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-component-is#valid0"
+ },
+ {
+  "rule": "require-component-is",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><component v-bind:is=\"type\"></component></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-component-is#valid1"
+ },
+ {
+  "rule": "require-component-is",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><component :is=\"type\"></component></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-component-is#valid2"
+ }
+]

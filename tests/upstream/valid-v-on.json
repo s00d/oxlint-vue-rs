@@ -1,0 +1,1171 @@
+[
+ {
+  "rule": "valid-v-on",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div v-on:click.aaa=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-on' directives don't support the modifier 'aaa'.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unsupportedModifier",
+     "message": "'v-on' directives don't support the modifier 'aaa'.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#invalid0"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-on:click></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-on' directives require a value or verb modifier (like 'stop' or 'prevent').",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedValueOrVerb",
+     "message": "'v-on' directives require a value or verb modifier (like 'stop' or 'prevent').",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#invalid1"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div @click></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-on' directives require a value or verb modifier (like 'stop' or 'prevent').",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedValueOrVerb",
+     "message": "'v-on' directives require a value or verb modifier (like 'stop' or 'prevent').",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#invalid2"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div @keydown.bar.aaa=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "modifiers": [
+     "bar"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-on' directives don't support the modifier 'aaa'.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unsupportedModifier",
+     "message": "'v-on' directives don't support the modifier 'aaa'.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#invalid3"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div @keydown.bar.aaa=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "modifiers": [
+     "aaa"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-on' directives don't support the modifier 'bar'.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unsupportedModifier",
+     "message": "'v-on' directives don't support the modifier 'bar'.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#invalid4"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div @click=\"const\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid using JavaScript keyword as \"v-on\" value: \"const\".",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "avoidKeyword",
+     "message": "Avoid using JavaScript keyword as \"v-on\" value: \"const\".",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#invalid5"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div @click=\"delete\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid using JavaScript keyword as \"v-on\" value: \"delete\".",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "avoidKeyword",
+     "message": "Avoid using JavaScript keyword as \"v-on\" value: \"delete\".",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#invalid6"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><MyComponent v-on:keydown=\"\" /></template>",
+  "filename": "empty-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-on' directives require a value or verb modifier (like 'stop' or 'prevent').",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedValueOrVerb",
+     "message": "'v-on' directives require a value or verb modifier (like 'stop' or 'prevent').",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#invalid7"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid0"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-on:click=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid1"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div @click=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid2"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div @click.prevent.ctrl.left=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid3"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div @keydown.27=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid4"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div @keydown.enter=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid5"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div @keydown.arrow-down=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid6"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div @keydown.esc=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid7"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div @keydown.a=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid8"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div @keydown.b=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid9"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div @keydown.a.b.c=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid10"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><el-from @submit.native.prevent></el-form></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid11"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div v-on:click.prevent></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid12"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div v-on:click.native.stop></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid13"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div v-on=\"$listeners\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid14"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div v-on=\"{a, b, c: d}\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid15"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div @keydown.bar=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "modifiers": [
+     "bar"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid16"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><div v-on:keydown.bar.aaa=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "modifiers": [
+     "bar",
+     "aaa"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid17"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><MyComponent v-on:keydown=\".\" /></template>",
+  "filename": "parsing-error.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid18"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><MyComponent v-on:keydown=\"/**/\" /></template>",
+  "filename": "comment-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid19"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><MyComponent v-on:keydown=/**/ /></template>",
+  "filename": "comment-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid20"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><MyComponent v-on:keydown.stop=\"/**/\" /></template>",
+  "filename": "comment-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid21"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "<template><MyComponent v-on:keydown.stop=/**/ /></template>",
+  "filename": "comment-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid22"
+ },
+ {
+  "rule": "valid-v-on",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "<template><MyComponent v-on:keydown.stop=\"\" /></template>",
+  "filename": "empty-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-on#valid23"
+ }
+]

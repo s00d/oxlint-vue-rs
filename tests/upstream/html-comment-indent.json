@@ -1,0 +1,1583 @@
+[
+ {
+  "rule": "html-comment-indent",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <!-- comment\n          comment\n          -->\n          <!--\n       comment\n               comment\n           -->\n            <!--\n             \tcomment\n            \tcomment\n           -->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected relative indentation of 2 spaces but found 0 spaces.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 11
+    },
+    {
+     "message": "Expected base point indentation of 10 spaces, but found 7 spaces.",
+     "line": 7,
+     "column": 1,
+     "endLine": 7,
+     "endColumn": 8
+    },
+    {
+     "message": "Expected relative indentation of 2 spaces but found 5 spaces.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 16
+    },
+    {
+     "message": "Expected relative indentation of 0 spaces but found 1 space.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 12
+    },
+    {
+     "message": "Expected space character, but found tab character.",
+     "line": 11,
+     "column": 14,
+     "endLine": 11,
+     "endColumn": 15
+    },
+    {
+     "message": "Expected space character, but found tab character.",
+     "line": 12,
+     "column": 13,
+     "endLine": 12,
+     "endColumn": 14
+    },
+    {
+     "message": "Expected base point indentation of 12 spaces, but found 11 spaces.",
+     "line": 13,
+     "column": 1,
+     "endLine": 13,
+     "endColumn": 12
+    }
+   ],
+   "output": "\n        <template>\n          <!-- comment\n            comment\n          -->\n          <!--\n            comment\n            comment\n          -->\n            <!--\n              comment\n              comment\n            -->\n        </template>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 2 spaces but found 0 spaces.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       43,
+       53
+      ],
+      "text": "            "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBaseIndentation",
+     "message": "Expected base point indentation of 10 spaces, but found 7 spaces.",
+     "line": 7,
+     "column": 1,
+     "endLine": 7,
+     "endColumn": 8,
+     "fix": {
+      "range": [
+       90,
+       97
+      ],
+      "text": "            "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 2 spaces but found 5 spaces.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       105,
+       120
+      ],
+      "text": "            "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 0 spaces but found 1 space.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       128,
+       139
+      ],
+      "text": "          "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedIndentationCharacter",
+     "message": "Expected space character, but found tab character.",
+     "line": 11,
+     "column": 14,
+     "endLine": 11,
+     "endColumn": 15,
+     "fix": {
+      "range": [
+       160,
+       174
+      ],
+      "text": "              "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedIndentationCharacter",
+     "message": "Expected space character, but found tab character.",
+     "line": 12,
+     "column": 13,
+     "endLine": 12,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       182,
+       195
+      ],
+      "text": "              "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBaseIndentation",
+     "message": "Expected base point indentation of 12 spaces, but found 11 spaces.",
+     "line": 13,
+     "column": 1,
+     "endLine": 13,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       203,
+       214
+      ],
+      "text": "            "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <!-- comment\n            comment\n          -->\n          <!--\n            comment\n            comment\n          -->\n            <!--\n              comment\n              comment\n            -->\n        </template>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-indent#invalid0"
+ },
+ {
+  "rule": "html-comment-indent",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <!-- comment\n          comment\n          -->\n          <!--\n        \tcomment\n          \t\tcomment\n          \t-->\n            <!--\n            \t comment\n             comment\n           -->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "tab"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected relative indentation of 1 tab but found 0 tabs.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 11
+    },
+    {
+     "message": "Expected base point indentation of 10 spaces, but found \"        \\t\".",
+     "line": 7,
+     "column": 1,
+     "endLine": 7,
+     "endColumn": 10
+    },
+    {
+     "message": "Expected relative indentation of 1 tab but found 2 tabs.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 13
+    },
+    {
+     "message": "Expected relative indentation of 0 tabs but found 1 tab.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 12
+    },
+    {
+     "message": "Expected tab character, but found space character.",
+     "line": 11,
+     "column": 14,
+     "endLine": 11,
+     "endColumn": 15
+    },
+    {
+     "message": "Expected tab character, but found space character.",
+     "line": 12,
+     "column": 13,
+     "endLine": 12,
+     "endColumn": 14
+    },
+    {
+     "message": "Expected base point indentation of 12 spaces, but found 11 spaces.",
+     "line": 13,
+     "column": 1,
+     "endLine": 13,
+     "endColumn": 12
+    }
+   ],
+   "output": "\n        <template>\n          <!-- comment\n          \tcomment\n          -->\n          <!--\n          \tcomment\n          \tcomment\n          -->\n            <!--\n            \tcomment\n            \tcomment\n            -->\n        </template>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 1 tab but found 0 tabs.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       43,
+       53
+      ],
+      "text": "          \t"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBaseIndentation",
+     "message": "Expected base point indentation of 10 spaces, but found \"        \\t\".",
+     "line": 7,
+     "column": 1,
+     "endLine": 7,
+     "endColumn": 10,
+     "fix": {
+      "range": [
+       90,
+       99
+      ],
+      "text": "          \t"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 1 tab but found 2 tabs.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       107,
+       119
+      ],
+      "text": "          \t"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 0 tabs but found 1 tab.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       127,
+       138
+      ],
+      "text": "          "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedIndentationCharacter",
+     "message": "Expected tab character, but found space character.",
+     "line": 11,
+     "column": 14,
+     "endLine": 11,
+     "endColumn": 15,
+     "fix": {
+      "range": [
+       159,
+       173
+      ],
+      "text": "            \t"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedIndentationCharacter",
+     "message": "Expected tab character, but found space character.",
+     "line": 12,
+     "column": 13,
+     "endLine": 12,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       181,
+       194
+      ],
+      "text": "            \t"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBaseIndentation",
+     "message": "Expected base point indentation of 12 spaces, but found 11 spaces.",
+     "line": 13,
+     "column": 1,
+     "endLine": 13,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       202,
+       213
+      ],
+      "text": "            "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <!-- comment\n          \tcomment\n          -->\n          <!--\n          \tcomment\n          \tcomment\n          -->\n            <!--\n            \tcomment\n            \tcomment\n            -->\n        </template>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-indent#invalid1"
+ },
+ {
+  "rule": "html-comment-indent",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <!-- comment\n          comment\n          -->\n          <!--\n     comment\n                  comment\n            -->\n            <!--\n              \tcomment\n            \t  comment\n          -->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   4
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected relative indentation of 4 spaces but found 0 spaces.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 11
+    },
+    {
+     "message": "Expected base point indentation of 10 spaces, but found 5 spaces.",
+     "line": 7,
+     "column": 1,
+     "endLine": 7,
+     "endColumn": 6
+    },
+    {
+     "message": "Expected relative indentation of 4 spaces but found 8 spaces.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 19
+    },
+    {
+     "message": "Expected relative indentation of 0 spaces but found 2 spaces.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 13
+    },
+    {
+     "message": "Expected space character, but found tab character.",
+     "line": 11,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 16
+    },
+    {
+     "message": "Expected space character, but found tab character.",
+     "line": 12,
+     "column": 13,
+     "endLine": 12,
+     "endColumn": 14
+    },
+    {
+     "message": "Expected base point indentation of 12 spaces, but found 10 spaces.",
+     "line": 13,
+     "column": 1,
+     "endLine": 13,
+     "endColumn": 11
+    }
+   ],
+   "output": "\n        <template>\n          <!-- comment\n              comment\n          -->\n          <!--\n              comment\n              comment\n          -->\n            <!--\n                comment\n                comment\n            -->\n        </template>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 4 spaces but found 0 spaces.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       43,
+       53
+      ],
+      "text": "              "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBaseIndentation",
+     "message": "Expected base point indentation of 10 spaces, but found 5 spaces.",
+     "line": 7,
+     "column": 1,
+     "endLine": 7,
+     "endColumn": 6,
+     "fix": {
+      "range": [
+       90,
+       95
+      ],
+      "text": "              "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 4 spaces but found 8 spaces.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       103,
+       121
+      ],
+      "text": "              "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 0 spaces but found 2 spaces.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       129,
+       141
+      ],
+      "text": "          "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedIndentationCharacter",
+     "message": "Expected space character, but found tab character.",
+     "line": 11,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       162,
+       177
+      ],
+      "text": "                "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedIndentationCharacter",
+     "message": "Expected space character, but found tab character.",
+     "line": 12,
+     "column": 13,
+     "endLine": 12,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       185,
+       200
+      ],
+      "text": "                "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBaseIndentation",
+     "message": "Expected base point indentation of 12 spaces, but found 10 spaces.",
+     "line": 13,
+     "column": 1,
+     "endLine": 13,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       208,
+       218
+      ],
+      "text": "            "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <!-- comment\n              comment\n          -->\n          <!--\n              comment\n              comment\n          -->\n            <!--\n                comment\n                comment\n            -->\n        </template>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-indent#invalid2"
+ },
+ {
+  "rule": "html-comment-indent",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <!--\n            comment\n          -->\n          <!--\n        comment\n          \tcomment\n            -->\n            <!--\n            \tcomment\n          \tcomment\n          -->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   0
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected relative indentation of 0 spaces but found 2 spaces.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 13
+    },
+    {
+     "message": "Expected base point indentation of 10 spaces, but found 8 spaces.",
+     "line": 7,
+     "column": 1,
+     "endLine": 7,
+     "endColumn": 9
+    },
+    {
+     "message": "Expected space character, but found tab character.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 12
+    },
+    {
+     "message": "Expected relative indentation of 0 spaces but found 2 spaces.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 13
+    },
+    {
+     "message": "Expected space character, but found tab character.",
+     "line": 11,
+     "column": 13,
+     "endLine": 11,
+     "endColumn": 14
+    },
+    {
+     "message": "Expected base point indentation of 12 spaces, but found \"          \\t\".",
+     "line": 12,
+     "column": 1,
+     "endLine": 12,
+     "endColumn": 12
+    },
+    {
+     "message": "Expected base point indentation of 12 spaces, but found 10 spaces.",
+     "line": 13,
+     "column": 1,
+     "endLine": 13,
+     "endColumn": 11
+    }
+   ],
+   "output": "\n        <template>\n          <!--\n          comment\n          -->\n          <!--\n          comment\n          comment\n          -->\n            <!--\n            comment\n            comment\n            -->\n        </template>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 0 spaces but found 2 spaces.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       35,
+       47
+      ],
+      "text": "          "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBaseIndentation",
+     "message": "Expected base point indentation of 10 spaces, but found 8 spaces.",
+     "line": 7,
+     "column": 1,
+     "endLine": 7,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       84,
+       92
+      ],
+      "text": "          "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedIndentationCharacter",
+     "message": "Expected space character, but found tab character.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       100,
+       111
+      ],
+      "text": "          "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 0 spaces but found 2 spaces.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       119,
+       131
+      ],
+      "text": "          "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedIndentationCharacter",
+     "message": "Expected space character, but found tab character.",
+     "line": 11,
+     "column": 13,
+     "endLine": 11,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       152,
+       165
+      ],
+      "text": "            "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBaseIndentation",
+     "message": "Expected base point indentation of 12 spaces, but found \"          \\t\".",
+     "line": 12,
+     "column": 1,
+     "endLine": 12,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       173,
+       184
+      ],
+      "text": "            "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBaseIndentation",
+     "message": "Expected base point indentation of 12 spaces, but found 10 spaces.",
+     "line": 13,
+     "column": 1,
+     "endLine": 13,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       192,
+       202
+      ],
+      "text": "            "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <!--\n          comment\n          -->\n          <!--\n          comment\n          comment\n          -->\n            <!--\n            comment\n            comment\n            -->\n        </template>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-indent#invalid3"
+ },
+ {
+  "rule": "html-comment-indent",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <template>\n          <!--\n        \t\n          comment\n            \t\n              comment\n          \t\n          -->\n          <!--\n        \t\n            -->\n          <!--\n        -->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected relative indentation of 2 spaces but found 0 spaces.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 11
+    },
+    {
+     "message": "Expected relative indentation of 2 spaces but found 4 spaces.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 15
+    },
+    {
+     "message": "Expected relative indentation of 0 spaces but found 2 spaces.",
+     "line": 12,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 13
+    },
+    {
+     "message": "Expected base point indentation of 10 spaces, but found 8 spaces.",
+     "line": 14,
+     "column": 1,
+     "endLine": 14,
+     "endColumn": 9
+    }
+   ],
+   "output": "\n        <template>\n          <!--\n        \t\n            comment\n            \t\n            comment\n          \t\n          -->\n          <!--\n        \t\n          -->\n          <!--\n          -->\n        </template>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 2 spaces but found 0 spaces.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       45,
+       55
+      ],
+      "text": "            "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 2 spaces but found 4 spaces.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 15,
+     "fix": {
+      "range": [
+       77,
+       91
+      ],
+      "text": "            "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 0 spaces but found 2 spaces.",
+     "line": 12,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       150,
+       162
+      ],
+      "text": "          "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBaseIndentation",
+     "message": "Expected base point indentation of 10 spaces, but found 8 spaces.",
+     "line": 14,
+     "column": 1,
+     "endLine": 14,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       181,
+       189
+      ],
+      "text": "          "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <!--\n        \t\n            comment\n            \t\n            comment\n          \t\n          -->\n          <!--\n        \t\n          -->\n          <!--\n          -->\n        </template>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-indent#invalid4"
+ },
+ {
+  "rule": "html-comment-indent",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <template>\n          <!-- comment\n          comment -->\n          <!-- comment\n              comment -->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected relative indentation of 2 spaces but found 0 spaces.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 11
+    },
+    {
+     "message": "Expected relative indentation of 2 spaces but found 4 spaces.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 15
+    }
+   ],
+   "output": "\n        <template>\n          <!-- comment\n            comment -->\n          <!-- comment\n            comment -->\n        </template>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 2 spaces but found 0 spaces.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       43,
+       53
+      ],
+      "text": "            "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 2 spaces but found 4 spaces.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 15,
+     "fix": {
+      "range": [
+       88,
+       102
+      ],
+      "text": "            "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <!-- comment\n            comment -->\n          <!-- comment\n            comment -->\n        </template>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-indent#invalid5"
+ },
+ {
+  "rule": "html-comment-indent",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n<template>\n<!-- comment\ncomment\ncomment -->\n<!--\n  -->\n</template>\n",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected indentation of 2 spaces but found 0 spaces.",
+     "line": 4,
+     "column": 1,
+     "endLine": 4,
+     "endColumn": 1
+    },
+    {
+     "message": "Expected indentation of 2 spaces but found 0 spaces.",
+     "line": 5,
+     "column": 1,
+     "endLine": 5,
+     "endColumn": 1
+    },
+    {
+     "message": "Expected indentation of 0 spaces but found 2 spaces.",
+     "line": 7,
+     "column": 1,
+     "endLine": 7,
+     "endColumn": 3
+    }
+   ],
+   "output": "\n<template>\n<!-- comment\n  comment\n  comment -->\n<!--\n-->\n</template>\n"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedIndentation",
+     "message": "Expected indentation of 2 spaces but found 0 spaces.",
+     "line": 4,
+     "column": 1,
+     "endLine": 4,
+     "endColumn": 1,
+     "fix": {
+      "range": [
+       25,
+       25
+      ],
+      "text": "  "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedIndentation",
+     "message": "Expected indentation of 2 spaces but found 0 spaces.",
+     "line": 5,
+     "column": 1,
+     "endLine": 5,
+     "endColumn": 1,
+     "fix": {
+      "range": [
+       33,
+       33
+      ],
+      "text": "  "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedIndentation",
+     "message": "Expected indentation of 0 spaces but found 2 spaces.",
+     "line": 7,
+     "column": 1,
+     "endLine": 7,
+     "endColumn": 3,
+     "fix": {
+      "range": [
+       50,
+       52
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n<template>\n<!-- comment\n  comment\n  comment -->\n<!--\n-->\n</template>\n",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-indent#invalid6"
+ },
+ {
+  "rule": "html-comment-indent",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n<template>\n  <!-- comment\ncomment\ncomment -->\n  <!--\n-->\n</template>\n",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected base point indentation of 2 spaces, but not found.",
+     "line": 4,
+     "column": 1,
+     "endLine": 4,
+     "endColumn": 1
+    },
+    {
+     "message": "Expected base point indentation of 2 spaces, but not found.",
+     "line": 5,
+     "column": 1,
+     "endLine": 5,
+     "endColumn": 1
+    },
+    {
+     "message": "Expected base point indentation of 2 spaces, but not found.",
+     "line": 7,
+     "column": 1,
+     "endLine": 7,
+     "endColumn": 1
+    }
+   ],
+   "output": "\n<template>\n  <!-- comment\n    comment\n    comment -->\n  <!--\n  -->\n</template>\n"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingBaseIndentation",
+     "message": "Expected base point indentation of 2 spaces, but not found.",
+     "line": 4,
+     "column": 1,
+     "endLine": 4,
+     "endColumn": 1,
+     "fix": {
+      "range": [
+       27,
+       27
+      ],
+      "text": "    "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingBaseIndentation",
+     "message": "Expected base point indentation of 2 spaces, but not found.",
+     "line": 5,
+     "column": 1,
+     "endLine": 5,
+     "endColumn": 1,
+     "fix": {
+      "range": [
+       35,
+       35
+      ],
+      "text": "    "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingBaseIndentation",
+     "message": "Expected base point indentation of 2 spaces, but not found.",
+     "line": 7,
+     "column": 1,
+     "endLine": 7,
+     "endColumn": 1,
+     "fix": {
+      "range": [
+       54,
+       54
+      ],
+      "text": "  "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n<template>\n  <!-- comment\n    comment\n    comment -->\n  <!--\n  -->\n</template>\n",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-indent#invalid7"
+ },
+ {
+  "rule": "html-comment-indent",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        <template>\n          <div><!--\n           comment\n           --></div>\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected relative indentation of 2 spaces but found 1 space.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 12
+    },
+    {
+     "message": "Expected relative indentation of 0 spaces but found 1 space.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 12
+    }
+   ],
+   "output": "\n        <template>\n          <div><!--\n            comment\n          --></div>\n        </template>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 2 spaces but found 1 space.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       40,
+       51
+      ],
+      "text": "            "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedRelativeIndentation",
+     "message": "Expected relative indentation of 0 spaces but found 1 space.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       59,
+       70
+      ],
+      "text": "          "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div><!--\n            comment\n          --></div>\n        </template>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-indent#invalid8"
+ },
+ {
+  "rule": "html-comment-indent",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        <template>\n \t \t \t <!--\n            comment\n          -->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected base point indentation of \" \\t \\t \\t \", but found 7 spaces.",
+     "line": 4,
+     "column": 1,
+     "endLine": 4,
+     "endColumn": 13
+    },
+    {
+     "message": "Expected base point indentation of \" \\t \\t \\t \", but found 7 spaces.",
+     "line": 5,
+     "column": 1,
+     "endLine": 5,
+     "endColumn": 11
+    }
+   ],
+   "output": "\n        <template>\n \t \t \t <!--\n \t \t \t   comment\n \t \t \t -->\n        </template>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedBaseIndentation",
+     "message": "Expected base point indentation of \" \\t \\t \\t \", but found 7 spaces.",
+     "line": 4,
+     "column": 1,
+     "endLine": 4,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       32,
+       44
+      ],
+      "text": " \t \t \t   "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBaseIndentation",
+     "message": "Expected base point indentation of \" \\t \\t \\t \", but found 7 spaces.",
+     "line": 5,
+     "column": 1,
+     "endLine": 5,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       52,
+       62
+      ],
+      "text": " \t \t \t "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n \t \t \t <!--\n \t \t \t   comment\n \t \t \t -->\n        </template>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-indent#invalid9"
+ },
+ {
+  "rule": "html-comment-indent",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <!-- comment\n          comment\n        -->\n        <!--\n          comment\n          comment\n        -->\n          <!--\n            comment\n            comment\n          -->\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-indent#valid0"
+ },
+ {
+  "rule": "html-comment-indent",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <!-- comment\n          \tcomment\n          -->\n          <!--\n          \tcomment\n          \tcomment\n          -->\n            <!--\n            \tcomment\n            \tcomment\n            -->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   "tab"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-indent#valid1"
+ },
+ {
+  "rule": "html-comment-indent",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <!-- comment\n              comment\n          -->\n          <!--\n              comment\n              comment\n          -->\n            <!--\n                comment\n                comment\n            -->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   4
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-indent#valid2"
+ },
+ {
+  "rule": "html-comment-indent",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <!-- comment\n          comment\n          -->\n          <!--\n          comment\n          comment\n          -->\n            <!--\n            comment\n            comment\n            -->\n        </template>\n        ",
+  "filename": "test.js",
+  "options": [
+   0
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-indent#valid3"
+ },
+ {
+  "rule": "html-comment-indent",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <!-- comment\n      \t\n          comment\n          \t\n          comment\n        \t\n        -->\n        <!--\n      \t\n        -->\n        <!--\n        -->\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-indent#valid4"
+ },
+ {
+  "rule": "html-comment-indent",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <!--[if IE 8]>\n        <div>IE8 only</div>\n        <![endif]-->\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-indent#valid5"
+ },
+ {
+  "rule": "html-comment-indent",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <!--[if !IE]><!-->\n        <div>not IE only</div>\n        <!--<![endif]-->\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-comment-indent#valid6"
+ }
+]

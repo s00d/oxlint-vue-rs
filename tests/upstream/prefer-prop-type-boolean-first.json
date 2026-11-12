@@ -1,0 +1,624 @@
+[
+ {
+  "rule": "prefer-prop-type-boolean-first",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            props: {\n              foo: [String, Boolean]\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "shouldBeFirst",
+     "line": 5,
+     "column": 29,
+     "endLine": 5,
+     "endColumn": 36,
+     "suggestions": [
+      {
+       "messageId": "moveToFirst",
+       "output": "\n        <script>\n          export default {\n            props: {\n              foo: [Boolean, String]\n            }\n          }\n        </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeFirst",
+     "message": "Type `Boolean` should be at first in prop types.",
+     "line": 5,
+     "column": 29,
+     "endLine": 5,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "moveToFirst",
+       "desc": "Move `Boolean` to be first in prop types.",
+       "output": "\n        <script>\n          export default {\n            props: {\n              foo: [Boolean, String]\n            }\n          }\n        </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-prop-type-boolean-first#invalid0"
+ },
+ {
+  "rule": "prefer-prop-type-boolean-first",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            props: {\n              foo: { type: [String, Boolean] }\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "shouldBeFirst",
+     "line": 5,
+     "column": 37,
+     "endLine": 5,
+     "endColumn": 44,
+     "suggestions": [
+      {
+       "messageId": "moveToFirst",
+       "output": "\n        <script>\n          export default {\n            props: {\n              foo: { type: [Boolean, String] }\n            }\n          }\n        </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeFirst",
+     "message": "Type `Boolean` should be at first in prop types.",
+     "line": 5,
+     "column": 37,
+     "endLine": 5,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "moveToFirst",
+       "desc": "Move `Boolean` to be first in prop types.",
+       "output": "\n        <script>\n          export default {\n            props: {\n              foo: { type: [Boolean, String] }\n            }\n          }\n        </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-prop-type-boolean-first#invalid1"
+ },
+ {
+  "rule": "prefer-prop-type-boolean-first",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <script>\n          export default Vue.extend({\n            props: {\n              foo: [String, Boolean]\n            }\n          })\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "shouldBeFirst",
+     "line": 5,
+     "column": 29,
+     "endLine": 5,
+     "endColumn": 36,
+     "suggestions": [
+      {
+       "messageId": "moveToFirst",
+       "output": "\n        <script>\n          export default Vue.extend({\n            props: {\n              foo: [Boolean, String]\n            }\n          })\n        </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeFirst",
+     "message": "Type `Boolean` should be at first in prop types.",
+     "line": 5,
+     "column": 29,
+     "endLine": 5,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "moveToFirst",
+       "desc": "Move `Boolean` to be first in prop types.",
+       "output": "\n        <script>\n          export default Vue.extend({\n            props: {\n              foo: [Boolean, String]\n            }\n          })\n        </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-prop-type-boolean-first#invalid2"
+ },
+ {
+  "rule": "prefer-prop-type-boolean-first",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <script>\n          export default Vue.extend({\n            props: {\n              foo: { type: [String, Boolean] }\n            }\n          })\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "shouldBeFirst",
+     "line": 5,
+     "column": 37,
+     "endLine": 5,
+     "endColumn": 44,
+     "suggestions": [
+      {
+       "messageId": "moveToFirst",
+       "output": "\n        <script>\n          export default Vue.extend({\n            props: {\n              foo: { type: [Boolean, String] }\n            }\n          })\n        </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeFirst",
+     "message": "Type `Boolean` should be at first in prop types.",
+     "line": 5,
+     "column": 37,
+     "endLine": 5,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "moveToFirst",
+       "desc": "Move `Boolean` to be first in prop types.",
+       "output": "\n        <script>\n          export default Vue.extend({\n            props: {\n              foo: { type: [Boolean, String] }\n            }\n          })\n        </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-prop-type-boolean-first#invalid3"
+ },
+ {
+  "rule": "prefer-prop-type-boolean-first",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <script setup>\n          defineProps({\n            foo: [String, Boolean]\n          })\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "shouldBeFirst",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 34,
+     "suggestions": [
+      {
+       "messageId": "moveToFirst",
+       "output": "\n        <script setup>\n          defineProps({\n            foo: [Boolean, String]\n          })\n        </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeFirst",
+     "message": "Type `Boolean` should be at first in prop types.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "moveToFirst",
+       "desc": "Move `Boolean` to be first in prop types.",
+       "output": "\n        <script setup>\n          defineProps({\n            foo: [Boolean, String]\n          })\n        </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-prop-type-boolean-first#invalid4"
+ },
+ {
+  "rule": "prefer-prop-type-boolean-first",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <script setup>\n          defineProps({\n            foo: { type: [String, Boolean] }\n          })\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "shouldBeFirst",
+     "line": 4,
+     "column": 35,
+     "endLine": 4,
+     "endColumn": 42,
+     "suggestions": [
+      {
+       "messageId": "moveToFirst",
+       "output": "\n        <script setup>\n          defineProps({\n            foo: { type: [Boolean, String] }\n          })\n        </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeFirst",
+     "message": "Type `Boolean` should be at first in prop types.",
+     "line": 4,
+     "column": 35,
+     "endLine": 4,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "moveToFirst",
+       "desc": "Move `Boolean` to be first in prop types.",
+       "output": "\n        <script setup>\n          defineProps({\n            foo: { type: [Boolean, String] }\n          })\n        </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-prop-type-boolean-first#invalid5"
+ },
+ {
+  "rule": "prefer-prop-type-boolean-first",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        <script setup>\n          defineProps({\n            foo: { type: [String, Boolean, Number] }\n          })\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "shouldBeFirst",
+     "line": 4,
+     "column": 35,
+     "endLine": 4,
+     "endColumn": 42,
+     "suggestions": [
+      {
+       "messageId": "moveToFirst",
+       "output": "\n        <script setup>\n          defineProps({\n            foo: { type: [Boolean, String, Number] }\n          })\n        </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeFirst",
+     "message": "Type `Boolean` should be at first in prop types.",
+     "line": 4,
+     "column": 35,
+     "endLine": 4,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "moveToFirst",
+       "desc": "Move `Boolean` to be first in prop types.",
+       "output": "\n        <script setup>\n          defineProps({\n            foo: { type: [Boolean, String, Number] }\n          })\n        </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-prop-type-boolean-first#invalid6"
+ },
+ {
+  "rule": "prefer-prop-type-boolean-first",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        <script setup>\n          defineProps({\n            foo: { type: [String, Number, Boolean] }\n          })\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "shouldBeFirst",
+     "line": 4,
+     "column": 43,
+     "endLine": 4,
+     "endColumn": 50,
+     "suggestions": [
+      {
+       "messageId": "moveToFirst",
+       "output": "\n        <script setup>\n          defineProps({\n            foo: { type: [Boolean, String, Number] }\n          })\n        </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "shouldBeFirst",
+     "message": "Type `Boolean` should be at first in prop types.",
+     "line": 4,
+     "column": 43,
+     "endLine": 4,
+     "endColumn": 50,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "moveToFirst",
+       "desc": "Move `Boolean` to be first in prop types.",
+       "output": "\n        <script setup>\n          defineProps({\n            foo: { type: [Boolean, String, Number] }\n          })\n        </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-prop-type-boolean-first#invalid7"
+ },
+ {
+  "rule": "prefer-prop-type-boolean-first",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            props: {\n              a: Boolean,\n              b: String,\n              c: [Boolean],\n              d: [String],\n              e: [Boolean, String],\n              f: { type: Boolean },\n              g: { type: String },\n              h: { type: [Boolean] },\n              i: { type: [String] },\n              j: { type: [Boolean, String] },\n              k: {},\n            }\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-prop-type-boolean-first#valid0"
+ },
+ {
+  "rule": "prefer-prop-type-boolean-first",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <script>\n          export default Vue.extend({\n            props: {\n              a: [Boolean, String],\n              b: { type: [Boolean, String] },\n            }\n          })\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-prop-type-boolean-first#valid1"
+ },
+ {
+  "rule": "prefer-prop-type-boolean-first",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <script setup>\n          defineProps({\n            a: [Boolean, String],\n            b: { type: [Boolean, String] },\n          })\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-prop-type-boolean-first#valid2"
+ },
+ {
+  "rule": "prefer-prop-type-boolean-first",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import {Props1 as Props} from './test01'\n      defineProps<Props>()\n      </script>",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-prop-type-boolean-first#valid3"
+ }
+]

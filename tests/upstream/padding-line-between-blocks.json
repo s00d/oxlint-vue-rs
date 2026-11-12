@@ -1,0 +1,888 @@
+[
+ {
+  "rule": "padding-line-between-blocks",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template></template>\n      <script></script>\n      <style></style>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this block.",
+     "line": 3,
+     "column": 7,
+     "endLine": 3,
+     "endColumn": 24
+    },
+    {
+     "message": "Expected blank line before this block.",
+     "line": 4,
+     "column": 7,
+     "endLine": 4,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template></template>\n\n      <script></script>\n\n      <style></style>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this block.",
+     "line": 3,
+     "column": 7,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       28,
+       28
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this block.",
+     "line": 4,
+     "column": 7,
+     "endLine": 4,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       52,
+       52
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template></template>\n\n      <script></script>\n\n      <style></style>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-blocks#invalid0"
+ },
+ {
+  "rule": "padding-line-between-blocks",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template></template>\n\n      <script></script>\n\n      <style></style>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this block.",
+     "line": 4,
+     "column": 7,
+     "endLine": 4,
+     "endColumn": 24
+    },
+    {
+     "message": "Unexpected blank line before this block.",
+     "line": 6,
+     "column": 7,
+     "endLine": 6,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template></template>\n      <script></script>\n      <style></style>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this block.",
+     "line": 4,
+     "column": 7,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       28,
+       36
+      ],
+      "text": "\n      "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this block.",
+     "line": 6,
+     "column": 7,
+     "endLine": 6,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       53,
+       61
+      ],
+      "text": "\n      "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template></template>\n      <script></script>\n      <style></style>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-blocks#invalid1"
+ },
+ {
+  "rule": "padding-line-between-blocks",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template></template><script></script><style></style>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this block.",
+     "line": 2,
+     "column": 28,
+     "endLine": 2,
+     "endColumn": 45
+    },
+    {
+     "message": "Expected blank line before this block.",
+     "line": 2,
+     "column": 45,
+     "endLine": 2,
+     "endColumn": 60
+    }
+   ],
+   "output": "\n      <template></template>\n\n<script></script>\n\n<style></style>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this block.",
+     "line": 2,
+     "column": 28,
+     "endLine": 2,
+     "endColumn": 45,
+     "fix": {
+      "range": [
+       28,
+       28
+      ],
+      "text": "\n\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this block.",
+     "line": 2,
+     "column": 45,
+     "endLine": 2,
+     "endColumn": 60,
+     "fix": {
+      "range": [
+       45,
+       45
+      ],
+      "text": "\n\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template></template>\n\n<script></script>\n\n<style></style>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-blocks#invalid2"
+ },
+ {
+  "rule": "padding-line-between-blocks",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template></template>\n      <!-- comment -->\n      <script></script>\n      <!-- comment -->\n      <!-- comment -->\n      <style></style>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this block.",
+     "line": 4,
+     "column": 7,
+     "endLine": 4,
+     "endColumn": 24
+    },
+    {
+     "message": "Expected blank line before this block.",
+     "line": 7,
+     "column": 7,
+     "endLine": 7,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template></template>\n\n      <!-- comment -->\n      <script></script>\n\n      <!-- comment -->\n      <!-- comment -->\n      <style></style>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this block.",
+     "line": 4,
+     "column": 7,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       28,
+       28
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this block.",
+     "line": 7,
+     "column": 7,
+     "endLine": 7,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       75,
+       75
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template></template>\n\n      <!-- comment -->\n      <script></script>\n\n      <!-- comment -->\n      <!-- comment -->\n      <style></style>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-blocks#invalid3"
+ },
+ {
+  "rule": "padding-line-between-blocks",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template></template>\n\n      <!-- comment -->\n      <script></script>\n      <!-- comment -->\n\n      <style></style>\n      <!-- comment -->\n\n      <!-- comment -->\n      <i18n></i18n>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this block.",
+     "line": 5,
+     "column": 7,
+     "endLine": 5,
+     "endColumn": 24
+    },
+    {
+     "message": "Unexpected blank line before this block.",
+     "line": 8,
+     "column": 7,
+     "endLine": 8,
+     "endColumn": 22
+    },
+    {
+     "message": "Unexpected blank line before this block.",
+     "line": 12,
+     "column": 7,
+     "endLine": 12,
+     "endColumn": 20
+    }
+   ],
+   "output": "\n      <template></template>\n      <!-- comment -->\n      <script></script>\n      <!-- comment -->\n      <style></style>\n      <!-- comment -->\n      <!-- comment -->\n      <i18n></i18n>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this block.",
+     "line": 5,
+     "column": 7,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       28,
+       36
+      ],
+      "text": "\n      "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this block.",
+     "line": 8,
+     "column": 7,
+     "endLine": 8,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       99,
+       107
+      ],
+      "text": "\n      "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this block.",
+     "line": 12,
+     "column": 7,
+     "endLine": 12,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       145,
+       153
+      ],
+      "text": "\n      "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template></template>\n      <!-- comment -->\n      <script></script>\n      <!-- comment -->\n      <style></style>\n      <!-- comment -->\n      <!-- comment -->\n      <i18n></i18n>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-blocks#invalid4"
+ },
+ {
+  "rule": "padding-line-between-blocks",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template></template>TEXT\n      <!-- comment --><script></script><!-- comment\n      comment --><style></style>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this block.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 40
+    },
+    {
+     "message": "Expected blank line before this block.",
+     "line": 4,
+     "column": 18,
+     "endLine": 4,
+     "endColumn": 33
+    }
+   ],
+   "output": "\n      <template></template>TEXT\n\n      <!-- comment --><script></script>\n\n<!-- comment\n      comment --><style></style>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this block.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       32,
+       32
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this block.",
+     "line": 4,
+     "column": 18,
+     "endLine": 4,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       72,
+       72
+      ],
+      "text": "\n\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template></template>TEXT\n\n      <!-- comment --><script></script>\n\n<!-- comment\n      comment --><style></style>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-blocks#invalid5"
+ },
+ {
+  "rule": "padding-line-between-blocks",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script></script>\n\n\n      <!-- comment -->\n\n      TEXT TEXT\n\n      <!-- comment\n\n\n      comment -->\n\n      <!-- comment -->\n\n\n      TEXT\n\n\n\n      TEXT\n\n      <style></style>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this block.",
+     "line": 23,
+     "column": 7,
+     "endLine": 23,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <script></script>\n      <!-- comment -->\n      TEXT TEXT\n      <!-- comment\n\n\n      comment -->\n      <!-- comment -->\n      TEXT\n      TEXT\n      <style></style>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this block.",
+     "line": 23,
+     "column": 7,
+     "endLine": 23,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       24,
+       165
+      ],
+      "text": "\n      <!-- comment -->\n      TEXT TEXT\n      <!-- comment\n\n\n      comment -->\n      <!-- comment -->\n      TEXT\n      TEXT\n      "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script></script>\n      <!-- comment -->\n      TEXT TEXT\n      <!-- comment\n\n\n      comment -->\n      <!-- comment -->\n      TEXT\n      TEXT\n      <style></style>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-blocks#invalid6"
+ },
+ {
+  "rule": "padding-line-between-blocks",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n    <template></template>\n\n    <script></script>\n\n    <style></style>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-blocks#valid0"
+ },
+ {
+  "rule": "padding-line-between-blocks",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template></template>\n\n    <script></script>\n\n    <style></style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-blocks#valid1"
+ },
+ {
+  "rule": "padding-line-between-blocks",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template></template>\n      <script></script>\n      <style></style>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-blocks#valid2"
+ },
+ {
+  "rule": "padding-line-between-blocks",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n    <template></template>\n\n    <!-- comment -->\n    <script></script>\n    <!-- comment -->\n\n    <style></style>\n    <!-- comment -->\n\n    <!-- comment -->\n    <i18n></i18n>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-blocks#valid3"
+ },
+ {
+  "rule": "padding-line-between-blocks",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template></template>\n      <!-- comment -->\n      <script></script>\n      <!-- comment -->\n      <!-- comment -->\n      <style></style>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-blocks#valid4"
+ },
+ {
+  "rule": "padding-line-between-blocks",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template></template><script></script><style></style>",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-blocks#valid5"
+ },
+ {
+  "rule": "padding-line-between-blocks",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template>\n\n      </template><script>\n\n      </script>",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-blocks#valid6"
+ },
+ {
+  "rule": "padding-line-between-blocks",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n    <script></script>\n\n    <style></style>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-blocks#valid7"
+ },
+ {
+  "rule": "padding-line-between-blocks",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script></script>\n      <style></style>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-blocks#valid8"
+ },
+ {
+  "rule": "padding-line-between-blocks",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "var a = 1",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-blocks#valid9"
+ }
+]

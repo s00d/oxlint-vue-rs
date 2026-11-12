@@ -1,0 +1,3685 @@
+[
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n<template><div class=\"foo\">TEXT1      TEXT2<!-- html comment --></div></template>\n<script>export default { name:'A' } /* multiline    */ // inline comment</script>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 2,
+     "column": 81,
+     "endLine": 2,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 2,
+     "column": 81,
+     "endLine": 2,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid0"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n<script>export default { name:'A' } /* multiline    */ // inline comment</script>\n<template><div class=\"foo\">TEXT1      TEXT2<!-- html comment --></div></template>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 2,
+     "column": 81,
+     "endLine": 2,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 2,
+     "column": 81,
+     "endLine": 2,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid1"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n<template><div class=\"foo\">121 columns ................................................................ </div></template>\n<script>export default { name:'A' } /* 121 columns .......................................................... */</script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "code": 120
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 121. Maximum allowed is 120.",
+     "line": 2,
+     "column": 121,
+     "endLine": 2,
+     "endColumn": 122
+    },
+    {
+     "message": "This line has a length of 121. Maximum allowed is 120.",
+     "line": 3,
+     "column": 121,
+     "endLine": 3,
+     "endColumn": 122
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 121. Maximum allowed is 120.",
+     "line": 2,
+     "column": 121,
+     "endLine": 2,
+     "endColumn": 122,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 121. Maximum allowed is 120.",
+     "line": 3,
+     "column": 121,
+     "endLine": 3,
+     "endColumn": 122,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid2"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n<template><div class=\"foo\">121 columns ................................................................ </div></template>\n<script>export default { name:'A' } /* 81 columns ................... */</script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "template": 120
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 121. Maximum allowed is 120.",
+     "line": 2,
+     "column": 121,
+     "endLine": 2,
+     "endColumn": 122
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 121. Maximum allowed is 120.",
+     "line": 2,
+     "column": 121,
+     "endLine": 2,
+     "endColumn": 122,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid3"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n<template><div class=\"foo\">121 columns - The script and template are on the same line. </div></template><script></script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "template": 120
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 121. Maximum allowed is 120.",
+     "line": 2,
+     "column": 121,
+     "endLine": 2,
+     "endColumn": 122
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 121. Maximum allowed is 120.",
+     "line": 2,
+     "column": 121,
+     "endLine": 2,
+     "endColumn": 122,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid4"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n<template><div class=\"foo\">121 columns - The script and template are on the same line. </div></template><script></script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "code": 120,
+    "template": 80
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 121. Maximum allowed is 120.",
+     "line": 2,
+     "column": 121,
+     "endLine": 2,
+     "endColumn": 122
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 121. Maximum allowed is 120.",
+     "line": 2,
+     "column": 121,
+     "endLine": 2,
+     "endColumn": 122,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid5"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n<template>\n  <div class=\"foooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\"\n       :class=\"{\n         'foooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo': bbbb\n       }\">\n  </div>\n</template>\n<script>\nexport default { name: 'foooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo' }\n</script>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 82. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 83
+    },
+    {
+     "message": "This line has a length of 84. Maximum allowed is 80.",
+     "line": 5,
+     "column": 81,
+     "endLine": 5,
+     "endColumn": 85
+    },
+    {
+     "message": "This line has a length of 94. Maximum allowed is 80.",
+     "line": 10,
+     "column": 81,
+     "endLine": 10,
+     "endColumn": 95
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 82. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 83,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 84. Maximum allowed is 80.",
+     "line": 5,
+     "column": 81,
+     "endLine": 5,
+     "endColumn": 85,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 94. Maximum allowed is 80.",
+     "line": 10,
+     "column": 81,
+     "endLine": 10,
+     "endColumn": 95,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid6"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n<template>\n  <!-- HTML full line comment ............................................... -->\n  <div class=\"foo\"\n       :class=\"{\n         'foo': foo, // trailing comment ........................................\n         'bar': bar, /* comment */ // trailing comments .........................\n         /* full line comment ................................................ */\n       }\"> <!-- HTML trailing comment ....................................... -->\n    <!-- leading comment ............................................. --><input>\n  </div> <!-- comment --><!-- HTML trailing comments ........................ -->\n</template>\n<script>\nvar a // trailing comment .......................................................\nvar b /* comment */ // trailing comments ........................................\n/* full line comment ......................................................... */\n</script>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 6,
+     "column": 81,
+     "endLine": 6,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 7,
+     "column": 81,
+     "endLine": 7,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 8,
+     "column": 81,
+     "endLine": 8,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 9,
+     "column": 81,
+     "endLine": 9,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 10,
+     "column": 81,
+     "endLine": 10,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 11,
+     "column": 81,
+     "endLine": 11,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 14,
+     "column": 81,
+     "endLine": 14,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 15,
+     "column": 81,
+     "endLine": 15,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 16,
+     "column": 81,
+     "endLine": 16,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 6,
+     "column": 81,
+     "endLine": 6,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 7,
+     "column": 81,
+     "endLine": 7,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 8,
+     "column": 81,
+     "endLine": 8,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 9,
+     "column": 81,
+     "endLine": 9,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 10,
+     "column": 81,
+     "endLine": 10,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 11,
+     "column": 81,
+     "endLine": 11,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 14,
+     "column": 81,
+     "endLine": 14,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 15,
+     "column": 81,
+     "endLine": 15,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 16,
+     "column": 81,
+     "endLine": 16,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid7"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n<script>\nvar a // trailing comment .......................................................\nvar b /* comment */ // trailing comments ........................................\n/* full line comment ......................................................... */\n</script>\n<template>\n  <!-- HTML full line comment ............................................... -->\n  <div class=\"foo\"\n       :class=\"{\n         'foo': foo, // trailing comment ........................................\n         'bar': bar, /* comment */ // trailing comments .........................\n         /* full line comment ................................................ */\n       }\"> <!-- HTML trailing comment ....................................... -->\n    <!-- leading comment ............................................. --><input>\n  </div> <!-- comment --><!-- HTML trailing comments ........................ -->\n</template>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 4,
+     "column": 81,
+     "endLine": 4,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 5,
+     "column": 81,
+     "endLine": 5,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 8,
+     "column": 81,
+     "endLine": 8,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 11,
+     "column": 81,
+     "endLine": 11,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 12,
+     "column": 81,
+     "endLine": 12,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 13,
+     "column": 81,
+     "endLine": 13,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 14,
+     "column": 81,
+     "endLine": 14,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 15,
+     "column": 81,
+     "endLine": 15,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 16,
+     "column": 81,
+     "endLine": 16,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 4,
+     "column": 81,
+     "endLine": 4,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 5,
+     "column": 81,
+     "endLine": 5,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 8,
+     "column": 81,
+     "endLine": 8,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 11,
+     "column": 81,
+     "endLine": 11,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 12,
+     "column": 81,
+     "endLine": 12,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 13,
+     "column": 81,
+     "endLine": 13,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 14,
+     "column": 81,
+     "endLine": 14,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 15,
+     "column": 81,
+     "endLine": 15,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 16,
+     "column": 81,
+     "endLine": 16,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid8"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n<template>\n  <!-- HTML full line comment ............................................... -->\n  <div class=\"foo\"\n       :class=\"{\n         'foo': foo, // trailing comment ........................................\n         'bar': bar, /* comment */ // trailing comments .........................\n         /* full line comment ................................................ */\n       }\"> <!-- HTML trailing comment ....................................... -->\n    <!-- leading comment ............................................. --><input>\n  </div> <!-- comment --><!-- HTML trailing comments ........................ -->\n</template>\n<script>\nvar a // trailing comment .......................................................\nvar b /* comment */ // trailing comments ........................................\n/* full line comment ......................................................... */\n</script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreComments": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 10,
+     "column": 81,
+     "endLine": 10,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 10,
+     "column": 81,
+     "endLine": 10,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid9"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n<script>\nvar a // trailing comment .......................................................\nvar b /* comment */ // trailing comments ........................................\n/* full line comment ......................................................... */\n</script>\n<template>\n  <!-- HTML full line comment ............................................... -->\n  <div class=\"foo\"\n       :class=\"{\n         'foo': foo, // trailing comment ........................................\n         'bar': bar, /* comment */ // trailing comments .........................\n         /* full line comment ................................................ */\n       }\"> <!-- HTML trailing comment ....................................... -->\n    <!-- leading comment ............................................. --><input>\n  </div> <!-- comment --><!-- HTML trailing comments ........................ -->\n</template>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreComments": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 15,
+     "column": 81,
+     "endLine": 15,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 15,
+     "column": 81,
+     "endLine": 15,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid10"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n<template>\n  <!-- HTML full line comment ............................................... -->\n  <div class=\"foo\"\n       :class=\"{\n         'foo': foo, // trailing comment ........................................\n         'bar': bar, /* comment */ // trailing comments .........................\n         /* full line comment ................................................ */\n       }\"> <!-- HTML trailing comment ....................................... -->\n    <!-- leading comment ............................................. --><input>\n  </div> <!-- comment --><!-- HTML trailing comments ........................ -->\n</template>\n<script>\nvar a // trailing comment .......................................................\nvar b /* comment */ // trailing comments ........................................\n/* full line comment ......................................................... */\n</script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreTrailingComments": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 8,
+     "column": 81,
+     "endLine": 8,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 10,
+     "column": 81,
+     "endLine": 10,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 16,
+     "column": 81,
+     "endLine": 16,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 8,
+     "column": 81,
+     "endLine": 8,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 10,
+     "column": 81,
+     "endLine": 10,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 16,
+     "column": 81,
+     "endLine": 16,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid11"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n<script>\nvar a // trailing comment .......................................................\nvar b /* comment */ // trailing comments ........................................\n/* full line comment ......................................................... */\n</script>\n<template>\n  <!-- HTML full line comment ............................................... -->\n  <div class=\"foo\"\n       :class=\"{\n         'foo': foo, // trailing comment ........................................\n         'bar': bar, /* comment */ // trailing comments .........................\n         /* full line comment ................................................ */\n       }\"> <!-- HTML trailing comment ....................................... -->\n    <!-- leading comment ............................................. --><input>\n  </div> <!-- comment --><!-- HTML trailing comments ........................ -->\n</template>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreTrailingComments": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 5,
+     "column": 81,
+     "endLine": 5,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 8,
+     "column": 81,
+     "endLine": 8,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 13,
+     "column": 81,
+     "endLine": 13,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 15,
+     "column": 81,
+     "endLine": 15,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 5,
+     "column": 81,
+     "endLine": 5,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 8,
+     "column": 81,
+     "endLine": 8,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 13,
+     "column": 81,
+     "endLine": 13,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 15,
+     "column": 81,
+     "endLine": 15,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid12"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n<template>\n  <div style=\"background-image: url('https://www.example.com/long/long/long/long/long')\">\n  </div>\n</template>\n<script>\nvar a = 'https://www.example.com/long/long/long/long/long/long/long/long/long/long'\n</script>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 89. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 90
+    },
+    {
+     "message": "This line has a length of 83. Maximum allowed is 80.",
+     "line": 7,
+     "column": 81,
+     "endLine": 7,
+     "endColumn": 84
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 89. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 90,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 83. Maximum allowed is 80.",
+     "line": 7,
+     "column": 81,
+     "endLine": 7,
+     "endColumn": 84,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid13"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n<script>\nvar a = 'https://www.example.com/long/long/long/long/long/long/long/long/long/long'\n</script>\n<template>\n  <div style=\"background-image: url('https://www.example.com/long/long/long/long/long')\">\n  </div>\n</template>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 83. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 84
+    },
+    {
+     "message": "This line has a length of 89. Maximum allowed is 80.",
+     "line": 6,
+     "column": 81,
+     "endLine": 6,
+     "endColumn": 90
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 83. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 84,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 89. Maximum allowed is 80.",
+     "line": 6,
+     "column": 81,
+     "endLine": 6,
+     "endColumn": 90,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid14"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n<template>\n  <div class=\"attr-value-loooooooooooooooooooooooooooooooooooooooooooooooooooong\"\n       :class=\"[\n         {\n           'expr-loooooooooooooooooooooooooooooooooooooooooooooooooooooong': foo,\n         },\n         'str-looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong'\n       ]\">\n  </div>\n</template>\n<script>\nvar a = 'str-loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong'\n</script>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 6,
+     "column": 81,
+     "endLine": 6,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 8,
+     "column": 81,
+     "endLine": 8,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 13,
+     "column": 81,
+     "endLine": 13,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 6,
+     "column": 81,
+     "endLine": 6,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 8,
+     "column": 81,
+     "endLine": 8,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 13,
+     "column": 81,
+     "endLine": 13,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid15"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n<script>\nvar a = 'str-loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong'\n</script>\n<template>\n  <div class=\"attr-value-loooooooooooooooooooooooooooooooooooooooooooooooooooong\"\n       :class=\"[\n         {\n           'expr-loooooooooooooooooooooooooooooooooooooooooooooooooooooong': foo,\n         },\n         'str-looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong'\n       ]\">\n  </div>\n</template>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 6,
+     "column": 81,
+     "endLine": 6,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 9,
+     "column": 81,
+     "endLine": 9,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 11,
+     "column": 81,
+     "endLine": 11,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 6,
+     "column": 81,
+     "endLine": 6,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 9,
+     "column": 81,
+     "endLine": 9,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 11,
+     "column": 81,
+     "endLine": 11,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid16"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n<template>\n  <div class=\"attr-value-loooooooooooooooooooooooooooooooooooooooooooooooooooong\"\n       :class=\"[\n         {\n           'expr-loooooooooooooooooooooooooooooooooooooooooooooooooooooong': foo,\n         },\n         'str-looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong'\n       ]\">\n  </div>\n</template>\n<script>\nvar a = 'str-loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong'\n</script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreStrings": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid17"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n<script>\nvar a = 'str-loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong'\n</script>\n<template>\n  <div class=\"attr-value-loooooooooooooooooooooooooooooooooooooooooooooooooooong\"\n       :class=\"[\n         {\n           'expr-loooooooooooooooooooooooooooooooooooooooooooooooooooooong': foo,\n         },\n         'str-looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong'\n       ]\">\n  </div>\n</template>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreStrings": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 6,
+     "column": 81,
+     "endLine": 6,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 6,
+     "column": 81,
+     "endLine": 6,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid18"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "\n<template>\n  <div :class=\"[\n         'str-loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong',\n         `template-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong`,\n       ]\">\n  </div>\n</template>\n<script>\nvar a = 'str-loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong'\nvar b = `template-looooooooooooooooooooooooooooooooooooooooooooooooooooooooooong`\n</script>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 4,
+     "column": 81,
+     "endLine": 4,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 5,
+     "column": 81,
+     "endLine": 5,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 10,
+     "column": 81,
+     "endLine": 10,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 11,
+     "column": 81,
+     "endLine": 11,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 4,
+     "column": 81,
+     "endLine": 4,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 5,
+     "column": 81,
+     "endLine": 5,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 10,
+     "column": 81,
+     "endLine": 10,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 11,
+     "column": 81,
+     "endLine": 11,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid19"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "\n<script>\nvar a = 'str-loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong'\nvar b = `template-looooooooooooooooooooooooooooooooooooooooooooooooooooooooooong`\n</script>\n<template>\n  <div :class=\"[\n         'str-loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong',\n         `template-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong`,\n       ]\">\n  </div>\n</template>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 4,
+     "column": 81,
+     "endLine": 4,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 8,
+     "column": 81,
+     "endLine": 8,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 9,
+     "column": 81,
+     "endLine": 9,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 4,
+     "column": 81,
+     "endLine": 4,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 8,
+     "column": 81,
+     "endLine": 8,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 9,
+     "column": 81,
+     "endLine": 9,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid20"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "\n<template>\n  <div :class=\"[\n         'str-loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong',\n         `template-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong`,\n       ]\">\n  </div>\n</template>\n<script>\nvar a = 'str-loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong'\nvar b = `template-looooooooooooooooooooooooooooooooooooooooooooooooooooooooooong`\n</script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreTemplateLiterals": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 4,
+     "column": 81,
+     "endLine": 4,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 10,
+     "column": 81,
+     "endLine": 10,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 4,
+     "column": 81,
+     "endLine": 4,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 10,
+     "column": 81,
+     "endLine": 10,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid21"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "\n<script>\nvar a = 'str-loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong'\nvar b = `template-looooooooooooooooooooooooooooooooooooooooooooooooooooooooooong`\n</script>\n<template>\n  <div :class=\"[\n         'str-loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong',\n         `template-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong`,\n       ]\">\n  </div>\n</template>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreTemplateLiterals": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 8,
+     "column": 81,
+     "endLine": 8,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 8,
+     "column": 81,
+     "endLine": 8,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid22"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "\n<template>\n  <div :class=\"{\n         'foo': /regexploooooooooooooooooooooooooooooooooooooooooooong/.test(bar)\n       }\">\n  </div>\n</template>\n<script>\nvar a = /regexploooooooooooooooooooooooooooooooooooooooooooooooooooooong/.test(b)\n</script>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 4,
+     "column": 81,
+     "endLine": 4,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 9,
+     "column": 81,
+     "endLine": 9,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 4,
+     "column": 81,
+     "endLine": 4,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 9,
+     "column": 81,
+     "endLine": 9,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid23"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "\n<script>\nvar a = /regexploooooooooooooooooooooooooooooooooooooooooooooooooooooong/.test(b)\n</script>\n<template>\n  <div :class=\"{\n         'foo': /regexploooooooooooooooooooooooooooooooooooooooooooong/.test(bar)\n       }\">\n  </div>\n</template>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 7,
+     "column": 81,
+     "endLine": 7,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 7,
+     "column": 81,
+     "endLine": 7,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid24"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 25,
+  "name": null,
+  "code": "\n<template>\n  <div class=\"foooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\">\n  </div>\n</template>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid25"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 26,
+  "name": null,
+  "code": "\n<template>\n  <div>\n    foooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n    foooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo<input>\n  </div>\n</template>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 4,
+     "column": 81,
+     "endLine": 4,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 88. Maximum allowed is 80.",
+     "line": 5,
+     "column": 81,
+     "endLine": 5,
+     "endColumn": 89
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 4,
+     "column": 81,
+     "endLine": 4,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 88. Maximum allowed is 80.",
+     "line": 5,
+     "column": 81,
+     "endLine": 5,
+     "endColumn": 89,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid26"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 27,
+  "name": null,
+  "code": "<template><div> 41 cols </div></template>",
+  "filename": "test.vue",
+  "options": [
+   40
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 41. Maximum allowed is 40.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 42
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 41. Maximum allowed is 40.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid27"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 28,
+  "name": null,
+  "code": "<template><div> 41 cols </div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "code": 40
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 41. Maximum allowed is 40.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 42
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 41. Maximum allowed is 40.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid28"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 29,
+  "name": null,
+  "code": "<template><div>\t41\tcols\t</div></template>",
+  "filename": "test.vue",
+  "options": [
+   40,
+   4
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 45. Maximum allowed is 40.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 46
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 45. Maximum allowed is 40.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid29"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 30,
+  "name": null,
+  "code": "<template><div>\t41\tcols\t</div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "code": 40,
+    "tabWidth": 4
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 45. Maximum allowed is 40.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 46
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 45. Maximum allowed is 40.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid30"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 31,
+  "name": null,
+  "code": "<template><div>\t41\tcols\t</div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "code": 40,
+    "tabWidth": 3
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 44. Maximum allowed is 40.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 45
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 44. Maximum allowed is 40.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 45,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid31"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 32,
+  "name": null,
+  "code": "\n<template>\n<!-- 41 cols                            *\n41 cols                                 *\n-->\n<div /> <!-- 41 cols comment                  -->\n</template>\n<script>\n// 41 cols                              *\nvar a;  // 41 cols comment                      *\n\n/* 41 cols                              *\n41 cols                                 *\n*/\n</script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "comments": 40
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a comment length of 41. Maximum allowed is 40.",
+     "line": 3,
+     "column": 41,
+     "endLine": 3,
+     "endColumn": 42
+    },
+    {
+     "message": "This line has a comment length of 41. Maximum allowed is 40.",
+     "line": 4,
+     "column": 41,
+     "endLine": 4,
+     "endColumn": 42
+    },
+    {
+     "message": "This line has a comment length of 41. Maximum allowed is 40.",
+     "line": 9,
+     "column": 41,
+     "endLine": 9,
+     "endColumn": 42
+    },
+    {
+     "message": "This line has a comment length of 41. Maximum allowed is 40.",
+     "line": 12,
+     "column": 41,
+     "endLine": 12,
+     "endColumn": 42
+    },
+    {
+     "message": "This line has a comment length of 41. Maximum allowed is 40.",
+     "line": 13,
+     "column": 41,
+     "endLine": 13,
+     "endColumn": 42
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "maxComment",
+     "message": "This line has a comment length of 41. Maximum allowed is 40.",
+     "line": 3,
+     "column": 41,
+     "endLine": 3,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "maxComment",
+     "message": "This line has a comment length of 41. Maximum allowed is 40.",
+     "line": 4,
+     "column": 41,
+     "endLine": 4,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "maxComment",
+     "message": "This line has a comment length of 41. Maximum allowed is 40.",
+     "line": 9,
+     "column": 41,
+     "endLine": 9,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "maxComment",
+     "message": "This line has a comment length of 41. Maximum allowed is 40.",
+     "line": 12,
+     "column": 41,
+     "endLine": 12,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "maxComment",
+     "message": "This line has a comment length of 41. Maximum allowed is 40.",
+     "line": 13,
+     "column": 41,
+     "endLine": 13,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid32"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 33,
+  "name": null,
+  "code": "\nvar a = '81 columns                                                            ';\nvar b = `81 columns                                                            `;\n/* 81 columns                                                                  */\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 2,
+     "column": 81,
+     "endLine": 2,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 4,
+     "column": 81,
+     "endLine": 4,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 2,
+     "column": 81,
+     "endLine": 2,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 4,
+     "column": 81,
+     "endLine": 4,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid33"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 34,
+  "name": null,
+  "code": "\nvar a = '81 columns          ignoreStrings                                     ';\nvar b = `81 columns                                                            `;\n/* 81 columns                                                                  */\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignoreStrings": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 4,
+     "column": 81,
+     "endLine": 4,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 4,
+     "column": 81,
+     "endLine": 4,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid34"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 35,
+  "name": null,
+  "code": "\nvar a = '81 columns                                                            ';\nvar b = `81 columns                                                            `;\n/* 81 columns                                                                  */\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignoreComments": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 2,
+     "column": 81,
+     "endLine": 2,
+     "endColumn": 82
+    },
+    {
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 2,
+     "column": 81,
+     "endLine": 2,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "max",
+     "message": "This line has a length of 81. Maximum allowed is 80.",
+     "line": 3,
+     "column": 81,
+     "endLine": 3,
+     "endColumn": 82,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid35"
+ },
+ {
+  "rule": "max-len",
+  "kind": "invalid",
+  "idx": 36,
+  "name": null,
+  "code": "\n// 41 cols                              *\n/* 41 cols                              *\n41 cols                                 *\n*/\n",
+  "filename": "test.js",
+  "options": [
+   {
+    "comments": 40
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This line has a comment length of 41. Maximum allowed is 40.",
+     "line": 2,
+     "column": 41,
+     "endLine": 2,
+     "endColumn": 42
+    },
+    {
+     "message": "This line has a comment length of 41. Maximum allowed is 40.",
+     "line": 3,
+     "column": 41,
+     "endLine": 3,
+     "endColumn": 42
+    },
+    {
+     "message": "This line has a comment length of 41. Maximum allowed is 40.",
+     "line": 4,
+     "column": 41,
+     "endLine": 4,
+     "endColumn": 42
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "maxComment",
+     "message": "This line has a comment length of 41. Maximum allowed is 40.",
+     "line": 2,
+     "column": 41,
+     "endLine": 2,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "maxComment",
+     "message": "This line has a comment length of 41. Maximum allowed is 40.",
+     "line": 3,
+     "column": 41,
+     "endLine": 3,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "maxComment",
+     "message": "This line has a comment length of 41. Maximum allowed is 40.",
+     "line": 4,
+     "column": 41,
+     "endLine": 4,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#invalid36"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid0"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid1"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<script></script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid2"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n<template>\n  <div class=\"foo\">\n    TEXT1\n    TEXT2\n    <!-- html comment\n      html comment\n      html comment -->\n  </div>\n</template>\n<script>\n// inline comment\nexport default {name:'A'}\n/* multiline comment\n  multiline comment\n  multiline comment */\n</script>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid3"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n<template><div class=\"foo\">TEXT1     TEXT2<!-- html comment --></div></template>\n<script>export default { name:'A' } /*     comment */ // inline comment</script>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid4"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n<template><div class=\"foo\">120 columns ............................................................... </div></template>\n<script>export default { name:'A' } /* 120 columns ......................................................... */</script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "code": 120
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid5"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n<template><div class=\"foo\">120 columns ............................................................... </div></template>\n<script>export default { name:'A' } /* 80 columns .................. */</script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "template": 120
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid6"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n<template><div class=\"foo\">120 columns - The script and template are on the same line </div></template><script></script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "template": 120
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid7"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n<template>\n  <div class=\"foooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\"\n       :class=\"{\n         'foooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo': bbbb\n       }\">\n  </div>\n</template>\n<script>\nexport default { name: 'foooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo' }\n</script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignorePattern": "foooooooooooooooooo"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid8"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n<template>\n  <!-- HTML full line comment ............................................... -->\n  <div class=\"foo\"\n       :class=\"{\n         'foo': foo, // trailing comment ........................................\n         'bar': bar, /* comment */ // trailing comments .........................\n         /* full line comment ................................................ */\n       }\"> <!-- HTML trailing comment ....................................... -->\n  </div> <!-- comment --><!-- HTML trailing comments ........................ -->\n</template>\n<script>\nvar a // trailing comment .......................................................\nvar b /* comment */ // trailing comments ........................................\n/* full line comment ......................................................... */\n</script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreComments": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid9"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n<script>\nvar a // trailing comment .......................................................\nvar b /* comment */ // trailing comments ........................................\n/* full line comment ......................................................... */\n</script>\n<template>\n  <!-- HTML full line comment ............................................... -->\n  <div class=\"foo\"\n       :class=\"{\n         'foo': foo, // trailing comment ........................................\n         'bar': bar, /* comment */ // trailing comments .........................\n         /* full line comment ................................................ */\n       }\"> <!-- HTML trailing comment ....................................... -->\n  </div> <!-- comment --><!-- HTML trailing comments ........................ -->\n</template>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreComments": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid10"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n<template>\n  <div style=\"background-image: url('https://www.example.com/long/long/long/long/long')\">\n  </div>\n</template>\n<script>\nvar a = 'https://www.example.com/long/long/long/long/long/long/long/long/long/long'\n</script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreUrls": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid11"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n<script>\nvar a = 'https://www.example.com/long/long/long/long/long/long/long/long/long/long'\n</script>\n<template>\n  <div style=\"background-image: url('https://www.example.com/long/long/long/long/long')\">\n  </div>\n</template>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreUrls": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid12"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n<template>\n  <div :class=\"[\n         {\n           'expr-loooooooooooooooooooooooooooooooooooooooooooooooooooooong': foo,\n         },\n         'str-looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong'\n       ]\">\n  </div>\n</template>\n<script>\nvar a = 'str-loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong'\n</script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreStrings": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid13"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n<script>\nvar a = 'str-loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong'\n</script>\n<template>\n  <div :class=\"[\n         {\n           'expr-loooooooooooooooooooooooooooooooooooooooooooooooooooooong': foo,\n         },\n         'str-looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong'\n       ]\">\n  </div>\n</template>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreStrings": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid14"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n<template>\n  <div :class=\"[\n         `template-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong`,\n       ]\">\n  </div>\n</template>\n<script>\nvar b = `template-looooooooooooooooooooooooooooooooooooooooooooooooooooooooooong`\n</script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreTemplateLiterals": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid15"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n<script>\nvar b = `template-looooooooooooooooooooooooooooooooooooooooooooooooooooooooooong`\n</script>\n<template>\n  <div :class=\"[\n         `template-looooooooooooooooooooooooooooooooooooooooooooooooooooooooong`,\n       ]\">\n  </div>\n</template>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreTemplateLiterals": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid16"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n<template>\n  <div :class=\"{\n         'foo': /regexploooooooooooooooooooooooooooooooooooooooooooong/.test(bar)\n       }\">\n  </div>\n</template>\n<script>\nvar a = /regexploooooooooooooooooooooooooooooooooooooooooooooooooooooong/.test(b)\n</script>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreRegExpLiterals": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid17"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n<script>\nvar a = /regexploooooooooooooooooooooooooooooooooooooooooooooooooooooong/.test(b)\n</script>\n<template>\n  <div :class=\"{\n         'foo': /regexploooooooooooooooooooooooooooooooooooooooooooong/.test(bar)\n       }\">\n  </div>\n</template>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreRegExpLiterals": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid18"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "\n<template>\n  <div class=\"foooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\">\n  </div>\n</template>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreHTMLAttributeValues": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid19"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "\n<template>\n  <div>\n    foooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo\n    foooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo<input>\n  </div>\n</template>\n",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreHTMLTextContents": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid20"
+ },
+ {
+  "rule": "max-len",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "\n<docs>loooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong</docs>\n<template><div /></template>\n<script>export default {}</script>\n<style>.looooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooong{}</style>\n",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2017,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "max-len#valid21"
+ }
+]

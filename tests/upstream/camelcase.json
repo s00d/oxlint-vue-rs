@@ -1,0 +1,218 @@
+[
+ {
+  "rule": "camelcase",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div :attr=\"{ my_pref: 1 }\" />\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Identifier 'my_pref' is not in camel case.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 32
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "notCamelCase",
+     "message": "Identifier 'my_pref' is not in camel case.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "camelcase#invalid0"
+ },
+ {
+  "rule": "camelcase",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <div @click=\"($event) => {\n            const { my_pref } = $event\n          }\" />\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Identifier 'my_pref' is not in camel case.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "notCamelCase",
+     "message": "Identifier 'my_pref' is not in camel case.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "camelcase#invalid1"
+ },
+ {
+  "rule": "camelcase",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <div @click=\"\n            const { my_pref } = $event\n          \" />\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Identifier 'my_pref' is not in camel case.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "notCamelCase",
+     "message": "Identifier 'my_pref' is not in camel case.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "camelcase#invalid2"
+ },
+ {
+  "rule": "camelcase",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template>\n      <div :attr=\"{ myPref: 1 }\" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "camelcase#valid0"
+ },
+ {
+  "rule": "camelcase",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <div @click=\"($event) => {\n            const { my_pref } = $event\n          }\" />\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignoreDestructuring": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "camelcase#valid1"
+ }
+]

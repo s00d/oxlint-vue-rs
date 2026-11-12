@@ -1,0 +1,1824 @@
+[
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo', 'count'],\n          methods: {\n            setFoo () {\n              this.$emit('foo', newFoo)\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`count` is defined as emit but never used.",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid0"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['foo', 'bar'],\n        methods: {\n          click () {\n            const vm = this\n            vm?.$emit?.('foo')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`bar` is defined as emit but never used.",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid1"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('bar')\">Foo</button>\n      </template>\n      <script>\n        export default {\n          emits: ['foo', 'bar'],\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 7,
+     "column": 19,
+     "endLine": 7,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`foo` is defined as emit but never used.",
+     "line": 7,
+     "column": 19,
+     "endLine": 7,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid2"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: { foo: null },\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 4,
+     "column": 20,
+     "endLine": 4,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`foo` is defined as emit but never used.",
+     "line": 4,
+     "column": 20,
+     "endLine": 4,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid3"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('bar')\">Bar</button>\n      </template>\n      <script setup>\n        const emit = defineEmits(['foo', 'bar'])\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 6,
+     "column": 35,
+     "endLine": 6,
+     "endColumn": 40
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`foo` is defined as emit but never used.",
+     "line": 6,
+     "column": 35,
+     "endLine": 6,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid4"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"emit('bar')\">Bar</button>\n      </template>\n      <script setup>\n        const emit = defineEmits(['foo', 'bar'])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 6,
+     "column": 35,
+     "endLine": 6,
+     "endColumn": 40
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`foo` is defined as emit but never used.",
+     "line": 6,
+     "column": 35,
+     "endLine": 6,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid5"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo'],\n          methods: {\n              setFoo () {\n                  custom.$emit('foo', newFoo)\n              }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`foo` is defined as emit but never used.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid6"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo', 'bar'],\n          setup(_, { emit }) {\n            const setFoo = () => {\n              emit('foo', newFoo)\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`bar` is defined as emit but never used.",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid7"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('bar')\">Bar</button>\n      </template>\n      <script>\n        // @vue/component\n        const Foo = {\n          emits: ['foo', 'bar'],\n        }\n        export default Foo\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 8,
+     "column": 19,
+     "endLine": 8,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`foo` is defined as emit but never used.",
+     "line": 8,
+     "column": 19,
+     "endLine": 8,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid8"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo', 'bar'],\n          setup(_, { emit: customName }) {\n            const setFoo = () => customName('foo')\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`bar` is defined as emit but never used.",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid9"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo'],\n          setup() {\n            const setFoo = () => foo.$emit('foo')\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`foo` is defined as emit but never used.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid10"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo', 'bar'],\n          setup(_, context) {\n            const setFoo = () => {\n              context.emit('foo', newFoo)\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`bar` is defined as emit but never used.",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid11"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo', 'bar', 'baz'],\n          setup(_, { emit }) {\n            const emitBar = () => {\n              emit('bar', newBar)\n            }\n          },\n          methods: {\n            setFoo() {\n              this.$emit('foo', newFoo)\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 4,
+     "column": 33,
+     "endLine": 4,
+     "endColumn": 38
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`baz` is defined as emit but never used.",
+     "line": 4,
+     "column": 33,
+     "endLine": 4,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid12"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n        const emit = defineEmits<{\n          (e: 'foo' | 'bar'): void;\n        }>()\n        const change = () => emit('foo');\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 36
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`bar` is defined as emit but never used.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid13"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <script setup>\n        const emits = ['foo'];\n        defineEmits(emits)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 3,
+     "column": 24,
+     "endLine": 3,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`foo` is defined as emit but never used.",
+     "line": 3,
+     "column": 24,
+     "endLine": 3,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid14"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n        defineEmits<{(e: 'foo'): void}>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 38
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`foo` is defined as emit but never used.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid15"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<{\n        foo: [string, number],\n        bar: []\n      }>()\n      const change = () => emit('foo');\n      ",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`bar` is defined as emit but never used.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid16"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <script setup>\n      defineEmits({'update:foo'() {}})\n      defineModel('foo')\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`update:foo` is defined as emit but never used.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`update:foo` is defined as emit but never used.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid17"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo'],\n          setup(_, ctx) {\n            return () => h('button')\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unused",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "`foo` is defined as emit but never used.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#invalid18"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['count', 'foo'],\n          methods: {\n              setCount () {\n                  this.$emit('count', newCount)\n              },\n              setFoo () {\n                  this.$emit('foo', newFoo)\n              }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid0"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: ['foo'],\n        methods: {\n          click () {\n            const vm = this\n            vm?.$emit?.('foo')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid1"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('bar')\">Bar</button>\n      </template>\n      <script>\n        export default {\n          emits: ['foo', 'bar'],\n          methods: {\n              setFoo () {\n                  this.$emit('foo', newFoo)\n              }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid2"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"this.$emit('bar')\">Bar</button>\n      </template>\n      <script>\n        export default {\n          emits: ['bar'],\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid3"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('bar')\">Bar</button>\n      </template>\n      <script setup>\n        const emit = defineEmits(['foo', 'bar'])\n        const setFoo = () => {\n          emit('foo', newFoo)\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid4"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"emits('bar')\">Bar</button>\n      </template>\n      <script setup>\n        const emits = defineEmits(['bar'])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid5"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo'],\n          setup(_, { emit }) {\n            const setFoo = () => {\n              emit('foo', newFoo)\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid6"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo'],\n          setup(_, { emit: customName }) {\n            const setFoo = () => customName('foo')\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid7"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: { foo: null },\n          setup(_, { emit }) {\n            const setFoo = () => {\n              emit('foo', newFoo)\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid8"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          setup(_, { emit }) {\n            const setFoo = () => {\n              emit('foo', newFoo)\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid9"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('bar')\">Bar</button>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid10"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo'],\n          setup(_, context) {\n            const setFoo = () => {\n              context.emit('foo', newFoo)\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid11"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo'],\n          setup(_, { emit }) {\n            useCustomComposable(emit)\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid12"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo'],\n          setup(_, context) {\n            useCustomComposable(context.emit)\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid13"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo'],\n          setup(_, { emit }) {\n            useCustomComposable([emit])\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid14"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo'],\n          setup(_, context) {\n            useCustomComposable([context.emit])\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid15"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo'],\n          setup(_, context) {\n            useCustomComposable({ emit: context.emit })\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid16"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: [...foo],\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid17"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <script>\n        const emits = ['foo'];\n        export default {\n          emits: [...emits],\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid18"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <script>\n        const emits = ['foo'];\n        export default {\n          emits: emits,\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid19"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo'],\n          setup(_, { emit }) {\n            useCustomComposable({ emit: emit })\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid20"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo', 'bar'],\n          setup(_, { emit }) {\n            const emitBar = () => {\n              emit('bar', newBar)\n            }\n          },\n          methods: {\n            setFoo() {\n              this.$emit('foo', newFoo)\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid21"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      <script setup>\n        defineEmits(...foo)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid22"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "\n      <script setup>\n        const emits = ['foo'];\n        defineEmits([...emits])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid23"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<{\n        (e: 'foo'): void\n      }>()\n      const change = () => emit('foo');\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid24"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<{\n        foo: [string, number]\n      }>()\n      const change = () => emit('foo');\n      ",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid25"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "\n      <script setup>\n      defineEmits({'update:foo'() {}})\n      const m = defineModel('foo')\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid26"
+ },
+ {
+  "rule": "no-unused-emit-declarations",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          emits: ['foo'],\n          setup(_, ctx) {\n            return () => h('button', { onClick: () => ctx.emit('foo') })\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-emit-declarations#valid27"
+ }
+]

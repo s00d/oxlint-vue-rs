@@ -1,0 +1,2142 @@
+[
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n          export default {\n            name: 'Always',\n            props: {\n                foo: {\n                    type: String,\n                    required: true,\n                },\n                bar: {\n                    type: Number,\n                    required: true,\n                },\n            },\n            data() {\n                return {\n                    title: '',\n                    message: '',\n                };\n            },\n          };\n      </script>\n      ",
+  "filename": "Always.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 5,
+     "column": 13,
+     "endLine": 14,
+     "endColumn": 14
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 10,
+     "column": 17,
+     "endLine": 13,
+     "endColumn": 18
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 15,
+     "column": 13,
+     "endLine": 20,
+     "endColumn": 14
+    }
+   ],
+   "output": "\n      <script>\n          export default {\n            name: 'Always',\n\n            props: {\n                foo: {\n                    type: String,\n                    required: true,\n                },\n\n                bar: {\n                    type: Number,\n                    required: true,\n                },\n            },\n\n            data() {\n                return {\n                    title: '',\n                    message: '',\n                };\n            },\n          };\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 5,
+     "column": 13,
+     "endLine": 14,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       70,
+       70
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 10,
+     "column": 17,
+     "endLine": 13,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       203,
+       203
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 15,
+     "column": 13,
+     "endLine": 20,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       330,
+       330
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n          export default {\n            name: 'Always',\n\n            props: {\n                foo: {\n                    type: String,\n                    required: true,\n                },\n\n                bar: {\n                    type: Number,\n                    required: true,\n                },\n            },\n\n            data() {\n                return {\n                    title: '',\n                    message: '',\n                };\n            },\n          };\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid0"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        import { ref, defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'Setup',\n\n            setup() {\n                const foo = ref('');\n                const bar = ref('');\n\n                return { foo, bar };\n            }\n        })\n        </script>\n      ",
+  "filename": "Setup.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this definition.",
+     "line": 7,
+     "column": 13,
+     "endLine": 12,
+     "endColumn": 14
+    }
+   ],
+   "output": "\n        import { ref, defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'Setup',\n            setup() {\n                const foo = ref('');\n                const bar = ref('');\n\n                return { foo, bar };\n            }\n        })\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this definition.",
+     "line": 7,
+     "column": 13,
+     "endLine": 12,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       137,
+       151
+      ],
+      "text": "\n            "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        import { ref, defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'Setup',\n            setup() {\n                const foo = ref('');\n                const bar = ref('');\n\n                return { foo, bar };\n            }\n        })\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid1"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        import { defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'BetweenOptionsAlways',\n            props: {\n                foo: {\n                    type: String,\n                    required: true,\n                },\n                bar: {\n                    type: Number,\n                    required: true,\n                },\n            }\n        })\n        </script>\n      ",
+  "filename": "BetweenOptionsAlways.vue",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "withinOption": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 6,
+     "column": 13,
+     "endLine": 15,
+     "endColumn": 14
+    }
+   ],
+   "output": "\n        import { defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'BetweenOptionsAlways',\n\n            props: {\n                foo: {\n                    type: String,\n                    required: true,\n                },\n                bar: {\n                    type: Number,\n                    required: true,\n                },\n            }\n        })\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 6,
+     "column": 13,
+     "endLine": 15,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       147,
+       147
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        import { defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'BetweenOptionsAlways',\n\n            props: {\n                foo: {\n                    type: String,\n                    required: true,\n                },\n                bar: {\n                    type: Number,\n                    required: true,\n                },\n            }\n        })\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid2"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        import { defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'GroupSingleLineProperties',\n\n            inheritAttrs: false,\n\n            props: {\n                foo: String,\n                bar: Number\n            }\n        })\n        </script>\n      ",
+  "filename": "GroupSingleLineProperties.vue",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "withinOption": "never",
+    "groupSingleLineProperties": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line between single line properties.",
+     "line": 7,
+     "column": 13,
+     "endLine": 7,
+     "endColumn": 32
+    }
+   ],
+   "output": "\n        import { defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'GroupSingleLineProperties',\n            inheritAttrs: false,\n\n            props: {\n                foo: String,\n                bar: Number\n            }\n        })\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "groupSingleLineProperties",
+     "message": "Unexpected blank line between single line properties.",
+     "line": 7,
+     "column": 13,
+     "endLine": 7,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       152,
+       166
+      ],
+      "text": "\n            "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        import { defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'GroupSingleLineProperties',\n            inheritAttrs: false,\n\n            props: {\n                foo: String,\n                bar: Number\n            }\n        })\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid3"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        import { defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'WithinOption',\n\n            props: {\n                foo: {\n                    type: String,\n                    required: true,\n                },\n                bar: {\n                    type: Number,\n                    required: true,\n                },\n            },\n        })\n        </script>\n      ",
+  "filename": "WithinOption.vue",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "withinOption": {
+     "props": {
+      "betweenItems": "always",
+      "withinEach": "always"
+     },
+     "data": {
+      "betweenItems": "always",
+      "withinEach": "never"
+     }
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 10,
+     "column": 21,
+     "endLine": 10,
+     "endColumn": 35
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 12,
+     "column": 17,
+     "endLine": 15,
+     "endColumn": 18
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 14,
+     "column": 21,
+     "endLine": 14,
+     "endColumn": 35
+    }
+   ],
+   "output": "\n        import { defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'WithinOption',\n\n            props: {\n                foo: {\n                    type: String,\n\n                    required: true,\n                },\n\n                bar: {\n                    type: Number,\n\n                    required: true,\n                },\n            },\n        })\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 10,
+     "column": 21,
+     "endLine": 10,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       218,
+       218
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 12,
+     "column": 17,
+     "endLine": 15,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       273,
+       273
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 14,
+     "column": 21,
+     "endLine": 14,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       330,
+       330
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        import { defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'WithinOption',\n\n            props: {\n                foo: {\n                    type: String,\n\n                    required: true,\n                },\n\n                bar: {\n                    type: Number,\n\n                    required: true,\n                },\n            },\n        })\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid4"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n            name: 'CustomOptions',\n\n            props: {\n                foo: {\n                    type: String,\n                    required: true,\n                },\n\n                bar: {\n                    type: Number,\n                    required: true,\n                },\n            },\n\n            customOption: {\n                getString() {\n                    return '1';\n                },\n\n                getNumber: () => 1,\n            },\n\n            data: () => ({\n                title: '',\n\n                message: '',\n            }),\n        }\n        </script>\n      ",
+  "filename": "CustomOptions.vue",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "withinOption": {
+     "props": {
+      "betweenItems": "always",
+      "withinEach": "never"
+     },
+     "customOption": {
+      "betweenItems": "never"
+     }
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this definition.",
+     "line": 23,
+     "column": 17,
+     "endLine": 23,
+     "endColumn": 35
+    }
+   ],
+   "output": "\n        <script>\n        export default {\n            name: 'CustomOptions',\n\n            props: {\n                foo: {\n                    type: String,\n                    required: true,\n                },\n\n                bar: {\n                    type: Number,\n                    required: true,\n                },\n            },\n\n            customOption: {\n                getString() {\n                    return '1';\n                },\n                getNumber: () => 1,\n            },\n\n            data: () => ({\n                title: '',\n\n                message: '',\n            }),\n        }\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this definition.",
+     "line": 23,
+     "column": 17,
+     "endLine": 23,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       449,
+       467
+      ],
+      "text": "\n                "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script>\n        export default {\n            name: 'CustomOptions',\n\n            props: {\n                foo: {\n                    type: String,\n                    required: true,\n                },\n\n                bar: {\n                    type: Number,\n                    required: true,\n                },\n            },\n\n            customOption: {\n                getString() {\n                    return '1';\n                },\n                getNumber: () => 1,\n            },\n\n            data: () => ({\n                title: '',\n\n                message: '',\n            }),\n        }\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid5"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        new Vue({\n          name: 'NewVue',\n\n          inheritAttrs: false,\n\n          props: {\n              foo: {\n                  type: String,\n                  required: true,\n              },\n              bar: {\n                  type: String,\n                  required: true,\n              }\n          },\n          customOption: {\n              getString() { return '1' },\n              getNumber: () => 1,\n          },\n        })\n      ",
+  "filename": "NewVue.js",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "withinOption": "ignore",
+    "groupSingleLineProperties": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line between single line properties.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 30
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 17,
+     "column": 11,
+     "endLine": 20,
+     "endColumn": 12
+    }
+   ],
+   "output": "\n        new Vue({\n          name: 'NewVue',\n          inheritAttrs: false,\n\n          props: {\n              foo: {\n                  type: String,\n                  required: true,\n              },\n              bar: {\n                  type: String,\n                  required: true,\n              }\n          },\n\n          customOption: {\n              getString() { return '1' },\n              getNumber: () => 1,\n          },\n        })\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "groupSingleLineProperties",
+     "message": "Unexpected blank line between single line properties.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       44,
+       56
+      ],
+      "text": "\n          "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 17,
+     "column": 11,
+     "endLine": 20,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       316,
+       316
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        new Vue({\n          name: 'NewVue',\n          inheritAttrs: false,\n\n          props: {\n              foo: {\n                  type: String,\n                  required: true,\n              },\n              bar: {\n                  type: String,\n                  required: true,\n              }\n          },\n\n          customOption: {\n              getString() { return '1' },\n              getNumber: () => 1,\n          },\n        })\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid6"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        Vue.mixin({\n          name: 'NewVue',\n          inheritAttrs: false,\n          props: {\n              foo: {\n                  type: String,\n                  required: true,\n              },\n              bar: {\n                  type: String,\n                  required: true,\n              }\n          },\n          customOption: {\n              getString() { return '1' },\n              getNumber: () => 1,\n          },\n        })\n      ",
+  "filename": "Mixin.js",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "withinOption": "ignore",
+    "groupSingleLineProperties": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 5,
+     "column": 11,
+     "endLine": 14,
+     "endColumn": 12
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 15,
+     "column": 11,
+     "endLine": 18,
+     "endColumn": 12
+    }
+   ],
+   "output": "\n        Vue.mixin({\n          name: 'NewVue',\n\n          inheritAttrs: false,\n\n          props: {\n              foo: {\n                  type: String,\n                  required: true,\n              },\n              bar: {\n                  type: String,\n                  required: true,\n              }\n          },\n\n          customOption: {\n              getString() { return '1' },\n              getNumber: () => 1,\n          },\n        })\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       46,
+       46
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 5,
+     "column": 11,
+     "endLine": 14,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       77,
+       77
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 15,
+     "column": 11,
+     "endLine": 18,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       316,
+       316
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        Vue.mixin({\n          name: 'NewVue',\n\n          inheritAttrs: false,\n\n          props: {\n              foo: {\n                  type: String,\n                  required: true,\n              },\n              bar: {\n                  type: String,\n                  required: true,\n              }\n          },\n\n          customOption: {\n              getString() { return '1' },\n              getNumber: () => 1,\n          },\n        })\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid7"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        import { defineProps } from 'vue'\n        <script setup>\n        const props = defineProps({\n            foo: {\n                type: String,\n\n                required: true,\n            },\n            bar: {\n                type: String,\n                required: true,\n            },\n        })\n        </script>\n      ",
+  "filename": "DefineProps.vue",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "withinOption": {
+     "props": {
+      "betweenItems": "always",
+      "withinEach": "never"
+     }
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this definition.",
+     "line": 8,
+     "column": 17,
+     "endLine": 8,
+     "endColumn": 31
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 10,
+     "column": 13,
+     "endLine": 13,
+     "endColumn": 14
+    }
+   ],
+   "output": "\n        import { defineProps } from 'vue'\n        <script setup>\n        const props = defineProps({\n            foo: {\n                type: String,\n                required: true,\n            },\n\n            bar: {\n                type: String,\n                required: true,\n            },\n        })\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this definition.",
+     "line": 8,
+     "column": 17,
+     "endLine": 8,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       150,
+       168
+      ],
+      "text": "\n                "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 10,
+     "column": 13,
+     "endLine": 13,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       198,
+       198
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        import { defineProps } from 'vue'\n        <script setup>\n        const props = defineProps({\n            foo: {\n                type: String,\n                required: true,\n            },\n\n            bar: {\n                type: String,\n                required: true,\n            },\n        })\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid8"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        import { defineEmits } from 'vue'\n        <script setup>\n        const emits = defineEmits(['foo', 'bar']);\n        const emitsObject = defineEmits({\n          change: (id) => typeof id == 'number',\n\n          update: (value) => typeof value == 'string'\n        })\n        </script>\n      ",
+  "filename": "DefineEmits.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this definition.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 54
+    }
+   ],
+   "output": "\n        import { defineEmits } from 'vue'\n        <script setup>\n        const emits = defineEmits(['foo', 'bar']);\n        const emitsObject = defineEmits({\n          change: (id) => typeof id == 'number',\n          update: (value) => typeof value == 'string'\n        })\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this definition.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 54,
+     "fix": {
+      "range": [
+       207,
+       219
+      ],
+      "text": "\n          "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        import { defineEmits } from 'vue'\n        <script setup>\n        const emits = defineEmits(['foo', 'bar']);\n        const emitsObject = defineEmits({\n          change: (id) => typeof id == 'number',\n          update: (value) => typeof value == 'string'\n        })\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid9"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        import { defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'PropertiesInOneLine',props: {\n                foo: {\n                    type: String,\n                    required: true,\n                },bar: {\n                    type: Number,\n                    required: true,\n                },\n            },\n        })\n        </script>\n      ",
+  "filename": "WithinOption.vue",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "withinOption": {
+     "props": {
+      "betweenItems": "always",
+      "withinEach": "always"
+     }
+    },
+    "groupSingleLineProperties": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 5,
+     "column": 41,
+     "endLine": 13,
+     "endColumn": 14
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 9,
+     "column": 19,
+     "endLine": 12,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n        import { defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'PropertiesInOneLine',\n\n            props: {\n                foo: {\n                    type: String,\n                    required: true,\n                },\n\n                bar: {\n                    type: Number,\n                    required: true,\n                },\n            },\n        })\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 5,
+     "column": 41,
+     "endLine": 13,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       146,
+       146
+      ],
+      "text": "\n\n            "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 9,
+     "column": 19,
+     "endLine": 12,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       266,
+       266
+      ],
+      "text": "\n\n                "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        import { defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'PropertiesInOneLine',\n\n            props: {\n                foo: {\n                    type: String,\n                    required: true,\n                },\n\n                bar: {\n                    type: Number,\n                    required: true,\n                },\n            },\n        })\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid10"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n            name: 'Comment',\n            props: {\n                a: {\n                    type: String,\n                },\n                /** JSDoc */\n                b: {\n                    type: String,\n                },\n                // foo\n                c: {\n                    type: String,\n                },\n\n                /* block */\n                d: String,\n\n                /* block */\n                f: String,\n            }\n        }\n        </script>\n      ",
+  "filename": "Comment.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 5,
+     "column": 13,
+     "endLine": 23,
+     "endColumn": 14
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 9,
+     "column": 17,
+     "endLine": 9,
+     "endColumn": 29
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 13,
+     "column": 17,
+     "endLine": 13,
+     "endColumn": 23
+    },
+    {
+     "message": "Unexpected blank line between single line properties.",
+     "line": 21,
+     "column": 17,
+     "endLine": 21,
+     "endColumn": 28
+    }
+   ],
+   "output": "\n        <script>\n        export default {\n            name: 'Comment',\n\n            props: {\n                a: {\n                    type: String,\n                },\n\n                /** JSDoc */\n                b: {\n                    type: String,\n                },\n\n                // foo\n                c: {\n                    type: String,\n                },\n\n                /* block */\n                d: String,\n                /* block */\n                f: String,\n            }\n        }\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 5,
+     "column": 13,
+     "endLine": 23,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       71,
+       71
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 9,
+     "column": 17,
+     "endLine": 9,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       166,
+       166
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 13,
+     "column": 17,
+     "endLine": 13,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       269,
+       269
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "groupSingleLineProperties",
+     "message": "Unexpected blank line between single line properties.",
+     "line": 21,
+     "column": 17,
+     "endLine": 21,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       422,
+       440
+      ],
+      "text": "\n                "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script>\n        export default {\n            name: 'Comment',\n\n            props: {\n                a: {\n                    type: String,\n                },\n\n                /** JSDoc */\n                b: {\n                    type: String,\n                },\n\n                // foo\n                c: {\n                    type: String,\n                },\n\n                /* block */\n                d: String,\n                /* block */\n                f: String,\n            }\n        }\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid11"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n            name: 'Spread',\n            ...spread,\n            props: {\n                a: {\n                    type: String,\n                },\n                ...lost,\n                b: {\n                    type: String,\n                }\n            }\n        }\n        </script>\n      ",
+  "filename": "Spread.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 6,
+     "column": 13,
+     "endLine": 14,
+     "endColumn": 14
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 10,
+     "column": 17,
+     "endLine": 10,
+     "endColumn": 24
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 11,
+     "column": 17,
+     "endLine": 13,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n        <script>\n        export default {\n            name: 'Spread',\n            ...spread,\n\n            props: {\n                a: {\n                    type: String,\n                },\n\n                ...lost,\n\n                b: {\n                    type: String,\n                }\n            }\n        }\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 6,
+     "column": 13,
+     "endLine": 14,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       93,
+       93
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 10,
+     "column": 17,
+     "endLine": 10,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       188,
+       188
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 11,
+     "column": 17,
+     "endLine": 13,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       213,
+       213
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script>\n        export default {\n            name: 'Spread',\n            ...spread,\n\n            props: {\n                a: {\n                    type: String,\n                },\n\n                ...lost,\n\n                b: {\n                    type: String,\n                }\n            }\n        }\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid12"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n        import { defineEmits, defineProps } from 'vue'\n        <script setup>\n        const emits = defineEmits(['foo', 'bar']);\n        const emitsObject = defineEmits({\n          change: (id) => typeof id == 'number',\n          ...spread,\n          update: (value) => typeof value == 'string'\n        })\n        const props = defineProps({\n            foo: {\n                type: String,\n                required: true,\n            },\n\n            // comment\n            bar: {\n                type: String,\n                required: true,\n            },\n        })\n        </script>\n      ",
+  "filename": "DefineWithSpreadAndComment.vue",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "withinOption": {
+     "emits": "always",
+     "props": "never"
+    },
+    "groupSingleLineProperties": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 20
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 54
+    },
+    {
+     "message": "Unexpected blank line before this definition.",
+     "line": 16,
+     "column": 13,
+     "endLine": 16,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n        import { defineEmits, defineProps } from 'vue'\n        <script setup>\n        const emits = defineEmits(['foo', 'bar']);\n        const emitsObject = defineEmits({\n          change: (id) => typeof id == 'number',\n\n          ...spread,\n\n          update: (value) => typeof value == 'string'\n        })\n        const props = defineProps({\n            foo: {\n                type: String,\n                required: true,\n            },\n            // comment\n            bar: {\n                type: String,\n                required: true,\n            },\n        })\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       220,
+       220
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 54,
+     "fix": {
+      "range": [
+       241,
+       241
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this definition.",
+     "line": 16,
+     "column": 13,
+     "endLine": 16,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       438,
+       452
+      ],
+      "text": "\n            "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        import { defineEmits, defineProps } from 'vue'\n        <script setup>\n        const emits = defineEmits(['foo', 'bar']);\n        const emitsObject = defineEmits({\n          change: (id) => typeof id == 'number',\n\n          ...spread,\n\n          update: (value) => typeof value == 'string'\n        })\n        const props = defineProps({\n            foo: {\n                type: String,\n                required: true,\n            },\n            // comment\n            bar: {\n                type: String,\n                required: true,\n            },\n        })\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid13"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n        <script setup>\n        defineOptions({\n            name: 'MyComment',\n            inheritAttrs: false,\n        })\n        </script>\n      ",
+  "filename": "MyComment.vue",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "groupSingleLineProperties": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 32
+    }
+   ],
+   "output": "\n        <script setup>\n        defineOptions({\n            name: 'MyComment',\n\n            inheritAttrs: false,\n        })\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       78,
+       78
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n        defineOptions({\n            name: 'MyComment',\n\n            inheritAttrs: false,\n        })\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid14"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n          name: 'BetweenOptionsOnly',\n          props: {\n            foo: String\n          },\n          data() {\n            return {}\n          },\n          methods: {\n            bar() {}\n          }\n        }\n        </script>\n      ",
+  "filename": "BetweenOptionsOnly.vue",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "groupSingleLineProperties": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 5,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 12
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 8,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 12
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 11,
+     "column": 11,
+     "endLine": 13,
+     "endColumn": 12
+    }
+   ],
+   "output": "\n        <script>\n        export default {\n          name: 'BetweenOptionsOnly',\n\n          props: {\n            foo: String\n          },\n\n          data() {\n            return {}\n          },\n\n          methods: {\n            bar() {}\n          }\n        }\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 5,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       80,
+       80
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 8,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       136,
+       136
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 11,
+     "column": 11,
+     "endLine": 13,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       190,
+       190
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script>\n        export default {\n          name: 'BetweenOptionsOnly',\n\n          props: {\n            foo: String\n          },\n\n          data() {\n            return {}\n          },\n\n          methods: {\n            bar() {}\n          }\n        }\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid15"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n          methods: {\n            foo() {\n              return 'foo'\n            },\n            bar() {\n              return 'bar'\n            },\n            baz() {\n              return 'baz'\n            }\n          }\n        }\n        </script>\n      ",
+  "filename": "BetweenItemsOnly.vue",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "withinOption": {
+     "methods": {
+      "betweenItems": "always"
+     }
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 8,
+     "column": 13,
+     "endLine": 10,
+     "endColumn": 14
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 11,
+     "column": 13,
+     "endLine": 13,
+     "endColumn": 14
+    }
+   ],
+   "output": "\n        <script>\n        export default {\n          methods: {\n            foo() {\n              return 'foo'\n            },\n\n            bar() {\n              return 'bar'\n            },\n\n            baz() {\n              return 'baz'\n            }\n          }\n        }\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 8,
+     "column": 13,
+     "endLine": 10,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       125,
+       125
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 11,
+     "column": 13,
+     "endLine": 13,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       187,
+       187
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script>\n        export default {\n          methods: {\n            foo() {\n              return 'foo'\n            },\n\n            bar() {\n              return 'bar'\n            },\n\n            baz() {\n              return 'baz'\n            }\n          }\n        }\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid16"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n        <script setup>\n        defineOptions({\n          name: 'DefineOptionsBetweenOptionsOnly',\n          inheritAttrs: false,\n          props: {\n            foo: String\n          }\n        })\n        </script>\n      ",
+  "filename": "DefineOptionsBetweenOptionsOnly.vue",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "groupSingleLineProperties": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 30
+    },
+    {
+     "message": "Expected blank line before this definition.",
+     "line": 6,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 12
+    }
+   ],
+   "output": "\n        <script setup>\n        defineOptions({\n          name: 'DefineOptionsBetweenOptionsOnly',\n\n          inheritAttrs: false,\n\n          props: {\n            foo: String\n          }\n        })\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       98,
+       98
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this definition.",
+     "line": 6,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       129,
+       129
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n        defineOptions({\n          name: 'DefineOptionsBetweenOptionsOnly',\n\n          inheritAttrs: false,\n\n          props: {\n            foo: String\n          }\n        })\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#invalid17"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <script>\n          export default {\n            name: 'Never',\n            props: {\n                foo: {\n                    type: String,\n                    required: true,\n                },\n                bar: {\n                    type: Number,\n                    required: true,\n                },\n            },\n            data() {\n                return {\n                    title: '',\n                    message: '',\n                };\n            },\n            customOption: 'custom'\n          };\n        </script>\n      ",
+  "filename": "Never.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#valid0"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        import { ref, defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'Setup',\n            setup() {\n                const foo = ref('');\n                const bar = ref('');\n\n                return { foo, bar };\n            }\n        })\n        </script>\n      ",
+  "filename": "Setup.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#valid1"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        import { defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'BetweenOptionsNever',\n            props: {\n                foo: {\n                    type: String,\n                    required: true,\n                },\n                bar: {\n                    type: Number,\n                    required: true,\n                },\n            }\n        })\n        </script>\n      ",
+  "filename": "BetweenOptionsNever.vue",
+  "options": [
+   {
+    "betweenOptions": "never",
+    "withinOption": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#valid2"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        import { defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'GroupSingleLineProperties',\n            inheritAttrs: false,\n\n            props: {\n                foo: String,\n                bar: Number\n            }\n        })\n        </script>\n      ",
+  "filename": "GroupSingleLineProperties.vue",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "withinOption": "never",
+    "groupSingleLineProperties": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#valid3"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        import { defineComponent } from 'vue';\n        <script>\n        export default defineComponent({\n            name: 'WithinOption',\n\n            props: {\n                foo: {\n                    type: String,\n\n                    required: true,\n                },\n                bar: {\n                    type: Number,\n\n                    required: true,\n                },\n            },\n\n            data: () => ({\n                title: '',\n\n                message: '',\n            }),\n        })\n        </script>\n      ",
+  "filename": "WithinOption.vue",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "withinOption": {
+     "props": {
+      "betweenItems": "never",
+      "withinEach": "always"
+     },
+     "data": {
+      "betweenItems": "always",
+      "withinEach": "never"
+     }
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#valid4"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n            name: 'CustomOptions',\n\n            props: {\n                foo: {\n                    type: String,\n                    required: true,\n                },\n\n                bar: {\n                    type: Number,\n                    required: true,\n                },\n            },\n\n            customOption: {\n                getString() {\n                    return '1';\n                },\n\n                getNumber: () => 1,\n            },\n\n            data: () => ({\n                title: '',\n\n                message: '',\n            }),\n        }\n        </script>\n      ",
+  "filename": "CustomOptions.vue",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "withinOption": {
+     "props": {
+      "betweenItems": "always",
+      "withinEach": "never"
+     },
+     "customOption": {
+      "betweenItems": "always"
+     }
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#valid5"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        new Vue({\n          name: 'NewVue',\n          inheritAttrs: false,\n          props: {\n              foo: {\n                  type: String,\n                  required: true,\n              },\n              bar: {\n                  type: String,\n                  required: true,\n              }\n          },\n          customOption: {\n              getString() { return '1' },\n              getNumber: () => 1,\n          },\n        })\n      ",
+  "filename": "NewVue.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#valid6"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        Vue.mixin({\n          name: 'Mixin',\n          inheritAttrs: false,\n          props: {\n              foo: {\n                  type: String,\n                  required: true,\n              },\n              bar: {\n                  type: String,\n                  required: true,\n              }\n          },\n          customOption: {\n              getString() { return '1' },\n              getNumber: () => 1,\n          },\n        })\n      ",
+  "filename": "Mixin.js",
+  "options": [
+   {
+    "betweenOptions": "never",
+    "withinOption": "ignore",
+    "groupSingleLineProperties": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#valid7"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        import { defineProps } from 'vue'\n        <script setup>\n        const props = defineProps({\n            foo: {\n                type: String,\n                required: true,\n            },\n            bar: {\n                type: String,\n                required: true,\n            },\n        })\n        </script>\n      ",
+  "filename": "DefineProps.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#valid8"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        import { defineEmits } from 'vue'\n        <script setup>\n        const emits = defineEmits(['foo', 'bar']);\n        const emitsObject = defineEmits({\n          change: (id) => typeof id == 'number',\n\n          update: (value) => typeof value == 'string'\n        })\n        </script>\n      ",
+  "filename": "DefineEmits.vue",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "withinOption": {
+     "emits": {
+      "betweenItems": "always"
+     }
+    },
+    "groupSingleLineProperties": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#valid9"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n            name: 'Comment',\n\n            props: {\n                a: {\n                    type: String,\n                },\n\n                /** JSDoc */\n                b: {\n                    type: String,\n                },\n\n                // single\n                c: {\n                    type: String,\n                },\n\n                /* block */\n                d: String,\n                /* block */\n                f: String\n            }\n        }\n        </script>\n      ",
+  "filename": "Comment.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#valid10"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n            name: 'Spread',\n            ...spread,\n            props: {\n                a: {\n                    type: String,\n                },\n                ...lost,\n                b: {\n                    type: String,\n                }\n            }\n        }\n        </script>\n      ",
+  "filename": "Spread.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#valid11"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n            name: 'Spread',\n            // comment\n            ...spread,\n\n            props: {\n                a: {\n                    type: String,\n                },\n\n                // comment\n                ...lost,\n\n                b: {\n                    type: String,\n                }\n            }\n        }\n        </script>\n      ",
+  "filename": "SpreadWithComment.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#valid12"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n        <script setup>\n        defineOptions({\n            name: 'MyComment',\n\n            inheritAttrs: false,\n        })\n        </script>\n      ",
+  "filename": "MyComment.vue",
+  "options": [
+   {
+    "betweenOptions": "always",
+    "groupSingleLineProperties": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#valid13"
+ },
+ {
+  "rule": "padding-lines-in-component-definition",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import {Props1 as Props} from './test01'\n      defineProps<Props>()\n      </script>",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-lines-in-component-definition#valid14"
+ }
+]

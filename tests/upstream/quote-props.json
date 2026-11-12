@@ -1,0 +1,308 @@
+[
+ {
+  "rule": "quote-props",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"{height: '100vh'}\"></div>\n        <div :style='{height: \"100vh\"}'></div>\n        <div :style={height:\"100vh\"}></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unquoted property 'height' found.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 38
+    },
+    {
+     "message": "Unquoted property 'height' found.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 38
+    },
+    {
+     "message": "Unquoted property 'height' found.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 36
+    }
+   ],
+   "output": "\n      <template>\n        <div :style=\"{'height': '100vh'}\"></div>\n        <div :style='{\"height\": \"100vh\"}'></div>\n        <div :style={\"height\":\"100vh\"}></div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unquotedPropertyFound",
+     "message": "Unquoted property 'height' found.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       40,
+       46
+      ],
+      "text": "'height'"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unquotedPropertyFound",
+     "message": "Unquoted property 'height' found.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       87,
+       93
+      ],
+      "text": "\"height\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unquotedPropertyFound",
+     "message": "Unquoted property 'height' found.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 36,
+     "fix": {
+      "range": [
+       133,
+       139
+      ],
+      "text": "\"height\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div :style=\"{'height': '100vh'}\"></div>\n        <div :style='{\"height\": \"100vh\"}'></div>\n        <div :style={\"height\":\"100vh\"}></div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "quote-props#invalid0"
+ },
+ {
+  "rule": "quote-props",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"{'height': '100vh'}\"></div>\n        <div :style='{\"height\": \"100vh\"}'></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "as-needed"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unnecessarily quoted property 'height' found.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 40
+    },
+    {
+     "message": "Unnecessarily quoted property 'height' found.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 40
+    }
+   ],
+   "output": "\n      <template>\n        <div :style=\"{height: '100vh'}\"></div>\n        <div :style='{height: \"100vh\"}'></div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unnecessarilyQuotedProperty",
+     "message": "Unnecessarily quoted property 'height' found.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       40,
+       48
+      ],
+      "text": "height"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unnecessarilyQuotedProperty",
+     "message": "Unnecessarily quoted property 'height' found.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       89,
+       97
+      ],
+      "text": "height"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div :style=\"{height: '100vh'}\"></div>\n        <div :style='{height: \"100vh\"}'></div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "quote-props#invalid1"
+ },
+ {
+  "rule": "quote-props",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        {{ ({foo:42}).foo }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unquoted property 'foo' found.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 20
+    }
+   ],
+   "output": "\n      <template>\n        {{ ({\"foo\":42}).foo }}\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unquotedPropertyFound",
+     "message": "Unquoted property 'foo' found.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       31,
+       34
+      ],
+      "text": "\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        {{ ({\"foo\":42}).foo }}\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "quote-props#invalid2"
+ },
+ {
+  "rule": "quote-props",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"{'height': '100vh'}\"></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "quote-props#valid0"
+ },
+ {
+  "rule": "quote-props",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"{height: '100vh'}\"></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "as-needed"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "quote-props#valid1"
+ }
+]

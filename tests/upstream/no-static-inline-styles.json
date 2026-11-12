@@ -1,0 +1,950 @@
+[
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div style=\"display: none;\">\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`style` attributes are forbidden.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 36
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenStyleAttr",
+     "message": "`style` attributes are forbidden.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#invalid0"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div style>\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`style` attributes are forbidden.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenStyleAttr",
+     "message": "`style` attributes are forbidden.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#invalid1"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"{\n          backgroundImage: 'url(./img.png)'\n        }\">\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static inline `style` are forbidden.",
+     "line": 3,
+     "column": 14,
+     "endLine": 5,
+     "endColumn": 11
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenStaticInlineStyle",
+     "message": "Static inline `style` are forbidden.",
+     "line": 3,
+     "column": 14,
+     "endLine": 5,
+     "endColumn": 11,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#invalid2"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"{\n          'background-image': 'url(./img.png)'\n        }\">\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static inline `style` are forbidden.",
+     "line": 3,
+     "column": 14,
+     "endLine": 5,
+     "endColumn": 11
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenStaticInlineStyle",
+     "message": "Static inline `style` are forbidden.",
+     "line": 3,
+     "column": 14,
+     "endLine": 5,
+     "endColumn": 11,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#invalid3"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <div v-bind:style=\"{\n          'background-image': 'url(./img.png)'\n        }\">\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static inline `style` are forbidden.",
+     "line": 3,
+     "column": 14,
+     "endLine": 5,
+     "endColumn": 11
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenStaticInlineStyle",
+     "message": "Static inline `style` are forbidden.",
+     "line": 3,
+     "column": 14,
+     "endLine": 5,
+     "endColumn": 11,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#invalid4"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"{\n          color: color,\n          'background-image': 'url(./img.png)'\n        }\">\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static inline `style` are forbidden.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 47
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenStaticInlineStyle",
+     "message": "Static inline `style` are forbidden.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#invalid5"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"{\n          'background-image': 'url(./img.png)',\n          color,\n        }\">\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static inline `style` are forbidden.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 47
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenStaticInlineStyle",
+     "message": "Static inline `style` are forbidden.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#invalid6"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"[\n          { 'background-image': 'url(./img.png)' },\n          { color: 'red' }\n        ]\">\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static inline `style` are forbidden.",
+     "line": 3,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 11
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenStaticInlineStyle",
+     "message": "Static inline `style` are forbidden.",
+     "line": 3,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 11,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#invalid7"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"[\n          { backgroundImage: 'url(./img.png)' },\n          { ...propStyle },\n          { backgroundImage: 'url(./img.png)' },\n        ]\">\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static inline `style` are forbidden.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 46
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenStaticInlineStyle",
+     "message": "Static inline `style` are forbidden.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#invalid8"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"[\n          { backgroundImage: 'url(./img.png)' },\n          { backgroundImage: 'url(./img.png)', color, font: 'xxx', },\n          { backgroundImage: 'url(./img.png)' },\n        ]\">\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static inline `style` are forbidden.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 46
+    },
+    {
+     "message": "Static inline `style` are forbidden.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 46
+    },
+    {
+     "message": "Static inline `style` are forbidden.",
+     "line": 5,
+     "column": 55,
+     "endLine": 5,
+     "endColumn": 66
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenStaticInlineStyle",
+     "message": "Static inline `style` are forbidden.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "forbiddenStaticInlineStyle",
+     "message": "Static inline `style` are forbidden.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "forbiddenStaticInlineStyle",
+     "message": "Static inline `style` are forbidden.",
+     "line": 5,
+     "column": 55,
+     "endLine": 5,
+     "endColumn": 66,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#invalid9"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"[\n          { backgroundImage: 'url(./img.png)' },\n          ,\n          { backgroundImage: 'url(./img.png)' },\n        ]\">\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static inline `style` are forbidden.",
+     "line": 3,
+     "column": 14,
+     "endLine": 7,
+     "endColumn": 11
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenStaticInlineStyle",
+     "message": "Static inline `style` are forbidden.",
+     "line": 3,
+     "column": 14,
+     "endLine": 7,
+     "endColumn": 11,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#invalid10"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"[\n          { backgroundImage: 'url(./img.png)' },\n          'string',\n          { backgroundImage: 'url(./img.png)' },\n        ]\">\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static inline `style` are forbidden.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 46
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenStaticInlineStyle",
+     "message": "Static inline `style` are forbidden.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#invalid11"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n    <template>\n      <div class=\"hidden\">\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#valid0"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n    <template>\n      <div :style=\"prop\">\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#valid1"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n    <template>\n      <div :style=\"{\n        backgroundImage: 'url('+data.img+')'\n      }\">\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#valid2"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n    <template>\n      <div :style=\"{\n       [backgroundImage]: 'url(./img.png)'\n      }\" }>\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#valid3"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n    <template>\n      <div v-bind:style>\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#valid4"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div :style=\"{\n          backgroundImage: 'url(./img.png)'\n        }\">\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowBinding": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#valid5"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n    <template>\n      <div :style=\"{\n        [computed]: 'url(./img.png)',\n        'background-image': 'url(./img.png)',\n        color: 'red',\n      }\">\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#valid6"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n    <template>\n      <div :style=\"{\n        ...spread,\n        'background-image': 'url(./img.png)',\n        color: 'red',\n      }\">\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#valid7"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n    <template>\n      <div :style=\"[\n        { ...propStyle },\n        { backgroundImage: 'url(./img.png)' },\n      ]\">\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#valid8"
+ },
+ {
+  "rule": "no-static-inline-styles",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n    <template>\n      <div v-bind:style=\"{\n        'background-image': 'url(./img.png)'\n        \">\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-static-inline-styles#valid9"
+ }
+]

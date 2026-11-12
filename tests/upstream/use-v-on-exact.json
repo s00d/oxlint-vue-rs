@@ -1,0 +1,1926 @@
+[
+ {
+  "rule": "use-v-on-exact",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template>\n        <button\n          @click=\"foo\"\n          @click.ctrl=\"bar\"\n        />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 17
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "considerExact",
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#invalid0"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>\n        <button\n          @click=\"foo\"\n          @click.ctrl.stop=\"bar\"\n        />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 17
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "considerExact",
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#invalid1"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>\n        <button\n          @click.prevent=\"foo\"\n          @click.ctrl=\"bar\"\n        />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "considerExact",
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#invalid2"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template>\n        <input\n          @keydown.prevent=\"foo\"\n          @keydown.ctrl=\"bar\"\n        />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "considerExact",
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#invalid3"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template>\n        <input\n          @keydown.ctrl.enter.exact=\"save\"\n          @keydown.stop=\"foo\"\n        />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Consider to use '.exact' modifier.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "considerExact",
+     "message": "Consider to use '.exact' modifier.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#invalid4"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template>\n        <button\n          @click.exact=\"foo\"\n          @click.ctrl=\"bar\"\n          @click.ctrl.shift=\"baz\"\n        />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Consider to use '.exact' modifier.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "considerExact",
+     "message": "Consider to use '.exact' modifier.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#invalid5"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template>\n        <button\n          @click=\"foo\"\n          @click.ctrl=\"bar\"\n          @click.ctrl.shift=\"baz\"\n        />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 17
+    },
+    {
+     "message": "Consider to use '.exact' modifier.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "considerExact",
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "considerExact",
+     "message": "Consider to use '.exact' modifier.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#invalid6"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template>\n        <input\n          @keypress.27=\"foo\"\n          @keypress.27.shift=\"bar\"\n        >\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "considerExact",
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#invalid7"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template>\n        <input\n          @keypress.exact=\"foo\"\n          @keypress.esc=\"bar\"\n          @keypress.ctrl=\"baz\"\n        >\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Consider to use '.exact' modifier.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "considerExact",
+     "message": "Consider to use '.exact' modifier.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#invalid8"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template>\n        <UiButton\n          @click=\"foo\"\n          @click.native=\"bar\"\n          @click.ctrl.native=\"baz\"\n        />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Consider to use '.exact' modifier.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "considerExact",
+     "message": "Consider to use '.exact' modifier.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#invalid9"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template>\n        <UiButton\n          @click.native.ctrl=\"foo\"\n          @click.native.ctrl.shift=\"bar\"\n        />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "considerExact",
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#invalid10"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template>\n        <UiButton\n          @click.native=\"foo\"\n          @click.native.ctrl=\"bar\"\n          @click.native.ctrl.shift=\"baz\"\n        />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 24
+    },
+    {
+     "message": "Consider to use '.exact' modifier.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "considerExact",
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "considerExact",
+     "message": "Consider to use '.exact' modifier.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#invalid11"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template>\n        <button\n          @[foo]=\"foo\"\n          @[foo].ctrl=\"bar\"\n        />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 17
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "considerExact",
+     "message": "Consider to use '.exact' modifier.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#invalid12"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><button @click=\"foo\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid0"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><button @click=\"foo\" :click=\"foo\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid1"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><button @click.ctrl=\"foo\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid2"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><button @click.exact=\"foo\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid3"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><button v-on:click=\"foo\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid4"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><button v-on:click.ctrl=\"foo\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid5"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><button v-on:click.exact=\"foo\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid6"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><button @click=\"foo\" @click.stop=\"bar\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid7"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><button @click=\"foo\" @click.prevent=\"bar\" @click.stop=\"baz\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid8"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><button @click.prevent=\"foo\" @click.stop=\"bar\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid9"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><button @click.exact=\"foo\" @click.ctrl=\"bar\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid10"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><button @click.exact=\"foo\" @click.ctrl.exact=\"bar\" @click.ctrl.shift=\"baz\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid11"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><button @click.ctrl.exact=\"foo\" @click.ctrl.shift=\"bar\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid12"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><button @click.exact=\"foo\" @click.ctrl=\"foo\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid13"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><button @click=\"foo\" @focus=\"foo\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid14"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><button @click=\"foo\" @click=\"foo\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid15"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><button @click=\"foo\"/><button @click.ctrl=\"foo\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid16"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><button v-on:click.exact=\"foo\" v-on:click.ctrl=\"foo\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid17"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><a @mouseenter=\"showTooltip\" @mouseenter.once=\"attachTooltip\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid18"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><input @keypress.exact=\"foo\" @keypress.esc.exact=\"bar\" @keypress.ctrl=\"baz\"></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid19"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><input @keypress.a=\"foo\" @keypress.b=\"bar\" @keypress.a.b=\"baz\"></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid20"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><input @keypress.shift=\"foo\" @keypress.ctrl=\"bar\"></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid21"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @keypress.27=\"foo\"\n          @keypress.27.middle=\"bar\"\n        >\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid22"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @keydown.a.b.c=\"abc\"\n          @keydown.a=\"a\"\n          @keydown.b=\"b\"\n          @keydown.c=\"c\"\n        >\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid23"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @keydown.a.b=\"ab\"\n          @keydown.a=\"a\"\n          @keydown.b=\"b\"\n          @keydown.c=\"c\"\n          @keydown.a.c=\"ac\"\n        >\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid24"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @keydown.a.b=\"ab\"\n          @keydown.a=\"a\"\n          @keydown.b=\"b\"\n          @keydown.c=\"c\"\n        >\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid25"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "<template><UiButton @click=\"foo\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid26"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "<template><UiButton @click=\"foo\" @click.native=\"bar\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid27"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 28,
+  "name": null,
+  "code": "<template><UiButton @click=\"foo\" @click.native.ctrl=\"bar\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid28"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 29,
+  "name": null,
+  "code": "<template><UiButton @click=\"foo\" @click.native.exact=\"bar\" @click.native.ctrl=\"baz\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid29"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 30,
+  "name": null,
+  "code": "<template><UiButton @click.native.exact=\"bar\" @click.ctrl.native=\"baz\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid30"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 31,
+  "name": null,
+  "code": "<template><UiButton @click.native.ctrl.exact=\"foo\" @click.native.ctrl.shift=\"bar\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid31"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 32,
+  "name": null,
+  "code": "<template><UiButton @click.native=\"foo\" @click.native.stop=\"bar\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid32"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 33,
+  "name": null,
+  "code": "<template><UiButton @click.native.stop=\"foo\" @click.native.prevent=\"bar\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid33"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 34,
+  "name": null,
+  "code": "<template><button @[click]=\"foo\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid34"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 35,
+  "name": null,
+  "code": "<template><button @[foo]=\"foo\" @[bar].ctrl=\"bar\"/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid35"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 36,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @keydown.enter=\"foo\"\n          @keydown.shift.tab=\"bar\"/>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid36"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 37,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @keydown.enter=\"foo\"\n          @keydown.shift.tab.prevent=\"bar\"/>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid37"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 38,
+  "name": null,
+  "code": "\n      <template>\n        <input\n          @keydown.ctrl.enter.exact=\"save\"\n          @keydown.stop\n        />\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid38"
+ },
+ {
+  "rule": "use-v-on-exact",
+  "kind": "valid",
+  "idx": 39,
+  "name": null,
+  "code": "\n      <template>\n        <input-component\n          @keydown.enter.native=\"foo\"\n          @keydown.shift.tab.native=\"bar\"/>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "use-v-on-exact#valid39"
+ }
+]

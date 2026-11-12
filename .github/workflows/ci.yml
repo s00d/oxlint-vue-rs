@@ -1,0 +1,36 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  test:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-22.04, macos-14, windows-2022]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: clippy, rustfmt
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo fmt --check
+      - run: cargo clippy --all-targets -- -D warnings
+      - run: cargo test
+      - name: npm package smoke test
+        if: runner.os != 'Windows'
+        shell: bash
+        run: |
+          cargo build --release
+          node scripts/npm/pack.mjs main
+          node scripts/npm/pack.mjs platform "$(rustc -vV | sed -n 's/^host: //p')" target/release/oxlint-vue-rs
+          for p in dist-npm/*; do npx --yes publint@0.3 run "$p" --strict; done
+          node -e "import('./dist-npm/oxlint-vue-rs/index.js').then(m => { if (Object.keys(m.default.rules).length !== 210) process.exit(1) })"

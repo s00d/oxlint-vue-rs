@@ -1,0 +1,702 @@
+[
+ {
+  "rule": "require-prop-comment",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      export default defineComponent({\n        props: {\n          // line comment\n          b: Number,\n\n          /* block comment */\n          c: Number,\n\n          d: Number,\n        }\n      })\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"b\" property should have a JSDoc comment.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 20
+    },
+    {
+     "message": "The \"c\" property should have a JSDoc comment.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 20
+    },
+    {
+     "message": "The \"d\" property should have a JSDoc comment.",
+     "line": 10,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 20
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireJSDocComment",
+     "message": "The \"b\" property should have a JSDoc comment.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "requireJSDocComment",
+     "message": "The \"c\" property should have a JSDoc comment.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "requireJSDocComment",
+     "message": "The \"d\" property should have a JSDoc comment.",
+     "line": 10,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-prop-comment#invalid0"
+ },
+ {
+  "rule": "require-prop-comment",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script setup>\n      const badProps = defineProps({\n        /** JSDoc comment */\n        b: Number,\n\n        // line comment\n        c: Number,\n\n        d: Number,\n      })\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "type": "block"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"b\" property should have a block comment.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 18
+    },
+    {
+     "message": "The \"c\" property should have a block comment.",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 18
+    },
+    {
+     "message": "The \"d\" property should have a block comment.",
+     "line": 10,
+     "column": 9,
+     "endLine": 10,
+     "endColumn": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireBlockComment",
+     "message": "The \"b\" property should have a block comment.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "requireBlockComment",
+     "message": "The \"c\" property should have a block comment.",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "requireBlockComment",
+     "message": "The \"d\" property should have a block comment.",
+     "line": 10,
+     "column": 9,
+     "endLine": 10,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-prop-comment#invalid1"
+ },
+ {
+  "rule": "require-prop-comment",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup>\n      const badProps = defineProps({\n        /** JSDoc comment */\n        b: Number,\n\n        /* block comment */\n        c: Number,\n\n        d: Number,\n      })\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "type": "line"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"b\" property should have a line comment.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 18
+    },
+    {
+     "message": "The \"c\" property should have a line comment.",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 18
+    },
+    {
+     "message": "The \"d\" property should have a line comment.",
+     "line": 10,
+     "column": 9,
+     "endLine": 10,
+     "endColumn": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireLineComment",
+     "message": "The \"b\" property should have a line comment.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "requireLineComment",
+     "message": "The \"c\" property should have a line comment.",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "requireLineComment",
+     "message": "The \"d\" property should have a line comment.",
+     "line": 10,
+     "column": 9,
+     "endLine": 10,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-prop-comment#invalid2"
+ },
+ {
+  "rule": "require-prop-comment",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script setup>\n      const badProps = defineProps({\n        d: Number,\n      })\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "type": "any"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"d\" property should have a comment.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireAnyComment",
+     "message": "The \"d\" property should have a comment.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-prop-comment#invalid3"
+ },
+ {
+  "rule": "require-prop-comment",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default defineComponent({\n        props: {\n          a: Number\n        }\n      })\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"a\" property should have a JSDoc comment.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 20
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireJSDocComment",
+     "message": "The \"a\" property should have a JSDoc comment.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-prop-comment#invalid4"
+ },
+ {
+  "rule": "require-prop-comment",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      new Vue({\n        props: {\n          a: Number\n        }\n      })\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"a\" property should have a JSDoc comment.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 20
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireJSDocComment",
+     "message": "The \"a\" property should have a JSDoc comment.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-prop-comment#invalid5"
+ },
+ {
+  "rule": "require-prop-comment",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      type PropType = {\n        a: number\n      }\n      const props = defineProps<PropType>()\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"a\" property should have a JSDoc comment.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": [
+    {
+     "ruleId": null,
+     "message": "Parsing error: Expression expected.",
+     "line": 6,
+     "column": 42,
+     "fatal": true
+    }
+   ],
+   "crash": null
+  },
+  "id": "require-prop-comment#invalid6"
+ },
+ {
+  "rule": "require-prop-comment",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script setup>\n      export default defineComponent({\n        props: {\n          /** JSDoc comment */\n          a: Number,\n        }\n      })\n      </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-prop-comment#valid0"
+ },
+ {
+  "rule": "require-prop-comment",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script setup>\n      const goodProps = defineProps({\n        /* block comment */\n        a: Number,\n      })\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "type": "block"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-prop-comment#valid1"
+ },
+ {
+  "rule": "require-prop-comment",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup>\n      const goodProps = defineProps({\n        // line comment\n        a: Number,\n      })\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "type": "line"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-prop-comment#valid2"
+ },
+ {
+  "rule": "require-prop-comment",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script setup>\n      const goodProps = defineProps({\n        /** JSDoc comment */\n        a: Number,\n\n        /* block comment */\n        b: Number,\n\n        // line comment\n        c: Number,\n      })\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "type": "any"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-prop-comment#valid3"
+ },
+ {
+  "rule": "require-prop-comment",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default defineComponent({\n        props: {\n          /** JSDoc comment */\n          a: Number\n        }\n      })\n      </script>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-prop-comment#valid4"
+ },
+ {
+  "rule": "require-prop-comment",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      type PropType = {\n        /** JSDoc comment */\n        a: number\n      }\n      const props = defineProps<PropType>()\n      </script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": [
+    {
+     "ruleId": null,
+     "message": "Parsing error: Expression expected.",
+     "line": 7,
+     "column": 42,
+     "fatal": true
+    }
+   ],
+   "crash": null
+  },
+  "id": "require-prop-comment#valid5"
+ },
+ {
+  "rule": "require-prop-comment",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import {Props1 as Props} from './test01'\n      defineProps<Props>()\n      </script>",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-prop-comment#valid6"
+ }
+]

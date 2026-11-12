@@ -1,0 +1,1290 @@
+[
+ {
+  "rule": "block-tag-newline",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><input>\n</template>\n<script>let a\n</script>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "A line break is required after '<template>'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 11
+    },
+    {
+     "message": "A line break is required after '<script>'.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 9
+    }
+   ],
+   "output": "<template>\n<input>\n</template>\n<script>\nlet a\n</script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingOpeningLinebreak",
+     "message": "A line break is required after '<template>'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       10,
+       10
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingOpeningLinebreak",
+     "message": "A line break is required after '<script>'.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       38,
+       38
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n<input>\n</template>\n<script>\nlet a\n</script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#invalid0"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>\n<input></template>\n<script>\nlet a</script>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "A line break is required before '</template>'.",
+     "line": 2,
+     "column": 8,
+     "endLine": 2,
+     "endColumn": 8
+    },
+    {
+     "message": "A line break is required before '</script>'.",
+     "line": 4,
+     "column": 6,
+     "endLine": 4,
+     "endColumn": 6
+    }
+   ],
+   "output": "<template>\n<input>\n</template>\n<script>\nlet a\n</script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingClosingLinebreak",
+     "message": "A line break is required before '</template>'.",
+     "line": 2,
+     "column": 8,
+     "endLine": 2,
+     "endColumn": 8,
+     "fix": {
+      "range": [
+       18,
+       18
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingClosingLinebreak",
+     "message": "A line break is required before '</script>'.",
+     "line": 4,
+     "column": 6,
+     "endLine": 4,
+     "endColumn": 6,
+     "fix": {
+      "range": [
+       44,
+       44
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n<input>\n</template>\n<script>\nlet a\n</script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#invalid1"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div>\n</div></template>\n<script>let a\nlet b</script>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "A line break is required after '<template>'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 11
+    },
+    {
+     "message": "A line break is required before '</template>'.",
+     "line": 2,
+     "column": 7,
+     "endLine": 2,
+     "endColumn": 7
+    },
+    {
+     "message": "A line break is required after '<script>'.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 9
+    },
+    {
+     "message": "A line break is required before '</script>'.",
+     "line": 4,
+     "column": 6,
+     "endLine": 4,
+     "endColumn": 6
+    }
+   ],
+   "output": "<template>\n<div>\n</div>\n</template>\n<script>\nlet a\nlet b\n</script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingOpeningLinebreak",
+     "message": "A line break is required after '<template>'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       10,
+       10
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingClosingLinebreak",
+     "message": "A line break is required before '</template>'.",
+     "line": 2,
+     "column": 7,
+     "endLine": 2,
+     "endColumn": 7,
+     "fix": {
+      "range": [
+       22,
+       22
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingOpeningLinebreak",
+     "message": "A line break is required after '<script>'.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       42,
+       42
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingClosingLinebreak",
+     "message": "A line break is required before '</script>'.",
+     "line": 4,
+     "column": 6,
+     "endLine": 4,
+     "endColumn": 6,
+     "fix": {
+      "range": [
+       53,
+       53
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n<div>\n</div>\n</template>\n<script>\nlet a\nlet b\n</script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#invalid2"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template>\n<div>\n</div>\n</template>\n<script>\nlet a\n</script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "never",
+    "multiline": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no line break after '<template>'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 2,
+     "endColumn": 1
+    },
+    {
+     "message": "There should be no line break after '<template>'.",
+     "line": 3,
+     "column": 7,
+     "endLine": 4,
+     "endColumn": 1
+    },
+    {
+     "message": "There should be no line break after '<script>'.",
+     "line": 5,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 1
+    },
+    {
+     "message": "There should be no line break after '<script>'.",
+     "line": 6,
+     "column": 6,
+     "endLine": 7,
+     "endColumn": 1
+    }
+   ],
+   "output": "<template><div>\n</div></template>\n<script>let a</script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedOpeningLinebreak",
+     "message": "There should be no line break after '<template>'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 2,
+     "endColumn": 1,
+     "fix": {
+      "range": [
+       10,
+       11
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedOpeningLinebreak",
+     "message": "There should be no line break after '<template>'.",
+     "line": 3,
+     "column": 7,
+     "endLine": 4,
+     "endColumn": 1,
+     "fix": {
+      "range": [
+       23,
+       24
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedOpeningLinebreak",
+     "message": "There should be no line break after '<script>'.",
+     "line": 5,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 1,
+     "fix": {
+      "range": [
+       44,
+       45
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedOpeningLinebreak",
+     "message": "There should be no line break after '<script>'.",
+     "line": 6,
+     "column": 6,
+     "endLine": 7,
+     "endColumn": 1,
+     "fix": {
+      "range": [
+       50,
+       51
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>\n</div></template>\n<script>let a</script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#invalid3"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div>\n</div></template>\n<script>let a</script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "always",
+    "multiline": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "A line break is required after '<template>'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 11
+    },
+    {
+     "message": "A line break is required before '</template>'.",
+     "line": 2,
+     "column": 7,
+     "endLine": 2,
+     "endColumn": 7
+    },
+    {
+     "message": "A line break is required after '<script>'.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 9
+    },
+    {
+     "message": "A line break is required before '</script>'.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 14
+    }
+   ],
+   "output": "<template>\n<div>\n</div>\n</template>\n<script>\nlet a\n</script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingOpeningLinebreak",
+     "message": "A line break is required after '<template>'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       10,
+       10
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingClosingLinebreak",
+     "message": "A line break is required before '</template>'.",
+     "line": 2,
+     "column": 7,
+     "endLine": 2,
+     "endColumn": 7,
+     "fix": {
+      "range": [
+       22,
+       22
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingOpeningLinebreak",
+     "message": "A line break is required after '<script>'.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       42,
+       42
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingClosingLinebreak",
+     "message": "A line break is required before '</script>'.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       47,
+       47
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n<div>\n</div>\n</template>\n<script>\nlet a\n</script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#invalid4"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template>\n\n<input>\n\n</template>\n<script>\n\nlet a\nlet b\n\n</script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "always",
+    "multiline": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after '<template>', but 2 line breaks found.",
+     "line": 1,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 1
+    },
+    {
+     "message": "Expected 1 line break  before '</template>', but 2 line breaks found.",
+     "line": 3,
+     "column": 8,
+     "endLine": 5,
+     "endColumn": 1
+    },
+    {
+     "message": "Expected 1 line break after '<script>', but 2 line breaks found.",
+     "line": 6,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 1
+    },
+    {
+     "message": "Expected 1 line break  before '</script>', but 2 line breaks found.",
+     "line": 9,
+     "column": 6,
+     "endLine": 11,
+     "endColumn": 1
+    }
+   ],
+   "output": "<template>\n<input>\n</template>\n<script>\nlet a\nlet b\n</script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOpeningLinebreak",
+     "message": "Expected 1 line break after '<template>', but 2 line breaks found.",
+     "line": 1,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 1,
+     "fix": {
+      "range": [
+       10,
+       12
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedClosingLinebreak",
+     "message": "Expected 1 line break  before '</template>', but 2 line breaks found.",
+     "line": 3,
+     "column": 8,
+     "endLine": 5,
+     "endColumn": 1,
+     "fix": {
+      "range": [
+       19,
+       21
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOpeningLinebreak",
+     "message": "Expected 1 line break after '<script>', but 2 line breaks found.",
+     "line": 6,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 1,
+     "fix": {
+      "range": [
+       41,
+       43
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedClosingLinebreak",
+     "message": "Expected 1 line break  before '</script>', but 2 line breaks found.",
+     "line": 9,
+     "column": 6,
+     "endLine": 11,
+     "endColumn": 1,
+     "fix": {
+      "range": [
+       54,
+       56
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n<input>\n</template>\n<script>\nlet a\nlet b\n</script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#invalid5"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template>\n\n\n<input>\n\n</template>\n<script>\n\nlet a\nlet b\n\n\n</script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "always",
+    "multiline": "always",
+    "maxEmptyLines": 1
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 2 line breaks after '<template>', but 3 line breaks found.",
+     "line": 1,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 1
+    },
+    {
+     "message": "Expected 2 line breaks  before '</script>', but 3 line breaks found.",
+     "line": 10,
+     "column": 6,
+     "endLine": 13,
+     "endColumn": 1
+    }
+   ],
+   "output": "<template>\n\n<input>\n\n</template>\n<script>\n\nlet a\nlet b\n\n</script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOpeningLinebreak",
+     "message": "Expected 2 line breaks after '<template>', but 3 line breaks found.",
+     "line": 1,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 1,
+     "fix": {
+      "range": [
+       10,
+       13
+      ],
+      "text": "\n\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedClosingLinebreak",
+     "message": "Expected 2 line breaks  before '</script>', but 3 line breaks found.",
+     "line": 10,
+     "column": 6,
+     "endLine": 13,
+     "endColumn": 1,
+     "fix": {
+      "range": [
+       55,
+       58
+      ],
+      "text": "\n\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n\n<input>\n\n</template>\n<script>\n\nlet a\nlet b\n\n</script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#invalid6"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><input>\n\n</template>\n<script>let a\nlet b\n\n\n</script><docs>\n#</docs>",
+  "filename": "test.js",
+  "options": [
+   {
+    "blocks": {
+     "template": {
+      "singleline": "ignore"
+     },
+     "script": {
+      "multiline": "never"
+     }
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no line break after '<script>'.",
+     "line": 5,
+     "column": 6,
+     "endLine": 8,
+     "endColumn": 1
+    },
+    {
+     "message": "A line break is required before '</docs>'.",
+     "line": 9,
+     "column": 2,
+     "endLine": 9,
+     "endColumn": 2
+    }
+   ],
+   "output": "<template><input>\n\n</template>\n<script>let a\nlet b</script><docs>\n#\n</docs>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedOpeningLinebreak",
+     "message": "There should be no line break after '<script>'.",
+     "line": 5,
+     "column": 6,
+     "endLine": 8,
+     "endColumn": 1,
+     "fix": {
+      "range": [
+       50,
+       53
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingClosingLinebreak",
+     "message": "A line break is required before '</docs>'.",
+     "line": 9,
+     "column": 2,
+     "endLine": 9,
+     "endColumn": 2,
+     "fix": {
+      "range": [
+       70,
+       70
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><input>\n\n</template>\n<script>let a\nlet b</script><docs>\n#\n</docs>",
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#invalid7"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><input></template>\n<script>let a</script>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#valid0"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>\n<input>\n</template>\n<script>\nlet a\n</script>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#valid1"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>\n<div>\n</div>\n</template>\n<script>\nlet a\nlet b\n</script>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#valid2"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template></template>\n<script></script>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#valid3"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template>\n\n</template>\n<script>\n\n</script>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#valid4"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template />\n<script />",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#valid5"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div>\n</div></template>\n<script>let a</script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "never",
+    "multiline": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#valid6"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template>\n<input>\n</template>\n<script>\nlet a\nlet b\n</script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "always",
+    "multiline": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#valid7"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template>\n\n<input>\n\n</template>\n<script>\n\nlet a\nlet b\n\n</script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "always",
+    "multiline": "always",
+    "maxEmptyLines": 1
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#valid8"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template>\n<input></template>\n<script>let a\nlet b\n</script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "ignore",
+    "multiline": "ignore"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#valid9"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><input></template>\n<script>\nlet a\n</script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "multiline": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#valid10"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template>\n<div>\n</div>\n</template>\n<script>\nlet a\nlet b\n</script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#valid11"
+ },
+ {
+  "rule": "block-tag-newline",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div a=\"></div>\n</template>\n<script>\nlet a</script>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-tag-newline#valid12"
+ }
+]

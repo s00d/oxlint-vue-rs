@@ -1,0 +1,351 @@
+[
+ {
+  "rule": "no-useless-template-attributes",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <!-- ✓ GOOD -->\n        <template v-if=\"foo\">...</template>\n        <template v-if=\"foo\">...</template>\n        <template v-else-if=\"foo\">...</template>\n        <template v-else>...</template>\n        <template v-for=\"i in foo\" :key=\"i\">...</template>\n        <template v-slot:foo>...</template>\n        <!-- for Vue<=2.5 -->\n        <template slot=\"foo\">...</template>\n        <template :slot=\"foo\">...</template>\n        <template slot-scope=\"param\">...</template>\n        <!-- for Vue<=2.4 -->\n        <template scope=\"param\">...</template>\n\n        <!-- ✗ BAD -->\n        <template v-if=\"foo\" class=\"heading\">...</template>\n        <template v-for=\"i in foo\" :bar=\"i\">...</template>\n        <template v-slot:foo=\"foo\" ref=\"input\">...</template>\n        <template v-if=\"foo\" @click=\"click\">...</template>\n\n        <!-- Ignore -->\n        <template class=\"heading\">...</template>\n        <template :bar=\"i\">...</template>\n        <template ref=\"input\">...</template>\n        <template @click=\"click\">...</template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected useless attribute on `<template>`.",
+     "line": 18,
+     "column": 30,
+     "endLine": 18,
+     "endColumn": 45
+    },
+    {
+     "message": "Unexpected useless directive on `<template>`.",
+     "line": 19,
+     "column": 36,
+     "endLine": 19,
+     "endColumn": 44
+    },
+    {
+     "message": "Unexpected useless attribute on `<template>`.",
+     "line": 20,
+     "column": 36,
+     "endLine": 20,
+     "endColumn": 47
+    },
+    {
+     "message": "Unexpected useless directive on `<template>`.",
+     "line": 21,
+     "column": 30,
+     "endLine": 21,
+     "endColumn": 44
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAttr",
+     "message": "Unexpected useless attribute on `<template>`.",
+     "line": 18,
+     "column": 30,
+     "endLine": 18,
+     "endColumn": 45,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedDir",
+     "message": "Unexpected useless directive on `<template>`.",
+     "line": 19,
+     "column": 36,
+     "endLine": 19,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedAttr",
+     "message": "Unexpected useless attribute on `<template>`.",
+     "line": 20,
+     "column": 36,
+     "endLine": 20,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedDir",
+     "message": "Unexpected useless directive on `<template>`.",
+     "line": 21,
+     "column": 30,
+     "endLine": 21,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-template-attributes#invalid0"
+ },
+ {
+  "rule": "no-useless-template-attributes",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <template v-if=\"foo\">...</template>\n        <template v-else-if=\"bar\">...</template>\n        <template v-else>...</template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-template-attributes#valid0"
+ },
+ {
+  "rule": "no-useless-template-attributes",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <template v-for=\"e in list\">...</template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-template-attributes#valid1"
+ },
+ {
+  "rule": "no-useless-template-attributes",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <template v-slot>...</template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-template-attributes#valid2"
+ },
+ {
+  "rule": "no-useless-template-attributes",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <CoolButton>\n         <template slot=\"foo\">...</template>\n        </CoolButton>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-template-attributes#valid3"
+ },
+ {
+  "rule": "no-useless-template-attributes",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <CoolButton>\n         <template slot-scope=\"foo\">...</template>\n        </CoolButton>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-template-attributes#valid4"
+ },
+ {
+  "rule": "no-useless-template-attributes",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <CoolButton>\n         <template scope=\"foo\">...</template>\n        </CoolButton>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-template-attributes#valid5"
+ },
+ {
+  "rule": "no-useless-template-attributes",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <!-- ignore -->\n        <template foo=\"a\">...</template>\n        <template :foo=\"a\">...</template>\n        <template v-unknown=\"a\">...</template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-template-attributes#valid6"
+ },
+ {
+  "rule": "no-useless-template-attributes",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"foo\" class=\"heading\">...</div>\n        <div v-for=\"i in foo\" :bar=\"i\">...</div>\n        <div v-slot:foo=\"foo\" ref=\"input\">...</div>\n        <div v-if=\"foo\" @click=\"click\">...</div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-template-attributes#valid7"
+ }
+]

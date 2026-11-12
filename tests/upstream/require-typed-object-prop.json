@@ -1,0 +1,1579 @@
+[
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: Object });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expectedTypeAnnotation",
+     "line": 3,
+     "column": 26,
+     "endLine": 3,
+     "endColumn": 32,
+     "suggestions": [
+      {
+       "messageId": "addTypeAnnotation",
+       "data": {
+        "type": "any"
+       },
+       "output": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: Object as PropType<any> });\n      </script>\n      "
+      },
+      {
+       "messageId": "addTypeAnnotation",
+       "data": {
+        "type": "unknown"
+       },
+       "output": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: Object as PropType<unknown> });\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedTypeAnnotation",
+     "message": "Expected type annotation on object prop.",
+     "line": 3,
+     "column": 26,
+     "endLine": 3,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addTypeAnnotation",
+       "desc": "Add `any` type annotation.",
+       "output": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: Object as PropType<any> });\n      </script>\n      "
+      },
+      {
+       "messageId": "addTypeAnnotation",
+       "desc": "Add `unknown` type annotation.",
+       "output": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: Object as PropType<unknown> });\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#invalid0"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: Array });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expectedTypeAnnotation",
+     "line": 3,
+     "column": 26,
+     "endLine": 3,
+     "endColumn": 31,
+     "suggestions": [
+      {
+       "messageId": "addTypeAnnotation",
+       "data": {
+        "type": "any[]"
+       },
+       "output": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: Array as PropType<any[]> });\n      </script>\n      "
+      },
+      {
+       "messageId": "addTypeAnnotation",
+       "data": {
+        "type": "unknown[]"
+       },
+       "output": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: Array as PropType<unknown[]> });\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedTypeAnnotation",
+     "message": "Expected type annotation on object prop.",
+     "line": 3,
+     "column": 26,
+     "endLine": 3,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addTypeAnnotation",
+       "desc": "Add `any[]` type annotation.",
+       "output": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: Array as PropType<any[]> });\n      </script>\n      "
+      },
+      {
+       "messageId": "addTypeAnnotation",
+       "desc": "Add `unknown[]` type annotation.",
+       "output": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: Array as PropType<unknown[]> });\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#invalid1"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default {\n        props: { foo: Object }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expectedTypeAnnotation",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 29,
+     "suggestions": [
+      {
+       "messageId": "addTypeAnnotation",
+       "data": {
+        "type": "any"
+       },
+       "output": "\n      <script lang=\"ts\">\n      export default {\n        props: { foo: Object as PropType<any> }\n      }\n      </script>\n      "
+      },
+      {
+       "messageId": "addTypeAnnotation",
+       "data": {
+        "type": "unknown"
+       },
+       "output": "\n      <script lang=\"ts\">\n      export default {\n        props: { foo: Object as PropType<unknown> }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedTypeAnnotation",
+     "message": "Expected type annotation on object prop.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addTypeAnnotation",
+       "desc": "Add `any` type annotation.",
+       "output": "\n      <script lang=\"ts\">\n      export default {\n        props: { foo: Object as PropType<any> }\n      }\n      </script>\n      "
+      },
+      {
+       "messageId": "addTypeAnnotation",
+       "desc": "Add `unknown` type annotation.",
+       "output": "\n      <script lang=\"ts\">\n      export default {\n        props: { foo: Object as PropType<unknown> }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#invalid2"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default Vue.extend({\n        props: { foo: Object }\n      });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expectedTypeAnnotation",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 29,
+     "suggestions": [
+      {
+       "messageId": "addTypeAnnotation",
+       "data": {
+        "type": "any"
+       },
+       "output": "\n      <script lang=\"ts\">\n      export default Vue.extend({\n        props: { foo: Object as PropType<any> }\n      });\n      </script>\n      "
+      },
+      {
+       "messageId": "addTypeAnnotation",
+       "data": {
+        "type": "unknown"
+       },
+       "output": "\n      <script lang=\"ts\">\n      export default Vue.extend({\n        props: { foo: Object as PropType<unknown> }\n      });\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedTypeAnnotation",
+     "message": "Expected type annotation on object prop.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addTypeAnnotation",
+       "desc": "Add `any` type annotation.",
+       "output": "\n      <script lang=\"ts\">\n      export default Vue.extend({\n        props: { foo: Object as PropType<any> }\n      });\n      </script>\n      "
+      },
+      {
+       "messageId": "addTypeAnnotation",
+       "desc": "Add `unknown` type annotation.",
+       "output": "\n      <script lang=\"ts\">\n      export default Vue.extend({\n        props: { foo: Object as PropType<unknown> }\n      });\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#invalid3"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default Vue.extend({\n        props: { foo: { type: Object } }\n      });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expectedTypeAnnotation",
+     "line": 4,
+     "column": 31,
+     "endLine": 4,
+     "endColumn": 37,
+     "suggestions": [
+      {
+       "messageId": "addTypeAnnotation",
+       "data": {
+        "type": "any"
+       },
+       "output": "\n      <script lang=\"ts\">\n      export default Vue.extend({\n        props: { foo: { type: Object as PropType<any> } }\n      });\n      </script>\n      "
+      },
+      {
+       "messageId": "addTypeAnnotation",
+       "data": {
+        "type": "unknown"
+       },
+       "output": "\n      <script lang=\"ts\">\n      export default Vue.extend({\n        props: { foo: { type: Object as PropType<unknown> } }\n      });\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedTypeAnnotation",
+     "message": "Expected type annotation on object prop.",
+     "line": 4,
+     "column": 31,
+     "endLine": 4,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addTypeAnnotation",
+       "desc": "Add `any` type annotation.",
+       "output": "\n      <script lang=\"ts\">\n      export default Vue.extend({\n        props: { foo: { type: Object as PropType<any> } }\n      });\n      </script>\n      "
+      },
+      {
+       "messageId": "addTypeAnnotation",
+       "desc": "Add `unknown` type annotation.",
+       "output": "\n      <script lang=\"ts\">\n      export default Vue.extend({\n        props: { foo: { type: Object as PropType<unknown> } }\n      });\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#invalid4"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default {\n        props: { foo: { type: Object } }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expectedTypeAnnotation",
+     "line": 4,
+     "column": 31,
+     "endLine": 4,
+     "endColumn": 37,
+     "suggestions": [
+      {
+       "messageId": "addTypeAnnotation",
+       "data": {
+        "type": "any"
+       },
+       "output": "\n      <script lang=\"ts\">\n      export default {\n        props: { foo: { type: Object as PropType<any> } }\n      }\n      </script>\n      "
+      },
+      {
+       "messageId": "addTypeAnnotation",
+       "data": {
+        "type": "unknown"
+       },
+       "output": "\n      <script lang=\"ts\">\n      export default {\n        props: { foo: { type: Object as PropType<unknown> } }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedTypeAnnotation",
+     "message": "Expected type annotation on object prop.",
+     "line": 4,
+     "column": 31,
+     "endLine": 4,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addTypeAnnotation",
+       "desc": "Add `any` type annotation.",
+       "output": "\n      <script lang=\"ts\">\n      export default {\n        props: { foo: { type: Object as PropType<any> } }\n      }\n      </script>\n      "
+      },
+      {
+       "messageId": "addTypeAnnotation",
+       "desc": "Add `unknown` type annotation.",
+       "output": "\n      <script lang=\"ts\">\n      export default {\n        props: { foo: { type: Object as PropType<unknown> } }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#invalid5"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: { type: Object } });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expectedTypeAnnotation",
+     "line": 3,
+     "column": 34,
+     "endLine": 3,
+     "endColumn": 40,
+     "suggestions": [
+      {
+       "messageId": "addTypeAnnotation",
+       "data": {
+        "type": "any"
+       },
+       "output": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: { type: Object as PropType<any> } });\n      </script>\n      "
+      },
+      {
+       "messageId": "addTypeAnnotation",
+       "data": {
+        "type": "unknown"
+       },
+       "output": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: { type: Object as PropType<unknown> } });\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedTypeAnnotation",
+     "message": "Expected type annotation on object prop.",
+     "line": 3,
+     "column": 34,
+     "endLine": 3,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addTypeAnnotation",
+       "desc": "Add `any` type annotation.",
+       "output": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: { type: Object as PropType<any> } });\n      </script>\n      "
+      },
+      {
+       "messageId": "addTypeAnnotation",
+       "desc": "Add `unknown` type annotation.",
+       "output": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: { type: Object as PropType<unknown> } });\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#invalid6"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      export default Vue.extend({\n        props: { foo: Object }\n      });\n      ",
+  "filename": "test.ts",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expectedTypeAnnotation",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 29,
+     "suggestions": [
+      {
+       "messageId": "addTypeAnnotation",
+       "data": {
+        "type": "any"
+       },
+       "output": "\n      export default Vue.extend({\n        props: { foo: Object as PropType<any> }\n      });\n      "
+      },
+      {
+       "messageId": "addTypeAnnotation",
+       "data": {
+        "type": "unknown"
+       },
+       "output": "\n      export default Vue.extend({\n        props: { foo: Object as PropType<unknown> }\n      });\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedTypeAnnotation",
+     "message": "Expected type annotation on object prop.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "addTypeAnnotation",
+       "desc": "Add `any` type annotation.",
+       "output": "\n      export default Vue.extend({\n        props: { foo: Object as PropType<any> }\n      });\n      "
+      },
+      {
+       "messageId": "addTypeAnnotation",
+       "desc": "Add `unknown` type annotation.",
+       "output": "\n      export default Vue.extend({\n        props: { foo: Object as PropType<unknown> }\n      });\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#invalid7"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default {\n        props: {}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid0"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default Vue.extend({\n        props: {}\n      });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid1"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      defineProps({});\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid2"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default {\n        props: ['foo']\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid3"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default Vue.extend({\n        props: ['foo']\n      });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid4"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      defineProps(['foo']);\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid5"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default {\n        props: { foo: String }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid6"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default Vue.extend({\n        props: { foo: String }\n      });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid7"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: String });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid8"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default {\n        props: { foo: [Number, String, Boolean] }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid9"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default Vue.extend({\n        props: { foo: [Number, String, Boolean] }\n      });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid10"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: [Number, String, Boolean] });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid11"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default {\n        props: { foo: someFunction() }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid12"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default Vue.extend({\n        props: { foo: someFunction() }\n      });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid13"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: someFunction() });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid14"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default {\n        props: { foo: Object as PropType<User> }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid15"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default {\n        props: { foo: Array as PropType<User[]> }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid16"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default Vue.extend({\n        props: { foo: Object as PropType<User> }\n      });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid17"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: Object as PropType<User> });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid18"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default {\n        props: { foo: Object as () => User }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid19"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n      export default Vue.extend({\n        props: { foo: Object as () => User }\n      });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid20"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: Object as () => User });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid21"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: { type: Object as any } });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid22"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n        export default {\n          props: {\n            foo: { type: Object as any }\n          }\n        };\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid23"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n        export default Vue.extend({\n          props: {\n            foo: { type: Object as any }\n          }\n        });\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid24"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      defineProps({ foo: { type: Object as unknown } });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid25"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n        export default {\n          props: {\n            foo: { type: Object as unknown }\n          }\n        };\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid26"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "\n      <script lang=\"ts\">\n        export default Vue.extend({\n          props: {\n            foo: { type: Object as unknown }\n          }\n        });\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid27"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 28,
+  "name": null,
+  "code": "\n      <script setup>\n      defineProps({ foo: Object });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid28"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 29,
+  "name": null,
+  "code": "\n      <script>\n      export default Vue.extend({\n        props: { foo: { type: Object } }\n      });\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid29"
+ },
+ {
+  "rule": "require-typed-object-prop",
+  "kind": "valid",
+  "idx": 30,
+  "name": null,
+  "code": "\n      export default Vue.extend({\n        props: { foo: Object }\n      });\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-typed-object-prop#valid30"
+ }
+]

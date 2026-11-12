@@ -1,0 +1,1111 @@
+[
+ {
+  "rule": "object-curly-spacing",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :attr=\"{ a: 1}\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no space after '{'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ],
+   "output": "<template><div :attr=\"{a: 1}\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaceAfter",
+     "message": "There should be no space after '{'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       23,
+       24
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"{a: 1}\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#invalid0"
+ },
+ {
+  "rule": "object-curly-spacing",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :attr=\"{a: 1 }\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no space before '}'.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ],
+   "output": "<template><div :attr=\"{a: 1}\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaceBefore",
+     "message": "There should be no space before '}'.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       27,
+       28
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"{a: 1}\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#invalid1"
+ },
+ {
+  "rule": "object-curly-spacing",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :attr=\"{ a: 1 }\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no space after '{'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 25
+    },
+    {
+     "message": "There should be no space before '}'.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ],
+   "output": "<template><div :attr=\"{a: 1}\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaceAfter",
+     "message": "There should be no space after '{'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       23,
+       24
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedSpaceBefore",
+     "message": "There should be no space before '}'.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       28,
+       29
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"{a: 1}\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#invalid2"
+ },
+ {
+  "rule": "object-curly-spacing",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :attr=\"{ a: 1}\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no space after '{'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ],
+   "output": "<template><div :attr=\"{a: 1}\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaceAfter",
+     "message": "There should be no space after '{'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       23,
+       24
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"{a: 1}\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#invalid3"
+ },
+ {
+  "rule": "object-curly-spacing",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :attr=\"{a: 1 }\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no space before '}'.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ],
+   "output": "<template><div :attr=\"{a: 1}\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaceBefore",
+     "message": "There should be no space before '}'.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       27,
+       28
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"{a: 1}\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#invalid4"
+ },
+ {
+  "rule": "object-curly-spacing",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div :attr=\"{ a: 1 }\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no space after '{'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 25
+    },
+    {
+     "message": "There should be no space before '}'.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ],
+   "output": "<template><div :attr=\"{a: 1}\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaceAfter",
+     "message": "There should be no space after '{'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       23,
+       24
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedSpaceBefore",
+     "message": "There should be no space before '}'.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       28,
+       29
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"{a: 1}\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#invalid5"
+ },
+ {
+  "rule": "object-curly-spacing",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div :attr=\"{ a: 1}\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "A space is required before '}'.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ],
+   "output": "<template><div :attr=\"{ a: 1 }\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSpaceBefore",
+     "message": "A space is required before '}'.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       28,
+       28
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"{ a: 1 }\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#invalid6"
+ },
+ {
+  "rule": "object-curly-spacing",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div :attr=\"{a: 1 }\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "A space is required after '{'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ],
+   "output": "<template><div :attr=\"{ a: 1 }\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSpaceAfter",
+     "message": "A space is required after '{'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       23,
+       23
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"{ a: 1 }\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#invalid7"
+ },
+ {
+  "rule": "object-curly-spacing",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div :attr=\"{a: 1}\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "A space is required after '{'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24
+    },
+    {
+     "message": "A space is required before '}'.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ],
+   "output": "<template><div :attr=\"{ a: 1 }\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSpaceAfter",
+     "message": "A space is required after '{'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       23,
+       23
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireSpaceBefore",
+     "message": "A space is required before '}'.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       27,
+       27
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"{ a: 1 }\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#invalid8"
+ },
+ {
+  "rule": "object-curly-spacing",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div :[{a:1}]=\"{a:1}\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "A space is required after '{'.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 27
+    },
+    {
+     "message": "A space is required before '}'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 31
+    }
+   ],
+   "output": "<template><div :[{a:1}]=\"{ a:1 }\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSpaceAfter",
+     "message": "A space is required after '{'.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       26,
+       26
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireSpaceBefore",
+     "message": "A space is required before '}'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       29,
+       29
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :[{a:1}]=\"{ a:1 }\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#invalid9"
+ },
+ {
+  "rule": "object-curly-spacing",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <div v-bind=\"{ foo: { bar: 'baz' }}\">\n          Hello World\n        </div>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   "never",
+   {
+    "objectsInObjects": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no space after '{'.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 24
+    },
+    {
+     "message": "There should be no space after '{'.",
+     "line": 3,
+     "column": 30,
+     "endLine": 3,
+     "endColumn": 31
+    },
+    {
+     "message": "There should be no space before '}'.",
+     "line": 3,
+     "column": 41,
+     "endLine": 3,
+     "endColumn": 42
+    },
+    {
+     "message": "A space is required before '}'.",
+     "line": 3,
+     "column": 43,
+     "endLine": 3,
+     "endColumn": 44
+    }
+   ],
+   "output": "\n      <template>\n        <div v-bind=\"{foo: {bar: 'baz'} }\">\n          Hello World\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaceAfter",
+     "message": "There should be no space after '{'.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       40,
+       41
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedSpaceAfter",
+     "message": "There should be no space after '{'.",
+     "line": 3,
+     "column": 30,
+     "endLine": 3,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       47,
+       48
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedSpaceBefore",
+     "message": "There should be no space before '}'.",
+     "line": 3,
+     "column": 41,
+     "endLine": 3,
+     "endColumn": 42,
+     "fix": {
+      "range": [
+       58,
+       59
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireSpaceBefore",
+     "message": "A space is required before '}'.",
+     "line": 3,
+     "column": 43,
+     "endLine": 3,
+     "endColumn": 44,
+     "fix": {
+      "range": [
+       60,
+       60
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div v-bind=\"{foo: {bar: 'baz'} }\">\n          Hello World\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#invalid10"
+ },
+ {
+  "rule": "object-curly-spacing",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <div v-bind=\"{ foo: { bar: 'baz' }}\">\n          Hello World\n        </div>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no space after '{'.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 24
+    },
+    {
+     "message": "There should be no space after '{'.",
+     "line": 3,
+     "column": 30,
+     "endLine": 3,
+     "endColumn": 31
+    },
+    {
+     "message": "There should be no space before '}'.",
+     "line": 3,
+     "column": 41,
+     "endLine": 3,
+     "endColumn": 42
+    }
+   ],
+   "output": "\n      <template>\n        <div v-bind=\"{foo: {bar: 'baz'}}\">\n          Hello World\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaceAfter",
+     "message": "There should be no space after '{'.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       40,
+       41
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedSpaceAfter",
+     "message": "There should be no space after '{'.",
+     "line": 3,
+     "column": 30,
+     "endLine": 3,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       47,
+       48
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedSpaceBefore",
+     "message": "There should be no space before '}'.",
+     "line": 3,
+     "column": 41,
+     "endLine": 3,
+     "endColumn": 42,
+     "fix": {
+      "range": [
+       58,
+       59
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div v-bind=\"{foo: {bar: 'baz'}}\">\n          Hello World\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#invalid11"
+ },
+ {
+  "rule": "object-curly-spacing",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :attr=\"{a: 1}\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#valid0"
+ },
+ {
+  "rule": "object-curly-spacing",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :attr=\"{a: 1}\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#valid1"
+ },
+ {
+  "rule": "object-curly-spacing",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :attr=\"{ a: 1 }\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#valid2"
+ },
+ {
+  "rule": "object-curly-spacing",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :[{a:1}]=\"a\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#valid3"
+ },
+ {
+  "rule": "object-curly-spacing",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :[{a:1}]=\"a\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#valid4"
+ },
+ {
+  "rule": "object-curly-spacing",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div v-bind=\"{foo: {bar: 'baz'} }\">\n          Hello World\n        </div>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   "never",
+   {
+    "objectsInObjects": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-spacing#valid5"
+ }
+]

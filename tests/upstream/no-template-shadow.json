@@ -1,0 +1,1144 @@
+[
+ {
+  "rule": "no-template-shadow",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div v-for=\"i in 5\"><div v-for=\"i in 5\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Variable 'i' is already declared in the upper scope.",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 44
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'i' is already declared in the upper scope.",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#invalid0"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>\n        <div v-for=\"i in 5\"></div>\n      </template>\n      <script>\n        export default {\n          data: {\n            i: 7\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Variable 'i' is already declared in the upper scope.",
+     "line": 2,
+     "column": 21,
+     "endLine": 2,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'i' is already declared in the upper scope.",
+     "line": 2,
+     "column": 21,
+     "endLine": 2,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#invalid1"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>\n        <div v-for=\"i in 5\"></div>\n        <div v-for=\"i in 5\"></div>\n      </template>\n      <script>\n        export default {\n          data: {\n            i: 7\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Variable 'i' is already declared in the upper scope.",
+     "line": 2,
+     "column": 21,
+     "endLine": 2,
+     "endColumn": 22
+    },
+    {
+     "message": "Variable 'i' is already declared in the upper scope.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'i' is already declared in the upper scope.",
+     "line": 2,
+     "column": 21,
+     "endLine": 2,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'i' is already declared in the upper scope.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#invalid2"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template>\n        <div v-for=\"i in 5\">\n          <div v-for=\"i in 5\"></div>\n        </div>\n      </template>\n      <script>\n        export default {\n          data: {\n            i: 7\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Variable 'i' is already declared in the upper scope.",
+     "line": 2,
+     "column": 21,
+     "endLine": 2,
+     "endColumn": 22
+    },
+    {
+     "message": "Variable 'i' is already declared in the upper scope.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'i' is already declared in the upper scope.",
+     "line": 2,
+     "column": 21,
+     "endLine": 2,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'i' is already declared in the upper scope.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#invalid3"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template>\n        <div v-for=\"i in 5\"></div>\n      </template>\n      <script>\n        export default {\n          asyncData() {\n            return {\n              i: 27,\n            }\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Variable 'i' is already declared in the upper scope.",
+     "line": 2,
+     "column": 21,
+     "endLine": 2,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'i' is already declared in the upper scope.",
+     "line": 2,
+     "column": 21,
+     "endLine": 2,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#invalid4"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template>\n        <div v-for=\"i in 5\"></div>\n        <div v-for=\"f in 5\"></div>\n      </template>\n      <script>\n        export default {\n          computed: {\n            i () { }\n          },\n          methods: {\n            f () { }\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Variable 'i' is already declared in the upper scope.",
+     "line": 2,
+     "column": 21,
+     "endLine": 2,
+     "endColumn": 22
+    },
+    {
+     "message": "Variable 'f' is already declared in the upper scope.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'i' is already declared in the upper scope.",
+     "line": 2,
+     "column": 21,
+     "endLine": 2,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'f' is already declared in the upper scope.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#invalid5"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template>\n        <div v-for=\"i in c\" />\n        <div v-for=\"a in c\" />\n        <div v-for=\"b in c\" />\n        <div v-for=\"d in c\" />\n        <div v-for=\"e in f\" />\n        <div v-for=\"f in c\" />\n      </template>\n      <script>\n        export default {\n          ...a,\n          data() {\n            return {\n              ...b,\n              c: [1, 2, 3]\n            }\n          },\n          computed: {\n            ...d,\n            e,\n            ['f']: [1, 2],\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Variable 'e' is already declared in the upper scope.",
+     "line": 6,
+     "column": 21,
+     "endLine": 6,
+     "endColumn": 22
+    },
+    {
+     "message": "Variable 'f' is already declared in the upper scope.",
+     "line": 7,
+     "column": 21,
+     "endLine": 7,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'e' is already declared in the upper scope.",
+     "line": 6,
+     "column": 21,
+     "endLine": 6,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'f' is already declared in the upper scope.",
+     "line": 7,
+     "column": 21,
+     "endLine": 7,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#invalid6"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template>\n        <div v-for=\"i in c\" />\n        <div v-for=\"a in c\" />\n        <div v-for=\"b in c\" />\n        <div v-for=\"d in c\" />\n        <div v-for=\"e in f\" />\n        <div v-for=\"f in c\" />\n      </template>\n      <script>\n        export default {\n          ...a,\n          data: () => {\n            return {\n              ...b,\n              c: [1, 2, 3]\n            }\n          },\n          computed: {\n            ...d,\n            e,\n            ['f']: [1, 2],\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Variable 'e' is already declared in the upper scope.",
+     "line": 6,
+     "column": 21,
+     "endLine": 6,
+     "endColumn": 22
+    },
+    {
+     "message": "Variable 'f' is already declared in the upper scope.",
+     "line": 7,
+     "column": 21,
+     "endLine": 7,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'e' is already declared in the upper scope.",
+     "line": 6,
+     "column": 21,
+     "endLine": 6,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'f' is already declared in the upper scope.",
+     "line": 7,
+     "column": 21,
+     "endLine": 7,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#invalid7"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template>\n        <div v-for=\"i in c\" />\n        <div v-for=\"a in c\" />\n        <div v-for=\"b in c\" />\n        <div v-for=\"d in c\" />\n        <div v-for=\"e in f\" />\n        <div v-for=\"f in c\" />\n      </template>\n      <script>\n        export default {\n          ...a,\n          data: () => ({\n              ...b,\n              c: [1, 2, 3]\n          }),\n          computed: {\n            ...d,\n            e,\n            ['f']: [1, 2],\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Variable 'e' is already declared in the upper scope.",
+     "line": 6,
+     "column": 21,
+     "endLine": 6,
+     "endColumn": 22
+    },
+    {
+     "message": "Variable 'f' is already declared in the upper scope.",
+     "line": 7,
+     "column": 21,
+     "endLine": 7,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'e' is already declared in the upper scope.",
+     "line": 6,
+     "column": 21,
+     "endLine": 6,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'f' is already declared in the upper scope.",
+     "line": 7,
+     "column": 21,
+     "endLine": 7,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#invalid8"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <div v-for=\"i in 5\">\n          <div v-for=\"j in 5\">\n          </div>\n        </div>\n      </template>\n      <script>\n        export default {\n          setup() {\n            return {\n              j: 42\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Variable 'j' is already declared in the upper scope.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'j' is already declared in the upper scope.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#invalid9"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <div v-for=\"i in 5\">\n          <div v-for=\"j in 5\">\n          </div>\n        </div>\n      </template>\n      <script setup>\n      let j = 42\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Variable 'j' is already declared in the upper scope.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'j' is already declared in the upper scope.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#invalid10"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <div v-for=\"i in 5\">\n          <div v-for=\"j in 5\">\n          </div>\n        </div>\n      </template>\n      <script setup>\n      defineProps({j:Number})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Variable 'j' is already declared in the upper scope.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDeclaredInUpperScope",
+     "message": "Variable 'j' is already declared in the upper scope.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#invalid11"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#valid0"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#valid1"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div v-for=\"i in 5\"></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#valid2"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div v-for=\"i in 5\"><div v-for=\"b in 5\"></div></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#valid3"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div v-for=\"i in 5\"></div><div v-for=\"i in 5\"></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#valid4"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template> <ul v-for=\"i in 5\"> <li> <span v-for=\"j in 10\">{{i}},{{j}}</span> </li> </ul> </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#valid5"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template>\n        <div v-for=\"i in 5\"></div>\n        <div v-for=\"i in f\"></div>\n        <div v-for=\"i in 5\"></div>\n      </template>\n      <script>\n        export default {\n          computed: {\n            f () { }\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#valid6"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template>\n        <div v-for=\"i in b\" />\n        <div v-for=\"b in c\" />\n        <div v-for=\"d in f\" />\n      </template>\n      <script>\n        export default {\n          ...a,\n          data() {\n            return {\n              ...b,\n              c: [1, 2, 3]\n            }\n          },\n          computed: {\n            ...d,\n            e,\n            ['f']: [1, 2],\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#valid7"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template>\n        <div v-for=\"i in b\" />\n        <div v-for=\"b in c\" />\n        <div v-for=\"d in f\" />\n      </template>\n      <script>\n        export default {\n          ...a,\n          data: () => {\n            return {\n              ...b,\n              c: [1, 2, 3]\n            }\n          },\n          computed: {\n            ...d,\n            e,\n            ['f']: [1, 2],\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#valid8"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template>\n        <div v-for=\"i in b\" />\n        <div v-for=\"b in c\" />\n        <div v-for=\"d in f\" />\n      </template>\n      <script>\n        export default {\n          ...a,\n          data: () => ({\n            ...b,\n            c: [1, 2, 3]\n          }),\n          computed: {\n            ...d,\n            e,\n            ['f']: [1, 2],\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#valid9"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <div v-for=\"i in 5\">\n          <div v-for=\"j in 5\">\n          </div>\n        </div>\n      </template>\n      <script>\n        export default {\n          setup() {\n            return {\n              k: 42\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#valid10"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <div v-for=\"i in 5\">\n          <div v-for=\"j in 5\">\n          </div>\n        </div>\n      </template>\n      <script setup>\n      let k = 42\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#valid11"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template>\n        <div v-for=\"i in 5\">\n          <div v-for=\"j in 5\">\n          </div>\n        </div>\n      </template>\n      <script setup>\n      defineProps({k:Number})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#valid12"
+ },
+ {
+  "rule": "no-template-shadow",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template>\n        <div v-for=\"i in 5\">\n          <div v-for=\"i in 5\">\n          </div>\n        </div>\n      </template>\n      <script setup>\n      defineProps({i:Number})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allow": [
+     "i"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-template-shadow#valid13"
+ }
+]

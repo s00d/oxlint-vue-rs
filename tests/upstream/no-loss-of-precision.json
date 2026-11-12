@@ -1,0 +1,181 @@
+[
+ {
+  "rule": "no-loss-of-precision",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          {{12345678901234567890}}\n          {{0.12345678901234567890}}\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This number literal will lose precision at runtime.",
+     "line": 3,
+     "column": 13,
+     "endLine": 3,
+     "endColumn": 33
+    },
+    {
+     "message": "This number literal will lose precision at runtime.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noLossOfPrecision",
+     "message": "This number literal will lose precision at runtime.",
+     "line": 3,
+     "column": 13,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "noLossOfPrecision",
+     "message": "This number literal will lose precision at runtime.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-loss-of-precision#invalid0"
+ },
+ {
+  "rule": "no-loss-of-precision",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <MyComponent :num=\"12345678901234567890\" />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "This number literal will lose precision at runtime.",
+     "line": 3,
+     "column": 30,
+     "endLine": 3,
+     "endColumn": 50
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noLossOfPrecision",
+     "message": "This number literal will lose precision at runtime.",
+     "line": 3,
+     "column": 30,
+     "endLine": 3,
+     "endColumn": 50,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-loss-of-precision#invalid1"
+ },
+ {
+  "rule": "no-loss-of-precision",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          {{12345}}\n          {{123.45}}\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-loss-of-precision#valid0"
+ },
+ {
+  "rule": "no-loss-of-precision",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <MyComponent num=\"12345678901234567890\" />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-loss-of-precision#valid1"
+ }
+]

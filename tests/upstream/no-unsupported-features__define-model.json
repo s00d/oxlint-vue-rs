@@ -1,0 +1,230 @@
+[
+ {
+  "rule": "no-unsupported-features/define-model",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script setup>\n        const model = defineModel()\n      </script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignores": [
+     "slot-scope-attribute",
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-slots",
+     "v-bind-same-name-shorthand"
+    ],
+    "version": "^3.3.0"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`defineModel()` macros are not supported until Vue.js \"3.4.0\".",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 36
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenDefineModel",
+     "message": "`defineModel()` macros are not supported until Vue.js \"3.4.0\".",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/define-model#invalid0"
+ },
+ {
+  "rule": "no-unsupported-features/define-model",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script setup>\n        const model = defineModel()\n      </script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "version": "^3.4.0",
+    "ignores": [
+     "slot-scope-attribute",
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-slots",
+     "v-bind-same-name-shorthand"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/define-model#valid0"
+ },
+ {
+  "rule": "no-unsupported-features/define-model",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script setup>\n        defineSlots({})\n      </script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignores": [
+     "slot-scope-attribute",
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-slots",
+     "v-bind-same-name-shorthand"
+    ],
+    "version": "^3.3.0"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/define-model#valid1"
+ },
+ {
+  "rule": "no-unsupported-features/define-model",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup>\n        const model = defineModel()\n      </script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "version": "^3.3.0",
+    "ignores": [
+     "slot-scope-attribute",
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-slots",
+     "v-bind-same-name-shorthand",
+     "define-model"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/define-model#valid2"
+ }
+]

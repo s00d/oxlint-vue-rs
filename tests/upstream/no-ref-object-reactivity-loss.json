@@ -1,0 +1,1191 @@
+[
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      import { ref } from 'vue'\n      const count = ref(0)\n      const value1 = count.value\n      const { value: value2 } = count\n      const value3 = fn(count.value)\n      const { value: value4 = 42 } = count\n      if (foo) {\n        const value1 = count.value\n      }\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 27
+    },
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 30
+    },
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 30
+    },
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 7,
+     "column": 13,
+     "endLine": 7,
+     "endColumn": 35
+    },
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 9,
+     "column": 24,
+     "endLine": 9,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 7,
+     "column": 13,
+     "endLine": 7,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 9,
+     "column": 24,
+     "endLine": 9,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#invalid0"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      import { toRefs } from 'vue'\n      const { count } = toRefs(foo)\n      const value1 = count.value\n      const { value: value2 } = count\n      const value3 = fn(count.value)\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 27
+    },
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 30
+    },
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#invalid1"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup>\n      import { useTemplateRef } from 'vue'\n      const modal = useTemplateRef('modal')\n      defineExpose({\n        modal,\n        open: modal.value?.open,\n        close: modal.value?.close\n      })\n      </script>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 20
+    },
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 8,
+     "column": 16,
+     "endLine": 8,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 8,
+     "column": 16,
+     "endLine": 8,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#invalid2"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      import { toRefs } from 'vue'\n      const refs = toRefs(foo)\n      const value1 = refs.count.value\n      const { value: value2 } = refs.count\n      const value3 = fn(refs.count.value)\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 32
+    },
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 30
+    },
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#invalid3"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      import { ref } from 'vue'\n      const count = ref(0).value\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#invalid4"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      import { toRefs } from 'vue'\n      const refs = toRefs(foo)\n      const { foo = 42 } = refs\n      const v = foo.value\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 20
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#invalid5"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      import { ref, computed, shallowRef, customRef, toRef } from 'vue'\n      const r = ref(0)\n      const c = computed(() => r.value)\n      const sr = shallowRef({ count: 1 })\n      const cr = customRef((track, trigger) => {\n        return {\n          get() { return sr.value },\n          set(newValue) { sr.value = newValue }\n        }\n      })\n      const tr = toRef(sr, 'count')\n\n      console.log(\n        r.value,\n        c.value,\n        sr.value,\n        cr.value,\n        tr.value\n      )\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 15,
+     "column": 9,
+     "endLine": 15,
+     "endColumn": 10
+    },
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 16,
+     "column": 9,
+     "endLine": 16,
+     "endColumn": 10
+    },
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 17,
+     "column": 9,
+     "endLine": 17,
+     "endColumn": 11
+    },
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 18,
+     "column": 9,
+     "endLine": 18,
+     "endColumn": 11
+    },
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 19,
+     "column": 9,
+     "endLine": 19,
+     "endColumn": 11
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 15,
+     "column": 9,
+     "endLine": 15,
+     "endColumn": 10,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 16,
+     "column": 9,
+     "endLine": 16,
+     "endColumn": 10,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 17,
+     "column": 9,
+     "endLine": 17,
+     "endColumn": 11,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 18,
+     "column": 9,
+     "endLine": 18,
+     "endColumn": 11,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 19,
+     "column": 9,
+     "endLine": 19,
+     "endColumn": 11,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#invalid6"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script setup>\n      const model1 = defineModel();\n      const [model2, mod] = defineModel();\n      console.log(\n        model1.value,\n        model2.value,\n        mod.value // OK\n      )\n      </script>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 15
+    },
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 15
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 15,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 15,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#invalid7"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      import { ref } from 'vue'\n      const count = ref(0)\n      ;(() => {\n        const value1 = count.value\n      })()\n      ;(function () {\n        const value2 = count.value\n      })()\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 24,
+     "endLine": 5,
+     "endColumn": 29
+    },
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 8,
+     "column": 24,
+     "endLine": 8,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 24,
+     "endLine": 5,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 8,
+     "column": 24,
+     "endLine": 8,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#invalid8"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      import { ref } from 'vue'\n      const count = ref(0)\n      ;(() => {\n        ;(() => {\n          const value1 = count.value\n        })()\n      })()\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 6,
+     "column": 26,
+     "endLine": 6,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getValueInSameScope",
+     "message": "Getting a value from the ref object in the same scope will cause the value to lose reactivity.",
+     "line": 6,
+     "column": 26,
+     "endLine": 6,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#invalid9"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    const count = ref(0)\n    const value1 = computed(() => count.value)\n    const value2 = fn(count)\n    const value3 = computed(() => fn(count.value))\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#valid0"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n    import { toRefs } from 'vue'\n    const { count } = toRefs(foo)\n    const value1 = computed(() => count.value)\n    const value2 = fn(count)\n    const value3 = computed(() => fn(count.value))\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#valid1"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n    import { toRefs } from 'vue'\n    const refs = toRefs(foo)\n    const value1 = computed(() => refs.count.value)\n    const value2 = fn(refs.count)\n    const value3 = computed(() => fn(refs.count.value))\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#valid2"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    const count = ref(0)\n    count.value = 42\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#valid3"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    const count = ref(0)\n    count.value++\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#valid4"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    const count = ref(0)\n    ;( { foo: count.value } = bar )\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#valid5"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n    import { ref, computed, shallowRef, customRef, toRef } from 'vue'\n    const r = ref(0)\n    const c = computed(() => r.value)\n    const sr = shallowRef({ count: 1 })\n    const cr = customRef((track, trigger) => {\n      return {\n        get() { return sr.value },\n        set(newValue) { sr.value = newValue }\n      }\n    })\n    const tr = toRef(sr, 'count')\n    function fn() {\n      console.log(c.value, cr.value, tr.value)\n    }\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#valid6"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    const [a] = ref(0)\n    foo.bar = ref(0)\n    unknown.value\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#valid7"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    let foo = ref(0)\n    foo = foo\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#valid8"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n    const count = $ref(0)\n    const value1 = count\n    const value2 = fn(count)\n    let c = $computed(() => count)\n    console.log(count, c)\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#valid9"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n    const { count } = $(foo)\n    const value1 = count\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#valid10"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    const count = ref(0)\n    ;(async () => {\n      const value1 = count.value\n    })()\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#valid11"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    const count = ref(0)\n    ;(function* () {\n      const value1 = count.value\n    })()\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#valid12"
+ },
+ {
+  "rule": "no-ref-object-reactivity-loss",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n    import { ref } from 'vue'\n    ;(() => {\n      const count = ref(0)\n      const value1 = computed(() => count.value)\n      function fn() {\n        console.log(count.value)\n      }\n    })()\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-ref-object-reactivity-loss#valid13"
+ }
+]

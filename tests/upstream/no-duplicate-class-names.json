@@ -1,0 +1,2328 @@
+[
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div class=\"foo foo\"></div></template>",
+  "filename": "duplicate-class.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 31
+    }
+   ],
+   "output": "<template><div class=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       21,
+       30
+      ],
+      "text": "\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid0"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div class=\"foo bar foo baz bar\"></div></template>",
+  "filename": "multiple-duplicate-classes.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class names 'foo', 'bar'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 43
+    }
+   ],
+   "output": "<template><div class=\"foo bar baz\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class names 'foo', 'bar'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 43,
+     "fix": {
+      "range": [
+       21,
+       42
+      ],
+      "text": "\"foo bar baz\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"foo bar baz\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid1"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :class=\"'foo foo'\"></div></template>",
+  "filename": "duplicate-class-in-directive-string.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 33
+    }
+   ],
+   "output": "<template><div :class=\"'foo'\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       23,
+       32
+      ],
+      "text": "'foo'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"'foo'\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid2"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :class=\"`foo foo`\"></div></template>",
+  "filename": "duplicate-class-in-directive-literal.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 33
+    }
+   ],
+   "output": "<template><div :class=\"`foo`\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       23,
+       32
+      ],
+      "text": "`foo`"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"`foo`\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid3"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :class=\"{ 'foo foo': true }\"></div></template>",
+  "filename": "duplicate-class-directive-object-key.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ],
+   "output": "<template><div :class=\"{ 'foo': true }\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       25,
+       34
+      ],
+      "text": "'foo'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"{ 'foo': true }\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid4"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div :class=\"{ 'foo foo bar': true, 'bar bar baz': true }\"></div></template>",
+  "filename": "multiple-duplicate-class-directive-object-keys.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 39
+    },
+    {
+     "message": "Duplicate class name 'bar'.",
+     "line": 1,
+     "column": 47,
+     "endLine": 1,
+     "endColumn": 60
+    }
+   ],
+   "output": "<template><div :class=\"{ 'foo bar': true, 'bar baz': true }\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       25,
+       38
+      ],
+      "text": "'foo bar'"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'bar'.",
+     "line": 1,
+     "column": 47,
+     "endLine": 1,
+     "endColumn": 60,
+     "fix": {
+      "range": [
+       46,
+       59
+      ],
+      "text": "'bar baz'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"{ 'foo bar': true, 'bar baz': true }\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid5"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div :class=\"['foo foo']\"></div></template>",
+  "filename": "duplicate-class-directive-array-item.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><div :class=\"['foo']\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       24,
+       33
+      ],
+      "text": "'foo'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"['foo']\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid6"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div :class=\"['foo foo', 'bar bar baz']\"></div></template>",
+  "filename": "multiple-duplicate-classes-directive-array-items.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 34
+    },
+    {
+     "message": "Duplicate class name 'bar'.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 49
+    }
+   ],
+   "output": "<template><div :class=\"['foo', 'bar baz']\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       24,
+       33
+      ],
+      "text": "'foo'"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'bar'.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 49,
+     "fix": {
+      "range": [
+       35,
+       48
+      ],
+      "text": "'bar baz'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"['foo', 'bar baz']\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid7"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div :class=\"['foo foo', { 'bar bar baz': true }]\"></div></template>",
+  "filename": "duplicate-class-in-mixed-directive.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 34
+    },
+    {
+     "message": "Duplicate class name 'bar'.",
+     "line": 1,
+     "column": 38,
+     "endLine": 1,
+     "endColumn": 51
+    }
+   ],
+   "output": "<template><div :class=\"['foo', { 'bar baz': true }]\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       24,
+       33
+      ],
+      "text": "'foo'"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'bar'.",
+     "line": 1,
+     "column": 38,
+     "endLine": 1,
+     "endColumn": 51,
+     "fix": {
+      "range": [
+       37,
+       50
+      ],
+      "text": "'bar baz'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"['foo', { 'bar baz': true }]\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid8"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div :class=\"isActive ? 'foo foo' : 'bar'\"></div></template>",
+  "filename": "duplicate-class-conditional-expression.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 35,
+     "endLine": 1,
+     "endColumn": 44
+    }
+   ],
+   "output": "<template><div :class=\"isActive ? 'foo' : 'bar'\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 35,
+     "endLine": 1,
+     "endColumn": 44,
+     "fix": {
+      "range": [
+       34,
+       43
+      ],
+      "text": "'foo'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"isActive ? 'foo' : 'bar'\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid9"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div :class=\"'foo foo ' + ' bar'\"></div></template>",
+  "filename": "duplicate-class-binary-expression.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><div :class=\"'foo ' + ' bar'\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       23,
+       33
+      ],
+      "text": "'foo '"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"'foo ' + ' bar'\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid10"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div class=\"foo foo     bar\"></div></template>",
+  "filename": "duplicate-class-preserved-spaces-1.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ],
+   "output": "<template><div class=\"foo     bar\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       21,
+       38
+      ],
+      "text": "\"foo     bar\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"foo     bar\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid11"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div class=\"foo bar    baz foo\"></div></template>",
+  "filename": "duplicate-class-preserved-spaces-2.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 42
+    }
+   ],
+   "output": "<template><div class=\"foo bar    baz\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 42,
+     "fix": {
+      "range": [
+       21,
+       41
+      ],
+      "text": "\"foo bar    baz\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"foo bar    baz\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid12"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div class=\"foo bar foo     baz\"></div></template>",
+  "filename": "duplicate-class-preserved-spaces-3.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 43
+    }
+   ],
+   "output": "<template><div class=\"foo bar     baz\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 43,
+     "fix": {
+      "range": [
+       21,
+       42
+      ],
+      "text": "\"foo bar     baz\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"foo bar     baz\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid13"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div class=\"foo\" :class=\"'foo'\"></div></template>",
+  "filename": "duplicate-class-cross-attribute-string.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 43
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 43,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid14"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div class=\"foo\" :class=\"`foo`\"></div></template>",
+  "filename": "duplicate-class-cross-attribute-literal.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 43
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 43,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid15"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div class=\"foo\" :class=\"'foo bar'\"></div></template>",
+  "filename": "duplicate-class-cross-attribute.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 47
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid16"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><div class=\"foo bar\" :class=\"'foo bar'\"></div></template>",
+  "filename": "duplicate-class-cross-attribute-multiple-duplicates.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class names 'foo', 'bar'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 51
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class names 'foo', 'bar'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 51,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid17"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><div class=\"foo\" :class=\"['foo', 'bar']\"></div></template>",
+  "filename": "duplicate-class-cross-attribute-array.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 52
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 52,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid18"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><div class=\"foo\" :class=\"{ 'foo': true }\"></div></template>",
+  "filename": "duplicate-class-cross-attribute-object.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 53
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 53,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid19"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><div class=\"foo\" :class=\"['foo', { 'bar': true }]\"></div></template>",
+  "filename": "duplicate-class-cross-attribute-mixed.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 62
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 62,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid20"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><div class=\"foo\" :class=\"'foo ' + 'bar'\"></div></template>",
+  "filename": "duplicate-class-cross-attribute-binary.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 52
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 52,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid21"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "<template><div class=\"foo\" :class=\"isActive ? 'foo' : 'bar'\"></div></template>",
+  "filename": "duplicate-class-cross-attribute-conditional.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 62
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 62,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid22"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "<template><div :class=\"['foo', 'foo']\"></div></template>",
+  "filename": "duplicate-class-cross-node-array.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 38
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid23"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "<template><div :class=\"'foo ' + 'foo'\"></div></template>",
+  "filename": "duplicate-class-cross-node-binary.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 38
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid24"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 25,
+  "name": null,
+  "code": "<template><div :class=\"['foo', { 'foo': true }]\"></div></template>",
+  "filename": "duplicate-class-cross-node-mixed.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 48
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 48,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid25"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 26,
+  "name": null,
+  "code": "<template><div :class=\"isActive && 'foo foo'\"></div></template>",
+  "filename": "duplicate-class-logical-expression-and.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 45
+    }
+   ],
+   "output": "<template><div :class=\"isActive && 'foo'\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 45,
+     "fix": {
+      "range": [
+       35,
+       44
+      ],
+      "text": "'foo'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"isActive && 'foo'\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid26"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 27,
+  "name": null,
+  "code": "<template><div :class=\"isActive || 'foo foo'\"></div></template>",
+  "filename": "duplicate-class-logical-expression-or.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 45
+    }
+   ],
+   "output": "<template><div :class=\"isActive || 'foo'\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 45,
+     "fix": {
+      "range": [
+       35,
+       44
+      ],
+      "text": "'foo'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"isActive || 'foo'\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid27"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 28,
+  "name": null,
+  "code": "<template><div :class=\"isActive ?? 'foo foo'\"></div></template>",
+  "filename": "duplicate-class-logical-expression-nullish-coalescing.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 45
+    }
+   ],
+   "output": "<template><div :class=\"isActive ?? 'foo'\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 45,
+     "fix": {
+      "range": [
+       35,
+       44
+      ],
+      "text": "'foo'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"isActive ?? 'foo'\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid28"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 29,
+  "name": null,
+  "code": "<template><div :class=\"isActive ?? isAnotherActive ?? 'foo foo'\"></div></template>",
+  "filename": "duplicate-class-nested-logical-expression.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 55,
+     "endLine": 1,
+     "endColumn": 64
+    }
+   ],
+   "output": "<template><div :class=\"isActive ?? isAnotherActive ?? 'foo'\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 55,
+     "endLine": 1,
+     "endColumn": 64,
+     "fix": {
+      "range": [
+       54,
+       63
+      ],
+      "text": "'foo'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"isActive ?? isAnotherActive ?? 'foo'\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid29"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 30,
+  "name": null,
+  "code": "<template><div :class=\"['foo', isActive ?? 'bar bar']\"></div></template>",
+  "filename": "duplicate-class-logical-expression-in-array.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'bar'.",
+     "line": 1,
+     "column": 44,
+     "endLine": 1,
+     "endColumn": 53
+    }
+   ],
+   "output": "<template><div :class=\"['foo', isActive ?? 'bar']\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'bar'.",
+     "line": 1,
+     "column": 44,
+     "endLine": 1,
+     "endColumn": 53,
+     "fix": {
+      "range": [
+       43,
+       52
+      ],
+      "text": "'bar'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"['foo', isActive ?? 'bar']\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid30"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 31,
+  "name": null,
+  "code": "<template><div :class=\"isAnotherActive ? isActive ?? 'foo foo' : 'bar'\"></div></template>",
+  "filename": "duplicate-class-logical-expression-in-conditional.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 54,
+     "endLine": 1,
+     "endColumn": 63
+    }
+   ],
+   "output": "<template><div :class=\"isAnotherActive ? isActive ?? 'foo' : 'bar'\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 54,
+     "endLine": 1,
+     "endColumn": 63,
+     "fix": {
+      "range": [
+       53,
+       62
+      ],
+      "text": "'foo'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"isAnotherActive ? isActive ?? 'foo' : 'bar'\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid31"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 32,
+  "name": null,
+  "code": "<template><div :class=\"isActive && 'bar' + ' bar'\"></div></template>",
+  "filename": "duplicate-class-binary-in-logical-expression.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'bar'.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 50
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'bar'.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 50,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid32"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "invalid",
+  "idx": 33,
+  "name": null,
+  "code": "<template><div :class=\"isActive && `foo ${bar} foo`\"></div></template>",
+  "filename": "duplicate-class-template-literal-in-logical-expression.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 52
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateClassNames",
+     "message": "Duplicate class name 'foo'.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 52,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#invalid33"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div></div></template>",
+  "filename": "no-classes.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#valid0"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div class=\"foo\"></div></template>",
+  "filename": "one-class.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#valid1"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div class=\"foo bar baz\"></div></template>",
+  "filename": "multiple-different-classes.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#valid2"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :class=\"'foo bar baz'\"></div></template>",
+  "filename": "no-duplicate-class-in-directive-string.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#valid3"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :class=\"`foo bar baz`\"></div></template>",
+  "filename": "no-duplicate-class-in-directive-literal.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#valid4"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div :class=\"{ 'foo bar baz': true }\"></div></template>",
+  "filename": "no-duplicate-class-in-directive-object.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#valid5"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div :class=\"{ 'foo': true, 'foo bar': true }\"></div></template>",
+  "filename": "duplicate-class-in-different-directive-object-keys.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#valid6"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div :class=\"isActive ? 'foo' : 'bar'\"></div></template>",
+  "filename": "class-conditional-expression.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#valid7"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div :class=\"isActive ? 'foo' : 'foo'\"></div></template>",
+  "filename": "class-conditional-duplicate-expression-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#valid8"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<div :class=\"{ 'foo bar': isActive, 'foo': isAnotherActive }\"></div>",
+  "filename": "class-object-duplicate-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#valid9"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div :class=\"[isActive1 && { 'foo': isActive2, 'bar': isActive3 }, isActive4 && 'bar']\"></div></template>",
+  "filename": "class-non-intersecting-conditions.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#valid10"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div :class=\"[isActive1 && 'foo', isActive2 && 'foo']\"></div></template>",
+  "filename": "class-multiple-logical-non-intersecting.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#valid11"
+ },
+ {
+  "rule": "no-duplicate-class-names",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div :class=\"[isActive1 && ('foo' + ' bar'), isActive2 && 'foo']\"></div></template>",
+  "filename": "class-binary-in-logical-non-intersecting.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-class-names#valid12"
+ }
+]

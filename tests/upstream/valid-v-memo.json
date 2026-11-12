@@ -1,0 +1,635 @@
+[
+ {
+  "rule": "valid-v-memo",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div v-memo:aaa=\"x\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2021,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-memo' directives require no argument.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedArgument",
+     "message": "'v-memo' directives require no argument.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-memo#invalid0"
+ },
+ {
+  "rule": "valid-v-memo",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-memo.aaa=\"x\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2021,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-memo' directives require no modifier.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedModifier",
+     "message": "'v-memo' directives require no modifier.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-memo#invalid1"
+ },
+ {
+  "rule": "valid-v-memo",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div v-memo></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2021,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-memo' directives require that attribute value.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedValue",
+     "message": "'v-memo' directives require that attribute value.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-memo#invalid2"
+ },
+ {
+  "rule": "valid-v-memo",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div v-memo=\"\" /></template>",
+  "filename": "empty-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2021,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-memo' directives require that attribute value.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedValue",
+     "message": "'v-memo' directives require that attribute value.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-memo#invalid3"
+ },
+ {
+  "rule": "valid-v-memo",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <div v-memo=\"{x}\" />\n        <div v-memo=\"a ? {b}: c+d\" />\n        <div v-memo=\"(a,{b},c(),d+1)\" />\n        <div v-memo=\"()=>42\" />\n        <div v-memo=\"a=42\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2021,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-memo' directives require the attribute value to be an array.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 25
+    },
+    {
+     "message": "'v-memo' directives require the attribute value to be an array.",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 29
+    },
+    {
+     "message": "'v-memo' directives require the attribute value to be an array.",
+     "line": 4,
+     "column": 31,
+     "endLine": 4,
+     "endColumn": 34
+    },
+    {
+     "message": "'v-memo' directives require the attribute value to be an array.",
+     "line": 5,
+     "column": 33,
+     "endLine": 5,
+     "endColumn": 36
+    },
+    {
+     "message": "'v-memo' directives require the attribute value to be an array.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 28
+    },
+    {
+     "message": "'v-memo' directives require the attribute value to be an array.",
+     "line": 7,
+     "column": 24,
+     "endLine": 7,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedArray",
+     "message": "'v-memo' directives require the attribute value to be an array.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedArray",
+     "message": "'v-memo' directives require the attribute value to be an array.",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedArray",
+     "message": "'v-memo' directives require the attribute value to be an array.",
+     "line": 4,
+     "column": 31,
+     "endLine": 4,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedArray",
+     "message": "'v-memo' directives require the attribute value to be an array.",
+     "line": 5,
+     "column": 33,
+     "endLine": 5,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedArray",
+     "message": "'v-memo' directives require the attribute value to be an array.",
+     "line": 6,
+     "column": 22,
+     "endLine": 6,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedArray",
+     "message": "'v-memo' directives require the attribute value to be an array.",
+     "line": 7,
+     "column": 24,
+     "endLine": 7,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-memo#invalid4"
+ },
+ {
+  "rule": "valid-v-memo",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div v-for=\"i in items\"><div v-memo=\"[x]\" /></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2021,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-memo' directive does not work inside 'v-for'.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 46
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "insideVFor",
+     "message": "'v-memo' directive does not work inside 'v-for'.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-memo#invalid5"
+ },
+ {
+  "rule": "valid-v-memo",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "test",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2021,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-memo#valid0"
+ },
+ {
+  "rule": "valid-v-memo",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2021,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-memo#valid1"
+ },
+ {
+  "rule": "valid-v-memo",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div v-memo=\"[x]\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2021,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-memo#valid2"
+ },
+ {
+  "rule": "valid-v-memo",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div v-memo=\"x\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2021,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-memo#valid3"
+ },
+ {
+  "rule": "valid-v-memo",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div v-memo=\"x?y:z\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2021,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-memo#valid4"
+ },
+ {
+  "rule": "valid-v-memo",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div v-memo=\".\" /></template>",
+  "filename": "parsing-error.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2021,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-memo#valid5"
+ },
+ {
+  "rule": "valid-v-memo",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div v-memo=\"/**/\" /></template>",
+  "filename": "parsing-error.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2021,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-memo#valid6"
+ },
+ {
+  "rule": "valid-v-memo",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div v-for=\"i in items\" v-memo=\"[x]\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2021,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-memo#valid7"
+ }
+]

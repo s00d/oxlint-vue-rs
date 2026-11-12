@@ -1,0 +1,2028 @@
+[
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup({ count }) { // error\n          watch(() => {\n            console.log(count) // not going to detect changes\n          })\n\n          return () => {\n            return h('div', count) // not going to update\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "destructuring",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "destructuring",
+     "message": "Destructuring the `props` will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid0"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props) {\n          const { count } = props // error\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid1"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup: (props) => {\n          const { count } = props\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid2"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props) {\n          ({ count } = props)\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid3"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(p) {\n          const { count } = p\n        }\n      }\n\n      Vue.component('component', {\n        setup(p) {\n          const { count } = p\n        }\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 26
+    },
+    {
+     "messageId": "getProperty",
+     "line": 11,
+     "column": 17,
+     "endLine": 11,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 11,
+     "column": 17,
+     "endLine": 11,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid4"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(p) {\n          const { count } = p\n        },\n        _setup(p) {\n          const { count } = p\n        },\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid5"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(p) {\n          const { x } = p\n          const { y } = p\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 22
+    },
+    {
+     "messageId": "getProperty",
+     "line": 6,
+     "column": 17,
+     "endLine": 6,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 6,
+     "column": 17,
+     "endLine": 6,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid6"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(p) {\n          const foo = p.bar\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 5,
+     "column": 23,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 23,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid7"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(p) {\n          const x = p.foo\n          const y = p?.bar\n          const z = (p?.baz).qux\n\n          const xc = p?.foo?.()\n          const yc = (p?.bar)?.()\n          const zc = (p?.baz.qux)?.()\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 5,
+     "column": 21,
+     "endLine": 5,
+     "endColumn": 22
+    },
+    {
+     "messageId": "getProperty",
+     "line": 6,
+     "column": 21,
+     "endLine": 6,
+     "endColumn": 22
+    },
+    {
+     "messageId": "getProperty",
+     "line": 7,
+     "column": 22,
+     "endLine": 7,
+     "endColumn": 23
+    },
+    {
+     "messageId": "getProperty",
+     "line": 9,
+     "column": 22,
+     "endLine": 9,
+     "endColumn": 32
+    },
+    {
+     "messageId": "getProperty",
+     "line": 10,
+     "column": 22,
+     "endLine": 10,
+     "endColumn": 34
+    },
+    {
+     "messageId": "getProperty",
+     "line": 11,
+     "column": 22,
+     "endLine": 11,
+     "endColumn": 38
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 21,
+     "endLine": 5,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 6,
+     "column": 21,
+     "endLine": 6,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 7,
+     "column": 22,
+     "endLine": 7,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 9,
+     "column": 22,
+     "endLine": 9,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 10,
+     "column": 22,
+     "endLine": 10,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 11,
+     "column": 22,
+     "endLine": 11,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid8"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(p) {\n          let foo\n          foo = p.bar\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 6,
+     "column": 17,
+     "endLine": 6,
+     "endColumn": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 6,
+     "column": 17,
+     "endLine": 6,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid9"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(p) {\n          const {foo} = p.bar\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid10"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(p) {\n          foo.bar = p.bar\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 5,
+     "column": 21,
+     "endLine": 5,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 21,
+     "endLine": 5,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid11"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <script setup>\n      const {count} = defineProps({count:Number})\n      const foo = count\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Getting a value from the `props` in root scope of `<script setup>` will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `<script setup>` will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid12"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <script setup>\n      const props = defineProps({count:Number})\n      const {count} = props\n      ;({count} = props)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Getting a value from the `props` in root scope of `<script setup>` will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 20
+    },
+    {
+     "message": "Getting a value from the `props` in root scope of `<script setup>` will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `<script setup>` will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `<script setup>` will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid13"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <script setup>\n      const props = defineProps({count:Number})\n      const count = props.count\n      count = props.count\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 26
+    },
+    {
+     "messageId": "getProperty",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 20
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `<script setup>` will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `<script setup>` will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid14"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup: (props) => {\n          const count = ref(props.count)\n          count = fn(props.count)\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 41
+    },
+    {
+     "messageId": "getProperty",
+     "line": 6,
+     "column": 19,
+     "endLine": 6,
+     "endColumn": 34
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 25,
+     "endLine": 5,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 6,
+     "column": 19,
+     "endLine": 6,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid15"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <script setup>\n      const props = defineProps({ count: Number })\n      const count = ref(props.count)\n      count = fn(props.count)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 37
+    },
+    {
+     "messageId": "getProperty",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `<script setup>` will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `<script setup>` will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid16"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <script setup>\n      const props = defineProps({ count: Number })\n      const newProps = ref({ count: props.count })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 51
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `<script setup>` will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 51,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid17"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <script setup>\n      const props = defineProps({ count: Number })\n      const counts = [props.count]\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `<script setup>` will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid18"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <script setup>\n      const props = defineProps({ count: Number })\n      const counter = { count: props.count }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 45
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `<script setup>` will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 45,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid19"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <script setup>\n      const props = defineProps({ count: Number })\n      const counters = [{ count: [props.count] }]\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 50
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `<script setup>` will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 50,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid20"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <script setup>\n      const props = defineProps({ count: Number })\n      const buildCounter = (count) => ({ count })\n\n      buildCounter(props.count)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 6,
+     "column": 7,
+     "endLine": 6,
+     "endColumn": 32
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `<script setup>` will cause the value to lose reactivity.",
+     "line": 6,
+     "column": 7,
+     "endLine": 6,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid21"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      <script setup>\n      const props = defineProps({ count: Number })\n      const buildCounter = props.count ? 1 : undefined\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 4,
+     "column": 28,
+     "endLine": 4,
+     "endColumn": 39
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `<script setup>` will cause the value to lose reactivity.",
+     "line": 4,
+     "column": 28,
+     "endLine": 4,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid22"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(p) {\n          const foo = `${p.x}`\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 5,
+     "column": 26,
+     "endLine": 5,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 26,
+     "endLine": 5,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid23"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(p) {\n          const foo = `bar${p.x}bar${p.y}`\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "getProperty",
+     "line": 5,
+     "column": 29,
+     "endLine": 5,
+     "endColumn": 32
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "getProperty",
+     "message": "Getting a value from the `props` in root scope of `setup()` will cause the value to lose reactivity.",
+     "line": 5,
+     "column": 29,
+     "endLine": 5,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#invalid24"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props) {\n          watch(() => {\n            console.log(props.count) // ok\n          })\n\n          return () => {\n            return h('div', props.count) // ok\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid0"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props) {\n          watch(() => {\n            const { count } = props // ok\n            console.log(count)\n          })\n\n          return () => {\n            const { count } = props // ok\n            return h('div', count)\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid1"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        _setup({count}) {\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid2"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup() {\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid3"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(...args) {\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid4"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props) {\n          watch(() => {\n            ({ count } = props)\n          })\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid5"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script>\n      var noVue = {\n        setup(props) {\n          const { count } = props\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid6"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props) {\n          watch(\n            () => props.count,\n            () => {\n              const test = props.count ? true : false\n              console.log(test)\n            }\n          )\n\n          return () => {\n            return h('div', props.count ? true : false)\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid7"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props) {\n          const {x} = noProps\n          ({y} = noProps)\n          const z = noProps.z\n          const foo = `${noProp.foo}`\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid8"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props) {\n          ({props} = x)\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid9"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        watch: {\n          setup({val}) { }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid10"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props) {\n          const props2 = props\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid11"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      Vue.component('test', {\n        el: a = b\n      })\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid12"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <script setup>\n      const props = defineProps({count:Number})\n      watch(() => {\n        const {count} = props\n      })\n      watch(() => {\n        const count = props.count\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid13"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <script setup>\n      const props = defineProps({count:Number})\n      watch(() => {\n        ({ count } = props)\n      })\n      watch(() => {\n        count = props.count\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid14"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup: (props) => {\n          const count = computed(() => props.count)\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid15"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <script setup>\n      const props = defineProps({ count: Number })\n      const count = computed(() => props.count)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid16"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <script setup>\n      const {count} = defineProps({count:Number})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid17"
+ },
+ {
+  "rule": "no-setup-props-reactivity-loss",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <script setup>\n      const { foo = 1, bar = 'ok' } = defineProps({ foo: Number, bar: String })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-setup-props-reactivity-loss#valid18"
+ }
+]

@@ -1,0 +1,948 @@
+[
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div><div v-bind=\"$attrs\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noDuplicateAttrInheritance",
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#invalid0"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template><div><div v-bind=\"$attrs\"></div></div></template>\n        <script>\n        export default {\n          inheritAttrs: true\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 2,
+     "column": 37,
+     "endLine": 2,
+     "endColumn": 43
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noDuplicateAttrInheritance",
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 2,
+     "column": 37,
+     "endLine": 2,
+     "endColumn": 43,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#invalid1"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n      export default { inheritAttrs: true }\n      </script>\n      <script setup>\n      </script>\n      <template><div v-bind=\"$attrs\" /></template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 7,
+     "column": 30,
+     "endLine": 7,
+     "endColumn": 36
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noDuplicateAttrInheritance",
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 7,
+     "column": 30,
+     "endLine": 7,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#invalid2"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script setup>\n      defineOptions({ inheritAttrs: true })\n      </script>\n      <template><div v-bind=\"$attrs\" /></template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 5,
+     "column": 30,
+     "endLine": 5,
+     "endColumn": 36
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noDuplicateAttrInheritance",
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 5,
+     "column": 30,
+     "endLine": 5,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#invalid3"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div v-bind=\"$attrs\"></div><div></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "checkMultiRootNodes": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noDuplicateAttrInheritance",
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#invalid4"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"condition1\" v-bind=\"$attrs\"></div>\n        <div v-else></div>\n        <div v-if=\"condition2\"></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "checkMultiRootNodes": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 46
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noDuplicateAttrInheritance",
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#invalid5"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"condition1\" v-bind=\"$attrs\"></div>\n        <div v-else-if=\"condition2\"></div>\n        <div v-else></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 46
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noDuplicateAttrInheritance",
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#invalid6"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"condition1\" v-bind=\"$attrs\"></div>\n        <div v-else-if=\"condition2\"></div>\n        <div v-else-if=\"condition3\"></div>\n        <div v-else></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 46
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noDuplicateAttrInheritance",
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#invalid7"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"condition1\" v-bind=\"$attrs\"></div>\n        <div v-else></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 46
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noDuplicateAttrInheritance",
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#invalid8"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"condition1\" v-bind=\"$attrs\"></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 46
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noDuplicateAttrInheritance",
+     "message": "Set \"inheritAttrs\" to false.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#invalid9"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div><div></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#valid0"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template><div><div></div></div></template>\n        <script>\n        export default { inheritAttrs: true }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#valid1"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template><div><div></div></div></template>\n        <script>\n        const data = {};\n        export default {\n          ...data,\n          inheritAttrs: true\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#valid2"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script setup>\n      defineOptions({ inheritAttrs: true })\n      </script>\n      <template><div v-bind=\"$attrs\"/><div/></template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#valid3"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"condition1\"></div>\n        <div v-if=\"condition2\" v-bind=\"$attrs\"></div>\n        <div v-else></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#valid4"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"condition1\"></div>\n        <div v-else-if=\"condition2\"></div>\n        <div v-bind=\"$attrs\"></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#valid5"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <div v-bind=\"$attrs\"></div>\n        <div v-if=\"condition1\"></div>\n        <div v-else></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#valid6"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"condition1\"></div>\n        <div v-else-if=\"condition2\"></div>\n        <div v-if=\"condition3\" v-bind=\"$attrs\"></div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "checkMultiRootNodes": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#valid7"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        <template><div><div></div></div></template>\n        <script>\n        const inheritAttrs = false;\n        export default { inheritAttrs }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#valid8"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        <template><div><div v-bind=\"$attrs\"></div></div></template>\n        <script>\n        export default { inheritAttrs: false }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#valid9"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        <template><div><div v-bind=\"$attrs\"></div></div></template>\n        <script>\n        export default { inheritAttrs: 0 }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#valid10"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        <template><div><div v-bind:foo=\"$attrs\"></div></div></template>\n        <script>\n        export default {  }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#valid11"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <script>\n      export default { inheritAttrs: false }\n      </script>\n      <script setup>\n      </script>\n      <template><div v-bind=\"$attrs\" /></template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#valid12"
+ },
+ {
+  "rule": "no-duplicate-attr-inheritance",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <script setup>\n      defineOptions({ inheritAttrs: false })\n      </script>\n      <template><div v-bind=\"$attrs\" /></template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attr-inheritance#valid13"
+ }
+]

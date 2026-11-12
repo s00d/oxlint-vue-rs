@@ -1,0 +1,835 @@
+[
+ {
+  "rule": "no-potential-component-option-typo",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        dat: {},\n        method: {}\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "custom": [
+     "data",
+     "methods"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'dat' may be a typo, which is similar to option [data].",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 12,
+     "suggestions": [
+      {
+       "desc": "Replace property 'dat' to 'data'",
+       "output": "\n      <script>\n      export default {\n        data: {},\n        method: {}\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "'method' may be a typo, which is similar to option [methods].",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 15,
+     "suggestions": [
+      {
+       "desc": "Replace property 'method' to 'methods'",
+       "output": "\n      <script>\n      export default {\n        dat: {},\n        methods: {}\n      }\n      </script>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "potentialTypo",
+     "message": "'dat' may be a typo, which is similar to option [data].",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 12,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": null,
+       "desc": "Replace property 'dat' to 'data'",
+       "output": "\n      <script>\n      export default {\n        data: {},\n        method: {}\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "potentialTypo",
+     "message": "'method' may be a typo, which is similar to option [methods].",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 15,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": null,
+       "desc": "Replace property 'method' to 'methods'",
+       "output": "\n      <script>\n      export default {\n        dat: {},\n        methods: {}\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-potential-component-option-typo#invalid0"
+ },
+ {
+  "rule": "no-potential-component-option-typo",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        dat: {},\n        method: {},\n        custo: {}\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "custom": [
+     "data",
+     "methods",
+     "custom",
+     "foo"
+    ],
+    "presets": [
+     "all"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'dat' may be a typo, which is similar to option [data].",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 12,
+     "suggestions": [
+      {
+       "desc": "Replace property 'dat' to 'data'",
+       "output": "\n      <script>\n      export default {\n        data: {},\n        method: {},\n        custo: {}\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "'method' may be a typo, which is similar to option [methods].",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 15,
+     "suggestions": [
+      {
+       "desc": "Replace property 'method' to 'methods'",
+       "output": "\n      <script>\n      export default {\n        dat: {},\n        methods: {},\n        custo: {}\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "'custo' may be a typo, which is similar to option [custom].",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 14,
+     "suggestions": [
+      {
+       "desc": "Replace property 'custo' to 'custom'",
+       "output": "\n      <script>\n      export default {\n        dat: {},\n        method: {},\n        custom: {}\n      }\n      </script>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "potentialTypo",
+     "message": "'dat' may be a typo, which is similar to option [data].",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 12,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": null,
+       "desc": "Replace property 'dat' to 'data'",
+       "output": "\n      <script>\n      export default {\n        data: {},\n        method: {},\n        custo: {}\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "potentialTypo",
+     "message": "'method' may be a typo, which is similar to option [methods].",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 15,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": null,
+       "desc": "Replace property 'method' to 'methods'",
+       "output": "\n      <script>\n      export default {\n        dat: {},\n        methods: {},\n        custo: {}\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "potentialTypo",
+     "message": "'custo' may be a typo, which is similar to option [custom].",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 14,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": null,
+       "desc": "Replace property 'custo' to 'custom'",
+       "output": "\n      <script>\n      export default {\n        dat: {},\n        method: {},\n        custom: {}\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-potential-component-option-typo#invalid1"
+ },
+ {
+  "rule": "no-potential-component-option-typo",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        dat: {},\n        method: {}\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "presets": [
+     "vue"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'dat' may be a typo, which is similar to option [data].",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 12,
+     "suggestions": [
+      {
+       "desc": "Replace property 'dat' to 'data'",
+       "output": "\n      <script>\n      export default {\n        data: {},\n        method: {}\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "'method' may be a typo, which is similar to option [methods].",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 15,
+     "suggestions": [
+      {
+       "desc": "Replace property 'method' to 'methods'",
+       "output": "\n      <script>\n      export default {\n        dat: {},\n        methods: {}\n      }\n      </script>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "potentialTypo",
+     "message": "'dat' may be a typo, which is similar to option [data].",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 12,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": null,
+       "desc": "Replace property 'dat' to 'data'",
+       "output": "\n      <script>\n      export default {\n        data: {},\n        method: {}\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "potentialTypo",
+     "message": "'method' may be a typo, which is similar to option [methods].",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 15,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": null,
+       "desc": "Replace property 'method' to 'methods'",
+       "output": "\n      <script>\n      export default {\n        dat: {},\n        methods: {}\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-potential-component-option-typo#invalid2"
+ },
+ {
+  "rule": "no-potential-component-option-typo",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        dat: {},\n        beforeRouteEntr,\n        method: {}\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "presets": [
+     "vue",
+     "vue-router"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'dat' may be a typo, which is similar to option [data].",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 12,
+     "suggestions": [
+      {
+       "desc": "Replace property 'dat' to 'data'",
+       "output": "\n      <script>\n      export default {\n        data: {},\n        beforeRouteEntr,\n        method: {}\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "'beforeRouteEntr' may be a typo, which is similar to option [beforeRouteEnter].",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 24,
+     "suggestions": [
+      {
+       "desc": "Replace property 'beforeRouteEntr' to 'beforeRouteEnter'",
+       "output": "\n      <script>\n      export default {\n        dat: {},\n        beforeRouteEnter,\n        method: {}\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "message": "'method' may be a typo, which is similar to option [methods].",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 15,
+     "suggestions": [
+      {
+       "desc": "Replace property 'method' to 'methods'",
+       "output": "\n      <script>\n      export default {\n        dat: {},\n        beforeRouteEntr,\n        methods: {}\n      }\n      </script>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "potentialTypo",
+     "message": "'dat' may be a typo, which is similar to option [data].",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 12,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": null,
+       "desc": "Replace property 'dat' to 'data'",
+       "output": "\n      <script>\n      export default {\n        data: {},\n        beforeRouteEntr,\n        method: {}\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "potentialTypo",
+     "message": "'beforeRouteEntr' may be a typo, which is similar to option [beforeRouteEnter].",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": null,
+       "desc": "Replace property 'beforeRouteEntr' to 'beforeRouteEnter'",
+       "output": "\n      <script>\n      export default {\n        dat: {},\n        beforeRouteEnter,\n        method: {}\n      }\n      </script>"
+      }
+     ]
+    },
+    {
+     "messageId": "potentialTypo",
+     "message": "'method' may be a typo, which is similar to option [methods].",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 15,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": null,
+       "desc": "Replace property 'method' to 'methods'",
+       "output": "\n      <script>\n      export default {\n        dat: {},\n        beforeRouteEntr,\n        methods: {}\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-potential-component-option-typo#invalid3"
+ },
+ {
+  "rule": "no-potential-component-option-typo",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        method: {}\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "custom": [
+     "data",
+     "methods"
+    ],
+    "threshold": 10,
+    "presets": []
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'method' may be a typo, which is similar to option [methods,data].",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 15,
+     "suggestions": [
+      {
+       "desc": "Replace property 'method' to 'methods'",
+       "output": "\n      <script>\n      export default {\n        methods: {}\n      }\n      </script>"
+      },
+      {
+       "desc": "Replace property 'method' to 'data'",
+       "output": "\n      <script>\n      export default {\n        data: {}\n      }\n      </script>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "potentialTypo",
+     "message": "'method' may be a typo, which is similar to option [methods,data].",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 15,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": null,
+       "desc": "Replace property 'method' to 'methods'",
+       "output": "\n      <script>\n      export default {\n        methods: {}\n      }\n      </script>"
+      },
+      {
+       "messageId": null,
+       "desc": "Replace property 'method' to 'data'",
+       "output": "\n      <script>\n      export default {\n        data: {}\n      }\n      </script>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-potential-component-option-typo#invalid4"
+ },
+ {
+  "rule": "no-potential-component-option-typo",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        dat: {},\n        method: {}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "presets": []
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-potential-component-option-typo#valid0"
+ },
+ {
+  "rule": "no-potential-component-option-typo",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "presets": [
+     "vue"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-potential-component-option-typo#valid1"
+ },
+ {
+  "rule": "no-potential-component-option-typo",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        data() {}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "presets": [
+     "vue"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-potential-component-option-typo#valid2"
+ },
+ {
+  "rule": "no-potential-component-option-typo",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        data() {},\n        beforeRouteEnter() {}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "presets": [
+     "vue",
+     "vue-router"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-potential-component-option-typo#valid3"
+ },
+ {
+  "rule": "no-potential-component-option-typo",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        custom: {},\n        foo: {}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "custom": [
+     "custom",
+     "foo"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-potential-component-option-typo#valid4"
+ },
+ {
+  "rule": "no-potential-component-option-typo",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        abcde: {},\n        abcd: {}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "custom": [
+     "abcde",
+     "abcd"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-potential-component-option-typo#valid5"
+ },
+ {
+  "rule": "no-potential-component-option-typo",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        custom: {},\n        fooooo: {}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "custom": [
+     "custom",
+     "foo"
+    ],
+    "threshold": 2
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-potential-component-option-typo#valid6"
+ },
+ {
+  "rule": "no-potential-component-option-typo",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        asyncData: {},\n        fetch: {},\n        head: {},\n        key: {},\n        layout: {},\n        loading: {},\n        middleware: {},\n        scrollToTop: {},\n        transition: {},\n        validate: {},\n        watchQuery: {},\n        beforeRouteEnter: {},\n        beforeRouteUpdate: {},\n        beforeRouteLeave: {},\n        data() {},\n        props: {},\n        propsData: {},\n        computed: {},\n        methods: {},\n        watch: {},\n        el: {},\n        template: {},\n        render() {},\n        renderError() {},\n        staticRenderFns: {},\n        beforeCreate: {},\n        created: {},\n        beforeDestroy: {},\n        destroyed: {},\n        beforeMount: {},\n        mounted: {},\n        beforeUpdate: {},\n        updated: {},\n        activated: {},\n        deactivated: {},\n        errorCaptured: {},\n        serverPrefetch: {},\n        directives: {},\n        components: {},\n        transitions: {},\n        filters: {},\n        provide: {},\n        inject: {},\n        model: {},\n        parent: {},\n        mixins: {},\n        name: {},\n        extends: {},\n        delimiters: {},\n        comments: {},\n        inheritAttrs: {},\n      };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "presets": [
+     "all"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-potential-component-option-typo#valid7"
+ }
+]

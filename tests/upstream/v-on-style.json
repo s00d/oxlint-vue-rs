@@ -1,0 +1,336 @@
+[
+ {
+  "rule": "v-on-style",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div v-on:foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected '@' instead of 'v-on:'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ],
+   "output": "<template><div @foo=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedShorthand",
+     "message": "Expected '@' instead of 'v-on:'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       15,
+       20
+      ],
+      "text": "@"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div @foo=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-style#invalid0"
+ },
+ {
+  "rule": "v-on-style",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-on:foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected '@' instead of 'v-on:'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ],
+   "output": "<template><div @foo=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedShorthand",
+     "message": "Expected '@' instead of 'v-on:'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       15,
+       20
+      ],
+      "text": "@"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div @foo=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-style#invalid1"
+ },
+ {
+  "rule": "v-on-style",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div @foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "longform"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'v-on:' instead of '@'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div v-on:foo=\"foo\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedLonghand",
+     "message": "Expected 'v-on:' instead of '@'.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       15,
+       16
+      ],
+      "text": "v-on:"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-on:foo=\"foo\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-style#invalid2"
+ },
+ {
+  "rule": "v-on-style",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-style#valid0"
+ },
+ {
+  "rule": "v-on-style",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-on=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-style#valid1"
+ },
+ {
+  "rule": "v-on-style",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div @foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-style#valid2"
+ },
+ {
+  "rule": "v-on-style",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div @foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "shorthand"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-style#valid3"
+ },
+ {
+  "rule": "v-on-style",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div v-on:foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "longform"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-on-style#valid4"
+ }
+]

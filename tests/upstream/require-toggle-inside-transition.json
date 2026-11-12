@@ -1,0 +1,1101 @@
+[
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><transition><div /></transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expected",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "The element inside `<transition>` is expected to have a `v-if` or `v-show` directive.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#invalid0"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><Transition><div /></Transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expected",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "The element inside `<transition>` is expected to have a `v-if` or `v-show` directive.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#invalid1"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><transition><div /><div /></transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expected",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "The element inside `<transition>` is expected to have a `v-if` or `v-show` directive.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#invalid2"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><transition><div v-for=\"e in list\" /></transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expected",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 48
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "The element inside `<transition>` is expected to have a `v-if` or `v-show` directive.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 48,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#invalid3"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><svg height=\"100\" width=\"100\"><transition><circle /></transition></svg> </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expected",
+     "line": 1,
+     "column": 53,
+     "endLine": 1,
+     "endColumn": 63
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "The element inside `<transition>` is expected to have a `v-if` or `v-show` directive.",
+     "line": 1,
+     "column": 53,
+     "endLine": 1,
+     "endColumn": 63,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#invalid4"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><transition><template v-for=\"e in list\"><div /></template></transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expected",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 51
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "The element inside `<transition>` is expected to have a `v-if` or `v-show` directive.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 51,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#invalid5"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><Transition>  <div /></Transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expected",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "The element inside `<transition>` is expected to have a `v-if` or `v-show` directive.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#invalid6"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><transition :appear=\"false\"><div /></transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expected",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 46
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "The element inside `<transition>` is expected to have a `v-if` or `v-show` directive.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#invalid7"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><transition @appear=\"isLoaded\"><div /></transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expected",
+     "line": 1,
+     "column": 42,
+     "endLine": 1,
+     "endColumn": 49
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "The element inside `<transition>` is expected to have a `v-if` or `v-show` directive.",
+     "line": 1,
+     "column": 42,
+     "endLine": 1,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#invalid8"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><transition><dialog v-dialog=\"show\" /></transition></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "additionalDirectives": []
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expected",
+     "data": {
+      "allowedDirectives": "`v-if` or `v-show`"
+     },
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 49
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "The element inside `<transition>` is expected to have a `v-if` or `v-show` directive.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#invalid9"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><transition><div v-custom=\"show\" /></transition></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "additionalDirectives": [
+     "dialog"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expected",
+     "data": {
+      "allowedDirectives": "`v-if`, `v-show` or `v-dialog`"
+     },
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 46
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "The element inside `<transition>` is expected to have a `v-if`, `v-show` or `v-dialog` directive.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#invalid10"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#valid0"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><transition><div v-if=\"show\" /></transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#valid1"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><transition><div v-show=\"show\" /></transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#valid2"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><Transition><div v-if=\"show\" /></Transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#valid3"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><Transition><div v-show=\"show\" /></Transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#valid4"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><Transition><MyComp /></Transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#valid5"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><Transition><component :is=\"component\" /></Transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#valid6"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><Transition><div :is=\"component\" /></Transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#valid7"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><svg height=\"100\" width=\"100\"><transition><circle v-if=\"show\" /></transition></svg> </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#valid8"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><svg height=\"100\" width=\"100\"><transition><MyComponent /></transition></svg> </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#valid9"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><transition><template v-if=\"show\"><div /></template></transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#valid10"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><transition><slot /></transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#valid11"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><transition><div :key=\"k\" /></transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#valid12"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><transition appear><div /></transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#valid13"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><transition :appear=\"foo\"><div /></transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#valid14"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><transition :appear=\"true\"><div /></transition></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#valid15"
+ },
+ {
+  "rule": "require-toggle-inside-transition",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><transition><dialog v-dialog=\"show\" /></transition></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "additionalDirectives": [
+     "dialog"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-toggle-inside-transition#valid16"
+ }
+]

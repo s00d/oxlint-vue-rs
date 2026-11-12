@@ -1,0 +1,6113 @@
+[
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div v-cloak is=\"header\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"is\" should go before \"v-cloak\".",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ],
+   "output": "<template><div is=\"header\" v-cloak></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"is\" should go before \"v-cloak\".",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       15,
+       34
+      ],
+      "text": "is=\"header\" v-cloak"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div is=\"header\" v-cloak></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid0"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div id=\"uniqueID\" v-cloak></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-cloak\" should go before \"id\".",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 37
+    }
+   ],
+   "output": "<template><div v-cloak id=\"uniqueID\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-cloak\" should go before \"id\".",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 37,
+     "fix": {
+      "range": [
+       15,
+       36
+      ],
+      "text": "v-cloak id=\"uniqueID\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-cloak id=\"uniqueID\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid1"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>\n            <div\n              model=\"baz\"\n              v-model=\"toggle\"\n              propOne=\"bar\"\n              :id=\"foo\">\n            </div>\n          </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-model\" should go before \"model\".",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 31
+    },
+    {
+     "message": "Attribute \":id\" should go before \"propOne\".",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 24
+    }
+   ],
+   "output": "<template>\n            <div\n              v-model=\"toggle\"\n              model=\"baz\"\n              :id=\"foo\"\n              propOne=\"bar\">\n            </div>\n          </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-model\" should go before \"model\".",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       42,
+       84
+      ],
+      "text": "v-model=\"toggle\"\n              model=\"baz\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \":id\" should go before \"propOne\".",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       99,
+       136
+      ],
+      "text": ":id=\"foo\"\n              propOne=\"bar\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n            <div\n              v-model=\"toggle\"\n              model=\"baz\"\n              :id=\"foo\"\n              propOne=\"bar\">\n            </div>\n          </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid2"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template>\n            <div\n              :bindingProp=\"foo\"\n              model=\"baz\"\n              v-on=\"functionCall\"\n              v-model=\"toggle\"\n              propOne=\"bar\">\n            </div>\n          </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-model\" should go before \"v-on\".",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 31
+    },
+    {
+     "message": "Attribute \"propOne\" should go before \"v-on\".",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 28
+    }
+   ],
+   "output": "<template>\n            <div\n              :bindingProp=\"foo\"\n              model=\"baz\"\n              v-model=\"toggle\"\n              v-on=\"functionCall\"\n              propOne=\"bar\">\n            </div>\n          </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-model\" should go before \"v-on\".",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       101,
+       151
+      ],
+      "text": "v-model=\"toggle\"\n              v-on=\"functionCall\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"propOne\" should go before \"v-on\".",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       101,
+       179
+      ],
+      "text": "propOne=\"bar\"\n              v-on=\"functionCall\"\n              v-model=\"toggle\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n            <div\n              :bindingProp=\"foo\"\n              model=\"baz\"\n              v-model=\"toggle\"\n              v-on=\"functionCall\"\n              propOne=\"bar\">\n            </div>\n          </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid3"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div data-id=\"foo\" aria-test=\"bar\" is=\"custom\" myProp=\"prop\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"is\" should go before \"aria-test\".",
+     "line": 1,
+     "column": 46,
+     "endLine": 1,
+     "endColumn": 57
+    }
+   ],
+   "output": "<template><div data-id=\"foo\" is=\"custom\" aria-test=\"bar\" myProp=\"prop\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"is\" should go before \"aria-test\".",
+     "line": 1,
+     "column": 46,
+     "endLine": 1,
+     "endColumn": 57,
+     "fix": {
+      "range": [
+       29,
+       56
+      ],
+      "text": "is=\"custom\" aria-test=\"bar\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div data-id=\"foo\" is=\"custom\" aria-test=\"bar\" myProp=\"prop\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid4"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div ref=\"header\" propone=\"prop\" is=\"header\" ></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "LIST_RENDERING",
+     "CONDITIONALS",
+     "RENDER_MODIFIERS",
+     "GLOBAL",
+     "UNIQUE",
+     "TWO_WAY_BINDING",
+     "DEFINITION",
+     "OTHER_DIRECTIVES",
+     "OTHER_ATTR",
+     "EVENTS",
+     "CONTENT"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"is\" should go before \"propone\".",
+     "line": 1,
+     "column": 44,
+     "endLine": 1,
+     "endColumn": 55
+    }
+   ],
+   "output": "<template><div ref=\"header\" is=\"header\" propone=\"prop\" ></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"is\" should go before \"propone\".",
+     "line": 1,
+     "column": 44,
+     "endLine": 1,
+     "endColumn": 55,
+     "fix": {
+      "range": [
+       28,
+       54
+      ],
+      "text": "is=\"header\" propone=\"prop\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div ref=\"header\" is=\"header\" propone=\"prop\" ></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid5"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template>\n            <div v-cloak\n              is=\"header\">\n            </div>\n          </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"is\" should go before \"v-cloak\".",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template>\n            <div is=\"header\"\n              v-cloak>\n            </div>\n          </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"is\" should go before \"v-cloak\".",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       28,
+       61
+      ],
+      "text": "is=\"header\"\n              v-cloak"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n            <div is=\"header\"\n              v-cloak>\n            </div>\n          </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid6"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template>\n            <div\n              v-if=\"!visible\"\n              v-for=\"item in items\"\n              v-once\n              is=\"header\"\n              v-on:click=\"functionCall\"\n              ref=\"header\"\n              :prop=\"headerData\"\n              v-text=\"textContent\"\n              id=\"uniqueID\"\n              myProp=\"prop\"\n              >\n            </div>\n          </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-for\" should go before \"v-if\".",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 36
+    },
+    {
+     "message": "Attribute \"is\" should go before \"v-once\".",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 26
+    },
+    {
+     "message": "Attribute \"ref\" should go before \"v-on:click\".",
+     "line": 8,
+     "column": 15,
+     "endLine": 8,
+     "endColumn": 27
+    },
+    {
+     "message": "Attribute \":prop\" should go before \"v-on:click\".",
+     "line": 9,
+     "column": 15,
+     "endLine": 9,
+     "endColumn": 33
+    },
+    {
+     "message": "Attribute \"id\" should go before \"v-text\".",
+     "line": 11,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 28
+    },
+    {
+     "message": "Attribute \"myProp\" should go before \"v-text\".",
+     "line": 12,
+     "column": 15,
+     "endLine": 12,
+     "endColumn": 28
+    }
+   ],
+   "output": "<template>\n            <div\n              v-for=\"item in items\"\n              v-if=\"!visible\"\n              is=\"header\"\n              v-once\n              ref=\"header\"\n              v-on:click=\"functionCall\"\n              :prop=\"headerData\"\n              id=\"uniqueID\"\n              v-text=\"textContent\"\n              myProp=\"prop\"\n              >\n            </div>\n          </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-for\" should go before \"v-if\".",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 36,
+     "fix": {
+      "range": [
+       42,
+       93
+      ],
+      "text": "v-for=\"item in items\"\n              v-if=\"!visible\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"is\" should go before \"v-once\".",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       108,
+       140
+      ],
+      "text": "is=\"header\"\n              v-once"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"ref\" should go before \"v-on:click\".",
+     "line": 8,
+     "column": 15,
+     "endLine": 8,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       155,
+       207
+      ],
+      "text": "ref=\"header\"\n              v-on:click=\"functionCall\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \":prop\" should go before \"v-on:click\".",
+     "line": 9,
+     "column": 15,
+     "endLine": 9,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       155,
+       240
+      ],
+      "text": ":prop=\"headerData\"\n              v-on:click=\"functionCall\"\n              ref=\"header\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"id\" should go before \"v-text\".",
+     "line": 11,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       255,
+       303
+      ],
+      "text": "id=\"uniqueID\"\n              v-text=\"textContent\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"myProp\" should go before \"v-text\".",
+     "line": 12,
+     "column": 15,
+     "endLine": 12,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       255,
+       331
+      ],
+      "text": "myProp=\"prop\"\n              v-text=\"textContent\"\n              id=\"uniqueID\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n            <div\n              v-for=\"item in items\"\n              v-if=\"!visible\"\n              is=\"header\"\n              v-once\n              ref=\"header\"\n              v-on:click=\"functionCall\"\n              :prop=\"headerData\"\n              id=\"uniqueID\"\n              v-text=\"textContent\"\n              myProp=\"prop\"\n              >\n            </div>\n          </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid7"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template>\n            <div\n              v-if=\"!visible\"\n              v-for=\"item in items\"\n              v-once\n              is=\"header\"\n              v-on:click=\"functionCall\"\n              ref=\"header\"\n              :prop=\"headerData\"\n              v-text=\"textContent\"\n              id=\"uniqueID\"\n              myProp=\"prop\"\n              >\n            </div>\n          </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "EVENTS",
+     "TWO_WAY_BINDING",
+     "UNIQUE",
+     "DEFINITION",
+     "CONDITIONALS",
+     "LIST_RENDERING",
+     "RENDER_MODIFIERS",
+     "GLOBAL",
+     "OTHER_ATTR",
+     "OTHER_DIRECTIVES",
+     "CONTENT"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"is\" should go before \"v-once\".",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 26
+    },
+    {
+     "message": "Attribute \"v-on:click\" should go before \"v-once\".",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 40
+    },
+    {
+     "message": "Attribute \"ref\" should go before \"v-once\".",
+     "line": 8,
+     "column": 15,
+     "endLine": 8,
+     "endColumn": 27
+    },
+    {
+     "message": "Attribute \"id\" should go before \"v-text\".",
+     "line": 11,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 28
+    },
+    {
+     "message": "Attribute \"myProp\" should go before \"v-text\".",
+     "line": 12,
+     "column": 15,
+     "endLine": 12,
+     "endColumn": 28
+    }
+   ],
+   "output": "<template>\n            <div\n              v-if=\"!visible\"\n              v-for=\"item in items\"\n              is=\"header\"\n              v-once\n              v-on:click=\"functionCall\"\n              ref=\"header\"\n              :prop=\"headerData\"\n              id=\"uniqueID\"\n              v-text=\"textContent\"\n              myProp=\"prop\"\n              >\n            </div>\n          </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"is\" should go before \"v-once\".",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       108,
+       140
+      ],
+      "text": "is=\"header\"\n              v-once"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-on:click\" should go before \"v-once\".",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       108,
+       180
+      ],
+      "text": "v-on:click=\"functionCall\"\n              v-once\n              is=\"header\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"ref\" should go before \"v-once\".",
+     "line": 8,
+     "column": 15,
+     "endLine": 8,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       108,
+       207
+      ],
+      "text": "ref=\"header\"\n              v-once\n              is=\"header\"\n              v-on:click=\"functionCall\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"id\" should go before \"v-text\".",
+     "line": 11,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       255,
+       303
+      ],
+      "text": "id=\"uniqueID\"\n              v-text=\"textContent\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"myProp\" should go before \"v-text\".",
+     "line": 12,
+     "column": 15,
+     "endLine": 12,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       255,
+       331
+      ],
+      "text": "myProp=\"prop\"\n              v-text=\"textContent\"\n              id=\"uniqueID\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n            <div\n              v-if=\"!visible\"\n              v-for=\"item in items\"\n              is=\"header\"\n              v-once\n              v-on:click=\"functionCall\"\n              ref=\"header\"\n              :prop=\"headerData\"\n              id=\"uniqueID\"\n              v-text=\"textContent\"\n              myProp=\"prop\"\n              >\n            </div>\n          </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid8"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template>\n            <div\n              class=\"content\"\n              v-if=\"!visible\"\n              v-model=\"foo\"\n              v-text=\"textContent\"\n              >\n            </div>\n          </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "order": [
+     "CONDITIONALS",
+     "LIST_RENDERING",
+     "RENDER_MODIFIERS",
+     "DEFINITION",
+     "EVENTS",
+     "UNIQUE",
+     [
+      "TWO_WAY_BINDING",
+      "OTHER_ATTR"
+     ],
+     "CONTENT",
+     "GLOBAL"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-if\" should go before \"class\".",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 30
+    }
+   ],
+   "output": "<template>\n            <div\n              v-if=\"!visible\"\n              class=\"content\"\n              v-model=\"foo\"\n              v-text=\"textContent\"\n              >\n            </div>\n          </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-if\" should go before \"class\".",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       42,
+       87
+      ],
+      "text": "v-if=\"!visible\"\n              class=\"content\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n            <div\n              v-if=\"!visible\"\n              class=\"content\"\n              v-model=\"foo\"\n              v-text=\"textContent\"\n              >\n            </div>\n          </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid9"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template>\n            <my-component\n              v-if=\"!visible\"\n              v-model=\"content\"\n              v-slot=\"textContent\"\n              >\n            </my-component>\n          </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-slot\" should go before \"v-model\".",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 35
+    }
+   ],
+   "output": "<template>\n            <my-component\n              v-if=\"!visible\"\n              v-slot=\"textContent\"\n              v-model=\"content\"\n              >\n            </my-component>\n          </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-slot\" should go before \"v-model\".",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       81,
+       133
+      ],
+      "text": "v-slot=\"textContent\"\n              v-model=\"content\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n            <my-component\n              v-if=\"!visible\"\n              v-slot=\"textContent\"\n              v-model=\"content\"\n              >\n            </my-component>\n          </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid10"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template>\n          <div\n            z-prop=\"Z\"\n            a-prop=\"A\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"a-prop\" should go before \"z-prop\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template>\n          <div\n            a-prop=\"A\"\n            z-prop=\"Z\">\n          </div>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"a-prop\" should go before \"z-prop\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       38,
+       71
+      ],
+      "text": "a-prop=\"A\"\n            z-prop=\"Z\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n          <div\n            a-prop=\"A\"\n            z-prop=\"Z\">\n          </div>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid11"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template>\n          <div\n            :z-prop=\"Z\"\n            :a-prop=\"A\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \":a-prop\" should go before \":z-prop\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ],
+   "output": "<template>\n          <div\n            :a-prop=\"A\"\n            :z-prop=\"Z\">\n          </div>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \":a-prop\" should go before \":z-prop\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       38,
+       73
+      ],
+      "text": ":a-prop=\"A\"\n            :z-prop=\"Z\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n          <div\n            :a-prop=\"A\"\n            :z-prop=\"Z\">\n          </div>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid12"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "<template>\n          <div\n            @input=\"bar\"\n            @change=\"foo\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"@change\" should go before \"@input\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template>\n          <div\n            @change=\"foo\"\n            @input=\"bar\">\n          </div>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"@change\" should go before \"@input\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       38,
+       76
+      ],
+      "text": "@change=\"foo\"\n            @input=\"bar\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n          <div\n            @change=\"foo\"\n            @input=\"bar\">\n          </div>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid13"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "<template>\n          <div\n            z-prop=\"value\"\n            boolean-prop>\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"boolean-prop\" should go before \"z-prop\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 25
+    }
+   ],
+   "output": "<template>\n          <div\n            boolean-prop\n            z-prop=\"value\">\n          </div>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"boolean-prop\" should go before \"z-prop\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       38,
+       77
+      ],
+      "text": "boolean-prop\n            z-prop=\"value\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n          <div\n            boolean-prop\n            z-prop=\"value\">\n          </div>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid14"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "<template>\n          <div\n            v-on:click=\"functionCall\"\n            v-on:[c]=\"functionCall\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-on:[c]\" should go before \"v-on:click\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 36
+    }
+   ],
+   "output": "<template>\n          <div\n            v-on:[c]=\"functionCall\"\n            v-on:click=\"functionCall\">\n          </div>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-on:[c]\" should go before \"v-on:click\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 36,
+     "fix": {
+      "range": [
+       38,
+       99
+      ],
+      "text": "v-on:[c]=\"functionCall\"\n            v-on:click=\"functionCall\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n          <div\n            v-on:[c]=\"functionCall\"\n            v-on:click=\"functionCall\">\n          </div>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid15"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "<template>\n          <div\n            v-text=\"textContent\"\n            v-on:click=\"functionCall\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-on:click\" should go before \"v-text\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 38
+    }
+   ],
+   "output": "<template>\n          <div\n            v-on:click=\"functionCall\"\n            v-text=\"textContent\">\n          </div>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-on:click\" should go before \"v-text\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       38,
+       96
+      ],
+      "text": "v-on:click=\"functionCall\"\n            v-text=\"textContent\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n          <div\n            v-on:click=\"functionCall\"\n            v-text=\"textContent\">\n          </div>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid16"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "<template>\n          <div\n            :class=\"foo\"\n            class=\"bar\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"class\" should go before \":class\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ],
+   "output": "<template>\n          <div\n            class=\"bar\"\n            :class=\"foo\">\n          </div>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"class\" should go before \":class\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       38,
+       74
+      ],
+      "text": "class=\"bar\"\n            :class=\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n          <div\n            class=\"bar\"\n            :class=\"foo\">\n          </div>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid17"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "<template>\n          <div\n            v-show=\"foo\"\n            v-if=\"bar\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-if\" should go before \"v-show\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template>\n          <div\n            v-if=\"bar\"\n            v-show=\"foo\">\n          </div>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-if\" should go before \"v-show\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       38,
+       73
+      ],
+      "text": "v-if=\"bar\"\n            v-show=\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n          <div\n            v-if=\"bar\"\n            v-show=\"foo\">\n          </div>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid18"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "<template>\n          <div\n            v-foo=\"foo\"\n            v-bar=\"bar\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-bar\" should go before \"v-foo\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ],
+   "output": "<template>\n          <div\n            v-bar=\"bar\"\n            v-foo=\"foo\">\n          </div>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-bar\" should go before \"v-foo\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       38,
+       73
+      ],
+      "text": "v-bar=\"bar\"\n            v-foo=\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n          <div\n            v-bar=\"bar\"\n            v-foo=\"foo\">\n          </div>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid19"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "<template>\n          <div\n            v-foo.b=\"b\"\n            v-foo.a=\"a\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-foo.a\" should go before \"v-foo.b\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ],
+   "output": "<template>\n          <div\n            v-foo.a=\"a\"\n            v-foo.b=\"b\">\n          </div>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-foo.a\" should go before \"v-foo.b\".",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       38,
+       73
+      ],
+      "text": "v-foo.a=\"a\"\n            v-foo.b=\"b\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n          <div\n            v-foo.a=\"a\"\n            v-foo.b=\"b\">\n          </div>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid20"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><div v-cloak v-is=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-is\" should go before \"v-cloak\".",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><div v-is=\"foo\" v-cloak></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-is\" should go before \"v-cloak\".",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       15,
+       33
+      ],
+      "text": "v-is=\"foo\" v-cloak"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-is=\"foo\" v-cloak></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid21"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-bind:id=\"a\"\n          v-bind=\"b\"\n          v-if=\"x\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-if\" should go before \"v-bind:id\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-if=\"x\"\n          v-bind:id=\"a\"\n          v-bind=\"b\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-if\" should go before \"v-bind:id\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       41,
+       94
+      ],
+      "text": "v-if=\"x\"\n          v-bind:id=\"a\"\n          v-bind=\"b\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-if=\"x\"\n          v-bind:id=\"a\"\n          v-bind=\"b\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid22"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-bind:id=\"a\"\n          v-if=\"x\"\n          v-bind=\"b\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-if\" should go before \"v-bind:id\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-if=\"x\"\n          v-bind:id=\"a\"\n          v-bind=\"b\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-if\" should go before \"v-bind:id\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       41,
+       73
+      ],
+      "text": "v-if=\"x\"\n          v-bind:id=\"a\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-if=\"x\"\n          v-bind:id=\"a\"\n          v-bind=\"b\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid23"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-bind=\"b\"\n          v-bind:id=\"a\"\n          v-if=\"x\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-if\" should go before \"v-bind:id\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind=\"b\"\n          v-if=\"x\"\n          v-bind:id=\"a\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-if\" should go before \"v-bind:id\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       62,
+       94
+      ],
+      "text": "v-if=\"x\"\n          v-bind:id=\"a\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind=\"b\"\n          v-if=\"x\"\n          v-bind:id=\"a\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid24"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 25,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-on:click=\"x\"\n          v-bind:id=\"a\"\n          v-bind=\"b\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-bind:id\" should go before \"v-on:click\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 24
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind:id=\"a\"\n          v-on:click=\"x\"\n          v-bind=\"b\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-bind:id\" should go before \"v-on:click\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       41,
+       79
+      ],
+      "text": "v-bind:id=\"a\"\n          v-on:click=\"x\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind:id=\"a\"\n          v-on:click=\"x\"\n          v-bind=\"b\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid25"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 26,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-bind:id=\"a\"\n          v-on:click=\"x\"\n          v-bind=\"b\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-bind\" should go before \"v-on:click\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 21
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind:id=\"a\"\n          v-bind=\"b\"\n          v-on:click=\"x\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-bind\" should go before \"v-on:click\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       65,
+       100
+      ],
+      "text": "v-bind=\"b\"\n          v-on:click=\"x\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind:id=\"a\"\n          v-bind=\"b\"\n          v-on:click=\"x\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid26"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 27,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-on:click=\"x\"\n          v-bind=\"b\"\n          v-bind:id=\"a\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-bind:id\" should go before \"v-on:click\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 24
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind=\"b\"\n          v-bind:id=\"a\"\n          v-on:click=\"x\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-bind:id\" should go before \"v-on:click\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       41,
+       100
+      ],
+      "text": "v-bind=\"b\"\n          v-bind:id=\"a\"\n          v-on:click=\"x\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind=\"b\"\n          v-bind:id=\"a\"\n          v-on:click=\"x\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid27"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 28,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-on:click=\"x\"\n          v-bind:a=\"x\"\n          v-bind=\"x\"\n          v-if=\"x\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-bind:a\" should go before \"v-on:click\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 23
+    },
+    {
+     "message": "Attribute \"v-if\" should go before \"v-on:click\".",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind:a=\"x\"\n          v-on:click=\"x\"\n          v-bind=\"x\"\n          v-if=\"x\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-bind:a\" should go before \"v-on:click\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       41,
+       78
+      ],
+      "text": "v-bind:a=\"x\"\n          v-on:click=\"x\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-if\" should go before \"v-on:click\".",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       41,
+       118
+      ],
+      "text": "v-if=\"x\"\n          v-on:click=\"x\"\n          v-bind:a=\"x\"\n          v-bind=\"x\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind:a=\"x\"\n          v-on:click=\"x\"\n          v-bind=\"x\"\n          v-if=\"x\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid28"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 29,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-bind:a=\"x\"\n          v-on:click=\"x\"\n          v-bind=\"x\"\n          v-if=\"x\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-bind\" should go before \"v-on:click\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 21
+    },
+    {
+     "message": "Attribute \"v-if\" should go before \"v-on:click\".",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind:a=\"x\"\n          v-bind=\"x\"\n          v-on:click=\"x\"\n          v-if=\"x\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-bind\" should go before \"v-on:click\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       64,
+       99
+      ],
+      "text": "v-bind=\"x\"\n          v-on:click=\"x\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-if\" should go before \"v-on:click\".",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       64,
+       118
+      ],
+      "text": "v-if=\"x\"\n          v-on:click=\"x\"\n          v-bind=\"x\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind:a=\"x\"\n          v-bind=\"x\"\n          v-on:click=\"x\"\n          v-if=\"x\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid29"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 30,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          a=\"x\"\n          v-bind=\"x\"\n          v-if=\"x\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-if\" should go before \"a\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-if=\"x\"\n          a=\"x\"\n          v-bind=\"x\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-if\" should go before \"a\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       41,
+       86
+      ],
+      "text": "v-if=\"x\"\n          a=\"x\"\n          v-bind=\"x\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-if=\"x\"\n          a=\"x\"\n          v-bind=\"x\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid30"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 31,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-on:click=\"x\"\n          v-bind=\"x\"\n          v-if=\"x\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-bind\" should go before \"v-on:click\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 21
+    },
+    {
+     "message": "Attribute \"v-if\" should go before \"v-on:click\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind=\"x\"\n          v-on:click=\"x\"\n          v-if=\"x\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-bind\" should go before \"v-on:click\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       41,
+       76
+      ],
+      "text": "v-bind=\"x\"\n          v-on:click=\"x\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-if\" should go before \"v-on:click\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       41,
+       95
+      ],
+      "text": "v-if=\"x\"\n          v-on:click=\"x\"\n          v-bind=\"x\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind=\"x\"\n          v-on:click=\"x\"\n          v-if=\"x\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid31"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 32,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-custom-directive=\"x\"\n          v-bind=\"b\"\n          v-model=\"c\"\n          v-bind:value=\"a\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-model\" should go before \"v-custom-directive\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind=\"b\"\n          v-model=\"c\"\n          v-custom-directive=\"x\"\n          v-bind:value=\"a\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-model\" should go before \"v-custom-directive\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       41,
+       106
+      ],
+      "text": "v-bind=\"b\"\n          v-model=\"c\"\n          v-custom-directive=\"x\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind=\"b\"\n          v-model=\"c\"\n          v-custom-directive=\"x\"\n          v-bind:value=\"a\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid32"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 33,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-if=\"x\"\n          v-model=\"c\"\n          v-bind=\"b\"\n          v-bind:id=\"a\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-bind:id\" should go before \"v-model\".",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 24,
+     "suggestions": [
+      {
+       "desc": "Move \"v-bind:id\" before \"v-model\", which changes what `v-bind=\"...\"` overrides.",
+       "output": "\n      <template>\n        <div\n          v-if=\"x\"\n          v-bind=\"b\"\n          v-bind:id=\"a\"\n          v-model=\"c\">\n        </div>\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-bind:id\" should go before \"v-model\".",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "moveAttribute",
+       "desc": "Move \"v-bind:id\" before \"v-model\", which changes what `v-bind=\"...\"` overrides.",
+       "output": "\n      <template>\n        <div\n          v-if=\"x\"\n          v-bind=\"b\"\n          v-bind:id=\"a\"\n          v-model=\"c\">\n        </div>\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid33"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 34,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          a=\"1\"\n          v-bind=\"$attrs\"\n          v-model=\"modelValue\"\n          b=\"2\"\n        />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {}
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-model\" should go before \"a\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 31,
+     "suggestions": [
+      {
+       "desc": "Move \"v-model\" before \"a\", which changes what `v-bind=\"...\"` overrides.",
+       "output": "\n      <template>\n        <div\n          v-bind=\"$attrs\"\n          v-model=\"modelValue\"\n          a=\"1\"\n          b=\"2\"\n        />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-model\" should go before \"a\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "moveAttribute",
+       "desc": "Move \"v-model\" before \"a\", which changes what `v-bind=\"...\"` overrides.",
+       "output": "\n      <template>\n        <div\n          v-bind=\"$attrs\"\n          v-model=\"modelValue\"\n          a=\"1\"\n          b=\"2\"\n        />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid34"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 35,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          a=\"1\"\n          v-bind=\"$attrs\"\n          v-model=\"modelValue\"\n          b=\"2\"\n        />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreVBindObject": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-model\" should go before \"a\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 31,
+     "suggestions": [
+      {
+       "desc": "Move \"v-model\" before \"a\", which changes what `v-bind=\"...\"` overrides.",
+       "output": "\n      <template>\n        <div\n          v-bind=\"$attrs\"\n          v-model=\"modelValue\"\n          a=\"1\"\n          b=\"2\"\n        />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-model\" should go before \"a\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "moveAttribute",
+       "desc": "Move \"v-model\" before \"a\", which changes what `v-bind=\"...\"` overrides.",
+       "output": "\n      <template>\n        <div\n          v-bind=\"$attrs\"\n          v-model=\"modelValue\"\n          a=\"1\"\n          b=\"2\"\n        />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid35"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 36,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-bind=\"$attrs\"\n          b=\"2\"\n          v-model=\"modelValue\"\n        />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreVBindObject": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-model\" should go before \"b\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 31
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind=\"$attrs\"\n          v-model=\"modelValue\"\n          b=\"2\"\n        />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-model\" should go before \"b\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       67,
+       103
+      ],
+      "text": "v-model=\"modelValue\"\n          b=\"2\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind=\"$attrs\"\n          v-model=\"modelValue\"\n          b=\"2\"\n        />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid36"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 37,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-if=\"a\"\n          attr=\"a\"\n          v-for=\"a in items\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "LIST_RENDERING",
+     "CONDITIONALS"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-for\" should go before \"v-if\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 29
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-for=\"a in items\"\n          v-if=\"a\"\n          attr=\"a\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-for\" should go before \"v-if\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       41,
+       97
+      ],
+      "text": "v-for=\"a in items\"\n          v-if=\"a\"\n          attr=\"a\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-for=\"a in items\"\n          v-if=\"a\"\n          attr=\"a\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid37"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 38,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          attr=\"a\"\n          v-if=\"a\"\n          v-for=\"a in items\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "LIST_RENDERING",
+     "CONDITIONALS"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-for\" should go before \"v-if\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 29
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          attr=\"a\"\n          v-for=\"a in items\"\n          v-if=\"a\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-for\" should go before \"v-if\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       60,
+       97
+      ],
+      "text": "v-for=\"a in items\"\n          v-if=\"a\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          attr=\"a\"\n          v-for=\"a in items\"\n          v-if=\"a\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid38"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 39,
+  "name": null,
+  "code": "<template><div ref=\"foo\" v-slot=\"{ qux }\" bar=\"baz\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "UNIQUE",
+     "LIST_RENDERING",
+     "CONDITIONALS",
+     "RENDER_MODIFIERS",
+     "GLOBAL",
+     "TWO_WAY_BINDING",
+     "OTHER_DIRECTIVES",
+     "OTHER_ATTR",
+     "EVENTS",
+     "CONTENT",
+     "DEFINITION",
+     "SLOT"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"bar\" should go before \"v-slot\".",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 52
+    }
+   ],
+   "output": "<template><div ref=\"foo\" bar=\"baz\" v-slot=\"{ qux }\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"bar\" should go before \"v-slot\".",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 52,
+     "fix": {
+      "range": [
+       25,
+       51
+      ],
+      "text": "bar=\"baz\" v-slot=\"{ qux }\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div ref=\"foo\" bar=\"baz\" v-slot=\"{ qux }\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid39"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 40,
+  "name": null,
+  "code": "<template><div bar=\"baz\" ref=\"foo\" v-slot=\"{ qux }\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "UNIQUE",
+     "LIST_RENDERING",
+     "CONDITIONALS",
+     "RENDER_MODIFIERS",
+     "GLOBAL",
+     "TWO_WAY_BINDING",
+     "OTHER_DIRECTIVES",
+     "OTHER_ATTR",
+     "EVENTS",
+     "CONTENT",
+     "DEFINITION",
+     "SLOT"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"ref\" should go before \"bar\".",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ],
+   "output": "<template><div ref=\"foo\" bar=\"baz\" v-slot=\"{ qux }\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"ref\" should go before \"bar\".",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       15,
+       34
+      ],
+      "text": "ref=\"foo\" bar=\"baz\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div ref=\"foo\" bar=\"baz\" v-slot=\"{ qux }\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid40"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 41,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-bind=\"object\"\n          v-if=\"show\"\n          v-model=\"model\"\n          ref=\"ref\"\n          @click=\"handleClick\"/>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-if\" should go before \"v-bind\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 22
+    },
+    {
+     "message": "Attribute \"ref\" should go before \"v-model\".",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 20
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-if=\"show\"\n          v-bind=\"object\"\n          ref=\"ref\"\n          v-model=\"model\"\n          @click=\"handleClick\"/>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-if\" should go before \"v-bind\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       41,
+       78
+      ],
+      "text": "v-if=\"show\"\n          v-bind=\"object\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"ref\" should go before \"v-model\".",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       89,
+       124
+      ],
+      "text": "ref=\"ref\"\n          v-model=\"model\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-if=\"show\"\n          v-bind=\"object\"\n          ref=\"ref\"\n          v-model=\"model\"\n          @click=\"handleClick\"/>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid41"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 42,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          @click=\"handleClick\"\n          v-bind=\"object\"/>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-bind\" should go before \"@click\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 26
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind=\"object\"\n          @click=\"handleClick\"/>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-bind\" should go before \"@click\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       41,
+       87
+      ],
+      "text": "v-bind=\"object\"\n          @click=\"handleClick\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind=\"object\"\n          @click=\"handleClick\"/>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid42"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 43,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          ref=\"ref\"\n          @click=\"handleClick\"\n          v-bind=\"object\"\n          @input=\"handleInput\"/>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-bind\" should go before \"@click\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 26
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          ref=\"ref\"\n          v-bind=\"object\"\n          @click=\"handleClick\"\n          @input=\"handleInput\"/>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-bind\" should go before \"@click\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       61,
+       107
+      ],
+      "text": "v-bind=\"object\"\n          @click=\"handleClick\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          ref=\"ref\"\n          v-bind=\"object\"\n          @click=\"handleClick\"\n          @input=\"handleInput\"/>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid43"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 44,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          ref=\"ref\"\n          @click=\"handleClick\"\n          v-bind=\"object\"\n          @input=\"handleInput\"/>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "UNIQUE",
+     "EVENTS",
+     "OTHER_ATTR"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"@input\" should go before \"v-bind\".",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 31
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          ref=\"ref\"\n          @click=\"handleClick\"\n          @input=\"handleInput\"\n          v-bind=\"object\"/>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"@input\" should go before \"v-bind\".",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       92,
+       138
+      ],
+      "text": "@input=\"handleInput\"\n          v-bind=\"object\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          ref=\"ref\"\n          @click=\"handleClick\"\n          @input=\"handleInput\"\n          v-bind=\"object\"/>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid44"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 45,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-bind=\"object\"\n          @click=\"handleClick\"\n          attr=\"foo\"/>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "UNIQUE",
+     "EVENTS",
+     "OTHER_ATTR"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"@click\" should go before \"v-bind\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 31
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          @click=\"handleClick\"\n          v-bind=\"object\"\n          attr=\"foo\"/>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"@click\" should go before \"v-bind\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       41,
+       87
+      ],
+      "text": "@click=\"handleClick\"\n          v-bind=\"object\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          @click=\"handleClick\"\n          v-bind=\"object\"\n          attr=\"foo\"/>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid45"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 46,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-bind:prop-one=\"a\"\n          prop-two=\"b\"\n          :prop-three=\"c\"/>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "ATTR_STATIC",
+     "ATTR_DYNAMIC"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"prop-two\" should go before \"v-bind:prop-one\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          prop-two=\"b\"\n          v-bind:prop-one=\"a\"\n          :prop-three=\"c\"/>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"prop-two\" should go before \"v-bind:prop-one\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       41,
+       83
+      ],
+      "text": "prop-two=\"b\"\n          v-bind:prop-one=\"a\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          prop-two=\"b\"\n          v-bind:prop-one=\"a\"\n          :prop-three=\"c\"/>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid46"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 47,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          :prop-one=\"a\"\n          v-model=\"value\"\n          prop-two=\"b\"\n          :prop-three=\"c\"\n          class=\"class\"\n          boolean-prop/>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "LIST_RENDERING",
+     "CONDITIONALS",
+     "RENDER_MODIFIERS",
+     "TWO_WAY_BINDING",
+     "OTHER_DIRECTIVES",
+     "ATTR_DYNAMIC",
+     "ATTR_STATIC",
+     "ATTR_SHORTHAND_BOOL",
+     "EVENTS"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-model\" should go before \":prop-one\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 26
+    },
+    {
+     "message": "Attribute \":prop-three\" should go before \"prop-two\".",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 26
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-model=\"value\"\n          :prop-one=\"a\"\n          :prop-three=\"c\"\n          prop-two=\"b\"\n          class=\"class\"\n          boolean-prop/>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-model\" should go before \":prop-one\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       41,
+       80
+      ],
+      "text": "v-model=\"value\"\n          :prop-one=\"a\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \":prop-three\" should go before \"prop-two\".",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       91,
+       129
+      ],
+      "text": ":prop-three=\"c\"\n          prop-two=\"b\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-model=\"value\"\n          :prop-one=\"a\"\n          :prop-three=\"c\"\n          prop-two=\"b\"\n          class=\"class\"\n          boolean-prop/>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid47"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 48,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          :prop-one=\"a\"\n          v-model=\"value\"\n          boolean-prop\n          prop-two=\"b\"\n          :prop-three=\"c\"/>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "UNIQUE",
+     "LIST_RENDERING",
+     "CONDITIONALS",
+     "RENDER_MODIFIERS",
+     "GLOBAL",
+     "TWO_WAY_BINDING",
+     "OTHER_DIRECTIVES",
+     [
+      "ATTR_STATIC",
+      "ATTR_DYNAMIC",
+      "ATTR_SHORTHAND_BOOL"
+     ],
+     "EVENTS",
+     "CONTENT",
+     "DEFINITION",
+     "SLOT"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-model\" should go before \":prop-one\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 26
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-model=\"value\"\n          :prop-one=\"a\"\n          boolean-prop\n          prop-two=\"b\"\n          :prop-three=\"c\"/>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-model\" should go before \":prop-one\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       41,
+       80
+      ],
+      "text": "v-model=\"value\"\n          :prop-one=\"a\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-model=\"value\"\n          :prop-one=\"a\"\n          boolean-prop\n          prop-two=\"b\"\n          :prop-three=\"c\"/>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid48"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 49,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          @click=\"handleClick\"\n          v-bind=\"attrs\"\n        ></div>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-bind\" should go before \"@click\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind=\"attrs\"\n          @click=\"handleClick\"\n        ></div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-bind\" should go before \"@click\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       41,
+       86
+      ],
+      "text": "v-bind=\"attrs\"\n          @click=\"handleClick\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          v-bind=\"attrs\"\n          @click=\"handleClick\"\n        ></div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid49"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 50,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          ref=\"ref\"\n          @click=\"handleClick\"\n          v-bind=\"attrs\"\n        ></div>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"v-bind\" should go before \"@click\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          ref=\"ref\"\n          v-bind=\"attrs\"\n          @click=\"handleClick\"\n        ></div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"v-bind\" should go before \"@click\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       61,
+       106
+      ],
+      "text": "v-bind=\"attrs\"\n          @click=\"handleClick\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          ref=\"ref\"\n          v-bind=\"attrs\"\n          @click=\"handleClick\"\n        ></div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid50"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 51,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          medium-attr=\"value\"\n          short=\"val\"\n          very-long-attribute-name=\"value\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "sortLineLength": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"short\" should go before \"medium-attr\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          short=\"val\"\n          medium-attr=\"value\"\n          very-long-attribute-name=\"value\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"short\" should go before \"medium-attr\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       41,
+       82
+      ],
+      "text": "short=\"val\"\n          medium-attr=\"value\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          short=\"val\"\n          medium-attr=\"value\"\n          very-long-attribute-name=\"value\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid51"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 52,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          very-long-attribute-name=\"value\"\n          short=\"val\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "sortLineLength": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"short\" should go before \"very-long-attribute-name\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          short=\"val\"\n          very-long-attribute-name=\"value\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"short\" should go before \"very-long-attribute-name\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       41,
+       95
+      ],
+      "text": "short=\"val\"\n          very-long-attribute-name=\"value\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          short=\"val\"\n          very-long-attribute-name=\"value\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid52"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 53,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          id=\"id\"\n          v-model=\"foo\"\n          very-long-attribute-name=\"value\"\n          short=\"val\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "sortLineLength": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"short\" should go before \"very-long-attribute-name\".",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          id=\"id\"\n          v-model=\"foo\"\n          short=\"val\"\n          very-long-attribute-name=\"value\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"short\" should go before \"very-long-attribute-name\".",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       83,
+       137
+      ],
+      "text": "short=\"val\"\n          very-long-attribute-name=\"value\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          id=\"id\"\n          v-model=\"foo\"\n          short=\"val\"\n          very-long-attribute-name=\"value\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid53"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 54,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          @mouseover=\"handleMouseover\"\n          @click=\"fn\"\n          @input=\"handleInput\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "sortLineLength": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"@click\" should go before \"@mouseover\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 22
+    },
+    {
+     "message": "Attribute \"@input\" should go before \"@mouseover\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 31
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          @click=\"fn\"\n          @mouseover=\"handleMouseover\"\n          @input=\"handleInput\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"@click\" should go before \"@mouseover\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       41,
+       91
+      ],
+      "text": "@click=\"fn\"\n          @mouseover=\"handleMouseover\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"@input\" should go before \"@mouseover\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       41,
+       122
+      ],
+      "text": "@input=\"handleInput\"\n          @mouseover=\"handleMouseover\"\n          @click=\"fn\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          @click=\"fn\"\n          @mouseover=\"handleMouseover\"\n          @input=\"handleInput\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid54"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 55,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          :abc=\"value\"\n          :a=\"value\"\n          :ab=\"value\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "sortLineLength": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \":a\" should go before \":abc\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 21
+    },
+    {
+     "message": "Attribute \":ab\" should go before \":abc\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          :a=\"value\"\n          :abc=\"value\"\n          :ab=\"value\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \":a\" should go before \":abc\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       41,
+       74
+      ],
+      "text": ":a=\"value\"\n          :abc=\"value\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \":ab\" should go before \":abc\".",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       41,
+       96
+      ],
+      "text": ":ab=\"value\"\n          :abc=\"value\"\n          :a=\"value\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          :a=\"value\"\n          :abc=\"value\"\n          :ab=\"value\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid55"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 56,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          very-long-binding=\"longerValue\"\n          short=\"obj\"\n          @click=\"fn\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "sortLineLength": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"short\" should go before \"very-long-binding\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          short=\"obj\"\n          very-long-binding=\"longerValue\"\n          @click=\"fn\">\n        </div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"short\" should go before \"very-long-binding\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       41,
+       94
+      ],
+      "text": "short=\"obj\"\n          very-long-binding=\"longerValue\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          short=\"obj\"\n          very-long-binding=\"longerValue\"\n          @click=\"fn\">\n        </div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid56"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 57,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          aa=\"v\"\n          z=\"v\"\n        ></div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "sortLineLength": true,
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"z\" should go before \"aa\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 16
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          z=\"v\"\n          aa=\"v\"\n        ></div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"z\" should go before \"aa\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       41,
+       63
+      ],
+      "text": "z=\"v\"\n          aa=\"v\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          z=\"v\"\n          aa=\"v\"\n        ></div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid57"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "invalid",
+  "idx": 58,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          zz=\"v\"\n          bb=\"v\"\n          @keyup=\"fn\"\n          @click=\"fn\"\n        ></div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "sortLineLength": true,
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute \"bb\" should go before \"zz\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 17
+    },
+    {
+     "message": "Attribute \"@click\" should go before \"@keyup\".",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          bb=\"v\"\n          zz=\"v\"\n          @click=\"fn\"\n          @keyup=\"fn\"\n        ></div>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"bb\" should go before \"zz\".",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       41,
+       64
+      ],
+      "text": "bb=\"v\"\n          zz=\"v\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedOrder",
+     "message": "Attribute \"@click\" should go before \"@keyup\".",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       75,
+       108
+      ],
+      "text": "@click=\"fn\"\n          @keyup=\"fn\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          bb=\"v\"\n          zz=\"v\"\n          @click=\"fn\"\n          @keyup=\"fn\"\n        ></div>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#invalid58"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          ref=\"ref\"\n          v-model=\"model\"\n          v-bind=\"object\"\n          @click=\"handleClick\"/>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid0"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-bind=\"object\"\n          ref=\"ref\"\n          v-model=\"model\"\n          @click=\"handleClick\"/>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid1"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid2"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div is=\"header\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid3"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div v-for=\"item in items\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid4"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div v-if=\"!visible\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid5"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div v-else-if=\"!visible\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid6"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div v-else=\"!visible\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid7"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div v-show=\"!visible\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid8"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div v-cloak></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid9"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div v-pre></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid10"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div v-once></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid11"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div id=\"header\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid12"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div key=\"id\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid13"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div v-html=\"htmlContent\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid14"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div v-text=\"textContent\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid15"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div v-model=\"toggle\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid16"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><div v-custom-directive></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid17"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "<template>\n        <div\n          v-model=\"toggle\"\n          :bindingProp=\"foo\"\n          propOne=\"bar\"\n          model=\"baz\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid18"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><div click=\"functionCall\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid19"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><div myProp=\"prop\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid20"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "<template>\n          <div\n            is=\"header\"\n            v-for=\"item in items\"\n            v-if=\"!visible\"\n            v-once\n            id=\"uniqueID\"\n            ref=\"header\"\n            v-model=\"headerData\"\n            myProp=\"prop\"\n            @click=\"functionCall\"\n            v-text=\"textContent\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid21"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "<template>\n          <div\n            is=\"header\"\n            v-for=\"item in items\"\n            v-if=\"!visible\"\n            v-once\n            id=\"uniqueID\"\n            ref=\"header\"\n            v-model=\"headerData\"\n            :myProp=\"prop\"\n            v-on=\"functionCall\"\n            v-text=\"textContent\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid22"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "<template>\n          <div\n            is=\"header\"\n            v-for=\"item in items\"\n            v-if=\"!visible\"\n            v-once\n            id=\"uniqueID\"\n            ref=\"header\"\n            :prop=\"headerData\"\n            myProp=\"prop\"\n            v-on:click=\"functionCall\"\n            v-text=\"textContent\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid23"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "<template>\n          <div\n            v-for=\"item in items\"\n            v-if=\"!visible\"\n            propone=\"prop\"\n            :proptwo=\"prop\"\n            propthree=\"prop\"\n            @click=\"functionCall\"\n            v-text=\"textContent\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid24"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "<template><div propone=\"prop\" proptwo=\"prop\" propthree=\"prop\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid25"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "<template><div propone=\"prop\" proptwo=\"prop\" is=\"header\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "LIST_RENDERING",
+     "CONDITIONALS",
+     "RENDER_MODIFIERS",
+     "GLOBAL",
+     "UNIQUE",
+     "TWO_WAY_BINDING",
+     "OTHER_DIRECTIVES",
+     "OTHER_ATTR",
+     "EVENTS",
+     "CONTENT",
+     "DEFINITION"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid26"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "<template><div ref=\"header\" is=\"header\" propone=\"prop\" proptwo=\"prop\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "LIST_RENDERING",
+     "CONDITIONALS",
+     "RENDER_MODIFIERS",
+     "GLOBAL",
+     "UNIQUE",
+     "TWO_WAY_BINDING",
+     "DEFINITION",
+     "OTHER_DIRECTIVES",
+     "OTHER_ATTR",
+     "EVENTS",
+     "CONTENT"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid27"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 28,
+  "name": null,
+  "code": "<template>\n          <div\n            v-if=\"!visible\"\n            v-for=\"item in items\"\n            v-once\n            is=\"header\"\n            v-on:click=\"functionCall\"\n            ref=\"header\"\n            v-text=\"textContent\"\n            id=\"uniqueID\"\n            :prop=\"headerData\"\n            myProp=\"prop\"\n            >\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "CONDITIONALS",
+     "LIST_RENDERING",
+     "RENDER_MODIFIERS",
+     "DEFINITION",
+     "EVENTS",
+     "UNIQUE",
+     "TWO_WAY_BINDING",
+     "CONTENT",
+     "GLOBAL",
+     "OTHER_ATTR",
+     "OTHER_DIRECTIVES"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid28"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 29,
+  "name": null,
+  "code": "<template>\n          <div\n            v-if=\"!visible\"\n            class=\"content\"\n            v-model=\"foo\"\n            v-text=\"textContent\"\n            >\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "CONDITIONALS",
+     "LIST_RENDERING",
+     "RENDER_MODIFIERS",
+     "DEFINITION",
+     "EVENTS",
+     "UNIQUE",
+     [
+      "TWO_WAY_BINDING",
+      "OTHER_ATTR"
+     ],
+     "CONTENT",
+     "GLOBAL"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid29"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 30,
+  "name": null,
+  "code": "<template>\n          <div\n            id=\"uniqueID\"\n            ref=\"header\"\n            :prop=\"headerData\"\n            :[a+b]=\"headerData\"\n            :[prop]=\"headerData\"\n            myProp=\"prop\"\n            v-on:click=\"functionCall\"\n            v-on:[c]=\"functionCall\"\n            v-text=\"textContent\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid30"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 31,
+  "name": null,
+  "code": "<template>\n          <div\n            a-custom-prop=\"value\"\n            :another-custom-prop=\"value\"\n            :blue-color=\"false\"\n            boolean-prop\n            z-prop=\"Z\"\n            v-on:[c]=\"functionCall\"\n            @change=\"functionCall\"\n            v-on:click=\"functionCall\"\n            @input=\"functionCall\"\n            v-text=\"textContent\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid31"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 32,
+  "name": null,
+  "code": "<template>\n          <div\n            class=\"foo\"\n            :class=\"bar\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid32"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 33,
+  "name": null,
+  "code": "<template>\n          <div\n            class=\"foo\"\n            class=\"bar\">\n          </div>\n        </template>",
+  "filename": "duplicate.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid33"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 34,
+  "name": null,
+  "code": "<template>\n          <div\n            :class=\"foo\"\n            :class=\"bar\">\n          </div>\n        </template>",
+  "filename": "duplicate.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid34"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 35,
+  "name": null,
+  "code": "<template>\n          <div\n            v-if=\"foo\"\n            v-show=\"bar\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid35"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 36,
+  "name": null,
+  "code": "<template>\n          <div\n            v-bar=\"bar\"\n            v-foo=\"foo\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid36"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 37,
+  "name": null,
+  "code": "<template>\n          <div\n            v-foo.a=\"a\"\n            v-foo.b=\"b\">\n          </div>\n        </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid37"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 38,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-bind:id=\"a\"\n          v-bind=\"b\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid38"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 39,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-bind=\"b\"\n          v-bind:id=\"a\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid39"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 40,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-if=\"x\"\n          v-bind:id=\"a\"\n          v-bind=\"b\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid40"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 41,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-if=\"x\"\n          v-bind=\"b\"\n          v-bind:id=\"a\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid41"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 42,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-if=\"x\"\n          v-bind=\"b\"\n          v-model=\"c\"\n          v-bind:value=\"a\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid42"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 43,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-if=\"x\"\n          v-model=\"c\"\n          v-bind=\"b\"\n          v-bind:value=\"a\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid43"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 44,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-if=\"x\"\n          v-bind=\"b\"\n          v-bind:id=\"a\"\n          v-model=\"c\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid44"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 45,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-for=\"a in items\"\n          v-if=\"a\"\n          attr=\"a\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "LIST_RENDERING",
+     "CONDITIONALS"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid45"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 46,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          :prop-bind=\"prop\"\n          prop-one=\"prop\"\n          prop-two=\"prop\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "ATTR_DYNAMIC",
+     "ATTR_STATIC"
+    ],
+    "alphabetical": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid46"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 47,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-model=\"a\n          :class=\"b\"\n          :is=\"c\"\n          prop-one=\"d\"\n          class=\"e\"\n          prop-two=\"f\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "TWO_WAY_BINDING",
+     "ATTR_DYNAMIC",
+     "ATTR_STATIC"
+    ],
+    "alphabetical": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid47"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 48,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          prop-one=\"a\"\n          prop-three=\"b\"\n          :prop-two=\"c\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "DEFINITION",
+     "LIST_RENDERING",
+     "CONDITIONALS",
+     "RENDER_MODIFIERS",
+     "GLOBAL",
+     [
+      "UNIQUE",
+      "SLOT"
+     ],
+     "TWO_WAY_BINDING",
+     "OTHER_DIRECTIVES",
+     "ATTR_STATIC",
+     "ATTR_DYNAMIC",
+     "EVENTS",
+     "CONTENT"
+    ],
+    "alphabetical": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid48"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 49,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          prop-one=\"a\"\n          :prop-two=\"b\"\n          prop-three=\"c\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "DEFINITION",
+     "LIST_RENDERING",
+     "CONDITIONALS",
+     "RENDER_MODIFIERS",
+     "GLOBAL",
+     [
+      "UNIQUE",
+      "SLOT"
+     ],
+     "TWO_WAY_BINDING",
+     "OTHER_DIRECTIVES",
+     [
+      "ATTR_STATIC",
+      "ATTR_DYNAMIC"
+     ],
+     "EVENTS",
+     "CONTENT"
+    ],
+    "alphabetical": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid49"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 50,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          boolean-prop\n          prop-one=\"a\"\n          prop-two=\"b\"\n          :prop-three=\"c\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "DEFINITION",
+     "LIST_RENDERING",
+     "CONDITIONALS",
+     "RENDER_MODIFIERS",
+     "GLOBAL",
+     [
+      "UNIQUE",
+      "SLOT"
+     ],
+     "TWO_WAY_BINDING",
+     "OTHER_DIRECTIVES",
+     "ATTR_SHORTHAND_BOOL",
+     "ATTR_STATIC",
+     "ATTR_DYNAMIC",
+     "EVENTS",
+     "CONTENT"
+    ],
+    "alphabetical": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid50"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 51,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          short=\"val\"\n          medium-attr=\"value\"\n          very-long-attribute-name=\"value\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "sortLineLength": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid51"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 52,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          v-if=\"condition\"\n          v-show=\"show\"\n          short=\"val\"\n          medium-attr=\"value\"\n          very-long-attribute-name=\"value\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "sortLineLength": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid52"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 53,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          @click=\"fn\"\n          @input=\"handleInput\"\n          @mouseover=\"handleMouseover\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "sortLineLength": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid53"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 54,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          :a=\"value\"\n          :ab=\"value\"\n          :abc=\"value\">\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "sortLineLength": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid54"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 55,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          bb=\"v\"\n          zz=\"v\"\n          aaa=\"v\"\n          @click=\"fn\"\n          @keyup=\"fn\"\n          @submit=\"fn\"\n        ></div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "sortLineLength": true,
+    "alphabetical": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid55"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 56,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          @click=\"handleClick\"\n          v-bind=\"attrs\"\n        ></div>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreVBindObject": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid56"
+ },
+ {
+  "rule": "attributes-order",
+  "kind": "valid",
+  "idx": 57,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          ref=\"ref\"\n          @click=\"handleClick\"\n          v-bind=\"attrs\"\n          @input=\"handleInput\"/>\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreVBindObject": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attributes-order#valid57"
+ }
+]

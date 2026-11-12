@@ -1,0 +1,909 @@
+[
+ {
+  "rule": "html-button-has-type",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><button>Hello World</button></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Missing an explicit type attribute for button.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingTypeAttribute",
+     "message": "Missing an explicit type attribute for button.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#invalid0"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><button type=\"\">Hello World</button></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "A value must be set for button type attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "emptyTypeAttribute",
+     "message": "A value must be set for button type attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#invalid1"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><button type>Hello World</button></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "A value must be set for button type attribute.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "emptyTypeAttribute",
+     "message": "A value must be set for button type attribute.",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#invalid2"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><button type=\"foo\">Hello World</button></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "foo is an invalid value for button type attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidTypeAttribute",
+     "message": "foo is an invalid value for button type attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#invalid3"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><button type=\"button\">Hello World</button></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "button": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "button is a forbidden value for button type attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenTypeAttribute",
+     "message": "button is a forbidden value for button type attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#invalid4"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><button type=\"submit\">Hello World</button></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "submit": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "submit is a forbidden value for button type attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenTypeAttribute",
+     "message": "submit is a forbidden value for button type attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#invalid5"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><button type=\"reset\">Hello World</button></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "reset": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "reset is a forbidden value for button type attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenTypeAttribute",
+     "message": "reset is a forbidden value for button type attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#invalid6"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template>\n                <button type=\"button\">Hello World</button>\n                <button type=\"submit\">Hello World</button>\n                <button type=\"reset\">Hello World</button>\n             </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "button": false,
+    "submit": false,
+    "reset": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "button is a forbidden value for button type attribute.",
+     "line": 2,
+     "column": 30,
+     "endLine": 2,
+     "endColumn": 38
+    },
+    {
+     "message": "submit is a forbidden value for button type attribute.",
+     "line": 3,
+     "column": 30,
+     "endLine": 3,
+     "endColumn": 38
+    },
+    {
+     "message": "reset is a forbidden value for button type attribute.",
+     "line": 4,
+     "column": 30,
+     "endLine": 4,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenTypeAttribute",
+     "message": "button is a forbidden value for button type attribute.",
+     "line": 2,
+     "column": 30,
+     "endLine": 2,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "forbiddenTypeAttribute",
+     "message": "submit is a forbidden value for button type attribute.",
+     "line": 3,
+     "column": 30,
+     "endLine": 3,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "forbiddenTypeAttribute",
+     "message": "reset is a forbidden value for button type attribute.",
+     "line": 4,
+     "column": 30,
+     "endLine": 4,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#invalid7"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template>\n                <button type=\"button\">Hello World</button>\n                <button type=\"submit\">Hello World</button>\n                <button type=\"reset\">Hello World</button>\n                <button type=\"\">Hello World</button>\n                <button type=\"foo\">Hello World</button>\n             </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "button": true,
+    "submit": true,
+    "reset": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "reset is a forbidden value for button type attribute.",
+     "line": 4,
+     "column": 30,
+     "endLine": 4,
+     "endColumn": 37
+    },
+    {
+     "message": "A value must be set for button type attribute.",
+     "line": 5,
+     "column": 30,
+     "endLine": 5,
+     "endColumn": 32
+    },
+    {
+     "message": "foo is an invalid value for button type attribute.",
+     "line": 6,
+     "column": 30,
+     "endLine": 6,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenTypeAttribute",
+     "message": "reset is a forbidden value for button type attribute.",
+     "line": 4,
+     "column": 30,
+     "endLine": 4,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "emptyTypeAttribute",
+     "message": "A value must be set for button type attribute.",
+     "line": 5,
+     "column": 30,
+     "endLine": 5,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidTypeAttribute",
+     "message": "foo is an invalid value for button type attribute.",
+     "line": 6,
+     "column": 30,
+     "endLine": 6,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#invalid8"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><button>Hello World</button><button>Hello World</button></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Missing an explicit type attribute for button.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 19
+    },
+    {
+     "message": "Missing an explicit type attribute for button.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 47
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingTypeAttribute",
+     "message": "Missing an explicit type attribute for button.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "missingTypeAttribute",
+     "message": "Missing an explicit type attribute for button.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#invalid9"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><button :type=\"\">Hello World</button></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "A value must be set for button type attribute.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "emptyTypeAttribute",
+     "message": "A value must be set for button type attribute.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#invalid10"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><button type=\"button\">Hello World</button></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#valid0"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><button type=\"submit\">Hello World</button></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#valid1"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><button type=\"reset\">Hello World</button></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#valid2"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><slot><button type=\"button\">Hello World</button></slot></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#valid3"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template>\n                <button type=\"button\">Hello World</button>\n                <button type=\"submit\">Hello World</button>\n                <button type=\"reset\">Hello World</button>\n             </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#valid4"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><button :type=\"buttonType\">Hello World</button></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#valid5"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#valid6"
+ },
+ {
+  "rule": "html-button-has-type",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><Button>Hello World</Button></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-button-has-type#valid7"
+ }
+]

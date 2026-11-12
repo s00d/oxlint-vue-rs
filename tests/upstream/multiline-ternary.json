@@ -1,0 +1,568 @@
+[
+ {
+  "rule": "multiline-ternary",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div :class=\"{\n            'test': someReallyLongCondition ?\n              aVeryLongOutput : thisCantFitOnASingleLine\n          }\">\n          </div>\n        </template>\n        ",
+  "filename": "test.vue",
+  "options": [
+   "always-multiline"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected newline between consequent and alternate of ternary expression.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 30
+    }
+   ],
+   "output": "\n        <template>\n          <div :class=\"{\n            'test': someReallyLongCondition ?\n              aVeryLongOutput\n: thisCantFitOnASingleLine\n          }\">\n          </div>\n        </template>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedConsAlt",
+     "message": "Expected newline between consequent and alternate of ternary expression.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       120,
+       121
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div :class=\"{\n            'test': someReallyLongCondition ?\n              aVeryLongOutput\n: thisCantFitOnASingleLine\n          }\">\n          </div>\n        </template>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-ternary#invalid0"
+ },
+ {
+  "rule": "multiline-ternary",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <div :class=\"{\n            'test': someReallyLongCondition ?\n              aVeryLongOutput : thisCantFitOnASingleLine\n          }\">\n          </div>\n        </template>\n        ",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected newline between test and consequent of ternary expression.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 44
+    }
+   ],
+   "output": "\n        <template>\n          <div :class=\"{\n            'test': someReallyLongCondition ?aVeryLongOutput : thisCantFitOnASingleLine\n          }\">\n          </div>\n        </template>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedTestCons",
+     "message": "Unexpected newline between test and consequent of ternary expression.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 44,
+     "fix": {
+      "range": [
+       90,
+       105
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div :class=\"{\n            'test': someReallyLongCondition ?aVeryLongOutput : thisCantFitOnASingleLine\n          }\">\n          </div>\n        </template>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-ternary#invalid1"
+ },
+ {
+  "rule": "multiline-ternary",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <div :class=\"{\n            'test': someReallyLongCondition ? aVeryLongOutput : thisCantFitOnASingleLine\n          }\">\n          </div>\n        </template>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected newline between test and consequent of ternary expression.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 44
+    },
+    {
+     "message": "Expected newline between consequent and alternate of ternary expression.",
+     "line": 4,
+     "column": 47,
+     "endLine": 4,
+     "endColumn": 62
+    }
+   ],
+   "output": "\n        <template>\n          <div :class=\"{\n            'test': someReallyLongCondition\n? aVeryLongOutput\n: thisCantFitOnASingleLine\n          }\">\n          </div>\n        </template>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedTestCons",
+     "message": "Expected newline between test and consequent of ternary expression.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 44,
+     "fix": {
+      "range": [
+       88,
+       89
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedConsAlt",
+     "message": "Expected newline between consequent and alternate of ternary expression.",
+     "line": 4,
+     "column": 47,
+     "endLine": 4,
+     "endColumn": 62,
+     "fix": {
+      "range": [
+       106,
+       107
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div :class=\"{\n            'test': someReallyLongCondition\n? aVeryLongOutput\n: thisCantFitOnASingleLine\n          }\">\n          </div>\n        </template>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-ternary#invalid2"
+ },
+ {
+  "rule": "multiline-ternary",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <div :style=\"{\n            'test': someReallyLongCondition ? aVeryLongOutput : thisCantFitOnASingleLine\n          }\">\n          </div>\n        </template>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected newline between test and consequent of ternary expression.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 44
+    },
+    {
+     "message": "Expected newline between consequent and alternate of ternary expression.",
+     "line": 4,
+     "column": 47,
+     "endLine": 4,
+     "endColumn": 62
+    }
+   ],
+   "output": "\n        <template>\n          <div :style=\"{\n            'test': someReallyLongCondition\n? aVeryLongOutput\n: thisCantFitOnASingleLine\n          }\">\n          </div>\n        </template>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedTestCons",
+     "message": "Expected newline between test and consequent of ternary expression.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 44,
+     "fix": {
+      "range": [
+       88,
+       89
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedConsAlt",
+     "message": "Expected newline between consequent and alternate of ternary expression.",
+     "line": 4,
+     "column": 47,
+     "endLine": 4,
+     "endColumn": 62,
+     "fix": {
+      "range": [
+       106,
+       107
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div :style=\"{\n            'test': someReallyLongCondition\n? aVeryLongOutput\n: thisCantFitOnASingleLine\n          }\">\n          </div>\n        </template>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-ternary#invalid3"
+ },
+ {
+  "rule": "multiline-ternary",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <template>\n          <div class=\"test\">\n          </div>\n        </template>\n        <style>\n          .test {\n              color: v-bind('someReallyLongCondition ? aVeryLongOutput : thisCantFitOnASingleLine')\n          }\n        </style>\n        ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected newline between test and consequent of ternary expression.",
+     "line": 8,
+     "column": 30,
+     "endLine": 8,
+     "endColumn": 53
+    },
+    {
+     "message": "Expected newline between consequent and alternate of ternary expression.",
+     "line": 8,
+     "column": 56,
+     "endLine": 8,
+     "endColumn": 71
+    }
+   ],
+   "output": "\n        <template>\n          <div class=\"test\">\n          </div>\n        </template>\n        <style>\n          .test {\n              color: v-bind('someReallyLongCondition\n? aVeryLongOutput\n: thisCantFitOnASingleLine')\n          }\n        </style>\n        "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedTestCons",
+     "message": "Expected newline between test and consequent of ternary expression.",
+     "line": 8,
+     "column": 30,
+     "endLine": 8,
+     "endColumn": 53,
+     "fix": {
+      "range": [
+       172,
+       173
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedConsAlt",
+     "message": "Expected newline between consequent and alternate of ternary expression.",
+     "line": 8,
+     "column": 56,
+     "endLine": 8,
+     "endColumn": 71,
+     "fix": {
+      "range": [
+       190,
+       191
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div class=\"test\">\n          </div>\n        </template>\n        <style>\n          .test {\n              color: v-bind('someReallyLongCondition\n? aVeryLongOutput\n: thisCantFitOnASingleLine')\n          }\n        </style>\n        ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-ternary#invalid4"
+ },
+ {
+  "rule": "multiline-ternary",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div :class=\"{\n          'test': someReallyLongCondition ? aVeryLongOutput : thisCantFitOnASingleLine\n        }\">\n        </div>\n      </template>\n      <script>\n        let test = someReallyLongCondition ? aVeryLongOutput : thisCantFitOnASingleLine\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected newline between test and consequent of ternary expression.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 42
+    },
+    {
+     "message": "Expected newline between consequent and alternate of ternary expression.",
+     "line": 4,
+     "column": 45,
+     "endLine": 4,
+     "endColumn": 60
+    }
+   ],
+   "output": "\n      <template>\n        <div :class=\"{\n          'test': someReallyLongCondition\n? aVeryLongOutput\n: thisCantFitOnASingleLine\n        }\">\n        </div>\n      </template>\n      <script>\n        let test = someReallyLongCondition ? aVeryLongOutput : thisCantFitOnASingleLine\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedTestCons",
+     "message": "Expected newline between test and consequent of ternary expression.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 42,
+     "fix": {
+      "range": [
+       82,
+       83
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedConsAlt",
+     "message": "Expected newline between consequent and alternate of ternary expression.",
+     "line": 4,
+     "column": 45,
+     "endLine": 4,
+     "endColumn": 60,
+     "fix": {
+      "range": [
+       100,
+       101
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div :class=\"{\n          'test': someReallyLongCondition\n? aVeryLongOutput\n: thisCantFitOnASingleLine\n        }\">\n        </div>\n      </template>\n      <script>\n        let test = someReallyLongCondition ? aVeryLongOutput : thisCantFitOnASingleLine\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-ternary#invalid5"
+ },
+ {
+  "rule": "multiline-ternary",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div :class=\"{\n          'test': someReallyLongCondition ?\n            aVeryLongOutput :\n            thisCantFitOnASingleLine\n        }\">\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-ternary#valid0"
+ },
+ {
+  "rule": "multiline-ternary",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n        let test = someReallyLongCondition ? aVeryLongOutput : thisCantFitOnASingleLine\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-ternary#valid1"
+ },
+ {
+  "rule": "multiline-ternary",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div :class=\"{\n          'test': someReallyLongCondition ? aVeryLongOutput : thisCantFitOnASingleLine\n        }\">\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-ternary#valid2"
+ },
+ {
+  "rule": "multiline-ternary",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n          <div class=\"test\">\n          </div>\n      </template>\n      <style>\n        .test {\n            color: v-bind('someReallyLongCondition ? aVeryLongOutput : thisCantFitOnASingleLine')\n        }\n      </style>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-ternary#valid3"
+ }
+]

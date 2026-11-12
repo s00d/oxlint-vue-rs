@@ -1,0 +1,416 @@
+[
+ {
+  "rule": "dot-notation",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :attr=\"foo['bar']\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "[\"bar\"] is better written in dot notation.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ],
+   "output": "<template><div :attr=\"foo.bar\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "useDot",
+     "message": "[\"bar\"] is better written in dot notation.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       25,
+       32
+      ],
+      "text": ".bar"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"foo.bar\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "dot-notation#invalid0"
+ },
+ {
+  "rule": "dot-notation",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :[foo[`bar`]]=\"a\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "[`bar`] is better written in dot notation.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 27
+    }
+   ],
+   "output": "<template><div :[foo.bar]=\"a\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "useDot",
+     "message": "[`bar`] is better written in dot notation.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       20,
+       27
+      ],
+      "text": ".bar"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :[foo.bar]=\"a\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "dot-notation#invalid1"
+ },
+ {
+  "rule": "dot-notation",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <style>\n      .text {\n        color: v-bind(foo[`bar`])\n      }\n      </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "[`bar`] is better written in dot notation.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 32
+    }
+   ],
+   "output": "\n      <style>\n      .text {\n        color: v-bind(foo.bar)\n      }\n      </style>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "useDot",
+     "message": "[`bar`] is better written in dot notation.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       54,
+       61
+      ],
+      "text": ".bar"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <style>\n      .text {\n        color: v-bind(foo.bar)\n      }\n      </style>",
+   "other": null,
+   "crash": null
+  },
+  "id": "dot-notation#invalid2"
+ },
+ {
+  "rule": "dot-notation",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <style>\n      .text {\n        color: v-bind(\"foo[`bar`]\")\n      }\n      </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "[`bar`] is better written in dot notation.",
+     "line": 4,
+     "column": 28,
+     "endLine": 4,
+     "endColumn": 33
+    }
+   ],
+   "output": "\n      <style>\n      .text {\n        color: v-bind(\"foo.bar\")\n      }\n      </style>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "useDot",
+     "message": "[`bar`] is better written in dot notation.",
+     "line": 4,
+     "column": 28,
+     "endLine": 4,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       55,
+       62
+      ],
+      "text": ".bar"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <style>\n      .text {\n        color: v-bind(\"foo.bar\")\n      }\n      </style>",
+   "other": null,
+   "crash": null
+  },
+  "id": "dot-notation#invalid3"
+ },
+ {
+  "rule": "dot-notation",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :attr=\"foo.bar\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "dot-notation#valid0"
+ },
+ {
+  "rule": "dot-notation",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div attr=\"foo['bar']\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "dot-notation#valid1"
+ },
+ {
+  "rule": "dot-notation",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :[foo.bar]=\"a\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "dot-notation#valid2"
+ },
+ {
+  "rule": "dot-notation",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :attr=\"foo[bar]\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "dot-notation#valid3"
+ },
+ {
+  "rule": "dot-notation",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :[foo[bar]]=\"a\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "dot-notation#valid4"
+ },
+ {
+  "rule": "dot-notation",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n    <style>\n    .text {\n      color: v-bind(foo.bar)\n    }\n    </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "dot-notation#valid5"
+ }
+]

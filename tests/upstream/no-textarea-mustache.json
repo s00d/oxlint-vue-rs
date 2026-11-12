@@ -1,0 +1,262 @@
+[
+ {
+  "rule": "no-textarea-mustache",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div><textarea>{{text}}</textarea></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mustache. Use 'v-model' instead.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache. Use 'v-model' instead.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-textarea-mustache#invalid0"
+ },
+ {
+  "rule": "no-textarea-mustache",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div><textarea v-model=\"text\">{{text}}</textarea></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mustache. Use 'v-model' instead.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 49
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache. Use 'v-model' instead.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-textarea-mustache#invalid1"
+ },
+ {
+  "rule": "no-textarea-mustache",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div><textarea>{{text}} and {{text}}</textarea></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mustache. Use 'v-model' instead.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 34
+    },
+    {
+     "message": "Unexpected mustache. Use 'v-model' instead.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 47
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache. Use 'v-model' instead.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache. Use 'v-model' instead.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-textarea-mustache#invalid2"
+ },
+ {
+  "rule": "no-textarea-mustache",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-textarea-mustache#valid0"
+ },
+ {
+  "rule": "no-textarea-mustache",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div><textarea v-model=\"text\"></textarea></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-textarea-mustache#valid1"
+ },
+ {
+  "rule": "no-textarea-mustache",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div><Textarea>{{text}}</Textarea></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-textarea-mustache#valid2"
+ }
+]

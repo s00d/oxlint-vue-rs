@@ -1,0 +1,922 @@
+[
+ {
+  "rule": "no-restricted-call-after-await",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n      import { useI18n } from 'vue-i18n'\n      export default {\n        async setup() {\n          await doSomething()\n          const { t } = useI18n({ })\n          return { t }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "module": "vue-i18n",
+    "path": "useI18n"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`import(\"vue-i18n\").useI18n` is forbidden after an `await` expression.",
+     "line": 7,
+     "column": 25,
+     "endLine": 7,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restricted",
+     "message": "`import(\"vue-i18n\").useI18n` is forbidden after an `await` expression.",
+     "line": 7,
+     "column": 25,
+     "endLine": 7,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-call-after-await#invalid0"
+ },
+ {
+  "rule": "no-restricted-call-after-await",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      import { bar } from 'foo'\n      export default {\n        async setup() {\n          await doSomething()\n          const qux = bar.baz({ })\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "module": "foo",
+    "path": [
+     "bar",
+     "baz"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`import(\"foo\").bar.baz` is forbidden after an `await` expression.",
+     "line": 7,
+     "column": 23,
+     "endLine": 7,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restricted",
+     "message": "`import(\"foo\").bar.baz` is forbidden after an `await` expression.",
+     "line": 7,
+     "column": 23,
+     "endLine": 7,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-call-after-await#invalid1"
+ },
+ {
+  "rule": "no-restricted-call-after-await",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n      import { bar } from 'foo'\n      import { useI18n } from 'vue-i18n'\n      export default {\n        async setup() {\n          await doSomething()\n          const {t} = useI18n({ })\n          const qux = bar.baz({ })\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "module": "vue-i18n",
+    "path": "useI18n"
+   },
+   {
+    "module": "foo",
+    "path": [
+     "bar",
+     "baz"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`import(\"vue-i18n\").useI18n` is forbidden after an `await` expression.",
+     "line": 8,
+     "column": 23,
+     "endLine": 8,
+     "endColumn": 35
+    },
+    {
+     "message": "`import(\"foo\").bar.baz` is forbidden after an `await` expression.",
+     "line": 9,
+     "column": 23,
+     "endLine": 9,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restricted",
+     "message": "`import(\"vue-i18n\").useI18n` is forbidden after an `await` expression.",
+     "line": 8,
+     "column": 23,
+     "endLine": 8,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restricted",
+     "message": "`import(\"foo\").bar.baz` is forbidden after an `await` expression.",
+     "line": 9,
+     "column": 23,
+     "endLine": 9,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-call-after-await#invalid2"
+ },
+ {
+  "rule": "no-restricted-call-after-await",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n      import def from 'foo'\n      export default {\n        async setup() {\n          await doSomething()\n          const v = def({ })\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "module": "foo",
+    "path": "default"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`import(\"foo\").default` is forbidden after an `await` expression.",
+     "line": 7,
+     "column": 21,
+     "endLine": 7,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restricted",
+     "message": "`import(\"foo\").default` is forbidden after an `await` expression.",
+     "line": 7,
+     "column": 21,
+     "endLine": 7,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-call-after-await#invalid3"
+ },
+ {
+  "rule": "no-restricted-call-after-await",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      import def from 'foo'\n      export default {\n        async setup() {\n          await doSomething()\n          const v = def({ })\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "module": "foo"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`import(\"foo\").default` is forbidden after an `await` expression.",
+     "line": 7,
+     "column": 21,
+     "endLine": 7,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restricted",
+     "message": "`import(\"foo\").default` is forbidden after an `await` expression.",
+     "line": 7,
+     "column": 21,
+     "endLine": 7,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-call-after-await#invalid4"
+ },
+ {
+  "rule": "no-restricted-call-after-await",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script>\n      import * as i18n from 'vue-i18n'\n      export default {\n        async setup() {\n          await doSomething()\n          const v = i18n.useI18n({ })\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "module": "vue-i18n",
+    "path": "useI18n"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`import(\"vue-i18n\").useI18n` is forbidden after an `await` expression.",
+     "line": 7,
+     "column": 21,
+     "endLine": 7,
+     "endColumn": 38
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restricted",
+     "message": "`import(\"vue-i18n\").useI18n` is forbidden after an `await` expression.",
+     "line": 7,
+     "column": 21,
+     "endLine": 7,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-call-after-await#invalid5"
+ },
+ {
+  "rule": "no-restricted-call-after-await",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script>\n      import {useI18n} from 'vue-i18n'\n      import { bar } from './foo'\n      import { qux } from './baz'\n      export default {\n        async setup() {\n          useI18n()\n          await doSomething()\n          const v = bar({ })\n          qux()\n          useI18n()\n        }\n      }\n      </script>\n      ",
+  "filename": "/eslint-plugin-vue/test.vue",
+  "options": [
+   {
+    "module": "./foo",
+    "path": "bar"
+   },
+   {
+    "module": "./baz",
+    "path": "qux"
+   },
+   {
+    "module": "vue-i18n",
+    "path": "useI18n"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`import(\"./foo\").bar` is forbidden after an `await` expression.",
+     "line": 10,
+     "column": 21,
+     "endLine": 10,
+     "endColumn": 29
+    },
+    {
+     "message": "`import(\"./baz\").qux` is forbidden after an `await` expression.",
+     "line": 11,
+     "column": 11,
+     "endLine": 11,
+     "endColumn": 16
+    },
+    {
+     "message": "`import(\"vue-i18n\").useI18n` is forbidden after an `await` expression.",
+     "line": 12,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 20
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restricted",
+     "message": "`import(\"./foo\").bar` is forbidden after an `await` expression.",
+     "line": 10,
+     "column": 21,
+     "endLine": 10,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restricted",
+     "message": "`import(\"./baz\").qux` is forbidden after an `await` expression.",
+     "line": 11,
+     "column": 11,
+     "endLine": 11,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restricted",
+     "message": "`import(\"vue-i18n\").useI18n` is forbidden after an `await` expression.",
+     "line": 12,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-call-after-await#invalid6"
+ },
+ {
+  "rule": "no-restricted-call-after-await",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script>\n      import {useI18n} from 'vue-i18n'\n      import { bar } from './foo'\n      import { qux } from './baz'\n      export default {\n        async setup() {\n          useI18n()\n          await doSomething()\n          const v = bar({ })\n          qux()\n          useI18n()\n        }\n      }\n      </script>\n      ",
+  "filename": "/eslint-plugin-vue/test.vue",
+  "options": [
+   {
+    "module": "/eslint-plugin-vue/foo",
+    "path": "bar"
+   },
+   {
+    "module": "/eslint-plugin-vue/baz",
+    "path": "qux"
+   },
+   {
+    "module": "vue-i18n",
+    "path": "useI18n"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`import(\"./foo\").bar` is forbidden after an `await` expression.",
+     "line": 10,
+     "column": 21,
+     "endLine": 10,
+     "endColumn": 29
+    },
+    {
+     "message": "`import(\"./baz\").qux` is forbidden after an `await` expression.",
+     "line": 11,
+     "column": 11,
+     "endLine": 11,
+     "endColumn": 16
+    },
+    {
+     "message": "`import(\"vue-i18n\").useI18n` is forbidden after an `await` expression.",
+     "line": 12,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 20
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restricted",
+     "message": "`import(\"./foo\").bar` is forbidden after an `await` expression.",
+     "line": 10,
+     "column": 21,
+     "endLine": 10,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restricted",
+     "message": "`import(\"./baz\").qux` is forbidden after an `await` expression.",
+     "line": 11,
+     "column": 11,
+     "endLine": 11,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restricted",
+     "message": "`import(\"vue-i18n\").useI18n` is forbidden after an `await` expression.",
+     "line": 12,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-call-after-await#invalid7"
+ },
+ {
+  "rule": "no-restricted-call-after-await",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script>\n      import { foo } from '..'\n      export default {\n        async setup() {\n          await doSomething()\n          foo({})\n        }\n      }\n      </script>\n      ",
+  "filename": "/eslint-plugin-vue/test/test.vue",
+  "options": [
+   {
+    "module": "/eslint-plugin-vue/dist/index.js",
+    "path": "foo"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`import(\"..\").foo` is forbidden after an `await` expression.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restricted",
+     "message": "`import(\"..\").foo` is forbidden after an `await` expression.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-call-after-await#invalid8"
+ },
+ {
+  "rule": "no-restricted-call-after-await",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n      import { useI18n } from 'vue-i18n'\n      export default {\n        async setup() {\n          const { t } = useI18n({ })\n          return { t }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "module": "vue-i18n",
+    "path": "useI18n"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-call-after-await#valid0"
+ },
+ {
+  "rule": "no-restricted-call-after-await",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      import { useI18n } from 'vue-i18n'\n      export default {\n        async foo() {\n          await doSomething()\n          const { t } = useI18n({ })\n          return { t }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "module": "vue-i18n",
+    "path": "useI18n"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-call-after-await#valid1"
+ },
+ {
+  "rule": "no-restricted-call-after-await",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n      import { bar } from 'foo'\n      export default {\n        async setup() {\n          const qux = bar.baz({ })\n          await doSomething()\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "module": "foo",
+    "path": [
+     "bar",
+     "baz"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-call-after-await#valid2"
+ },
+ {
+  "rule": "no-restricted-call-after-await",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        async setup() {\n          await doSomething()\n          const v = bar({ })\n          qux()\n          useI18n()\n        }\n      }\n      </script>\n      ",
+  "filename": "/eslint-plugin-vue/test.vue",
+  "options": [
+   {
+    "module": "./foo",
+    "path": "bar"
+   },
+   {
+    "module": "./baz",
+    "path": "qux"
+   },
+   {
+    "module": "vue-i18n",
+    "path": "useI18n"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-call-after-await#valid3"
+ },
+ {
+  "rule": "no-restricted-call-after-await",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      import {useI18n} from 'vue-i18n'\n      import { bar } from './foo'\n      import { qux } from './baz'\n      export default {\n        async setup() {\n          const v = bar({ })\n          qux()\n          useI18n()\n          await doSomething()\n        }\n      }\n      </script>\n      ",
+  "filename": "/eslint-plugin-vue/test.vue",
+  "options": [
+   {
+    "module": "./foo",
+    "path": "bar"
+   },
+   {
+    "module": "./baz",
+    "path": "qux"
+   },
+   {
+    "module": "vue-i18n",
+    "path": "useI18n"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-call-after-await#valid4"
+ },
+ {
+  "rule": "no-restricted-call-after-await",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script>\n      import {useI18n} from 'vue-i18n'\n      import { bar } from './foo'\n      import { qux } from './baz'\n      const v = bar({ })\n      qux()\n      useI18n()\n      export default {\n        async setup() {\n          await doSomething()\n        }\n      }\n      </script>\n      ",
+  "filename": "/eslint-plugin-vue/test.vue",
+  "options": [
+   {
+    "module": "./foo",
+    "path": "bar"
+   },
+   {
+    "module": "./baz",
+    "path": "qux"
+   },
+   {
+    "module": "vue-i18n",
+    "path": "useI18n"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-call-after-await#valid5"
+ },
+ {
+  "rule": "no-restricted-call-after-await",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script setup>\n      import {useI18n} from 'vue-i18n'\n      useI18n()\n      await doSomething()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "module": "vue-i18n",
+    "path": "useI18n"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2022,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-call-after-await#valid6"
+ },
+ {
+  "rule": "no-restricted-call-after-await",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script setup>\n      import {useI18n} from 'vue-i18n'\n      await doSomething()\n      useI18n()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "module": "vue-i18n",
+    "path": "useI18n"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2022,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-call-after-await#valid7"
+ }
+]

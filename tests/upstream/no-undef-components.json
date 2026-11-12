@@ -1,0 +1,2693 @@
+[
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script setup>\n      import Bar from './Bar.vue'\n      </script>\n\n      <template>\n        <Foo />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<Foo>' component has been used, but not defined.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<Foo>' component has been used, but not defined.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid0"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script setup>\n      import PascalCase from './component.vue'\n      </script>\n\n      <template>\n        <pascal_case />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<pascal_case>' component has been used, but not defined.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<pascal_case>' component has been used, but not defined.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid1"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup>\n      import * as Form from './form-components'\n      </script>\n\n      <template>\n        <Foo.Input />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<Foo.Input>' component has been used, but not defined.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<Foo.Input>' component has been used, but not defined.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid2"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n        import type Foo from './Foo.vue'\n        import type {HelloWorld1} from './components/HelloWorld'\n        import { type HelloWorld2 } from './components/HelloWorld2'\n        import type {HelloWorld as HelloWorld3} from './components/HelloWorld3'\n        import { type HelloWorld as HelloWorld4 } from './components/HelloWorld4';\n        import { type default as HelloWorld5 } from './components/HelloWorld5';\n      </script>\n\n      <template>\n        <Foo />\n        <HelloWorld1 />\n        <HelloWorld2 />\n        <HelloWorld3 />\n        <HelloWorld4 />\n        <HelloWorld5 />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<Foo>' component has been used, but 'Foo' only refers to a type.",
+     "line": 12,
+     "column": 9,
+     "endLine": 12,
+     "endColumn": 16
+    },
+    {
+     "message": "The '<HelloWorld1>' component has been used, but 'HelloWorld1' only refers to a type.",
+     "line": 13,
+     "column": 9,
+     "endLine": 13,
+     "endColumn": 24
+    },
+    {
+     "message": "The '<HelloWorld2>' component has been used, but 'HelloWorld2' only refers to a type.",
+     "line": 14,
+     "column": 9,
+     "endLine": 14,
+     "endColumn": 24
+    },
+    {
+     "message": "The '<HelloWorld3>' component has been used, but 'HelloWorld3' only refers to a type.",
+     "line": 15,
+     "column": 9,
+     "endLine": 15,
+     "endColumn": 24
+    },
+    {
+     "message": "The '<HelloWorld4>' component has been used, but 'HelloWorld4' only refers to a type.",
+     "line": 16,
+     "column": 9,
+     "endLine": 16,
+     "endColumn": 24
+    },
+    {
+     "message": "The '<HelloWorld5>' component has been used, but 'HelloWorld5' only refers to a type.",
+     "line": 17,
+     "column": 9,
+     "endLine": 17,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "typeOnly",
+     "message": "The '<Foo>' component has been used, but 'Foo' only refers to a type.",
+     "line": 12,
+     "column": 9,
+     "endLine": 12,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "typeOnly",
+     "message": "The '<HelloWorld1>' component has been used, but 'HelloWorld1' only refers to a type.",
+     "line": 13,
+     "column": 9,
+     "endLine": 13,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "typeOnly",
+     "message": "The '<HelloWorld2>' component has been used, but 'HelloWorld2' only refers to a type.",
+     "line": 14,
+     "column": 9,
+     "endLine": 14,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "typeOnly",
+     "message": "The '<HelloWorld3>' component has been used, but 'HelloWorld3' only refers to a type.",
+     "line": 15,
+     "column": 9,
+     "endLine": 15,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "typeOnly",
+     "message": "The '<HelloWorld4>' component has been used, but 'HelloWorld4' only refers to a type.",
+     "line": 16,
+     "column": 9,
+     "endLine": 16,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "typeOnly",
+     "message": "The '<HelloWorld5>' component has been used, but 'HelloWorld5' only refers to a type.",
+     "line": 17,
+     "column": 9,
+     "endLine": 17,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid3"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n        type Foo = {}\n      </script>\n\n      <template>\n        <Foo />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<Foo>' component has been used, but 'Foo' only refers to a type.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "typeOnly",
+     "message": "The '<Foo>' component has been used, but 'Foo' only refers to a type.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid4"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script setup>\n      defineOptions({ name: 'tree-node' })\n      </script>\n\n      <template>\n        <tree-node />\n        <TreeNode />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<TreeNode>' component has been used, but not defined.",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<TreeNode>' component has been used, but not defined.",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid5"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script setup>\n      defineOptions()\n      </script>\n\n      <template>\n        <TreeNode />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<TreeNode>' component has been used, but not defined.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<TreeNode>' component has been used, but not defined.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid6"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script setup>\n      import options from './options'\n      defineOptions(options)\n      </script>\n\n      <template>\n        <TreeNode />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<TreeNode>' component has been used, but not defined.",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<TreeNode>' component has been used, but not defined.",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid7"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        <template>\n          <CustomComponent />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<CustomComponent>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<CustomComponent>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid8"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        <template>\n          <WarmButton />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignorePatterns": [
+     "custom(\\-\\w+)+"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<WarmButton>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<WarmButton>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid9"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        <template>\n          <CustomComponent>\n            Some text\n          </CustomComponent>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<CustomComponent>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<CustomComponent>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid10"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        <template>\n          <WarmButton>\n            Some text\n          </WarmButton>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignorePatterns": [
+     "custom(\\-\\w+)+"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<WarmButton>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<WarmButton>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid11"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n        <template>\n          <CustomComponent />\n        </template>\n        <script>\n        export default {\n          components: {\n            WarmButton\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<CustomComponent>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<CustomComponent>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid12"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n        <template>\n          <CustomComponent>\n            Some text\n          </CustomComponent>\n        </template>\n        <script>\n        export default {\n          components: {\n            WarmButton\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<CustomComponent>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<CustomComponent>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid13"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n        <template>\n          <component :is=\"'CustomComponent'\" />\n        </template>\n        <script>\n        export default {\n          components: {\n            WarmButton\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<CustomComponent>' component has been used, but not defined.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 45
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<CustomComponent>' component has been used, but not defined.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 45,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid14"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n        <template>\n          <component :is=\"'CustomComponent'\">\n            Some text\n          </component>\n        </template>\n        <script>\n        export default {\n          components: {\n            WarmButton\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<CustomComponent>' component has been used, but not defined.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 45
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<CustomComponent>' component has been used, but not defined.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 45,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid15"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n        <template>\n          <CustomComponent />\n        </template>\n        <script>\n        export default {\n          components: {\n            'custom-component': InfoPrimaryWrapper\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<CustomComponent>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<CustomComponent>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid16"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n        <template>\n          <CustomComponent />\n        </template>\n        <script>\n        export default {\n          name: CustomComponent\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<CustomComponent>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<CustomComponent>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid17"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n        <template>\n          <CustomComponentWithNamedSlots>\n            <template #slotA>\n              <div>Text</div>\n            </template>\n          </CustomComponentWithNamedSlots>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<CustomComponentWithNamedSlots>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 42
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<CustomComponentWithNamedSlots>' component has been used, but not defined.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid18"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "\n        <template>\n          <div is=\"vue:foo\" />\n        </template>\n        <script>\n        export default {\n          components: {\n            bar\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<foo>' component has been used, but not defined.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<foo>' component has been used, but not defined.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid19"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "\n        <template>\n          <div v-is=\"'foo'\" />\n        </template>\n        <script>\n        export default {\n          components: {\n            bar\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<foo>' component has been used, but not defined.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "The '<foo>' component has been used, but not defined.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#invalid20"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script setup>\n        import Foo from './Foo.vue'\n      </script>\n\n      <template>\n        <Foo />\n        <Teleport />\n        <template v-if=\"foo\"></template>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid0"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script setup>\n        import FooPascalCase from './component.vue'\n        import BarPascalCase from './component.vue'\n        import BazPascalCase from './component.vue'\n      </script>\n\n      <template>\n        <FooPascalCase />\n        <bar-pascal-case />\n        <bazPascalCase />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid1"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup>\n      import fooCamelCase from './component.vue'\n      import barCamelCase from './component.vue'\n      </script>\n\n      <template>\n        <fooCamelCase />\n        <bar-camel-case />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid2"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script setup>\n      import * as Form from './form-components'\n      </script>\n\n      <template>\n        <Form.Input>\n          <Form.Label>label</Form.Label>\n        </Form.Input>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid3"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script setup>\n      import Bar from './Bar.vue'\n      </script>\n\n      <template>\n        <Foo />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignorePatterns": [
+     "Foo"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid4"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script setup>\n      import Bar from './Bar.vue'\n      </script>\n\n      <template>\n        <CustomComponent />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignorePatterns": [
+     "custom(\\-\\w+)+"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid5"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script setup>\n      </script>\n\n      <template>\n        <test />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid6"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script setup>\n      </script>\n\n      <template>\n        <FooBar />\n        <foo-bar />\n      </template>\n      ",
+  "filename": "FooBar.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid7"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        name: 'BarFoo'\n      }\n      </script>\n      <script setup>\n      </script>\n\n      <template>\n        <FooBar />\n        <foo-bar />\n        <BarFoo />\n        <bar-foo />\n      </template>\n      ",
+  "filename": "FooBar.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid8"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <ul>\n          <AdminToolbarSubtree v-for=\"item in items\" :key=\"item.id\" :items=\"item.children\" />\n          <admin-toolbar-subtree />\n          <component is=\"AdminToolbarSubtree\" />\n        </ul>\n      </template>\n\n      <script setup>\n      defineOptions({\n        name: 'AdminToolbarSubtree'\n      })\n      defineProps({ items: Array })\n      </script>\n      ",
+  "filename": "Subtree.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid9"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        <template>\n          <div>Lorem ipsum</div>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid10"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        <template>\n          <CustomComponent />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignorePatterns": [
+     "custom(\\-\\w+)+"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid11"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n        <template>\n          <CustomComponent>\n            Some text\n          </CustomComponent>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignorePatterns": [
+     "custom(\\-\\w+)+"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid12"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n        <template>\n          <custom-component>\n            Some text\n          </custom-component>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignorePatterns": [
+     "custom(\\-\\w+)+"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid13"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n        <template>\n          <custom-component>\n            Some text\n          </custom-component>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignorePatterns": [
+     "Custom(\\w+)+"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid14"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n        <template>\n          <custom_component>\n            Some text\n          </custom_component>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignorePatterns": [
+     "Custom(\\w+)+"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid15"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n        <template>\n          <customComponent>\n            Some text\n          </customComponent>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignorePatterns": [
+     "Custom(\\w+)+"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid16"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n        <template>\n          <customComponent>\n            <warm-code>Text</warm-code>\n            <InfoBtnPrimary value=\"text\" />\n          </customComponent>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignorePatterns": [
+     "Custom(\\w+)+",
+     "Warm(\\w+)+",
+     "InfoBtn(\\w+)+"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid17"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n        <template>\n          <CustomComponent />\n        </template>\n        <script>\n        export default defineNuxtComponent({\n          components: {\n            CustomComponent\n          }\n        })\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid18"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "\n        <template>\n          <CustomComponent />\n        </template>\n        <script>\n        export default {\n          components: {\n            CustomComponent\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid19"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "\n        <template>\n          <CustomComponent>\n            Some text\n          </CustomComponent>\n        </template>\n        <script>\n        export default {\n          components: {\n            CustomComponent\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid20"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "\n        <template>\n          <component :is=\"'CustomComponent'\" />\n        </template>\n        <script>\n        export default {\n          components: {\n            CustomComponent\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid21"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "\n        <template>\n          <component :is=\"'CustomComponent'\">\n            Some text\n          </component>\n        </template>\n        <script>\n        export default {\n          components: {\n            CustomComponent\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid22"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "\n        <template>\n          <component v-if=\"showComponent\" :is=\"'CustomComponent'\" />\n        </template>\n        <script>\n        export default {\n          data: () => ({\n            showComponent: true\n          }),\n          components: {\n            CustomComponent\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid23"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "\n        <template>\n          <component v-if=\"showComponent\" :is=\"'CustomComponent'\" />\n        </template>\n        <script>\n        export default {\n          data: () => ({\n            showComponent: false\n          }),\n          components: {\n            CustomComponent\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid24"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "\n        <template>\n          <component :is=\"'div'\" />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid25"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "\n        <template>\n          <component is=\"div\" />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid26"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "\n        <template>\n          <component is=\"span\">\n            Text\n          </component>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid27"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 28,
+  "name": null,
+  "code": "\n        <template>\n          <Component is=\"div\" />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid28"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 29,
+  "name": null,
+  "code": "\n        <template>\n          <Component is=\"span\">\n            Text\n          </Component>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid29"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 30,
+  "name": null,
+  "code": "\n        <template>\n          <component :is=\"name\" />\n        </template>\n        <script>\n        export default {\n          data: () => ({ name: 'div' })\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid30"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 31,
+  "name": null,
+  "code": "\n        <template>\n          <component :is=\"name\" />\n        </template>\n        <script>\n        export default {\n          data: () => ({ name: 'warm-button' }),\n          components: { WarmButton }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid31"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 32,
+  "name": null,
+  "code": "\n        <template>\n          <teleport />\n          <suspense />\n          <suspense>\n            <div>Text</div>\n          </suspense>\n          <Teleport />\n          <Suspense />\n          <Suspense>\n            <div>Text</div>\n          </Suspense>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid32"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 33,
+  "name": null,
+  "code": "\n        <template>\n          <transition />\n          <transition-group />\n          <keep-alive />\n          <transition>\n            <div>Text</div>\n          </transition>\n          <TransitionGroup />\n          <KeepAlive />\n          <Transition>\n            <div>Text</div>\n          </Transition>\n          <Slot />\n          <slot />\n          <slot>\n            foo\n          </slot>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid33"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 34,
+  "name": null,
+  "code": "\n        <template>\n          <Custom-Component />\n        </template>\n        <script>\n        export default {\n          components: {\n            'custom-component': InfoPrimaryWrapper\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid34"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 35,
+  "name": null,
+  "code": "\n        <template>\n          <component is />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid35"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 36,
+  "name": null,
+  "code": "\n        <template>\n          <Component is />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid36"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 37,
+  "name": null,
+  "code": "\n        <template>\n          <div v-is=\"'CustomComponent'\" />\n        </template>\n        <script>\n        export default {\n          components: {\n            CustomComponent\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid37"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 38,
+  "name": null,
+  "code": "\n        <template>\n          <CustomComponent />\n        </template>\n        <script>\n        export default {\n          name: 'CustomComponent'\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid38"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 39,
+  "name": null,
+  "code": "\n        <template>\n          <custom-component />\n        </template>\n        <script>\n        export default {\n          name: 'CustomComponent'\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid39"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 40,
+  "name": null,
+  "code": "\n        <template>\n          <custom-component />\n        </template>\n        <script>\n        export default {\n          name: `CustomComponent`\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid40"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 41,
+  "name": null,
+  "code": "\n        <template>\n          <component :is=\"'CustomComponent'\" />\n        </template>\n        <script>\n        export default {\n          name: 'CustomComponent'\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid41"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 42,
+  "name": null,
+  "code": "\n        <template>\n          <component is=\"CustomComponent\" />\n        </template>\n        <script>\n        export default {\n          name: 'CustomComponent'\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid42"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 43,
+  "name": null,
+  "code": "\n        <template>\n          <component is=\"vue:CustomComponent\" />\n        </template>\n        <script>\n        export default {\n          name: 'CustomComponent'\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid43"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 44,
+  "name": null,
+  "code": "\n        <template>\n          <div v-is=\"'CustomComponent'\" />\n        </template>\n        <script>\n        export default {\n          name: 'CustomComponent'\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid44"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 45,
+  "name": null,
+  "code": "\n        <template>\n          <CustomComponentWithNamedSlots>\n            <template #slotA>\n              <div>Text</div>\n            </template>\n          </CustomComponentWithNamedSlots>\n        </template>\n        <script>\n        export default {\n          components: {\n            CustomComponentWithNamedSlots\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid45"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 46,
+  "name": null,
+  "code": "\n      <template>\n        <TheModal />\n      </template>\n\n      <script setup>\n      import TheModal from 'foo'\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid46"
+ },
+ {
+  "rule": "no-undef-components",
+  "kind": "valid",
+  "idx": 47,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n        import Foo from './Foo.vue'\n        import {HelloWorld1} from './components/HelloWorld'\n      </script>\n\n      <template>\n        <Foo />\n        <HelloWorld1 />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-components#valid47"
+ }
+]

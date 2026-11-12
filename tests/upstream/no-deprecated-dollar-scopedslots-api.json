@@ -1,0 +1,565 @@
+[
+ {
+  "rule": "no-deprecated-dollar-scopedslots-api",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div v-if=\"$scopedSlots.default\"/>\n        </template>\n        <script>\n        export default {\n          render() {\n            return this.$scopedSlots.foo('bar')\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "deprecated",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 34
+    },
+    {
+     "messageId": "deprecated",
+     "line": 8,
+     "column": 25,
+     "endLine": 8,
+     "endColumn": 37
+    }
+   ],
+   "output": "\n        <template>\n          <div v-if=\"$slots.default\"/>\n        </template>\n        <script>\n        export default {\n          render() {\n            return this.$slots.foo('bar')\n          }\n        }\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "The `$scopedSlots` is deprecated.",
+     "line": 3,
+     "column": 22,
+     "endLine": 3,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       41,
+       53
+      ],
+      "text": "$slots"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "deprecated",
+     "message": "The `$scopedSlots` is deprecated.",
+     "line": 8,
+     "column": 25,
+     "endLine": 8,
+     "endColumn": 37,
+     "fix": {
+      "range": [
+       172,
+       184
+      ],
+      "text": "$slots"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div v-if=\"$slots.default\"/>\n        </template>\n        <script>\n        export default {\n          render() {\n            return this.$slots.foo('bar')\n          }\n        }\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-scopedslots-api#invalid0"
+ },
+ {
+  "rule": "no-deprecated-dollar-scopedslots-api",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <div v-for=\"slot in $scopedSlots\"/>\n          <div :foo=\"$scopedSlots\"/>\n        </template>\n        <script>\n        export default {\n          computed: {\n            foo () {\n              fn(this.$scopedSlots)\n            }\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "deprecated",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 43
+    },
+    {
+     "messageId": "deprecated",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 34
+    },
+    {
+     "messageId": "deprecated",
+     "line": 10,
+     "column": 23,
+     "endLine": 10,
+     "endColumn": 35
+    }
+   ],
+   "output": "\n        <template>\n          <div v-for=\"slot in $slots\"/>\n          <div :foo=\"$slots\"/>\n        </template>\n        <script>\n        export default {\n          computed: {\n            foo () {\n              fn(this.$slots)\n            }\n          }\n        }\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "The `$scopedSlots` is deprecated.",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 43,
+     "fix": {
+      "range": [
+       50,
+       62
+      ],
+      "text": "$slots"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "deprecated",
+     "message": "The `$scopedSlots` is deprecated.",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       87,
+       99
+      ],
+      "text": "$slots"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "deprecated",
+     "message": "The `$scopedSlots` is deprecated.",
+     "line": 10,
+     "column": 23,
+     "endLine": 10,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       230,
+       242
+      ],
+      "text": "$slots"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div v-for=\"slot in $slots\"/>\n          <div :foo=\"$slots\"/>\n        </template>\n        <script>\n        export default {\n          computed: {\n            foo () {\n              fn(this.$slots)\n            }\n          }\n        }\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-scopedslots-api#invalid1"
+ },
+ {
+  "rule": "no-deprecated-dollar-scopedslots-api",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n          render() {\n            const vm = this\n            return vm.$scopedSlots.foo('bar')\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "deprecated",
+     "line": 6,
+     "column": 23,
+     "endLine": 6,
+     "endColumn": 35
+    }
+   ],
+   "output": "\n        <script>\n        export default {\n          render() {\n            const vm = this\n            return vm.$slots.foo('bar')\n          }\n        }\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "The `$scopedSlots` is deprecated.",
+     "line": 6,
+     "column": 23,
+     "endLine": 6,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       114,
+       126
+      ],
+      "text": "$slots"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script>\n        export default {\n          render() {\n            const vm = this\n            return vm.$slots.foo('bar')\n          }\n        }\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-scopedslots-api#invalid2"
+ },
+ {
+  "rule": "no-deprecated-dollar-scopedslots-api",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n          render() {\n            const vm = this\n            function fn() {\n              return vm.$scopedSlots\n            }\n            return fn().foo('bar')\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "deprecated",
+     "line": 7,
+     "column": 25,
+     "endLine": 7,
+     "endColumn": 37
+    }
+   ],
+   "output": "\n        <script>\n        export default {\n          render() {\n            const vm = this\n            function fn() {\n              return vm.$slots\n            }\n            return fn().foo('bar')\n          }\n        }\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "The `$scopedSlots` is deprecated.",
+     "line": 7,
+     "column": 25,
+     "endLine": 7,
+     "endColumn": 37,
+     "fix": {
+      "range": [
+       144,
+       156
+      ],
+      "text": "$slots"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script>\n        export default {\n          render() {\n            const vm = this\n            function fn() {\n              return vm.$slots\n            }\n            return fn().foo('bar')\n          }\n        }\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-scopedslots-api#invalid3"
+ },
+ {
+  "rule": "no-deprecated-dollar-scopedslots-api",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n          render () {\n            const vm = this\n            const a = vm?.$scopedSlots\n            const b = this?.$scopedSlots\n            return a.foo('bar')\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "deprecated",
+     "line": 6,
+     "column": 27,
+     "endLine": 6,
+     "endColumn": 39
+    },
+    {
+     "messageId": "deprecated",
+     "line": 7,
+     "column": 29,
+     "endLine": 7,
+     "endColumn": 41
+    }
+   ],
+   "output": "\n        <script>\n        export default {\n          render () {\n            const vm = this\n            const a = vm?.$slots\n            const b = this?.$slots\n            return a.foo('bar')\n          }\n        }\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "deprecated",
+     "message": "The `$scopedSlots` is deprecated.",
+     "line": 6,
+     "column": 27,
+     "endLine": 6,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       119,
+       131
+      ],
+      "text": "$slots"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "deprecated",
+     "message": "The `$scopedSlots` is deprecated.",
+     "line": 7,
+     "column": 29,
+     "endLine": 7,
+     "endColumn": 41,
+     "fix": {
+      "range": [
+       160,
+       172
+      ],
+      "text": "$slots"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script>\n        export default {\n          render () {\n            const vm = this\n            const a = vm?.$slots\n            const b = this?.$slots\n            return a.foo('bar')\n          }\n        }\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-scopedslots-api#invalid4"
+ },
+ {
+  "rule": "no-deprecated-dollar-scopedslots-api",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div v-bind=\"$attrs\"/>\n        </template>\n        <script>\n        export default {\n          mounted () {\n            this.$emit('start')\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-scopedslots-api#valid0"
+ },
+ {
+  "rule": "no-deprecated-dollar-scopedslots-api",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n          methods: {\n            click () {\n              this.$emit('click')\n            }\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-scopedslots-api#valid1"
+ },
+ {
+  "rule": "no-deprecated-dollar-scopedslots-api",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n        }\n        const another = function () {\n          console.log(this.$scopedSlots)\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-scopedslots-api#valid2"
+ },
+ {
+  "rule": "no-deprecated-dollar-scopedslots-api",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <div foo=\"$scopedSlots\"/>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-scopedslots-api#valid3"
+ },
+ {
+  "rule": "no-deprecated-dollar-scopedslots-api",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <template>\n          <div v-on=\"() => {\n            function click ($scopedSlots) {\n              fn(foo.$scopedSlots)\n              fn($scopedSlots)\n            }\n          }\"/>\n          <div v-for=\"$scopedSlots in list\">\n            <div v-on=\"$scopedSlots\">\n          </div>\n          <VueComp>\n            <template v-slot=\"{$scopedSlots}\">\n              <div v-on=\"$scopedSlots\">\n            </template>\n          </VueComp>\n        </template>\n        <script>\n        export default {\n          methods: {\n            click ($scopedSlots) {\n              foo.$scopedSlots\n            }\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-scopedslots-api#valid4"
+ },
+ {
+  "rule": "no-deprecated-dollar-scopedslots-api",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <script>\n        export default {\n          computed: {\n            foo () {\n              const {vm} = this\n              return vm.$scopedSlots\n            }\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-dollar-scopedslots-api#valid5"
+ }
+]

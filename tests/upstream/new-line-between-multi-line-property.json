@@ -1,0 +1,891 @@
+[
+ {
+  "rule": "new-line-between-multi-line-property",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n          value: {\n            type: String,\n            required: true\n          },\n\n          focused: {\n            type: Boolean,\n            default: false\n          },\n          label: String,\n          icon: String\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 13,
+     "column": 12,
+     "endLine": 14,
+     "endColumn": 11
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n          value: {\n            type: String,\n            required: true\n          },\n\n          focused: {\n            type: Boolean,\n            default: false\n          },\n\n          label: String,\n          icon: String\n        }\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 13,
+     "column": 12,
+     "endLine": 14,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       229,
+       229
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n          value: {\n            type: String,\n            required: true\n          },\n\n          focused: {\n            type: Boolean,\n            default: false\n          },\n\n          label: String,\n          icon: String\n        }\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "new-line-between-multi-line-property#invalid0"
+ },
+ {
+  "rule": "new-line-between-multi-line-property",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        name: 'component-name',\n        props: {\n          value: {\n            type: String,\n            required: true\n          },\n\n          focused: {\n            type: Boolean,\n            default: false\n          },\n\n          label: String,\n          icon: String\n        },\n        computed: {\n          formattedValue: function () {\n            // ...\n            // ...\n            // ...\n            // ...\n          },\n\n          inputClasses: function () {\n            // ...\n            // ...\n            // ...\n            // ...\n          }\n        },\n        methods: {\n          methodA: function () {\n            // ...\n            // ...\n            // ...\n          },\n\n          methodB: function () {\n            // ...\n            // ...\n            // ...\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 18,
+     "column": 10,
+     "endLine": 19,
+     "endColumn": 9
+    },
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 33,
+     "column": 10,
+     "endLine": 34,
+     "endColumn": 9
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        name: 'component-name',\n        props: {\n          value: {\n            type: String,\n            required: true\n          },\n\n          focused: {\n            type: Boolean,\n            default: false\n          },\n\n          label: String,\n          icon: String\n        },\n\n        computed: {\n          formattedValue: function () {\n            // ...\n            // ...\n            // ...\n            // ...\n          },\n\n          inputClasses: function () {\n            // ...\n            // ...\n            // ...\n            // ...\n          }\n        },\n\n        methods: {\n          methodA: function () {\n            // ...\n            // ...\n            // ...\n          },\n\n          methodB: function () {\n            // ...\n            // ...\n            // ...\n          }\n        }\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 18,
+     "column": 10,
+     "endLine": 19,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       321,
+       321
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 33,
+     "column": 10,
+     "endLine": 34,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       608,
+       608
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        name: 'component-name',\n        props: {\n          value: {\n            type: String,\n            required: true\n          },\n\n          focused: {\n            type: Boolean,\n            default: false\n          },\n\n          label: String,\n          icon: String\n        },\n\n        computed: {\n          formattedValue: function () {\n            // ...\n            // ...\n            // ...\n            // ...\n          },\n\n          inputClasses: function () {\n            // ...\n            // ...\n            // ...\n            // ...\n          }\n        },\n\n        methods: {\n          methodA: function () {\n            // ...\n            // ...\n            // ...\n          },\n\n          methodB: function () {\n            // ...\n            // ...\n            // ...\n          }\n        }\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "new-line-between-multi-line-property#invalid1"
+ },
+ {
+  "rule": "new-line-between-multi-line-property",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n          setMultiLineProperty: {\n            type: String,\n            required: true\n          },\n          focused: {\n            type: Boolean,\n            default: false,\n            required: true\n          },\n          label: String,\n          icon: String\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "minLineOfMultilineProperty": 5
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 13,
+     "column": 12,
+     "endLine": 14,
+     "endColumn": 11
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n          setMultiLineProperty: {\n            type: String,\n            required: true\n          },\n          focused: {\n            type: Boolean,\n            default: false,\n            required: true\n          },\n\n          label: String,\n          icon: String\n        }\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 13,
+     "column": 12,
+     "endLine": 14,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       271,
+       271
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n          setMultiLineProperty: {\n            type: String,\n            required: true\n          },\n          focused: {\n            type: Boolean,\n            default: false,\n            required: true\n          },\n\n          label: String,\n          icon: String\n        }\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "new-line-between-multi-line-property#invalid2"
+ },
+ {
+  "rule": "new-line-between-multi-line-property",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n          setMultiLineProperty: {\n            type: String,\n            required: true\n          },\n          focused: {\n            type: Boolean,\n            default: false,\n            required: true\n          },\n          // comments\n          label: String,\n          icon: String\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "minLineOfMultilineProperty": 5
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 13,
+     "column": 12,
+     "endLine": 15,
+     "endColumn": 11
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n          setMultiLineProperty: {\n            type: String,\n            required: true\n          },\n          focused: {\n            type: Boolean,\n            default: false,\n            required: true\n          },\n\n          // comments\n          label: String,\n          icon: String\n        }\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 13,
+     "column": 12,
+     "endLine": 15,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       271,
+       271
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n          setMultiLineProperty: {\n            type: String,\n            required: true\n          },\n          focused: {\n            type: Boolean,\n            default: false,\n            required: true\n          },\n\n          // comments\n          label: String,\n          icon: String\n        }\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "new-line-between-multi-line-property#invalid3"
+ },
+ {
+  "rule": "new-line-between-multi-line-property",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n          setMultiLineProperty: {\n            type: String,\n            required: true\n          },\n        },\n\n        methods: {\n          test() {\n\n          },\n          /**\n          *\n          * @returns\n          */\n          test2() {\n\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 14,
+     "column": 12,
+     "endLine": 19,
+     "endColumn": 11
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n          setMultiLineProperty: {\n            type: String,\n            required: true\n          },\n        },\n\n        methods: {\n          test() {\n\n          },\n\n          /**\n          *\n          * @returns\n          */\n          test2() {\n\n          }\n        }\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 14,
+     "column": 12,
+     "endLine": 19,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       219,
+       219
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n          setMultiLineProperty: {\n            type: String,\n            required: true\n          },\n        },\n\n        methods: {\n          test() {\n\n          },\n\n          /**\n          *\n          * @returns\n          */\n          test2() {\n\n          }\n        }\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "new-line-between-multi-line-property#invalid4"
+ },
+ {
+  "rule": "new-line-between-multi-line-property",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n          value: {\n            type: String,\n            required: true\n          },\n          focused: {\n            type: Boolean,\n            default: false\n          },\n          label: String,\n          icon: String\n        },\n        staticMethodFn() {\n          fn(\n            fn(),\n            {\n            a: {\n              foo,\n            },\n            b: {\n              foo,\n            },\n            c: {\n              foo,\n            },\n          });\n        },\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 8,
+     "column": 12,
+     "endLine": 9,
+     "endColumn": 11
+    },
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 12,
+     "column": 12,
+     "endLine": 13,
+     "endColumn": 11
+    },
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 15,
+     "column": 10,
+     "endLine": 16,
+     "endColumn": 9
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n          value: {\n            type: String,\n            required: true\n          },\n\n          focused: {\n            type: Boolean,\n            default: false\n          },\n\n          label: String,\n          icon: String\n        },\n\n        staticMethodFn() {\n          fn(\n            fn(),\n            {\n            a: {\n              foo,\n            },\n            b: {\n              foo,\n            },\n            c: {\n              foo,\n            },\n          });\n        },\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 8,
+     "column": 12,
+     "endLine": 9,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       140,
+       140
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 12,
+     "column": 12,
+     "endLine": 13,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       228,
+       228
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 15,
+     "column": 10,
+     "endLine": 16,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       287,
+       287
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n          value: {\n            type: String,\n            required: true\n          },\n\n          focused: {\n            type: Boolean,\n            default: false\n          },\n\n          label: String,\n          icon: String\n        },\n\n        staticMethodFn() {\n          fn(\n            fn(),\n            {\n            a: {\n              foo,\n            },\n            b: {\n              foo,\n            },\n            c: {\n              foo,\n            },\n          });\n        },\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "new-line-between-multi-line-property#invalid5"
+ },
+ {
+  "rule": "new-line-between-multi-line-property",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script>\n      Vue.component('test', {\n        props: {\n          value: {\n            type: String,\n            required: true\n          },\n          //test\n          focused: {\n            type: Boolean,\n            default: false\n          },\n          label: String,\n          icon: String\n        },\n        staticMethodFn() {\n          fn(\n            fn(),\n            {\n            a: {\n              foo,\n            },\n            b: {\n              foo,\n            },\n            c: {\n              foo,\n            },\n          });\n        },\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 8,
+     "column": 12,
+     "endLine": 10,
+     "endColumn": 11
+    },
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 13,
+     "column": 12,
+     "endLine": 14,
+     "endColumn": 11
+    },
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 16,
+     "column": 10,
+     "endLine": 17,
+     "endColumn": 9
+    }
+   ],
+   "output": "\n      <script>\n      Vue.component('test', {\n        props: {\n          value: {\n            type: String,\n            required: true\n          },\n\n          //test\n          focused: {\n            type: Boolean,\n            default: false\n          },\n\n          label: String,\n          icon: String\n        },\n\n        staticMethodFn() {\n          fn(\n            fn(),\n            {\n            a: {\n              foo,\n            },\n            b: {\n              foo,\n            },\n            c: {\n              foo,\n            },\n          });\n        },\n      })\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 8,
+     "column": 12,
+     "endLine": 10,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       147,
+       147
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 13,
+     "column": 12,
+     "endLine": 14,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       252,
+       252
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 16,
+     "column": 10,
+     "endLine": 17,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       311,
+       311
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n      Vue.component('test', {\n        props: {\n          value: {\n            type: String,\n            required: true\n          },\n\n          //test\n          focused: {\n            type: Boolean,\n            default: false\n          },\n\n          label: String,\n          icon: String\n        },\n\n        staticMethodFn() {\n          fn(\n            fn(),\n            {\n            a: {\n              foo,\n            },\n            b: {\n              foo,\n            },\n            c: {\n              foo,\n            },\n          });\n        },\n      })\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "new-line-between-multi-line-property#invalid6"
+ },
+ {
+  "rule": "new-line-between-multi-line-property",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n        },emits: {\n        }\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 5,
+     "column": 10,
+     "endLine": 5,
+     "endColumn": 11
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n        },\n\nemits: {\n        }\n      }\n      </script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 5,
+     "column": 10,
+     "endLine": 5,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       66,
+       66
+      ],
+      "text": "\n\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n        },\n\nemits: {\n        }\n      }\n      </script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "new-line-between-multi-line-property#invalid7"
+ },
+ {
+  "rule": "new-line-between-multi-line-property",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n        }\n        ,emits: {\n        }\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 5,
+     "column": 10,
+     "endLine": 6,
+     "endColumn": 10
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n        }\n\n        ,emits: {\n        }\n      }\n      </script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 5,
+     "column": 10,
+     "endLine": 6,
+     "endColumn": 10,
+     "fix": {
+      "range": [
+       65,
+       65
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n        }\n\n        ,emits: {\n        }\n      }\n      </script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "new-line-between-multi-line-property#invalid8"
+ },
+ {
+  "rule": "new-line-between-multi-line-property",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n        }/*A*/\n        ,/*B*/emits: {\n        },\n\n        data: {\n        }/*A*/,/*B*/computed: {\n        },\n\n        watch: {\n        }/*A*/,\n        /*B*/methods: {\n        }\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 5,
+     "column": 10,
+     "endLine": 6,
+     "endColumn": 15
+    },
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 10,
+     "column": 10,
+     "endLine": 10,
+     "endColumn": 21
+    },
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 14,
+     "column": 10,
+     "endLine": 15,
+     "endColumn": 14
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n        }/*A*/\n\n        ,/*B*/emits: {\n        },\n\n        data: {\n        }/*A*/,\n\n/*B*/computed: {\n        },\n\n        watch: {\n        }/*A*/,\n\n        /*B*/methods: {\n        }\n      }\n      </script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 5,
+     "column": 10,
+     "endLine": 6,
+     "endColumn": 15,
+     "fix": {
+      "range": [
+       70,
+       70
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 10,
+     "column": 10,
+     "endLine": 10,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       137,
+       137
+      ],
+      "text": "\n\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 14,
+     "column": 10,
+     "endLine": 15,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       198,
+       198
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n        }/*A*/\n\n        ,/*B*/emits: {\n        },\n\n        data: {\n        }/*A*/,\n\n/*B*/computed: {\n        },\n\n        watch: {\n        }/*A*/,\n\n        /*B*/methods: {\n        }\n      }\n      </script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "new-line-between-multi-line-property#invalid9"
+ },
+ {
+  "rule": "new-line-between-multi-line-property",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n        }\n        ,\n        emits: {\n        }\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 5,
+     "column": 10,
+     "endLine": 7,
+     "endColumn": 9
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n        }\n\n        ,\n        emits: {\n        }\n      }\n      </script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingEmptyLine",
+     "message": "Enforce new lines between multi-line properties in Vue components.",
+     "line": 5,
+     "column": 10,
+     "endLine": 7,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       65,
+       65
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\n      export default {\n        props: {\n        }\n\n        ,\n        emits: {\n        }\n      }\n      </script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "new-line-between-multi-line-property#invalid10"
+ },
+ {
+  "rule": "new-line-between-multi-line-property",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        name: 'component-name',\n        props: {\n          value: {\n            type: String,\n            required: true\n          },\n\n          focused: {\n            type: Boolean,\n            default: false\n          },\n\n          label: String,\n          icon: String\n        },\n\n        computed: {\n          formattedValue: function () {\n            // ...\n            // ...\n            // ...\n            // ...\n          },\n\n          inputClasses: function () {\n            // ...\n            // ...\n            // ...\n            // ...\n          }\n        },\n\n        methods: {\n          methodA: function () {\n            // ...\n            // ...\n            // ...\n          },\n\n          methodB: function () {\n            // ...\n            // ...\n            // ...\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "new-line-between-multi-line-property#valid0"
+ },
+ {
+  "rule": "new-line-between-multi-line-property",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        name: 'component-name',\n        props: {\n          value: {\n            type: String,\n            required: true\n          },\n\n\n          focused: {\n            type: Boolean,\n            default: false\n          },\n\n\n          label: String,\n          icon: String\n        },\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "new-line-between-multi-line-property#valid1"
+ },
+ {
+  "rule": "new-line-between-multi-line-property",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n        }/*A*/\n\n        ,/*B*/emits: {\n        },\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "new-line-between-multi-line-property#valid2"
+ }
+]

@@ -1,0 +1,605 @@
+[
+ {
+  "rule": "no-duplicate-attributes",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div><div foo v-bind:foo></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate attribute 'foo'.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateAttribute",
+     "message": "Duplicate attribute 'foo'.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attributes#invalid0"
+ },
+ {
+  "rule": "no-duplicate-attributes",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div><div foo :foo></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate attribute 'foo'.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateAttribute",
+     "message": "Duplicate attribute 'foo'.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attributes#invalid1"
+ },
+ {
+  "rule": "no-duplicate-attributes",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div><div style :style></div></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allowCoexistStyle": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate attribute 'style'.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateAttribute",
+     "message": "Duplicate attribute 'style'.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attributes#invalid2"
+ },
+ {
+  "rule": "no-duplicate-attributes",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div><div class :class></div></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allowCoexistClass": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate attribute 'class'.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateAttribute",
+     "message": "Duplicate attribute 'class'.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attributes#invalid3"
+ },
+ {
+  "rule": "no-duplicate-attributes",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div><div :style style></div></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allowCoexistStyle": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate attribute 'style'.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateAttribute",
+     "message": "Duplicate attribute 'style'.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attributes#invalid4"
+ },
+ {
+  "rule": "no-duplicate-attributes",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div><div :class class></div></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allowCoexistClass": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Duplicate attribute 'class'.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "duplicateAttribute",
+     "message": "Duplicate attribute 'class'.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attributes#invalid5"
+ },
+ {
+  "rule": "no-duplicate-attributes",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attributes#valid0"
+ },
+ {
+  "rule": "no-duplicate-attributes",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div><div foo :bar baz></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attributes#valid1"
+ },
+ {
+  "rule": "no-duplicate-attributes",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div><div @click=\"foo\" @click=\"bar\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attributes#valid2"
+ },
+ {
+  "rule": "no-duplicate-attributes",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div><div style :style></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attributes#valid3"
+ },
+ {
+  "rule": "no-duplicate-attributes",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div><div class :class></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attributes#valid4"
+ },
+ {
+  "rule": "no-duplicate-attributes",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div><div :class=\"a\" class=\"b\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allowCoexistStyle": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attributes#valid5"
+ },
+ {
+  "rule": "no-duplicate-attributes",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div><div :style=\"a\" style=\"b\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allowCoexistStyle": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attributes#valid6"
+ },
+ {
+  "rule": "no-duplicate-attributes",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><my-component foo :[foo]></my-component></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attributes#valid7"
+ },
+ {
+  "rule": "no-duplicate-attributes",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><my-component :foo :[foo]></my-component></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-duplicate-attributes#valid8"
+ }
+]

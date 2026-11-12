@@ -1,0 +1,334 @@
+[
+ {
+  "rule": "func-call-spacing",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div :foo=\"foo ()\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected whitespace between function name and paren.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 24
+    }
+   ],
+   "output": "\n      <template>\n        <div :foo=\"foo()\" />\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedWhitespace",
+     "message": "Unexpected whitespace between function name and paren.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       40,
+       41
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div :foo=\"foo()\" />\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "func-call-spacing#invalid0"
+ },
+ {
+  "rule": "func-call-spacing",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div :foo=\"foo()\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Missing space between function name and paren.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n      <template>\n        <div :foo=\"foo ()\" />\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "Missing space between function name and paren.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       40,
+       40
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div :foo=\"foo ()\" />\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "func-call-spacing#invalid1"
+ },
+ {
+  "rule": "func-call-spacing",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <style>\n      .text {\n        color: v-bind('foo ()')\n      }\n      </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected whitespace between function name and paren.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 28
+    }
+   ],
+   "output": "\n      <style>\n      .text {\n        color: v-bind('foo()')\n      }\n      </style>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedWhitespace",
+     "message": "Unexpected whitespace between function name and paren.",
+     "line": 4,
+     "column": 27,
+     "endLine": 4,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       55,
+       56
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <style>\n      .text {\n        color: v-bind('foo()')\n      }\n      </style>",
+   "other": null,
+   "crash": null
+  },
+  "id": "func-call-spacing#invalid2"
+ },
+ {
+  "rule": "func-call-spacing",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n    <template>\n      <div :foo=\"foo()\" />\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "func-call-spacing#valid0"
+ },
+ {
+  "rule": "func-call-spacing",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div :foo=\"foo ()\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "func-call-spacing#valid1"
+ },
+ {
+  "rule": "func-call-spacing",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n    <template>\n      <div :[foo()]=\"value\" />\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "func-call-spacing#valid2"
+ },
+ {
+  "rule": "func-call-spacing",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <div :[foo()]=\"value\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "func-call-spacing#valid3"
+ },
+ {
+  "rule": "func-call-spacing",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n    <style>\n    .text {\n      color: v-bind('foo()')\n    }\n    </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "func-call-spacing#valid4"
+ }
+]

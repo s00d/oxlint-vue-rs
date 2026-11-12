@@ -1,0 +1,1292 @@
+[
+ {
+  "rule": "no-restricted-props",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n          /* ✗ BAD */\n          bad: {},\n          /* ✓ GOOD */\n          good: {}\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "bad"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `bad` props is not allowed.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 14
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `bad` props is not allowed.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 14,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#invalid0"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: [\n          /* ✗ BAD */\n          'bad',\n          /* ✓ GOOD */\n          'good'\n        ]\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "bad"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `bad` props is not allowed.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `bad` props is not allowed.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#invalid1"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n          bad: String,\n          good: bb\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "/a/"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `bad` props is not allowed.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 14
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `bad` props is not allowed.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 14,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#invalid2"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: [\n          'foo',\n          'bar',\n          'baz'\n        ]\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "name": "bar"
+   },
+   {
+    "name": "baz",
+    "message": "Using Baz"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `bar` props is not allowed.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 16
+    },
+    {
+     "message": "Using Baz",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `bar` props is not allowed.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedProp",
+     "message": "Using Baz",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#invalid3"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: [\n          'foo',\n          `bar`,\n          0\n        ]\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "name": "foo",
+    "suggest": "Foo"
+   },
+   {
+    "name": "bar",
+    "suggest": "Bar"
+   },
+   {
+    "name": "0",
+    "suggest": "Zero"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` props is not allowed.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 16,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script>\n      export default {\n        props: [\n          \"Foo\",\n          `bar`,\n          0\n        ]\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "message": "Using `bar` props is not allowed.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 16,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `Bar`.",
+       "output": "\n      <script>\n      export default {\n        props: [\n          'foo',\n          \"Bar\",\n          0\n        ]\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "message": "Using `0` props is not allowed.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 12,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `Zero`.",
+       "output": "\n      <script>\n      export default {\n        props: [\n          'foo',\n          `bar`,\n          \"Zero\"\n        ]\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `foo` props is not allowed.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "instead",
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script>\n      export default {\n        props: [\n          \"Foo\",\n          `bar`,\n          0\n        ]\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `bar` props is not allowed.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "instead",
+       "desc": "Instead, change to `Bar`.",
+       "output": "\n      <script>\n      export default {\n        props: [\n          'foo',\n          \"Bar\",\n          0\n        ]\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `0` props is not allowed.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 12,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "instead",
+       "desc": "Instead, change to `Zero`.",
+       "output": "\n      <script>\n      export default {\n        props: [\n          'foo',\n          `bar`,\n          \"Zero\"\n        ]\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#invalid4"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n          foo: {},\n          bar: {},\n          [`baz`]: {},\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "name": "foo",
+    "suggest": "Foo"
+   },
+   {
+    "name": "bar",
+    "suggest": "b-a-r"
+   },
+   {
+    "name": "baz",
+    "suggest": "Baz"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` props is not allowed.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 14,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script>\n      export default {\n        props: {\n          Foo: {},\n          bar: {},\n          [`baz`]: {},\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "message": "Using `bar` props is not allowed.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 14,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `b-a-r`.",
+       "output": "\n      <script>\n      export default {\n        props: {\n          foo: {},\n          \"b-a-r\": {},\n          [`baz`]: {},\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "message": "Using `baz` props is not allowed.",
+     "line": 7,
+     "column": 12,
+     "endLine": 7,
+     "endColumn": 17,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `Baz`.",
+       "output": "\n      <script>\n      export default {\n        props: {\n          foo: {},\n          bar: {},\n          [\"Baz\"]: {},\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `foo` props is not allowed.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 14,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "instead",
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script>\n      export default {\n        props: {\n          Foo: {},\n          bar: {},\n          [`baz`]: {},\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `bar` props is not allowed.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 14,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "instead",
+       "desc": "Instead, change to `b-a-r`.",
+       "output": "\n      <script>\n      export default {\n        props: {\n          foo: {},\n          \"b-a-r\": {},\n          [`baz`]: {},\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `baz` props is not allowed.",
+     "line": 7,
+     "column": 12,
+     "endLine": 7,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "instead",
+       "desc": "Instead, change to `Baz`.",
+       "output": "\n      <script>\n      export default {\n        props: {\n          foo: {},\n          bar: {},\n          [\"Baz\"]: {},\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#invalid5"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script setup>\n      defineProps({\n        foo: {},\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "name": "foo",
+    "suggest": "Foo"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` props is not allowed.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 12,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script setup>\n      defineProps({\n        Foo: {},\n      })\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `foo` props is not allowed.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 12,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "instead",
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script setup>\n      defineProps({\n        Foo: {},\n      })\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#invalid6"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script setup>\n      defineProps(['foo'])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "name": "foo",
+    "suggest": "Foo"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` props is not allowed.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script setup>\n      defineProps([\"Foo\"])\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `foo` props is not allowed.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "instead",
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script setup>\n      defineProps([\"Foo\"])\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#invalid7"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      defineProps<{\n        foo:boolean\n      }>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "name": "foo",
+    "suggest": "Foo"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` props is not allowed.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 12,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script setup lang=\"ts\">\n      defineProps<{\n        Foo:boolean\n      }>()\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `foo` props is not allowed.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 12,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "instead",
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script setup lang=\"ts\">\n      defineProps<{\n        Foo:boolean\n      }>()\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#invalid8"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      interface Props {\n        foo:boolean\n      }\n      defineProps<Props>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "name": "foo",
+    "suggest": "Foo"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` props is not allowed.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 12,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script setup lang=\"ts\">\n      interface Props {\n        Foo:boolean\n      }\n      defineProps<Props>()\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `foo` props is not allowed.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 12,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "instead",
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script setup lang=\"ts\">\n      interface Props {\n        Foo:boolean\n      }\n      defineProps<Props>()\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#invalid9"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      interface Props {\n        foo:boolean\n      }\n      withDefaults(defineProps<Props>(),\n        {\n          foo: false\n        }\n      )\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "name": "foo",
+    "suggest": "Foo"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` props is not allowed.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 12,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script setup lang=\"ts\">\n      interface Props {\n        Foo:boolean\n      }\n      withDefaults(defineProps<Props>(),\n        {\n          Foo: false\n        }\n      )\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `foo` props is not allowed.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 12,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "instead",
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script setup lang=\"ts\">\n      interface Props {\n        Foo:boolean\n      }\n      withDefaults(defineProps<Props>(),\n        {\n          Foo: false\n        }\n      )\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#invalid10"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <script>\n      const foo = false\n      </script>\n      <script setup lang=\"ts\">\n      interface Props {\n        foo:boolean\n      }\n      withDefaults(defineProps<Props>(),\n        {\n          foo\n        }\n      )\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "name": "foo",
+    "suggest": "Foo"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` props is not allowed.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 12,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script>\n      const foo = false\n      </script>\n      <script setup lang=\"ts\">\n      interface Props {\n        Foo:boolean\n      }\n      withDefaults(defineProps<Props>(),\n        {\n          Foo:foo\n        }\n      )\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `foo` props is not allowed.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 12,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "instead",
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script>\n      const foo = false\n      </script>\n      <script setup lang=\"ts\">\n      interface Props {\n        Foo:boolean\n      }\n      withDefaults(defineProps<Props>(),\n        {\n          Foo:foo\n        }\n      )\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#invalid11"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      withDefaults(defineProps<Props>(),\n        {\n          foo: false\n        }\n      )\n      interface Props {\n        foo:boolean\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "name": "foo",
+    "suggest": "Foo"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` props is not allowed.",
+     "line": 9,
+     "column": 9,
+     "endLine": 9,
+     "endColumn": 12,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script setup lang=\"ts\">\n      withDefaults(defineProps<Props>(),\n        {\n          Foo: false\n        }\n      )\n      interface Props {\n        Foo:boolean\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `foo` props is not allowed.",
+     "line": 9,
+     "column": 9,
+     "endLine": 9,
+     "endColumn": 12,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "instead",
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script setup lang=\"ts\">\n      withDefaults(defineProps<Props>(),\n        {\n          Foo: false\n        }\n      )\n      interface Props {\n        Foo:boolean\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#invalid12"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n        <script setup lang=\"ts\">\n        import {Props1 as Props} from './test01'\n        defineProps<Props>()\n        </script>\n      ",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [
+   {
+    "name": "foo",
+    "suggest": "Foo"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` props is not allowed.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 26,
+     "suggestions": []
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `foo` props is not allowed.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#invalid13"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <script setup>\n      const {foo=false} = defineProps({foo:Boolean})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "name": "foo",
+    "suggest": "Foo"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` props is not allowed.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 43,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script setup>\n      const {Foo:foo=false} = defineProps({Foo:Boolean})\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `foo` props is not allowed.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 43,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "instead",
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script setup>\n      const {Foo:foo=false} = defineProps({Foo:Boolean})\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#invalid14"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <script setup>\n      const {foo:bar=false} = defineProps({foo:Boolean})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "name": "foo",
+    "suggest": "Foo"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` props is not allowed.",
+     "line": 3,
+     "column": 44,
+     "endLine": 3,
+     "endColumn": 47,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script setup>\n      const {Foo:bar=false} = defineProps({Foo:Boolean})\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedProp",
+     "message": "Using `foo` props is not allowed.",
+     "line": 3,
+     "column": 44,
+     "endLine": 3,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "instead",
+       "desc": "Instead, change to `Foo`.",
+       "output": "\n      <script setup>\n      const {Foo:bar=false} = defineProps({Foo:Boolean})\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#invalid15"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n          /* ✗ BAD */\n          bad: {},\n          /* ✓ GOOD */\n          good: {}\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#valid0"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: [\n          /* ✗ BAD */\n          'bad',\n          /* ✓ GOOD */\n          'good'\n        ]\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#valid1"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: {\n          foo: null,\n          bar: null,\n          baz: null\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "foo",
+   "bar",
+   "baz"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#valid2"
+ },
+ {
+  "rule": "no-restricted-props",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: [foo, ...bar, baz],\n        emits: ['foo', 'bar', 'baz']\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "foo",
+   "bar",
+   "baz"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-props#valid3"
+ }
+]

@@ -1,0 +1,447 @@
+[
+ {
+  "rule": "no-deprecated-filter",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template>{{ msg | filter }}</template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Filters are deprecated.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noDeprecatedFilter",
+     "message": "Filters are deprecated.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-filter#invalid0"
+ },
+ {
+  "rule": "no-deprecated-filter",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>{{ msg | filter(x) }}</template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Filters are deprecated.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noDeprecatedFilter",
+     "message": "Filters are deprecated.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-filter#invalid1"
+ },
+ {
+  "rule": "no-deprecated-filter",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>{{ msg | filterA | filterB }}</template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Filters are deprecated.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noDeprecatedFilter",
+     "message": "Filters are deprecated.",
+     "line": 1,
+     "column": 14,
+     "endLine": 1,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-filter#invalid2"
+ },
+ {
+  "rule": "no-deprecated-filter",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div v-for=\"msg in messages\">{{ msg | filter }}</div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Filters are deprecated.",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 55
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noDeprecatedFilter",
+     "message": "Filters are deprecated.",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 55,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-filter#invalid3"
+ },
+ {
+  "rule": "no-deprecated-filter",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div v-bind:id=\"msg | filter\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Filters are deprecated.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noDeprecatedFilter",
+     "message": "Filters are deprecated.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-filter#invalid4"
+ },
+ {
+  "rule": "no-deprecated-filter",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div v-bind:id=\"msg | filter(aaa)\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Filters are deprecated.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 44
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noDeprecatedFilter",
+     "message": "Filters are deprecated.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-filter#invalid5"
+ },
+ {
+  "rule": "no-deprecated-filter",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div v-bind:id=\"msg | filterA | filterB\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Filters are deprecated.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 50
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noDeprecatedFilter",
+     "message": "Filters are deprecated.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 50,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-filter#invalid6"
+ },
+ {
+  "rule": "no-deprecated-filter",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template>{{ msg }}</template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-filter#valid0"
+ },
+ {
+  "rule": "no-deprecated-filter",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>{{ method(msg) }}</template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-filter#valid1"
+ },
+ {
+  "rule": "no-deprecated-filter",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>{{ msg | filter }}</template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": {
+    "filter": false
+   },
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-filter#valid2"
+ }
+]

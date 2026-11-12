@@ -1,0 +1,3239 @@
+[
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <div></div>\n          <div>\n          </div>\n          <div />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 5,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 17
+    },
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <div></div>\n\n          <div>\n          </div>\n\n          <div />\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 5,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       53,
+       53
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       86,
+       86
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <div></div>\n\n          <div>\n          </div>\n\n          <div />\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid0"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n            <li>\n            </li>\n            <br />\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 13,
+     "endLine": 8,
+     "endColumn": 18
+    },
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 9,
+     "column": 13,
+     "endLine": 9,
+     "endColumn": 19
+    },
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 10,
+     "column": 13,
+     "endLine": 11,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n\n            <li>\n            </li>\n\n            <br />\n\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 13,
+     "endLine": 8,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       81,
+       81
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 9,
+     "column": 13,
+     "endLine": 9,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       116,
+       116
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 10,
+     "column": 13,
+     "endLine": 11,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       135,
+       135
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n\n            <li>\n            </li>\n\n            <br />\n\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid1"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <ul>\n          </ul>\n          <ul>\n            <li>\n              Test Text\n            </li>\n          </ul>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 6,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 16
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <ul>\n          </ul>\n\n          <ul>\n            <li>\n              Test Text\n            </li>\n          </ul>\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 6,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       62,
+       62
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <ul>\n          </ul>\n\n          <ul>\n            <li>\n              Test Text\n            </li>\n          </ul>\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid2"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <ul>\n          </ul>\n          <ul>\n            <li>\n              <p>\n              </p>\n              <p>\n              </p>\n            </li>\n          </ul>\n        </div>\n        <div>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 6,
+     "column": 11,
+     "endLine": 13,
+     "endColumn": 16
+    },
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 10,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 19
+    },
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 15,
+     "column": 9,
+     "endLine": 16,
+     "endColumn": 15
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <ul>\n          </ul>\n\n          <ul>\n            <li>\n              <p>\n              </p>\n\n              <p>\n              </p>\n            </li>\n          </ul>\n        </div>\n\n        <div>\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 6,
+     "column": 11,
+     "endLine": 13,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       62,
+       62
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 10,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       131,
+       131
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 15,
+     "column": 9,
+     "endLine": 16,
+     "endColumn": 15,
+     "fix": {
+      "range": [
+       217,
+       217
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <ul>\n          </ul>\n\n          <ul>\n            <li>\n              <p>\n              </p>\n\n              <p>\n              </p>\n            </li>\n          </ul>\n        </div>\n\n        <div>\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid3"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n            <br />\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "always",
+     "prev": "*",
+     "next": "*"
+    },
+    {
+     "blankLine": "never",
+     "prev": "br",
+     "next": "*"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 13,
+     "endLine": 7,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n\n            <br />\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 13,
+     "endLine": 7,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       81,
+       81
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n\n            <br />\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid4"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n            <br />\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "always",
+     "prev": "*",
+     "next": "*"
+    },
+    {
+     "blankLine": "never",
+     "prev": "*",
+     "next": "br"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 8,
+     "column": 13,
+     "endLine": 9,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n            <br />\n\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 8,
+     "column": 13,
+     "endLine": 9,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       100,
+       100
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n            <br />\n\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid5"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n\n\n            <br />\n\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "never",
+     "prev": "*",
+     "next": "*"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this tag.",
+     "line": 9,
+     "column": 13,
+     "endLine": 9,
+     "endColumn": 19
+    },
+    {
+     "message": "Unexpected blank line before this tag.",
+     "line": 11,
+     "column": 13,
+     "endLine": 12,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n            <br />\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this tag.",
+     "line": 9,
+     "column": 13,
+     "endLine": 9,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       81,
+       96
+      ],
+      "text": "\n            "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this tag.",
+     "line": 11,
+     "column": 13,
+     "endLine": 12,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       102,
+       116
+      ],
+      "text": "\n            "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n            <br />\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid6"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <div></div>\n\n          <div>\n          </div>\n\n          <div />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "never",
+     "prev": "*",
+     "next": "*"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this tag.",
+     "line": 6,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 17
+    },
+    {
+     "message": "Unexpected blank line before this tag.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <div></div>\n          <div>\n          </div>\n          <div />\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this tag.",
+     "line": 6,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       53,
+       65
+      ],
+      "text": "\n          "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this tag.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       87,
+       99
+      ],
+      "text": "\n          "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <div></div>\n          <div>\n          </div>\n          <div />\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid7"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n            <br />\n            <div></div>\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "never",
+     "prev": "*",
+     "next": "*"
+    },
+    {
+     "blankLine": "always",
+     "prev": "br",
+     "next": "div"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 8,
+     "column": 13,
+     "endLine": 8,
+     "endColumn": 24
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n            <br />\n\n            <div></div>\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 8,
+     "column": 13,
+     "endLine": 8,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       100,
+       100
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n            <br />\n\n            <div></div>\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid8"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <h1></h1>\n          <br />\n          <div></div>\n          <br />\n          <img />\n          <h1></h1>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "always",
+     "prev": "*",
+     "next": "*"
+    },
+    {
+     "blankLine": "never",
+     "prev": "br",
+     "next": "div"
+    },
+    {
+     "blankLine": "never",
+     "prev": "br",
+     "next": "img"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 17
+    },
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 17
+    },
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 20
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <h1></h1>\n\n          <br />\n          <div></div>\n\n          <br />\n          <img />\n\n          <h1></h1>\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       51,
+       51
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       90,
+       90
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       125,
+       125
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <h1></h1>\n\n          <br />\n          <div></div>\n\n          <br />\n          <img />\n\n          <h1></h1>\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid9"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <img />\n          <br />\n\n          <div></div>\n          <br />\n          <ul></ul>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "always",
+     "prev": "br",
+     "next": "div"
+    },
+    {
+     "blankLine": "always",
+     "prev": "div",
+     "next": "br"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 17
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <img />\n          <br />\n\n          <div></div>\n\n          <br />\n          <ul></ul>\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       89,
+       89
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <img />\n          <br />\n\n          <div></div>\n\n          <br />\n          <ul></ul>\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid10"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <img />\n          <br />\n\n          <div></div>\n          <br />\n          <br />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "always",
+     "prev": "br",
+     "next": "div"
+    },
+    {
+     "blankLine": "always",
+     "prev": "br",
+     "next": "br"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 17
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <img />\n          <br />\n\n          <div></div>\n          <br />\n\n          <br />\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       106,
+       106
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <img />\n          <br />\n\n          <div></div>\n          <br />\n\n          <br />\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid11"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <img />\n          <br />\n\n          <div></div>\n          <br />\n\n          <br />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "always",
+     "prev": "*",
+     "next": "*"
+    },
+    {
+     "blankLine": "never",
+     "prev": "br",
+     "next": "br"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 17
+    },
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 17
+    },
+    {
+     "message": "Unexpected blank line before this tag.",
+     "line": 10,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 17
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <img />\n\n          <br />\n\n          <div></div>\n\n          <br />\n          <br />\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       49,
+       49
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       89,
+       89
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this tag.",
+     "line": 10,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       106,
+       118
+      ],
+      "text": "\n          "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <img />\n\n          <br />\n\n          <div></div>\n\n          <br />\n          <br />\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid12"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <img />\n          <br />\n\n          <div></div>\n\n          <br />\n\n          <br />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "never",
+     "prev": "br",
+     "next": "br"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this tag.",
+     "line": 11,
+     "column": 11,
+     "endLine": 11,
+     "endColumn": 17
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <img />\n          <br />\n\n          <div></div>\n\n          <br />\n          <br />\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this tag.",
+     "line": 11,
+     "column": 11,
+     "endLine": 11,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       107,
+       119
+      ],
+      "text": "\n          "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <img />\n          <br />\n\n          <div></div>\n\n          <br />\n          <br />\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid13"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <div></div>\n          <div>\n          </div>\n          <br />\n          <div />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "always",
+     "prev": "*",
+     "next": "br"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 17
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <div></div>\n          <div>\n          </div>\n\n          <br />\n          <div />\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       86,
+       86
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <div></div>\n          <div>\n          </div>\n\n          <br />\n          <div />\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid14"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <div /><div />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 4,
+     "column": 18,
+     "endLine": 4,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <div />\n\n          <div />\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 4,
+     "column": 18,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       49,
+       49
+      ],
+      "text": "\n\n          "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <div />\n\n          <div />\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid15"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          Foo  <div /><div />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 30
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          Foo  <div />\n\n          <div />\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       54,
+       54
+      ],
+      "text": "\n\n          "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          Foo  <div />\n\n          <div />\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid16"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          </div>A\n\n          C<div />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "never",
+     "prev": "*",
+     "next": "*"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this tag.",
+     "line": 6,
+     "column": 12,
+     "endLine": 6,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          </div>A\n          C<div />\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this tag.",
+     "line": 6,
+     "column": 12,
+     "endLine": 6,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       48,
+       62
+      ],
+      "text": "A\n          C"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          </div>A\n          C<div />\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid17"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          </div>A\n          B\n\n          C<div />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "never",
+     "prev": "*",
+     "next": "*"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this tag.",
+     "line": 7,
+     "column": 12,
+     "endLine": 7,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          </div>A\n          B\n          C<div />\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this tag.",
+     "line": 7,
+     "column": 12,
+     "endLine": 7,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       48,
+       74
+      ],
+      "text": "A\n          B\n          C"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          </div>A\n          B\n          C<div />\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid18"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          </div>A\n\n\n          B\n          C<div />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "never",
+     "prev": "*",
+     "next": "*"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this tag.",
+     "line": 8,
+     "column": 12,
+     "endLine": 8,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          </div>A\n          B\n          C<div />\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this tag.",
+     "line": 8,
+     "column": 12,
+     "endLine": 8,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       48,
+       75
+      ],
+      "text": "A\n          B\n          C"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          </div>A\n          B\n          C<div />\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid19"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          </div>A\n\n\n          B\n\n\n          C<div />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "never",
+     "prev": "*",
+     "next": "*"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this tag.",
+     "line": 10,
+     "column": 12,
+     "endLine": 10,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          </div>A\n          B\n          C<div />\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this tag.",
+     "line": 10,
+     "column": 12,
+     "endLine": 10,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       48,
+       77
+      ],
+      "text": "A\n          B\n          C"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          </div>A\n          B\n          C<div />\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid20"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <template>\n        <header>\n          <div></div>\n\n          <div></div>\n          <div></div>\n        </header>\n        <div></div>\n        <div />\n        <footer></footer>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "consistent",
+     "prev": "*",
+     "next": "*"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template>\n        <header>\n          <div></div>\n\n          <div></div>\n\n          <div></div>\n        </header>\n        <div></div>\n        <div />\n        <footer></footer>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       79,
+       79
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <header>\n          <div></div>\n\n          <div></div>\n\n          <div></div>\n        </header>\n        <div></div>\n        <div />\n        <footer></footer>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid21"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      <template>\n        <header>\n          <div></div>\n\n          <div></div>\n          <div></div>\n          <div></div>\n          <div></div>\n        </header>\n        <div></div>\n        <div />\n        <footer></footer>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "consistent",
+     "prev": "*",
+     "next": "*"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 22
+    },
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 22
+    },
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template>\n        <header>\n          <div></div>\n\n          <div></div>\n\n          <div></div>\n\n          <div></div>\n\n          <div></div>\n        </header>\n        <div></div>\n        <div />\n        <footer></footer>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       79,
+       79
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       101,
+       101
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       123,
+       123
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <header>\n          <div></div>\n\n          <div></div>\n\n          <div></div>\n\n          <div></div>\n\n          <div></div>\n        </header>\n        <div></div>\n        <div />\n        <footer></footer>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid22"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <div />\n          <div />\n\n          <br/>\n          <br/>\n\n          <div />\n          <div />\n\n          <div />\n          <div />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "consistent",
+     "prev": "*",
+     "next": "*"
+    },
+    {
+     "blankLine": "never",
+     "prev": "br",
+     "next": "br"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 16
+    },
+    {
+     "message": "Unexpected blank line before this tag.",
+     "line": 10,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 18
+    },
+    {
+     "message": "Unexpected blank line before this tag.",
+     "line": 13,
+     "column": 11,
+     "endLine": 13,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <div />\n          <div />\n          <br/>\n          <br/>\n          <div />\n          <div />\n          <div />\n          <div />\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       67,
+       79
+      ],
+      "text": "\n          "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this tag.",
+     "line": 10,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       100,
+       112
+      ],
+      "text": "\n          "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this tag.",
+     "line": 13,
+     "column": 11,
+     "endLine": 13,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       137,
+       149
+      ],
+      "text": "\n          "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <div />\n          <div />\n          <br/>\n          <br/>\n          <div />\n          <div />\n          <div />\n          <div />\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid23"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <div />\n          <div />\n\n          <div />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "consistent",
+     "prev": "*",
+     "next": "*"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <div />\n          <div />\n          <div />\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       67,
+       79
+      ],
+      "text": "\n          "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <div />\n          <div />\n          <div />\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid24"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 25,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <span>single line</span>\n\n          <span>single line</span>\n          <div>\n            multi line\n          </div>\n          <div>\n            multi line\n          </div>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "never",
+     "prev": "*:single-line",
+     "next": "*:single-line"
+    },
+    {
+     "blankLine": "always",
+     "prev": "*:multi-line",
+     "next": "*:multi-line"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this tag.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 35
+    },
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 10,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 17
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <span>single line</span>\n          <span>single line</span>\n          <div>\n            multi line\n          </div>\n\n          <div>\n            multi line\n          </div>\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this tag.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       66,
+       78
+      ],
+      "text": "\n          "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 10,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       158,
+       158
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <span>single line</span>\n          <span>single line</span>\n          <div>\n            multi line\n          </div>\n\n          <div>\n            multi line\n          </div>\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid25"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 26,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <span>single line</span>\n          <div>\n            multi line\n          </div>\n          <span>single line</span>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "always",
+     "prev": "*:single-line",
+     "next": "*:multi-line"
+    },
+    {
+     "blankLine": "always",
+     "prev": "*:multi-line",
+     "next": "*:single-line"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 5,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 17
+    },
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 35
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <span>single line</span>\n\n          <div>\n            multi line\n          </div>\n\n          <span>single line</span>\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 5,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       66,
+       66
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       122,
+       122
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <span>single line</span>\n\n          <div>\n            multi line\n          </div>\n\n          <span>single line</span>\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid26"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 27,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <div>\n            multi line\n          </div>\n          <span>single line</span>\n          <div>\n            multi line\n          </div>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "always",
+     "prev": "*:multi-line",
+     "next": "*:single-line"
+    },
+    {
+     "blankLine": "always",
+     "prev": "*:single-line",
+     "next": "*:multi-line"
+    },
+    {
+     "blankLine": "always",
+     "prev": "*:multi-line",
+     "next": "*:multi-line"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 35
+    },
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 8,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 17
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <div>\n            multi line\n          </div>\n\n          <span>single line</span>\n\n          <div>\n            multi line\n          </div>\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       87,
+       87
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 8,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       122,
+       122
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <div>\n            multi line\n          </div>\n\n          <span>single line</span>\n\n          <div>\n            multi line\n          </div>\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid27"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "invalid",
+  "idx": 28,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <span>single</span>\n\n          <span>single</span>\n          <div>\n            multi\n          </div>\n          <div>\n            multi\n          </div>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "always",
+     "prev": "*:single-line",
+     "next": "*:multi-line"
+    },
+    {
+     "blankLine": "always",
+     "prev": "*:multi-line",
+     "next": "*:multi-line"
+    },
+    {
+     "blankLine": "never",
+     "prev": "*:single-line",
+     "next": "*:single-line"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected blank line before this tag.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 30
+    },
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 17
+    },
+    {
+     "message": "Expected blank line before this tag.",
+     "line": 10,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 17
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <span>single</span>\n          <span>single</span>\n\n          <div>\n            multi\n          </div>\n\n          <div>\n            multi\n          </div>\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "never",
+     "message": "Unexpected blank line before this tag.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       61,
+       73
+      ],
+      "text": "\n          "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 7,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       92,
+       92
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "always",
+     "message": "Expected blank line before this tag.",
+     "line": 10,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       143,
+       143
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div>\n          <span>single</span>\n          <span>single</span>\n\n          <div>\n            multi\n          </div>\n\n          <div>\n            multi\n          </div>\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#invalid28"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <div />\n\n          <div />\n\n          <br/>\n          <br/>\n          <br/>\n          <br/>\n          <br/>\n          <br/>\n\n          <div />\n\n          <div />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "consistent",
+     "prev": "*",
+     "next": "*"
+    },
+    {
+     "blankLine": "never",
+     "prev": "br",
+     "next": "br"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid0"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <div />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "consistent",
+     "prev": "*",
+     "next": "*"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid1"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <div />\n\n          <div />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "consistent",
+     "prev": "*",
+     "next": "*"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid2"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <header>\n          <div></div>\n\n          <div></div>\n\n          <div></div>\n        </header>\n        <div></div>\n        <div />\n        <footer></footer>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "consistent",
+     "prev": "*",
+     "next": "*"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid3"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <header>\n          <div></div>\n          <div></div>\n          <div></div>\n        </header>\n\n        <div></div>\n\n        <div />\n\n        <footer></footer>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "consistent",
+     "prev": "*",
+     "next": "*"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid4"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <div></div>\n\n          <div>\n          </div>\n\n          <div />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid5"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <p>Foo <b>bar</b> baz.</p>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid6"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <div></div>\n          <div>\n          </div>\n          <div />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "never",
+     "prev": "*",
+     "next": "*"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid7"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n            <br />\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "always",
+     "prev": "*",
+     "next": "*"
+    },
+    {
+     "blankLine": "never",
+     "prev": "*",
+     "next": "br"
+    },
+    {
+     "blankLine": "never",
+     "prev": "br",
+     "next": "*"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid8"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n\n            <br />\n            <div></div>\n\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "always",
+     "prev": "*",
+     "next": "*"
+    },
+    {
+     "blankLine": "never",
+     "prev": "br",
+     "next": "div"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid9"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n            <br />\n\n            <div></div>\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "never",
+     "prev": "*",
+     "next": "*"
+    },
+    {
+     "blankLine": "always",
+     "prev": "br",
+     "next": "div"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid10"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n            <br />\n\n            <img />\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "always",
+     "prev": "br",
+     "next": "img"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid11"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template>\n      </template>\n      <script>\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid12"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <ul>\n            <li>\n            </li>\n            <br />\n\n            <img />\n            <li>\n            </li>\n          </ul>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "never",
+     "prev": "br",
+     "next": "img"
+    },
+    {
+     "blankLine": "always",
+     "prev": "br",
+     "next": "img"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid13"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          </div>A\n          B\n          C<div />\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "never",
+     "prev": "*",
+     "next": "*"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid14"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <span>single line</span>\n          <span>single line</span>\n          <div>\n            multi line\n          </div>\n\n          <div>\n            multi line\n          </div>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "never",
+     "prev": "*:single-line",
+     "next": "*:single-line"
+    },
+    {
+     "blankLine": "always",
+     "prev": "*:multi-line",
+     "next": "*:multi-line"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid15"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <span>single line</span>\n\n          <div>\n            multi line\n          </div>\n\n          <span>single line</span>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "always",
+     "prev": "*:single-line",
+     "next": "*:multi-line"
+    },
+    {
+     "blankLine": "always",
+     "prev": "*:multi-line",
+     "next": "*:single-line"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid16"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <div>\n            multi line\n          </div>\n\n          <span>single line</span>\n\n          <div>\n            multi line\n          </div>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "always",
+     "prev": "*:multi-line",
+     "next": "*:single-line"
+    },
+    {
+     "blankLine": "always",
+     "prev": "*:single-line",
+     "next": "*:multi-line"
+    },
+    {
+     "blankLine": "always",
+     "prev": "*:multi-line",
+     "next": "*:multi-line"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid17"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <span>single</span>\n          <span>single</span>\n\n          <div>\n            multi\n          </div>\n\n          <div>\n            multi\n          </div>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "always",
+     "prev": "*:single-line",
+     "next": "*:multi-line"
+    },
+    {
+     "blankLine": "always",
+     "prev": "*:multi-line",
+     "next": "*:multi-line"
+    },
+    {
+     "blankLine": "never",
+     "prev": "*:single-line",
+     "next": "*:single-line"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid18"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <span>single</span>\n          <span>single</span>\n          <div>\n            multi\n          </div>\n\n          <div>\n            multi\n          </div>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "never",
+     "prev": "span:single-line",
+     "next": "span:single-line"
+    },
+    {
+     "blankLine": "always",
+     "prev": "div:multi-line",
+     "next": "div:multi-line"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid19"
+ },
+ {
+  "rule": "padding-line-between-tags",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <span>single</span>\n\n          <div>\n            multi\n          </div>\n\n          <span>single</span>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   [
+    {
+     "blankLine": "always",
+     "prev": "span:single-line",
+     "next": "div:multi-line"
+    },
+    {
+     "blankLine": "always",
+     "prev": "div:multi-line",
+     "next": "span:single-line"
+    }
+   ]
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "padding-line-between-tags#valid20"
+ }
+]

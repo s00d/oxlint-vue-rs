@@ -1,0 +1,2388 @@
+[
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :arr=\"[]\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected array literal in template.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected array literal in template.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid0"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :arr=\"[1,2,3]\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected array literal in template.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected array literal in template.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid1"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :obj=\"{}\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected object literal in template.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected object literal in template.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid2"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><MyComponent :slot-class=\"[{ active: isActive }]\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignores": [
+     "slot-style"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected array literal in template.",
+     "line": 1,
+     "column": 37,
+     "endLine": 1,
+     "endColumn": 59
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected array literal in template.",
+     "line": 1,
+     "column": 37,
+     "endLine": 1,
+     "endColumn": 59,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid3"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><MyComponent :wrapper-class=\"[{ active: isActive }]\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignores": [
+     "/^slot-(?:class|style)$/"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected array literal in template.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 62
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected array literal in template.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 62,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid4"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div :obj=\"{name:'Tom', age: 123}\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected object literal in template.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 44
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected object literal in template.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid5"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div :callback=\"() => someFunction(someArgs)\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected arrow function literal in template.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 55
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected arrow function literal in template.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 55,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid6"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div :callback=\"function() { return 1 }\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected function literal in template.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 50
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected function literal in template.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 50,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid7"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div :arr=\"[...myArray]\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected array literal in template.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected array literal in template.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid8"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div :obj=\"{...myObject}\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected object literal in template.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected object literal in template.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid9"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div v-bind=\"{foo: 1}\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected object literal in template.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected object literal in template.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid10"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div v-bind:foo=\"{}\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected object literal in template.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected object literal in template.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid11"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div v-bind:foo=\"[]\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected array literal in template.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected array literal in template.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid12"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div v-bind:foo=\"() => someFunction(someArgs)\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected arrow function literal in template.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 56
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected arrow function literal in template.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 56,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid13"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div v-bind:foo=\"function() { return 1 }\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected function literal in template.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 51
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected function literal in template.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 51,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid14"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div v-bind:[key]=\"{}\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected object literal in template.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected object literal in template.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid15"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div v-bind:[key]=\"[]\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected array literal in template.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected array literal in template.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid16"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><div v-bind:[key]=\"() => someFunction(someArgs)\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected arrow function literal in template.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 58
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected arrow function literal in template.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 58,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid17"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><div v-bind:[key]=\"function() { return 1 }\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected function literal in template.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 53
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected function literal in template.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 53,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid18"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><div :[key].camel=\"{}\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected object literal in template.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected object literal in template.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid19"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><div :[key].camel=\"[]\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected array literal in template.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected array literal in template.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid20"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><div :[key].camel=\"() => someFunction(someArgs)\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected arrow function literal in template.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 58
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected arrow function literal in template.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 58,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid21"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "<template><div :[key].camel=\"function() { return 1 }\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected function literal in template.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 53
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected function literal in template.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 53,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid22"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "\n        <template>\n          <template v-for=\"i in arr\">\n            <MyComponent :data=\"{ val: globalVars }\" />\n          </template>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected object literal in template.",
+     "line": 4,
+     "column": 33,
+     "endLine": 4,
+     "endColumn": 52
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected object literal in template.",
+     "line": 4,
+     "column": 33,
+     "endLine": 4,
+     "endColumn": 52,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid23"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "\n        <template>\n          <Child>\n            <template #default=\"{ foo }\">\n              <MyComponent :data=\"{ val: globalVars }\" />\n            </template>\n          </Child>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected object literal in template.",
+     "line": 5,
+     "column": 35,
+     "endLine": 5,
+     "endColumn": 54
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected object literal in template.",
+     "line": 5,
+     "column": 35,
+     "endLine": 5,
+     "endColumn": 54,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid24"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 25,
+  "name": null,
+  "code": "\n        <template>\n          <template v-for=\"i in arr\">\n            <MyComponent :data=\"[globalVars]\" />\n          </template>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected array literal in template.",
+     "line": 4,
+     "column": 33,
+     "endLine": 4,
+     "endColumn": 45
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected array literal in template.",
+     "line": 4,
+     "column": 33,
+     "endLine": 4,
+     "endColumn": 45,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid25"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 26,
+  "name": null,
+  "code": "\n        <template>\n          <Child>\n            <template #default=\"{ foo }\">\n              <MyComponent :data=\"[globalVars]\" />\n            </template>\n          </Child>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected array literal in template.",
+     "line": 5,
+     "column": 35,
+     "endLine": 5,
+     "endColumn": 47
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected array literal in template.",
+     "line": 5,
+     "column": 35,
+     "endLine": 5,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid26"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 27,
+  "name": null,
+  "code": "\n        <template>\n          <template v-for=\"i in arr\">\n            <MyComponent :callback=\"() => someFunction(someArgs, globalVars)\" />\n          </template>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected arrow function literal in template.",
+     "line": 4,
+     "column": 37,
+     "endLine": 4,
+     "endColumn": 77
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected arrow function literal in template.",
+     "line": 4,
+     "column": 37,
+     "endLine": 4,
+     "endColumn": 77,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid27"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 28,
+  "name": null,
+  "code": "\n        <template>\n          <Child>\n            <template #default=\"{ foo }\">\n              <MyComponent :callback=\"() => someFunction(someArgs, globalVars)\" />\n            </template>\n          </Child>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected arrow function literal in template.",
+     "line": 5,
+     "column": 39,
+     "endLine": 5,
+     "endColumn": 79
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected arrow function literal in template.",
+     "line": 5,
+     "column": 39,
+     "endLine": 5,
+     "endColumn": 79,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid28"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 29,
+  "name": null,
+  "code": "\n        <template>\n          <template v-for=\"i in arr\">\n            <MyComponent :callback=\"function() { return someFunction(someArgs, globalVars) }\" />\n          </template>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected function literal in template.",
+     "line": 4,
+     "column": 37,
+     "endLine": 4,
+     "endColumn": 93
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected function literal in template.",
+     "line": 4,
+     "column": 37,
+     "endLine": 4,
+     "endColumn": 93,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid29"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "invalid",
+  "idx": 30,
+  "name": null,
+  "code": "\n        <template>\n          <Child>\n            <template #default=\"{ foo }\">\n              <ChildComponent :callback=\"function() { return someFunction(someArgs, globalVars) }\" />\n            </template>\n          </Child>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected function literal in template.",
+     "line": 5,
+     "column": 42,
+     "endLine": 5,
+     "endColumn": 98
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected function literal in template.",
+     "line": 5,
+     "column": 42,
+     "endLine": 5,
+     "endColumn": 98,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#invalid30"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :arr=\"myArray\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid0"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :obj=\"myObject\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid1"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :callback=\"myFunction\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid2"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div v-bind=\"myProps\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid3"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div v-bind:foo=\"bar\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid4"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div v-bind:[foo]=\"bar\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid5"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div v-bind:[foo].camel=\"bar\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid6"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div :foo></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid7"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div :foo.camel></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid8"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div :class=\"['active', errorClass]\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid9"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div :class=\"{ active: isActive }\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid10"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div v-bind:class=\"[]\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid11"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div :style=\"{ color: 'red' }\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid12"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div :style=\"[baseStyles, overridingStyles]\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid13"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div v-bind:style=\"[]\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid14"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><MyComponent :slot-class=\"[{ active: isActive }]\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignores": [
+     "slot-class"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid15"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><MyComponent v-bind:slot-style=\"{ color: themeColor }\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignores": [
+     "slot-style"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid16"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><MyComponent :slot-class=\"[{ active: isActive }]\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignores": [
+     "/^slot-(?:class|style)$/"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid17"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n        <template>\n          <template v-for=\"i in arr\">\n            <MyComponent :data=\"{ index: i }\" />\n          </template>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid18"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "\n        <template>\n          <Child>\n            <template #default=\"{ foo }\">\n              <MyComponent :data=\"{ val: foo }\" />\n            </template>\n          </Child>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid19"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "\n        <template>\n          <template v-for=\"i in arr\">\n            <MyComponent :data=\"[i]\" />\n          </template>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid20"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "\n        <template>\n          <Child>\n            <template #default=\"{ foo }\">\n              <MyComponent :data=\"[foo]\" />\n            </template>\n          </Child>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid21"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "\n        <template>\n          <template v-for=\"i in arr\">\n            <MyComponent :callback=\"() => someFunction(someArgs, i)\" />\n          </template>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid22"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "\n        <template>\n          <Child>\n            <template #default=\"{ foo }\">\n              <ChildComponent :callback=\"() => someFunction(someArgs, foo)\" />\n            </template>\n          </Child>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid23"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "\n        <template>\n          <template v-for=\"i in arr\">\n            <MyComponent :callback=\"function() { return someFunction(someArgs, i) }\" />\n          </template>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid24"
+ },
+ {
+  "rule": "no-literals-in-template",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "\n        <template>\n          <Child>\n            <template #default=\"{ foo }\">\n              <ChildComponent :callback=\"function() { return someFunction(someArgs, foo) }\" />\n            </template>\n          </Child>\n        </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-literals-in-template#valid25"
+ }
+]

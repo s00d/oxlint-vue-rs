@@ -1,0 +1,333 @@
+[
+ {
+  "rule": "no-deprecated-scope-attribute",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <LinkList>\n          <template scope=\"{a}\">\n            <a />\n          </template>\n        </LinkList>\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`scope` attributes are deprecated.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 26
+    }
+   ],
+   "output": "\n      <template>\n        <LinkList>\n          <template slot-scope=\"{a}\">\n            <a />\n          </template>\n        </LinkList>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenScopeAttribute",
+     "message": "`scope` attributes are deprecated.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       57,
+       62
+      ],
+      "text": "slot-scope"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <LinkList>\n          <template slot-scope=\"{a}\">\n            <a />\n          </template>\n        </LinkList>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-scope-attribute#invalid0"
+ },
+ {
+  "rule": "no-deprecated-scope-attribute",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <LinkList>\n          <template slot=\"name\" scope=\"{a}\">\n            <a />\n          </template>\n        </LinkList>\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`scope` attributes are deprecated.",
+     "line": 4,
+     "column": 33,
+     "endLine": 4,
+     "endColumn": 38
+    }
+   ],
+   "output": "\n      <template>\n        <LinkList>\n          <template slot=\"name\" slot-scope=\"{a}\">\n            <a />\n          </template>\n        </LinkList>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenScopeAttribute",
+     "message": "`scope` attributes are deprecated.",
+     "line": 4,
+     "column": 33,
+     "endLine": 4,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       69,
+       74
+      ],
+      "text": "slot-scope"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <LinkList>\n          <template slot=\"name\" slot-scope=\"{a}\">\n            <a />\n          </template>\n        </LinkList>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-scope-attribute#invalid1"
+ },
+ {
+  "rule": "no-deprecated-scope-attribute",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template>\n      <LinkList>\n        <a v-slot:name />\n      </LinkList>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-scope-attribute#valid0"
+ },
+ {
+  "rule": "no-deprecated-scope-attribute",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>\n      <LinkList>\n        <a #name />\n      </LinkList>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-scope-attribute#valid1"
+ },
+ {
+  "rule": "no-deprecated-scope-attribute",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>\n      <LinkList>\n        <a v-slot=\"{a}\" />\n      </LinkList>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-scope-attribute#valid2"
+ },
+ {
+  "rule": "no-deprecated-scope-attribute",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template>\n      <LinkList>\n        <a #default=\"{a}\" />\n      </LinkList>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-scope-attribute#valid3"
+ },
+ {
+  "rule": "no-deprecated-scope-attribute",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template>\n      <LinkList>\n        <a slot=\"name\" />\n      </LinkList>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-scope-attribute#valid4"
+ },
+ {
+  "rule": "no-deprecated-scope-attribute",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template>\n      <LinkList>\n        <a slot-scope=\"{a}\" />\n      </LinkList>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-scope-attribute#valid5"
+ },
+ {
+  "rule": "no-deprecated-scope-attribute",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template>\n      <LinkList>\n        <a />\n      </LinkList>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-scope-attribute#valid6"
+ }
+]

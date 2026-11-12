@@ -1,0 +1,2012 @@
+[
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid0"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid1"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\" />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid2"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\" />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      defineSlots<{\n        default(props: { msg: string }): any\n      }>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid3"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\" />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      interface Slots {\n        default(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid4"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\" />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      type Slots = {\n        default(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid5"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\" />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      defineSlots<{\n        default: (props: { msg: string }) => any\n      }>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid6"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\" />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      interface Slots {\n        default: (props: { msg: string }) => any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid7"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\" />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      type Slots = {\n        default: (props: { msg: string }) => any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid8"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      defineSlots<{\n        'foo-bar'(props: { msg: string }): any\n      }>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid9"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      interface Slots {\n        'foo-bar'(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid10"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      type Slots = {\n        'foo-bar'(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid11"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\" />\n        </div>\n      </template>\n      <script lang=\"ts\">\n      import { SlotsType } from 'vue'\n\n      defineComponent({\n        slots: Object as SlotsType<{\n          default: { msg: string }\n        }>,\n      })\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid12"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\"></slot>\n          <slot name=\"bar\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      import type {Slots1 as Slots} from './test01'\n      defineSlots<Slots>()\n      </script>",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid13"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot :name=\"'foo'\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      defineSlots<{\n        default(props: { msg: string }): any\n      }>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 38
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid14"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot :name=\"'foo'\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      interface Slots {\n        default(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 38
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid15"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot :name=\"'foo'\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      type Slots = {\n        default(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 38
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid16"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\" />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      defineSlots<{\n        foo(props: { msg: string }): any\n        foo(props: { msg: string }): any\n      }>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slot foo is already defined.",
+     "line": 10,
+     "column": 9,
+     "endLine": 10,
+     "endColumn": 41
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDefinedSlot",
+     "message": "Slot foo is already defined.",
+     "line": 10,
+     "column": 9,
+     "endLine": 10,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid17"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\" />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      interface Slots {\n        foo(props: { msg: string }): any\n        foo(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slot foo is already defined.",
+     "line": 10,
+     "column": 9,
+     "endLine": 10,
+     "endColumn": 41
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDefinedSlot",
+     "message": "Slot foo is already defined.",
+     "line": 10,
+     "column": 9,
+     "endLine": 10,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid18"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\" />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      type Slots = {\n        foo(props: { msg: string }): any\n        foo(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slot foo is already defined.",
+     "line": 10,
+     "column": 9,
+     "endLine": 10,
+     "endColumn": 41
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDefinedSlot",
+     "message": "Slot foo is already defined.",
+     "line": 10,
+     "column": 9,
+     "endLine": 10,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid19"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\" />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      defineSlots<{\n        foo(props: { msg: string }): any\n      }>()\n      defineSlots<{\n        default(props: { msg: string }): any,\n        foo(props: { msg: string }): any\n      }>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slot foo is already defined.",
+     "line": 13,
+     "column": 9,
+     "endLine": 13,
+     "endColumn": 41
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDefinedSlot",
+     "message": "Slot foo is already defined.",
+     "line": 13,
+     "column": 9,
+     "endLine": 13,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid20"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\" />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      interface SlotsA {\n        foo(props: { msg: string }): any\n      }\n      defineSlots<SlotsA>()\n      interface SlotsB {\n        default(props: { msg: string }): any,\n        foo(props: { msg: string }): any\n      }\n      defineSlots<SlotsB>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slot foo is already defined.",
+     "line": 14,
+     "column": 9,
+     "endLine": 14,
+     "endColumn": 41
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDefinedSlot",
+     "message": "Slot foo is already defined.",
+     "line": 14,
+     "column": 9,
+     "endLine": 14,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid21"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\" />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      type SlotsA = {\n        foo(props: { msg: string }): any\n      }\n      defineSlots<SlotsA>()\n      type SlotsB = {\n        default(props: { msg: string }): any,\n        foo(props: { msg: string }): any\n      }\n      defineSlots<SlotsB>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slot foo is already defined.",
+     "line": 14,
+     "column": 9,
+     "endLine": 14,
+     "endColumn": 41
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "alreadyDefinedSlot",
+     "message": "Slot foo is already defined.",
+     "line": 14,
+     "column": 9,
+     "endLine": 14,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid22"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot />\n        </div>\n      </template>\n      <script lang=\"ts\">\n      export default {\n        slots: {} as any\n      }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireExplicitSlots",
+     "message": "Slots must be explicitly defined.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#invalid23"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      defineSlots<{\n        default(props: { msg: string }): any\n      }>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid0"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      interface Slots {\n        default(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid1"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot />\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      type Slots = {\n        default(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid2"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      defineSlots<{\n        default(props: { msg: string }): any\n      }>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid3"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      interface Slots {\n        default(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid4"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      type Slots = {\n        default(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid5"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      defineSlots<{\n        foo(props: { msg: string }): any\n      }>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid6"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      interface Slots {\n        foo(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid7"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      type Slots = {\n        foo(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid8"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      defineSlots<{\n        foo: (props: { msg: string }) => any\n      }>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid9"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      interface Slots {\n        foo: (props: { msg: string }) => any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid10"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      type Slots = {\n        foo: (props: { msg: string }) => any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid11"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo-bar\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      defineSlots<{\n        'foo-bar'(props: { msg: string }): any\n      }>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid12"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo-bar\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      interface Slots {\n        'foo-bar'(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid13"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo-bar\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      type Slots = {\n        'foo-bar'(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid14"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot />\n        </div>\n      </template>\n      <script lang=\"ts\">\n      import { SlotsType } from 'vue'\n\n      defineComponent({\n        slots: Object as SlotsType<{\n          default: { msg: string }\n        }>,\n      })\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid15"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot></slot>\n        </div>\n      </template>\n      <script lang=\"ts\">\n      import { SlotsType } from 'vue'\n\n      defineComponent({\n        slots: Object as SlotsType<{\n          default: { msg: string }\n        }>,\n      })\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid16"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot></slot>\n          <slot name=\"foo\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      import type {Slots1 as Slots} from './test01'\n      defineSlots<Slots>()\n      </script>",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid17"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\"></slot>\n        </div>\n      </template>\n      <script lang=\"ts\">\n      import { SlotsType } from 'vue'\n\n      defineComponent({\n        slots: Object as SlotsType<{\n          foo(props: { msg: string }): any\n        }>,\n      })\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid18"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot name=\"foo\"></slot>\n        </div>\n      </template>\n      <script setup>\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid19"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot :name=\"'foo'\"></slot>\n          <slot :name=\"`bar`\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      defineSlots<{\n        foo(props: { msg: string }): any\n        bar(props: { msg: string }): any\n      }>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid20"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot :name=\"'foo'\"></slot>\n          <slot :name=\"`bar`\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      interface Slots {\n        foo(props: { msg: string }): any\n        bar(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid21"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot :name=\"'foo'\"></slot>\n          <slot :name=\"`bar`\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      type Slots = {\n        foo(props: { msg: string }): any\n        bar(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid22"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot :name=\"bar\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      defineSlots<{\n        default(props: { msg: string }): any\n      }>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid23"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot :name=\"bar\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      interface Slots {\n        default(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid24"
+ },
+ {
+  "rule": "require-explicit-slots",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <slot :name=\"bar\"></slot>\n        </div>\n      </template>\n      <script setup lang=\"ts\">\n      type Slots = {\n        default(props: { msg: string }): any\n      }\n      defineSlots<Slots>()\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-explicit-slots#valid25"
+ }
+]

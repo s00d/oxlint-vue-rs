@@ -1,0 +1,2357 @@
+[
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div\n            class=\"panel\"\n          >content</div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 12
+    },
+    {
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 5,
+     "column": 19,
+     "endLine": 5,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            class=\"panel\"\n          >\ncontent\n</div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       72,
+       72
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBeforeOpeningBracket",
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 5,
+     "column": 19,
+     "endLine": 5,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       79,
+       79
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            class=\"panel\"\n          >\ncontent\n</div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid0"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <div\n            class=\"panel\"\n          >   content</div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 15
+    },
+    {
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            class=\"panel\"\n          >\ncontent\n</div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 15,
+     "fix": {
+      "range": [
+       72,
+       75
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBeforeOpeningBracket",
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 5,
+     "column": 22,
+     "endLine": 5,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       82,
+       82
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            class=\"panel\"\n          >\ncontent\n</div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid1"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <div><div></div>\n          <div></div></div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16
+    },
+    {
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n<div></div>\n          <div></div>\n</div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       35,
+       35
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBeforeOpeningBracket",
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 4,
+     "column": 22,
+     "endLine": 4,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       68,
+       68
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n<div></div>\n          <div></div>\n</div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid2"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <div>multiline\n            content</div>\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16
+    },
+    {
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 4,
+     "column": 20,
+     "endLine": 4,
+     "endColumn": 20
+    }
+   ],
+   "output": "\n        <template>\n          <div>\nmultiline\n            content\n</div>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       35,
+       35
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBeforeOpeningBracket",
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 4,
+     "column": 20,
+     "endLine": 4,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       64,
+       64
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\nmultiline\n            content\n</div>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid3"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <template>\n          <div>multiline content\n          </div>\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16
+    }
+   ],
+   "output": "\n        <template>\n          <div>\nmultiline content\n          </div>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       35,
+       35
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\nmultiline content\n          </div>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid4"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            multiline content</div>\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 4,
+     "column": 30,
+     "endLine": 4,
+     "endColumn": 30
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n            multiline content\n</div>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedBeforeOpeningBracket",
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 4,
+     "column": 30,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       65,
+       65
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n            multiline content\n</div>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid5"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        <template>\n          <div><!--comment-->\n          <!--comment--></div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16
+    },
+    {
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n<!--comment-->\n          <!--comment-->\n</div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       35,
+       35
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBeforeOpeningBracket",
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       74,
+       74
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n<!--comment-->\n          <!--comment-->\n</div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid6"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        <template>\n          <div><!--comment\n            comment--></div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16
+    },
+    {
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n<!--comment\n            comment-->\n</div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       35,
+       35
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBeforeOpeningBracket",
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       69,
+       69
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n<!--comment\n            comment-->\n</div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid7"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        <template>\n          <div>content\n            content\n          </div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16
+    }
+   ],
+   "output": "\n        <template>\n          <div>\ncontent\n            content\n          </div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       35,
+       35
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\ncontent\n            content\n          </div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid8"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n          content\n          content</div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 5,
+     "column": 18,
+     "endLine": 5,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n          content\n          content\n</div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedBeforeOpeningBracket",
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 5,
+     "column": 18,
+     "endLine": 5,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       71,
+       71
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n          content\n          content\n</div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid9"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        <template><div>content<div>content\n        content</div>content</div></template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after opening tag (`<template>`), but no line breaks found.",
+     "line": 2,
+     "column": 19,
+     "endLine": 2,
+     "endColumn": 19
+    },
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 2,
+     "column": 24,
+     "endLine": 2,
+     "endColumn": 24
+    },
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 2,
+     "column": 36,
+     "endLine": 2,
+     "endColumn": 36
+    },
+    {
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16
+    },
+    {
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 3,
+     "column": 29,
+     "endLine": 3,
+     "endColumn": 29
+    },
+    {
+     "message": "Expected 1 line break before closing tag (`</template>`), but no line breaks found.",
+     "line": 3,
+     "column": 35,
+     "endLine": 3,
+     "endColumn": 35
+    }
+   ],
+   "output": "\n        <template>\n<div>\ncontent<div>\ncontent\n        content\n</div>content\n</div>\n</template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<template>`), but no line breaks found.",
+     "line": 2,
+     "column": 19,
+     "endLine": 2,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       19,
+       19
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 2,
+     "column": 24,
+     "endLine": 2,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       24,
+       24
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 2,
+     "column": 36,
+     "endLine": 2,
+     "endColumn": 36,
+     "fix": {
+      "range": [
+       36,
+       36
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBeforeOpeningBracket",
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       59,
+       59
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBeforeOpeningBracket",
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 3,
+     "column": 29,
+     "endLine": 3,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       72,
+       72
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBeforeOpeningBracket",
+     "message": "Expected 1 line break before closing tag (`</template>`), but no line breaks found.",
+     "line": 3,
+     "column": 35,
+     "endLine": 3,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       78,
+       78
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n<div>\ncontent<div>\ncontent\n        content\n</div>content\n</div>\n</template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid10"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n\n            content\n            content\n\n          </div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but 2 line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 5,
+     "endColumn": 13
+    },
+    {
+     "message": "Expected 1 line break before closing tag (`</div>`), but 2 line breaks found.",
+     "line": 6,
+     "column": 20,
+     "endLine": 8,
+     "endColumn": 11
+    }
+   ],
+   "output": "\n        <template>\n          <div>\ncontent\n            content\n</div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but 2 line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 5,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       35,
+       49
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBeforeOpeningBracket",
+     "message": "Expected 1 line break before closing tag (`</div>`), but 2 line breaks found.",
+     "line": 6,
+     "column": 20,
+     "endLine": 8,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       76,
+       88
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\ncontent\n            content\n</div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid11"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n        <template>\n          <div\n            class=\"panel\">\n\n          </div>\n          <div\n            class=\"panel\"></div>\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowEmptyLines": true,
+    "ignoreWhenEmpty": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 8,
+     "column": 27,
+     "endLine": 8,
+     "endColumn": 27
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            class=\"panel\">\n\n          </div>\n          <div\n            class=\"panel\">\n</div>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 8,
+     "column": 27,
+     "endLine": 8,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       121,
+       121
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            class=\"panel\">\n\n          </div>\n          <div\n            class=\"panel\">\n</div>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid12"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n\n            content\n            content\n\n          </div>\n          <div>content\n            content</div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowEmptyLines": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 9,
+     "column": 16,
+     "endLine": 9,
+     "endColumn": 16
+    },
+    {
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 10,
+     "column": 20,
+     "endLine": 10,
+     "endColumn": 20
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n\n            content\n            content\n\n          </div>\n          <div>\ncontent\n            content\n</div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 9,
+     "column": 16,
+     "endLine": 9,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       110,
+       110
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBeforeOpeningBracket",
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 10,
+     "column": 20,
+     "endLine": 10,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       137,
+       137
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n\n            content\n            content\n\n          </div>\n          <div>\ncontent\n            content\n</div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid13"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n        <template>\n          <div>{{content}}\n          {{content2}}</div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16
+    },
+    {
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n{{content}}\n          {{content2}}\n</div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       35,
+       35
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBeforeOpeningBracket",
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       69,
+       69
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\n{{content}}\n          {{content2}}\n</div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid14"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n        <template>\n          <div>content\n          <child></child>\n          <!-- comment --></div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16
+    },
+    {
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 5,
+     "column": 27,
+     "endLine": 5,
+     "endColumn": 27
+    }
+   ],
+   "output": "\n        <template>\n          <div>\ncontent\n          <child></child>\n          <!-- comment -->\n</div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       35,
+       35
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBeforeOpeningBracket",
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 5,
+     "column": 27,
+     "endLine": 5,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       95,
+       95
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div>\ncontent\n          <child></child>\n          <!-- comment -->\n</div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid15"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n        <template>\n          <div\n            >content</div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 14
+    },
+    {
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 21
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            >\ncontent\n</div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       48,
+       48
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBeforeOpeningBracket",
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       55,
+       55
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            >\ncontent\n</div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid16"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n        <template>\n          <div\n            attr>content</div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 4,
+     "column": 18,
+     "endLine": 4,
+     "endColumn": 18
+    },
+    {
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            attr>\ncontent\n</div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 4,
+     "column": 18,
+     "endLine": 4,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       52,
+       52
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBeforeOpeningBracket",
+     "message": "Expected 1 line break before closing tag (`</div>`), but no line breaks found.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       59,
+       59
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            attr>\ncontent\n</div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid17"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n        <template>\n          <div\n            ></div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignoreWhenEmpty": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 14
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            >\n</div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfterClosingBracket",
+     "message": "Expected 1 line break after opening tag (`<div>`), but no line breaks found.",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       48,
+       48
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            >\n</div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#invalid18"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div class=\"panel\">content</div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid0"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div class=\"panel\"><div></div></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid1"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div class=\"panel\"><!-- comment --></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid2"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <slot\n          name=\"panel\"\n        ></slot>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid3"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          ></div>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid4"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div class=\"panel\">\n          content\n        </div>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid5"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          class=\"panel\"\n        >\n          content\n        </div>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid6"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <a\n          href=\"/\"\n          class=\"link\"\n        >Home</a>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid7"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <a\n          href=\"/\"\n          class=\"link\"\n        >Home\n        </a>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid8"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <a\n          href=\"/\"\n          class=\"link\"\n        >\n          Home\n        </a>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid9"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <label\n            for=\"test\"\n            class=\"label\"\n          >Foo</label>\n          <input id=\"test\">\n        </div>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid10"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <label\n            for=\"test\"\n            class=\"label\"\n          >Foo\n          </label>\n          <input id=\"test\">\n        </div>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid11"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <label\n            for=\"test\"\n            class=\"label\"\n          >\n            Foo\n          </label>\n          <input id=\"test\">\n        </div>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid12"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template>\n        <router-link\n          to=\"/\"\n          class=\"link\"\n        >Home</router-link>\n        <RouterLink\n          to=\"/\"\n          class=\"link\"\n        >Home</RouterLink>\n        <nuxt-link\n          to=\"/\"\n          class=\"link\"\n        >Home</nuxt-link>\n        <NuxtLink\n          to=\"/\"\n          class=\"link\"\n        >Home</NuxtLink>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid13"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <div>\n            content\n            content\n          </div>\n        </div>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid14"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <div>multiline end tag</div\n      >\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid15"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div class=\"panel\"></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid16"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          class=\"panel\">\n        </div>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid17"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n        <template>\n          <div\n            class=\"panel\">\n\n          </div>\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowEmptyLines": true,
+    "ignoreWhenEmpty": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid18"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "\n        <template>\n          <div\n            class=\"panel\">\n\n            contents\n\n          </div>\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowEmptyLines": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid19"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "\n        <template>\n          <div\n            class=\"panel\">\n\n\n            contents\n\n\n          </div>\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "allowEmptyLines": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid20"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <template>\n        <self-closing />\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid21"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      <template>\n        <pre>content</pre>\n        <pre\n          id=\"test-pre\"\n        >content</pre>\n        <pre><div\n          >content</div></pre>\n        <pre>content\n          content</pre>\n        <textarea>content</textarea>\n        <textarea\n          id=\"test-textarea\"\n        >content</textarea>\n        <textarea>content\n          content</textarea>\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid22"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "\n        <template>\n          <ignore-tag>content</ignore-tag>\n          <ignore-tag\n            id=\"test-pre\"\n          >content</ignore-tag>\n          <ignore-tag><div\n            >content</div></ignore-tag>\n          <ignore-tag>content\n            content</ignore-tag>\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignores": [
+     "ignore-tag"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid23"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "\n        <template>\n          <IgnoreTag>content</IgnoreTag>\n          <IgnoreTag\n            id=\"test-pre\"\n          >content</IgnoreTag>\n          <IgnoreTag><div\n            >content</div></IgnoreTag>\n          <IgnoreTag>content\n            content</IgnoreTag>\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignores": [
+     "IgnoreTag"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid24"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "\n        <template>\n          <ignore-tag>content</ignore-tag>\n          <ignore-tag\n            id=\"test-pre\"\n          >content</ignore-tag>\n          <ignore-tag><div\n            >content</div></ignore-tag>\n          <ignore-tag>content\n            content</ignore-tag>\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignores": [
+     "IgnoreTag"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid25"
+ },
+ {
+  "rule": "multiline-html-element-content-newline",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          id=\n          \"\"\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "multiline-html-element-content-newline#valid26"
+ }
+]

@@ -1,0 +1,541 @@
+[
+ {
+  "rule": "no-restricted-syntax",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <input :value=\"value()\">\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "selector": "CallExpression",
+    "message": "Call expressions are not allowed."
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Call expressions are not allowed.",
+     "line": 3,
+     "column": 26,
+     "endLine": 3,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedSyntax",
+     "message": "Call expressions are not allowed.",
+     "line": 3,
+     "column": 26,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-syntax#invalid0"
+ },
+ {
+  "rule": "no-restricted-syntax",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <div> {{ foo() }} </div>\n          <div> {{ foo.bar() }} </div>\n          <div> {{ foo().bar }} </div>\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "selector": "VElement > VExpressionContainer CallExpression",
+    "message": "Call expressions are not allowed inside mustache interpolation."
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Call expressions are not allowed inside mustache interpolation.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 25
+    },
+    {
+     "message": "Call expressions are not allowed inside mustache interpolation.",
+     "line": 4,
+     "column": 20,
+     "endLine": 4,
+     "endColumn": 29
+    },
+    {
+     "message": "Call expressions are not allowed inside mustache interpolation.",
+     "line": 5,
+     "column": 20,
+     "endLine": 5,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedSyntax",
+     "message": "Call expressions are not allowed inside mustache interpolation.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedSyntax",
+     "message": "Call expressions are not allowed inside mustache interpolation.",
+     "line": 4,
+     "column": 20,
+     "endLine": 4,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedSyntax",
+     "message": "Call expressions are not allowed inside mustache interpolation.",
+     "line": 5,
+     "column": 20,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-syntax#invalid1"
+ },
+ {
+  "rule": "no-restricted-syntax",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div :foo=\"$gettext(`bar`)\">{{$gettext(`bar`)}}</div>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   "CallExpression[callee.type='Identifier'][callee.name='$gettext'] TemplateLiteral"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using 'CallExpression[callee.type='Identifier'][callee.name='$gettext'] TemplateLiteral' is not allowed.",
+     "line": 3,
+     "column": 29,
+     "endLine": 3,
+     "endColumn": 34
+    },
+    {
+     "message": "Using 'CallExpression[callee.type='Identifier'][callee.name='$gettext'] TemplateLiteral' is not allowed.",
+     "line": 3,
+     "column": 48,
+     "endLine": 3,
+     "endColumn": 53
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedSyntax",
+     "message": "Using 'CallExpression[callee.type='Identifier'][callee.name='$gettext'] TemplateLiteral' is not allowed.",
+     "line": 3,
+     "column": 29,
+     "endLine": 3,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedSyntax",
+     "message": "Using 'CallExpression[callee.type='Identifier'][callee.name='$gettext'] TemplateLiteral' is not allowed.",
+     "line": 3,
+     "column": 48,
+     "endLine": 3,
+     "endColumn": 53,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-syntax#invalid2"
+ },
+ {
+  "rule": "no-restricted-syntax",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <input :[fn()]=\"fn()\">\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "selector": "CallExpression",
+    "message": "Call expressions are not allowed."
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Call expressions are not allowed.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 24
+    },
+    {
+     "message": "Call expressions are not allowed.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedSyntax",
+     "message": "Call expressions are not allowed.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedSyntax",
+     "message": "Call expressions are not allowed.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-syntax#invalid3"
+ },
+ {
+  "rule": "no-restricted-syntax",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <template>\n          <input :value=\"interpolate(foo, bar, false)\">\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "selector": "CallExpression > :nth-child(3)[value!=true]",
+    "message": "Third argument of interpolate must be true"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Third argument of interpolate must be true",
+     "line": 3,
+     "column": 48,
+     "endLine": 3,
+     "endColumn": 53
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedSyntax",
+     "message": "Third argument of interpolate must be true",
+     "line": 3,
+     "column": 48,
+     "endLine": 3,
+     "endColumn": 53,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-syntax#invalid4"
+ },
+ {
+  "rule": "no-restricted-syntax",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <style>\n      .text {\n        color: v-bind('foo()')\n      }\n      </style>",
+  "filename": "test.js",
+  "options": [
+   {
+    "selector": "CallExpression",
+    "message": "Call expressions are not allowed."
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Call expressions are not allowed.",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedSyntax",
+     "message": "Call expressions are not allowed.",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-syntax#invalid5"
+ },
+ {
+  "rule": "no-restricted-syntax",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <input :value=\"value\">\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "selector": "CallExpression",
+    "message": "Call expressions are not allowed."
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-syntax#valid0"
+ },
+ {
+  "rule": "no-restricted-syntax",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <input :[value]=\"value\">\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "selector": "CallExpression",
+    "message": "Call expressions are not allowed."
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-syntax#valid1"
+ },
+ {
+  "rule": "no-restricted-syntax",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <input :value=\"interpolate(foo, bar, true)\">\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "selector": "CallExpression > :nth-child(3)[value!=true]",
+    "message": "Third argument of interpolate must be true"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-syntax#valid2"
+ },
+ {
+  "rule": "no-restricted-syntax",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <style>\n      .text {\n        color: v-bind('foo')\n      }\n      </style>",
+  "filename": "test.js",
+  "options": [
+   {
+    "selector": "CallExpression",
+    "message": "Call expressions are not allowed."
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-syntax#valid3"
+ }
+]

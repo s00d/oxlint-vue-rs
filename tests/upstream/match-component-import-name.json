@@ -1,0 +1,238 @@
+[
+ {
+  "rule": "match-component-import-name",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script> export default { components: { InvalidExport: SomeRandomName } } </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component alias InvalidExport should be one of: SomeRandomName, some-random-name.",
+     "line": 2,
+     "column": 47,
+     "endLine": 2,
+     "endColumn": 76
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Component alias InvalidExport should be one of: SomeRandomName, some-random-name.",
+     "line": 2,
+     "column": 47,
+     "endLine": 2,
+     "endColumn": 76,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "match-component-import-name#invalid0"
+ },
+ {
+  "rule": "match-component-import-name",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script> export default { components: { ValidImport } } </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "match-component-import-name#valid0"
+ },
+ {
+  "rule": "match-component-import-name",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script> export default { components: { ValidImport: ValidImport } } </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "match-component-import-name#valid1"
+ },
+ {
+  "rule": "match-component-import-name",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script> export default { components: { 'valid-import': ValidImport } } </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "match-component-import-name#valid2"
+ },
+ {
+  "rule": "match-component-import-name",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script> export default { components: { ValidImport, ...SpreadImport } } </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "match-component-import-name#valid3"
+ },
+ {
+  "rule": "match-component-import-name",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script> export default { components: { 'valid-import': ValidImport, [computedImport]: ComputedImport } } </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "match-component-import-name#valid4"
+ },
+ {
+  "rule": "match-component-import-name",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script> export default { components: { ValidImport, [differentComputedImport]: ComputedImport } } </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "match-component-import-name#valid5"
+ }
+]

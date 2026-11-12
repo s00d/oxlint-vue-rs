@@ -1,0 +1,1420 @@
+[
+ {
+  "rule": "no-unused-components",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <h2>Lorem ipsum</h2>\n          </div>\n        </template>\n        <script>\n          export default {\n            components: {\n              TheButton\n            },\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"TheButton\" component has been registered but not used.",
+     "line": 10,
+     "column": 15,
+     "endLine": 10,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "The \"TheButton\" component has been registered but not used.",
+     "line": 10,
+     "column": 15,
+     "endLine": 10,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#invalid0"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <h2>Lorem ipsum</h2>\n            <the_button />\n          </div>\n        </template>\n        <script>\n          export default {\n            components: {\n              TheButton\n            },\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"TheButton\" component has been registered but not used.",
+     "line": 11,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "The \"TheButton\" component has been registered but not used.",
+     "line": 11,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#invalid1"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <h2>Lorem ipsum</h2>\n            <TheButton />\n          </div>\n        </template>\n        <script>\n          export default {\n            components: {\n              'the-button': TheButton\n            },\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"the-button\" component has been registered but not used.",
+     "line": 11,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 38
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "The \"the-button\" component has been registered but not used.",
+     "line": 11,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#invalid2"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <component :is=\"dynamicComponent\"></component>\n        </div>\n      </template>\n      <script>\n        import Foo from 'components/Foo';\n        import Bar from 'components/Bar';\n\n        export default {\n          components: {\n            Foo,\n            Bar\n          },\n          computed: {\n            dynamicComponent() {\n              return '...'\n            }\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreWhenBindingPresent": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"Foo\" component has been registered but not used.",
+     "line": 13,
+     "column": 13,
+     "endLine": 13,
+     "endColumn": 16
+    },
+    {
+     "message": "The \"Bar\" component has been registered but not used.",
+     "line": 14,
+     "column": 13,
+     "endLine": 14,
+     "endColumn": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "The \"Foo\" component has been registered but not used.",
+     "line": 13,
+     "column": 13,
+     "endLine": 13,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unused",
+     "message": "The \"Bar\" component has been registered but not used.",
+     "line": 14,
+     "column": 13,
+     "endLine": 14,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#invalid3"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <component :is=\"\"></component>\n      </template>\n      <script>\n        export default {\n          components: {\n            Foo,\n          },\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"Foo\" component has been registered but not used.",
+     "line": 8,
+     "column": 13,
+     "endLine": 8,
+     "endColumn": 16
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "The \"Foo\" component has been registered but not used.",
+     "line": 8,
+     "column": 13,
+     "endLine": 8,
+     "endColumn": 16,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#invalid4"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div />\n      </template>\n      <script>\n        export default {\n          components: {\n            ['foo']: Foo,\n            [`bar`]: Bar,\n            ['baz']: Baz,\n            [qux]: Qux,\n            ...components,\n            quux,\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"foo\" component has been registered but not used.",
+     "line": 8,
+     "column": 13,
+     "endLine": 8,
+     "endColumn": 25
+    },
+    {
+     "message": "The \"bar\" component has been registered but not used.",
+     "line": 9,
+     "column": 13,
+     "endLine": 9,
+     "endColumn": 25
+    },
+    {
+     "message": "The \"baz\" component has been registered but not used.",
+     "line": 10,
+     "column": 13,
+     "endLine": 10,
+     "endColumn": 25
+    },
+    {
+     "message": "The \"quux\" component has been registered but not used.",
+     "line": 13,
+     "column": 13,
+     "endLine": 13,
+     "endColumn": 17
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "The \"foo\" component has been registered but not used.",
+     "line": 8,
+     "column": 13,
+     "endLine": 8,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unused",
+     "message": "The \"bar\" component has been registered but not used.",
+     "line": 9,
+     "column": 13,
+     "endLine": 9,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unused",
+     "message": "The \"baz\" component has been registered but not used.",
+     "line": 10,
+     "column": 13,
+     "endLine": 10,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unused",
+     "message": "The \"quux\" component has been registered but not used.",
+     "line": 13,
+     "column": 13,
+     "endLine": 13,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#invalid5"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <Foo />\n            <fio.fio />\n            <baz />\n          </div>\n        </template>\n        <script>\n          export default {\n            components: {\n              Foo,\n              'fio.fio': FioFio,\n              Bar,\n              Baz\n            },\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"Bar\" component has been registered but not used.",
+     "line": 14,
+     "column": 15,
+     "endLine": 14,
+     "endColumn": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unused",
+     "message": "The \"Bar\" component has been registered but not used.",
+     "line": 14,
+     "column": 15,
+     "endLine": 14,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#invalid6"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div>Lorem ipsum</div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid0"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>\n        <div>\n          <h2>Lorem ipsum</h2>\n        </div>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid1"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>\n        <div>\n          <TheButton />\n        </div>\n      </template>\n      <script>\n        export default {\n          components: {\n            TheButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid2"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template>\n        <svg>\n          <TheCircle />\n        </svg>\n      </template>\n      <script>\n        export default {\n          components: {\n            TheCircle\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid3"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template>\n        <circle cx=\"0\" cy=\"0\" :d=\"radius\" />\n      </template>\n      <script>\n        export default {}\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid4"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template>\n        <div>\n          <component :is=\"'TheButton'\" />\n        </div>\n      </template>\n      <script>\n        export default {\n          components: {\n            TheButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid5"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template>\n        <div>\n          <component is=\"TheButton\" />\n        </div>\n      </template>\n      <script>\n        export default {\n          components: {\n            TheButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid6"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template>\n        <div>\n          <theButton />\n        </div>\n      </template>\n      <script>\n        export default {\n          components: {\n            TheButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid7"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template>\n        <div>\n          <component is=\"theButton\" />\n        </div>\n      </template>\n      <script>\n        export default {\n          components: {\n            TheButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid8"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template>\n        <div>\n          <the-button />\n        </div>\n      </template>\n      <script>\n        export default {\n          components: {\n            TheButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid9"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template>\n        <div>\n          <the-button />\n        </div>\n      </template>\n      <script>\n        export default {\n          components: {\n            theButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid10"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template>\n        <div>\n          <component is=\"the-button\" />\n        </div>\n      </template>\n      <script>\n        export default {\n          components: {\n            TheButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid11"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template>\n        <div>\n          <The-button />\n        </div>\n      </template>\n      <script>\n        export default {\n          components: {\n            TheButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid12"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template>\n        <div>\n          <component is=\"The-button\" />\n        </div>\n      </template>\n      <script>\n        export default {\n          components: {\n            TheButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid13"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "<template>\n        <div>\n          <The-Button />\n        </div>\n      </template>\n      <script>\n        export default {\n          components: {\n            TheButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid14"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "<template>\n        <div>\n          <component is=\"The-Button\" />\n        </div>\n      </template>\n      <script>\n        export default {\n          components: {\n            TheButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid15"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "<template>\n        <div>\n          <the-Button />\n        </div>\n      </template>\n      <script>\n        export default {\n          components: {\n            TheButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid16"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "<template>\n        <div>\n          <component is=\"the-Button\" />\n        </div>\n      </template>\n      <script>\n        export default {\n          components: {\n            TheButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid17"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "<template>\n        <div>\n          <the-button />\n          <next_Button />\n        </div>\n      </template>\n      <script>\n        export default {\n          components: {\n            'the-button': TheButton,\n            'next_Button': NextButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid18"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "<template>\n        <div>\n          <component is=\"the-button\" />\n          <component is=\"next_Button\" />\n        </div>\n      </template>\n      <script>\n        export default {\n          components: {\n            'the-button': TheButton,\n            'next_Button': NextButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid19"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "<template>\n        <div>\n          <h2>Lorem ipsum</h2>\n          <component is=\"TheButton\" />\n        </div>\n      </template>\n      <script>\n        export default {\n          components: {\n            TheButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid20"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "<template>\n        <div id=\"app\">\n          <Header></Header>\n          <div class=\"content\">\n            <router-view></router-view>\n          </div>\n          <Footer />\n        </div>\n      </template>\n      <script>\n        import Header from 'components/Layout/Header';\n        import Footer from 'components/Layout/Footer';\n\n        export default {\n          name: 'App',\n          components: {\n            Header,\n            Footer,\n          },\n        };\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid21"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <component :is=\"dynamicComponent\"></component>\n        </div>\n      </template>\n      <script>\n        import Foo from 'components/Foo';\n        import Bar from 'components/Bar';\n\n        export default {\n          components: {\n            Foo,\n            Bar\n          },\n          computed: {\n            dynamicComponent() {\n              return '...'\n            }\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "ignoreWhenBindingPresent": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid22"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          components: {\n            TheButton\n          },\n          render() {\n            return\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid23"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "\n      <template src=\"./test.html\" />\n      <script>\n        export default {\n          components: {\n            TheButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid24"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "\n      <template src=\"./test.html\"></template>\n      <script>\n        export default {\n          components: {\n            TheButton\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid25"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "\n      <template>\n        <component :is=\"\"></component>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid26"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "\n      <template>\n        <div />\n      </template>\n      <script>\n        export default {\n          components: {\n            [foo.bar]: baz\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid27"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 28,
+  "name": null,
+  "code": "\n      <template>\n        <div />\n      </template>\n      <script>\n        export default {\n          components: {\n            [foo]: Bar\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid28"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 29,
+  "name": null,
+  "code": "\n      <template>\n        <foo />\n      </template>\n      <script>\n        export default {\n          components: {\n            ['foo']: Foo\n          }\n        }\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid29"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 30,
+  "name": null,
+  "code": "\n        <template>\n          <div v-is=\"'CustomComponent'\" />\n        </template>\n        <script>\n        export default {\n          components: {\n            CustomComponent\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid30"
+ },
+ {
+  "rule": "no-unused-components",
+  "kind": "valid",
+  "idx": 31,
+  "name": null,
+  "code": "\n        <template>\n          <div is=\"vue:CustomComponent\" />\n        </template>\n        <script>\n        export default {\n          components: {\n            CustomComponent\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unused-components#valid31"
+ }
+]

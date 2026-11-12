@@ -1,0 +1,456 @@
+[
+ {
+  "rule": "arrow-spacing",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div :attr=\"()=>a\" />\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Missing space before =>.",
+     "line": 3,
+     "column": 24,
+     "endLine": 3,
+     "endColumn": 25
+    },
+    {
+     "message": "Missing space after =>.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 28
+    }
+   ],
+   "output": "\n        <template>\n          <div :attr=\"() => a\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedBefore",
+     "message": "Missing space before =>.",
+     "line": 3,
+     "column": 24,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       44,
+       44
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedAfter",
+     "message": "Missing space after =>.",
+     "line": 3,
+     "column": 27,
+     "endLine": 3,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       46,
+       46
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div :attr=\"() => a\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "arrow-spacing#invalid0"
+ },
+ {
+  "rule": "arrow-spacing",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <div @click=\"()=>a\" />\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Missing space before =>.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 26
+    },
+    {
+     "message": "Missing space after =>.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 29
+    }
+   ],
+   "output": "\n        <template>\n          <div @click=\"() => a\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedBefore",
+     "message": "Missing space before =>.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       45,
+       45
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedAfter",
+     "message": "Missing space after =>.",
+     "line": 3,
+     "column": 28,
+     "endLine": 3,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       47,
+       47
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div @click=\"() => a\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "arrow-spacing#invalid1"
+ },
+ {
+  "rule": "arrow-spacing",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <div @click=\"\n            const fn = ()=>a\n            fn()\n          \" />\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Missing space before =>.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 26
+    },
+    {
+     "message": "Missing space after =>.",
+     "line": 4,
+     "column": 28,
+     "endLine": 4,
+     "endColumn": 29
+    }
+   ],
+   "output": "\n        <template>\n          <div @click=\"\n            const fn = () => a\n            fn()\n          \" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedBefore",
+     "message": "Missing space before =>.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       69,
+       69
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedAfter",
+     "message": "Missing space after =>.",
+     "line": 4,
+     "column": 28,
+     "endLine": 4,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       71,
+       71
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div @click=\"\n            const fn = () => a\n            fn()\n          \" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "arrow-spacing#invalid2"
+ },
+ {
+  "rule": "arrow-spacing",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <div :attr=\"() => a\" />\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "before": false,
+    "after": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected space before =>.",
+     "line": 3,
+     "column": 24,
+     "endLine": 3,
+     "endColumn": 25
+    },
+    {
+     "message": "Unexpected space after =>.",
+     "line": 3,
+     "column": 29,
+     "endLine": 3,
+     "endColumn": 30
+    }
+   ],
+   "output": "\n        <template>\n          <div :attr=\"()=>a\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedBefore",
+     "message": "Unexpected space before =>.",
+     "line": 3,
+     "column": 24,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       44,
+       45
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedAfter",
+     "message": "Unexpected space after =>.",
+     "line": 3,
+     "column": 29,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       47,
+       48
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div :attr=\"()=>a\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "arrow-spacing#invalid3"
+ },
+ {
+  "rule": "arrow-spacing",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template>\n      <div :attr=\"() => a\" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "arrow-spacing#valid0"
+ },
+ {
+  "rule": "arrow-spacing",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>\n      <div @click=\"() => a\" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "arrow-spacing#valid1"
+ },
+ {
+  "rule": "arrow-spacing",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>\n      <div @click=\"\n        const fn = () => a\n        fn()\n      \" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "arrow-spacing#valid2"
+ },
+ {
+  "rule": "arrow-spacing",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <div :attr=\"()=>a\" />\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "before": false,
+    "after": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "arrow-spacing#valid3"
+ }
+]

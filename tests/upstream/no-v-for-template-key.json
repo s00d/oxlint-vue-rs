@@ -1,0 +1,512 @@
+[
+ {
+  "rule": "no-v-for-template-key",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><template v-for=\"item in list\" :key=\"item.id\"><div /></template></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'<template v-for>' cannot be keyed. Place the key on real elements instead.",
+     "line": 1,
+     "column": 42,
+     "endLine": 1,
+     "endColumn": 56
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallow",
+     "message": "'<template v-for>' cannot be keyed. Place the key on real elements instead.",
+     "line": 1,
+     "column": 42,
+     "endLine": 1,
+     "endColumn": 56,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-for-template-key#invalid0"
+ },
+ {
+  "rule": "no-v-for-template-key",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><template v-for=\"(item, i) in list\" :key=\"i\"><div /></template></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'<template v-for>' cannot be keyed. Place the key on real elements instead.",
+     "line": 1,
+     "column": 47,
+     "endLine": 1,
+     "endColumn": 55
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallow",
+     "message": "'<template v-for>' cannot be keyed. Place the key on real elements instead.",
+     "line": 1,
+     "column": 47,
+     "endLine": 1,
+     "endColumn": 55,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-for-template-key#invalid1"
+ },
+ {
+  "rule": "no-v-for-template-key",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><template v-for=\"item in list\" :key=\"foo + item.id\"><div /></template></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'<template v-for>' cannot be keyed. Place the key on real elements instead.",
+     "line": 1,
+     "column": 42,
+     "endLine": 1,
+     "endColumn": 62
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallow",
+     "message": "'<template v-for>' cannot be keyed. Place the key on real elements instead.",
+     "line": 1,
+     "column": 42,
+     "endLine": 1,
+     "endColumn": 62,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-for-template-key#invalid2"
+ },
+ {
+  "rule": "no-v-for-template-key",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><template v-for=\"item in list\" key=\"foo\"><div /></template></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'<template v-for>' cannot be keyed. Place the key on real elements instead.",
+     "line": 1,
+     "column": 42,
+     "endLine": 1,
+     "endColumn": 51
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallow",
+     "message": "'<template v-for>' cannot be keyed. Place the key on real elements instead.",
+     "line": 1,
+     "column": 42,
+     "endLine": 1,
+     "endColumn": 51,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-for-template-key#invalid3"
+ },
+ {
+  "rule": "no-v-for-template-key",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-for-template-key#valid0"
+ },
+ {
+  "rule": "no-v-for-template-key",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><template></template></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-for-template-key#valid1"
+ },
+ {
+  "rule": "no-v-for-template-key",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div key=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-for-template-key#valid2"
+ },
+ {
+  "rule": "no-v-for-template-key",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div v-bind:key=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-for-template-key#valid3"
+ },
+ {
+  "rule": "no-v-for-template-key",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :key=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-for-template-key#valid4"
+ },
+ {
+  "rule": "no-v-for-template-key",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div><template key=\"foo\"></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-for-template-key#valid5"
+ },
+ {
+  "rule": "no-v-for-template-key",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div><template v-bind:key=\"foo\"></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-for-template-key#valid6"
+ },
+ {
+  "rule": "no-v-for-template-key",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div><template :key=\"foo\"></template></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-for-template-key#valid7"
+ },
+ {
+  "rule": "no-v-for-template-key",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><template v-slot=\"item\" :key=\"item.id\"><div /></template></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-for-template-key#valid8"
+ },
+ {
+  "rule": "no-v-for-template-key",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><template v-for=\"item in list\"><template :key=\"item.id\"><div /></template></template></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-v-for-template-key#valid9"
+ }
+]

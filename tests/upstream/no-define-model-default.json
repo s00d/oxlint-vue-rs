@@ -1,0 +1,341 @@
+[
+ {
+  "rule": "no-define-model-default",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script setup>\n      const model = defineModel({ type: String, default: '' })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected default value for the \"modelValue\" model.",
+     "line": 3,
+     "column": 49,
+     "endLine": 3,
+     "endColumn": 60
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected default value for the \"modelValue\" model.",
+     "line": 3,
+     "column": 49,
+     "endLine": 3,
+     "endColumn": 60,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-define-model-default#invalid0"
+ },
+ {
+  "rule": "no-define-model-default",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const modelValue = defineModel<string>({ default: '' })\n      const count = defineModel<number>('count', { default: 0 })\n      const items = defineModel<string[]>('items', { default: () => [] })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected default value for the \"modelValue\" model.",
+     "line": 3,
+     "column": 48,
+     "endLine": 3,
+     "endColumn": 59
+    },
+    {
+     "message": "Unexpected default value for the \"count\" model.",
+     "line": 4,
+     "column": 52,
+     "endLine": 4,
+     "endColumn": 62
+    },
+    {
+     "message": "Unexpected default value for the \"items\" model.",
+     "line": 5,
+     "column": 54,
+     "endLine": 5,
+     "endColumn": 71
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected default value for the \"modelValue\" model.",
+     "line": 3,
+     "column": 48,
+     "endLine": 3,
+     "endColumn": 59,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected default value for the \"count\" model.",
+     "line": 4,
+     "column": 52,
+     "endLine": 4,
+     "endColumn": 62,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected default value for the \"items\" model.",
+     "line": 5,
+     "column": 54,
+     "endLine": 5,
+     "endColumn": 71,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-define-model-default#invalid1"
+ },
+ {
+  "rule": "no-define-model-default",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const model = defineModel({ default: 'foo' } as const)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected default value for the \"modelValue\" model.",
+     "line": 3,
+     "column": 35,
+     "endLine": 3,
+     "endColumn": 49
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected default value for the \"modelValue\" model.",
+     "line": 3,
+     "column": 35,
+     "endLine": 3,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-define-model-default#invalid2"
+ },
+ {
+  "rule": "no-define-model-default",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script setup>\n      const model = defineModel()\n      const count = defineModel('count')\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-define-model-default#valid0"
+ },
+ {
+  "rule": "no-define-model-default",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script setup>\n      const model = defineModel({ type: String, required: true })\n      const count = defineModel('count', { type: Number })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-define-model-default#valid1"
+ },
+ {
+  "rule": "no-define-model-default",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const model = defineModel<string>({ required: true })\n      const count = defineModel<number>('count')\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-define-model-default#valid2"
+ },
+ {
+  "rule": "no-define-model-default",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script setup>\n      const options = { default: '' }\n      const model = defineModel(options)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-define-model-default#valid3"
+ },
+ {
+  "rule": "no-define-model-default",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        props: {\n          modelValue: { type: String, default: '' }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-define-model-default#valid4"
+ }
+]

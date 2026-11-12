@@ -1,0 +1,1134 @@
+[
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><MyComponent v-bind:foo.sync='bar'/></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 45
+    }
+   ],
+   "output": "<template><MyComponent v-model:foo='bar'/></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 45,
+     "fix": {
+      "range": [
+       23,
+       38
+      ],
+      "text": "v-model:foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><MyComponent v-model:foo='bar'/></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid0"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><MyComponent :foo.sync='bar'/></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ],
+   "output": "<template><MyComponent v-model:foo='bar'/></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       23,
+       32
+      ],
+      "text": "v-model:foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><MyComponent v-model:foo='bar'/></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid1"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><MyComponent v-bind:[dynamicArg].sync='bar'/></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 54
+    }
+   ],
+   "output": "<template><MyComponent v-model:[dynamicArg]='bar'/></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 54,
+     "fix": {
+      "range": [
+       23,
+       47
+      ],
+      "text": "v-model:[dynamicArg]"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><MyComponent v-model:[dynamicArg]='bar'/></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid2"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><MyComponent :[dynamicArg].sync='bar'/></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 48
+    }
+   ],
+   "output": "<template><MyComponent v-model:[dynamicArg]='bar'/></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 48,
+     "fix": {
+      "range": [
+       23,
+       41
+      ],
+      "text": "v-model:[dynamicArg]"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><MyComponent v-model:[dynamicArg]='bar'/></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid3"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><MyComponent v-bind.sync='bar'/></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 41
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid4"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><MyComponent :foo.sync.unknown=\"foo\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 47
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid5"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><MyComponent :[dynamicArg].sync.unknown=\"foo\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 56
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 56,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid6"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><MyComponent :foo.sync=\"x.foo\" /></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 69
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"x.foo\" /></div></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 69,
+     "fix": {
+      "range": [
+       51,
+       60
+      ],
+      "text": "v-model:foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"x.foo\" /></div></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid7"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><MyComponent :foo.sync=\"foo[x]\" /></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 70
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[x]\" /></div></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 70,
+     "fix": {
+      "range": [
+       51,
+       60
+      ],
+      "text": "v-model:foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[x]\" /></div></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid8"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><MyComponent :foo.sync=\"foo[x - 1]\" /></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 74
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[x - 1]\" /></div></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 74,
+     "fix": {
+      "range": [
+       51,
+       60
+      ],
+      "text": "v-model:foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[x - 1]\" /></div></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid9"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><MyComponent :foo.sync=\"foo[`${x}`]\" /></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 75
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[`${x}`]\" /></div></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 75,
+     "fix": {
+      "range": [
+       51,
+       60
+      ],
+      "text": "v-model:foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[`${x}`]\" /></div></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid10"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><MyComponent :foo.sync=\"foo[`prefix_${x}`]\" /></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 82
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[`prefix_${x}`]\" /></div></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 82,
+     "fix": {
+      "range": [
+       51,
+       60
+      ],
+      "text": "v-model:foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[`prefix_${x}`]\" /></div></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid11"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><MyComponent :foo.sync=\"foo[x ? x : '_']\" /></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 80
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[x ? x : '_']\" /></div></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 80,
+     "fix": {
+      "range": [
+       51,
+       60
+      ],
+      "text": "v-model:foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[x ? x : '_']\" /></div></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid12"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><MyComponent :foo.sync=\"foo[x || '_']\" /></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 77
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[x || '_']\" /></div></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 77,
+     "fix": {
+      "range": [
+       51,
+       60
+      ],
+      "text": "v-model:foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[x || '_']\" /></div></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid13"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><MyComponent :foo.sync=\"foo[x()]\" /></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 72
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[x()]\" /></div></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 72,
+     "fix": {
+      "range": [
+       51,
+       60
+      ],
+      "text": "v-model:foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[x()]\" /></div></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid14"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><MyComponent :foo.sync=\"foo[/r/.match(x) ? 0 : 1]\" /></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 89
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[/r/.match(x) ? 0 : 1]\" /></div></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 89,
+     "fix": {
+      "range": [
+       51,
+       60
+      ],
+      "text": "v-model:foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[/r/.match(x) ? 0 : 1]\" /></div></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid15"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><MyComponent :foo.sync=\"foo[typeof x]\" /></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 77
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[typeof x]\" /></div></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 77,
+     "fix": {
+      "range": [
+       51,
+       60
+      ],
+      "text": "v-model:foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[typeof x]\" /></div></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid16"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><MyComponent :foo.sync=\"foo[tag`${x}`]\" /></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 78
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[tag`${x}`]\" /></div></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "syncModifierIsDeprecated",
+     "message": "'.sync' modifier on 'v-bind' directive is deprecated. Use 'v-model:propName' instead.",
+     "line": 1,
+     "column": 52,
+     "endLine": 1,
+     "endColumn": 78,
+     "fix": {
+      "range": [
+       51,
+       60
+      ],
+      "text": "v-model:foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><div v-for=\"x in list\"><MyComponent v-model:foo=\"foo[tag`${x}`]\" /></div></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#invalid17"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><MyComponent v-bind:foo='bar'/></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#valid0"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><MyComponent :foo='bar'/></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#valid1"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><MyComponent v-bind:[dynamicArg]='bar'/></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#valid2"
+ },
+ {
+  "rule": "no-deprecated-v-bind-sync",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><MyComponent :[dynamicArg]='bar'/></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-v-bind-sync#valid3"
+ }
+]

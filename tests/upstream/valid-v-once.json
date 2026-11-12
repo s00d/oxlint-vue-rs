@@ -1,0 +1,364 @@
+[
+ {
+  "rule": "valid-v-once",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div v-once:aaa></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-once' directives require no argument.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedArgument",
+     "message": "'v-once' directives require no argument.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-once#invalid0"
+ },
+ {
+  "rule": "valid-v-once",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-once.aaa></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-once' directives require no modifier.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedModifier",
+     "message": "'v-once' directives require no modifier.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-once#invalid1"
+ },
+ {
+  "rule": "valid-v-once",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div v-once=\"aaa\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-once' directives require no attribute value.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedValue",
+     "message": "'v-once' directives require no attribute value.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-once#invalid2"
+ },
+ {
+  "rule": "valid-v-once",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><MyComponent v-once=\".\" /></template>",
+  "filename": "parsing-error.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-once' directives require no attribute value.",
+     "line": 1,
+     "column": 31,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedValue",
+     "message": "'v-once' directives require no attribute value.",
+     "line": 1,
+     "column": 31,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-once#invalid3"
+ },
+ {
+  "rule": "valid-v-once",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><MyComponent v-once=\"/**/\" /></template>",
+  "filename": "comment-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-once' directives require no attribute value.",
+     "line": 1,
+     "column": 31,
+     "endLine": 1,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedValue",
+     "message": "'v-once' directives require no attribute value.",
+     "line": 1,
+     "column": 31,
+     "endLine": 1,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-once#invalid4"
+ },
+ {
+  "rule": "valid-v-once",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><MyComponent v-once=\"\" /></template>",
+  "filename": "comment-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-once' directives require no attribute value.",
+     "line": 1,
+     "column": 31,
+     "endLine": 1,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedValue",
+     "message": "'v-once' directives require no attribute value.",
+     "line": 1,
+     "column": 31,
+     "endLine": 1,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-once#invalid5"
+ },
+ {
+  "rule": "valid-v-once",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-once#valid0"
+ },
+ {
+  "rule": "valid-v-once",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-once></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-once#valid1"
+ }
+]

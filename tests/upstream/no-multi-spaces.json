@@ -1,0 +1,2665 @@
+[
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div     /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before '/>'.",
+     "line": 1,
+     "column": 15,
+     "endLine": 1,
+     "endColumn": 20
+    }
+   ],
+   "output": "<template><div /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '/>'.",
+     "line": 1,
+     "column": 15,
+     "endLine": 1,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       14,
+       19
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid0"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div   class=\"foo\"  /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before 'class'.",
+     "line": 1,
+     "column": 15,
+     "endLine": 1,
+     "endColumn": 18
+    },
+    {
+     "message": "Multiple spaces found before '/>'.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 31
+    }
+   ],
+   "output": "<template><div class=\"foo\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before 'class'.",
+     "line": 1,
+     "column": 15,
+     "endLine": 1,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       14,
+       17
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '/>'.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       28,
+       30
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"foo\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid1"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div\t\tclass=\"foo\"\t\t/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before 'class'.",
+     "line": 1,
+     "column": 15,
+     "endLine": 1,
+     "endColumn": 17
+    },
+    {
+     "message": "Multiple spaces found before '/>'.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ],
+   "output": "<template><div class=\"foo\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before 'class'.",
+     "line": 1,
+     "column": 15,
+     "endLine": 1,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       14,
+       16
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '/>'.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       27,
+       29
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"foo\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid2"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div   :class=\"foo\"  /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before ':'.",
+     "line": 1,
+     "column": 15,
+     "endLine": 1,
+     "endColumn": 18
+    },
+    {
+     "message": "Multiple spaces found before '/>'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ],
+   "output": "<template><div :class=\"foo\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before ':'.",
+     "line": 1,
+     "column": 15,
+     "endLine": 1,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       14,
+       17
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '/>'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       29,
+       31
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :class=\"foo\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid3"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :foo=\"\" class=\"foo\"  /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before '/>'.",
+     "line": 1,
+     "column": 35,
+     "endLine": 1,
+     "endColumn": 37
+    }
+   ],
+   "output": "<template><div :foo=\"\" class=\"foo\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '/>'.",
+     "line": 1,
+     "column": 35,
+     "endLine": 1,
+     "endColumn": 37,
+     "fix": {
+      "range": [
+       34,
+       36
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :foo=\"\" class=\"foo\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid4"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div foo=\"\" class=\"foo\"  /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before '/>'.",
+     "line": 1,
+     "column": 34,
+     "endLine": 1,
+     "endColumn": 36
+    }
+   ],
+   "output": "<template><div foo=\"\" class=\"foo\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '/>'.",
+     "line": 1,
+     "column": 34,
+     "endLine": 1,
+     "endColumn": 36,
+     "fix": {
+      "range": [
+       33,
+       35
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div foo=\"\" class=\"foo\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid5"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><foo v-foo=\"\" class=\"foo\"  /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before '/>'.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 38
+    }
+   ],
+   "output": "<template><foo v-foo=\"\" class=\"foo\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '/>'.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       35,
+       37
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><foo v-foo=\"\" class=\"foo\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid6"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><foo v-foo=\"\" \n         class=\"foo\"    /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before '/>'.",
+     "line": 2,
+     "column": 21,
+     "endLine": 2,
+     "endColumn": 25
+    }
+   ],
+   "output": "<template><foo v-foo=\"\" \n         class=\"foo\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '/>'.",
+     "line": 2,
+     "column": 21,
+     "endLine": 2,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       45,
+       49
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><foo v-foo=\"\" \n         class=\"foo\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid7"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div>{{  test  }}</div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before 'test'.",
+     "line": 1,
+     "column": 18,
+     "endLine": 1,
+     "endColumn": 20
+    },
+    {
+     "message": "Multiple spaces found before '}}'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div>{{ test }}</div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before 'test'.",
+     "line": 1,
+     "column": 18,
+     "endLine": 1,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       17,
+       19
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '}}'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       23,
+       25
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ test }}</div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid8"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div               ></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before '>'.",
+     "line": 1,
+     "column": 15,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ],
+   "output": "<template><div ></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '>'.",
+     "line": 1,
+     "column": 15,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       14,
+       29
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div ></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid9"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div v-for=\"      i    in    b       \">{{ test }}</div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before 'i'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 29
+    },
+    {
+     "message": "Multiple spaces found before 'in'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34
+    },
+    {
+     "message": "Multiple spaces found before 'b'.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 40
+    },
+    {
+     "message": "Multiple spaces found before '\"'.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 48
+    }
+   ],
+   "output": "<template><div v-for=\" i in b \">{{ test }}</div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before 'i'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       22,
+       28
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before 'in'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       29,
+       33
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before 'b'.",
+     "line": 1,
+     "column": 36,
+     "endLine": 1,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       35,
+       39
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '\"'.",
+     "line": 1,
+     "column": 41,
+     "endLine": 1,
+     "endColumn": 48,
+     "fix": {
+      "range": [
+       40,
+       47
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-for=\" i in b \">{{ test }}</div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid10"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <i\n          :class=\"{\n            'fa-angle-up'   : isExpanded,\n            'fa-angle-down' : !isExpanded,\n          }\"\n        />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before ':'.",
+     "line": 5,
+     "column": 26,
+     "endLine": 5,
+     "endColumn": 29
+    }
+   ],
+   "output": "\n      <template>\n        <i\n          :class=\"{\n            'fa-angle-up' : isExpanded,\n            'fa-angle-down' : !isExpanded,\n          }\"\n        />\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before ':'.",
+     "line": 5,
+     "column": 26,
+     "endLine": 5,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       74,
+       77
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <i\n          :class=\"{\n            'fa-angle-up' : isExpanded,\n            'fa-angle-down' : !isExpanded,\n          }\"\n        />\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid11"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template>\n        <i\n          :class=\"{\n            'fa-angle-up':   isExpanded,\n            'fa-angle-down': !isExpanded,\n          }\"\n        />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before 'isExpanded'.",
+     "line": 5,
+     "column": 27,
+     "endLine": 5,
+     "endColumn": 30
+    }
+   ],
+   "output": "\n      <template>\n        <i\n          :class=\"{\n            'fa-angle-up': isExpanded,\n            'fa-angle-down': !isExpanded,\n          }\"\n        />\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before 'isExpanded'.",
+     "line": 5,
+     "column": 27,
+     "endLine": 5,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       75,
+       78
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <i\n          :class=\"{\n            'fa-angle-up': isExpanded,\n            'fa-angle-down': !isExpanded,\n          }\"\n        />\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid12"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          :class=\"{\n            'foo': foo  // comment\n          }\"\n        ></div>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before '// comment'.",
+     "line": 5,
+     "column": 23,
+     "endLine": 5,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          :class=\"{\n            'foo': foo // comment\n          }\"\n        ></div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '// comment'.",
+     "line": 5,
+     "column": 23,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       73,
+       75
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          :class=\"{\n            'foo': foo // comment\n          }\"\n        ></div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid13"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          :class=\"{\n            'foo': foo  /* multiline comment */\n          }\"\n        ></div>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before '/* multiline comment */'.",
+     "line": 5,
+     "column": 23,
+     "endLine": 5,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          :class=\"{\n            'foo': foo /* multiline comment */\n          }\"\n        ></div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '/* multiline comment */'.",
+     "line": 5,
+     "column": 23,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       73,
+       75
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          :class=\"{\n            'foo': foo /* multiline comment */\n          }\"\n        ></div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid14"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          :class=\"{\n            'foo': foo  // comment\n          }\"\n        ></div>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignoreEOLComments": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before '// comment'.",
+     "line": 5,
+     "column": 23,
+     "endLine": 5,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          :class=\"{\n            'foo': foo // comment\n          }\"\n        ></div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '// comment'.",
+     "line": 5,
+     "column": 23,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       73,
+       75
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          :class=\"{\n            'foo': foo // comment\n          }\"\n        ></div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid15"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          :class=\"{\n            'foo': foo  /* multiline comment */\n          }\"\n        ></div>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignoreEOLComments": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before '/* multiline comment */'.",
+     "line": 5,
+     "column": 23,
+     "endLine": 5,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          :class=\"{\n            'foo': foo /* multiline comment */\n          }\"\n        ></div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '/* multiline comment */'.",
+     "line": 5,
+     "column": 23,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       73,
+       75
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div\n          :class=\"{\n            'foo': foo /* multiline comment */\n          }\"\n        ></div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid16"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n        <template>\n          <div></div>\n        </template>\n\n        <script   ></script>\n\n        <style    ></style>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before '>'.",
+     "line": 6,
+     "column": 16,
+     "endLine": 6,
+     "endColumn": 19
+    },
+    {
+     "message": "Multiple spaces found before '>'.",
+     "line": 8,
+     "column": 15,
+     "endLine": 8,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n        <template>\n          <div></div>\n        </template>\n\n        <script ></script>\n\n        <style ></style>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '>'.",
+     "line": 6,
+     "column": 16,
+     "endLine": 6,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       78,
+       81
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '>'.",
+     "line": 8,
+     "column": 15,
+     "endLine": 8,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       107,
+       111
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div></div>\n        </template>\n\n        <script ></script>\n\n        <style ></style>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid17"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n        <script  setup   lang=\"ts\">\n        const  a  =  1\n        </script   >\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before 'setup'.",
+     "line": 2,
+     "column": 16,
+     "endLine": 2,
+     "endColumn": 18
+    },
+    {
+     "message": "Multiple spaces found before 'lang'.",
+     "line": 2,
+     "column": 23,
+     "endLine": 2,
+     "endColumn": 26
+    },
+    {
+     "message": "Multiple spaces found before '>'.",
+     "line": 4,
+     "column": 17,
+     "endLine": 4,
+     "endColumn": 20
+    }
+   ],
+   "output": "\n        <script setup lang=\"ts\">\n        const  a  =  1\n        </script >\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before 'setup'.",
+     "line": 2,
+     "column": 16,
+     "endLine": 2,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       16,
+       18
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before 'lang'.",
+     "line": 2,
+     "column": 23,
+     "endLine": 2,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       23,
+       26
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '>'.",
+     "line": 4,
+     "column": 17,
+     "endLine": 4,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       76,
+       79
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup lang=\"ts\">\n        const  a  =  1\n        </script >\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid18"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "\n        <style  scoped>\n        .a { color: red }\n        </style  >\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before 'scoped'.",
+     "line": 2,
+     "column": 15,
+     "endLine": 2,
+     "endColumn": 17
+    },
+    {
+     "message": "Multiple spaces found before '>'.",
+     "line": 4,
+     "column": 16,
+     "endLine": 4,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n        <style scoped>\n        .a { color: red }\n        </style >\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before 'scoped'.",
+     "line": 2,
+     "column": 15,
+     "endLine": 2,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       15,
+       17
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '>'.",
+     "line": 4,
+     "column": 16,
+     "endLine": 4,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       66,
+       68
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <style scoped>\n        .a { color: red }\n        </style >\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid19"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "\n        <i18n  lang=\"json\"   >\n        { \"en\": { \"hello\": \"Hello\" } }\n        </i18n  >\n        <i18n   src=\"./locales.json\"   />\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before 'lang'.",
+     "line": 2,
+     "column": 14,
+     "endLine": 2,
+     "endColumn": 16
+    },
+    {
+     "message": "Multiple spaces found before '>'.",
+     "line": 2,
+     "column": 27,
+     "endLine": 2,
+     "endColumn": 30
+    },
+    {
+     "message": "Multiple spaces found before '>'.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 17
+    },
+    {
+     "message": "Multiple spaces found before 'src'.",
+     "line": 5,
+     "column": 14,
+     "endLine": 5,
+     "endColumn": 17
+    },
+    {
+     "message": "Multiple spaces found before '/>'.",
+     "line": 5,
+     "column": 37,
+     "endLine": 5,
+     "endColumn": 40
+    }
+   ],
+   "output": "\n        <i18n lang=\"json\" >\n        { \"en\": { \"hello\": \"Hello\" } }\n        </i18n >\n        <i18n src=\"./locales.json\" />\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before 'lang'.",
+     "line": 2,
+     "column": 14,
+     "endLine": 2,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       14,
+       16
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '>'.",
+     "line": 2,
+     "column": 27,
+     "endLine": 2,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       27,
+       30
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '>'.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       85,
+       87
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before 'src'.",
+     "line": 5,
+     "column": 14,
+     "endLine": 5,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       102,
+       105
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '/>'.",
+     "line": 5,
+     "column": 37,
+     "endLine": 5,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       125,
+       128
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <i18n lang=\"json\" >\n        { \"en\": { \"hello\": \"Hello\" } }\n        </i18n >\n        <i18n src=\"./locales.json\" />\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid20"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "\n        <template  lang=\"pug\"   >\n        div\n        </template  >\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before 'lang'.",
+     "line": 2,
+     "column": 18,
+     "endLine": 2,
+     "endColumn": 20
+    },
+    {
+     "message": "Multiple spaces found before '>'.",
+     "line": 2,
+     "column": 30,
+     "endLine": 2,
+     "endColumn": 33
+    },
+    {
+     "message": "Multiple spaces found before '>'.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 21
+    }
+   ],
+   "output": "\n        <template lang=\"pug\" >\n        div\n        </template >\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before 'lang'.",
+     "line": 2,
+     "column": 18,
+     "endLine": 2,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       18,
+       20
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '>'.",
+     "line": 2,
+     "column": 30,
+     "endLine": 2,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       30,
+       33
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '>'.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       65,
+       67
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template lang=\"pug\" >\n        div\n        </template >\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid21"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "\n        <template  >\n          <div  class=\"foo\"></div>\n        </template  >\n        <script   setup></script>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Multiple spaces found before '>'.",
+     "line": 2,
+     "column": 18,
+     "endLine": 2,
+     "endColumn": 20
+    },
+    {
+     "message": "Multiple spaces found before 'class'.",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 17
+    },
+    {
+     "message": "Multiple spaces found before '>'.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 21
+    },
+    {
+     "message": "Multiple spaces found before 'setup'.",
+     "line": 5,
+     "column": 16,
+     "endLine": 5,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n        <template >\n          <div class=\"foo\"></div>\n        </template >\n        <script setup></script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '>'.",
+     "line": 2,
+     "column": 18,
+     "endLine": 2,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       18,
+       20
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before 'class'.",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       36,
+       38
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before '>'.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       75,
+       77
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "multipleSpaces",
+     "message": "Multiple spaces found before 'setup'.",
+     "line": 5,
+     "column": 16,
+     "endLine": 5,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       94,
+       97
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template >\n          <div class=\"foo\"></div>\n        </template >\n        <script setup></script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#invalid22"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid0"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid1"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid2"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div class=\"foo\"></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid3"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div class=\"     foo   \" style=\"     foo   \"></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid4"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div class=\"foo\" @click=\"bar\"></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid5"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div class=\"foo\"\n          :style=\"foo\"></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid6"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div class=\"foo\"\n\t\t\t:style=\"foo\"></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid7"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div class=\"foo\"\n      :style=\"foo\"\n      ></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid8"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div class=\"foo\"\n                       :style=\"foo\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid9"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div class=\"foo\"\n                       :style=\"foo\"\n                            /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid10"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div>{{ test }}</div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid11"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div>{{test}}</div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid12"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div>{{test}}<!-- fooo --></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid13"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div>{{test}} <!--        fooo           --></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid14"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div v-for=\"i in b\">{{ i }}</div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid15"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div v-for=\" i in b \">{{ i }}</div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid16"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><div :test=\"`           `\"> {{ a }} </div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid17"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><div :test=\"`           `\">          \n        {{ a }} </div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid18"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><div /></template>\n<script setup lang=\"ts\"></script>\n<style scoped></style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid19"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "<script\n  setup\n  lang=\"ts\"\n>\n</script\n>\n<style\n  scoped\n></style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid20"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "<script>\nconst a  =  1\n</script>\n<style>\n.a  { color:  red }\n</style>\n<i18n>\n{ \"a\":  1 }\n</i18n>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid21"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "<template lang=\"pug\">\ndiv(class=\"a\"  id=\"b\")\n</template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid22"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "export default { }",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid23"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "\n      <template>\n        <i\n          :class=\"{\n            'fa-angle-up'   : isExpanded,\n            'fa-angle-down' : !isExpanded,\n          }\"\n        />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignoreProperties": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid24"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "\n      <template>\n        <i\n          :class=\"{\n            'fa-angle-up':   isExpanded,\n            'fa-angle-down': !isExpanded,\n          }\"\n        />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignoreProperties": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid25"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          :class=\"{\n           'foo': foo,   // comment\n          }\"\n        ></div>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignoreEOLComments": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid26"
+ },
+ {
+  "rule": "no-multi-spaces",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          :class=\"{\n            'foo': foo   /* multiline comment */\n          }\"\n        ></div>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignoreEOLComments": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-multi-spaces#valid27"
+ }
+]

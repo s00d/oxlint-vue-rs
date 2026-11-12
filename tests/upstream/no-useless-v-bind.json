@@ -1,0 +1,686 @@
+[
+ {
+  "rule": "no-useless-v-bind",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div :id=\"'foo'\" />\n        <div v-bind:id=\"'foo'\" />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 25
+    },
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 31
+    }
+   ],
+   "output": "\n      <template>\n        <div id=\"foo\" />\n        <div id=\"foo\" />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       31,
+       42
+      ],
+      "text": "id=\"foo\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       59,
+       76
+      ],
+      "text": "id=\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div id=\"foo\" />\n        <div id=\"foo\" />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-v-bind#invalid0"
+ },
+ {
+  "rule": "no-useless-v-bind",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div :id=\"'comment'/*comment*/\" />\n        <div :id=\"'comment'//comment\n        \" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 40
+    },
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 4,
+     "column": 14,
+     "endLine": 5,
+     "endColumn": 10
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 4,
+     "column": 14,
+     "endLine": 5,
+     "endColumn": 10,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-v-bind#invalid1"
+ },
+ {
+  "rule": "no-useless-v-bind",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div :id=\"'\\n'\" />\n        <div :id=\"'\\r'\" />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 24
+    },
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-v-bind#invalid2"
+ },
+ {
+  "rule": "no-useless-v-bind",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <div :id=\"'&quot;'\" />\n        <div :id=`&quot;&apos;` />\n        <div :id=\"'\\\\'\" />\n        <div :id=\"'\\\\r'\" />\n        <div :id=\"'\\'\" />\n        <div :id=\"`foo`\" />\n        <div :id=\"`foo${bar}`\" />\n        <div :id='\"&apos;\"' />\n        <div :id=`foo` />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 28
+    },
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 32
+    },
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 5,
+     "column": 14,
+     "endLine": 5,
+     "endColumn": 24
+    },
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 25
+    },
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 8,
+     "column": 14,
+     "endLine": 8,
+     "endColumn": 25
+    },
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 10,
+     "column": 14,
+     "endLine": 10,
+     "endColumn": 28
+    },
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 11,
+     "column": 14,
+     "endLine": 11,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n      <template>\n        <div id=\"&quot;\" />\n        <div id=&quot;&apos; />\n        <div id=\"\\\" />\n        <div id=\"\\r\" />\n        <div :id=\"'\\'\" />\n        <div id=\"foo\" />\n        <div :id=\"`foo${bar}`\" />\n        <div id='&apos;' />\n        <div id=foo />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       31,
+       45
+      ],
+      "text": "id=\"&quot;\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       62,
+       80
+      ],
+      "text": "id=&quot;&apos;"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 5,
+     "column": 14,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       97,
+       107
+      ],
+      "text": "id=\"\\\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       124,
+       135
+      ],
+      "text": "id=\"\\r\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 8,
+     "column": 14,
+     "endLine": 8,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       178,
+       189
+      ],
+      "text": "id=\"foo\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 10,
+     "column": 14,
+     "endLine": 10,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       240,
+       254
+      ],
+      "text": "id='&apos;'"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 11,
+     "column": 14,
+     "endLine": 11,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       271,
+       280
+      ],
+      "text": "id=foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div id=\"&quot;\" />\n        <div id=&quot;&apos; />\n        <div id=\"\\\" />\n        <div id=\"\\r\" />\n        <div :id=\"'\\'\" />\n        <div id=\"foo\" />\n        <div :id=\"`foo${bar}`\" />\n        <div id='&apos;' />\n        <div id=foo />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-v-bind#invalid3"
+ },
+ {
+  "rule": "no-useless-v-bind",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <div :id=\"    'foo'    \" />\n        <div :id='    \"foo\"    ' />\n        <div :id=\"   `foo`   \" />\n        <div :id='   `foo`   ' />\n        <div :id=\"' \\'foo\\' '\" />\n        <div :id='\" \\\"foo\\\" \"' />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 33
+    },
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 33
+    },
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 5,
+     "column": 14,
+     "endLine": 5,
+     "endColumn": 31
+    },
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 31
+    },
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 7,
+     "column": 14,
+     "endLine": 7,
+     "endColumn": 31
+    },
+    {
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 8,
+     "column": 14,
+     "endLine": 8,
+     "endColumn": 31
+    }
+   ],
+   "output": "\n      <template>\n        <div id=\"foo\" />\n        <div id='foo' />\n        <div id=\"foo\" />\n        <div id='foo' />\n        <div id=\" 'foo' \" />\n        <div id=' \"foo\" ' />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       31,
+       50
+      ],
+      "text": "id=\"foo\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       67,
+       86
+      ],
+      "text": "id='foo'"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 5,
+     "column": 14,
+     "endLine": 5,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       103,
+       120
+      ],
+      "text": "id=\"foo\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 6,
+     "column": 14,
+     "endLine": 6,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       137,
+       154
+      ],
+      "text": "id='foo'"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 7,
+     "column": 14,
+     "endLine": 7,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       171,
+       188
+      ],
+      "text": "id=\" 'foo' \""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected `v-bind` with a string literal value.",
+     "line": 8,
+     "column": 14,
+     "endLine": 8,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       205,
+       222
+      ],
+      "text": "id=' \"foo\" '"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div id=\"foo\" />\n        <div id='foo' />\n        <div id=\"foo\" />\n        <div id='foo' />\n        <div id=\" 'foo' \" />\n        <div id=' \"foo\" ' />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-v-bind#invalid4"
+ },
+ {
+  "rule": "no-useless-v-bind",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n    <template>\n      <div id=\"foo\" />\n      <div id='foo' />\n      <div id=foo />\n      <div :id=\"foo\" />\n      <div :id=\"'foo' || 'bar'\" />\n      <div :id=\"1\" />\n      <div :id />\n      <div :id=\"{\" />\n      <div :id=\"null\" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-v-bind#valid0"
+ },
+ {
+  "rule": "no-useless-v-bind",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div :id=\"'comment'/*comment*/\" />\n        <div :id=\"'comment'//comment\n        \" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignoreIncludesComment": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-v-bind#valid1"
+ },
+ {
+  "rule": "no-useless-v-bind",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div :id=\"'\\n'\" />\n        <div :id=\"'\\r'\" />\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignoreStringEscape": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-v-bind#valid2"
+ }
+]

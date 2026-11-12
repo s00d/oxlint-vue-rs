@@ -1,0 +1,1132 @@
+[
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp v-bind:show=\"true\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expectShort",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 35,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoShort",
+       "output": "\n      <template>\n        <MyComp show />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectShort",
+     "message": "Boolean prop with 'true' value should be written in shorthand form.",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoShort",
+       "desc": "Rewrite this prop into shorthand form.",
+       "output": "\n      <template>\n        <MyComp show />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#invalid0"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp :show=\"true\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expectShort",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 29,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoShort",
+       "output": "\n      <template>\n        <MyComp show />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectShort",
+     "message": "Boolean prop with 'true' value should be written in shorthand form.",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoShort",
+       "desc": "Rewrite this prop into shorthand form.",
+       "output": "\n      <template>\n        <MyComp show />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#invalid1"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp v-bind:show=\"true\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expectShort",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 35,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoShort",
+       "output": "\n      <template>\n        <MyComp show />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectShort",
+     "message": "Boolean prop with 'true' value should be written in shorthand form.",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoShort",
+       "desc": "Rewrite this prop into shorthand form.",
+       "output": "\n      <template>\n        <MyComp show />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#invalid2"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp :show=\"true\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expectShort",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 29,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoShort",
+       "output": "\n      <template>\n        <MyComp show />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectShort",
+     "message": "Boolean prop with 'true' value should be written in shorthand form.",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoShort",
+       "desc": "Rewrite this prop into shorthand form.",
+       "output": "\n      <template>\n        <MyComp show />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#invalid3"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp show />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expectLong",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 21,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoLongVueProp",
+       "output": "\n      <template>\n        <MyComp :show=\"true\" />\n      </template>"
+      },
+      {
+       "messageId": "rewriteIntoLongHtmlAttr",
+       "output": "\n      <template>\n        <MyComp show=\"show\" />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectLong",
+     "message": "Boolean prop with 'true' value should be written in long form.",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoLongVueProp",
+       "desc": "Rewrite this prop into long-form Vue component prop.",
+       "output": "\n      <template>\n        <MyComp :show=\"true\" />\n      </template>"
+      },
+      {
+       "messageId": "rewriteIntoLongHtmlAttr",
+       "desc": "Rewrite this prop into long-form HTML attribute.",
+       "output": "\n      <template>\n        <MyComp show=\"show\" />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#invalid4"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp value foo-bar />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   "always",
+   {
+    "except": [
+     "value",
+     "/^foo-/"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expectLong",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 22,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoLongVueProp",
+       "output": "\n      <template>\n        <MyComp :value=\"true\" foo-bar />\n      </template>"
+      },
+      {
+       "messageId": "rewriteIntoLongHtmlAttr",
+       "output": "\n      <template>\n        <MyComp value=\"value\" foo-bar />\n      </template>"
+      }
+     ]
+    },
+    {
+     "messageId": "expectLong",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 30,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoLongVueProp",
+       "output": "\n      <template>\n        <MyComp value :foo-bar=\"true\" />\n      </template>"
+      },
+      {
+       "messageId": "rewriteIntoLongHtmlAttr",
+       "output": "\n      <template>\n        <MyComp value foo-bar=\"foo-bar\" />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectLong",
+     "message": "Boolean prop with 'true' value should be written in long form.",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoLongVueProp",
+       "desc": "Rewrite this prop into long-form Vue component prop.",
+       "output": "\n      <template>\n        <MyComp :value=\"true\" foo-bar />\n      </template>"
+      },
+      {
+       "messageId": "rewriteIntoLongHtmlAttr",
+       "desc": "Rewrite this prop into long-form HTML attribute.",
+       "output": "\n      <template>\n        <MyComp value=\"value\" foo-bar />\n      </template>"
+      }
+     ]
+    },
+    {
+     "messageId": "expectLong",
+     "message": "Boolean prop with 'true' value should be written in long form.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoLongVueProp",
+       "desc": "Rewrite this prop into long-form Vue component prop.",
+       "output": "\n      <template>\n        <MyComp value :foo-bar=\"true\" />\n      </template>"
+      },
+      {
+       "messageId": "rewriteIntoLongHtmlAttr",
+       "desc": "Rewrite this prop into long-form HTML attribute.",
+       "output": "\n      <template>\n        <MyComp value foo-bar=\"foo-bar\" />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#invalid5"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp :value=\"true\" :foo-bar=\"true\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   "never",
+   {
+    "except": [
+     "value",
+     "/^foo-/"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "expectShort",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 30,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoShort",
+       "output": "\n      <template>\n        <MyComp value :foo-bar=\"true\" />\n      </template>"
+      }
+     ]
+    },
+    {
+     "messageId": "expectShort",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 46,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoShort",
+       "output": "\n      <template>\n        <MyComp :value=\"true\" foo-bar />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectShort",
+     "message": "Boolean prop with 'true' value should be written in shorthand form.",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoShort",
+       "desc": "Rewrite this prop into shorthand form.",
+       "output": "\n      <template>\n        <MyComp value :foo-bar=\"true\" />\n      </template>"
+      }
+     ]
+    },
+    {
+     "messageId": "expectShort",
+     "message": "Boolean prop with 'true' value should be written in shorthand form.",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "rewriteIntoShort",
+       "desc": "Rewrite this prop into shorthand form.",
+       "output": "\n      <template>\n        <MyComp :value=\"true\" foo-bar />\n      </template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#invalid6"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp v-if=\"true\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid0"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp v-bind=\"true\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid1"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp v-loading=\"true\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid2"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp show=\"true\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid3"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp v-bind:show=\"value\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid4"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp :show=\"value\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid5"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp v-bind:show=\"false\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid6"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp :show=\"false\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid7"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp show />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid8"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp show />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid9"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp :show=\"true\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid10"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <MyComp v-bind:show=\"true\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid11"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template>\n        <input v-bind:checked=\"true\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid12"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template>\n        <input :checked=\"true\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid13"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <template>\n        <input checked=\"checked\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid14"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <template>\n        <input checked />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid15"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <template>\n        <input :value=\"true\" :foo-bar=\"true\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "always",
+   {
+    "except": [
+     "value",
+     "/^foo-/"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid16"
+ },
+ {
+  "rule": "prefer-true-attribute-shorthand",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <template>\n        <input value foo-bar />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "never",
+   {
+    "except": [
+     "value",
+     "/^foo-/"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-true-attribute-shorthand#valid17"
+ }
+]

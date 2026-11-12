@@ -1,0 +1,1692 @@
+[
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template></template>\n      <script lang=\"js\"></script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": "ts"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Only 'ts' can be used for the 'lang' attribute of '<script>'.",
+     "line": 2,
+     "column": 15,
+     "endLine": 2,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Only 'ts' can be used for the 'lang' attribute of '<script>'.",
+     "line": 2,
+     "column": 15,
+     "endLine": 2,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid0"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template></template>\n      <script lang=\"js\"></script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": [
+      "ts"
+     ]
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Only 'ts' can be used for the 'lang' attribute of '<script>'.",
+     "line": 2,
+     "column": 15,
+     "endLine": 2,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Only 'ts' can be used for the 'lang' attribute of '<script>'.",
+     "line": 2,
+     "column": 15,
+     "endLine": 2,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid1"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template></template>\n      <script></script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": "ts"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'lang' attribute of '<script>' is missing.",
+     "line": 2,
+     "column": 7,
+     "endLine": 2,
+     "endColumn": 15
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The 'lang' attribute of '<script>' is missing.",
+     "line": 2,
+     "column": 7,
+     "endLine": 2,
+     "endColumn": 15,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid2"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template></template>\n      <script lang=\"\"></script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": "ts"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Only 'ts' can be used for the 'lang' attribute of '<script>'.",
+     "line": 2,
+     "column": 15,
+     "endLine": 2,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Only 'ts' can be used for the 'lang' attribute of '<script>'.",
+     "line": 2,
+     "column": 15,
+     "endLine": 2,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid3"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template></template><script lang=\"ts\"></script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": "js"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Do not specify the 'lang' attribute of '<script>'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Do not specify the 'lang' attribute of '<script>'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid4"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template></template><script lang=\"js\"></script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": "js"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Do not explicitly specify the default language for the 'lang' attribute of '<script>'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedDefault",
+     "message": "Do not explicitly specify the default language for the 'lang' attribute of '<script>'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid5"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template></template><script lang=\"ts\"></script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {}
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Do not specify the 'lang' attribute of '<script>'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Do not specify the 'lang' attribute of '<script>'.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid6"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<i18n></i18n>\n      <i18n lang=\"json\"></i18n>",
+  "filename": "test.js",
+  "options": [
+   {
+    "i18n": {
+     "lang": "json"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'lang' attribute of '<i18n>' is missing.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 7
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The 'lang' attribute of '<i18n>' is missing.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 7,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid7"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<i18n></i18n>\n      <i18n lang=\"yaml\"></i18n>",
+  "filename": "test.js",
+  "options": [
+   {
+    "i18n": {
+     "lang": "json",
+     "allowNoLang": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Only 'json' can be used for the 'lang' attribute of '<i18n>'. Or, not specifying the 'lang' attribute is allowed.",
+     "line": 2,
+     "column": 13,
+     "endLine": 2,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "useOrNot",
+     "message": "Only 'json' can be used for the 'lang' attribute of '<i18n>'. Or, not specifying the 'lang' attribute is allowed.",
+     "line": 2,
+     "column": 13,
+     "endLine": 2,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid8"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<i18n></i18n>\n      <i18n lang=\"toml\"></i18n>",
+  "filename": "test.js",
+  "options": [
+   {
+    "i18n": {
+     "lang": [
+      "json",
+      "yaml"
+     ],
+     "allowNoLang": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Only 'json', and 'yaml' can be used for the 'lang' attribute of '<i18n>'. Or, not specifying the 'lang' attribute is allowed.",
+     "line": 2,
+     "column": 13,
+     "endLine": 2,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "useOrNot",
+     "message": "Only 'json', and 'yaml' can be used for the 'lang' attribute of '<i18n>'. Or, not specifying the 'lang' attribute is allowed.",
+     "line": 2,
+     "column": 13,
+     "endLine": 2,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid9"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template lang=\"pug\"></template>\n      <script lang=\"ts\"></script>\n      <style lang=\"stylus\"></style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Do not specify the 'lang' attribute of '<template>'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 21
+    },
+    {
+     "message": "Do not specify the 'lang' attribute of '<script>'.",
+     "line": 2,
+     "column": 15,
+     "endLine": 2,
+     "endColumn": 24
+    },
+    {
+     "message": "Do not specify the 'lang' attribute of '<style>'.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Do not specify the 'lang' attribute of '<template>'.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Do not specify the 'lang' attribute of '<script>'.",
+     "line": 2,
+     "column": 15,
+     "endLine": 2,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Do not specify the 'lang' attribute of '<style>'.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid10"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div /></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": "ts",
+     "required": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<script>' block is missing.",
+     "line": 1,
+     "column": 1
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingBlock",
+     "message": "The '<script>' block is missing.",
+     "line": 1,
+     "column": 1,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid11"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [
+   {
+    "script": {
+     "lang": "ts",
+     "required": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<script>' block is missing.",
+     "line": 1,
+     "column": 1
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingBlock",
+     "message": "The '<script>' block is missing.",
+     "line": 1,
+     "column": 1,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid12"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div /></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "required": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<script>' block is missing.",
+     "line": 1,
+     "column": 1
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingBlock",
+     "message": "The '<script>' block is missing.",
+     "line": 1,
+     "column": 1,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid13"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "<script lang=\"ts\"></script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "template": {
+     "required": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<template>' block is missing.",
+     "line": 1,
+     "column": 1
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingBlock",
+     "message": "The '<template>' block is missing.",
+     "line": 1,
+     "column": 1,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid14"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "<template></template>\n      <script lang=\"ts\"></script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "i18n": {
+     "lang": "json",
+     "required": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<i18n>' block is missing.",
+     "line": 1,
+     "column": 1
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingBlock",
+     "message": "The '<i18n>' block is missing.",
+     "line": 1,
+     "column": 1,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid15"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div /></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": "ts",
+     "required": true
+    },
+    "style": {
+     "lang": "scss",
+     "required": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<script>' block is missing.",
+     "line": 1,
+     "column": 1
+    },
+    {
+     "message": "The '<style>' block is missing.",
+     "line": 1,
+     "column": 1
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingBlock",
+     "message": "The '<script>' block is missing.",
+     "line": 1,
+     "column": 1,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "missingBlock",
+     "message": "The '<style>' block is missing.",
+     "line": 1,
+     "column": 1,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid16"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "<template></template>\n      <script></script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": "ts",
+     "required": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'lang' attribute of '<script>' is missing.",
+     "line": 2,
+     "column": 7,
+     "endLine": 2,
+     "endColumn": 15
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The 'lang' attribute of '<script>' is missing.",
+     "line": 2,
+     "column": 7,
+     "endLine": 2,
+     "endColumn": 15,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid17"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "<template></template>\n      <script setup></script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": "ts",
+     "required": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The 'lang' attribute of '<script>' is missing.",
+     "line": 2,
+     "column": 7,
+     "endLine": 2,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "The 'lang' attribute of '<script>' is missing.",
+     "line": 2,
+     "column": 7,
+     "endLine": 2,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid18"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "<template lang=\"pug\"></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "template": {
+     "lang": "pug",
+     "required": true
+    },
+    "script": {
+     "lang": "ts",
+     "required": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The '<script>' block is missing.",
+     "line": 1,
+     "column": 1
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingBlock",
+     "message": "The '<script>' block is missing.",
+     "line": 1,
+     "column": 1,
+     "endLine": null,
+     "endColumn": null,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#invalid19"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template></template>\n      <script lang=\"ts\"></script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": "ts"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#valid0"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template></template>\n      <script></script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": "js"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#valid1"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<i18n></i18n><i18n lang=\"json\"></i18n>",
+  "filename": "test.js",
+  "options": [
+   {
+    "i18n": {
+     "lang": "json",
+     "allowNoLang": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#valid2"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template></template>\n      <script></script>\n      <style></style>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#valid3"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div /></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": "ts"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#valid4"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div /></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": "ts",
+     "required": false
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#valid5"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#valid6"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template></template>\n      <script lang=\"ts\"></script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": "ts",
+     "required": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#valid7"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template></template>\n      <script setup lang=\"ts\"></script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": "ts",
+     "required": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#valid8"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template></template>\n      <script></script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "required": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#valid9"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template></template>\n      <script></script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": "js",
+     "required": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#valid10"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<i18n lang=\"json\"></i18n>\n      <i18n lang=\"json\"></i18n>\n      <template></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "i18n": {
+     "lang": "json",
+     "required": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#valid11"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template></template>\n      <script lang=\"ts\"></script>\n      <style lang=\"scss\"></style>",
+  "filename": "test.js",
+  "options": [
+   {
+    "template": {
+     "required": true
+    },
+    "script": {
+     "lang": "ts",
+     "required": true
+    },
+    "style": {
+     "lang": "scss",
+     "required": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#valid12"
+ },
+ {
+  "rule": "block-lang",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "var a = 1",
+  "filename": "test.js",
+  "options": [
+   {
+    "script": {
+     "lang": "ts",
+     "required": true
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "block-lang#valid13"
+ }
+]

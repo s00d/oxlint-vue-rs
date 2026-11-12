@@ -1,0 +1,473 @@
+[
+ {
+  "rule": "slot-name-casing",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <slot name=\"foo-bar\" />\n          <slot name=\"foo-Bar_baz\" />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "invalidCase",
+     "data": {
+      "name": "foo-bar",
+      "caseType": "camelCase"
+     },
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 31
+    },
+    {
+     "messageId": "invalidCase",
+     "data": {
+      "name": "foo-Bar_baz",
+      "caseType": "camelCase"
+     },
+     "line": 4,
+     "column": 17,
+     "endLine": 4,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidCase",
+     "message": "Slot name \"foo-bar\" is not camelCase.",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidCase",
+     "message": "Slot name \"foo-Bar_baz\" is not camelCase.",
+     "line": 4,
+     "column": 17,
+     "endLine": 4,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "slot-name-casing#invalid0"
+ },
+ {
+  "rule": "slot-name-casing",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <slot name=\"fooBar\" />\n          <slot name=\"foo-Bar_baz\" />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "invalidCase",
+     "data": {
+      "name": "fooBar",
+      "caseType": "kebab-case"
+     },
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 30
+    },
+    {
+     "messageId": "invalidCase",
+     "data": {
+      "name": "foo-Bar_baz",
+      "caseType": "kebab-case"
+     },
+     "line": 4,
+     "column": 17,
+     "endLine": 4,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidCase",
+     "message": "Slot name \"fooBar\" is not kebab-case.",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidCase",
+     "message": "Slot name \"foo-Bar_baz\" is not kebab-case.",
+     "line": 4,
+     "column": 17,
+     "endLine": 4,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "slot-name-casing#invalid1"
+ },
+ {
+  "rule": "slot-name-casing",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <slot name=\"foo-bar\" />\n          <slot name=\"fooBar\" />\n          <slot name=\"foo-Bar_baz\" />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "singleword"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "invalidCase",
+     "data": {
+      "name": "foo-bar",
+      "caseType": "singleword"
+     },
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 31
+    },
+    {
+     "messageId": "invalidCase",
+     "data": {
+      "name": "fooBar",
+      "caseType": "singleword"
+     },
+     "line": 4,
+     "column": 17,
+     "endLine": 4,
+     "endColumn": 30
+    },
+    {
+     "messageId": "invalidCase",
+     "data": {
+      "name": "foo-Bar_baz",
+      "caseType": "singleword"
+     },
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidCase",
+     "message": "Slot name \"foo-bar\" is not singleword.",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidCase",
+     "message": "Slot name \"fooBar\" is not singleword.",
+     "line": 4,
+     "column": 17,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidCase",
+     "message": "Slot name \"foo-Bar_baz\" is not singleword.",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "slot-name-casing#invalid2"
+ },
+ {
+  "rule": "slot-name-casing",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><slot key=\"foo\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "slot-name-casing#valid0"
+ },
+ {
+  "rule": "slot-name-casing",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><slot name /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "slot-name-casing#valid1"
+ },
+ {
+  "rule": "slot-name-casing",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><slot name=\"foo\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "slot-name-casing#valid2"
+ },
+ {
+  "rule": "slot-name-casing",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><slot name=\"fooBar\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "slot-name-casing#valid3"
+ },
+ {
+  "rule": "slot-name-casing",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><slot :name=\"fooBar\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "slot-name-casing#valid4"
+ },
+ {
+  "rule": "slot-name-casing",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <template>\n          <slot name=\"foo\" />\n          <slot name=\"foo-bar\" />\n          <slot :name=\"fooBar\" />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "slot-name-casing#valid5"
+ },
+ {
+  "rule": "slot-name-casing",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        <template>\n          <slot name=\"foo\" />\n          <slot :name=\"fooBar\" />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "singleword"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "slot-name-casing#valid6"
+ }
+]

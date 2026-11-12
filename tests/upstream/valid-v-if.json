@@ -1,0 +1,426 @@
+[
+ {
+  "rule": "valid-v-if",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div><div v-if=\"foo\" v-else></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-if' and 'v-else' directives can't exist on the same element. You may want 'v-else-if' directives.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "withVElse",
+     "message": "'v-if' and 'v-else' directives can't exist on the same element. You may want 'v-else-if' directives.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-if#invalid0"
+ },
+ {
+  "rule": "valid-v-if",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div><div v-if=\"foo\" v-else-if=\"bar\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-if' and 'v-else-if' directives can't exist on the same element.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "withVElseIf",
+     "message": "'v-if' and 'v-else-if' directives can't exist on the same element.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-if#invalid1"
+ },
+ {
+  "rule": "valid-v-if",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div><div v-if:aaa=\"foo\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-if' directives require no argument.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedArgument",
+     "message": "'v-if' directives require no argument.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-if#invalid2"
+ },
+ {
+  "rule": "valid-v-if",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div><div v-if.aaa=\"foo\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-if' directives require no modifier.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedModifier",
+     "message": "'v-if' directives require no modifier.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-if#invalid3"
+ },
+ {
+  "rule": "valid-v-if",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div><div v-if></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-if' directives require that attribute value.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedValue",
+     "message": "'v-if' directives require that attribute value.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-if#invalid4"
+ },
+ {
+  "rule": "valid-v-if",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div><div v-if=\"\"></div></div></template>",
+  "filename": "empty-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-if' directives require that attribute value.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedValue",
+     "message": "'v-if' directives require that attribute value.",
+     "line": 1,
+     "column": 21,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-if#invalid5"
+ },
+ {
+  "rule": "valid-v-if",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-if#valid0"
+ },
+ {
+  "rule": "valid-v-if",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div><div v-if=\"foo\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-if#valid1"
+ },
+ {
+  "rule": "valid-v-if",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div v-if=\".\"></div></template>",
+  "filename": "parsing-error.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-if#valid2"
+ },
+ {
+  "rule": "valid-v-if",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div v-if=\"/**/\"></div></template>",
+  "filename": "comment-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-if#valid3"
+ }
+]

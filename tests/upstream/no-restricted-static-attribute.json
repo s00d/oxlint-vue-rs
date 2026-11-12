@@ -1,0 +1,911 @@
+[
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "foo"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedAttr",
+     "message": "Using `foo` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#invalid0"
+ },
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div foo=\"bar\" bar=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "foo"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedAttr",
+     "message": "Using `foo` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#invalid1"
+ },
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div foo=\"foo\" bar=\"bar\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "/^f/"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedAttr",
+     "message": "Using `foo` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#invalid2"
+ },
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div foo=\"bar\" bar=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "foo",
+   "bar"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25
+    },
+    {
+     "message": "Using `bar` is not allowed.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedAttr",
+     "message": "Using `foo` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedAttr",
+     "message": "Using `bar` is not allowed.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#invalid3"
+ },
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div foo=\"bar\" bar></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "key": "/^(foo|bar)$/"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25
+    },
+    {
+     "message": "Using `bar` is not allowed.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedAttr",
+     "message": "Using `foo` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedAttr",
+     "message": "Using `bar` is not allowed.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#invalid4"
+ },
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div foo=\"foo\" /><div foo=\"bar\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "key": "foo",
+    "value": "bar"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo=\"bar\"` is not allowed.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 42
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedAttr",
+     "message": "Using `foo=\"bar\"` is not allowed.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#invalid5"
+ },
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div foo v bar /><div foo=\"foo\" vv=\"foo\" bar=\"vfoo\" /><div vvv=\"foo\" bar=\"vv\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   "/^vv/",
+   {
+    "key": "foo",
+    "value": true
+   },
+   {
+    "key": "bar",
+    "value": "/^vv/"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` set to `true` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 19
+    },
+    {
+     "message": "Using `foo=\"foo\"` is not allowed.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 42
+    },
+    {
+     "message": "Using `vv` is not allowed.",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 51
+    },
+    {
+     "message": "Using `vvv` is not allowed.",
+     "line": 1,
+     "column": 70,
+     "endLine": 1,
+     "endColumn": 79
+    },
+    {
+     "message": "Using `bar=\"vv\"` is not allowed.",
+     "line": 1,
+     "column": 80,
+     "endLine": 1,
+     "endColumn": 88
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedAttr",
+     "message": "Using `foo` set to `true` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedAttr",
+     "message": "Using `foo=\"foo\"` is not allowed.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedAttr",
+     "message": "Using `vv` is not allowed.",
+     "line": 1,
+     "column": 43,
+     "endLine": 1,
+     "endColumn": 51,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedAttr",
+     "message": "Using `vvv` is not allowed.",
+     "line": 1,
+     "column": 70,
+     "endLine": 1,
+     "endColumn": 79,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedAttr",
+     "message": "Using `bar=\"vv\"` is not allowed.",
+     "line": 1,
+     "column": 80,
+     "endLine": 1,
+     "endColumn": 88,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#invalid6"
+ },
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <div foo />\n        <MyButton foo bar />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "key": "foo",
+    "element": "/^My/"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` on `<MyButton>` is not allowed.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedAttr",
+     "message": "Using `foo` on `<MyButton>` is not allowed.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#invalid7"
+ },
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <div foo=\"x\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   "/^f/",
+   {
+    "key": "foo"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` is not allowed.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedAttr",
+     "message": "Using `foo` is not allowed.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#invalid8"
+ },
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <div foo=\"x\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "key": "foo",
+    "message": "foo"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "foo",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedAttr",
+     "message": "foo",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#invalid9"
+ },
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#valid0"
+ },
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#valid1"
+ },
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#valid2"
+ },
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div v-model=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "foo"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#valid3"
+ },
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div bar=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "foo"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#valid4"
+ },
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div :foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "foo"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#valid5"
+ },
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "key": "foo",
+    "value": "bar"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#valid6"
+ },
+ {
+  "rule": "no-restricted-static-attribute",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div foo=\"foo\"></div><input bar></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "key": "foo",
+    "element": "input"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-static-attribute#valid7"
+ }
+]

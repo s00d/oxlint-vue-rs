@@ -1,0 +1,317 @@
+[
+ {
+  "rule": "brace-style",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div :attr=\"function foo()\n          {\n            return true;\n          }\" />\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Opening curly brace does not appear on the same line as controlling statement.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 12
+    }
+   ],
+   "output": "\n        <template>\n          <div :attr=\"function foo() {\n            return true;\n          }\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "nextLineOpen",
+     "message": "Opening curly brace does not appear on the same line as controlling statement.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       56,
+       67
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div :attr=\"function foo() {\n            return true;\n          }\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "brace-style#invalid0"
+ },
+ {
+  "rule": "brace-style",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <div :attr=\"function foo() { return true; }\" />\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Statement inside of curly braces should be on next line.",
+     "line": 3,
+     "column": 38,
+     "endLine": 3,
+     "endColumn": 39
+    },
+    {
+     "message": "Closing curly brace should be on the same line as opening curly brace or on the line after the previous block.",
+     "line": 3,
+     "column": 53,
+     "endLine": 3,
+     "endColumn": 54
+    }
+   ],
+   "output": "\n        <template>\n          <div :attr=\"function foo() {\n return true; \n}\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "blockSameLine",
+     "message": "Statement inside of curly braces should be on next line.",
+     "line": 3,
+     "column": 38,
+     "endLine": 3,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       58,
+       58
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "singleLineClose",
+     "message": "Closing curly brace should be on the same line as opening curly brace or on the line after the previous block.",
+     "line": 3,
+     "column": 53,
+     "endLine": 3,
+     "endColumn": 54,
+     "fix": {
+      "range": [
+       72,
+       72
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div :attr=\"function foo() {\n return true; \n}\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "brace-style#invalid1"
+ },
+ {
+  "rule": "brace-style",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :[(function(){return(1)})()]=\"(function(){return(1)})()\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Statement inside of curly braces should be on next line.",
+     "line": 1,
+     "column": 57,
+     "endLine": 1,
+     "endColumn": 58
+    },
+    {
+     "message": "Closing curly brace should be on the same line as opening curly brace or on the line after the previous block.",
+     "line": 1,
+     "column": 67,
+     "endLine": 1,
+     "endColumn": 68
+    }
+   ],
+   "output": "<template><div :[(function(){return(1)})()]=\"(function(){\nreturn(1)\n})()\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "blockSameLine",
+     "message": "Statement inside of curly braces should be on next line.",
+     "line": 1,
+     "column": 57,
+     "endLine": 1,
+     "endColumn": 58,
+     "fix": {
+      "range": [
+       57,
+       57
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "singleLineClose",
+     "message": "Closing curly brace should be on the same line as opening curly brace or on the line after the previous block.",
+     "line": 1,
+     "column": 67,
+     "endLine": 1,
+     "endColumn": 68,
+     "fix": {
+      "range": [
+       66,
+       66
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :[(function(){return(1)})()]=\"(function(){\nreturn(1)\n})()\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "brace-style#invalid2"
+ },
+ {
+  "rule": "brace-style",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :attr=\"function foo() {\n      return true;\n    }\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "brace-style#valid0"
+ },
+ {
+  "rule": "brace-style",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :attr=\"function foo() { return true; }\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "1tbs",
+   {
+    "allowSingleLine": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "brace-style#valid1"
+ },
+ {
+  "rule": "brace-style",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :[(function(){return(1)})()]=\"a\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "brace-style#valid2"
+ }
+]

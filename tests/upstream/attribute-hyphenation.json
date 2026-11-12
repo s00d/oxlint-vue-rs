@@ -1,0 +1,2112 @@
+[
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div><custom my-prop=\"foo\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute 'my-prop' can't be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 37
+    }
+   ],
+   "output": "<template><div><custom myProp=\"foo\"></custom></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "Attribute 'my-prop' can't be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 37,
+     "fix": {
+      "range": [
+       23,
+       30
+      ],
+      "text": "myProp"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><custom myProp=\"foo\"></custom></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid0"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div><custom MyProp=\"Bar\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute 'MyProp' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 36
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "Attribute 'MyProp' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid1"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div><custom :my-prop=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute ':my-prop' can't be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ],
+   "output": "<template><div><custom :myProp=\"prop\"></custom></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "Attribute ':my-prop' can't be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       23,
+       31
+      ],
+      "text": ":myProp"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><custom :myProp=\"prop\"></custom></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid2"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div><custom :MyProp=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute ':MyProp' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 38
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "Attribute ':MyProp' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid3"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div><custom v-bind:my-prop=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute 'v-bind:my-prop' can't be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 45
+    }
+   ],
+   "output": "<template><div><custom v-bind:myProp=\"prop\"></custom></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "Attribute 'v-bind:my-prop' can't be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 45,
+     "fix": {
+      "range": [
+       23,
+       37
+      ],
+      "text": "v-bind:myProp"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><custom v-bind:myProp=\"prop\"></custom></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid4"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div><custom v-bind:MyProp=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute 'v-bind:MyProp' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 44
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "Attribute 'v-bind:MyProp' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid5"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div><custom v-bind:MyProp=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always",
+   {
+    "ignore": []
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute 'v-bind:MyProp' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 44
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "Attribute 'v-bind:MyProp' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid6"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div><custom v-bind:my-prop=\"prop\" :second-prop=\"test\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never",
+   {
+    "ignore": [
+     "my-prop"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute ':second-prop' can't be hyphenated.",
+     "line": 1,
+     "column": 46,
+     "endLine": 1,
+     "endColumn": 65
+    }
+   ],
+   "output": "<template><div><custom v-bind:my-prop=\"prop\" :secondProp=\"test\"></custom></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "Attribute ':second-prop' can't be hyphenated.",
+     "line": 1,
+     "column": 46,
+     "endLine": 1,
+     "endColumn": 65,
+     "fix": {
+      "range": [
+       45,
+       57
+      ],
+      "text": ":secondProp"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><custom v-bind:my-prop=\"prop\" :secondProp=\"test\"></custom></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid7"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div><custom v-bind:myProp=\"prop\" :secondProp=\"test\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always",
+   {
+    "ignore": [
+     "secondProp"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute 'v-bind:myProp' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 44
+    }
+   ],
+   "output": "<template><div><custom v-bind:my-prop=\"prop\" :secondProp=\"test\"></custom></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "Attribute 'v-bind:myProp' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 44,
+     "fix": {
+      "range": [
+       23,
+       36
+      ],
+      "text": "v-bind:my-prop"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><custom v-bind:my-prop=\"prop\" :secondProp=\"test\"></custom></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid8"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div><custom v-bind:propID=\"prop\" :secondPropID=\"test\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always",
+   {
+    "ignore": [
+     "secondPropID"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute 'v-bind:propID' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 44
+    }
+   ],
+   "output": "<template><div><custom v-bind:prop-i-d=\"prop\" :secondPropID=\"test\"></custom></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "Attribute 'v-bind:propID' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 44,
+     "fix": {
+      "range": [
+       23,
+       36
+      ],
+      "text": "v-bind:prop-i-d"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><custom v-bind:prop-i-d=\"prop\" :secondPropID=\"test\"></custom></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid9"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div><custom v-model:my-prop=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute 'v-model:my-prop' can't be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 46
+    }
+   ],
+   "output": "<template><div><custom v-model:myProp=\"prop\"></custom></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "Attribute 'v-model:my-prop' can't be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 46,
+     "fix": {
+      "range": [
+       23,
+       38
+      ],
+      "text": "v-model:myProp"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><custom v-model:myProp=\"prop\"></custom></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid10"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div><custom v-model:myProp=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute 'v-model:myProp' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 45
+    }
+   ],
+   "output": "<template><div><custom v-model:my-prop=\"prop\"></custom></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "Attribute 'v-model:myProp' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 45,
+     "fix": {
+      "range": [
+       23,
+       37
+      ],
+      "text": "v-model:my-prop"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><custom v-model:my-prop=\"prop\"></custom></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid11"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div><custom v-model:MyProp=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute 'v-model:MyProp' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 45
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "Attribute 'v-model:MyProp' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 45,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid12"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n        <template>\n          <custom data-id=\"foo\" aria-test=\"bar\" slot-scope=\"{ data }\" custom-hyphen=\"foo\" second-custom=\"baz\" third-custom=\"bar\">\n            <a onClick=\"\" my-prop=\"prop\"></a>\n          </custom>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "never",
+   {
+    "ignore": [
+     "custom-hyphen",
+     "second-custom"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute 'third-custom' can't be hyphenated.",
+     "line": 3,
+     "column": 111,
+     "endLine": 3,
+     "endColumn": 129
+    }
+   ],
+   "output": "\n        <template>\n          <custom data-id=\"foo\" aria-test=\"bar\" slot-scope=\"{ data }\" custom-hyphen=\"foo\" second-custom=\"baz\" thirdCustom=\"bar\">\n            <a onClick=\"\" my-prop=\"prop\"></a>\n          </custom>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "Attribute 'third-custom' can't be hyphenated.",
+     "line": 3,
+     "column": 111,
+     "endLine": 3,
+     "endColumn": 129,
+     "fix": {
+      "range": [
+       130,
+       142
+      ],
+      "text": "thirdCustom"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <custom data-id=\"foo\" aria-test=\"bar\" slot-scope=\"{ data }\" custom-hyphen=\"foo\" second-custom=\"baz\" thirdCustom=\"bar\">\n            <a onClick=\"\" my-prop=\"prop\"></a>\n          </custom>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid13"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n        <template>\n          <custom data-id=\"foo\" aria-test=\"bar\" slot-scope=\"{ data }\" custom-hyphen=\"foo\" second-custom=\"baz\" thirdCustom=\"bar\">\n            <a onClick=\"\" my-prop=\"prop\"></a>\n          </custom>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute 'custom-hyphen' can't be hyphenated.",
+     "line": 3,
+     "column": 71,
+     "endLine": 3,
+     "endColumn": 90
+    },
+    {
+     "message": "Attribute 'second-custom' can't be hyphenated.",
+     "line": 3,
+     "column": 91,
+     "endLine": 3,
+     "endColumn": 110
+    }
+   ],
+   "output": "\n        <template>\n          <custom data-id=\"foo\" aria-test=\"bar\" slot-scope=\"{ data }\" customHyphen=\"foo\" secondCustom=\"baz\" thirdCustom=\"bar\">\n            <a onClick=\"\" my-prop=\"prop\"></a>\n          </custom>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "Attribute 'custom-hyphen' can't be hyphenated.",
+     "line": 3,
+     "column": 71,
+     "endLine": 3,
+     "endColumn": 90,
+     "fix": {
+      "range": [
+       90,
+       103
+      ],
+      "text": "customHyphen"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "Attribute 'second-custom' can't be hyphenated.",
+     "line": 3,
+     "column": 91,
+     "endLine": 3,
+     "endColumn": 110,
+     "fix": {
+      "range": [
+       110,
+       123
+      ],
+      "text": "secondCustom"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <custom data-id=\"foo\" aria-test=\"bar\" slot-scope=\"{ data }\" customHyphen=\"foo\" secondCustom=\"baz\" thirdCustom=\"bar\">\n            <a onClick=\"\" my-prop=\"prop\"></a>\n          </custom>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid14"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div><slot my-prop=\"foo\"></slot></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute 'my-prop' can't be hyphenated.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ],
+   "output": "<template><div><slot myProp=\"foo\"></slot></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "Attribute 'my-prop' can't be hyphenated.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       21,
+       28
+      ],
+      "text": "myProp"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div><slot myProp=\"foo\"></slot></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid15"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div><slot MyProp=\"Bar\"></slot></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute 'MyProp' must be hyphenated.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "Attribute 'MyProp' must be hyphenated.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid16"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><div><custom :attr_Gg=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute ':attr_Gg' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "Attribute ':attr_Gg' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid17"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><div><custom :Attr_Hh=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute ':Attr_Hh' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "Attribute ':Attr_Hh' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid18"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><div><custom :_attr_Jj=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute ':_attr_Jj' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 40
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "Attribute ':_attr_Jj' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid19"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><div><custom :_attrKk=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute ':_attrKk' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "Attribute ':_attrKk' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid20"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><div><custom :_AttrLl=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute ':_AttrLl' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "Attribute ':_AttrLl' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid21"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "<template><div><custom :my-custom_prop=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute ':my-custom_prop' can't be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 46
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "Attribute ':my-custom_prop' can't be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid22"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "<template><div><custom :myAge.sync=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute ':myAge.sync' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 42
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "Attribute ':myAge.sync' must be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid23"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "<template><div><custom :my-age.sync=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute ':my-age.sync' can't be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 43
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "Attribute ':my-age.sync' can't be hyphenated.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 43,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid24"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 25,
+  "name": null,
+  "code": "\n      <template>\n        <custom my-prop/>\n        <CustomComponent my-prop/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never",
+   {
+    "ignoreTags": [
+     "CustomComponent"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute 'my-prop' can't be hyphenated.",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 24
+    }
+   ],
+   "output": "\n      <template>\n        <custom myProp/>\n        <CustomComponent my-prop/>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "cannotBeHyphenated",
+     "message": "Attribute 'my-prop' can't be hyphenated.",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       34,
+       41
+      ],
+      "text": "myProp"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <custom myProp/>\n        <CustomComponent my-prop/>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid25"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "invalid",
+  "idx": 26,
+  "name": null,
+  "code": "\n      <template>\n        <custom myProp/>\n        <CustomComponent myProp/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "always",
+   {
+    "ignoreTags": [
+     "CustomComponent"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Attribute 'myProp' must be hyphenated.",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n      <template>\n        <custom my-prop/>\n        <CustomComponent myProp/>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "mustBeHyphenated",
+     "message": "Attribute 'myProp' must be hyphenated.",
+     "line": 3,
+     "column": 17,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       34,
+       40
+      ],
+      "text": "my-prop"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <custom my-prop/>\n        <CustomComponent myProp/>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#invalid26"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#valid0"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div><custom data-id=\"foo\" aria-test=\"bar\" slot-scope=\"{ data }\" my-prop=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#valid1"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div><custom :my-prop=\"prop\" v-model:foo-bar=\"fooBar\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#valid2"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div><custom data-id=\"foo\" aria-test=\"bar\" slot-scope=\"{ data }\" myProp=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#valid3"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div data-id=\"foo\" aria-test=\"bar\" slot-scope=\"{ data }\"><a onClick=\"\" my-prop=\"prop\"></a></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#valid4"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><custom data-id=\"foo\" aria-test=\"bar\" slot-scope=\"{ data }\" custom-hyphen=\"foo\" second-custom=\"bar\"><a onClick=\"\" my-prop=\"prop\"></a></custom></template>",
+  "filename": "test.vue",
+  "options": [
+   "never",
+   {
+    "ignore": [
+     "custom-hyphen",
+     "second-custom"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#valid5"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><my-component :[fooBar]></my-component></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#valid6"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><my-component :[foo-bar]></my-component></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#valid7"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div><slot my-prop></slot></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#valid8"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div><slot myProp></slot></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#valid9"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div><custom :attr_ff=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#valid10"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div><custom :attr_ff=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#valid11"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div><custom :my-name.sync=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#valid12"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div><custom :myName.sync=\"prop\"></custom></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#valid13"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <template>\n        <VueComponent my-prop></VueComponent>\n        <custom-component my-prop></custom-component>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "never",
+   {
+    "ignoreTags": [
+     "VueComponent",
+     "/^custom-/"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#valid14"
+ },
+ {
+  "rule": "attribute-hyphenation",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <template>\n        <VueComponent myProp=\"prop\"></VueComponent>\n        <custom-component myProp=\"prop\"></custom-component>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "always",
+   {
+    "ignoreTags": [
+     "VueComponent",
+     "/^custom-/"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "attribute-hyphenation#valid15"
+ }
+]

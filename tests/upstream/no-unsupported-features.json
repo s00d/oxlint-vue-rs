@@ -1,0 +1,115 @@
+[
+ {
+  "rule": "no-unsupported-features",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <VList>\n          <template v-slot:name>\n            <a\n              :[href]=\"'/xxx'\"\n            />\n          </template>\n        </VList>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "version": "^2.5.0"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`v-slot` are not supported until Vue.js \"2.6.0\".",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 32
+    },
+    {
+     "message": "Dynamic arguments are not supported until Vue.js \"2.6.0\".",
+     "line": 6,
+     "column": 16,
+     "endLine": 6,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template>\n        <VList>\n          <template slot=\"name\">\n            <a\n              :[href]=\"'/xxx'\"\n            />\n          </template>\n        </VList>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenVSlot",
+     "message": "`v-slot` are not supported until Vue.js \"2.6.0\".",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       54,
+       65
+      ],
+      "text": "slot=\"name\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "forbiddenDynamicDirectiveArguments",
+     "message": "Dynamic arguments are not supported until Vue.js \"2.6.0\".",
+     "line": 6,
+     "column": 16,
+     "endLine": 6,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <VList>\n          <template slot=\"name\">\n            <a\n              :[href]=\"'/xxx'\"\n            />\n          </template>\n        </VList>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features#invalid0"
+ },
+ {
+  "rule": "no-unsupported-features",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <VList>\n          <template v-slot:name>\n            <a\n              :[href]=\"'/xxx'\"\n            />\n          </template>\n        </VList>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "version": "^2.6.0"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features#valid0"
+ }
+]

@@ -1,0 +1,276 @@
+[
+ {
+  "rule": "no-deprecated-inline-template",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><my-component inline-template><div /></my-component></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 40
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`inline-template` are deprecated.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-inline-template#invalid0"
+ },
+ {
+  "rule": "no-deprecated-inline-template",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><my-component inline-template=\"\"><div /></my-component></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 40
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`inline-template` are deprecated.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-inline-template#invalid1"
+ },
+ {
+  "rule": "no-deprecated-inline-template",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><my-component inline-template=\"foo\"><div /></my-component></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "unexpected",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 40
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "`inline-template` are deprecated.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-inline-template#invalid2"
+ },
+ {
+  "rule": "no-deprecated-inline-template",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><my-component><div /></my-component></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-inline-template#valid0"
+ },
+ {
+  "rule": "no-deprecated-inline-template",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-inline-template#valid1"
+ },
+ {
+  "rule": "no-deprecated-inline-template",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><my-component :inline-template=\"foo\"><div /></my-component></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-inline-template#valid2"
+ },
+ {
+  "rule": "no-deprecated-inline-template",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><my-component Inline-Template=\"foo\"><div /></my-component></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-deprecated-inline-template#valid3"
+ }
+]

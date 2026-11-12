@@ -1,0 +1,364 @@
+[
+ {
+  "rule": "valid-v-pre",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div v-pre:aaa></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-pre' directives require no argument.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedArgument",
+     "message": "'v-pre' directives require no argument.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-pre#invalid0"
+ },
+ {
+  "rule": "valid-v-pre",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-pre.aaa></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-pre' directives require no modifier.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedModifier",
+     "message": "'v-pre' directives require no modifier.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-pre#invalid1"
+ },
+ {
+  "rule": "valid-v-pre",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div v-pre=\"aaa\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-pre' directives require no attribute value.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedValue",
+     "message": "'v-pre' directives require no attribute value.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-pre#invalid2"
+ },
+ {
+  "rule": "valid-v-pre",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div v-pre=\".\" /></template>",
+  "filename": "parsing-error.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-pre' directives require no attribute value.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedValue",
+     "message": "'v-pre' directives require no attribute value.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-pre#invalid3"
+ },
+ {
+  "rule": "valid-v-pre",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div v-pre=\"/**/\" /></template>",
+  "filename": "comment-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-pre' directives require no attribute value.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedValue",
+     "message": "'v-pre' directives require no attribute value.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-pre#invalid4"
+ },
+ {
+  "rule": "valid-v-pre",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div v-pre=\"\" /></template>",
+  "filename": "empty-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-pre' directives require no attribute value.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedValue",
+     "message": "'v-pre' directives require no attribute value.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-pre#invalid5"
+ },
+ {
+  "rule": "valid-v-pre",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-pre#valid0"
+ },
+ {
+  "rule": "valid-v-pre",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-pre></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-pre#valid1"
+ }
+]

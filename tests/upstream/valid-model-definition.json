@@ -1,0 +1,479 @@
+[
+ {
+  "rule": "valid-model-definition",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        export default {\n          model: {\n            props: 'list'\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Invalid key 'props' in model option.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidKey",
+     "message": "Invalid key 'props' in model option.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-model-definition#invalid0"
+ },
+ {
+  "rule": "valid-model-definition",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        export default {\n          model: {\n            events: 'update'\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Invalid key 'events' in model option.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidKey",
+     "message": "Invalid key 'events' in model option.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-model-definition#invalid1"
+ },
+ {
+  "rule": "valid-model-definition",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        export default {\n          model: {\n            props: 'list',\n            event: 'update'\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Invalid key 'props' in model option.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidKey",
+     "message": "Invalid key 'props' in model option.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-model-definition#invalid2"
+ },
+ {
+  "rule": "valid-model-definition",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        export default {\n          model: {\n            prop: 'list',\n            events: 'update'\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Invalid key 'events' in model option.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidKey",
+     "message": "Invalid key 'events' in model option.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-model-definition#invalid3"
+ },
+ {
+  "rule": "valid-model-definition",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        export default {\n          model: {\n            props: 'list',\n            events: 'update'\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Invalid key 'props' in model option.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 26
+    },
+    {
+     "message": "Invalid key 'events' in model option.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidKey",
+     "message": "Invalid key 'props' in model option.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidKey",
+     "message": "Invalid key 'events' in model option.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-model-definition#invalid4"
+ },
+ {
+  "rule": "valid-model-definition",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        export default {\n          model: {\n            prop: 'checked',\n            props: 'list',\n            event: 'update'\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Invalid key 'props' in model option.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidKey",
+     "message": "Invalid key 'props' in model option.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-model-definition#invalid5"
+ },
+ {
+  "rule": "valid-model-definition",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        export default {\n          model: {\n            name: 'checked',\n            props: 'list',\n            event: 'update'\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Invalid key 'name' in model option.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 28
+    },
+    {
+     "message": "Invalid key 'props' in model option.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidKey",
+     "message": "Invalid key 'name' in model option.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidKey",
+     "message": "Invalid key 'props' in model option.",
+     "line": 5,
+     "column": 13,
+     "endLine": 5,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-model-definition#invalid6"
+ },
+ {
+  "rule": "valid-model-definition",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        export default {\n          model: {\n            prop: 'list'\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-model-definition#valid0"
+ },
+ {
+  "rule": "valid-model-definition",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        export default {\n          model: {\n            event: 'update'\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-model-definition#valid1"
+ },
+ {
+  "rule": "valid-model-definition",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        export default {\n          model: {\n            prop: 'list',\n            event: 'update'\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-model-definition#valid2"
+ }
+]

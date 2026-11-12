@@ -1,0 +1,230 @@
+[
+ {
+  "rule": "no-unsupported-features/define-slots",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script setup>\n        const slots = defineSlots()\n      </script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignores": [
+     "slot-scope-attribute",
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-model",
+     "v-bind-same-name-shorthand"
+    ],
+    "version": "^3.2.0"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`defineSlots()` macros are not supported until Vue.js \"3.3.0\".",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 36
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenDefineSlots",
+     "message": "`defineSlots()` macros are not supported until Vue.js \"3.3.0\".",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/define-slots#invalid0"
+ },
+ {
+  "rule": "no-unsupported-features/define-slots",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script setup>\n        const slots = defineSlots()\n      </script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "version": "^3.3.0",
+    "ignores": [
+     "slot-scope-attribute",
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-model",
+     "v-bind-same-name-shorthand"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/define-slots#valid0"
+ },
+ {
+  "rule": "no-unsupported-features/define-slots",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script setup>\n        defineProps({})\n      </script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignores": [
+     "slot-scope-attribute",
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-model",
+     "v-bind-same-name-shorthand"
+    ],
+    "version": "^3.2.0"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/define-slots#valid1"
+ },
+ {
+  "rule": "no-unsupported-features/define-slots",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup>\n        const slots = defineSlots()\n      </script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "version": "^3.0.0",
+    "ignores": [
+     "slot-scope-attribute",
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-model",
+     "v-bind-same-name-shorthand",
+     "define-slots"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/define-slots#valid2"
+ }
+]

@@ -1,0 +1,719 @@
+[
+ {
+  "rule": "v-for-delimiter-style",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div v-for=\"x of xs\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'in' instead of 'of' in 'v-for'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ],
+   "output": "<template><div v-for=\"x in xs\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected 'in' instead of 'of' in 'v-for'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       24,
+       26
+      ],
+      "text": "in"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-for=\"x in xs\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-for-delimiter-style#invalid0"
+ },
+ {
+  "rule": "v-for-delimiter-style",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-for=\"(x, index) of xs\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'in' instead of 'of' in 'v-for'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ],
+   "output": "<template><div v-for=\"(x, index) in xs\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected 'in' instead of 'of' in 'v-for'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       33,
+       35
+      ],
+      "text": "in"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-for=\"(x, index) in xs\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-for-delimiter-style#invalid1"
+ },
+ {
+  "rule": "v-for-delimiter-style",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div v-for=\"x    of xs\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'in' instead of 'of' in 'v-for'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 33
+    }
+   ],
+   "output": "<template><div v-for=\"x    in xs\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected 'in' instead of 'of' in 'v-for'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       27,
+       29
+      ],
+      "text": "in"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-for=\"x    in xs\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-for-delimiter-style#invalid2"
+ },
+ {
+  "rule": "v-for-delimiter-style",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div v-for=\"x of    xs\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'in' instead of 'of' in 'v-for'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 33
+    }
+   ],
+   "output": "<template><div v-for=\"x in    xs\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected 'in' instead of 'of' in 'v-for'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       24,
+       26
+      ],
+      "text": "in"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-for=\"x in    xs\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-for-delimiter-style#invalid3"
+ },
+ {
+  "rule": "v-for-delimiter-style",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div v-for=\"x    of    xs\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'in' instead of 'of' in 'v-for'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 36
+    }
+   ],
+   "output": "<template><div v-for=\"x    in    xs\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected 'in' instead of 'of' in 'v-for'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 36,
+     "fix": {
+      "range": [
+       27,
+       29
+      ],
+      "text": "in"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-for=\"x    in    xs\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-for-delimiter-style#invalid4"
+ },
+ {
+  "rule": "v-for-delimiter-style",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div v-for=\"x of xs\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "in"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'in' instead of 'of' in 'v-for'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ],
+   "output": "<template><div v-for=\"x in xs\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected 'in' instead of 'of' in 'v-for'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       24,
+       26
+      ],
+      "text": "in"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-for=\"x in xs\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-for-delimiter-style#invalid5"
+ },
+ {
+  "rule": "v-for-delimiter-style",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div v-for=\"x in xs\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "of"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 'of' instead of 'in' in 'v-for'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ],
+   "output": "<template><div v-for=\"x of xs\"></div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected 'of' instead of 'in' in 'v-for'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       24,
+       26
+      ],
+      "text": "of"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div v-for=\"x of xs\"></div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "v-for-delimiter-style#invalid6"
+ },
+ {
+  "rule": "v-for-delimiter-style",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-for-delimiter-style#valid0"
+ },
+ {
+  "rule": "v-for-delimiter-style",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-for=\"x in xs\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-for-delimiter-style#valid1"
+ },
+ {
+  "rule": "v-for-delimiter-style",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div v-for=\"x    in xs\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-for-delimiter-style#valid2"
+ },
+ {
+  "rule": "v-for-delimiter-style",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div v-for=\"x in    xs\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-for-delimiter-style#valid3"
+ },
+ {
+  "rule": "v-for-delimiter-style",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div v-for=\"x    in    xs\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-for-delimiter-style#valid4"
+ },
+ {
+  "rule": "v-for-delimiter-style",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div v-for=\"(x,) in xs\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-for-delimiter-style#valid5"
+ },
+ {
+  "rule": "v-for-delimiter-style",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div v-for=\"(value, key, index) in xs\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-for-delimiter-style#valid6"
+ },
+ {
+  "rule": "v-for-delimiter-style",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div v-for=\"{ x, y } in xs\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-for-delimiter-style#valid7"
+ },
+ {
+  "rule": "v-for-delimiter-style",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div v-for=\"x in xs\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "in"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-for-delimiter-style#valid8"
+ },
+ {
+  "rule": "v-for-delimiter-style",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div v-for=\"x of xs\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "of"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "v-for-delimiter-style#valid9"
+ }
+]

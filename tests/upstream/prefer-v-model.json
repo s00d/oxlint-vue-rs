@@ -1,0 +1,992 @@
+[
+ {
+  "rule": "prefer-v-model",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><my-component :modelValue=\"foo\" @update:modelValue=\"foo = $event\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer `v-model` over the `:modelValue`/`@update:modelValue` pair.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 42,
+     "suggestions": [
+      {
+       "desc": "Replace with `v-model`.",
+       "output": "<template><my-component v-model=\"foo\" /></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferVModel",
+     "message": "Prefer `v-model` over the `:modelValue`/`@update:modelValue` pair.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 42,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithVModel",
+       "desc": "Replace with `v-model`.",
+       "output": "<template><my-component v-model=\"foo\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#invalid0"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><my-component :model-value=\"foo\" @update:model-value=\"foo = $event\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer `v-model` over the `:model-value`/`@update:model-value` pair.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 43,
+     "suggestions": [
+      {
+       "desc": "Replace with `v-model`.",
+       "output": "<template><my-component v-model=\"foo\" /></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferVModel",
+     "message": "Prefer `v-model` over the `:model-value`/`@update:model-value` pair.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 43,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithVModel",
+       "desc": "Replace with `v-model`.",
+       "output": "<template><my-component v-model=\"foo\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#invalid1"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <my-component\n            :foo=\"bar\"\n            bar\n            @update:foo=\"bar = $event\"\n          />\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer `v-model:foo` over the `:foo`/`@update:foo` pair.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 23,
+     "suggestions": [
+      {
+       "desc": "Replace with `v-model:foo`.",
+       "output": "\n        <template>\n          <my-component\n            v-model:foo=\"bar\"\n            bar\n          />\n        </template>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferVModel",
+     "message": "Prefer `v-model:foo` over the `:foo`/`@update:foo` pair.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithVModel",
+       "desc": "Replace with `v-model:foo`.",
+       "output": "\n        <template>\n          <my-component\n            v-model:foo=\"bar\"\n            bar\n          />\n        </template>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#invalid2"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><my-component v-bind:foo='bar[\"baz\"]' v-on:update:foo='bar[\"baz\"] = $event' /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer `v-model:foo` over the `:foo`/`@update:foo` pair.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 48,
+     "suggestions": [
+      {
+       "desc": "Replace with `v-model:foo`.",
+       "output": "<template><my-component v-model:foo='bar[\"baz\"]' /></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferVModel",
+     "message": "Prefer `v-model:foo` over the `:foo`/`@update:foo` pair.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 48,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithVModel",
+       "desc": "Replace with `v-model:foo`.",
+       "output": "<template><my-component v-model:foo='bar[\"baz\"]' /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#invalid3"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><my-component :foo=\"bar\" @update:foo=\"(val) => bar = val\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer `v-model:foo` over the `:foo`/`@update:foo` pair.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 35,
+     "suggestions": [
+      {
+       "desc": "Replace with `v-model:foo`.",
+       "output": "<template><my-component v-model:foo=\"bar\" /></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferVModel",
+     "message": "Prefer `v-model:foo` over the `:foo`/`@update:foo` pair.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithVModel",
+       "desc": "Replace with `v-model:foo`.",
+       "output": "<template><my-component v-model:foo=\"bar\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#invalid4"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><my-component :foo=\"obj.bar\" @update:foo=\"obj.bar = $event\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer `v-model:foo` over the `:foo`/`@update:foo` pair.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 39,
+     "suggestions": [
+      {
+       "desc": "Replace with `v-model:foo`.",
+       "output": "<template><my-component v-model:foo=\"obj.bar\" /></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferVModel",
+     "message": "Prefer `v-model:foo` over the `:foo`/`@update:foo` pair.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithVModel",
+       "desc": "Replace with `v-model:foo`.",
+       "output": "<template><my-component v-model:foo=\"obj.bar\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#invalid5"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><my-component :foo=\"obj.bar\" @update:foo=\"(val) => obj.bar = val\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer `v-model:foo` over the `:foo`/`@update:foo` pair.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 39,
+     "suggestions": [
+      {
+       "desc": "Replace with `v-model:foo`.",
+       "output": "<template><my-component v-model:foo=\"obj.bar\" /></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferVModel",
+     "message": "Prefer `v-model:foo` over the `:foo`/`@update:foo` pair.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithVModel",
+       "desc": "Replace with `v-model:foo`.",
+       "output": "<template><my-component v-model:foo=\"obj.bar\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#invalid6"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><my-component :foo=\"a\" @update:foo=\"a = $event\" :bar=\"b\" @update:bar=\"b = $event\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer `v-model:foo` over the `:foo`/`@update:foo` pair.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 33,
+     "suggestions": [
+      {
+       "desc": "Replace with `v-model:foo`.",
+       "output": "<template><my-component v-model:foo=\"a\" :bar=\"b\" @update:bar=\"b = $event\" /></template>"
+      }
+     ]
+    },
+    {
+     "message": "Prefer `v-model:bar` over the `:bar`/`@update:bar` pair.",
+     "line": 1,
+     "column": 59,
+     "endLine": 1,
+     "endColumn": 67,
+     "suggestions": [
+      {
+       "desc": "Replace with `v-model:bar`.",
+       "output": "<template><my-component :foo=\"a\" @update:foo=\"a = $event\" v-model:bar=\"b\" /></template>"
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferVModel",
+     "message": "Prefer `v-model:foo` over the `:foo`/`@update:foo` pair.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithVModel",
+       "desc": "Replace with `v-model:foo`.",
+       "output": "<template><my-component v-model:foo=\"a\" :bar=\"b\" @update:bar=\"b = $event\" /></template>"
+      }
+     ]
+    },
+    {
+     "messageId": "preferVModel",
+     "message": "Prefer `v-model:bar` over the `:bar`/`@update:bar` pair.",
+     "line": 1,
+     "column": 59,
+     "endLine": 1,
+     "endColumn": 67,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "replaceWithVModel",
+       "desc": "Replace with `v-model:bar`.",
+       "output": "<template><my-component :foo=\"a\" @update:foo=\"a = $event\" v-model:bar=\"b\" /></template>"
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#invalid7"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><my-component v-model=\"foo\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#valid0"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><my-component v-model:foo=\"bar\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#valid1"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><my-component :foo=\"bar\" @update:foo=\"baz = $event\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#valid2"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><my-component :foo=\"bar\" @update:foo=\"updateFoo($event)\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#valid3"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><my-component :foo=\"bar\" @update:foo=\"(val) => updateFoo(val)\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#valid4"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><my-component :foo=\"bar\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#valid5"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><my-component @update:foo=\"bar = $event\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#valid6"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><input :value=\"bar\" @update:value=\"bar = $event\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#valid7"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><my-component :foo=\"bar\" @update:foo.once=\"bar = $event\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#valid8"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><my-component :foo.sync=\"bar\" @update:foo=\"bar = $event\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#valid9"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><my-component :foo=\"bar\" @update:foo=\"bar = $event; doSomething()\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#valid10"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><my-component :foo=\"bar\" @update:foo=\"bar += $event\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#valid11"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><my-component :foo=\"bar\" @update:foo=\"(val) => { bar = val; doSomething() }\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#valid12"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><my-component :foo=\"bar\" @update:foo=\"(val, extra) => bar = val\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#valid13"
+ },
+ {
+  "rule": "prefer-v-model",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><my-component :[prop]=\"bar\" @update:foo=\"bar = $event\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-v-model#valid14"
+ }
+]

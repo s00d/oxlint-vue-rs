@@ -1,0 +1,266 @@
+[
+ {
+  "rule": "prefer-template",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div :class=\"['foo-' + bar]\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected string concatenation.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 35
+    }
+   ],
+   "output": "\n      <template>\n        <div :class=\"[`foo-${  bar}`]\" />\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedStringConcatenation",
+     "message": "Unexpected string concatenation.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       40,
+       52
+      ],
+      "text": "`foo-${  bar}`"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div :class=\"[`foo-${  bar}`]\" />\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-template#invalid0"
+ },
+ {
+  "rule": "prefer-template",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div :['foo'+bar]=\"value\" />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected string concatenation.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n      <template>\n        <div :[`foo${bar}`]=\"value\" />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedStringConcatenation",
+     "message": "Unexpected string concatenation.",
+     "line": 3,
+     "column": 16,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       33,
+       42
+      ],
+      "text": "`foo${bar}`"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div :[`foo${bar}`]=\"value\" />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-template#invalid1"
+ },
+ {
+  "rule": "prefer-template",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <style>\n      .text {\n        color: v-bind('\"#\"+hex')\n      }\n      </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected string concatenation.",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 31
+    }
+   ],
+   "output": "\n      <style>\n      .text {\n        color: v-bind('`#${hex}`')\n      }\n      </style>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedStringConcatenation",
+     "message": "Unexpected string concatenation.",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       52,
+       59
+      ],
+      "text": "`#${hex}`"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <style>\n      .text {\n        color: v-bind('`#${hex}`')\n      }\n      </style>",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-template#invalid2"
+ },
+ {
+  "rule": "prefer-template",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n    <template>\n      <div :class=\"[`foo-${bar}`]\" />\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-template#valid0"
+ },
+ {
+  "rule": "prefer-template",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n    <template>\n      <div :[`foo${bar}`]=\"value\" />\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-template#valid1"
+ },
+ {
+  "rule": "prefer-template",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n    <style>\n    .text {\n      color: v-bind('`#${hex}`')\n    }\n    </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-template#valid2"
+ }
+]

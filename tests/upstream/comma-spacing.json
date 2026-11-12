@@ -1,0 +1,1315 @@
+[
+ {
+  "rule": "comma-spacing",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <button @click=\"\n            var foo = 1 ,bar = 2;\n          \">\n            NG\n          </button>\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no space before ','.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 26
+    },
+    {
+     "message": "A space is required after ','.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 26
+    }
+   ],
+   "output": "\n        <template>\n          <button @click=\"\n            var foo = 1, bar = 2;\n          \">\n            NG\n          </button>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "There should be no space before ','.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       70,
+       71
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missing",
+     "message": "A space is required after ','.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       72,
+       72
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <button @click=\"\n            var foo = 1, bar = 2;\n          \">\n            NG\n          </button>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#invalid0"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <DateInput :value=\"[2000 ,12 ,31]\" />\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no space before ','.",
+     "line": 3,
+     "column": 36,
+     "endLine": 3,
+     "endColumn": 37
+    },
+    {
+     "message": "A space is required after ','.",
+     "line": 3,
+     "column": 36,
+     "endLine": 3,
+     "endColumn": 37
+    },
+    {
+     "message": "There should be no space before ','.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 41
+    },
+    {
+     "message": "A space is required after ','.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 41
+    }
+   ],
+   "output": "\n        <template>\n          <DateInput :value=\"[2000, 12, 31]\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "There should be no space before ','.",
+     "line": 3,
+     "column": 36,
+     "endLine": 3,
+     "endColumn": 37,
+     "fix": {
+      "range": [
+       54,
+       55
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missing",
+     "message": "A space is required after ','.",
+     "line": 3,
+     "column": 36,
+     "endLine": 3,
+     "endColumn": 37,
+     "fix": {
+      "range": [
+       56,
+       56
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "There should be no space before ','.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 41,
+     "fix": {
+      "range": [
+       58,
+       59
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missing",
+     "message": "A space is required after ','.",
+     "line": 3,
+     "column": 40,
+     "endLine": 3,
+     "endColumn": 41,
+     "fix": {
+      "range": [
+       60,
+       60
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <DateInput :value=\"[2000, 12, 31]\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#invalid1"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <DateInput :value=\"{y: 2000 ,m: 12 ,d: 31}\" />\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no space before ','.",
+     "line": 3,
+     "column": 39,
+     "endLine": 3,
+     "endColumn": 40
+    },
+    {
+     "message": "A space is required after ','.",
+     "line": 3,
+     "column": 39,
+     "endLine": 3,
+     "endColumn": 40
+    },
+    {
+     "message": "There should be no space before ','.",
+     "line": 3,
+     "column": 46,
+     "endLine": 3,
+     "endColumn": 47
+    },
+    {
+     "message": "A space is required after ','.",
+     "line": 3,
+     "column": 46,
+     "endLine": 3,
+     "endColumn": 47
+    }
+   ],
+   "output": "\n        <template>\n          <DateInput :value=\"{y: 2000, m: 12, d: 31}\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "There should be no space before ','.",
+     "line": 3,
+     "column": 39,
+     "endLine": 3,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       57,
+       58
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missing",
+     "message": "A space is required after ','.",
+     "line": 3,
+     "column": 39,
+     "endLine": 3,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       59,
+       59
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "There should be no space before ','.",
+     "line": 3,
+     "column": 46,
+     "endLine": 3,
+     "endColumn": 47,
+     "fix": {
+      "range": [
+       64,
+       65
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missing",
+     "message": "A space is required after ','.",
+     "line": 3,
+     "column": 46,
+     "endLine": 3,
+     "endColumn": 47,
+     "fix": {
+      "range": [
+       66,
+       66
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <DateInput :value=\"{y: 2000, m: 12, d: 31}\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#invalid2"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <CustomDlg @ok=\"foo(a ,b)\" />\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no space before ','.",
+     "line": 3,
+     "column": 33,
+     "endLine": 3,
+     "endColumn": 34
+    },
+    {
+     "message": "A space is required after ','.",
+     "line": 3,
+     "column": 33,
+     "endLine": 3,
+     "endColumn": 34
+    }
+   ],
+   "output": "\n        <template>\n          <CustomDlg @ok=\"foo(a, b)\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "There should be no space before ','.",
+     "line": 3,
+     "column": 33,
+     "endLine": 3,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       51,
+       52
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missing",
+     "message": "A space is required after ','.",
+     "line": 3,
+     "column": 33,
+     "endLine": 3,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       53,
+       53
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <CustomDlg @ok=\"foo(a, b)\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#invalid3"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <template>\n          <CustomDlg @ok=\"(a ,b) => {}\" />\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no space before ','.",
+     "line": 3,
+     "column": 30,
+     "endLine": 3,
+     "endColumn": 31
+    },
+    {
+     "message": "A space is required after ','.",
+     "line": 3,
+     "column": 30,
+     "endLine": 3,
+     "endColumn": 31
+    }
+   ],
+   "output": "\n        <template>\n          <CustomDlg @ok=\"(a, b) => {}\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "There should be no space before ','.",
+     "line": 3,
+     "column": 30,
+     "endLine": 3,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       48,
+       49
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missing",
+     "message": "A space is required after ','.",
+     "line": 3,
+     "column": 30,
+     "endLine": 3,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       50,
+       50
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <CustomDlg @ok=\"(a, b) => {}\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#invalid4"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <template>\n          <CustomDlg @ok=\"function (a ,b) {}\" />\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no space before ','.",
+     "line": 3,
+     "column": 39,
+     "endLine": 3,
+     "endColumn": 40
+    },
+    {
+     "message": "A space is required after ','.",
+     "line": 3,
+     "column": 39,
+     "endLine": 3,
+     "endColumn": 40
+    }
+   ],
+   "output": "\n        <template>\n          <CustomDlg @ok=\"function (a, b) {}\" />\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "There should be no space before ','.",
+     "line": 3,
+     "column": 39,
+     "endLine": 3,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       57,
+       58
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missing",
+     "message": "A space is required after ','.",
+     "line": 3,
+     "column": 39,
+     "endLine": 3,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       59,
+       59
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <CustomDlg @ok=\"function (a, b) {}\" />\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#invalid5"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        <template>\n          <CustomList>\n            <li slot-scope=\"a ,b\">{{ a }}</li>\n          </CustomList>\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no space before ','.",
+     "line": 4,
+     "column": 31,
+     "endLine": 4,
+     "endColumn": 32
+    },
+    {
+     "message": "A space is required after ','.",
+     "line": 4,
+     "column": 31,
+     "endLine": 4,
+     "endColumn": 32
+    }
+   ],
+   "output": "\n        <template>\n          <CustomList>\n            <li slot-scope=\"a, b\">{{ a }}</li>\n          </CustomList>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "There should be no space before ','.",
+     "line": 4,
+     "column": 31,
+     "endLine": 4,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       72,
+       73
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missing",
+     "message": "A space is required after ','.",
+     "line": 4,
+     "column": 31,
+     "endLine": 4,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       74,
+       74
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <CustomList>\n            <li slot-scope=\"a, b\">{{ a }}</li>\n          </CustomList>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#invalid6"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        <template>\n          {{ [a /*comment*/ ,/*comment*/b] }}\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no space before ','.",
+     "line": 3,
+     "column": 29,
+     "endLine": 3,
+     "endColumn": 30
+    },
+    {
+     "message": "A space is required after ','.",
+     "line": 3,
+     "column": 29,
+     "endLine": 3,
+     "endColumn": 30
+    }
+   ],
+   "output": "\n        <template>\n          {{ [a /*comment*/, /*comment*/b] }}\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "There should be no space before ','.",
+     "line": 3,
+     "column": 29,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       47,
+       48
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missing",
+     "message": "A space is required after ','.",
+     "line": 3,
+     "column": 29,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       49,
+       49
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          {{ [a /*comment*/, /*comment*/b] }}\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#invalid7"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        <template>\n          <button @click=\"\n            fn(a, b)\n          \"/>\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "before": true,
+    "after": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "A space is required before ','.",
+     "line": 4,
+     "column": 17,
+     "endLine": 4,
+     "endColumn": 18
+    },
+    {
+     "message": "There should be no space after ','.",
+     "line": 4,
+     "column": 17,
+     "endLine": 4,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n        <template>\n          <button @click=\"\n            fn(a ,b)\n          \"/>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "A space is required before ','.",
+     "line": 4,
+     "column": 17,
+     "endLine": 4,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       63,
+       63
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "There should be no space after ','.",
+     "line": 4,
+     "column": 17,
+     "endLine": 4,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       64,
+       65
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <button @click=\"\n            fn(a ,b)\n          \"/>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#invalid8"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <style>\n      .text {\n        color: v-bind('foo(a,b)')\n      }\n      </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "A space is required after ','.",
+     "line": 4,
+     "column": 29,
+     "endLine": 4,
+     "endColumn": 30
+    }
+   ],
+   "output": "\n      <style>\n      .text {\n        color: v-bind('foo(a, b)')\n      }\n      </style>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missing",
+     "message": "A space is required after ','.",
+     "line": 4,
+     "column": 29,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       58,
+       58
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <style>\n      .text {\n        color: v-bind('foo(a, b)')\n      }\n      </style>",
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#invalid9"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template>\n      <button @click=\"\n        var foo = 1, bar = 2;\n      \">\n        OK\n      </button>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#valid0"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>\n      <DateInput :value=\"[2000, 12, 31]\" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#valid1"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>\n      <DateInput :value=\"{y: 2000, m: 12, d: 31}\" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#valid2"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template>\n      <CustomDlg @ok=\"foo(a, b)\" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#valid3"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template>\n      <CustomDlg @ok=\"(a, b) => {}\" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#valid4"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template>\n      <CustomDlg @ok=\"function (a, b) {}\" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#valid5"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template>\n      <CustomList>\n        <li slot-scope=\"a, b\">{{ a }}</li>\n      </CustomList>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#valid6"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        <template>\n          <button @click=\"\n            fn(a ,b)\n          \"/>\n        </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "before": true,
+    "after": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#valid7"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template>\n      <div :[fn(a,b)]=\"val\" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#valid8"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template>\n      <div :[[,]]=\"val\" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#valid9"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template>\n      <div :[a,]=\"val\" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#valid10"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<script>\n    fn = (a,b) => {}\n    </script>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#valid11"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "fn = (a,b) => {}",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#valid12"
+ },
+ {
+  "rule": "comma-spacing",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n    <style>\n    .text {\n      color: v-bind('foo(a, b)')\n    }\n    </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "comma-spacing#valid13"
+ }
+]

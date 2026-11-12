@@ -1,0 +1,276 @@
+[
+ {
+  "rule": "no-useless-concat",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :attr=\"'foo'+'bar'\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected string concatenation of literals.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedConcat",
+     "message": "Unexpected string concatenation of literals.",
+     "line": 1,
+     "column": 28,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-concat#invalid0"
+ },
+ {
+  "rule": "no-useless-concat",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :[`foo`+`bar`]=\"a\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected string concatenation of literals.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedConcat",
+     "message": "Unexpected string concatenation of literals.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-concat#invalid1"
+ },
+ {
+  "rule": "no-useless-concat",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <style>\n      .text {\n        color: v-bind('\"re\" + \"d\"')\n      }\n      </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected string concatenation of literals.",
+     "line": 4,
+     "column": 29,
+     "endLine": 4,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedConcat",
+     "message": "Unexpected string concatenation of literals.",
+     "line": 4,
+     "column": 29,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-concat#invalid2"
+ },
+ {
+  "rule": "no-useless-concat",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :attr=\"'foo-bar'\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-concat#valid0"
+ },
+ {
+  "rule": "no-useless-concat",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div attr=\"foo-bar\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-concat#valid1"
+ },
+ {
+  "rule": "no-useless-concat",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :[`foo-bar`]=\"a\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-concat#valid2"
+ },
+ {
+  "rule": "no-useless-concat",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n    <style>\n    .text {\n      color: v-bind('\"red\"')\n    }\n    </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-concat#valid3"
+ }
+]

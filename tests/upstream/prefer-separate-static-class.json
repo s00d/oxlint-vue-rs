@@ -1,0 +1,1617 @@
+[
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :class.camel=\"'static-class'\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 44
+    }
+   ],
+   "output": "<template><div class=\"static-class\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 44,
+     "fix": {
+      "range": [
+       15,
+       44
+      ],
+      "text": "class=\"static-class\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"static-class\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid0"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-bind:class=\"'static-class'\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 44
+    }
+   ],
+   "output": "<template><div class=\"static-class\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 44,
+     "fix": {
+      "range": [
+       15,
+       44
+      ],
+      "text": "class=\"static-class\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"static-class\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid1"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :class=\"'static-class'\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 38
+    }
+   ],
+   "output": "<template><div class=\"static-class\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       15,
+       38
+      ],
+      "text": "class=\"static-class\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"static-class\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid2"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :class=\"`static-class`\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 38
+    }
+   ],
+   "output": "<template><div class=\"static-class\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       15,
+       38
+      ],
+      "text": "class=\"static-class\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"static-class\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid3"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :class=\"`form-item input ${isDisabled ? 'disabled' : ''}`\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"form-item input\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 43
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"form-item input\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 43,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid4"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div :class=\"`${dynamicClass} static-class`\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 54
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 54,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid5"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div :class=\"`${start} static-class ${end}`\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 32,
+     "endLine": 1,
+     "endColumn": 49
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 32,
+     "endLine": 1,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid6"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div :class='\"static-class\"' /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 38
+    }
+   ],
+   "output": "<template><div class=\"static-class\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       15,
+       38
+      ],
+      "text": "class=\"static-class\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"static-class\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid7"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div :class=\"['static-class']\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ],
+   "output": "<template><div class=\"static-class\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       15,
+       40
+      ],
+      "text": "class=\"static-class\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"static-class\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid8"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div :class=\"{'static-class': true}\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ],
+   "output": "<template><div class=\"static-class\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       15,
+       46
+      ],
+      "text": "class=\"static-class\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"static-class\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid9"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div :class=\"{foo: true}\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"foo\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ],
+   "output": "<template><div class=\"foo\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"foo\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       15,
+       35
+      ],
+      "text": "class=\"foo\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"foo\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid10"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div :class=\"{['static-class']: true}\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 40
+    }
+   ],
+   "output": "<template><div class=\"static-class\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 40,
+     "fix": {
+      "range": [
+       15,
+       48
+      ],
+      "text": "class=\"static-class\""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"static-class\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid11"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div :class=\"['static-class', dynamicClass]\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ],
+   "output": "<template><div class=\"static-class\" :class=\"[dynamicClass]\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       15,
+       40
+      ],
+      "text": "class=\"static-class\" :class=\"["
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"static-class\" :class=\"[dynamicClass]\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid12"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div :class=\"[dynamicClass, otherDynamicClass, 'static-class']\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 58,
+     "endLine": 1,
+     "endColumn": 72
+    }
+   ],
+   "output": "<template><div class=\"static-class\" :class=\"[dynamicClass, otherDynamicClass]\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 58,
+     "endLine": 1,
+     "endColumn": 72,
+     "fix": {
+      "range": [
+       15,
+       71
+      ],
+      "text": "class=\"static-class\" :class=\"[dynamicClass, otherDynamicClass"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"static-class\" :class=\"[dynamicClass, otherDynamicClass]\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid13"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div :class=\"{'static-class': true, 'dynamic-class': foo}\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ],
+   "output": "<template><div class=\"static-class\" :class=\"{'dynamic-class': foo}\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       15,
+       46
+      ],
+      "text": "class=\"static-class\" :class=\"{"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"static-class\" :class=\"{'dynamic-class': foo}\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid14"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div :class=\"[{'dynamic-class': foo, 'static-class': true}]\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 62
+    }
+   ],
+   "output": "<template><div class=\"static-class\" :class=\"[{'dynamic-class': foo}]\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 48,
+     "endLine": 1,
+     "endColumn": 62,
+     "fix": {
+      "range": [
+       15,
+       67
+      ],
+      "text": "class=\"static-class\" :class=\"[{'dynamic-class': foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"static-class\" :class=\"[{'dynamic-class': foo}]\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid15"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div :class=\"[dynamicClass, {staticClass: true}]\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"staticClass\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 51
+    }
+   ],
+   "output": "<template><div class=\"staticClass\" :class=\"[dynamicClass]\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"staticClass\" should be in a static `class` attribute.",
+     "line": 1,
+     "column": 40,
+     "endLine": 1,
+     "endColumn": 51,
+     "fix": {
+      "range": [
+       15,
+       57
+      ],
+      "text": "class=\"staticClass\" :class=\"[dynamicClass"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div class=\"staticClass\" :class=\"[dynamicClass]\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid16"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n        <template>\n          <div\n            class=\"other-class\"\n            other-attribute\n            :class=\"[\n              {'dynamic-class-a': foo, 'static-class': true},\n              dynamicClassB,\n            ]\" />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 7,
+     "column": 40,
+     "endLine": 7,
+     "endColumn": 54
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            class=\"other-class static-class\"\n            other-attribute\n            :class=\"[\n              {'dynamic-class-a': foo},\n              dynamicClassB,\n            ]\" />\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"static-class\" should be in a static `class` attribute.",
+     "line": 7,
+     "column": 40,
+     "endLine": 7,
+     "endColumn": 54,
+     "fix": {
+      "range": [
+       53,
+       176
+      ],
+      "text": "\"other-class static-class\"\n            other-attribute\n            :class=\"[\n              {'dynamic-class-a': foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            class=\"other-class static-class\"\n            other-attribute\n            :class=\"[\n              {'dynamic-class-a': foo},\n              dynamicClassB,\n            ]\" />\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid17"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n        <template>\n          <div\n            class=\"other-class-a other-class-b\"\n            other-attribute\n            :class=\"[\n              'static-class-a',\n              {'static-class-b': true, 'dynamic-class-a': foo},\n              dynamicClassB,\n            ]\" />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Static class \"static-class-a\" should be in a static `class` attribute.",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 31
+    },
+    {
+     "message": "Static class \"static-class-b\" should be in a static `class` attribute.",
+     "line": 8,
+     "column": 16,
+     "endLine": 8,
+     "endColumn": 32
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            class=\"other-class-a other-class-b static-class-a\"\n            other-attribute\n            :class=\"[\n              {'static-class-b': true, 'dynamic-class-a': foo},\n              dynamicClassB,\n            ]\" />\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"static-class-a\" should be in a static `class` attribute.",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 31,
+     "fix": {
+      "range": [
+       53,
+       179
+      ],
+      "text": "\"other-class-a other-class-b static-class-a\"\n            other-attribute\n            :class=\"[\n              "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "preferSeparateStaticClass",
+     "message": "Static class \"static-class-b\" should be in a static `class` attribute.",
+     "line": 8,
+     "column": 16,
+     "endLine": 8,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       53,
+       204
+      ],
+      "text": "\"other-class-a other-class-b static-class-b\"\n            other-attribute\n            :class=\"[\n              'static-class-a',\n              {"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            class=\"other-class-a other-class-b static-class-a\"\n            other-attribute\n            :class=\"[\n              {'static-class-b': true, 'dynamic-class-a': foo},\n              dynamicClassB,\n            ]\" />\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#invalid18"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div class=\"static-class\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#valid0"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :class=\"dynamicClass\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#valid1"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :class=\"`dynamic-class-${foo}`\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#valid2"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :class=\"`${foo}-dynamic-class`\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#valid3"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :class=\"'dynamic-class-' + foo\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#valid4"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div class=\"static-class\" :class=\"dynamicClass\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#valid5"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div class=\"static-class\" :class=\"[dynamicClass]\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#valid6"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div class=\"static-class\" :class=\"{'dynamic-class': foo}\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#valid7"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div class=\"static-class\" :class=\"{foo, [computedName]: true}\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#valid8"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div class=\"static-class\" :class=\"[dynamicClass, {'dynamic-class': foo}]\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#valid9"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div :class.attr=\"'static-class'\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#valid10"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div v-bind:class.attr=\"'static-class'\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#valid11"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><MyComponent :class.attr=\"['static-class', dynamicClass]\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#valid12"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div :class.attr=\"{'static-class': true, foo}\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#valid13"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div :class.attr=\"`static-class ${foo}`\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#valid14"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div :class.prop=\"'static-class'\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#valid15"
+ },
+ {
+  "rule": "prefer-separate-static-class",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div .class=\"'static-class'\" /></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-separate-static-class#valid16"
+ }
+]

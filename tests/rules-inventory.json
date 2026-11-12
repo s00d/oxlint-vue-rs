@@ -1,0 +1,2907 @@
+{
+ "native": [
+  "component-definition-name-casing",
+  "define-emits-declaration",
+  "define-props-declaration",
+  "define-props-destructuring",
+  "max-props",
+  "next-tick-style",
+  "no-arrow-functions-in-watch",
+  "no-async-in-computed-properties",
+  "no-computed-properties-in-data",
+  "no-deprecated-data-object-declaration",
+  "no-deprecated-delete-set",
+  "no-deprecated-destroyed-lifecycle",
+  "no-deprecated-events-api",
+  "no-deprecated-model-definition",
+  "no-deprecated-props-default-this",
+  "no-deprecated-vue-config-keycodes",
+  "no-dupe-keys",
+  "no-export-in-script-setup",
+  "no-expose-after-await",
+  "no-import-compiler-macros",
+  "no-lifecycle-after-await",
+  "no-multiple-slot-args",
+  "no-required-prop-with-default",
+  "no-reserved-component-names",
+  "no-reserved-keys",
+  "no-reserved-props",
+  "no-shared-component-data",
+  "no-side-effects-in-computed-properties",
+  "no-this-in-before-route-enter",
+  "no-watch-after-await",
+  "prefer-import-from-vue",
+  "prop-name-casing",
+  "require-default-export",
+  "require-default-prop",
+  "require-direct-export",
+  "require-prop-type-constructor",
+  "require-prop-types",
+  "require-render-return",
+  "require-slots-as-functions",
+  "require-typed-ref",
+  "return-in-computed-property",
+  "return-in-emits-validator",
+  "valid-define-emits",
+  "valid-define-options",
+  "valid-define-props",
+  "valid-next-tick"
+ ],
+ "all": [
+  "array-bracket-newline",
+  "array-bracket-spacing",
+  "array-element-newline",
+  "arrow-spacing",
+  "attribute-hyphenation",
+  "attributes-order",
+  "block-lang",
+  "block-order",
+  "block-spacing",
+  "block-tag-newline",
+  "brace-style",
+  "camelcase",
+  "comma-dangle",
+  "comma-spacing",
+  "comma-style",
+  "comment-directive",
+  "component-api-style",
+  "component-definition-name-casing",
+  "component-name-in-template-casing",
+  "component-options-name-casing",
+  "custom-event-name-casing",
+  "define-emits-declaration",
+  "define-macros-order",
+  "define-props-declaration",
+  "define-props-destructuring",
+  "dot-location",
+  "dot-notation",
+  "enforce-style-attribute",
+  "eqeqeq",
+  "first-attribute-linebreak",
+  "func-call-spacing",
+  "html-button-has-type",
+  "html-closing-bracket-newline",
+  "html-closing-bracket-spacing",
+  "html-comment-content-newline",
+  "html-comment-content-spacing",
+  "html-comment-indent",
+  "html-end-tags",
+  "html-indent",
+  "html-quotes",
+  "html-self-closing",
+  "jsx-uses-vars",
+  "key-spacing",
+  "keyword-spacing",
+  "match-component-file-name",
+  "match-component-import-name",
+  "max-attributes-per-line",
+  "max-len",
+  "max-lines-per-block",
+  "max-props",
+  "max-template-depth",
+  "multi-word-component-names",
+  "multiline-html-element-content-newline",
+  "multiline-ternary",
+  "mustache-interpolation-spacing",
+  "new-line-between-multi-line-property",
+  "next-tick-style",
+  "no-arrow-functions-in-watch",
+  "no-async-in-computed-properties",
+  "no-bare-strings-in-template",
+  "no-boolean-default",
+  "no-child-content",
+  "no-computed-properties-in-data",
+  "no-console",
+  "no-constant-condition",
+  "no-content-outside-block",
+  "no-custom-modifiers-on-v-model",
+  "no-define-model-default",
+  "no-deprecated-data-object-declaration",
+  "no-deprecated-delete-set",
+  "no-deprecated-destroyed-lifecycle",
+  "no-deprecated-dollar-listeners-api",
+  "no-deprecated-dollar-scopedslots-api",
+  "no-deprecated-events-api",
+  "no-deprecated-filter",
+  "no-deprecated-functional-template",
+  "no-deprecated-html-element-is",
+  "no-deprecated-inline-template",
+  "no-deprecated-model-definition",
+  "no-deprecated-props-default-this",
+  "no-deprecated-router-link-tag-prop",
+  "no-deprecated-scope-attribute",
+  "no-deprecated-slot-attribute",
+  "no-deprecated-slot-scope-attribute",
+  "no-deprecated-v-bind-sync",
+  "no-deprecated-v-is",
+  "no-deprecated-v-on-native-modifier",
+  "no-deprecated-v-on-number-modifiers",
+  "no-deprecated-vue-config-keycodes",
+  "no-dupe-keys",
+  "no-dupe-v-else-if",
+  "no-duplicate-attr-inheritance",
+  "no-duplicate-attributes",
+  "no-duplicate-class-names",
+  "no-empty-component-block",
+  "no-empty-pattern",
+  "no-export-in-script-setup",
+  "no-expose-after-await",
+  "no-extra-parens",
+  "no-implicit-coercion",
+  "no-import-compiler-macros",
+  "no-irregular-whitespace",
+  "no-lifecycle-after-await",
+  "no-literals-in-template",
+  "no-lone-template",
+  "no-loss-of-precision",
+  "no-multi-spaces",
+  "no-multiple-objects-in-class",
+  "no-multiple-slot-args",
+  "no-multiple-template-root",
+  "no-mutating-props",
+  "no-negated-condition",
+  "no-negated-v-if-condition",
+  "no-parsing-error",
+  "no-potential-component-option-typo",
+  "no-props-shadow",
+  "no-ref-as-operand",
+  "no-ref-object-reactivity-loss",
+  "no-required-prop-with-default",
+  "no-reserved-component-names",
+  "no-reserved-keys",
+  "no-reserved-props",
+  "no-restricted-block",
+  "no-restricted-call-after-await",
+  "no-restricted-class",
+  "no-restricted-component-names",
+  "no-restricted-component-options",
+  "no-restricted-custom-event",
+  "no-restricted-html-elements",
+  "no-restricted-props",
+  "no-restricted-static-attribute",
+  "no-restricted-syntax",
+  "no-restricted-v-bind",
+  "no-restricted-v-on",
+  "no-root-v-if",
+  "no-setup-props-reactivity-loss",
+  "no-shadow-native-events",
+  "no-shared-component-data",
+  "no-side-effects-in-computed-properties",
+  "no-spaces-around-equal-signs-in-attribute",
+  "no-sparse-arrays",
+  "no-static-inline-styles",
+  "no-template-key",
+  "no-template-shadow",
+  "no-template-target-blank",
+  "no-textarea-mustache",
+  "no-this-in-before-route-enter",
+  "no-undef-components",
+  "no-undef-directives",
+  "no-undef-properties",
+  "no-unsupported-features",
+  "no-unused-components",
+  "no-unused-emit-declarations",
+  "no-unused-properties",
+  "no-unused-refs",
+  "no-unused-vars",
+  "no-use-computed-property-like-method",
+  "no-use-v-else-with-v-for",
+  "no-use-v-if-with-v-for",
+  "no-useless-concat",
+  "no-useless-mustaches",
+  "no-useless-template-attributes",
+  "no-useless-v-bind",
+  "no-v-for-template-key",
+  "no-v-for-template-key-on-child",
+  "no-v-html",
+  "no-v-model-argument",
+  "no-v-text",
+  "no-v-text-v-html-on-component",
+  "no-watch-after-await",
+  "object-curly-newline",
+  "object-curly-spacing",
+  "object-property-newline",
+  "object-shorthand",
+  "one-component-per-file",
+  "operator-linebreak",
+  "order-in-components",
+  "padding-line-between-blocks",
+  "padding-line-between-tags",
+  "padding-lines-in-component-definition",
+  "prefer-define-options",
+  "prefer-import-from-vue",
+  "prefer-prop-type-boolean-first",
+  "prefer-separate-static-class",
+  "prefer-single-event-payload",
+  "prefer-template",
+  "prefer-true-attribute-shorthand",
+  "prefer-use-template-ref",
+  "prefer-v-model",
+  "prop-name-casing",
+  "quote-props",
+  "require-component-is",
+  "require-default-export",
+  "require-default-prop",
+  "require-direct-export",
+  "require-emit-validator",
+  "require-explicit-emits",
+  "require-explicit-slots",
+  "require-expose",
+  "require-macro-variable-name",
+  "require-name-property",
+  "require-prop-comment",
+  "require-prop-type-constructor",
+  "require-prop-types",
+  "require-render-return",
+  "require-slots-as-functions",
+  "require-toggle-inside-transition",
+  "require-typed-object-prop",
+  "require-typed-ref",
+  "require-v-for-key",
+  "require-valid-default-prop",
+  "restricted-component-names",
+  "return-in-computed-property",
+  "return-in-emits-validator",
+  "script-indent",
+  "singleline-html-element-content-newline",
+  "slot-name-casing",
+  "sort-keys",
+  "space-in-parens",
+  "space-infix-ops",
+  "space-unary-ops",
+  "static-class-names-order",
+  "template-curly-spacing",
+  "this-in-template",
+  "use-v-on-exact",
+  "v-bind-style",
+  "v-for-delimiter-style",
+  "v-if-else-key",
+  "v-on-event-hyphenation",
+  "v-on-handler-style",
+  "v-on-style",
+  "v-slot-style",
+  "valid-attribute-name",
+  "valid-define-emits",
+  "valid-define-options",
+  "valid-define-props",
+  "valid-model-definition",
+  "valid-next-tick",
+  "valid-template-root",
+  "valid-v-bind",
+  "valid-v-bind-sync",
+  "valid-v-cloak",
+  "valid-v-else",
+  "valid-v-else-if",
+  "valid-v-for",
+  "valid-v-html",
+  "valid-v-if",
+  "valid-v-is",
+  "valid-v-memo",
+  "valid-v-model",
+  "valid-v-on",
+  "valid-v-once",
+  "valid-v-pre",
+  "valid-v-show",
+  "valid-v-slot",
+  "valid-v-text"
+ ],
+ "deprecated": [
+  "no-v-for-template-key",
+  "no-v-model-argument",
+  "valid-model-definition",
+  "valid-v-bind-sync"
+ ],
+ "missing": [
+  "array-bracket-newline",
+  "array-bracket-spacing",
+  "array-element-newline",
+  "arrow-spacing",
+  "attribute-hyphenation",
+  "attributes-order",
+  "block-lang",
+  "block-order",
+  "block-spacing",
+  "block-tag-newline",
+  "brace-style",
+  "camelcase",
+  "comma-dangle",
+  "comma-spacing",
+  "comma-style",
+  "comment-directive",
+  "component-api-style",
+  "component-name-in-template-casing",
+  "component-options-name-casing",
+  "custom-event-name-casing",
+  "define-macros-order",
+  "dot-location",
+  "dot-notation",
+  "enforce-style-attribute",
+  "eqeqeq",
+  "first-attribute-linebreak",
+  "func-call-spacing",
+  "html-button-has-type",
+  "html-closing-bracket-newline",
+  "html-closing-bracket-spacing",
+  "html-comment-content-newline",
+  "html-comment-content-spacing",
+  "html-comment-indent",
+  "html-end-tags",
+  "html-indent",
+  "html-quotes",
+  "html-self-closing",
+  "jsx-uses-vars",
+  "key-spacing",
+  "keyword-spacing",
+  "match-component-file-name",
+  "match-component-import-name",
+  "max-attributes-per-line",
+  "max-len",
+  "max-lines-per-block",
+  "max-template-depth",
+  "multi-word-component-names",
+  "multiline-html-element-content-newline",
+  "multiline-ternary",
+  "mustache-interpolation-spacing",
+  "new-line-between-multi-line-property",
+  "no-bare-strings-in-template",
+  "no-boolean-default",
+  "no-child-content",
+  "no-console",
+  "no-constant-condition",
+  "no-content-outside-block",
+  "no-custom-modifiers-on-v-model",
+  "no-define-model-default",
+  "no-deprecated-dollar-listeners-api",
+  "no-deprecated-dollar-scopedslots-api",
+  "no-deprecated-filter",
+  "no-deprecated-functional-template",
+  "no-deprecated-html-element-is",
+  "no-deprecated-inline-template",
+  "no-deprecated-router-link-tag-prop",
+  "no-deprecated-scope-attribute",
+  "no-deprecated-slot-attribute",
+  "no-deprecated-slot-scope-attribute",
+  "no-deprecated-v-bind-sync",
+  "no-deprecated-v-is",
+  "no-deprecated-v-on-native-modifier",
+  "no-deprecated-v-on-number-modifiers",
+  "no-dupe-v-else-if",
+  "no-duplicate-attr-inheritance",
+  "no-duplicate-attributes",
+  "no-duplicate-class-names",
+  "no-empty-component-block",
+  "no-empty-pattern",
+  "no-extra-parens",
+  "no-implicit-coercion",
+  "no-irregular-whitespace",
+  "no-literals-in-template",
+  "no-lone-template",
+  "no-loss-of-precision",
+  "no-multi-spaces",
+  "no-multiple-objects-in-class",
+  "no-multiple-template-root",
+  "no-mutating-props",
+  "no-negated-condition",
+  "no-negated-v-if-condition",
+  "no-parsing-error",
+  "no-potential-component-option-typo",
+  "no-props-shadow",
+  "no-ref-as-operand",
+  "no-ref-object-reactivity-loss",
+  "no-restricted-block",
+  "no-restricted-call-after-await",
+  "no-restricted-class",
+  "no-restricted-component-names",
+  "no-restricted-component-options",
+  "no-restricted-custom-event",
+  "no-restricted-html-elements",
+  "no-restricted-props",
+  "no-restricted-static-attribute",
+  "no-restricted-syntax",
+  "no-restricted-v-bind",
+  "no-restricted-v-on",
+  "no-root-v-if",
+  "no-setup-props-reactivity-loss",
+  "no-shadow-native-events",
+  "no-spaces-around-equal-signs-in-attribute",
+  "no-sparse-arrays",
+  "no-static-inline-styles",
+  "no-template-key",
+  "no-template-shadow",
+  "no-template-target-blank",
+  "no-textarea-mustache",
+  "no-undef-components",
+  "no-undef-directives",
+  "no-undef-properties",
+  "no-unsupported-features",
+  "no-unused-components",
+  "no-unused-emit-declarations",
+  "no-unused-properties",
+  "no-unused-refs",
+  "no-unused-vars",
+  "no-use-computed-property-like-method",
+  "no-use-v-else-with-v-for",
+  "no-use-v-if-with-v-for",
+  "no-useless-concat",
+  "no-useless-mustaches",
+  "no-useless-template-attributes",
+  "no-useless-v-bind",
+  "no-v-for-template-key",
+  "no-v-for-template-key-on-child",
+  "no-v-html",
+  "no-v-model-argument",
+  "no-v-text",
+  "no-v-text-v-html-on-component",
+  "object-curly-newline",
+  "object-curly-spacing",
+  "object-property-newline",
+  "object-shorthand",
+  "one-component-per-file",
+  "operator-linebreak",
+  "order-in-components",
+  "padding-line-between-blocks",
+  "padding-line-between-tags",
+  "padding-lines-in-component-definition",
+  "prefer-define-options",
+  "prefer-prop-type-boolean-first",
+  "prefer-separate-static-class",
+  "prefer-single-event-payload",
+  "prefer-template",
+  "prefer-true-attribute-shorthand",
+  "prefer-use-template-ref",
+  "prefer-v-model",
+  "quote-props",
+  "require-component-is",
+  "require-emit-validator",
+  "require-explicit-emits",
+  "require-explicit-slots",
+  "require-expose",
+  "require-macro-variable-name",
+  "require-name-property",
+  "require-prop-comment",
+  "require-toggle-inside-transition",
+  "require-typed-object-prop",
+  "require-v-for-key",
+  "require-valid-default-prop",
+  "restricted-component-names",
+  "script-indent",
+  "singleline-html-element-content-newline",
+  "slot-name-casing",
+  "sort-keys",
+  "space-in-parens",
+  "space-infix-ops",
+  "space-unary-ops",
+  "static-class-names-order",
+  "template-curly-spacing",
+  "this-in-template",
+  "use-v-on-exact",
+  "v-bind-style",
+  "v-for-delimiter-style",
+  "v-if-else-key",
+  "v-on-event-hyphenation",
+  "v-on-handler-style",
+  "v-on-style",
+  "v-slot-style",
+  "valid-attribute-name",
+  "valid-model-definition",
+  "valid-template-root",
+  "valid-v-bind",
+  "valid-v-bind-sync",
+  "valid-v-cloak",
+  "valid-v-else",
+  "valid-v-else-if",
+  "valid-v-for",
+  "valid-v-html",
+  "valid-v-if",
+  "valid-v-is",
+  "valid-v-memo",
+  "valid-v-model",
+  "valid-v-on",
+  "valid-v-once",
+  "valid-v-pre",
+  "valid-v-show",
+  "valid-v-slot",
+  "valid-v-text"
+ ],
+ "meta": {
+  "array-bracket-newline": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "array-bracket-spacing": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "array-element-newline": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "arrow-spacing": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "attribute-hyphenation": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "attributes-order": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": true,
+   "categories": [
+    "vue3-recommended",
+    "vue2-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "block-lang": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "block-order": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-recommended",
+    "vue2-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "block-spacing": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "block-tag-newline": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "brace-style": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "camelcase": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "comma-dangle": {
+   "type": "layout",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "comma-spacing": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "comma-style": {
+   "type": "layout",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "comment-directive": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "base"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "component-api-style": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "component-definition-name-casing": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "component-name-in-template-casing": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "component-options-name-casing": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "custom-event-name-casing": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "define-emits-declaration": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "define-macros-order": {
+   "type": "layout",
+   "fixable": "code",
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "define-props-declaration": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "define-props-destructuring": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "dot-location": {
+   "type": "layout",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "dot-notation": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "enforce-style-attribute": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "eqeqeq": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "first-attribute-linebreak": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "func-call-spacing": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "html-button-has-type": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "html-closing-bracket-newline": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "html-closing-bracket-spacing": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "html-comment-content-newline": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "html-comment-content-spacing": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "html-comment-indent": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "html-end-tags": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "html-indent": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "html-quotes": {
+   "type": "layout",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "html-self-closing": {
+   "type": "layout",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "jsx-uses-vars": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "base"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "key-spacing": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "keyword-spacing": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "match-component-file-name": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "match-component-import-name": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "max-attributes-per-line": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "max-len": {
+   "type": "layout",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "max-lines-per-block": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "max-props": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "max-template-depth": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "multi-word-component-names": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "multiline-html-element-content-newline": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "multiline-ternary": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "mustache-interpolation-spacing": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "new-line-between-multi-line-property": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "next-tick-style": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-arrow-functions-in-watch": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-async-in-computed-properties": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-bare-strings-in-template": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-boolean-default": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-child-content": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-computed-properties-in-data": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-console": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "no-constant-condition": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "no-content-outside-block": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-custom-modifiers-on-v-model": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-define-model-default": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-data-object-declaration": {
+   "type": "problem",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-delete-set": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-destroyed-lifecycle": {
+   "type": "problem",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-dollar-listeners-api": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-dollar-scopedslots-api": {
+   "type": "problem",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-events-api": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-filter": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-functional-template": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-html-element-is": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-inline-template": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-model-definition": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-props-default-this": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-router-link-tag-prop": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-scope-attribute": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-slot-attribute": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-slot-scope-attribute": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-v-bind-sync": {
+   "type": "problem",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-v-is": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-v-on-native-modifier": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-v-on-number-modifiers": {
+   "type": "problem",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-deprecated-vue-config-keycodes": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-dupe-keys": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-dupe-v-else-if": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-duplicate-attr-inheritance": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-duplicate-attributes": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-duplicate-class-names": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-empty-component-block": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-empty-pattern": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "no-export-in-script-setup": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-expose-after-await": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-extra-parens": {
+   "type": "layout",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "no-implicit-coercion": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "no-import-compiler-macros": {
+   "type": "problem",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-irregular-whitespace": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "no-lifecycle-after-await": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-literals-in-template": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-lone-template": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-recommended",
+    "vue2-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-loss-of-precision": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "no-multi-spaces": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-multiple-objects-in-class": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-multiple-slot-args": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-recommended",
+    "vue2-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-multiple-template-root": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-mutating-props": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-negated-condition": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "no-negated-v-if-condition": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-parsing-error": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-potential-component-option-typo": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-props-shadow": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-ref-as-operand": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-ref-object-reactivity-loss": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-required-prop-with-default": {
+   "type": "problem",
+   "fixable": "code",
+   "hasSuggestions": true,
+   "categories": [
+    "vue2-recommended",
+    "vue3-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-reserved-component-names": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-reserved-keys": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-reserved-props": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-restricted-block": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-restricted-call-after-await": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-restricted-class": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-restricted-component-names": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-restricted-component-options": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-restricted-custom-event": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-restricted-html-elements": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-restricted-props": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-restricted-static-attribute": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-restricted-syntax": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "no-restricted-v-bind": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-restricted-v-on": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-root-v-if": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-setup-props-reactivity-loss": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-shadow-native-events": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-shared-component-data": {
+   "type": "problem",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-side-effects-in-computed-properties": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-spaces-around-equal-signs-in-attribute": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-sparse-arrays": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "no-static-inline-styles": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-template-key": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-template-shadow": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-template-target-blank": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-textarea-mustache": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-this-in-before-route-enter": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-undef-components": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-undef-directives": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-undef-properties": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-unsupported-features": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-unused-components": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-unused-emit-declarations": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-unused-properties": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-unused-refs": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-unused-vars": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-use-computed-property-like-method": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-use-v-else-with-v-for": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-use-v-if-with-v-for": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-useless-concat": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "no-useless-mustaches": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-useless-template-attributes": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-useless-v-bind": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-v-for-template-key": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue2-essential"
+   ],
+   "deprecated": true,
+   "extension": false
+  },
+  "no-v-for-template-key-on-child": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-v-html": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-recommended",
+    "vue2-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-v-model-argument": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue2-essential"
+   ],
+   "deprecated": true,
+   "extension": false
+  },
+  "no-v-text": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-v-text-v-html-on-component": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue2-essential",
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "no-watch-after-await": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "object-curly-newline": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "object-curly-spacing": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "object-property-newline": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "object-shorthand": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "one-component-per-file": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "operator-linebreak": {
+   "type": "layout",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "order-in-components": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": true,
+   "categories": [
+    "vue3-recommended",
+    "vue2-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "padding-line-between-blocks": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "padding-line-between-tags": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "padding-lines-in-component-definition": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "prefer-define-options": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "prefer-import-from-vue": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "prefer-prop-type-boolean-first": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "prefer-separate-static-class": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "prefer-single-event-payload": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "prefer-template": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "prefer-true-attribute-shorthand": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "prefer-use-template-ref": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "prefer-v-model": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "prop-name-casing": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "quote-props": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "require-component-is": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-default-export": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-default-prop": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-direct-export": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-emit-validator": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-explicit-emits": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [
+    "vue3-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-explicit-slots": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-expose": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-macro-variable-name": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-name-property": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-prop-comment": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-prop-type-constructor": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-prop-types": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-render-return": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-slots-as-functions": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-toggle-inside-transition": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-typed-object-prop": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-typed-ref": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-v-for-key": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "require-valid-default-prop": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "restricted-component-names": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "return-in-computed-property": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "return-in-emits-validator": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "script-indent": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "singleline-html-element-content-newline": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "slot-name-casing": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "sort-keys": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "space-in-parens": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "space-infix-ops": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "space-unary-ops": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "static-class-names-order": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "template-curly-spacing": {
+   "type": "layout",
+   "fixable": "whitespace",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": true
+  },
+  "this-in-template": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-recommended",
+    "vue2-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "use-v-on-exact": {
+   "type": "suggestion",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "v-bind-style": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "v-for-delimiter-style": {
+   "type": "layout",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "v-if-else-key": {
+   "type": "problem",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "v-on-event-hyphenation": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "v-on-handler-style": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": true,
+   "categories": [],
+   "deprecated": false,
+   "extension": false
+  },
+  "v-on-style": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "v-slot-style": {
+   "type": "suggestion",
+   "fixable": "code",
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-strongly-recommended",
+    "vue2-strongly-recommended"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-attribute-name": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-define-emits": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-define-options": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-define-props": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-model-definition": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue2-essential"
+   ],
+   "deprecated": true,
+   "extension": false
+  },
+  "valid-next-tick": {
+   "type": "problem",
+   "fixable": "code",
+   "hasSuggestions": true,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-template-root": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-v-bind": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-v-bind-sync": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue2-essential"
+   ],
+   "deprecated": true,
+   "extension": false
+  },
+  "valid-v-cloak": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-v-else": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-v-else-if": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-v-for": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-v-html": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-v-if": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-v-is": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-v-memo": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-v-model": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-v-on": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-v-once": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-v-pre": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-v-show": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-v-slot": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  },
+  "valid-v-text": {
+   "type": "problem",
+   "fixable": null,
+   "hasSuggestions": false,
+   "categories": [
+    "vue3-essential",
+    "vue2-essential"
+   ],
+   "deprecated": false,
+   "extension": false
+  }
+ }
+}

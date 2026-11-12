@@ -1,0 +1,756 @@
+[
+ {
+  "rule": "enforce-style-attribute",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template></template><script></script><style></style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Plain <style> tags are not allowed. Allowed: scoped.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 54
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "notAllowedPlain",
+     "message": "Plain <style> tags are not allowed. Allowed: scoped.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 54,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "enforce-style-attribute#invalid0"
+ },
+ {
+  "rule": "enforce-style-attribute",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template></template><script></script><style module></style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The module attribute is not allowed. Allowed: scoped.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 61
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "notAllowedModule",
+     "message": "The module attribute is not allowed. Allowed: scoped.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 61,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "enforce-style-attribute#invalid1"
+ },
+ {
+  "rule": "enforce-style-attribute",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template></template><script></script><style></style>",
+  "filename": "test.js",
+  "options": [
+   {
+    "allow": [
+     "scoped"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Plain <style> tags are not allowed. Allowed: scoped.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 54
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "notAllowedPlain",
+     "message": "Plain <style> tags are not allowed. Allowed: scoped.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 54,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "enforce-style-attribute#invalid2"
+ },
+ {
+  "rule": "enforce-style-attribute",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template></template><script></script><style module></style>",
+  "filename": "test.js",
+  "options": [
+   {
+    "allow": [
+     "scoped"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The module attribute is not allowed. Allowed: scoped.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 61
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "notAllowedModule",
+     "message": "The module attribute is not allowed. Allowed: scoped.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 61,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "enforce-style-attribute#invalid3"
+ },
+ {
+  "rule": "enforce-style-attribute",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template></template><script></script><style></style>",
+  "filename": "test.js",
+  "options": [
+   {
+    "allow": [
+     "module"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Plain <style> tags are not allowed. Allowed: module.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 54
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "notAllowedPlain",
+     "message": "Plain <style> tags are not allowed. Allowed: module.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 54,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "enforce-style-attribute#invalid4"
+ },
+ {
+  "rule": "enforce-style-attribute",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template></template><script></script><style scoped></style>",
+  "filename": "test.js",
+  "options": [
+   {
+    "allow": [
+     "module"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The scoped attribute is not allowed. Allowed: module.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 61
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "notAllowedScoped",
+     "message": "The scoped attribute is not allowed. Allowed: module.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 61,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "enforce-style-attribute#invalid5"
+ },
+ {
+  "rule": "enforce-style-attribute",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template></template><script></script><style></style>",
+  "filename": "test.js",
+  "options": [
+   {
+    "allow": [
+     "module",
+     "scoped"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Plain <style> tags are not allowed. Allowed: module, scoped.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 54
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "notAllowedPlain",
+     "message": "Plain <style> tags are not allowed. Allowed: module, scoped.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 54,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "enforce-style-attribute#invalid6"
+ },
+ {
+  "rule": "enforce-style-attribute",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template></template><script></script><style module></style>",
+  "filename": "test.js",
+  "options": [
+   {
+    "allow": [
+     "scoped",
+     "plain"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The module attribute is not allowed. Allowed: plain, scoped.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 61
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "notAllowedModule",
+     "message": "The module attribute is not allowed. Allowed: plain, scoped.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 61,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "enforce-style-attribute#invalid7"
+ },
+ {
+  "rule": "enforce-style-attribute",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template></template><script></script><style scoped></style>",
+  "filename": "test.js",
+  "options": [
+   {
+    "allow": [
+     "module",
+     "plain"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The scoped attribute is not allowed. Allowed: module, plain.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 61
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "notAllowedScoped",
+     "message": "The scoped attribute is not allowed. Allowed: module, plain.",
+     "line": 1,
+     "column": 39,
+     "endLine": 1,
+     "endColumn": 61,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "enforce-style-attribute#invalid8"
+ },
+ {
+  "rule": "enforce-style-attribute",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template></template><script></script><style scoped></style>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "enforce-style-attribute#valid0"
+ },
+ {
+  "rule": "enforce-style-attribute",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template></template><script></script><style scoped></style>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allow": [
+     "scoped"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "enforce-style-attribute#valid1"
+ },
+ {
+  "rule": "enforce-style-attribute",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template></template><script></script><style module></style>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allow": [
+     "module"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "enforce-style-attribute#valid2"
+ },
+ {
+  "rule": "enforce-style-attribute",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template></template><script></script><style></style>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allow": [
+     "plain"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "enforce-style-attribute#valid3"
+ },
+ {
+  "rule": "enforce-style-attribute",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template></template><script></script><style scoped></style>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allow": [
+     "scoped",
+     "module",
+     "plain"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "enforce-style-attribute#valid4"
+ },
+ {
+  "rule": "enforce-style-attribute",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template></template><script></script><style module></style>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allow": [
+     "scoped",
+     "module",
+     "plain"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "enforce-style-attribute#valid5"
+ },
+ {
+  "rule": "enforce-style-attribute",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template></template><script></script><style></style>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allow": [
+     "scoped",
+     "module",
+     "plain"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "enforce-style-attribute#valid6"
+ }
+]

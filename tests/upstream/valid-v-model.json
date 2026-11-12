@@ -1,0 +1,2218 @@
+[
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div v-model=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives aren't supported on <div> elements.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedInvalidElement",
+     "message": "'v-model' directives aren't supported on <div> elements.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid0"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><input v-model:aaa=\"foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives require no argument.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedArgument",
+     "message": "'v-model' directives require no argument.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid1"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><input v-model.aaa=\"foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives don't support the modifier 'aaa'.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedModifier",
+     "message": "'v-model' directives don't support the modifier 'aaa'.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid2"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><input v-model></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives require that attribute value.",
+     "line": 1,
+     "column": 18,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingValue",
+     "message": "'v-model' directives require that attribute value.",
+     "line": 1,
+     "column": 18,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid3"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><input v-model=\"a + b\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives require the attribute value which is valid as LHS.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedNonLhsExpression",
+     "message": "'v-model' directives require the attribute value which is valid as LHS.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid4"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><input type=\"file\" v-model=\"b\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives don't support 'file' input type.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 41
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedInputFile",
+     "message": "'v-model' directives don't support 'file' input type.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid5"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><input v-model=\"x\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives cannot update the iteration variable 'x' itself.",
+     "line": 1,
+     "column": 55,
+     "endLine": 1,
+     "endColumn": 56
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedUpdateIterationVariable",
+     "message": "'v-model' directives cannot update the iteration variable 'x' itself.",
+     "line": 1,
+     "column": 55,
+     "endLine": 1,
+     "endColumn": 56,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid6"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><input v-model=\"(x)\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives cannot update the iteration variable 'x' itself.",
+     "line": 1,
+     "column": 56,
+     "endLine": 1,
+     "endColumn": 57
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedUpdateIterationVariable",
+     "message": "'v-model' directives cannot update the iteration variable 'x' itself.",
+     "line": 1,
+     "column": 56,
+     "endLine": 1,
+     "endColumn": 57,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid7"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><input v-model=\"(((x)))\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives cannot update the iteration variable 'x' itself.",
+     "line": 1,
+     "column": 58,
+     "endLine": 1,
+     "endColumn": 59
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedUpdateIterationVariable",
+     "message": "'v-model' directives cannot update the iteration variable 'x' itself.",
+     "line": 1,
+     "column": 58,
+     "endLine": 1,
+     "endColumn": 59,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid8"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div><div v-for=\"e in list\"><input v-model=\"e\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives cannot update the iteration variable 'e' itself.",
+     "line": 1,
+     "column": 55,
+     "endLine": 1,
+     "endColumn": 56
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedUpdateIterationVariable",
+     "message": "'v-model' directives cannot update the iteration variable 'e' itself.",
+     "line": 1,
+     "column": 55,
+     "endLine": 1,
+     "endColumn": 56,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid9"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><MyComponent v-model=\"\" /></template>",
+  "filename": "empty-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives require that attribute value.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingValue",
+     "message": "'v-model' directives require that attribute value.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid10"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><input v-model=\"foo?.bar\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Optional chaining cannot appear in 'v-model' directives.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedOptionalChaining",
+     "message": "Optional chaining cannot appear in 'v-model' directives.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid11"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><input v-model=\"foo?.bar.baz\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Optional chaining cannot appear in 'v-model' directives.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedOptionalChaining",
+     "message": "Optional chaining cannot appear in 'v-model' directives.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid12"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><input v-model=\"(a?.b)?.c\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Optional chaining cannot appear in 'v-model' directives.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 36
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedOptionalChaining",
+     "message": "Optional chaining cannot appear in 'v-model' directives.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid13"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><input v-model=\"(a?.b).c\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directive has potential null object property access.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 35
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedNullObject",
+     "message": "'v-model' directive has potential null object property access.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid14"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><input v-model=\"(null).foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directive has potential null object property access.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedNullObject",
+     "message": "'v-model' directive has potential null object property access.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid15"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><input v-model=\"(a?.b).c.d\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directive has potential null object property access.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedNullObject",
+     "message": "'v-model' directive has potential null object property access.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid16"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><MyComponent v-model=\"a() as string\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives require the attribute value which is valid as LHS.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 46
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedNonLhsExpression",
+     "message": "'v-model' directives require the attribute value which is valid as LHS.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid17"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><MyComponent v-model=\"a()!\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives require the attribute value which is valid as LHS.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 37
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedNonLhsExpression",
+     "message": "'v-model' directives require the attribute value which is valid as LHS.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 37,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid18"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><MyComponent v-model=\"a() as unknown as string\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives require the attribute value which is valid as LHS.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 57
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedNonLhsExpression",
+     "message": "'v-model' directives require the attribute value which is valid as LHS.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 57,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid19"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><MyComponent v-model=\"a()!!!!\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives require the attribute value which is valid as LHS.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 40
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedNonLhsExpression",
+     "message": "'v-model' directives require the attribute value which is valid as LHS.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid20"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><MyComponent v-model=\"(((a()!) as unknown)! as string)!\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives require the attribute value which is valid as LHS.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 66
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedNonLhsExpression",
+     "message": "'v-model' directives require the attribute value which is valid as LHS.",
+     "line": 1,
+     "column": 33,
+     "endLine": 1,
+     "endColumn": 66,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#invalid21"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid0"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><input v-model=\"foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid1"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><input type=\"text\" v-model.lazy=\"foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid2"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><input type=\"number\" v-model.number=\"foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid3"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><input type=\"password\" v-model.trim=\"foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid4"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><input type=\"checkbox\" v-model=\"foo.bar\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid5"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><input type=\"radio\" v-model=\"foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid6"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><textarea v-model=\"foo\"></textarea></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid7"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><select v-model=\"foo\"></select></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid8"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><your-component v-model=\"foo\"></your-component></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid9"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><input v-model=\"x.foo\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid10"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><input v-model=\"foo[x]\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid11"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><input v-model=\"foo[x - 1]\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid12"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><input v-model=\"foo[`${x}`]\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid13"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><input v-model=\"foo[`prefix_${x}`]\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid14"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><input v-model=\"foo[x ? x : '_']\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid15"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><input v-model=\"foo[x || '_']\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid16"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><input v-model=\"foo[x()]\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid17"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><input v-model=\"foo[/r/.match(x) ? 0 : 1]\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid18"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><input v-model=\"foo[typeof x]\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid19"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><div><div v-for=\"x in list\"><input v-model=\"foo[tag`${x}`]\"></div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid20"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><input :type=\"a\" v-model=\"b\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid21"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "<template><input v-bind:type=\"a\" v-model=\"b\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid22"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "<template><MyComponent v-model:aaa=\"a\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid23"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "<template><MyComponent v-model:aaa.modifier=\"a\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid24"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "<template><MyComponent v-model.modifier=\"a\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid25"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "<template><MyComponent v-model:aaa.modifier.modifierTwo=\"a\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid26"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "<template><MyComponent v-model.modifier.modifierTwo=\"a\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid27"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 28,
+  "name": null,
+  "code": "\n      <template>\n        <svg>\n          <MyComponent v-model=\"slotProps\"></MyComponent>\n        </svg>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid28"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 29,
+  "name": null,
+  "code": "<template><MyComponent v-model=\".\" /></template>",
+  "filename": "parsing-error.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid29"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 30,
+  "name": null,
+  "code": "<template><MyComponent v-model=\"/**/\" /></template>",
+  "filename": "comment-value.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid30"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 31,
+  "name": null,
+  "code": "<template><MyComponent v-model=\"a as string\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid31"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 32,
+  "name": null,
+  "code": "<template><MyComponent v-model=\"a!\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid32"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 33,
+  "name": null,
+  "code": "<template><MyComponent v-model=\"a as unknown as string\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid33"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 34,
+  "name": null,
+  "code": "<template><MyComponent v-model=\"a!!!!\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid34"
+ },
+ {
+  "rule": "valid-v-model",
+  "kind": "valid",
+  "idx": 35,
+  "name": null,
+  "code": "<template><MyComponent v-model=\"(((a!) as unknown)! as string)!\"></MyComponent></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "valid-v-model#valid35"
+ }
+]

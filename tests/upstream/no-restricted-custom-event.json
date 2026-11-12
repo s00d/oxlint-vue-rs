@@ -1,0 +1,668 @@
+[
+ {
+  "rule": "no-restricted-custom-event",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        methods: {\n          handleClick() {\n            /* ✗ BAD */\n            this.$emit('bad')\n\n            /* ✓ GOOD */\n            this.$emit('good')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "bad"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `bad` event is not allowed.",
+     "line": 7,
+     "column": 24,
+     "endLine": 7,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedEvent",
+     "message": "Using `bad` event is not allowed.",
+     "line": 7,
+     "column": 24,
+     "endLine": 7,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-custom-event#invalid0"
+ },
+ {
+  "rule": "no-restricted-custom-event",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        methods: {\n          handleClick() {\n            this.$emit('foo')\n            this.$emit('bar', 123)\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "event": "foo"
+   },
+   {
+    "event": "bar",
+    "message": "Use Bar instead",
+    "suggest": "Bar"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` event is not allowed.",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 29
+    },
+    {
+     "message": "Use Bar instead",
+     "line": 7,
+     "column": 24,
+     "endLine": 7,
+     "endColumn": 29,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `Bar`.",
+       "output": "\n      <script>\n      export default {\n        methods: {\n          handleClick() {\n            this.$emit('foo')\n            this.$emit('Bar', 123)\n          }\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedEvent",
+     "message": "Using `foo` event is not allowed.",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedEvent",
+     "message": "Use Bar instead",
+     "line": 7,
+     "column": 24,
+     "endLine": 7,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "instead",
+       "desc": "Instead, change to `Bar`.",
+       "output": "\n      <script>\n      export default {\n        methods: {\n          handleClick() {\n            this.$emit('foo')\n            this.$emit('Bar', 123)\n          }\n        }\n      }\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-custom-event#invalid1"
+ },
+ {
+  "rule": "no-restricted-custom-event",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        methods: {\n          handleClick() {\n            this.$emit('regexp1')\n            this.$emit('regexp2')\n            this.$emit('ignore-regexp')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "/^regexp/"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `regexp1` event is not allowed.",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 33
+    },
+    {
+     "message": "Using `regexp2` event is not allowed.",
+     "line": 7,
+     "column": 24,
+     "endLine": 7,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedEvent",
+     "message": "Using `regexp1` event is not allowed.",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedEvent",
+     "message": "Using `regexp2` event is not allowed.",
+     "line": 7,
+     "column": 24,
+     "endLine": 7,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-custom-event#invalid2"
+ },
+ {
+  "rule": "no-restricted-custom-event",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('bad')\"></button>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "event": "bad",
+    "suggest": "foo'"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `bad` event is not allowed.",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 36,
+     "suggestions": [
+      {
+       "desc": "Instead, change to `foo'`.",
+       "output": "\n      <template>\n        <button @click=\"$emit('foo\\'')\"></button>\n      </template>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedEvent",
+     "message": "Using `bad` event is not allowed.",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "instead",
+       "desc": "Instead, change to `foo'`.",
+       "output": "\n      <template>\n        <button @click=\"$emit('foo\\'')\"></button>\n      </template>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-custom-event#invalid3"
+ },
+ {
+  "rule": "no-restricted-custom-event",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props, {emit}) {\n          emit('foo')\n          emit('bar')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "foo"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` event is not allowed.",
+     "line": 5,
+     "column": 16,
+     "endLine": 5,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedEvent",
+     "message": "Using `foo` event is not allowed.",
+     "line": 5,
+     "column": 16,
+     "endLine": 5,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-custom-event#invalid4"
+ },
+ {
+  "rule": "no-restricted-custom-event",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props, ctx) {\n          ctx.emit('foo')\n          ctx.emit('bar')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "foo"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` event is not allowed.",
+     "line": 5,
+     "column": 20,
+     "endLine": 5,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedEvent",
+     "message": "Using `foo` event is not allowed.",
+     "line": 5,
+     "column": 20,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-custom-event#invalid5"
+ },
+ {
+  "rule": "no-restricted-custom-event",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props, ctx) {\n          ctx.emit(`foo`)\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "foo"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `foo` event is not allowed.",
+     "line": 5,
+     "column": 20,
+     "endLine": 5,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedEvent",
+     "message": "Using `foo` event is not allowed.",
+     "line": 5,
+     "column": 20,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-custom-event#invalid6"
+ },
+ {
+  "rule": "no-restricted-custom-event",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('click')\"></button>\n      </template>\n      <script>\n      export default {\n        methods: {\n          handleClick() {\n            this.$emit('foo')\n            this.$emit('bar')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-custom-event#valid0"
+ },
+ {
+  "rule": "no-restricted-custom-event",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit('click')\"></button>\n      </template>\n      <script>\n      export default {\n        methods: {\n          handleClick() {\n            this.$emit('good')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "bad"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-custom-event#valid1"
+ },
+ {
+  "rule": "no-restricted-custom-event",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <button @click=\"$emit(0)\"></button>\n        <button @click=\"emit('ignore')\"></button>\n      </template>\n      <script>\n      export default {\n        setup(props, {emit}) {\n          emit(ignore)\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "ignore",
+   "0"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-custom-event#valid2"
+ },
+ {
+  "rule": "no-restricted-custom-event",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props, emit) {\n          emit('ignore')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "ignore",
+   "0"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-custom-event#valid3"
+ },
+ {
+  "rule": "no-restricted-custom-event",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props, ...emit) {\n          emit('ignore')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "ignore",
+   "0"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-custom-event#valid4"
+ },
+ {
+  "rule": "no-restricted-custom-event",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props) {\n          emit('ignore')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "ignore",
+   "0"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-custom-event#valid5"
+ },
+ {
+  "rule": "no-restricted-custom-event",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props, {a: emit}) {\n          emit('ignore')\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "ignore",
+   "0"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-custom-event#valid6"
+ }
+]

@@ -1,0 +1,1178 @@
+[
+ {
+  "rule": "component-options-name-casing",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            fooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "caseNotMatched",
+     "data": {
+      "component": "fooBar",
+      "caseType": "PascalCase"
+     },
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n        export default {\n          components: {\n            FooBar: fooBar\n          }\n        }\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "caseNotMatched",
+     "message": "Component name \"fooBar\" is not PascalCase.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       62,
+       68
+      ],
+      "text": "FooBar: fooBar"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        export default {\n          components: {\n            FooBar: fooBar\n          }\n        }\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#invalid0"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            fooBar: FooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "caseNotMatched",
+     "data": {
+      "component": "fooBar",
+      "caseType": "PascalCase"
+     },
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n        export default {\n          components: {\n            FooBar: FooBar\n          }\n        }\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "caseNotMatched",
+     "message": "Component name \"fooBar\" is not PascalCase.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       62,
+       68
+      ],
+      "text": "FooBar"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        export default {\n          components: {\n            FooBar: FooBar\n          }\n        }\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#invalid1"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            fooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "caseNotMatched",
+     "data": {
+      "component": "fooBar",
+      "caseType": "PascalCase"
+     },
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n        export default {\n          components: {\n            FooBar: fooBar\n          }\n        }\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "caseNotMatched",
+     "message": "Component name \"fooBar\" is not PascalCase.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       62,
+       68
+      ],
+      "text": "FooBar: fooBar"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        export default {\n          components: {\n            FooBar: fooBar\n          }\n        }\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#invalid2"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            fooBar: FooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "caseNotMatched",
+     "data": {
+      "component": "fooBar",
+      "caseType": "PascalCase"
+     },
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n        export default {\n          components: {\n            FooBar: FooBar\n          }\n        }\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "caseNotMatched",
+     "message": "Component name \"fooBar\" is not PascalCase.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       62,
+       68
+      ],
+      "text": "FooBar"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        export default {\n          components: {\n            FooBar: FooBar\n          }\n        }\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#invalid3"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            'foo-bar': FooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "caseNotMatched",
+     "data": {
+      "component": "foo-bar",
+      "caseType": "PascalCase"
+     },
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n        export default {\n          components: {\n            FooBar: FooBar\n          }\n        }\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "caseNotMatched",
+     "message": "Component name \"foo-bar\" is not PascalCase.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       62,
+       71
+      ],
+      "text": "FooBar"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        export default {\n          components: {\n            FooBar: FooBar\n          }\n        }\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#invalid4"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            FooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "camelCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "caseNotMatched",
+     "data": {
+      "component": "FooBar",
+      "caseType": "camelCase"
+     },
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "suggestions": [
+      {
+       "messageId": "possibleRenaming",
+       "data": {
+        "caseType": "camelCase"
+       },
+       "output": "\n        export default {\n          components: {\n            fooBar: FooBar\n          }\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "caseNotMatched",
+     "message": "Component name \"FooBar\" is not camelCase.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "possibleRenaming",
+       "desc": "Rename component name to be in camelCase.",
+       "output": "\n        export default {\n          components: {\n            fooBar: FooBar\n          }\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#invalid5"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            FooBar: fooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "camelCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "caseNotMatched",
+     "data": {
+      "component": "FooBar",
+      "caseType": "camelCase"
+     },
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "suggestions": [
+      {
+       "messageId": "possibleRenaming",
+       "data": {
+        "caseType": "camelCase"
+       },
+       "output": "\n        export default {\n          components: {\n            fooBar: fooBar\n          }\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "caseNotMatched",
+     "message": "Component name \"FooBar\" is not camelCase.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "possibleRenaming",
+       "desc": "Rename component name to be in camelCase.",
+       "output": "\n        export default {\n          components: {\n            fooBar: fooBar\n          }\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#invalid6"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            'foo-bar': fooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "camelCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "caseNotMatched",
+     "data": {
+      "component": "foo-bar",
+      "caseType": "camelCase"
+     },
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 22,
+     "suggestions": [
+      {
+       "messageId": "possibleRenaming",
+       "data": {
+        "caseType": "camelCase"
+       },
+       "output": "\n        export default {\n          components: {\n            fooBar: fooBar\n          }\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "caseNotMatched",
+     "message": "Component name \"foo-bar\" is not camelCase.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "possibleRenaming",
+       "desc": "Rename component name to be in camelCase.",
+       "output": "\n        export default {\n          components: {\n            fooBar: fooBar\n          }\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#invalid7"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            FooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "caseNotMatched",
+     "data": {
+      "component": "FooBar",
+      "caseType": "kebab-case"
+     },
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "suggestions": [
+      {
+       "messageId": "possibleRenaming",
+       "data": {
+        "caseType": "kebab-case"
+       },
+       "output": "\n        export default {\n          components: {\n            'foo-bar': FooBar\n          }\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "caseNotMatched",
+     "message": "Component name \"FooBar\" is not kebab-case.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "possibleRenaming",
+       "desc": "Rename component name to be in kebab-case.",
+       "output": "\n        export default {\n          components: {\n            'foo-bar': FooBar\n          }\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#invalid8"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            FooBar: fooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "caseNotMatched",
+     "data": {
+      "component": "FooBar",
+      "caseType": "kebab-case"
+     },
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "suggestions": [
+      {
+       "messageId": "possibleRenaming",
+       "data": {
+        "caseType": "kebab-case"
+       },
+       "output": "\n        export default {\n          components: {\n            'foo-bar': fooBar\n          }\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "caseNotMatched",
+     "message": "Component name \"FooBar\" is not kebab-case.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "possibleRenaming",
+       "desc": "Rename component name to be in kebab-case.",
+       "output": "\n        export default {\n          components: {\n            'foo-bar': fooBar\n          }\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#invalid9"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            fooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "caseNotMatched",
+     "data": {
+      "component": "fooBar",
+      "caseType": "kebab-case"
+     },
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "suggestions": [
+      {
+       "messageId": "possibleRenaming",
+       "data": {
+        "caseType": "kebab-case"
+       },
+       "output": "\n        export default {\n          components: {\n            'foo-bar': fooBar\n          }\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "caseNotMatched",
+     "message": "Component name \"fooBar\" is not kebab-case.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "possibleRenaming",
+       "desc": "Rename component name to be in kebab-case.",
+       "output": "\n        export default {\n          components: {\n            'foo-bar': fooBar\n          }\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#invalid10"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            fooBar: FooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "caseNotMatched",
+     "data": {
+      "component": "fooBar",
+      "caseType": "kebab-case"
+     },
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "suggestions": [
+      {
+       "messageId": "possibleRenaming",
+       "data": {
+        "caseType": "kebab-case"
+       },
+       "output": "\n        export default {\n          components: {\n            'foo-bar': FooBar\n          }\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "caseNotMatched",
+     "message": "Component name \"fooBar\" is not kebab-case.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "possibleRenaming",
+       "desc": "Rename component name to be in kebab-case.",
+       "output": "\n        export default {\n          components: {\n            'foo-bar': FooBar\n          }\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#invalid11"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            FooBar,\n            'my-component': MyComponent\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "caseNotMatched",
+     "data": {
+      "component": "FooBar",
+      "caseType": "kebab-case"
+     },
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "suggestions": [
+      {
+       "messageId": "possibleRenaming",
+       "data": {
+        "caseType": "kebab-case"
+       },
+       "output": "\n        export default {\n          components: {\n            'foo-bar': FooBar,\n            'my-component': MyComponent\n          }\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "caseNotMatched",
+     "message": "Component name \"FooBar\" is not kebab-case.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "possibleRenaming",
+       "desc": "Rename component name to be in kebab-case.",
+       "output": "\n        export default {\n          components: {\n            'foo-bar': FooBar,\n            'my-component': MyComponent\n          }\n        }\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#invalid12"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        export default {\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#valid0"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        export default {\n          ...components\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#valid1"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            FooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#valid2"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            FooBar: fooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#valid3"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            FooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#valid4"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            fooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "camelCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#valid5"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            fooBar: FooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "camelCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#valid6"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            'foo-bar': fooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#valid7"
+ },
+ {
+  "rule": "component-options-name-casing",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        export default {\n          components: {\n            'foo-bar': FooBar\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-options-name-casing#valid8"
+ }
+]

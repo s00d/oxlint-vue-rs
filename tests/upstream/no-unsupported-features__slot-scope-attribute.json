@@ -1,0 +1,427 @@
+[
+ {
+  "rule": "no-unsupported-features/slot-scope-attribute",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <LinkList>\n          <a slot-scope />\n        </LinkList>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignores": [
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-slots",
+     "define-model",
+     "v-bind-same-name-shorthand"
+    ],
+    "version": "^2.4.0"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`slot-scope` are not supported except Vue.js \">=2.5.0 <3.0.0\".",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenSlotScopeAttribute",
+     "message": "`slot-scope` are not supported except Vue.js \">=2.5.0 <3.0.0\".",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/slot-scope-attribute#invalid0"
+ },
+ {
+  "rule": "no-unsupported-features/slot-scope-attribute",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <LinkList>\n          <a slot-scope=\"{a}\" />\n        </LinkList>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignores": [
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-slots",
+     "define-model",
+     "v-bind-same-name-shorthand"
+    ],
+    "version": "^2.4.0"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`slot-scope` are not supported except Vue.js \">=2.5.0 <3.0.0\".",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenSlotScopeAttribute",
+     "message": "`slot-scope` are not supported except Vue.js \">=2.5.0 <3.0.0\".",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/slot-scope-attribute#invalid1"
+ },
+ {
+  "rule": "no-unsupported-features/slot-scope-attribute",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <LinkList>\n          <a slot-scope />\n        </LinkList>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "version": "^3.0.0",
+    "ignores": [
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-slots",
+     "define-model",
+     "v-bind-same-name-shorthand"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`slot-scope` are not supported except Vue.js \">=2.5.0 <3.0.0\".",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 24
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenSlotScopeAttribute",
+     "message": "`slot-scope` are not supported except Vue.js \">=2.5.0 <3.0.0\".",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/slot-scope-attribute#invalid2"
+ },
+ {
+  "rule": "no-unsupported-features/slot-scope-attribute",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <LinkList>\n          <a slot-scope=\"{a}\" />\n        </LinkList>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "version": "^2.5.0",
+    "ignores": [
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-slots",
+     "define-model",
+     "v-bind-same-name-shorthand"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/slot-scope-attribute#valid0"
+ },
+ {
+  "rule": "no-unsupported-features/slot-scope-attribute",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <LinkList>\n          <a slot=name />\n        </LinkList>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignores": [
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-slots",
+     "define-model",
+     "v-bind-same-name-shorthand"
+    ],
+    "version": "^2.4.0"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/slot-scope-attribute#valid1"
+ },
+ {
+  "rule": "no-unsupported-features/slot-scope-attribute",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <LinkList>\n          <a v-slot=\"{a}\" />\n        </LinkList>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignores": [
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-slots",
+     "define-model",
+     "v-bind-same-name-shorthand"
+    ],
+    "version": "^2.4.0"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/slot-scope-attribute#valid2"
+ },
+ {
+  "rule": "no-unsupported-features/slot-scope-attribute",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <LinkList>\n          <a slot-scope=\"{a}\" />\n        </LinkList>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "version": "^2.4.0",
+    "ignores": [
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-options",
+     "define-slots",
+     "define-model",
+     "v-bind-same-name-shorthand",
+     "slot-scope-attribute"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/slot-scope-attribute#valid3"
+ }
+]

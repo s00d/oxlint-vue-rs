@@ -1,0 +1,315 @@
+[
+ {
+  "rule": "no-unsupported-features/define-options",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script setup>\n        defineOptions({ name: 'Foo' })\n      </script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignores": [
+     "slot-scope-attribute",
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-slots",
+     "define-model",
+     "v-bind-same-name-shorthand"
+    ],
+    "version": "^3.2.0"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`defineOptions()` macros are not supported until Vue.js \"3.3.0\".",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 39
+    }
+   ],
+   "output": "\n      <script>\nexport default { name: 'Foo' }\n</script>\n<script setup>\n\n      </script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenDefineOptions",
+     "message": "`defineOptions()` macros are not supported until Vue.js \"3.3.0\".",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       7,
+       60
+      ],
+      "text": "<script>\nexport default { name: 'Foo' }\n</script>\n<script setup>\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\nexport default { name: 'Foo' }\n</script>\n<script setup>\n\n      </script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/define-options#invalid0"
+ },
+ {
+  "rule": "no-unsupported-features/define-options",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script setup>\n        defineOptions({});\n      </script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignores": [
+     "slot-scope-attribute",
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-slots",
+     "define-model",
+     "v-bind-same-name-shorthand"
+    ],
+    "version": "^3.2.0"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`defineOptions()` macros are not supported until Vue.js \"3.3.0\".",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 26
+    }
+   ],
+   "output": "\n      <script>\nexport default {}\n</script>\n<script setup>\n\n      </script>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenDefineOptions",
+     "message": "`defineOptions()` macros are not supported until Vue.js \"3.3.0\".",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       7,
+       48
+      ],
+      "text": "<script>\nexport default {}\n</script>\n<script setup>\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script>\nexport default {}\n</script>\n<script setup>\n\n      </script>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/define-options#invalid1"
+ },
+ {
+  "rule": "no-unsupported-features/define-options",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script setup>\n        defineOptions({})\n      </script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "version": "^3.3.0",
+    "ignores": [
+     "slot-scope-attribute",
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-slots",
+     "define-model",
+     "v-bind-same-name-shorthand"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/define-options#valid0"
+ },
+ {
+  "rule": "no-unsupported-features/define-options",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script setup>\n        defineProps({})\n      </script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignores": [
+     "slot-scope-attribute",
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-slots",
+     "define-model",
+     "v-bind-same-name-shorthand"
+    ],
+    "version": "^3.2.0"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/define-options#valid1"
+ },
+ {
+  "rule": "no-unsupported-features/define-options",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup>\n        defineOptions({})\n      </script>",
+  "filename": "test.js",
+  "options": [
+   {
+    "version": "^3.0.0",
+    "ignores": [
+     "slot-scope-attribute",
+     "dynamic-directive-arguments",
+     "v-slot",
+     "script-setup",
+     "style-css-vars-injection",
+     "v-model-argument",
+     "v-model-custom-modifiers",
+     "v-is",
+     "is-attribute-with-vue-prefix",
+     "v-memo",
+     "v-bind-prop-modifier-shorthand",
+     "v-bind-attr-modifier",
+     "define-slots",
+     "define-model",
+     "v-bind-same-name-shorthand",
+     "define-options"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2019,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-unsupported-features/define-options#valid2"
+ }
+]

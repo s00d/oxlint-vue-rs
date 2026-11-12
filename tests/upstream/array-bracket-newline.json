@@ -1,0 +1,934 @@
+[
+ {
+  "rule": "array-bracket-newline",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :attr=\"[\na]\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no linebreak after '['.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ],
+   "output": "<template><div :attr=\"[a]\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedOpeningLinebreak",
+     "message": "There should be no linebreak after '['.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       23,
+       24
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"[a]\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#invalid0"
+ },
+ {
+  "rule": "array-bracket-newline",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :attr=\"[a\n]\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no linebreak before ']'.",
+     "line": 2,
+     "column": 1,
+     "endLine": 2,
+     "endColumn": 2
+    }
+   ],
+   "output": "<template><div :attr=\"[a]\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedClosingLinebreak",
+     "message": "There should be no linebreak before ']'.",
+     "line": 2,
+     "column": 1,
+     "endLine": 2,
+     "endColumn": 2,
+     "fix": {
+      "range": [
+       24,
+       25
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"[a]\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#invalid1"
+ },
+ {
+  "rule": "array-bracket-newline",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :attr=\"[\na\n]\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no linebreak after '['.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24
+    },
+    {
+     "message": "There should be no linebreak before ']'.",
+     "line": 3,
+     "column": 1,
+     "endLine": 3,
+     "endColumn": 2
+    }
+   ],
+   "output": "<template><div :attr=\"[a]\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedOpeningLinebreak",
+     "message": "There should be no linebreak after '['.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       23,
+       24
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedClosingLinebreak",
+     "message": "There should be no linebreak before ']'.",
+     "line": 3,
+     "column": 1,
+     "endLine": 3,
+     "endColumn": 2,
+     "fix": {
+      "range": [
+       25,
+       26
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"[a]\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#invalid2"
+ },
+ {
+  "rule": "array-bracket-newline",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :attr=\"[\na]\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no linebreak after '['.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ],
+   "output": "<template><div :attr=\"[a]\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedOpeningLinebreak",
+     "message": "There should be no linebreak after '['.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       23,
+       24
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"[a]\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#invalid3"
+ },
+ {
+  "rule": "array-bracket-newline",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :attr=\"[a\n]\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no linebreak before ']'.",
+     "line": 2,
+     "column": 1,
+     "endLine": 2,
+     "endColumn": 2
+    }
+   ],
+   "output": "<template><div :attr=\"[a]\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedClosingLinebreak",
+     "message": "There should be no linebreak before ']'.",
+     "line": 2,
+     "column": 1,
+     "endLine": 2,
+     "endColumn": 2,
+     "fix": {
+      "range": [
+       24,
+       25
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"[a]\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#invalid4"
+ },
+ {
+  "rule": "array-bracket-newline",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div :attr=\"[\na\n]\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There should be no linebreak after '['.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24
+    },
+    {
+     "message": "There should be no linebreak before ']'.",
+     "line": 3,
+     "column": 1,
+     "endLine": 3,
+     "endColumn": 2
+    }
+   ],
+   "output": "<template><div :attr=\"[a]\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedOpeningLinebreak",
+     "message": "There should be no linebreak after '['.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       23,
+       24
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedClosingLinebreak",
+     "message": "There should be no linebreak before ']'.",
+     "line": 3,
+     "column": 1,
+     "endLine": 3,
+     "endColumn": 2,
+     "fix": {
+      "range": [
+       25,
+       26
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"[a]\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#invalid5"
+ },
+ {
+  "rule": "array-bracket-newline",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div :attr=\"[\na]\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "A linebreak is required before ']'.",
+     "line": 2,
+     "column": 2,
+     "endLine": 2,
+     "endColumn": 3
+    }
+   ],
+   "output": "<template><div :attr=\"[\na\n]\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingClosingLinebreak",
+     "message": "A linebreak is required before ']'.",
+     "line": 2,
+     "column": 2,
+     "endLine": 2,
+     "endColumn": 3,
+     "fix": {
+      "range": [
+       25,
+       25
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"[\na\n]\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#invalid6"
+ },
+ {
+  "rule": "array-bracket-newline",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div :attr=\"[a\n]\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "A linebreak is required after '['.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ],
+   "output": "<template><div :attr=\"[\na\n]\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingOpeningLinebreak",
+     "message": "A linebreak is required after '['.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       23,
+       23
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"[\na\n]\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#invalid7"
+ },
+ {
+  "rule": "array-bracket-newline",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div :attr=\"[a]\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "A linebreak is required after '['.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24
+    },
+    {
+     "message": "A linebreak is required before ']'.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div :attr=\"[\na\n]\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingOpeningLinebreak",
+     "message": "A linebreak is required after '['.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       23,
+       23
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingClosingLinebreak",
+     "message": "A linebreak is required before ']'.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       24,
+       24
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"[\na\n]\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#invalid8"
+ },
+ {
+  "rule": "array-bracket-newline",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div :[[attr]]=\"[a]\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "A linebreak is required after '['.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 28
+    },
+    {
+     "message": "A linebreak is required before ']'.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ],
+   "output": "<template><div :[[attr]]=\"[\na\n]\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "missingOpeningLinebreak",
+     "message": "A linebreak is required after '['.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       27,
+       27
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "missingClosingLinebreak",
+     "message": "A linebreak is required before ']'.",
+     "line": 1,
+     "column": 29,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       28,
+       28
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :[[attr]]=\"[\na\n]\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#invalid9"
+ },
+ {
+  "rule": "array-bracket-newline",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :attr=\"[a]\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#valid0"
+ },
+ {
+  "rule": "array-bracket-newline",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :attr=\"[\na,\nb,\nc\n]\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#valid1"
+ },
+ {
+  "rule": "array-bracket-newline",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :attr=\"[a]\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#valid2"
+ },
+ {
+  "rule": "array-bracket-newline",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :attr=\"[\na\n]\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#valid3"
+ },
+ {
+  "rule": "array-bracket-newline",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :[attr]=\"a\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#valid4"
+ },
+ {
+  "rule": "array-bracket-newline",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div :[attr]=\"a\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#valid5"
+ },
+ {
+  "rule": "array-bracket-newline",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div :[[attr]]=\"a\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#valid6"
+ },
+ {
+  "rule": "array-bracket-newline",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div :[[attr]]=\"a\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "array-bracket-newline#valid7"
+ }
+]

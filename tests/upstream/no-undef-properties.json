@@ -1,0 +1,3564 @@
+[
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div :attr=\"foo2\"> {{ bar2 }} </div>\n      </template>\n      <script>\n        export default {\n          props: ['foo'],\n          data () {\n            return {\n              bar: 42\n            }\n          },\n          created() {\n            this.baz2()\n          },\n          methods: {\n            baz() {}\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo2' is not defined.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 25
+    },
+    {
+     "message": "'bar2' is not defined.",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 35
+    },
+    {
+     "message": "'baz2' is not defined.",
+     "line": 14,
+     "column": 18,
+     "endLine": 14,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'foo2' is not defined.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "undef",
+     "message": "'bar2' is not defined.",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "undef",
+     "message": "'baz2' is not defined.",
+     "line": 14,
+     "column": 18,
+     "endLine": 14,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid0"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div :attr=\"foo2\"> {{ bar2 }} </div>\n      </template>\n      <script>\n        export default {\n          inject: ['foo'],\n          setup() {\n            return {\n              bar: 42\n            }\n          },\n          computed: {\n            baz() {\n              return 42\n            }\n          },\n          created() {\n            console.log(this.baz2)\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo2' is not defined.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 25
+    },
+    {
+     "message": "'bar2' is not defined.",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 35
+    },
+    {
+     "message": "'baz2' is not defined.",
+     "line": 19,
+     "column": 30,
+     "endLine": 19,
+     "endColumn": 34
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'foo2' is not defined.",
+     "line": 3,
+     "column": 21,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "undef",
+     "message": "'bar2' is not defined.",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "undef",
+     "message": "'baz2' is not defined.",
+     "line": 19,
+     "column": 30,
+     "endLine": 19,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid1"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div :attr=\"foo2\"> {{ foo2 }} </div>\n      </template>\n      <script>\n        export default {\n          props: ['foo'],\n          created() {\n            this.foo2\n\n            this.foo2\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo2' is not defined.",
+     "line": 9,
+     "column": 18,
+     "endLine": 9,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'foo2' is not defined.",
+     "line": 9,
+     "column": 18,
+     "endLine": 9,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid2"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          props: ['foo'],\n          watch: {\n            foo2: 'bar2'\n          },\n          methods: {\n            bar() {}\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo2' is not defined.",
+     "line": 6,
+     "column": 13,
+     "endLine": 6,
+     "endColumn": 17
+    },
+    {
+     "message": "'bar2' is not defined.",
+     "line": 6,
+     "column": 19,
+     "endLine": 6,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'foo2' is not defined.",
+     "line": 6,
+     "column": 13,
+     "endLine": 6,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "undef",
+     "message": "'bar2' is not defined.",
+     "line": 6,
+     "column": 19,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid3"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {\n            return {\n              foo: {\n                bar :42\n              }\n            }\n          },\n          watch: {\n            'foo2.bar': 'baz',\n            'foo.bar2': 'baz',\n          },\n          methods: {\n            baz() {}\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo2' is not defined.",
+     "line": 12,
+     "column": 13,
+     "endLine": 12,
+     "endColumn": 23
+    },
+    {
+     "message": "'foo.bar2' is not defined.",
+     "line": 13,
+     "column": 13,
+     "endLine": 13,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'foo2' is not defined.",
+     "line": 12,
+     "column": 13,
+     "endLine": 12,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "undef",
+     "message": "'foo.bar2' is not defined.",
+     "line": 13,
+     "column": 13,
+     "endLine": 13,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid4"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          computed: {\n            foo () {}\n          },\n          data (props) {\n            return {\n              bar: props.foo\n            }\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo' is not defined in props.",
+     "line": 9,
+     "column": 26,
+     "endLine": 9,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undefProps",
+     "message": "'foo' is not defined in props.",
+     "line": 9,
+     "column": 26,
+     "endLine": 9,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid5"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          computed: {\n            foo () {}\n          },\n          setup (props) {\n            return {\n              bar: props.foo\n            }\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo' is not defined in props.",
+     "line": 9,
+     "column": 26,
+     "endLine": 9,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undefProps",
+     "message": "'foo' is not defined in props.",
+     "line": 9,
+     "column": 26,
+     "endLine": 9,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid6"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          functional: true,\n          computed: {\n            foo () {}\n          },\n          render (_, {props}) {\n            return h(props.foo)\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo' is not defined in props.",
+     "line": 9,
+     "column": 28,
+     "endLine": 9,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undefProps",
+     "message": "'foo' is not defined in props.",
+     "line": 9,
+     "column": 28,
+     "endLine": 9,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid7"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {return {foo:42}},\n          render (vm) {\n            return h(vm.bar)\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'bar' is not defined.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'bar' is not defined.",
+     "line": 6,
+     "column": 25,
+     "endLine": 6,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid8"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {return {foo:42}},\n          computed: { p: (vm) => vm.bar }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'bar' is not defined.",
+     "line": 5,
+     "column": 37,
+     "endLine": 5,
+     "endColumn": 40
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'bar' is not defined.",
+     "line": 5,
+     "column": 37,
+     "endLine": 5,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid9"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {return {foo:42}},\n          computed: { p: { get: (vm) => vm.bar } }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'bar' is not defined.",
+     "line": 5,
+     "column": 44,
+     "endLine": 5,
+     "endColumn": 47
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'bar' is not defined.",
+     "line": 5,
+     "column": 44,
+     "endLine": 5,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid10"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template> {{ foo.baz }} </template>\n      <script>\n        export default {\n          data () {\n            return {\n              foo: {\n                bar: 42\n              }\n            }\n          },\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo.baz' is not defined.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'foo.baz' is not defined.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid11"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template> {{ foo.bar.baz2 }} </template>\n      <script>\n        export default {\n          data () {\n            return {\n              foo: {\n                bar: {\n                  baz: 42\n                }\n              }\n            }\n          },\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo.bar.baz2' is not defined.",
+     "line": 2,
+     "column": 29,
+     "endLine": 2,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'foo.bar.baz2' is not defined.",
+     "line": 2,
+     "column": 29,
+     "endLine": 2,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid12"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {\n            return {\n              foo: 42\n            }\n          },\n          mounted() {\n            fn(this)\n          }\n        };\n\n        function fn(vm) {\n          return vm.foo2\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo2' is not defined.",
+     "line": 15,
+     "column": 21,
+     "endLine": 15,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'foo2' is not defined.",
+     "line": 15,
+     "column": 21,
+     "endLine": 15,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid13"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <script>\n        const fn = function(vm) {\n          return vm.foo2\n        }\n        export default {\n          data () {\n            return {\n              foo: 42\n            }\n          },\n          mounted() {\n            fn(this)\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo2' is not defined.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'foo2' is not defined.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid14"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <script>\n        function a(vm) {\n          return vm.foo2\n        }\n        const fn = a\n        export default {\n          data () {\n            return {\n              foo: 42\n            }\n          },\n          mounted() {\n            fn(this)\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo2' is not defined.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'foo2' is not defined.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid15"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <script>\n        function fn( { foo2 } = {} ) {\n        }\n        export default {\n          data () {\n            return {\n              foo: 42\n            }\n          },\n          mounted() {\n            fn(this)\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo2' is not defined.",
+     "line": 3,
+     "column": 24,
+     "endLine": 3,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'foo2' is not defined.",
+     "line": 3,
+     "column": 24,
+     "endLine": 3,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid16"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {\n            return {\n              foo: 42\n            }\n          },\n          mounted() {\n            const { foo2 = 42 } = this\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo2' is not defined.",
+     "line": 10,
+     "column": 21,
+     "endLine": 10,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'foo2' is not defined.",
+     "line": 10,
+     "column": 21,
+     "endLine": 10,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid17"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {\n            return {\n              foo: {\n                bar: 42\n              }\n            }\n          },\n          mounted() {\n            const { foo : { bar2 = 42 } = {} } = this\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo.bar2' is not defined.",
+     "line": 12,
+     "column": 29,
+     "endLine": 12,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'foo.bar2' is not defined.",
+     "line": 12,
+     "column": 29,
+     "endLine": 12,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid18"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {\n            return {\n              foo: {\n                bar: 42\n              }\n            }\n          },\n          mounted() {\n            ({ foo : { bar2: v = 42 } = {} } = this)\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo.bar2' is not defined.",
+     "line": 12,
+     "column": 24,
+     "endLine": 12,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'foo.bar2' is not defined.",
+     "line": 12,
+     "column": 24,
+     "endLine": 12,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid19"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {\n            return {\n              foo: 41\n            }\n          },\n          mounted() {\n            const vm = this\n            vm.foo2\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo2' is not defined.",
+     "line": 11,
+     "column": 16,
+     "endLine": 11,
+     "endColumn": 20
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'foo2' is not defined.",
+     "line": 11,
+     "column": 16,
+     "endLine": 11,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid20"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {\n            return {\n              foo: {\n                bar: 42\n              }\n            }\n          },\n          mounted() {\n            const vm = this\n            ;(vm?.foo)?.bar2\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'foo.bar2' is not defined.",
+     "line": 13,
+     "column": 25,
+     "endLine": 13,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'foo.bar2' is not defined.",
+     "line": 13,
+     "column": 25,
+     "endLine": 13,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid21"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      <template>\n        <!-- ✓ GOOD -->\n        <div>{{ name }}: {{ count }}</div>\n        <!-- ✗ BAD -->\n        <div>{{ label }}: {{ cnt }}</div>\n      </template>\n      <script setup>\n      const prop = defineProps(['name', 'def'])\n      let count = 0\n\n      /* ✓ GOOD */\n      watch(() => prop.def, () => console.log('Updated!'))\n\n      /* ✗ BAD */\n      watch(() => prop.undef, () => console.log('Updated!'))\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'label' is not defined.",
+     "line": 6,
+     "column": 17,
+     "endLine": 6,
+     "endColumn": 22
+    },
+    {
+     "message": "'cnt' is not defined.",
+     "line": 6,
+     "column": 30,
+     "endLine": 6,
+     "endColumn": 33
+    },
+    {
+     "message": "'undef' is not defined.",
+     "line": 16,
+     "column": 24,
+     "endLine": 16,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'label' is not defined.",
+     "line": 6,
+     "column": 17,
+     "endLine": 6,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "undef",
+     "message": "'cnt' is not defined.",
+     "line": 6,
+     "column": 30,
+     "endLine": 6,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "undef",
+     "message": "'undef' is not defined.",
+     "line": 16,
+     "column": 24,
+     "endLine": 16,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid22"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "\n      <template functional>\n        <div>{{props.a}} {{props.b}} {{props.c}}</div>\n      </template>\n\n      <script>\n      export default {\n        props: {\n          a: String,\n          b: String,\n        },\n      };\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'c' is not defined.",
+     "line": 3,
+     "column": 46,
+     "endLine": 3,
+     "endColumn": 47
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'c' is not defined.",
+     "line": 3,
+     "column": 46,
+     "endLine": 3,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid23"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import type { Props1 } from './test01';\n\n      defineProps<Props1>();\n\n      </script>\n\n      <template>\n      <div>{{ foo }}</div>\n      <div>{{ unknown }}</div>\n      </template>",
+  "filename": "tests/fixtures/typescript/src/test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": true,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'unknown' is not defined.",
+     "line": 11,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'unknown' is not defined.",
+     "line": 11,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid24"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 25,
+  "name": null,
+  "code": "\n      <script setup>\n      const m = defineModel()\n      const a = defineModel('A')\n      const [withModifiers, modifiers] = defineModel('withModifiers')\n      </script>\n      <template>\n        <div>\n          {{ m }} {{ modelValue }}\n          {{ a }} {{ A }}\n          {{withModifiers}} {{modifiers}}\n        </div>\n\n        <div>{{ undef }}</div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'undef' is not defined.",
+     "line": 14,
+     "column": 17,
+     "endLine": 14,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'undef' is not defined.",
+     "line": 14,
+     "column": 17,
+     "endLine": 14,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid25"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 26,
+  "name": null,
+  "code": "\n      <script>\n      import { mapState } from 'vuex';\n\n      export default {\n        computed: {\n          ...mapState({\n            a: (vm) => vm.a,\n            b: (vm) => vm.b,\n          })\n        },\n        methods: {\n          c() {return this.a * this.g}\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }} {{ c }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'g' is not defined.",
+     "line": 13,
+     "column": 37,
+     "endLine": 13,
+     "endColumn": 38
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'g' is not defined.",
+     "line": 13,
+     "column": 37,
+     "endLine": 13,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid26"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 27,
+  "name": null,
+  "code": "\n      <script>\n      import { mapActions } from 'vuex';\n\n      export default {\n          methods: {\n          ...mapActions({\n            a: 'a',\n            b: 'b',\n          }),\n          c() {return this.a()},\n          d() {return this.f()},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'f' is not defined.",
+     "line": 12,
+     "column": 28,
+     "endLine": 12,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'f' is not defined.",
+     "line": 12,
+     "column": 28,
+     "endLine": 12,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid27"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 28,
+  "name": null,
+  "code": "\n      <script>\n      import { mapMutations } from 'vuex';\n\n      export default {\n          methods: {\n          ...mapMutations({\n            a: 'a',\n            b: 'b',\n          }),\n          c() {return this.a()},\n          d() {return this.b()},\n          d() {return this.x()},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'x' is not defined.",
+     "line": 13,
+     "column": 28,
+     "endLine": 13,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'x' is not defined.",
+     "line": 13,
+     "column": 28,
+     "endLine": 13,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid28"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 29,
+  "name": null,
+  "code": "\n      <script>\n      import { mapActions } from 'vuex';\n\n      export default {\n          methods: {\n          ...mapActions(['a', 'b']),\n          c() {return this.a()},\n          d() {return this.b()},\n          d() {return this.f()},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'f' is not defined.",
+     "line": 10,
+     "column": 28,
+     "endLine": 10,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'f' is not defined.",
+     "line": 10,
+     "column": 28,
+     "endLine": 10,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid29"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 30,
+  "name": null,
+  "code": "\n      <script>\n      import { mapMutations } from 'vuex';\n\n      export default {\n        methods: {\n          ...mapMutations(['a', 'b']),\n          c() {return this.a()},\n          d() {return this.b()},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }} {{ q }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'q' is not defined.",
+     "line": 14,
+     "column": 26,
+     "endLine": 14,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'q' is not defined.",
+     "line": 14,
+     "column": 26,
+     "endLine": 14,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid30"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 31,
+  "name": null,
+  "code": "\n      <script>\n      import { mapGetters } from 'vuex';\n\n      export default {\n        computed: {\n          ...mapGetters(['a', 'b'])\n        },\n        methods: {\n          c() {return this.a},\n          d() {return this.b},\n          d() {return this.z},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'z' is not defined.",
+     "line": 12,
+     "column": 28,
+     "endLine": 12,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'z' is not defined.",
+     "line": 12,
+     "column": 28,
+     "endLine": 12,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid31"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 32,
+  "name": null,
+  "code": "\n      <script>\n      import { mapGetters } from 'pinia'\n      import { useStore } from '../store'\n\n      export default {\n        computed: {\n          ...mapGetters(useStore, ['a', 'b'])\n        },\n        methods: {\n          c() {return this.a},\n          d() {return this.b},\n          d() {return this.z},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'z' is not defined.",
+     "line": 13,
+     "column": 28,
+     "endLine": 13,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'z' is not defined.",
+     "line": 13,
+     "column": 28,
+     "endLine": 13,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid32"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 33,
+  "name": null,
+  "code": "\n      <script>\n      import { mapState } from 'pinia'\n      import { useStore } from '../store'\n\n      export default {\n        computed: {\n          ...mapState(useStore, {\n            a: 'a',\n            b: store => store.b,\n          })\n        },\n        methods: {\n          c() {return this.a},\n          d() {return this.b},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }} {{ q }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'q' is not defined.",
+     "line": 20,
+     "column": 26,
+     "endLine": 20,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'q' is not defined.",
+     "line": 20,
+     "column": 26,
+     "endLine": 20,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid33"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 34,
+  "name": null,
+  "code": "\n      <script>\n      import { mapWritableState } from 'pinia'\n      import { useStore } from '../store'\n\n      export default {\n        computed: {\n          ...mapWritableState(useStore, {\n            a: 'a',\n            b: 'b',\n          })\n        },\n        methods: {\n          c() {return this.a},\n          d() {return this.b},\n          d() {return this.z},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'z' is not defined.",
+     "line": 16,
+     "column": 28,
+     "endLine": 16,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'z' is not defined.",
+     "line": 16,
+     "column": 28,
+     "endLine": 16,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid34"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 35,
+  "name": null,
+  "code": "\n      <script>\n      import { mapWritableState } from 'pinia'\n      import { useStore } from '../store'\n\n      export default {\n        computed: {\n          ...mapWritableState(useStore, ['a', 'b'])\n        },\n        methods: {\n          c() {return this.a},\n          d() {return this.b},\n          d() {return this.z},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'z' is not defined.",
+     "line": 13,
+     "column": 28,
+     "endLine": 13,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'z' is not defined.",
+     "line": 13,
+     "column": 28,
+     "endLine": 13,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid35"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 36,
+  "name": null,
+  "code": "\n      <script>\n      import { mapActions } from 'pinia'\n      import { useStore } from '../store'\n\n      export default {\n          methods: {\n          ...mapActions(useStore, ['a', 'b']),\n          c() {return this.a()},\n          d() {return this.b()},\n          d() {return this.x()},\n        }\n      }\n      </script>\n      <template>\n      {{ a() }} {{ b() }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'x' is not defined.",
+     "line": 11,
+     "column": 28,
+     "endLine": 11,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'x' is not defined.",
+     "line": 11,
+     "column": 28,
+     "endLine": 11,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid36"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 37,
+  "name": null,
+  "code": "\n      <script>\n      import { mapGetters, mapMutations } from 'vuex';\n\n      export default {\n        watch: {\n          a() {},\n          x() {},\n        },\n        created() {\n          this.b();\n          this.y();\n        },\n        computed: {\n          ...mapGetters(['a']),\n        },\n        methods: {\n          ...mapMutations(['b']),\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'x' is not defined.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 12
+    },
+    {
+     "message": "'y' is not defined.",
+     "line": 12,
+     "column": 16,
+     "endLine": 12,
+     "endColumn": 17
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'x' is not defined.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 12,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "undef",
+     "message": "'y' is not defined.",
+     "line": 12,
+     "column": 16,
+     "endLine": 12,
+     "endColumn": 17,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid37"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "invalid",
+  "idx": 38,
+  "name": null,
+  "code": "\n      <template>\n        <div>{{ a }} {{ b }} {{ c }}</div>\n      </template>\n      <script>\n      import { reactive, toRefs } from 'vue'\n\n      export default {\n        setup() {\n          const data = reactive({\n            a: 1,\n            b: 1,\n          });\n          return {\n            ...toRefs(data),\n          };\n        },\n      };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'c' is not defined.",
+     "line": 3,
+     "column": 33,
+     "endLine": 3,
+     "endColumn": 34
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "undef",
+     "message": "'c' is not defined.",
+     "line": 3,
+     "column": 33,
+     "endLine": 3,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#invalid38"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div :attr=\"foo\"> {{ bar }} </div>\n      </template>\n      <script>\n        export default {\n          props: ['foo'],\n          data () {\n            return {\n              bar: 42\n            }\n          },\n          created() {\n            this.baz()\n          },\n          methods: {\n            baz() {}\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid0"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div :attr=\"foo\"> {{ bar }} </div>\n      </template>\n      <script>\n        export default {\n          inject: ['foo'],\n          setup() {\n            return {\n              bar: 42\n            }\n          },\n          computed: {\n            baz() {\n              return 42\n            }\n          },\n          created() {\n            console.log(this.baz)\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid1"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div> {{ foo }} </div>\n      </template>\n      <script>\n        export default {\n          asyncData() {\n            return {\n              foo: 42\n            }\n          },\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid2"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <div>{{ $t('foo') }}</div>\n      </template>\n      <script>\n        export default {\n          mounted() {\n            const hash = this.$route.hash\n            this.$on('click', this.click)\n          },\n          methods: {\n            click() {\n              this.$nextTick()\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid3"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <div>{{ undefined }}</div>\n      </template>\n      <script>\n        export default {\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid4"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          props: ['foo'],\n          watch: {\n            foo: 'bar'\n          },\n          methods: {\n            bar() {}\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid5"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {\n            return {\n              foo: {\n                bar :42\n              }\n            }\n          },\n          watch: {\n            'foo.bar': 'baz'\n          },\n          methods: {\n            baz() {}\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid6"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          props: ['foo'],\n          data (props) {\n            return {\n              bar: props.foo\n            }\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid7"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          props: ['foo'],\n          setup (props) {\n            return {\n              bar: props.foo\n            }\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid8"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          functional: true,\n          props: ['foo'],\n          render (_, {props}) {\n            return h(props.foo)\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid9"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {return {foo:42}},\n          render (vm) {\n            return h(vm.foo)\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid10"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {return {foo:42}},\n          computed: { p: (vm) => vm.foo }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid11"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {return {foo:42}},\n          computed: { p: { get: (vm) => vm.foo } }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid12"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template> {{ foo.bar }} </template>\n      <script>\n        export default {\n          data () {\n            return {\n              foo: {\n                bar: 42\n              }\n            }\n          },\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid13"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <template> {{ foo.bar.baz }} </template>\n      <script>\n        export default {\n          data () {\n            return {\n              foo: {\n                bar: {\n                  baz: 42\n                }\n              }\n            }\n          },\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid14"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {\n            return {\n              foo: 42\n            }\n          },\n          mounted() {\n            fn(this)\n          }\n        };\n\n        function fn(vm) {\n          return vm.foo\n        }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid15"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <script>\n        const fn = function(vm) {\n          return vm.foo\n        }\n        export default {\n          data () {\n            return {\n              foo: 42\n            }\n          },\n          mounted() {\n            fn(this)\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid16"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <script>\n        function a(vm) {\n          return vm.foo\n        }\n        const fn = a\n        export default {\n          data () {\n            return {\n              foo: 42\n            }\n          },\n          mounted() {\n            fn(this)\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid17"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <script>\n        function a(vm) {\n          return vm.foo2\n        }\n        export default {\n          data () {\n            return {\n              foo: 42\n            }\n          },\n          mounted() {\n            b(this)\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid18"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <script>\n        function a(vm) {\n          return vm.foo2\n        }\n        const b = unknown\n        export default {\n          data () {\n            return {\n              foo: 42\n            }\n          },\n          mounted() {\n            b(this)\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid19"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <script>\n        function a(vm) {\n          return vm.foo2\n        }\n        let b = a\n        export default {\n          data () {\n            return {\n              foo: 42\n            }\n          },\n          mounted() {\n            b(this)\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid20"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <script>\n        function fn( { foo } = {} ) {\n        }\n        export default {\n          data () {\n            return {\n              foo: 42\n            }\n          },\n          mounted() {\n            fn(this)\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid21"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {\n            return {\n              foo: 42\n            }\n          },\n          mounted() {\n            const { foo = 42 } = this\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid22"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {\n            return {\n              foo: {\n                bar: 42\n              }\n            }\n          },\n          mounted() {\n            const { foo : { bar = 42 } = {} } = this\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid23"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {\n            return {\n              foo: {\n                bar: 42\n              }\n            }\n          },\n          mounted() {\n            ({ foo : { bar: v = 42 } = {} } = this)\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid24"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {\n            return {\n              foo: 41\n            }\n          },\n          mounted() {\n            const vm = this\n            vm.foo\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid25"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "\n      <script>\n        export default {\n          data () {\n            return {\n              foo: {\n                bar: 42\n              }\n            }\n          },\n          mounted() {\n            const vm = this\n            ;(vm?.foo)?.bar\n          }\n        };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid26"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "\n      <template functional>\n        <div>{{props.a}} {{props.b}}</div>\n      </template>\n\n      <script>\n      export default {\n        props: {\n          a: String,\n          b: String,\n        },\n      };\n      </script>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid27"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 28,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      import type { Props1 } from './test01';\n\n      defineProps<Props1>();\n\n      </script>\n\n      <template>\n      <div>{{ foo }}</div>\n      <div>{{ unknown }}</div>\n      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid28"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 29,
+  "name": null,
+  "code": "\n      <script>\n      import { mapState } from 'vuex';\n\n      export default {\n        computed: {\n          ...mapState({\n            a: (vm) => vm.a,\n            b: (vm) => vm.b,\n          })\n        },\n        methods: {\n          c() {return this.a * this.b}\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid29"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 30,
+  "name": null,
+  "code": "\n      <script>\n      import { mapActions } from 'vuex';\n\n      export default {\n          methods: {\n          ...mapActions({\n            a: 'a',\n            b: 'b',\n          }),\n          c() {return this.a()},\n          d() {return this.b()},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid30"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 31,
+  "name": null,
+  "code": "\n      <script>\n      import { mapMutations } from 'vuex';\n\n      export default {\n          methods: {\n          ...mapMutations({\n            a: 'a',\n            b: 'b',\n          }),\n          c() {return this.a()},\n          d() {return this.b()},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid31"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 32,
+  "name": null,
+  "code": "\n      <script>\n      import { mapActions } from 'vuex';\n\n      export default {\n          methods: {\n          ...mapActions(['a', 'b']),\n          c() {return this.a()},\n          d() {return this.b()},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid32"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 33,
+  "name": null,
+  "code": "\n      <script>\n      import { mapMutations } from 'vuex';\n\n      export default {\n        methods: {\n          ...mapMutations(['a', 'b']),\n          c() {return this.a()},\n          d() {return this.b()},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid33"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 34,
+  "name": null,
+  "code": "\n      <script>\n      import { mapGetters } from 'vuex';\n\n      export default {\n        computed: {\n          ...mapGetters(['a', 'b'])\n        },\n        methods: {\n          c() {return this.a},\n          d() {return this.b},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid34"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 35,
+  "name": null,
+  "code": "\n      <script>\n      import { mapGetters } from 'pinia'\n      import { useStore } from '../store'\n\n      export default {\n        computed: {\n          ...mapGetters(useStore, ['a', 'b'])\n        },\n        methods: {\n          c() {return this.a},\n          d() {return this.b},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid35"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 36,
+  "name": null,
+  "code": "\n      <script>\n      import { mapState } from 'pinia'\n      import { useStore } from '../store'\n\n      export default {\n        computed: {\n          ...mapState(useStore, {\n            a: 'a',\n            b: store => store.b,\n          })\n        },\n        methods: {\n          c() {return this.a},\n          d() {return this.b},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid36"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 37,
+  "name": null,
+  "code": "\n      <script>\n      import { mapWritableState } from 'pinia'\n      import { useStore } from '../store'\n\n      export default {\n        computed: {\n          ...mapWritableState(useStore, {\n            a: 'a',\n            b: 'b',\n          })\n        },\n        methods: {\n          c() {return this.a},\n          d() {return this.b},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid37"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 38,
+  "name": null,
+  "code": "\n      <script>\n      import { mapWritableState } from 'pinia'\n      import { useStore } from '../store'\n\n      export default {\n        computed: {\n          ...mapWritableState(useStore, ['a', 'b'])\n        },\n        methods: {\n          c() {return this.a},\n          d() {return this.b},\n        }\n      }\n      </script>\n      <template>\n      {{ a }} {{ b }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid38"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 39,
+  "name": null,
+  "code": "\n      <script>\n      import { mapActions } from 'pinia'\n      import { useStore } from '../store'\n\n      export default {\n          methods: {\n          ...mapActions(useStore, ['a', 'b']),\n          c() {return this.a()},\n          d() {return this.b()},\n        }\n      }\n      </script>\n      <template>\n      {{ a() }} {{ b() }}\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid39"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 40,
+  "name": null,
+  "code": "\n      import Vue from 'vue';\n      import { mapGetters, mapMutations } from 'vuex';\n\n      new Vue({\n        computed: {\n          ...mapGetters(['getCountryMap']),\n        },\n        watch: {\n          getCountryMap() {\n            this.updatePrefix();\n          },\n        },\n        created() {\n          this.setCountries([]);\n        },\n        methods: {\n          ...mapMutations(['setCountries']),\n          updatePrefix() {},\n        },\n      });\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid40"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 41,
+  "name": null,
+  "code": "\n      <script>\n      import { mapState, mapGetters, mapMutations, mapActions } from 'vuex';\n\n      export default {\n        watch: {\n          a() {},\n          b: 'c',\n        },\n        data() {\n          return { x: this.a }\n        },\n        created() {\n          this.c();\n          this.d();\n        },\n        computed: {\n          e() { return this.a + this.b },\n          ...mapState(['a']),\n          ...mapGetters({ b: 'getB' }),\n        },\n        methods: {\n          f() { this.c(); this.d() },\n          ...mapMutations(['c']),\n          ...mapActions({ d: 'doD' }),\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid41"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 42,
+  "name": null,
+  "code": "\n      <script>\n      import { mapState, mapWritableState, mapActions } from 'pinia'\n      import { useStore } from '../store'\n\n      export default {\n        watch: {\n          a() {\n            this.b = this.a\n          },\n        },\n        setup() {\n          return { s: 1 }\n        },\n        created() {\n          this.c(this.s);\n        },\n        computed: {\n          ...mapState(useStore, ['a']),\n          ...mapWritableState(useStore, ['b']),\n        },\n        methods: {\n          ...mapActions(useStore, ['c']),\n        },\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid42"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 43,
+  "name": null,
+  "code": "\n      <script>\n      import { mapGetters, mapActions } from 'vuex';\n\n      export default {\n        watch: {\n          a() {\n            this.b();\n          },\n        },\n        computed: mapGetters(['a']),\n        methods: mapActions(['b']),\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid43"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 44,
+  "name": null,
+  "code": "\n    <script setup>\n    const model = defineModel();\n    const woof = computed(() => model.value);\n    </script>\n    <template>\n      <div id=\"app\">Woof: {{ woof }}</div>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid44"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 45,
+  "name": null,
+  "code": "\n      <template>\n        <div>{{ a }} {{ b }}</div>\n      </template>\n      <script>\n      import { reactive, toRefs } from 'vue'\n\n      export default {\n        setup() {\n          const data = reactive({\n            a: 1,\n            b: 1,\n          });\n          return {\n            ...toRefs(data),\n          };\n        },\n      };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid45"
+ },
+ {
+  "rule": "no-undef-properties",
+  "kind": "valid",
+  "idx": 46,
+  "name": null,
+  "code": "\n      <template>\n        <div>{{ a }} {{ b }} {{ c }}</div>\n      </template>\n      <script>\n      import { reactive, toRefs } from 'vue'\n\n      export default {\n        setup: () => ({\n          ...toRefs(reactive({ a: 1 })),\n          ...toRefs(reactive({ b: 1, c: 1 })),\n        }),\n      };\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-undef-properties#valid46"
+ }
+]

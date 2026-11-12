@@ -1,0 +1,298 @@
+[
+ {
+  "rule": "no-restricted-block",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<style>.foo {}</style><foo></foo>",
+  "filename": "test.vue",
+  "options": [
+   "style",
+   "foo"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `<style>` is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 8
+    },
+    {
+     "message": "Using `<foo>` is not allowed.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedBlock",
+     "message": "Using `<style>` is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 8,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedBlock",
+     "message": "Using `<foo>` is not allowed.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-block#invalid0"
+ },
+ {
+  "rule": "no-restricted-block",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<forbidden-block></forbidden-block>\n      <block-forbidden></block-forbidden>",
+  "filename": "test.vue",
+  "options": [
+   "/forbidden/"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `<forbidden-block>` is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 18
+    },
+    {
+     "message": "Using `<block-forbidden>` is not allowed.",
+     "line": 2,
+     "column": 7,
+     "endLine": 2,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedBlock",
+     "message": "Using `<forbidden-block>` is not allowed.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedBlock",
+     "message": "Using `<block-forbidden>` is not allowed.",
+     "line": 2,
+     "column": 7,
+     "endLine": 2,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-block#invalid1"
+ },
+ {
+  "rule": "no-restricted-block",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<style>.foo {}</style>\n      <forbidden-block></forbidden-block>\n      <block-forbidden></block-forbidden>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "element": "style",
+    "message": "Do not use <style> block in this project."
+   },
+   {
+    "element": "/forbidden/",
+    "message": "Do not use blocks that include `forbidden` in their name."
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Do not use <style> block in this project.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 8
+    },
+    {
+     "message": "Do not use blocks that include `forbidden` in their name.",
+     "line": 2,
+     "column": 7,
+     "endLine": 2,
+     "endColumn": 24
+    },
+    {
+     "message": "Do not use blocks that include `forbidden` in their name.",
+     "line": 3,
+     "column": 7,
+     "endLine": 3,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedBlock",
+     "message": "Do not use <style> block in this project.",
+     "line": 1,
+     "column": 1,
+     "endLine": 1,
+     "endColumn": 8,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedBlock",
+     "message": "Do not use blocks that include `forbidden` in their name.",
+     "line": 2,
+     "column": 7,
+     "endLine": 2,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedBlock",
+     "message": "Do not use blocks that include `forbidden` in their name.",
+     "line": 3,
+     "column": 7,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-block#invalid2"
+ },
+ {
+  "rule": "no-restricted-block",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-block#valid0"
+ },
+ {
+  "rule": "no-restricted-block",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<style>.foo {}</style>",
+  "filename": "test.vue",
+  "options": [
+   "foo"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-block#valid1"
+ }
+]

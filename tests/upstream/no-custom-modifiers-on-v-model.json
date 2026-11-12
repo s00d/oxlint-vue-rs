@@ -1,0 +1,350 @@
+[
+ {
+  "rule": "no-custom-modifiers-on-v-model",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><MyComponent v-model:propName.aaa=\"foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives don't support the modifier 'aaa'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 50
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "notSupportedModifier",
+     "message": "'v-model' directives don't support the modifier 'aaa'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 50,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-custom-modifiers-on-v-model#invalid0"
+ },
+ {
+  "rule": "no-custom-modifiers-on-v-model",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><MyComponent v-model.aaa=\"foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "'v-model' directives don't support the modifier 'aaa'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 41
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "notSupportedModifier",
+     "message": "'v-model' directives don't support the modifier 'aaa'.",
+     "line": 1,
+     "column": 24,
+     "endLine": 1,
+     "endColumn": 41,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-custom-modifiers-on-v-model#invalid1"
+ },
+ {
+  "rule": "no-custom-modifiers-on-v-model",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><MyComponent v-model:propName=\"foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-custom-modifiers-on-v-model#valid0"
+ },
+ {
+  "rule": "no-custom-modifiers-on-v-model",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><MyComponent v-model=\"foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-custom-modifiers-on-v-model#valid1"
+ },
+ {
+  "rule": "no-custom-modifiers-on-v-model",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><MyComponent v-model:propName.trim=\"foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-custom-modifiers-on-v-model#valid2"
+ },
+ {
+  "rule": "no-custom-modifiers-on-v-model",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><MyComponent v-model.trim=\"foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-custom-modifiers-on-v-model#valid3"
+ },
+ {
+  "rule": "no-custom-modifiers-on-v-model",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><MyComponent v-model:propName.lazy=\"foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-custom-modifiers-on-v-model#valid4"
+ },
+ {
+  "rule": "no-custom-modifiers-on-v-model",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><MyComponent v-model.lazy=\"foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-custom-modifiers-on-v-model#valid5"
+ },
+ {
+  "rule": "no-custom-modifiers-on-v-model",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><MyComponent v-model:propName.number=\"foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-custom-modifiers-on-v-model#valid6"
+ },
+ {
+  "rule": "no-custom-modifiers-on-v-model",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><MyComponent v-model.number=\"foo\"></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-custom-modifiers-on-v-model#valid7"
+ }
+]

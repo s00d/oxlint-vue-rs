@@ -1,0 +1,2443 @@
+[
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        export default {\n          name: 'app',\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          props: {\n            propA: Number,\n          },\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"props\" property should be above the \"data\" property on line 4.",
+     "line": 9,
+     "column": 11,
+     "endLine": 11,
+     "endColumn": 12
+    }
+   ],
+   "output": "\n        export default {\n          name: 'app',\n          props: {\n            propA: Number,\n          },\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n        }\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"props\" property should be above the \"data\" property on line 4.",
+     "line": 9,
+     "column": 11,
+     "endLine": 11,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       48,
+       223
+      ],
+      "text": "\n          props: {\n            propA: Number,\n          },\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        export default {\n          name: 'app',\n          props: {\n            propA: Number,\n          },\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n        }\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid0"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        import { defineComponent } from 'vue'\n        export default defineComponent({\n          name: 'app',\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          props: {\n            propA: Number,\n          },\n        })\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"props\" property should be above the \"data\" property on line 5.",
+     "line": 10,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 12
+    }
+   ],
+   "output": "\n        import { defineComponent } from 'vue'\n        export default defineComponent({\n          name: 'app',\n          props: {\n            propA: Number,\n          },\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n        })\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"props\" property should be above the \"data\" property on line 5.",
+     "line": 10,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       110,
+       285
+      ],
+      "text": "\n          props: {\n            propA: Number,\n          },\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        import { defineComponent } from 'vue'\n        export default defineComponent({\n          name: 'app',\n          props: {\n            propA: Number,\n          },\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n        })\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid1"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        import { defineNuxtComponent } from '#app'\n        export default defineNuxtComponent({\n          name: 'app',\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          props: {\n            propA: Number,\n          },\n        })\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"props\" property should be above the \"data\" property on line 5.",
+     "line": 10,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 12
+    }
+   ],
+   "output": "\n        import { defineNuxtComponent } from '#app'\n        export default defineNuxtComponent({\n          name: 'app',\n          props: {\n            propA: Number,\n          },\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n        })\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"props\" property should be above the \"data\" property on line 5.",
+     "line": 10,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       119,
+       294
+      ],
+      "text": "\n          props: {\n            propA: Number,\n          },\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        import { defineNuxtComponent } from '#app'\n        export default defineNuxtComponent({\n          name: 'app',\n          props: {\n            propA: Number,\n          },\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n        })\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid2"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        export default {\n          render (h) {\n            return (\n              <span>{ this.msg }</span>\n            )\n          },\n          name: 'app',\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          props: {\n            propA: Number,\n          },\n        }\n      ",
+  "filename": "test.jsx",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": {
+    "jsx": true
+   },
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"render\" property on line 3.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 22
+    },
+    {
+     "message": "The \"data\" property should be above the \"render\" property on line 3.",
+     "line": 9,
+     "column": 11,
+     "endLine": 13,
+     "endColumn": 12
+    },
+    {
+     "message": "The \"props\" property should be above the \"data\" property on line 9.",
+     "line": 14,
+     "column": 11,
+     "endLine": 16,
+     "endColumn": 12
+    }
+   ],
+   "output": "\n        export default {\n          name: 'app',\n          render (h) {\n            return (\n              <span>{ this.msg }</span>\n            )\n          },\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          props: {\n            propA: Number,\n          },\n        }\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"render\" property on line 3.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       25,
+       159
+      ],
+      "text": "\n          name: 'app',\n          render (h) {\n            return (\n              <span>{ this.msg }</span>\n            )\n          },"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "order",
+     "message": "The \"data\" property should be above the \"render\" property on line 3.",
+     "line": 9,
+     "column": 11,
+     "endLine": 13,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       25,
+       275
+      ],
+      "text": "\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          render (h) {\n            return (\n              <span>{ this.msg }</span>\n            )\n          },\n          name: 'app',"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "order",
+     "message": "The \"props\" property should be above the \"data\" property on line 9.",
+     "line": 14,
+     "column": 11,
+     "endLine": 16,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       159,
+       334
+      ],
+      "text": "\n          props: {\n            propA: Number,\n          },\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        export default {\n          name: 'app',\n          render (h) {\n            return (\n              <span>{ this.msg }</span>\n            )\n          },\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          props: {\n            propA: Number,\n          },\n        }\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid3"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        Vue.component('smart-list', {\n          name: 'app',\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          components: {},\n          template: '<div></div>'\n        })\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"components\" property should be above the \"data\" property on line 4.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n        Vue.component('smart-list', {\n          name: 'app',\n          components: {},\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          template: '<div></div>'\n        })\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"components\" property should be above the \"data\" property on line 4.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       61,
+       203
+      ],
+      "text": "\n          components: {},\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        Vue.component('smart-list', {\n          name: 'app',\n          components: {},\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          template: '<div></div>'\n        })\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid4"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        app.component('smart-list', {\n          name: 'app',\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          components: {},\n          template: '<div></div>'\n        })\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"components\" property should be above the \"data\" property on line 4.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n        app.component('smart-list', {\n          name: 'app',\n          components: {},\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          template: '<div></div>'\n        })\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"components\" property should be above the \"data\" property on line 4.",
+     "line": 9,
+     "column": 11,
+     "endLine": 9,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       61,
+       203
+      ],
+      "text": "\n          components: {},\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        app.component('smart-list', {\n          name: 'app',\n          components: {},\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          template: '<div></div>'\n        })\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid5"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        const { component } = Vue;\n        component('smart-list', {\n          name: 'app',\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          components: {},\n          template: '<div></div>'\n        })\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"components\" property should be above the \"data\" property on line 5.",
+     "line": 10,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n        const { component } = Vue;\n        component('smart-list', {\n          name: 'app',\n          components: {},\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          template: '<div></div>'\n        })\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"components\" property should be above the \"data\" property on line 5.",
+     "line": 10,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       92,
+       234
+      ],
+      "text": "\n          components: {},\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        const { component } = Vue;\n        component('smart-list', {\n          name: 'app',\n          components: {},\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          template: '<div></div>'\n        })\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid6"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        new Vue({\n          name: 'app',\n          el: '#app',\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          components: {},\n          template: '<div></div>'\n        })\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"el\" property should be above the \"name\" property on line 3.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 21
+    },
+    {
+     "message": "The \"components\" property should be above the \"data\" property on line 5.",
+     "line": 10,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n        new Vue({\n          el: '#app',\n          name: 'app',\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          components: {},\n          template: '<div></div>'\n        })\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"el\" property should be above the \"name\" property on line 3.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       18,
+       63
+      ],
+      "text": "\n          el: '#app',\n          name: 'app',"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "order",
+     "message": "The \"components\" property should be above the \"data\" property on line 5.",
+     "line": 10,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       63,
+       205
+      ],
+      "text": "\n          components: {},\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        new Vue({\n          el: '#app',\n          name: 'app',\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          components: {},\n          template: '<div></div>'\n        })\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid7"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        export default {\n          data() {\n            return {\n              isActive: false,\n            };\n          },\n          methods: {\n            toggleMenu() {\n              this.isActive = !this.isActive;\n            },\n            closeMenu() {\n              this.isActive = false;\n            }\n          },\n          name: 'burger',\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 16,
+     "column": 11,
+     "endLine": 16,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n        export default {\n          name: 'burger',\n          data() {\n            return {\n              isActive: false,\n            };\n          },\n          methods: {\n            toggleMenu() {\n              this.isActive = !this.isActive;\n            },\n            closeMenu() {\n              this.isActive = false;\n            }\n          },\n        };\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 16,
+     "column": 11,
+     "endLine": 16,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       25,
+       349
+      ],
+      "text": "\n          name: 'burger',\n          data() {\n            return {\n              isActive: false,\n            };\n          },\n          methods: {\n            toggleMenu() {\n              this.isActive = !this.isActive;\n            },\n            closeMenu() {\n              this.isActive = false;\n            }\n          },"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        export default {\n          name: 'burger',\n          data() {\n            return {\n              isActive: false,\n            };\n          },\n          methods: {\n            toggleMenu() {\n              this.isActive = !this.isActive;\n            },\n            closeMenu() {\n              this.isActive = false;\n            }\n          },\n        };\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid8"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        export default {\n          data() {\n          },\n          name: 'burger',\n          test: 'ok'\n        };\n      ",
+  "filename": "example.vue",
+  "options": [
+   {
+    "order": [
+     "data",
+     "test",
+     "name"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"test\" property should be above the \"name\" property on line 5.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 21
+    }
+   ],
+   "output": "\n        export default {\n          data() {\n          },\n          test: 'ok',\n          name: 'burger'\n        };\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"test\" property should be above the \"name\" property on line 5.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       57,
+       104
+      ],
+      "text": "\n          test: 'ok',\n          name: 'burger'"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        export default {\n          data() {\n          },\n          test: 'ok',\n          name: 'burger'\n        };\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid9"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        export default {\n          /** data provider */\n          data() {\n          },\n          /** name of vue component */\n          name: 'burger'\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 4.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n        export default {\n          /** name of vue component */\n          name: 'burger',\n          /** data provider */\n          data() {\n          }\n        };\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 4.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       25,
+       152
+      ],
+      "text": "\n          /** name of vue component */\n          name: 'burger',\n          /** data provider */\n          data() {\n          }"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        export default {\n          /** name of vue component */\n          name: 'burger',\n          /** data provider */\n          data() {\n          }\n        };\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid10"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        export default {\n          /** data provider */\n          data() {\n          }/*test*/,\n          /** name of vue component */\n          name: 'burger'\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 4.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n        export default {\n          /** name of vue component */\n          name: 'burger',\n          /** data provider */\n          data() {\n          }/*test*/\n        };\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 4.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       25,
+       160
+      ],
+      "text": "\n          /** name of vue component */\n          name: 'burger',\n          /** data provider */\n          data() {\n          }/*test*/"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        export default {\n          /** name of vue component */\n          name: 'burger',\n          /** data provider */\n          data() {\n          }/*test*/\n        };\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid11"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "export default {data(){},name:'burger'};",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 1.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ],
+   "output": "export default {name:'burger',data(){}};"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 1.",
+     "line": 1,
+     "column": 26,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       16,
+       38
+      ],
+      "text": "name:'burger',data(){}"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "export default {name:'burger',data(){}};",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid12"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n        export default {\n          data() {\n          },\n          test: obj.fn(),\n          name: 'burger',\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: obj.fn(),\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "reorderWithSideEffects",
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: obj.fn(),\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid13"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n        export default {\n          data() {\n          },\n          test: new MyClass(),\n          name: 'burger',\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: new MyClass(),\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "reorderWithSideEffects",
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: new MyClass(),\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid14"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n        export default {\n          data() {\n          },\n          test: i++,\n          name: 'burger',\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: i++,\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "reorderWithSideEffects",
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: i++,\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid15"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n        export default {\n          data() {\n          },\n          test: i = 0,\n          name: 'burger',\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: i = 0,\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "reorderWithSideEffects",
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: i = 0,\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid16"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n        export default {\n          data() {\n          },\n          test: template`${foo}`,\n          name: 'burger',\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: template`${foo}`,\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "reorderWithSideEffects",
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: template`${foo}`,\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid17"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n        export default {\n          data() {\n          },\n          [obj.fn()]: 'test',\n          name: 'burger',\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          [obj.fn()]: 'test',\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "reorderWithSideEffects",
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          [obj.fn()]: 'test',\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid18"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "\n        export default {\n          data() {\n          },\n          test: {test: obj.fn()},\n          name: 'burger',\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: {test: obj.fn()},\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "reorderWithSideEffects",
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: {test: obj.fn()},\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid19"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "\n        export default {\n          data() {\n          },\n          test: [obj.fn(), 1],\n          name: 'burger',\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: [obj.fn(), 1],\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "reorderWithSideEffects",
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: [obj.fn(), 1],\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid20"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "\n        export default {\n          data() {\n          },\n          test: obj.fn().prop,\n          name: 'burger',\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: obj.fn().prop,\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "reorderWithSideEffects",
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: obj.fn().prop,\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid21"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "\n        export default {\n          data() {\n          },\n          test: delete obj.prop,\n          name: 'burger',\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: delete obj.prop,\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "reorderWithSideEffects",
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: delete obj.prop,\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid22"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "\n        export default {\n          data() {\n          },\n          test: fn() + a + b,\n          name: 'burger',\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: fn() + a + b,\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "reorderWithSideEffects",
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: fn() + a + b,\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid23"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "\n        export default {\n          data() {\n          },\n          test: a ? fn() : null,\n          name: 'burger',\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: a ? fn() : null,\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "reorderWithSideEffects",
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: a ? fn() : null,\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid24"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 25,
+  "name": null,
+  "code": "\n        export default {\n          data() {\n          },\n          test: `test ${fn()} ${a}`,\n          name: 'burger',\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: `test ${fn()} ${a}`,\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "reorderWithSideEffects",
+       "desc": "Manually move \"name\" property above \"data\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: `test ${fn()} ${a}`,\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid25"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 26,
+  "name": null,
+  "code": "\n        export default {\n          computed: {\n            ...mapStates(['foo'])\n          },\n          data() {\n          },\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"data\" property should be above the \"computed\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 12,
+     "suggestions": [
+      {
+       "desc": "Manually move \"data\" property above \"computed\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          data() {\n          },\n          computed: {\n            ...mapStates(['foo'])\n          },\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"data\" property should be above the \"computed\" property on line 3.",
+     "line": 6,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 12,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "reorderWithSideEffects",
+       "desc": "Manually move \"data\" property above \"computed\" property on line 3 (might break side effects).",
+       "output": "\n        export default {\n          data() {\n          },\n          computed: {\n            ...mapStates(['foo'])\n          },\n        };\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid26"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 27,
+  "name": null,
+  "code": "\n        export default {\n          data() {\n          },\n          name: 'burger',\n          test: fn(),\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: fn(),\n        };\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       25,
+       83
+      ],
+      "text": "\n          name: 'burger',\n          data() {\n          },"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          test: fn(),\n        };\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid27"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 28,
+  "name": null,
+  "code": "\n        export default {\n          data() {\n          },\n          testArray: [1, 2, 3, true, false, 'a', 'b', 'c'],\n          testRegExp: /[a-z]*/,\n          testSpreadElement: [...array],\n          testOperator: (!!(a - b + c * d / e % f)) || (a && b),\n          testArrow: (a) => a,\n          testConditional: a ? b : c,\n          testYield: function* () {},\n          testTemplate: `a:${a},b:${b},c:${c}.`,\n          testNullish: a ?? b,\n          testOptionalChaining: a?.b?.c,\n          name: 'burger',\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 15,
+     "column": 11,
+     "endLine": 15,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          testArray: [1, 2, 3, true, false, 'a', 'b', 'c'],\n          testRegExp: /[a-z]*/,\n          testSpreadElement: [...array],\n          testOperator: (!!(a - b + c * d / e % f)) || (a && b),\n          testArrow: (a) => a,\n          testConditional: a ? b : c,\n          testYield: function* () {},\n          testTemplate: `a:${a},b:${b},c:${c}.`,\n          testNullish: a ?? b,\n          testOptionalChaining: a?.b?.c,\n        };\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"data\" property on line 3.",
+     "line": 15,
+     "column": 11,
+     "endLine": 15,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       25,
+       509
+      ],
+      "text": "\n          name: 'burger',\n          data() {\n          },\n          testArray: [1, 2, 3, true, false, 'a', 'b', 'c'],\n          testRegExp: /[a-z]*/,\n          testSpreadElement: [...array],\n          testOperator: (!!(a - b + c * d / e % f)) || (a && b),\n          testArrow: (a) => a,\n          testConditional: a ? b : c,\n          testYield: function* () {},\n          testTemplate: `a:${a},b:${b},c:${c}.`,\n          testNullish: a ?? b,\n          testOptionalChaining: a?.b?.c,"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        export default {\n          name: 'burger',\n          data() {\n          },\n          testArray: [1, 2, 3, true, false, 'a', 'b', 'c'],\n          testRegExp: /[a-z]*/,\n          testSpreadElement: [...array],\n          testOperator: (!!(a - b + c * d / e % f)) || (a && b),\n          testArrow: (a) => a,\n          testConditional: a ? b : c,\n          testYield: function* () {},\n          testTemplate: `a:${a},b:${b},c:${c}.`,\n          testNullish: a ?? b,\n          testOptionalChaining: a?.b?.c,\n        };\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid28"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 29,
+  "name": null,
+  "code": "\n        <script lang=\"ts\">\n          export default {\n            setup () {},\n            props: {\n              foo: { type: Array as PropType<number[]> },\n            },\n          };\n        </script>\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": {
+    "ts": "ts"
+   },
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"props\" property should be above the \"setup\" property on line 4.",
+     "line": 5,
+     "column": 13,
+     "endLine": 7,
+     "endColumn": 14
+    }
+   ],
+   "output": "\n        <script lang=\"ts\">\n          export default {\n            props: {\n              foo: { type: Array as PropType<number[]> },\n            },\n            setup () {},\n          };\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"props\" property should be above the \"setup\" property on line 4.",
+     "line": 5,
+     "column": 13,
+     "endLine": 7,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       54,
+       173
+      ],
+      "text": "\n            props: {\n              foo: { type: Array as PropType<number[]> },\n            },\n            setup () {},"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script lang=\"ts\">\n          export default {\n            props: {\n              foo: { type: Array as PropType<number[]> },\n            },\n            setup () {},\n          };\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid29"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 30,
+  "name": null,
+  "code": "\n      <script setup>\n        defineOptions({\n          inheritAttrs: true,\n          name: 'Foo',\n        })\n      </script>\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"name\" property should be above the \"inheritAttrs\" property on line 4.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <script setup>\n        defineOptions({\n          name: 'Foo',\n          inheritAttrs: true,\n        })\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"name\" property should be above the \"inheritAttrs\" property on line 4.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       45,
+       98
+      ],
+      "text": "\n          name: 'Foo',\n          inheritAttrs: true,"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <script setup>\n        defineOptions({\n          name: 'Foo',\n          inheritAttrs: true,\n        })\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid30"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 31,
+  "name": null,
+  "code": "\n        export default {\n          setup,\n          slots,\n          expose,\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"slots\" property should be above the \"setup\" property on line 3.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 16
+    },
+    {
+     "message": "The \"expose\" property should be above the \"setup\" property on line 3.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 17
+    }
+   ],
+   "output": "\n        export default {\n          slots,\n          setup,\n          expose,\n        };\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"slots\" property should be above the \"setup\" property on line 3.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       25,
+       59
+      ],
+      "text": "\n          slots,\n          setup,"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "order",
+     "message": "The \"expose\" property should be above the \"setup\" property on line 3.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       25,
+       77
+      ],
+      "text": "\n          expose,\n          setup,\n          slots,"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        export default {\n          slots,\n          setup,\n          expose,\n        };\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid31"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "invalid",
+  "idx": 32,
+  "name": null,
+  "code": "\n        export default {\n          slots,\n          setup,\n          expose,\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The \"expose\" property should be above the \"setup\" property on line 4.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 17
+    }
+   ],
+   "output": "\n        export default {\n          slots,\n          expose,\n          setup,\n        };\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "order",
+     "message": "The \"expose\" property should be above the \"setup\" property on line 4.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       42,
+       77
+      ],
+      "text": "\n          expose,\n          setup,"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        export default {\n          slots,\n          expose,\n          setup,\n        };\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#invalid32"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        export default {\n          name: 'app',\n          props: {\n            propA: Number,\n          },\n          ...a,\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#valid0"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        export default {\n          el,\n          name,\n          parent,\n          functional,\n          delimiters, comments,\n          components, directives, filters,\n          extends: MyComp,\n          mixins,\n          provide, inject,\n          inheritAttrs,\n          model,\n          props, propsData,\n          emits,\n          slots,\n          expose,\n          setup,\n          data,\n          computed,\n          watch,\n          beforeCreate,\n          created,\n          beforeMount,\n          mounted,\n          beforeUpdate,\n          updated,\n          activated,\n          deactivated,\n          beforeUnmount,\n          unmounted,\n          beforeDestroy,\n          destroyed,\n          renderTracked,\n          renderTriggered,\n          errorCaptured,\n          methods,\n          template, render,\n          renderError,\n        };\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#valid1"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        export default {}\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#valid2"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        export default 'example-text'\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#valid3"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        export default {\n          name: 'app',\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n        }\n      ",
+  "filename": "test.jsx",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#valid4"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        export default {\n          name: 'app',\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          },\n          computed: {\n            ...mapStates(['foo'])\n          },\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#valid5"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        Vue.component('smart-list', {\n          name: 'app',\n          components: {},\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          }\n        })\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#valid6"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        Vue.component('example')\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#valid7"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        const { component } = Vue;\n        component('smart-list', {\n          name: 'app',\n          components: {},\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          }\n        })\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#valid8"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        new Vue({\n          el: '#app',\n          name: 'app',\n          components: {},\n          data () {\n            return {\n              msg: 'Welcome to Your Vue.js App'\n            }\n          }\n        })\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#valid9"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        new Vue()\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 6,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#valid10"
+ },
+ {
+  "rule": "order-in-components",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <script setup>\n        defineOptions({\n          name: 'Foo',\n          inheritAttrs: true,\n        })\n      </script>\n      ",
+  "filename": "example.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "order-in-components#valid11"
+ }
+]

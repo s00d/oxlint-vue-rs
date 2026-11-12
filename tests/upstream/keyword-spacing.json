@@ -1,0 +1,460 @@
+[
+ {
+  "rule": "keyword-spacing",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template>\n        <div @event=\"\n          if(foo) {\n            //...\n          }else if(bar) {\n            //...\n          }else{\n            //...\n          }\n        \" />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected space(s) after \"if\".",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 13
+    },
+    {
+     "message": "Expected space(s) before \"else\".",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 16
+    },
+    {
+     "message": "Expected space(s) after \"if\".",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 19
+    },
+    {
+     "message": "Expected space(s) before \"else\".",
+     "line": 7,
+     "column": 12,
+     "endLine": 7,
+     "endColumn": 16
+    },
+    {
+     "message": "Expected space(s) after \"else\".",
+     "line": 7,
+     "column": 12,
+     "endLine": 7,
+     "endColumn": 16
+    }
+   ],
+   "output": "<template>\n        <div @event=\"\n          if (foo) {\n            //...\n          } else if (bar) {\n            //...\n          } else {\n            //...\n          }\n        \" />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedAfter",
+     "message": "Expected space(s) after \"if\".",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       45,
+       45
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBefore",
+     "message": "Expected space(s) before \"else\".",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       82,
+       82
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedAfter",
+     "message": "Expected space(s) after \"if\".",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       89,
+       89
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBefore",
+     "message": "Expected space(s) before \"else\".",
+     "line": 7,
+     "column": 12,
+     "endLine": 7,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       126,
+       126
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedAfter",
+     "message": "Expected space(s) after \"else\".",
+     "line": 7,
+     "column": 12,
+     "endLine": 7,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       130,
+       130
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n        <div @event=\"\n          if (foo) {\n            //...\n          } else if (bar) {\n            //...\n          } else {\n            //...\n          }\n        \" />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "keyword-spacing#invalid0"
+ },
+ {
+  "rule": "keyword-spacing",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>\n        <div @event=\"\n          if (foo) {\n            //...\n          } else if (bar) {\n            //...\n          } else {\n            //...\n          }\n        \" />\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "before": false,
+    "after": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected space(s) after \"if\".",
+     "line": 3,
+     "column": 13,
+     "endLine": 3,
+     "endColumn": 14
+    },
+    {
+     "message": "Unexpected space(s) before \"else\".",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 13
+    },
+    {
+     "message": "Unexpected space(s) after \"if\".",
+     "line": 5,
+     "column": 20,
+     "endLine": 5,
+     "endColumn": 21
+    },
+    {
+     "message": "Unexpected space(s) before \"else\".",
+     "line": 7,
+     "column": 12,
+     "endLine": 7,
+     "endColumn": 13
+    },
+    {
+     "message": "Unexpected space(s) after \"else\".",
+     "line": 7,
+     "column": 17,
+     "endLine": 7,
+     "endColumn": 18
+    }
+   ],
+   "output": "<template>\n        <div @event=\"\n          if(foo) {\n            //...\n          }else if(bar) {\n            //...\n          }else{\n            //...\n          }\n        \" />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfter",
+     "message": "Unexpected space(s) after \"if\".",
+     "line": 3,
+     "column": 13,
+     "endLine": 3,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       45,
+       46
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBefore",
+     "message": "Unexpected space(s) before \"else\".",
+     "line": 5,
+     "column": 12,
+     "endLine": 5,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       83,
+       84
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedAfter",
+     "message": "Unexpected space(s) after \"if\".",
+     "line": 5,
+     "column": 20,
+     "endLine": 5,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       91,
+       92
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedBefore",
+     "message": "Unexpected space(s) before \"else\".",
+     "line": 7,
+     "column": 12,
+     "endLine": 7,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       129,
+       130
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedAfter",
+     "message": "Unexpected space(s) after \"else\".",
+     "line": 7,
+     "column": 17,
+     "endLine": 7,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       134,
+       135
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n        <div @event=\"\n          if(foo) {\n            //...\n          }else if(bar) {\n            //...\n          }else{\n            //...\n          }\n        \" />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "keyword-spacing#invalid1"
+ },
+ {
+  "rule": "keyword-spacing",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>\n        <div :[(function(){return(1)})()]=\"(function(){return(1)})()\" />\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected space(s) after \"return\".",
+     "line": 2,
+     "column": 56,
+     "endLine": 2,
+     "endColumn": 62
+    }
+   ],
+   "output": "<template>\n        <div :[(function(){return(1)})()]=\"(function(){return (1)})()\" />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedAfter",
+     "message": "Expected space(s) after \"return\".",
+     "line": 2,
+     "column": 56,
+     "endLine": 2,
+     "endColumn": 62,
+     "fix": {
+      "range": [
+       72,
+       72
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n        <div :[(function(){return(1)})()]=\"(function(){return (1)})()\" />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "keyword-spacing#invalid2"
+ },
+ {
+  "rule": "keyword-spacing",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template>\n      <div @event=\"\n        if (foo) {\n          //...\n        } else if (bar) {\n          //...\n        } else {\n          //...\n        }\n      \" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "keyword-spacing#valid0"
+ },
+ {
+  "rule": "keyword-spacing",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template>\n        <div @event=\"\n          if(foo) {\n            //...\n          }else if(bar) {\n            //...\n          }else{\n            //...\n          }\n        \" />\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "before": false,
+    "after": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "keyword-spacing#valid1"
+ },
+ {
+  "rule": "keyword-spacing",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>\n      <div :[(function(){return(1)})()]=\"val\" />\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "keyword-spacing#valid2"
+ }
+]

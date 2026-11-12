@@ -1,0 +1,471 @@
+[
+ {
+  "rule": "first-attribute-linebreak",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <component\n          name=\"John Doe\"\n          age=\"30\"\n          job=\"Vet\"\n        ></component>\n        <component name=\"John Doe\"\n                   age=\"30\"\n                   job=\"Vet\"\n        ></component>\n        <component\n          name=\"John Doe\"\n        ></component>\n        <component name=\"John Doe\"\n        ></component>\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected a linebreak before this attribute.",
+     "line": 8,
+     "column": 20,
+     "endLine": 8,
+     "endColumn": 35
+    }
+   ],
+   "output": "\n      <template>\n        <component\n          name=\"John Doe\"\n          age=\"30\"\n          job=\"Vet\"\n        ></component>\n        <component\nname=\"John Doe\"\n                   age=\"30\"\n                   job=\"Vet\"\n        ></component>\n        <component\n          name=\"John Doe\"\n        ></component>\n        <component name=\"John Doe\"\n        ></component>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected a linebreak before this attribute.",
+     "line": 8,
+     "column": 20,
+     "endLine": 8,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       142,
+       143
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <component\n          name=\"John Doe\"\n          age=\"30\"\n          job=\"Vet\"\n        ></component>\n        <component\nname=\"John Doe\"\n                   age=\"30\"\n                   job=\"Vet\"\n        ></component>\n        <component\n          name=\"John Doe\"\n        ></component>\n        <component name=\"John Doe\"\n        ></component>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "first-attribute-linebreak#invalid0"
+ },
+ {
+  "rule": "first-attribute-linebreak",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <component\n          name=\"John Doe\"\n          age=\"30\"\n          job=\"Vet\"\n        ></component>\n        <component name=\"John Doe\"\n                   age=\"30\"\n                   job=\"Vet\"\n        ></component>\n        <component\n          name=\"John Doe\"\n        ></component>\n        <component name=\"John Doe\"\n        ></component>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "beside",
+    "multiline": "beside"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected no linebreak before this attribute.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 26
+    },
+    {
+     "message": "Expected no linebreak before this attribute.",
+     "line": 13,
+     "column": 11,
+     "endLine": 13,
+     "endColumn": 26
+    }
+   ],
+   "output": "\n      <template>\n        <component name=\"John Doe\"\n          age=\"30\"\n          job=\"Vet\"\n        ></component>\n        <component name=\"John Doe\"\n                   age=\"30\"\n                   job=\"Vet\"\n        ></component>\n        <component name=\"John Doe\"\n        ></component>\n        <component name=\"John Doe\"\n        ></component>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Expected no linebreak before this attribute.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       36,
+       47
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Expected no linebreak before this attribute.",
+     "line": 13,
+     "column": 11,
+     "endLine": 13,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       256,
+       267
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <component name=\"John Doe\"\n          age=\"30\"\n          job=\"Vet\"\n        ></component>\n        <component name=\"John Doe\"\n                   age=\"30\"\n                   job=\"Vet\"\n        ></component>\n        <component name=\"John Doe\"\n        ></component>\n        <component name=\"John Doe\"\n        ></component>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "first-attribute-linebreak#invalid1"
+ },
+ {
+  "rule": "first-attribute-linebreak",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <component\n          name=\"John Doe\"\n          age=\"30\"\n          job=\"Vet\"\n        ></component>\n        <component name=\"John Doe\"\n                   age=\"30\"\n                   job=\"Vet\"\n        ></component>\n        <component\n          name=\"John Doe\"\n        ></component>\n        <component name=\"John Doe\"\n        ></component>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "below",
+    "multiline": "below"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected a linebreak before this attribute.",
+     "line": 8,
+     "column": 20,
+     "endLine": 8,
+     "endColumn": 35
+    },
+    {
+     "message": "Expected a linebreak before this attribute.",
+     "line": 15,
+     "column": 20,
+     "endLine": 15,
+     "endColumn": 35
+    }
+   ],
+   "output": "\n      <template>\n        <component\n          name=\"John Doe\"\n          age=\"30\"\n          job=\"Vet\"\n        ></component>\n        <component\nname=\"John Doe\"\n                   age=\"30\"\n                   job=\"Vet\"\n        ></component>\n        <component\n          name=\"John Doe\"\n        ></component>\n        <component\nname=\"John Doe\"\n        ></component>\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expected",
+     "message": "Expected a linebreak before this attribute.",
+     "line": 8,
+     "column": 20,
+     "endLine": 8,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       142,
+       143
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expected",
+     "message": "Expected a linebreak before this attribute.",
+     "line": 15,
+     "column": 20,
+     "endLine": 15,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       323,
+       324
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <component\n          name=\"John Doe\"\n          age=\"30\"\n          job=\"Vet\"\n        ></component>\n        <component\nname=\"John Doe\"\n                   age=\"30\"\n                   job=\"Vet\"\n        ></component>\n        <component\n          name=\"John Doe\"\n        ></component>\n        <component\nname=\"John Doe\"\n        ></component>\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "first-attribute-linebreak#invalid2"
+ },
+ {
+  "rule": "first-attribute-linebreak",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <component></component>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "first-attribute-linebreak#valid0"
+ },
+ {
+  "rule": "first-attribute-linebreak",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <component\n          name=\"John Doe\"\n          age=\"30\"\n          job=\"Vet\"\n        ></component>\n        <component\n          name=\"John Doe\"\n        ></component>\n        <component name=\"John Doe\"\n        ></component>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "first-attribute-linebreak#valid1"
+ },
+ {
+  "rule": "first-attribute-linebreak",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <component\n          name=\"John Doe\"\n          age=\"30\"\n          job=\"Vet\"\n        ></component>\n        <component name=\"John Doe\"\n                   age=\"30\"\n                   job=\"Vet\"\n        ></component>\n        <component\n          name=\"John Doe\"\n        ></component>\n        <component name=\"John Doe\"\n        ></component>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "ignore",
+    "multiline": "ignore"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "first-attribute-linebreak#valid2"
+ },
+ {
+  "rule": "first-attribute-linebreak",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <component\n          name=\"John Doe\"\n          age=\"30\"\n          job=\"Vet\"\n        ></component>\n        <component name=\"John Doe\"\n                   age=\"30\"\n                   job=\"Vet\"\n        ></component>\n        <component name=\"John Doe\"\n        ></component>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "beside",
+    "multiline": "ignore"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "first-attribute-linebreak#valid3"
+ },
+ {
+  "rule": "first-attribute-linebreak",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <component name=\"John Doe\"\n                   age=\"30\"\n                   job=\"Vet\"\n        ></component>\n        <component\n          name=\"John Doe\"\n        ></component>\n        <component name=\"John Doe\"\n        ></component>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "ignore",
+    "multiline": "beside"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "first-attribute-linebreak#valid4"
+ },
+ {
+  "rule": "first-attribute-linebreak",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <component\n          name=\"John Doe\"\n          age=\"30\"\n          job=\"Vet\"\n        ></component>\n        <component name=\"John Doe\"\n                   age=\"30\"\n                   job=\"Vet\"\n        ></component>\n        <component\n          name=\"John Doe\"\n        ></component>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "below",
+    "multiline": "ignore"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "first-attribute-linebreak#valid5"
+ },
+ {
+  "rule": "first-attribute-linebreak",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <component\n          name=\"John Doe\"\n          age=\"30\"\n          job=\"Vet\"\n        ></component>\n        <component\n          name=\"John Doe\"\n        ></component>\n        <component name=\"John Doe\"\n        ></component>\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "ignore",
+    "multiline": "below"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "first-attribute-linebreak#valid6"
+ }
+]

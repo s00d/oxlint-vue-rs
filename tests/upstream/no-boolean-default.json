@@ -1,0 +1,1307 @@
+[
+ {
+  "rule": "no-boolean-default",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        export default {\n          props: {\n            enabled: {\n              type: Boolean,\n              default: true,\n            }\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "default-false"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Boolean prop should only be defaulted to false.",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "defaultFalse",
+     "message": "Boolean prop should only be defaulted to false.",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#invalid0"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        export default {\n          props: {\n            enabled: {\n              type: Boolean,\n              default: null,\n            }\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "default-false"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Boolean prop should only be defaulted to false.",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "defaultFalse",
+     "message": "Boolean prop should only be defaulted to false.",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#invalid1"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        export default {\n          props: {\n            enabled: {\n              type: Boolean,\n              default: false,\n            }\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "no-default"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Boolean prop should not set a default (Vue defaults it to false).",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noBooleanDefault",
+     "message": "Boolean prop should not set a default (Vue defaults it to false).",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#invalid2"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        export default {\n          props: {\n            enabled: {\n              type: Boolean,\n              default: true,\n            }\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "no-default"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Boolean prop should not set a default (Vue defaults it to false).",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noBooleanDefault",
+     "message": "Boolean prop should not set a default (Vue defaults it to false).",
+     "line": 6,
+     "column": 24,
+     "endLine": 6,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#invalid3"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script setup>\n      defineProps({\n        foo: {\n          type:Boolean,\n          default: false\n        }\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Boolean prop should not set a default (Vue defaults it to false).",
+     "line": 6,
+     "column": 20,
+     "endLine": 6,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noBooleanDefault",
+     "message": "Boolean prop should not set a default (Vue defaults it to false).",
+     "line": 6,
+     "column": 20,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#invalid4"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script setup>\n      defineProps({\n        foo: {\n          type:Boolean,\n          default: true\n        }\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "default-false"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Boolean prop should only be defaulted to false.",
+     "line": 6,
+     "column": 20,
+     "endLine": 6,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "defaultFalse",
+     "message": "Boolean prop should only be defaulted to false.",
+     "line": 6,
+     "column": 20,
+     "endLine": 6,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#invalid5"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      interface Props {\n        foo: boolean\n      }\n      withDefaults(defineProps<Props>(), {\n        foo: false\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Boolean prop should not set a default (Vue defaults it to false).",
+     "line": 7,
+     "column": 14,
+     "endLine": 7,
+     "endColumn": 19
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noBooleanDefault",
+     "message": "Boolean prop should not set a default (Vue defaults it to false).",
+     "line": 7,
+     "column": 14,
+     "endLine": 7,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#invalid6"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      interface Props {\n        foo: boolean\n      }\n      const defaults = { foo: false }\n      withDefaults(defineProps<Props>(), defaults)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Boolean prop should not set a default (Vue defaults it to false).",
+     "line": 6,
+     "column": 31,
+     "endLine": 6,
+     "endColumn": 36
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noBooleanDefault",
+     "message": "Boolean prop should not set a default (Vue defaults it to false).",
+     "line": 6,
+     "column": 31,
+     "endLine": 6,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#invalid7"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      interface Props {\n        foo: boolean\n      }\n      withDefaults(defineProps<Props>(), {\n        foo: true\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "default-false"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Boolean prop should only be defaulted to false.",
+     "line": 7,
+     "column": 14,
+     "endLine": 7,
+     "endColumn": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "defaultFalse",
+     "message": "Boolean prop should only be defaulted to false.",
+     "line": 7,
+     "column": 14,
+     "endLine": 7,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#invalid8"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script setup>\n      const {foo = false} = defineProps({foo: Boolean})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Boolean prop should not set a default (Vue defaults it to false).",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "noBooleanDefault",
+     "message": "Boolean prop should not set a default (Vue defaults it to false).",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#invalid9"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <script setup>\n      const {foo = true} = defineProps({foo: Boolean})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "default-false"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Boolean prop should only be defaulted to false.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "defaultFalse",
+     "message": "Boolean prop should only be defaulted to false.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#invalid10"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        export default {\n          props: {\n            enabled: Boolean\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid0"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        export default {\n          props: {\n            enabled: Boolean\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "no-default"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid1"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        export default {\n          props: {\n            enabled: Boolean\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "default-false"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid2"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        const props = {};\n        export default {\n          props: {\n            ...props,\n            enabled: Boolean\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid3"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        const props = {};\n        export default {\n          props: {\n            ...props,\n            enabled: Boolean\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "no-default"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid4"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        const props = {};\n        export default {\n          props: {\n            ...props,\n            enabled: Boolean\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "default-false"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid5"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        const data = {};\n        export default {\n          props: {\n            enabled: {\n              type: Boolean,\n              ...data\n            }\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid6"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        const data = {};\n        export default {\n          props: {\n            enabled: {\n              type: Boolean,\n              ...data\n            }\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "no-default"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid7"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        const data = {};\n        export default {\n          props: {\n            enabled: {\n              type: Boolean,\n              ...data\n            }\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "default-false"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid8"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        const data = {};\n        export default {\n          props: {\n            enabled: {\n              type: Boolean,\n              default: false,\n              ...data\n            }\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "default-false"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid9"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        const data = {};\n        export default {\n          props: {\n            enabled: data\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid10"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        const data = {};\n        export default {\n          props: {\n            enabled: data\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "no-default"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid11"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n        const data = {};\n        export default {\n          props: {\n            enabled: data\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "default-false"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid12"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n        const data = {};\n        export default {\n          props: {\n            enabled: {\n              ...data\n            }\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid13"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n        const data = {};\n        export default {\n          props: {\n            enabled: {\n              ...data\n            }\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "no-default"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid14"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n        const data = {};\n        export default {\n          props: {\n            enabled: {\n              ...data\n            }\n          }\n        }\n      ",
+  "filename": "test.vue",
+  "options": [
+   "default-false"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid15"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <script setup>\n      defineProps({\n        foo: {\n          type:Boolean\n        }\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid16"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <script setup>\n      defineProps({\n        foo: {\n          type:Boolean,\n          default: false\n        }\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "default-false"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid17"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      interface Props {\n        foo: boolean\n      }\n      withDefaults(defineProps<Props>(), {\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid18"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      interface Props {\n        foo: boolean\n      }\n      withDefaults(defineProps<Props>(), {\n        foo: false\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "default-false"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid19"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      interface Props {\n        foo: boolean | string\n      }\n      withDefaults(defineProps<Props>(), {\n        foo: false\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid20"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      interface Props {\n        foo: string\n      }\n      withDefaults(defineProps<Props>(), {\n        foo: false\n      })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid21"
+ },
+ {
+  "rule": "no-boolean-default",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "\n      <script setup>\n      const {foo = false} = defineProps({foo: Boolean})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "default-false"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-boolean-default#valid22"
+ }
+]

@@ -1,0 +1,696 @@
+[
+ {
+  "rule": "require-macro-variable-name",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script setup>\n        const customName = defineProps({})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The variable name of \"defineProps\" must be \"props\".",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Change the variable name to \"props\".",
+       "output": "\n      <script setup>\n        const props = defineProps({})\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireName",
+     "message": "The variable name of \"defineProps\" must be \"props\".",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "changeName",
+       "desc": "Change the variable name to \"props\".",
+       "output": "\n      <script setup>\n        const props = defineProps({})\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-macro-variable-name#invalid0"
+ },
+ {
+  "rule": "require-macro-variable-name",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script setup>\n        const emitsWrong = defineEmits({})\n        const slotsWrong = defineSlots({})\n        const attrsWrong = useAttrs({})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The variable name of \"defineEmits\" must be \"emit\".",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Change the variable name to \"emit\".",
+       "output": "\n      <script setup>\n        const emit = defineEmits({})\n        const slotsWrong = defineSlots({})\n        const attrsWrong = useAttrs({})\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "message": "The variable name of \"defineSlots\" must be \"slots\".",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Change the variable name to \"slots\".",
+       "output": "\n      <script setup>\n        const emitsWrong = defineEmits({})\n        const slots = defineSlots({})\n        const attrsWrong = useAttrs({})\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "message": "The variable name of \"useAttrs\" must be \"attrs\".",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Change the variable name to \"attrs\".",
+       "output": "\n      <script setup>\n        const emitsWrong = defineEmits({})\n        const slotsWrong = defineSlots({})\n        const attrs = useAttrs({})\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireName",
+     "message": "The variable name of \"defineEmits\" must be \"emit\".",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "changeName",
+       "desc": "Change the variable name to \"emit\".",
+       "output": "\n      <script setup>\n        const emit = defineEmits({})\n        const slotsWrong = defineSlots({})\n        const attrsWrong = useAttrs({})\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "requireName",
+     "message": "The variable name of \"defineSlots\" must be \"slots\".",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "changeName",
+       "desc": "Change the variable name to \"slots\".",
+       "output": "\n      <script setup>\n        const emitsWrong = defineEmits({})\n        const slots = defineSlots({})\n        const attrsWrong = useAttrs({})\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "requireName",
+     "message": "The variable name of \"useAttrs\" must be \"attrs\".",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "changeName",
+       "desc": "Change the variable name to \"attrs\".",
+       "output": "\n      <script setup>\n        const emitsWrong = defineEmits({})\n        const slotsWrong = defineSlots({})\n        const attrs = useAttrs({})\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-macro-variable-name#invalid1"
+ },
+ {
+  "rule": "require-macro-variable-name",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup>\n        const slotsWrong = useSlots({})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The variable name of \"useSlots\" must be \"slots\".",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Change the variable name to \"slots\".",
+       "output": "\n      <script setup>\n        const slots = useSlots({})\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireName",
+     "message": "The variable name of \"useSlots\" must be \"slots\".",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "changeName",
+       "desc": "Change the variable name to \"slots\".",
+       "output": "\n      <script setup>\n        const slots = useSlots({})\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-macro-variable-name#invalid2"
+ },
+ {
+  "rule": "require-macro-variable-name",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script setup>\n        const propsWrong = withDefaults(defineProps(['foo', 'bar']), {\n          foo: 42,\n          bar: 'abc'\n        })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The variable name of \"defineProps\" must be \"props\".",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 25,
+     "suggestions": [
+      {
+       "desc": "Change the variable name to \"props\".",
+       "output": "\n      <script setup>\n        const props = withDefaults(defineProps(['foo', 'bar']), {\n          foo: 42,\n          bar: 'abc'\n        })\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireName",
+     "message": "The variable name of \"defineProps\" must be \"props\".",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "changeName",
+       "desc": "Change the variable name to \"props\".",
+       "output": "\n      <script setup>\n        const props = withDefaults(defineProps(['foo', 'bar']), {\n          foo: 42,\n          bar: 'abc'\n        })\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-macro-variable-name#invalid3"
+ },
+ {
+  "rule": "require-macro-variable-name",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script setup>\n        const slots = defineSlots({})\n        const useSlots = useSlots({})\n        const attrs = useAttrs({})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "defineProps": "customProps",
+    "defineEmits": "customEmits",
+    "defineSlots": "customSlots",
+    "useSlots": "customUseSlots",
+    "useAttrs": "customUseAttrs"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The variable name of \"defineSlots\" must be \"customSlots\".",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 20,
+     "suggestions": [
+      {
+       "desc": "Change the variable name to \"customSlots\".",
+       "output": "\n      <script setup>\n        const customSlots = defineSlots({})\n        const useSlots = useSlots({})\n        const attrs = useAttrs({})\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "message": "The variable name of \"useSlots\" must be \"customUseSlots\".",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 23,
+     "suggestions": [
+      {
+       "desc": "Change the variable name to \"customUseSlots\".",
+       "output": "\n      <script setup>\n        const slots = defineSlots({})\n        const customUseSlots = useSlots({})\n        const attrs = useAttrs({})\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "message": "The variable name of \"useAttrs\" must be \"customUseAttrs\".",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 20,
+     "suggestions": [
+      {
+       "desc": "Change the variable name to \"customUseAttrs\".",
+       "output": "\n      <script setup>\n        const slots = defineSlots({})\n        const useSlots = useSlots({})\n        const customUseAttrs = useAttrs({})\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireName",
+     "message": "The variable name of \"defineSlots\" must be \"customSlots\".",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "changeName",
+       "desc": "Change the variable name to \"customSlots\".",
+       "output": "\n      <script setup>\n        const customSlots = defineSlots({})\n        const useSlots = useSlots({})\n        const attrs = useAttrs({})\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "requireName",
+     "message": "The variable name of \"useSlots\" must be \"customUseSlots\".",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "changeName",
+       "desc": "Change the variable name to \"customUseSlots\".",
+       "output": "\n      <script setup>\n        const slots = defineSlots({})\n        const customUseSlots = useSlots({})\n        const attrs = useAttrs({})\n      </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "requireName",
+     "message": "The variable name of \"useAttrs\" must be \"customUseAttrs\".",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "changeName",
+       "desc": "Change the variable name to \"customUseAttrs\".",
+       "output": "\n      <script setup>\n        const slots = defineSlots({})\n        const useSlots = useSlots({})\n        const customUseAttrs = useAttrs({})\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-macro-variable-name#invalid4"
+ },
+ {
+  "rule": "require-macro-variable-name",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script setup>\n        const slotsCustom = defineSlots({})\n        const attrsCustom = useAttrs({})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "defineSlots": "slotsCustom"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "The variable name of \"useAttrs\" must be \"attrs\".",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 26,
+     "suggestions": [
+      {
+       "desc": "Change the variable name to \"attrs\".",
+       "output": "\n      <script setup>\n        const slotsCustom = defineSlots({})\n        const attrs = useAttrs({})\n      </script>\n      "
+      }
+     ]
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireName",
+     "message": "The variable name of \"useAttrs\" must be \"attrs\".",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "changeName",
+       "desc": "Change the variable name to \"attrs\".",
+       "output": "\n      <script setup>\n        const slotsCustom = defineSlots({})\n        const attrs = useAttrs({})\n      </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-macro-variable-name#invalid5"
+ },
+ {
+  "rule": "require-macro-variable-name",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <script setup>\n        const props = defineProps({})\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-macro-variable-name#valid0"
+ },
+ {
+  "rule": "require-macro-variable-name",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <script setup>\n        const { foo, bar } = defineProps(['foo', 'bar'])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-macro-variable-name#valid1"
+ },
+ {
+  "rule": "require-macro-variable-name",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script setup>\n        const { foo = 42, bar = 'abc' } = defineProps(['foo', 'bar'])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-macro-variable-name#valid2"
+ },
+ {
+  "rule": "require-macro-variable-name",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script setup>\n        import { toRef } from 'vue'\n\n        const props = defineProps(['foo', 'bar'])\n        const foo = toRef(props, 'foo')\n        const bar = toRef(props, 'bar')\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-macro-variable-name#valid3"
+ },
+ {
+  "rule": "require-macro-variable-name",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script setup>\n        const props = withDefaults(defineProps(['foo', 'bar']), {\n          foo: 42,\n          bar: 'abc'\n        })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-macro-variable-name#valid4"
+ },
+ {
+  "rule": "require-macro-variable-name",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script setup>\n        const customProps = defineProps(['foo', 'bar'])\n        const customEmits = defineEmits(['baz'])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "defineProps": "customProps",
+    "defineEmits": "customEmits",
+    "defineSlots": "customSlots",
+    "useSlots": "customUseSlots",
+    "useAttrs": "customUseAttrs"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "require-macro-variable-name#valid5"
+ }
+]

@@ -1,0 +1,880 @@
+[
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n          <div ref=\"root\"/>\n      </template>\n      <script setup>\n        import { ref } from 'vue';\n        const root = ref();\n      </script>\n      ",
+  "filename": "single-ref.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "preferUseTemplateRef",
+     "data": {
+      "name": "ref"
+     },
+     "line": 7,
+     "column": 22,
+     "endLine": 7,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferUseTemplateRef",
+     "message": "Replace 'ref' with 'useTemplateRef'.",
+     "line": 7,
+     "column": 22,
+     "endLine": 7,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#invalid0"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n          <button ref=\"button\">Content</button>\n          <a href=\"\" ref=\"link\">Link</a>\n      </template>\n      <script setup>\n        import { ref } from 'vue';\n        const buttonRef = ref();\n        const link = ref();\n      </script>\n      ",
+  "filename": "one-ref-unused-in-script.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "preferUseTemplateRef",
+     "data": {
+      "name": "ref"
+     },
+     "line": 9,
+     "column": 22,
+     "endLine": 9,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferUseTemplateRef",
+     "message": "Replace 'ref' with 'useTemplateRef'.",
+     "line": 9,
+     "column": 22,
+     "endLine": 9,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#invalid1"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n          <h1 ref=\"heading\">Heading</h1>\n          <a href=\"\" ref=\"link\">Link</a>\n      </template>\n      <script setup>\n        import { ref } from 'vue';\n        const heading = ref();\n        const link = ref();\n      </script>\n      ",
+  "filename": "multiple-refs.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "preferUseTemplateRef",
+     "data": {
+      "name": "ref"
+     },
+     "line": 8,
+     "column": 25,
+     "endLine": 8,
+     "endColumn": 30
+    },
+    {
+     "messageId": "preferUseTemplateRef",
+     "data": {
+      "name": "ref"
+     },
+     "line": 9,
+     "column": 22,
+     "endLine": 9,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferUseTemplateRef",
+     "message": "Replace 'ref' with 'useTemplateRef'.",
+     "line": 8,
+     "column": 25,
+     "endLine": 8,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "preferUseTemplateRef",
+     "message": "Replace 'ref' with 'useTemplateRef'.",
+     "line": 9,
+     "column": 22,
+     "endLine": 9,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#invalid2"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <p>Button clicked {{counter}} times.</p>\n        <button ref=\"button\">Click</button>\n      </template>\n      <script>\n        import { ref } from 'vue';\n        export default {\n          name: 'Counter',\n          setup() {\n            const counter = ref(0);\n            const button = ref();\n          }\n        }\n      </script>\n      ",
+  "filename": "setup-function-only-refs.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "preferUseTemplateRef",
+     "data": {
+      "name": "ref"
+     },
+     "line": 12,
+     "column": 28,
+     "endLine": 12,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferUseTemplateRef",
+     "message": "Replace 'ref' with 'useTemplateRef'.",
+     "line": 12,
+     "column": 28,
+     "endLine": 12,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#invalid3"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n          <div ref=\"root\"/>\n      </template>\n      <script setup>\n        import { shallowRef } from 'vue';\n        const root = shallowRef();\n      </script>\n      ",
+  "filename": "single-shallowRef.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "preferUseTemplateRef",
+     "data": {
+      "name": "shallowRef"
+     },
+     "line": 7,
+     "column": 22,
+     "endLine": 7,
+     "endColumn": 34
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferUseTemplateRef",
+     "message": "Replace 'shallowRef' with 'useTemplateRef'.",
+     "line": 7,
+     "column": 22,
+     "endLine": 7,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#invalid4"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <button ref=\"button\">Click</button>\n      </template>\n      <script>\n        import { ref } from 'vue';\n        export default {\n          setup: () => {\n            const button = ref();\n          }\n        }\n      </script>\n      ",
+  "filename": "block-arrow-setup-function.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "preferUseTemplateRef",
+     "data": {
+      "name": "ref"
+     },
+     "line": 9,
+     "column": 28,
+     "endLine": 9,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferUseTemplateRef",
+     "message": "Replace 'ref' with 'useTemplateRef'.",
+     "line": 9,
+     "column": 28,
+     "endLine": 9,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#invalid5"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <div ref=\"root\" :data-a=\"A\" />\n      </template>\n\n      <script setup>\n      import { ref } from 'vue'\n      const root = ref()\n      </script>\n\n      <script>\n      const A = 'foo'\n      </script>\n      ",
+  "filename": "multiple-scripts-setup-first.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "preferUseTemplateRef",
+     "data": {
+      "name": "ref"
+     },
+     "line": 8,
+     "column": 20,
+     "endLine": 8,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferUseTemplateRef",
+     "message": "Replace 'ref' with 'useTemplateRef'.",
+     "line": 8,
+     "column": 20,
+     "endLine": 8,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#invalid6"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <div ref=\"root\" :data-a=\"A\" />\n      </template>\n\n      <script>\n      const A = 'foo'\n      </script>\n\n      <script setup>\n      import { ref } from 'vue'\n      const root = ref()\n      </script>\n      ",
+  "filename": "multiple-scripts-setup-last.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "preferUseTemplateRef",
+     "data": {
+      "name": "ref"
+     },
+     "line": 12,
+     "column": 20,
+     "endLine": 12,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferUseTemplateRef",
+     "message": "Replace 'ref' with 'useTemplateRef'.",
+     "line": 12,
+     "column": 20,
+     "endLine": 12,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#invalid7"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n          <div ref=\"root\" />\n      </template>\n      <script setup>\n        import { useTemplateRef } from 'vue';\n        const root = useTemplateRef('root');\n      </script>\n      ",
+  "filename": "single-use-template-ref.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#valid0"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n          <button ref=\"button\">Content</button>\n          <a href=\"\" ref=\"link\">Link</a>\n      </template>\n      <script setup>\n        import { useTemplateRef } from 'vue';\n        const buttonRef = useTemplateRef('button');\n        const link = useTemplateRef('link');\n      </script>\n      ",
+  "filename": "multiple-use-template-refs.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#valid1"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n          <div>\n            <ul>\n              <li ref=\"firstListItem\">Morning</li>\n              <li>Afternoon</li>\n              <li>Evening</li>\n            </ul>\n          </div>\n      </template>\n      <script setup>\n        import { useTemplateRef } from 'vue';\n        function getFirstListItemElement() {\n          const firstListItem = useTemplateRef('firstListItem')\n          console.log(firstListItem)\n        }\n      </script>\n      ",
+  "filename": "use-template-ref-in-block.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#valid2"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n          <div>\n            <ul>\n              <li v-for=\"food in foods\" :key=\"food\">{{food}}</li>\n            </ul>\n          </div>\n      </template>\n      <script setup>\n        import { ref } from 'vue';\n        const foods = ref(['Spaghetti', 'Pizza', 'Cake']);\n      </script>\n      ",
+  "filename": "non-template-ref.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#valid3"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      import { ref } from 'vue';\n      const counter = ref(0);\n      const names = ref(new Set());\n      function incrementCounter() {\n        counter.value++;\n        return counter.value;\n      }\n      function storeName(name) {\n        names.value.add(name)\n      }\n      ",
+  "filename": "counter.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#valid4"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <p>Button clicked {{counter}} times.</p>\n        <button ref=\"button\" @click=\"counter++\">Click</button>\n      </template>\n      <script>\n        import { ref, useTemplateRef } from 'vue';\n        export default {\n          name: 'Counter',\n          setup() {\n            const counter = ref(0);\n            const button = useTemplateRef('button');\n          }\n        }\n      </script>\n      ",
+  "filename": "setup-function.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#valid5"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <label ref=\"label\">\n          Name:\n          <input v-model=\"name\" />\n        </label>\n        <p ref=\"textRef\">{{niceName}}</p>\n        <button\n      </template>\n      <script>\n        import { ref } from 'vue';\n        export default {\n          name: 'NameRow',\n          methods: {\n            someFunction() {\n              return {\n                label: ref(5),\n              }\n            }\n          }\n          data() {\n            return {\n              label: 'label',\n              name: ''\n            }\n          },\n          computed: {\n            niceName() {\n              return 'Nice ' + this.name;\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "options-api-no-refs.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#valid6"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <label ref=\"labelElem\">\n          Name:\n          <input v-model=\"name\" />\n        </label>\n        {{ loremIpsum }}\n      </template>\n      <script>\n        import { ref } from 'vue';\n        export default {\n          name: 'NameRow',\n          props: {\n            defaultLabel: {\n              type: String,\n            },\n          },\n          data() {\n            return {\n              label: ref(this.defaultLabel),\n              labelElem: ref(),\n              name: ''\n            }\n          },\n          computed: {\n            loremIpsum() {\n              return this.name + ' lorem ipsum'\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "options-api-mixed.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#valid7"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <button :ref=\"ref => button = ref\">Content</button>\n      </template>\n      <script setup>\n        import { ref } from 'vue';\n        const button = ref();\n        </script>\n      ",
+  "filename": "template-ref-function.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#valid8"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n          <div>\n            <ul>\n              <li ref=\"firstListItem\">Morning</li>\n              <li ref=\"second\">Afternoon</li>\n              <li>Evening</li>\n            </ul>\n          </div>\n      </template>\n      <script setup>\n        import { ref, shallowRef } from 'vue';\n        function getFirstListItemElement() {\n          const firstListItem = ref();\n          const nestedCallback = () => {\n            const second = shallowRef();\n            console.log(second);\n          }\n          nestedCallback();\n        }\n      </script>\n      ",
+  "filename": "ref-in-block.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#valid9"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n          <div>\n            <ul>\n              <li ref=\"firstListItem\">Morning</li>\n              <li ref=\"second\">Afternoon</li>\n              <li>Evening</li>\n            </ul>\n          </div>\n      </template>\n      <script>\n        import { ref, shallowRef } from 'vue';\n        export default {\n          name: 'ComponentWithRefInBlock',\n          setup() {\n            function getFirstListItemElement() {\n              const firstListItem = shallowRef();\n              const nestedCallback = () => {\n                const second = ref();\n                console.log(second);\n              }\n              nestedCallback();\n            }\n          }\n        }\n      </script>\n      ",
+  "filename": "ref-in-block-setup-fn.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#valid10"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        <script>\n          import { defineComponent } from 'vue';\n          export default defineComponent({\n            setup: () => ({})\n          })\n        </script>\n      ",
+  "filename": "non-block-arrow-setup-function.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#valid11"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template>\n        <div ref=\"root\" :data-a=\"A\" />\n      </template>\n\n      <script setup>\n      import { useTemplateRef } from 'vue'\n      const root = useTemplateRef('root')\n      </script>\n\n      <script>\n      const A = 'foo'\n      </script>\n      ",
+  "filename": "multiple-scripts-setup-first.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#valid12"
+ },
+ {
+  "rule": "prefer-use-template-ref",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template>\n        <div ref=\"root\" :data-a=\"A\" />\n      </template>\n\n      <script>\n      const A = 'foo'\n      </script>\n\n      <script setup>\n      import { useTemplateRef } from 'vue'\n      const root = useTemplateRef('root')\n      </script>\n      ",
+  "filename": "multiple-scripts-setup-last.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-use-template-ref#valid13"
+ }
+]

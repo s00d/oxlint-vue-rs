@@ -1,0 +1,226 @@
+[
+ {
+  "rule": "no-use-v-else-with-v-for",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div v-if=\"foo\">foo</div>\n          <div v-else v-for=\"x in xs\">{{ x }}</div>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected `v-else` and `v-for` on the same element. Move `v-else` to a wrapper element instead.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 52
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedDirectiveWithVFor",
+     "message": "Unexpected `v-else` and `v-for` on the same element. Move `v-else` to a wrapper element instead.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 52,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-use-v-else-with-v-for#invalid0"
+ },
+ {
+  "rule": "no-use-v-else-with-v-for",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <div v-if=\"foo\">foo</div>\n          <div v-else-if=\"bar\" v-for=\"x in xs\">{{ x }}</div>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected `v-else-if` and `v-for` on the same element. Move `v-else-if` to a wrapper element instead.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 61
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedDirectiveWithVFor",
+     "message": "Unexpected `v-else-if` and `v-for` on the same element. Move `v-else-if` to a wrapper element instead.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 61,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-use-v-else-with-v-for#invalid1"
+ },
+ {
+  "rule": "no-use-v-else-with-v-for",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div v-if=\"foo\" v-for=\"x in xs\">{{ x }}</div>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-use-v-else-with-v-for#valid0"
+ },
+ {
+  "rule": "no-use-v-else-with-v-for",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <div v-if=\"foo\">{{ x }}</div>\n          <div v-else-if=\"foo\">{{ x }}</div>\n          <div v-else=\"foo\">{{ x }}</div>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-use-v-else-with-v-for#valid1"
+ },
+ {
+  "rule": "no-use-v-else-with-v-for",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <div v-for=\"x in xs\">{{ x }}</div>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-use-v-else-with-v-for#valid2"
+ },
+ {
+  "rule": "no-use-v-else-with-v-for",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <div v-if=\"foo\">foo</div>\n          <template v-else-if=\"bar\">\n            <div v-for=\"x in xs\">{{ x }}</div>\n          </template>\n          <template v-else>\n            <div v-for=\"x in xs\">{{ x }}</div>\n          </template>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-use-v-else-with-v-for#valid3"
+ }
+]

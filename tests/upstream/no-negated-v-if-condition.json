@@ -1,0 +1,938 @@
+[
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"!foo\" class=\"primary\">Content</div>\n        <span v-else class=\"secondary\">Alternative</span>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "negatedCondition",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 24
+    }
+   ],
+   "output": "\n      <template>\n        <span v-if=\"foo\" class=\"secondary\">Alternative</span>\n        <div v-else class=\"primary\">Content</div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "negatedCondition",
+     "message": "Unexpected negated condition in v-if with v-else.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       26,
+       130
+      ],
+      "text": "<span v-if=\"foo\" class=\"secondary\">Alternative</span>\n        <div v-else class=\"primary\">Content</div>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <span v-if=\"foo\" class=\"secondary\">Alternative</span>\n        <div v-else class=\"primary\">Content</div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#invalid0"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"!(foo && bar)\" id=\"negated\">Negated condition</div>\n        <span v-else id=\"positive\">Otherwise</span>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "negatedCondition",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 33
+    }
+   ],
+   "output": "\n      <template>\n        <span v-if=\"(foo && bar)\" id=\"positive\">Otherwise</span>\n        <div v-else id=\"negated\">Negated condition</div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "negatedCondition",
+     "message": "Unexpected negated condition in v-if with v-else.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       26,
+       140
+      ],
+      "text": "<span v-if=\"(foo && bar)\" id=\"positive\">Otherwise</span>\n        <div v-else id=\"negated\">Negated condition</div>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <span v-if=\"(foo && bar)\" id=\"positive\">Otherwise</span>\n        <div v-else id=\"negated\">Negated condition</div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#invalid1"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"a != b\">Not equal</div>\n        <div v-else>Equal</div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "negatedCondition",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 26
+    }
+   ],
+   "output": "\n      <template>\n        <div v-if=\"a == b\">Equal</div>\n        <div v-else>Not equal</div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "negatedCondition",
+     "message": "Unexpected negated condition in v-if with v-else.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       26,
+       92
+      ],
+      "text": "<div v-if=\"a == b\">Equal</div>\n        <div v-else>Not equal</div>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div v-if=\"a == b\">Equal</div>\n        <div v-else>Not equal</div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#invalid2"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"a !== b\">Strictly not equal</div>\n        <div v-else>Strictly equal</div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "negatedCondition",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 27
+    }
+   ],
+   "output": "\n      <template>\n        <div v-if=\"a === b\">Strictly equal</div>\n        <div v-else>Strictly not equal</div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "negatedCondition",
+     "message": "Unexpected negated condition in v-if with v-else.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       26,
+       111
+      ],
+      "text": "<div v-if=\"a === b\">Strictly equal</div>\n        <div v-else>Strictly not equal</div>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div v-if=\"a === b\">Strictly equal</div>\n        <div v-else>Strictly not equal</div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#invalid3"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"foo\" class=\"first\">First</div>\n        <span v-else-if=\"!bar\" class=\"second\">Second</span>\n        <p v-else class=\"default\">Default</p>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "negatedCondition",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 30
+    }
+   ],
+   "output": "\n      <template>\n        <div v-if=\"foo\" class=\"first\">First</div>\n        <p v-else-if=\"bar\" class=\"default\">Default</p>\n        <span v-else class=\"second\">Second</span>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "negatedCondition",
+     "message": "Unexpected negated condition in v-if with v-else.",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       76,
+       173
+      ],
+      "text": "<p v-else-if=\"bar\" class=\"default\">Default</p>\n        <span v-else class=\"second\">Second</span>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div v-if=\"foo\" class=\"first\">First</div>\n        <p v-else-if=\"bar\" class=\"default\">Default</p>\n        <span v-else class=\"second\">Second</span>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#invalid4"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"!a\" data-first>First</div>\n        <span v-else-if=\"!b\" data-second>Second</span>\n        <p v-else data-default>Default</p>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "negatedCondition",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 28
+    }
+   ],
+   "output": "\n      <template>\n        <div v-if=\"!a\" data-first>First</div>\n        <p v-else-if=\"b\" data-default>Default</p>\n        <span v-else data-second>Second</span>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "negatedCondition",
+     "message": "Unexpected negated condition in v-if with v-else.",
+     "line": 4,
+     "column": 26,
+     "endLine": 4,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       72,
+       161
+      ],
+      "text": "<p v-else-if=\"b\" data-default>Default</p>\n        <span v-else data-second>Second</span>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div v-if=\"!a\" data-first>First</div>\n        <p v-else-if=\"b\" data-default>Default</p>\n        <span v-else data-second>Second</span>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#invalid5"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"!condition\" class=\"div-class\" div-attr=\"foo\" div-attr-2 :div-attr-3=\"foo\">div contents</div>\n        <span v-else class=\"span-class\" span-attr=\"baz\" span-attr2 :span-attr-3=\"baz\">span contents</span>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "negatedCondition",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 30
+    }
+   ],
+   "output": "\n      <template>\n        <span v-if=\"condition\" class=\"span-class\" span-attr=\"baz\" span-attr2 :span-attr-3=\"baz\">span contents</span>\n        <div v-else class=\"div-class\" div-attr=\"foo\" div-attr-2 :div-attr-3=\"foo\">div contents</div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "negatedCondition",
+     "message": "Unexpected negated condition in v-if with v-else.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       26,
+       236
+      ],
+      "text": "<span v-if=\"condition\" class=\"span-class\" span-attr=\"baz\" span-attr2 :span-attr-3=\"baz\">span contents</span>\n        <div v-else class=\"div-class\" div-attr=\"foo\" div-attr-2 :div-attr-3=\"foo\">div contents</div>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <span v-if=\"condition\" class=\"span-class\" span-attr=\"baz\" span-attr2 :span-attr-3=\"baz\">span contents</span>\n        <div v-else class=\"div-class\" div-attr=\"foo\" div-attr-2 :div-attr-3=\"foo\">div contents</div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#invalid6"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"!outer\" class=\"outer-if\">\n          <span v-if=\"!inner\" class=\"inner-if\">Inner if content</span>\n          <p v-else class=\"inner-else\">Inner else content</p>\n        </div>\n        <section v-else class=\"outer-else\">\n          <span v-if=\"!nested\" class=\"nested-if\">Nested if content</span>\n          <p v-else class=\"nested-else\">Nested else content</p>\n        </section>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "negatedCondition",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 26
+    },
+    {
+     "messageId": "negatedCondition",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 29
+    },
+    {
+     "messageId": "negatedCondition",
+     "line": 8,
+     "column": 23,
+     "endLine": 8,
+     "endColumn": 30
+    }
+   ],
+   "output": "\n      <template>\n        <section v-if=\"outer\" class=\"outer-else\">\n          <span v-if=\"!nested\" class=\"nested-if\">Nested if content</span>\n          <p v-else class=\"nested-else\">Nested else content</p>\n        </section>\n        <div v-else class=\"outer-if\">\n          <span v-if=\"!inner\" class=\"inner-if\">Inner if content</span>\n          <p v-else class=\"inner-else\">Inner else content</p>\n        </div>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "negatedCondition",
+     "message": "Unexpected negated condition in v-if with v-else.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       26,
+       411
+      ],
+      "text": "<section v-if=\"outer\" class=\"outer-else\">\n          <span v-if=\"!nested\" class=\"nested-if\">Nested if content</span>\n          <p v-else class=\"nested-else\">Nested else content</p>\n        </section>\n        <div v-else class=\"outer-if\">\n          <span v-if=\"!inner\" class=\"inner-if\">Inner if content</span>\n          <p v-else class=\"inner-else\">Inner else content</p>\n        </div>"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "negatedCondition",
+     "message": "Unexpected negated condition in v-if with v-else.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       73,
+       195
+      ],
+      "text": "<p v-if=\"inner\" class=\"inner-else\">Inner else content</p>\n          <span v-else class=\"inner-if\">Inner if content</span>"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "negatedCondition",
+     "message": "Unexpected negated condition in v-if with v-else.",
+     "line": 8,
+     "column": 23,
+     "endLine": 8,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       265,
+       392
+      ],
+      "text": "<p v-if=\"nested\" class=\"nested-else\">Nested else content</p>\n          <span v-else class=\"nested-if\">Nested if content</span>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <section v-if=\"outer\" class=\"outer-else\">\n          <span v-if=\"!nested\" class=\"nested-if\">Nested if content</span>\n          <p v-else class=\"nested-else\">Nested else content</p>\n        </section>\n        <div v-else class=\"outer-if\">\n          <span v-if=\"!inner\" class=\"inner-if\">Inner if content</span>\n          <p v-else class=\"inner-else\">Inner else content</p>\n        </div>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#invalid7"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"!foo\">Content</div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#valid0"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"!foo\">First</div>\n        <div v-if=\"bar\">Second</div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#valid1"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"!foo\">Content</div>\n        <div v-else-if=\"bar\">Alternative</div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#valid2"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"!foo\">First</div>\n        <div v-else-if=\"!bar\">Second</div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#valid3"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"a != b\">Not equal</div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#valid4"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"a !== b\">Strictly not equal</div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#valid5"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"a != b\">Not equal</div>\n        <div v-else-if=\"c\">Alternative</div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#valid6"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"a !== b\">Strictly not equal</div>\n        <div v-else-if=\"c\">Alternative</div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#valid7"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"!foo\">First</div>\n        <div v-else-if=\"!bar\">Second</div>\n        <div v-else-if=\"baz\">Third</div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#valid8"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"!a\">First</div>\n        <div v-else-if=\"b\">Second</div>\n        <div v-else>Default</div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#valid9"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"foo\">Positive</div>\n        <div v-else>Negative</div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#valid10"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"foo\">First</div>\n        <div v-else-if=\"bar\">Second</div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#valid11"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"foo && bar\">Both true</div>\n        <div v-else>Otherwise</div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#valid12"
+ },
+ {
+  "rule": "no-negated-v-if-condition",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template>\n        <div v-if=\"foo\">\n          <span v-if=\"!bar\">Nested content</span>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-negated-v-if-condition#valid13"
+ }
+]

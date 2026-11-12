@@ -1,0 +1,1598 @@
+[
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <div\n          ></div\n\n          >\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 3,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 11
+    },
+    {
+     "message": "Expected no line breaks before closing bracket, but 2 line breaks found.",
+     "line": 4,
+     "column": 17,
+     "endLine": 6,
+     "endColumn": 11
+    }
+   ],
+   "output": "\n        <template>\n          <div></div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 3,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       34,
+       45
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected no line breaks before closing bracket, but 2 line breaks found.",
+     "line": 4,
+     "column": 17,
+     "endLine": 6,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       51,
+       63
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div></div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#invalid0"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <div\n            id=\"\">\n          </div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 4,
+     "column": 18,
+     "endLine": 4,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            id=\"\"\n>\n          </div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 4,
+     "column": 18,
+     "endLine": 4,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       52,
+       52
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            id=\"\"\n>\n          </div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#invalid1"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <template>\n          <div\n          ></div\n\n          >\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "never",
+    "multiline": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 3,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 11
+    },
+    {
+     "message": "Expected no line breaks before closing bracket, but 2 line breaks found.",
+     "line": 4,
+     "column": 17,
+     "endLine": 6,
+     "endColumn": 11
+    }
+   ],
+   "output": "\n        <template>\n          <div></div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 3,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       34,
+       45
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected no line breaks before closing bracket, but 2 line breaks found.",
+     "line": 4,
+     "column": 17,
+     "endLine": 6,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       51,
+       63
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div></div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#invalid2"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <div\n            id=\"\"\n            >\n          </div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "never",
+    "multiline": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 4,
+     "column": 18,
+     "endLine": 5,
+     "endColumn": 13
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            id=\"\">\n          </div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 4,
+     "column": 18,
+     "endLine": 5,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       52,
+       65
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            id=\"\">\n          </div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#invalid3"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <template>\n          <div\n            id=\"\">\n          </div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "never",
+    "multiline": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 4,
+     "column": 18,
+     "endLine": 4,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            id=\"\"\n>\n          </div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 4,
+     "column": 18,
+     "endLine": 4,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       52,
+       52
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div\n            id=\"\"\n>\n          </div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#invalid4"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <template>\n          <div id=\"\"\n          >\n          </div\n          >\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "never",
+    "multiline": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 3,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 11
+    },
+    {
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 5,
+     "column": 16,
+     "endLine": 6,
+     "endColumn": 11
+    }
+   ],
+   "output": "\n        <template>\n          <div id=\"\">\n          </div>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 3,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       40,
+       51
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 5,
+     "column": 16,
+     "endLine": 6,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       68,
+       79
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <div id=\"\">\n          </div>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#invalid5"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        <template\n        >\n          <div\n            id=\"\"\n            >\n          </div>\n        </template\n        >\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "always",
+    "multiline": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 5,
+     "column": 18,
+     "endLine": 6,
+     "endColumn": 13
+    },
+    {
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 7,
+     "column": 16,
+     "endLine": 7,
+     "endColumn": 16
+    }
+   ],
+   "output": "\n        <template\n        >\n          <div\n            id=\"\">\n          </div\n>\n        </template\n        >\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 5,
+     "column": 18,
+     "endLine": 6,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       61,
+       74
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 7,
+     "column": 16,
+     "endLine": 7,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       91,
+       91
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template\n        >\n          <div\n            id=\"\">\n          </div\n>\n        </template\n        >\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#invalid6"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        <template\n        >\n          <div id=\"\">\n          </div>\n        </template\n        >\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "always",
+    "multiline": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 21
+    },
+    {
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 5,
+     "column": 16,
+     "endLine": 5,
+     "endColumn": 16
+    }
+   ],
+   "output": "\n        <template\n        >\n          <div id=\"\"\n>\n          </div\n>\n        </template\n        >\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 4,
+     "column": 21,
+     "endLine": 4,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       49,
+       49
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 5,
+     "column": 16,
+     "endLine": 5,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       66,
+       66
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template\n        >\n          <div id=\"\"\n>\n          </div\n>\n        </template\n        >\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#invalid7"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        <template\n        >\n        </template\n        >\n        <script\n        >\n        </script\n        >\n        <style\n        ></style\n        >\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "never",
+    "multiline": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 2,
+     "column": 18,
+     "endLine": 3,
+     "endColumn": 9
+    },
+    {
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 4,
+     "column": 19,
+     "endLine": 5,
+     "endColumn": 9
+    },
+    {
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 6,
+     "column": 16,
+     "endLine": 7,
+     "endColumn": 9
+    },
+    {
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 8,
+     "column": 17,
+     "endLine": 9,
+     "endColumn": 9
+    },
+    {
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 10,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 9
+    },
+    {
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 11,
+     "column": 17,
+     "endLine": 12,
+     "endColumn": 9
+    }
+   ],
+   "output": "\n        <template>\n        </template>\n        <script>\n        </script>\n        <style></style>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 2,
+     "column": 18,
+     "endLine": 3,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       18,
+       27
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 4,
+     "column": 19,
+     "endLine": 5,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       47,
+       56
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 6,
+     "column": 16,
+     "endLine": 7,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       73,
+       82
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 8,
+     "column": 17,
+     "endLine": 9,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       100,
+       109
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 10,
+     "column": 15,
+     "endLine": 11,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       125,
+       134
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 11,
+     "column": 17,
+     "endLine": 12,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       142,
+       151
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n        </template>\n        <script>\n        </script>\n        <style></style>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#invalid8"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        <template>\n        </template>\n        <script>\n        </script>\n        <style></style>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "always",
+    "multiline": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 2,
+     "column": 18,
+     "endLine": 2,
+     "endColumn": 18
+    },
+    {
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 3,
+     "column": 19,
+     "endLine": 3,
+     "endColumn": 19
+    },
+    {
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 4,
+     "column": 16,
+     "endLine": 4,
+     "endColumn": 16
+    },
+    {
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 17
+    },
+    {
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 15
+    },
+    {
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 6,
+     "column": 23,
+     "endLine": 6,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n        <template\n>\n        </template\n>\n        <script\n>\n        </script\n>\n        <style\n></style\n>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 2,
+     "column": 18,
+     "endLine": 2,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       18,
+       18
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 3,
+     "column": 19,
+     "endLine": 3,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       38,
+       38
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 4,
+     "column": 16,
+     "endLine": 4,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       55,
+       55
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       73,
+       73
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 15,
+     "fix": {
+      "range": [
+       89,
+       89
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 6,
+     "column": 23,
+     "endLine": 6,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       97,
+       97
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template\n>\n        </template\n>\n        <script\n>\n        </script\n>\n        <style\n></style\n>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#invalid9"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        <template>\n          <MyComp\n          />\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "selfClosingTag": {
+     "singleline": "never",
+     "multiline": "always"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 3,
+     "column": 18,
+     "endLine": 4,
+     "endColumn": 11
+    }
+   ],
+   "output": "\n        <template>\n          <MyComp/>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 3,
+     "column": 18,
+     "endLine": 4,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       37,
+       48
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <MyComp/>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#invalid10"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        <template>\n          <MyComp\n            :foo=\"foo\"/>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "selfClosingTag": {
+     "singleline": "never",
+     "multiline": "always"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n        <template>\n          <MyComp\n            :foo=\"foo\"\n/>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       60,
+       60
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <MyComp\n            :foo=\"foo\"\n/>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#invalid11"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n        <template>\n          <MyComp :foo=\"foo\"/>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "selfClosingTag": {
+     "singleline": "always",
+     "multiline": "never"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 3,
+     "column": 29,
+     "endLine": 3,
+     "endColumn": 29
+    }
+   ],
+   "output": "\n        <template>\n          <MyComp :foo=\"foo\"\n/>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected 1 line break before closing bracket, but no line breaks found.",
+     "line": 3,
+     "column": 29,
+     "endLine": 3,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       48,
+       48
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <MyComp :foo=\"foo\"\n/>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#invalid12"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n        <template>\n          <MyComp\n            :foo=\"foo\"\n          />\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "selfClosingTag": {
+     "singleline": "always",
+     "multiline": "never"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 4,
+     "column": 23,
+     "endLine": 5,
+     "endColumn": 11
+    }
+   ],
+   "output": "\n        <template>\n          <MyComp\n            :foo=\"foo\"/>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedBeforeClosingBracket",
+     "message": "Expected no line breaks before closing bracket, but 1 line break found.",
+     "line": 4,
+     "column": 23,
+     "endLine": 5,
+     "endColumn": 11,
+     "fix": {
+      "range": [
+       60,
+       71
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <MyComp\n            :foo=\"foo\"/>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#invalid13"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#valid0"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          id=\"\"\n        >\n        </div>\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#valid1"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div></div></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "never",
+    "multiline": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#valid2"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <template>\n          <div\n            id=\"\">\n          </div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "never",
+    "multiline": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#valid3"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <template>\n          <div\n            id=\"\"\n            >\n          </div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "never",
+    "multiline": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#valid4"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <template>\n          <div id=\"\">\n          </div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "never",
+    "multiline": "always"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#valid5"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        <template\n        >\n          <div\n            id=\"\">\n          </div\n          >\n        </template\n        >\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "always",
+    "multiline": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#valid6"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        <template\n        >\n          <div id=\"\"\n          >\n          </div\n          >\n        </template\n        >\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "singleline": "always",
+    "multiline": "never"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#valid7"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        <template>\n          <MyComp\n            :foo=\"foo\"\n          />\n          <MyComp :foo=\"foo\" />\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "selfClosingTag": {
+     "singleline": "never",
+     "multiline": "always"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#valid8"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        <template>\n          <MyComp :foo=\"foo\"\n          />\n          <MyComp\n            :foo=\"foo\" />\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "selfClosingTag": {
+     "singleline": "always",
+     "multiline": "never"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#valid9"
+ },
+ {
+  "rule": "html-closing-bracket-newline",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <div\n          id=\n          \"\"\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-closing-bracket-newline#valid10"
+ }
+]

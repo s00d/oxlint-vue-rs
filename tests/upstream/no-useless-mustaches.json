@@ -1,0 +1,1592 @@
+[
+ {
+  "rule": "no-useless-mustaches",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        {{ 'foo' }}\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 20
+    }
+   ],
+   "output": "\n      <template>\n        foo\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       26,
+       37
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        foo\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-mustaches#invalid0"
+ },
+ {
+  "rule": "no-useless-mustaches",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        {{ 'comment'/*comment*/ }}\n        {{ 'comment'//comment\n         }}\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 35
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 12
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 35,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 12,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-mustaches#invalid1"
+ },
+ {
+  "rule": "no-useless-mustaches",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        {{ '\\n' }}\n        {{ '\\r' }}\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 19
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 19
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-mustaches#invalid2"
+ },
+ {
+  "rule": "no-useless-mustaches",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        {{ '&quot;' }}\n        {{ `&quot;&apos;` }}\n        {{ '\\\\' }}\n        {{ '\\\\r' }}\n        {{ '\\' }}\n        {{ `foo` }}\n        {{ `foo${bar}` }}\n        {{ \"&apos;\" }}\n        {{ `foo` }}\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 29
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 19
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 20
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 20
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 10,
+     "column": 9,
+     "endLine": 10,
+     "endColumn": 23
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 11,
+     "column": 9,
+     "endLine": 11,
+     "endColumn": 20
+    }
+   ],
+   "output": "\n      <template>\n        &quot;\n        &quot;&apos;\n        \\\n        \\r\n        {{ '\\' }}\n        foo\n        {{ `foo${bar}` }}\n        &apos;\n        foo\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       26,
+       40
+      ],
+      "text": "&quot;"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       49,
+       69
+      ],
+      "text": "&quot;&apos;"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       78,
+       88
+      ],
+      "text": "\\"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       97,
+       108
+      ],
+      "text": "\\r"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       135,
+       146
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 10,
+     "column": 9,
+     "endLine": 10,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       181,
+       195
+      ],
+      "text": "&apos;"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 11,
+     "column": 9,
+     "endLine": 11,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       204,
+       215
+      ],
+      "text": "foo"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        &quot;\n        &quot;&apos;\n        \\\n        \\r\n        {{ '\\' }}\n        foo\n        {{ `foo${bar}` }}\n        &apos;\n        foo\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-mustaches#invalid3"
+ },
+ {
+  "rule": "no-useless-mustaches",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        {{ &apos;msg&apos; }}\n        {{ &quot;msg&quot; }}\n        {{ &apos;msg' }}\n        {{ &quot;msg\" }}\n        {{ 'msg&apos; }}\n        {{ \"msg&quot; }}\n        {{ &#39;&lt;msg&gt;&apos; }}\n        {{ &#34;I&apos;m&#x22; }}\n        {{ \"no semi&#34 }}\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 30
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 30
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 25
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 25
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 25
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 25
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 9,
+     "column": 9,
+     "endLine": 9,
+     "endColumn": 37
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 10,
+     "column": 9,
+     "endLine": 10,
+     "endColumn": 34
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 11,
+     "column": 9,
+     "endLine": 11,
+     "endColumn": 27
+    }
+   ],
+   "output": "\n      <template>\n        msg\n        msg\n        msg\n        msg\n        msg\n        msg\n        &lt;msg&gt;\n        I&apos;m\n        {{ \"no semi&#34 }}\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       26,
+       47
+      ],
+      "text": "msg"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       56,
+       77
+      ],
+      "text": "msg"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       86,
+       102
+      ],
+      "text": "msg"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       111,
+       127
+      ],
+      "text": "msg"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       136,
+       152
+      ],
+      "text": "msg"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 8,
+     "column": 9,
+     "endLine": 8,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       161,
+       177
+      ],
+      "text": "msg"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 9,
+     "column": 9,
+     "endLine": 9,
+     "endColumn": 37,
+     "fix": {
+      "range": [
+       186,
+       214
+      ],
+      "text": "&lt;msg&gt;"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 10,
+     "column": 9,
+     "endLine": 10,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       223,
+       248
+      ],
+      "text": "I&apos;m"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 11,
+     "column": 9,
+     "endLine": 11,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        msg\n        msg\n        msg\n        msg\n        msg\n        msg\n        &lt;msg&gt;\n        I&apos;m\n        {{ \"no semi&#34 }}\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-mustaches#invalid4"
+ },
+ {
+  "rule": "no-useless-mustaches",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        {{ 'I\\'m' }}\n        {{ \"\\\"Happy\\\"\" }}\n        {{ `backtick \\` and dollar \\$` }}\n        {{ \"\\\\\" }}\n      </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 21
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 26
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 42
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 19
+    }
+   ],
+   "output": "\n      <template>\n        I'm\n        \"Happy\"\n        backtick ` and dollar $\n        \\\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       26,
+       38
+      ],
+      "text": "I'm"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       47,
+       64
+      ],
+      "text": "\"Happy\""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 42,
+     "fix": {
+      "range": [
+       73,
+       106
+      ],
+      "text": "backtick ` and dollar $"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       115,
+       125
+      ],
+      "text": "\\"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        I'm\n        \"Happy\"\n        backtick ` and dollar $\n        \\\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-mustaches#invalid5"
+ },
+ {
+  "rule": "no-useless-mustaches",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        {{ '&lt;' }}\n        {{ '&gt;' }}\n        {{ '&amp;' }}\n        {{ '&#8212;' }}\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 21
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 21
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 22
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 24
+    }
+   ],
+   "output": "\n      <template>\n        &lt;\n        &gt;\n        &amp;\n        &#8212;\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       26,
+       38
+      ],
+      "text": "&lt;"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       47,
+       59
+      ],
+      "text": "&gt;"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       68,
+       81
+      ],
+      "text": "&amp;"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       90,
+       105
+      ],
+      "text": "&#8212;"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        &lt;\n        &gt;\n        &amp;\n        &#8212;\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-mustaches#invalid6"
+ },
+ {
+  "rule": "no-useless-mustaches",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        {{ '<' }}\n        {{ '<<' }}\n        {{ 'can be < anywhere' }}\n        {{ '<tag>' }}\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 18
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 19
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 34
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template>\n        &lt;\n        &lt;&lt;\n        can be &lt; anywhere\n        &lt;tag>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       26,
+       35
+      ],
+      "text": "&lt;"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       44,
+       54
+      ],
+      "text": "&lt;&lt;"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       63,
+       88
+      ],
+      "text": "can be &lt; anywhere"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       97,
+       110
+      ],
+      "text": "&lt;tag>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        &lt;\n        &lt;&lt;\n        can be &lt; anywhere\n        &lt;tag>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-mustaches#invalid7"
+ },
+ {
+  "rule": "no-useless-mustaches",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <code>{{ '{{' }} count }}</code>\n        <code>{{ 'a {{ b' }}</code>\n        <code>{{ '{' }}{{ '{' }} count }}</code>\n        <code>{{ '\\{\\{' }} count }}</code>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 25
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 29
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 24
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 24,
+     "endLine": 5,
+     "endColumn": 33
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 27
+    }
+   ],
+   "output": "\n      <template>\n        <code>{{ '{{' }} count }}</code>\n        <code>{{ 'a {{ b' }}</code>\n        <code>{{ '{' }}{ count }}</code>\n        <code>{{ '\\{\\{' }} count }}</code>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 24,
+     "endLine": 5,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       118,
+       127
+      ],
+      "text": "{"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 6,
+     "column": 15,
+     "endLine": 6,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <code>{{ '{{' }} count }}</code>\n        <code>{{ 'a {{ b' }}</code>\n        <code>{{ '{' }}{ count }}</code>\n        <code>{{ '\\{\\{' }} count }}</code>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-mustaches#invalid8"
+ },
+ {
+  "rule": "no-useless-mustaches",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <p>{{ '&' }}copy;</p>\n        <p>&{{ 'amp;' }}</p>\n        <p>&am{{ 'p;' }}</p>\n        <p>{{ 'Tom &' }}amp; Jerry</p>\n        <p>&{{ '' }}copy;</p>\n        <p>&#0000000000000000000000000000000000000000{{ '65;' }}</p>\n        <p>{{ '&\\amp;' }}</p>\n        <p>{{ '&#92;<' }}</p>\n        <p>{{ '&copy' }}cat</p>\n        <p>{{ 'Tom &amp; Jerry' }}</p>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 12,
+     "endLine": 3,
+     "endColumn": 21
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 25
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 25
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 6,
+     "column": 12,
+     "endLine": 6,
+     "endColumn": 25
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 7,
+     "column": 13,
+     "endLine": 7,
+     "endColumn": 21
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 8,
+     "column": 54,
+     "endLine": 8,
+     "endColumn": 65
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 9,
+     "column": 12,
+     "endLine": 9,
+     "endColumn": 26
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 10,
+     "column": 12,
+     "endLine": 10,
+     "endColumn": 26
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 11,
+     "column": 12,
+     "endLine": 11,
+     "endColumn": 25
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 12,
+     "column": 12,
+     "endLine": 12,
+     "endColumn": 35
+    }
+   ],
+   "output": "\n      <template>\n        <p>{{ '&' }}copy;</p>\n        <p>&{{ 'amp;' }}</p>\n        <p>&am{{ 'p;' }}</p>\n        <p>{{ 'Tom &' }}amp; Jerry</p>\n        <p>&{{ '' }}copy;</p>\n        <p>&#0000000000000000000000000000000000000000{{ '65;' }}</p>\n        <p>{{ '&\\amp;' }}</p>\n        <p>{{ '&#92;<' }}</p>\n        <p>{{ '&copy' }}cat</p>\n        <p>Tom &amp; Jerry</p>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 12,
+     "endLine": 3,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 15,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 6,
+     "column": 12,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 7,
+     "column": 13,
+     "endLine": 7,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 8,
+     "column": 54,
+     "endLine": 8,
+     "endColumn": 65,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 9,
+     "column": 12,
+     "endLine": 9,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 10,
+     "column": 12,
+     "endLine": 10,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 11,
+     "column": 12,
+     "endLine": 11,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 12,
+     "column": 12,
+     "endLine": 12,
+     "endColumn": 35,
+     "fix": {
+      "range": [
+       347,
+       370
+      ],
+      "text": "Tom &amp; Jerry"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <p>{{ '&' }}copy;</p>\n        <p>&{{ 'amp;' }}</p>\n        <p>&am{{ 'p;' }}</p>\n        <p>{{ 'Tom &' }}amp; Jerry</p>\n        <p>&{{ '' }}copy;</p>\n        <p>&#0000000000000000000000000000000000000000{{ '65;' }}</p>\n        <p>{{ '&\\amp;' }}</p>\n        <p>{{ '&#92;<' }}</p>\n        <p>{{ '&copy' }}cat</p>\n        <p>Tom &amp; Jerry</p>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-mustaches#invalid9"
+ },
+ {
+  "rule": "no-useless-mustaches",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        {{ `foo\nbar` }}\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 8
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 8,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-mustaches#invalid10"
+ },
+ {
+  "rule": "no-useless-mustaches",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        {{ 'space ' }}\n        {{ ' space' }}\n        {{ ' space ' }}\n        {{ '  ' }}\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 23
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 24
+    },
+    {
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 19
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpected",
+     "message": "Unexpected mustache interpolation with a string literal value.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-mustaches#invalid11"
+ },
+ {
+  "rule": "no-useless-mustaches",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n    <template>\n      foo\n      'foo'\n      {{ foo }}\n      {{ 'foo'||'bar' }}\n      {{ 1 }}\n      {{  }}\n      {{ . }}\n      {{ null }}\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-mustaches#valid0"
+ },
+ {
+  "rule": "no-useless-mustaches",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        {{ 'comment'/*comment*/ }}\n        {{ 'comment'//comment\n        \" }}\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignoreIncludesComment": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-mustaches#valid1"
+ },
+ {
+  "rule": "no-useless-mustaches",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        {{ '\\n' }}\n        {{ '\\r' }}\n      </template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "ignoreStringEscape": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-useless-mustaches#valid2"
+ }
+]

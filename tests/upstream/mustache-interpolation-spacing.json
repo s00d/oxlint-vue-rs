@@ -1,0 +1,901 @@
+[
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div>{{ text}}</div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 space before '}}', but not found.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ],
+   "output": "<template><div>{{ text }}</div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedSpaceBefore",
+     "message": "Expected 1 space before '}}', but not found.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       22,
+       22
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ text }}</div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#invalid0"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div>{{text }}</div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 space after '{{', but not found.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 18
+    }
+   ],
+   "output": "<template><div>{{ text }}</div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedSpaceAfter",
+     "message": "Expected 1 space after '{{', but not found.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       17,
+       17
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ text }}</div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#invalid1"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div>{{ text}}</div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected no space after '{{', but found.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 19
+    }
+   ],
+   "output": "<template><div>{{text}}</div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaceAfter",
+     "message": "Expected no space after '{{', but found.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       17,
+       18
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{text}}</div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#invalid2"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div>{{text }}</div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected no space before '}}', but found.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ],
+   "output": "<template><div>{{text}}</div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaceBefore",
+     "message": "Expected no space before '}}', but found.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       21,
+       22
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{text}}</div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#invalid3"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div>{{text}}</div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected 1 space after '{{', but not found.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 18
+    },
+    {
+     "message": "Expected 1 space before '}}', but not found.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ],
+   "output": "<template><div>{{ text }}</div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedSpaceAfter",
+     "message": "Expected 1 space after '{{', but not found.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       17,
+       17
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedSpaceBefore",
+     "message": "Expected 1 space before '}}', but not found.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       21,
+       21
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{ text }}</div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#invalid4"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div>{{ text }}</div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected no space after '{{', but found.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 19
+    },
+    {
+     "message": "Expected no space before '}}', but found.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div>{{text}}</div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaceAfter",
+     "message": "Expected no space after '{{', but found.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       17,
+       18
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedSpaceBefore",
+     "message": "Expected no space before '}}', but found.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       22,
+       23
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{text}}</div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#invalid5"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div>{{   text   }}</div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected no space after '{{', but found.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 21
+    },
+    {
+     "message": "Expected no space before '}}', but found.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ],
+   "output": "<template><div>{{text}}</div></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaceAfter",
+     "message": "Expected no space after '{{', but found.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       17,
+       20
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedSpaceBefore",
+     "message": "Expected no space before '}}', but found.",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       24,
+       27
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div>{{text}}</div></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#invalid6"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#valid0"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#valid1"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template>             <div id=\"               \"></div>         </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#valid2"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template> <div :style=\"  \" :class=\"       foo      \" v-if=foo   ></div>      </template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#valid3"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div>{{ text }}</div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#valid4"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div>{{ }}</div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#valid5"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div>{{ }}</div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#valid6"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div>{{}}</div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#valid7"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div>{{text}}</div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#valid8"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><div>{{ text }}</div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#valid9"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div>{{         }}</div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#valid10"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><div>{{         }}</div></template>",
+  "filename": "test.vue",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#valid11"
+ },
+ {
+  "rule": "mustache-interpolation-spacing",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><div>{{   text   }}</div></template>",
+  "filename": "test.vue",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "mustache-interpolation-spacing#valid12"
+ }
+]

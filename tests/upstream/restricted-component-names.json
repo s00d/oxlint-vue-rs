@@ -1,0 +1,255 @@
+[
+ {
+  "rule": "restricted-component-names",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <Button/>\n        <foo-button/>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "invalidName",
+     "data": {
+      "name": "Button"
+     },
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 18
+    },
+    {
+     "messageId": "invalidName",
+     "data": {
+      "name": "foo-button"
+     },
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 22
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidName",
+     "message": "Component name \"Button\" is not allowed.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidName",
+     "message": "Component name \"foo-button\" is not allowed.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "restricted-component-names#invalid0"
+ },
+ {
+  "rule": "restricted-component-names",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <bar-button/>\n        <foo/>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allow": [
+     "/^foo-/",
+     "bar"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "messageId": "invalidName",
+     "data": {
+      "name": "bar-button"
+     },
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 22
+    },
+    {
+     "messageId": "invalidName",
+     "data": {
+      "name": "foo"
+     },
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 15
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "invalidName",
+     "message": "Component name \"bar-button\" is not allowed.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 22,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "invalidName",
+     "message": "Component name \"foo\" is not allowed.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 15,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "restricted-component-names#invalid1"
+ },
+ {
+  "rule": "restricted-component-names",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><keep-alive></keep-alive></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "restricted-component-names#valid0"
+ },
+ {
+  "rule": "restricted-component-names",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><button/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "restricted-component-names#valid1"
+ },
+ {
+  "rule": "restricted-component-names",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <foo-button/>\n        <div-bar/>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "allow": [
+     "/^foo-/",
+     "/-bar$/"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "restricted-component-names#valid2"
+ }
+]

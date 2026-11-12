@@ -1,0 +1,2089 @@
+[
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div></div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Require self-closing on HTML elements (<div>).",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 22
+    }
+   ],
+   "output": "<template><div /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on HTML elements (<div>).",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       14,
+       21
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid0"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><img/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Disallow self-closing on HTML void elements (<img/>).",
+     "line": 1,
+     "column": 15,
+     "endLine": 1,
+     "endColumn": 17
+    }
+   ],
+   "output": "<template><img></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallowSelfClosing",
+     "message": "Disallow self-closing on HTML void elements (<img/>).",
+     "line": 1,
+     "column": 15,
+     "endLine": 1,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       14,
+       16
+      ],
+      "text": ">"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><img></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid1"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><x-test></x-test></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Require self-closing on Vue.js custom components (<x-test>).",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ],
+   "output": "<template><x-test /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on Vue.js custom components (<x-test>).",
+     "line": 1,
+     "column": 19,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       17,
+       27
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><x-test /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid2"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template>\n  <el-table-column prop=\"name\" :show-overflow-tooltip=true></el-table-column>\n  <span @click=toggleShowTree></span>\n  <x-test v-bind=attrs></x-test>\n  <x-test size=16></x-test>\n  <x-test size=\"16\"></x-test>\n  <x-test size=16 ></x-test>\n  <x-test :size></x-test>\n  <x-test disabled></x-test>\n</template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Require self-closing on Vue.js custom components (<el-table-column>).",
+     "line": 2,
+     "column": 60,
+     "endLine": 2,
+     "endColumn": 78
+    },
+    {
+     "message": "Require self-closing on HTML elements (<span>).",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 38
+    },
+    {
+     "message": "Require self-closing on Vue.js custom components (<x-test>).",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 33
+    },
+    {
+     "message": "Require self-closing on Vue.js custom components (<x-test>).",
+     "line": 5,
+     "column": 19,
+     "endLine": 5,
+     "endColumn": 28
+    },
+    {
+     "message": "Require self-closing on Vue.js custom components (<x-test>).",
+     "line": 6,
+     "column": 21,
+     "endLine": 6,
+     "endColumn": 30
+    },
+    {
+     "message": "Require self-closing on Vue.js custom components (<x-test>).",
+     "line": 7,
+     "column": 20,
+     "endLine": 7,
+     "endColumn": 29
+    },
+    {
+     "message": "Require self-closing on Vue.js custom components (<x-test>).",
+     "line": 8,
+     "column": 17,
+     "endLine": 8,
+     "endColumn": 26
+    },
+    {
+     "message": "Require self-closing on Vue.js custom components (<x-test>).",
+     "line": 9,
+     "column": 20,
+     "endLine": 9,
+     "endColumn": 29
+    }
+   ],
+   "output": "<template>\n  <el-table-column prop=\"name\" :show-overflow-tooltip=true />\n  <span @click=toggleShowTree />\n  <x-test v-bind=attrs />\n  <x-test size=16 />\n  <x-test size=\"16\" />\n  <x-test size=16 />\n  <x-test :size />\n  <x-test disabled />\n</template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on Vue.js custom components (<el-table-column>).",
+     "line": 2,
+     "column": 60,
+     "endLine": 2,
+     "endColumn": 78,
+     "fix": {
+      "range": [
+       69,
+       88
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on HTML elements (<span>).",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       118,
+       126
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on Vue.js custom components (<x-test>).",
+     "line": 4,
+     "column": 24,
+     "endLine": 4,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       149,
+       159
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on Vue.js custom components (<x-test>).",
+     "line": 5,
+     "column": 19,
+     "endLine": 5,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       177,
+       187
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on Vue.js custom components (<x-test>).",
+     "line": 6,
+     "column": 21,
+     "endLine": 6,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       207,
+       217
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on Vue.js custom components (<x-test>).",
+     "line": 7,
+     "column": 20,
+     "endLine": 7,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       236,
+       246
+      ],
+      "text": "/>"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on Vue.js custom components (<x-test>).",
+     "line": 8,
+     "column": 17,
+     "endLine": 8,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       262,
+       272
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on Vue.js custom components (<x-test>).",
+     "line": 9,
+     "column": 20,
+     "endLine": 9,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       291,
+       301
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n  <el-table-column prop=\"name\" :show-overflow-tooltip=true />\n  <span @click=toggleShowTree />\n  <x-test v-bind=attrs />\n  <x-test size=16 />\n  <x-test size=\"16\" />\n  <x-test size=16 />\n  <x-test :size />\n  <x-test disabled />\n</template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid3"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><img src=a.png></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "html": {
+     "void": "always"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Require self-closing on HTML void elements (<img>).",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><img src=a.png /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on HTML void elements (<img>).",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       24,
+       25
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><img src=a.png /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid4"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template>\n  <div ></div>\n  <div\t></div>\n  <div\n    class=\"a\"\n  ></div>\n  <MyComponent :foo=\"bar\"></MyComponent>\n  <svg><path d=\"M0 0\"></path></svg>\n</template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Require self-closing on HTML elements (<div>).",
+     "line": 2,
+     "column": 9,
+     "endLine": 2,
+     "endColumn": 15
+    },
+    {
+     "message": "Require self-closing on HTML elements (<div>).",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 15
+    },
+    {
+     "message": "Require self-closing on HTML elements (<div>).",
+     "line": 6,
+     "column": 4,
+     "endLine": 6,
+     "endColumn": 10
+    },
+    {
+     "message": "Require self-closing on Vue.js custom components (<MyComponent>).",
+     "line": 7,
+     "column": 27,
+     "endLine": 7,
+     "endColumn": 41
+    },
+    {
+     "message": "Require self-closing on SVG elements (<path>).",
+     "line": 8,
+     "column": 23,
+     "endLine": 8,
+     "endColumn": 30
+    }
+   ],
+   "output": "<template>\n  <div />\n  <div\t/>\n  <div\n    class=\"a\"\n  />\n  <MyComponent :foo=\"bar\" />\n  <svg><path d=\"M0 0\" /></svg>\n</template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on HTML elements (<div>).",
+     "line": 2,
+     "column": 9,
+     "endLine": 2,
+     "endColumn": 15,
+     "fix": {
+      "range": [
+       18,
+       25
+      ],
+      "text": "/>"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on HTML elements (<div>).",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 15,
+     "fix": {
+      "range": [
+       33,
+       40
+      ],
+      "text": "/>"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on HTML elements (<div>).",
+     "line": 6,
+     "column": 4,
+     "endLine": 6,
+     "endColumn": 10,
+     "fix": {
+      "range": [
+       64,
+       71
+      ],
+      "text": "/>"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on Vue.js custom components (<MyComponent>).",
+     "line": 7,
+     "column": 27,
+     "endLine": 7,
+     "endColumn": 41,
+     "fix": {
+      "range": [
+       97,
+       112
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on SVG elements (<path>).",
+     "line": 8,
+     "column": 23,
+     "endLine": 8,
+     "endColumn": 30,
+     "fix": {
+      "range": [
+       134,
+       142
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n  <div />\n  <div\t/>\n  <div\n    class=\"a\"\n  />\n  <MyComponent :foo=\"bar\" />\n  <svg><path d=\"M0 0\" /></svg>\n</template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid5"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><svg><path></path></svg></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Require self-closing on SVG elements (<path>).",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 29
+    }
+   ],
+   "output": "<template><svg><path /></svg></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on SVG elements (<path>).",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 29,
+     "fix": {
+      "range": [
+       20,
+       28
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><svg><path /></svg></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid6"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><math><mspace></mspace></math></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Require self-closing on MathML elements (<mspace>).",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 34
+    }
+   ],
+   "output": "<template><math><mspace /></math></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on MathML elements (<mspace>).",
+     "line": 1,
+     "column": 25,
+     "endLine": 1,
+     "endColumn": 34,
+     "fix": {
+      "range": [
+       23,
+       33
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><math><mspace /></math></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid7"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "svg": "any",
+    "math": "any",
+    "html": {
+     "normal": "always",
+     "void": "any",
+     "component": "any"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Require self-closing on HTML elements (<div>).",
+     "line": 2,
+     "column": 8,
+     "endLine": 2,
+     "endColumn": 14
+    }
+   ],
+   "output": "<template>\n  <div />\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on HTML elements (<div>).",
+     "line": 2,
+     "column": 8,
+     "endLine": 2,
+     "endColumn": 14,
+     "fix": {
+      "range": [
+       17,
+       24
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n  <div />\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid8"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "svg": "any",
+    "math": "any",
+    "html": {
+     "normal": "never",
+     "void": "any",
+     "component": "any"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Disallow self-closing on HTML elements (<div/>).",
+     "line": 3,
+     "column": 7,
+     "endLine": 3,
+     "endColumn": 9
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div></div>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallowSelfClosing",
+     "message": "Disallow self-closing on HTML elements (<div/>).",
+     "line": 3,
+     "column": 7,
+     "endLine": 3,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       27,
+       33
+      ],
+      "text": "<div></div>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div></div>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid9"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "svg": "any",
+    "math": "any",
+    "html": {
+     "normal": "any",
+     "void": "always",
+     "component": "any"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Require self-closing on HTML void elements (<img>).",
+     "line": 4,
+     "column": 3,
+     "endLine": 4,
+     "endColumn": 8
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div/>\n  <img />\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on HTML void elements (<img>).",
+     "line": 4,
+     "column": 3,
+     "endLine": 4,
+     "endColumn": 8,
+     "fix": {
+      "range": [
+       40,
+       41
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div/>\n  <img />\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid10"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "svg": "any",
+    "math": "any",
+    "html": {
+     "normal": "any",
+     "void": "never",
+     "component": "any"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Disallow self-closing on HTML void elements (<img/>).",
+     "line": 5,
+     "column": 7,
+     "endLine": 5,
+     "endColumn": 9
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallowSelfClosing",
+     "message": "Disallow self-closing on HTML void elements (<img/>).",
+     "line": 5,
+     "column": 7,
+     "endLine": 5,
+     "endColumn": 9,
+     "fix": {
+      "range": [
+       48,
+       50
+      ],
+      "text": ">"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid11"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "svg": "any",
+    "math": "any",
+    "html": {
+     "normal": "any",
+     "void": "any",
+     "component": "always"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Require self-closing on Vue.js custom components (<x-test>).",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 20
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test />\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on Vue.js custom components (<x-test>).",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       60,
+       70
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test />\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid12"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "svg": "any",
+    "math": "any",
+    "html": {
+     "normal": "any",
+     "void": "any",
+     "component": "never"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Disallow self-closing on Vue.js custom components (<x-test/>).",
+     "line": 7,
+     "column": 10,
+     "endLine": 7,
+     "endColumn": 12
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test></x-test>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallowSelfClosing",
+     "message": "Disallow self-closing on Vue.js custom components (<x-test/>).",
+     "line": 7,
+     "column": 10,
+     "endLine": 7,
+     "endColumn": 12,
+     "fix": {
+      "range": [
+       73,
+       82
+      ],
+      "text": "<x-test></x-test>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test></x-test>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid13"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "svg": "always",
+    "math": "any",
+    "html": {
+     "normal": "any",
+     "void": "any",
+     "component": "any"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Require self-closing on SVG elements (<path>).",
+     "line": 8,
+     "column": 14,
+     "endLine": 8,
+     "endColumn": 21
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path /></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on SVG elements (<path>).",
+     "line": 8,
+     "column": 14,
+     "endLine": 8,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       95,
+       103
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path /></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid14"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "svg": "never",
+    "math": "any",
+    "html": {
+     "normal": "any",
+     "void": "any",
+     "component": "any"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Disallow self-closing on SVG elements (<path/>).",
+     "line": 9,
+     "column": 13,
+     "endLine": 9,
+     "endColumn": 15
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path></path></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallowSelfClosing",
+     "message": "Disallow self-closing on SVG elements (<path/>).",
+     "line": 9,
+     "column": 13,
+     "endLine": 9,
+     "endColumn": 15,
+     "fix": {
+      "range": [
+       117,
+       124
+      ],
+      "text": "<path></path>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path></path></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid15"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "svg": "any",
+    "math": "always",
+    "html": {
+     "normal": "any",
+     "void": "any",
+     "component": "any"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Require self-closing on MathML elements (<mspace>).",
+     "line": 10,
+     "column": 17,
+     "endLine": 10,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace /></math>\n  <math><mspace/></math>\n</template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on MathML elements (<mspace>).",
+     "line": 10,
+     "column": 17,
+     "endLine": 10,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       146,
+       156
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace /></math>\n  <math><mspace/></math>\n</template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid16"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace/></math>\n</template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "svg": "any",
+    "math": "never",
+    "html": {
+     "normal": "any",
+     "void": "any",
+     "component": "any"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Disallow self-closing on MathML elements (<mspace/>).",
+     "line": 11,
+     "column": 16,
+     "endLine": 11,
+     "endColumn": 18
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace></mspace></math>\n</template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallowSelfClosing",
+     "message": "Disallow self-closing on MathML elements (<mspace/>).",
+     "line": 11,
+     "column": 16,
+     "endLine": 11,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       172,
+       181
+      ],
+      "text": "<mspace></mspace>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n  <div></div>\n  <div/>\n  <img>\n  <img/>\n  <x-test></x-test>\n  <x-test/>\n  <svg><path></path></svg>\n  <svg><path/></svg>\n  <math><mspace></mspace></math>\n  <math><mspace></mspace></math>\n</template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid17"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><slot></slot></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Require self-closing on Vue.js custom components (<slot>).",
+     "line": 1,
+     "column": 17,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ],
+   "output": "<template><slot /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on Vue.js custom components (<slot>).",
+     "line": 1,
+     "column": 17,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       15,
+       23
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><slot /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid18"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <template>\n        <div/>\n        <slot></slot>\n        <MyComponent><template #foo></template></MyComponent>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "html": {
+     "void": "never",
+     "normal": "never",
+     "component": "always"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Disallow self-closing on HTML elements (<div/>).",
+     "line": 3,
+     "column": 13,
+     "endLine": 3,
+     "endColumn": 15
+    },
+    {
+     "message": "Require self-closing on Vue.js custom components (<slot>).",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 22
+    },
+    {
+     "message": "Require self-closing on Vue.js custom components (<template>).",
+     "line": 5,
+     "column": 37,
+     "endLine": 5,
+     "endColumn": 48
+    }
+   ],
+   "output": "\n      <template>\n        <div></div>\n        <slot />\n        <MyComponent><template #foo /></MyComponent>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "disallowSelfClosing",
+     "message": "Disallow self-closing on HTML elements (<div/>).",
+     "line": 3,
+     "column": 13,
+     "endLine": 3,
+     "endColumn": 15,
+     "fix": {
+      "range": [
+       26,
+       32
+      ],
+      "text": "<div></div>"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on Vue.js custom components (<slot>).",
+     "line": 4,
+     "column": 15,
+     "endLine": 4,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       46,
+       54
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on Vue.js custom components (<template>).",
+     "line": 5,
+     "column": 37,
+     "endLine": 5,
+     "endColumn": 48,
+     "fix": {
+      "range": [
+       90,
+       102
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div></div>\n        <slot />\n        <MyComponent><template #foo /></MyComponent>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid19"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <template>\n        <div></div>\n        <slot/>\n        <MyComponent><template #foo/></MyComponent>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "html": {
+     "normal": "always",
+     "component": "never"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Require self-closing on HTML elements (<div>).",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 20
+    },
+    {
+     "message": "Disallow self-closing on Vue.js custom components (<slot/>).",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 16
+    },
+    {
+     "message": "Disallow self-closing on Vue.js custom components (<template/>).",
+     "line": 5,
+     "column": 36,
+     "endLine": 5,
+     "endColumn": 38
+    }
+   ],
+   "output": "\n      <template>\n        <div />\n        <slot></slot>\n        <MyComponent><template #foo></template></MyComponent>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireSelfClosing",
+     "message": "Require self-closing on HTML elements (<div>).",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       30,
+       37
+      ],
+      "text": " />"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "disallowSelfClosing",
+     "message": "Disallow self-closing on Vue.js custom components (<slot/>).",
+     "line": 4,
+     "column": 14,
+     "endLine": 4,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       46,
+       53
+      ],
+      "text": "<slot></slot>"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "disallowSelfClosing",
+     "message": "Disallow self-closing on Vue.js custom components (<template/>).",
+     "line": 5,
+     "column": 36,
+     "endLine": 5,
+     "endColumn": 38,
+     "fix": {
+      "range": [
+       75,
+       91
+      ],
+      "text": "<template #foo></template>"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div />\n        <slot></slot>\n        <MyComponent><template #foo></template></MyComponent>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#invalid20"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#valid0"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><img></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#valid1"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><x-test/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#valid2"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><svg><path/></svg></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#valid3"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><math><mspace/></math></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#valid4"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div><!-- comment --></div></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "html": {
+     "normal": "always"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#valid5"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div a=\">test</div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#valid6"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div><!--test</div></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#valid7"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template></template><script></script><docs></docs>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#valid8"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <div>\n          <p>\n            <Address\n              value=\"\"\n              onchange=\"await setTokenAddress(event.target.value)\"/>\n          </p>\n        </div>\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#valid9"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><slot/><MyComponent><template #foo/></MyComponent></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#valid10"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <div></div>\n        <slot/>\n        <slot name=\"foo\"/>\n        <MyComponent><template #foo/></MyComponent>\n        <component :is=\"foo\"/>\n        <transition/>\n        <keep-alive/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "html": {
+     "void": "never",
+     "normal": "never",
+     "component": "always"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#valid11"
+ },
+ {
+  "rule": "html-self-closing",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template>\n        <div/>\n        <slot></slot>\n        <slot name=\"foo\"></slot>\n        <MyComponent><template #foo></template></MyComponent>\n        <component :is=\"foo\"></component>\n        <transition></transition>\n        <keep-alive></keep-alive>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   {
+    "html": {
+     "normal": "always",
+     "component": "never"
+    }
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "html-self-closing#valid12"
+ }
+]

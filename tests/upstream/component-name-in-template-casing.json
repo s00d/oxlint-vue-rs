@@ -1,0 +1,3832 @@
+[
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <!-- ✗ BAD -->\n          <cool-component />\n          <coolComponent />\n          <Cool-component />\n        </template>\n        <script>\n        export default {\n          components: {\n            CoolComponent\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"cool-component\" is not PascalCase.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 26
+    },
+    {
+     "message": "Component name \"coolComponent\" is not PascalCase.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 25
+    },
+    {
+     "message": "Component name \"Cool-component\" is not PascalCase.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 26
+    }
+   ],
+   "output": "\n        <template>\n          <!-- ✗ BAD -->\n          <CoolComponent />\n          <CoolComponent />\n          <CoolComponent />\n        </template>\n        <script>\n        export default {\n          components: {\n            CoolComponent\n          }\n        }\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"cool-component\" is not PascalCase.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       55,
+       70
+      ],
+      "text": "<CoolComponent"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"coolComponent\" is not PascalCase.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       84,
+       98
+      ],
+      "text": "<CoolComponent"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"Cool-component\" is not PascalCase.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       112,
+       127
+      ],
+      "text": "<CoolComponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <!-- ✗ BAD -->\n          <CoolComponent />\n          <CoolComponent />\n          <CoolComponent />\n        </template>\n        <script>\n        export default {\n          components: {\n            CoolComponent\n          }\n        }\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid0"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <template>\n          <!-- ✗ BAD -->\n          <CoolComponent />\n          <coolComponent />\n          <Cool-component />\n        </template>\n        <script>\n        export default {\n          components: {\n            CoolComponent\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"CoolComponent\" is not kebab-case.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 25
+    },
+    {
+     "message": "Component name \"coolComponent\" is not kebab-case.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 25
+    },
+    {
+     "message": "Component name \"Cool-component\" is not kebab-case.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 26
+    }
+   ],
+   "output": "\n        <template>\n          <!-- ✗ BAD -->\n          <cool-component />\n          <cool-component />\n          <cool-component />\n        </template>\n        <script>\n        export default {\n          components: {\n            CoolComponent\n          }\n        }\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"CoolComponent\" is not kebab-case.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       55,
+       69
+      ],
+      "text": "<cool-component"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"coolComponent\" is not kebab-case.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       83,
+       97
+      ],
+      "text": "<cool-component"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"Cool-component\" is not kebab-case.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       111,
+       126
+      ],
+      "text": "<cool-component"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <!-- ✗ BAD -->\n          <cool-component />\n          <cool-component />\n          <cool-component />\n        </template>\n        <script>\n        export default {\n          components: {\n            CoolComponent\n          }\n        }\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid1"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <svg>\n          <the-component />\n        </svg>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n      <template>\n        <svg>\n          <TheComponent />\n        </svg>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       42,
+       56
+      ],
+      "text": "<TheComponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <svg>\n          <TheComponent />\n        </svg>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid2"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <the-component id=\"id\">\n          <!-- comment -->\n        </the-component>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent id=\"id\">\n          <!-- comment -->\n        </TheComponent>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       26,
+       100
+      ],
+      "text": "<TheComponent id=\"id\">\n          <!-- comment -->\n        </TheComponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent id=\"id\">\n          <!-- comment -->\n        </TheComponent>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid3"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <template>\n        <the-component :is=\"componentName\">\n          content\n        </the-component>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent :is=\"componentName\">\n          content\n        </TheComponent>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       26,
+       103
+      ],
+      "text": "<TheComponent :is=\"componentName\">\n          content\n        </TheComponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent :is=\"componentName\">\n          content\n        </TheComponent>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid4"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <the-component id=\"id\"/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent id=\"id\"/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       26,
+       40
+      ],
+      "text": "<TheComponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent id=\"id\"/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid5"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <TheComponent id=\"id\">\n          <!-- comment -->\n        </TheComponent>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"TheComponent\" is not kebab-case.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template>\n        <the-component id=\"id\">\n          <!-- comment -->\n        </the-component>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"TheComponent\" is not kebab-case.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       26,
+       98
+      ],
+      "text": "<the-component id=\"id\">\n          <!-- comment -->\n        </the-component"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <the-component id=\"id\">\n          <!-- comment -->\n        </the-component>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid6"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <TheComponent id=\"id\"/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "kebab-case",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"TheComponent\" is not kebab-case.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template>\n        <the-component id=\"id\"/>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"TheComponent\" is not kebab-case.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       26,
+       39
+      ],
+      "text": "<the-component"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <the-component id=\"id\"/>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid7"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <the-component\n          id=\"id\"/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent\n          id=\"id\"/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       26,
+       40
+      ],
+      "text": "<TheComponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent\n          id=\"id\"/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid8"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <the-component/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       26,
+       40
+      ],
+      "text": "<TheComponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid9"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <template>\n        <the-component></the-component>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent></TheComponent>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       26,
+       56
+      ],
+      "text": "<TheComponent></TheComponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent></TheComponent>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid10"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <template>\n        <theComponent/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"theComponent\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"theComponent\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       26,
+       39
+      ],
+      "text": "<TheComponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid11"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <template>\n        <theComponent/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"theComponent\" is not kebab-case.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template>\n        <the-component/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"theComponent\" is not kebab-case.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       26,
+       39
+      ],
+      "text": "<the-component"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <the-component/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid12"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <template>\n        <The-component/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"The-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"The-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       26,
+       40
+      ],
+      "text": "<TheComponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid13"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <template>\n        <The-component/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"The-component\" is not kebab-case.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n      <template>\n        <the-component/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"The-component\" is not kebab-case.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       26,
+       40
+      ],
+      "text": "<the-component"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <the-component/>\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid14"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <template>\n        <Thecomponent/>\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "kebab-case",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"Thecomponent\" is not kebab-case.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n      <template>\n        <thecomponent/>\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"Thecomponent\" is not kebab-case.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       26,
+       39
+      ],
+      "text": "<thecomponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <thecomponent/>\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid15"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <template>\n        <the-component></the-component  >\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent></TheComponent  >\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       26,
+       56
+      ],
+      "text": "<TheComponent></TheComponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent></TheComponent  >\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid16"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <template>\n        <the-component></the-component\n        >\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent></TheComponent\n        >\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       26,
+       56
+      ],
+      "text": "<TheComponent></TheComponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent></TheComponent\n        >\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid17"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <template>\n        <the-component></the-component end-tag-attr=\"attr\" >\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent></TheComponent end-tag-attr=\"attr\" >\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       26,
+       56
+      ],
+      "text": "<TheComponent></TheComponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <TheComponent></TheComponent end-tag-attr=\"attr\" >\n      </template>\n      <script>\n      export default {\n        components: {TheComponent}\n      }\n      </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid18"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <template>\n        <custom-element1>\n          <the-component />\n        </custom-element1>\n        <custom-element2 />\n        <the-component />\n      </template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "ignores": [
+     "custom-element1",
+     "custom-element2"
+    ],
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 25
+    },
+    {
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n      <template>\n        <custom-element1>\n          <TheComponent />\n        </custom-element1>\n        <custom-element2 />\n        <TheComponent />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       54,
+       68
+      ],
+      "text": "<TheComponent"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       135,
+       149
+      ],
+      "text": "<TheComponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <custom-element1>\n          <TheComponent />\n        </custom-element1>\n        <custom-element2 />\n        <TheComponent />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid19"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <template>\n        <custom-element1>\n          <the-component />\n        </custom-element1>\n        <custom-element2 />\n        <the-component />\n      </template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "ignores": [
+     "/^custom-element/"
+    ],
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 25
+    },
+    {
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n      <template>\n        <custom-element1>\n          <TheComponent />\n        </custom-element1>\n        <custom-element2 />\n        <TheComponent />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       54,
+       68
+      ],
+      "text": "<TheComponent"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 7,
+     "column": 9,
+     "endLine": 7,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       135,
+       149
+      ],
+      "text": "<TheComponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <custom-element1>\n          <TheComponent />\n        </custom-element1>\n        <custom-element2 />\n        <TheComponent />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid20"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <template>\n        <foo--bar />\n        <Foo--Bar />\n        <FooBar />\n        <FooBar_Baz-qux />\n      </template>",
+  "filename": "test.js",
+  "options": [
+   "kebab-case",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"foo--bar\" is not kebab-case.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 18
+    },
+    {
+     "message": "Component name \"Foo--Bar\" is not kebab-case.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 18
+    },
+    {
+     "message": "Component name \"FooBar\" is not kebab-case.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 16
+    },
+    {
+     "message": "Component name \"FooBar_Baz-qux\" is not kebab-case.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 24
+    }
+   ],
+   "output": "\n      <template>\n        <foo--bar />\n        <Foo--Bar />\n        <foo-bar />\n        <foo-bar-baz-qux />\n      </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"foo--bar\" is not kebab-case.",
+     "line": 3,
+     "column": 9,
+     "endLine": 3,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       26,
+       35
+      ],
+      "text": "<foo--bar"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"Foo--Bar\" is not kebab-case.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       47,
+       56
+      ],
+      "text": "<Foo--Bar"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"FooBar\" is not kebab-case.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 16,
+     "fix": {
+      "range": [
+       68,
+       75
+      ],
+      "text": "<foo-bar"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"FooBar_Baz-qux\" is not kebab-case.",
+     "line": 6,
+     "column": 9,
+     "endLine": 6,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       87,
+       102
+      ],
+      "text": "<foo-bar-baz-qux"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <foo--bar />\n        <Foo--Bar />\n        <foo-bar />\n        <foo-bar-baz-qux />\n      </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid21"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "\n        <template>\n          <component />\n          <suspense />\n          <teleport />\n          <client-only />\n          <keep-alive />\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"suspense\" is not PascalCase.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 20
+    },
+    {
+     "message": "Component name \"teleport\" is not PascalCase.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 20
+    },
+    {
+     "message": "Component name \"client-only\" is not PascalCase.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 23
+    },
+    {
+     "message": "Component name \"keep-alive\" is not PascalCase.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n        <template>\n          <component />\n          <Suspense />\n          <Teleport />\n          <ClientOnly />\n          <KeepAlive />\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"suspense\" is not PascalCase.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       54,
+       63
+      ],
+      "text": "<Suspense"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"teleport\" is not PascalCase.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       77,
+       86
+      ],
+      "text": "<Teleport"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"client-only\" is not PascalCase.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       100,
+       112
+      ],
+      "text": "<ClientOnly"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"keep-alive\" is not PascalCase.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       126,
+       137
+      ],
+      "text": "<KeepAlive"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <component />\n          <Suspense />\n          <Teleport />\n          <ClientOnly />\n          <KeepAlive />\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid22"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "\n        <template>\n          <the-component />\n        </template>\n        <script setup>\n          import TheComponent from '@/components/theComponent.vue'\n        </script>\n      ",
+  "filename": "test.js",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n        <template>\n          <TheComponent />\n        </template>\n        <script setup>\n          import TheComponent from '@/components/theComponent.vue'\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       30,
+       44
+      ],
+      "text": "<TheComponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <TheComponent />\n        </template>\n        <script setup>\n          import TheComponent from '@/components/theComponent.vue'\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid23"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "\n        <template>\n          <TheComponent />\n        </template>\n        <script setup>\n          import TheComponent from '@/components/theComponent.vue'\n        </script>\n      ",
+  "filename": "test.js",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"TheComponent\" is not kebab-case.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 24
+    }
+   ],
+   "output": "\n        <template>\n          <the-component />\n        </template>\n        <script setup>\n          import TheComponent from '@/components/theComponent.vue'\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"TheComponent\" is not kebab-case.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       30,
+       43
+      ],
+      "text": "<the-component"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <the-component />\n        </template>\n        <script setup>\n          import TheComponent from '@/components/theComponent.vue'\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid24"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 25,
+  "name": null,
+  "code": "\n        <template>\n          <router-view />\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "globals": [
+     "RouterView"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"router-view\" is not PascalCase.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 23
+    }
+   ],
+   "output": "\n        <template>\n          <RouterView />\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"router-view\" is not PascalCase.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       30,
+       42
+      ],
+      "text": "<RouterView"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <RouterView />\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid25"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 26,
+  "name": null,
+  "code": "\n        <template>\n          <RouterView />\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "kebab-case",
+   {
+    "globals": [
+     "RouterView"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"RouterView\" is not kebab-case.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n        <template>\n          <router-view />\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"RouterView\" is not kebab-case.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       30,
+       41
+      ],
+      "text": "<router-view"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <router-view />\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid26"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 27,
+  "name": null,
+  "code": "\n        <template>\n          <RouterView />\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "kebab-case",
+   {
+    "globals": [
+     "router-view"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"RouterView\" is not kebab-case.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n        <template>\n          <router-view />\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"RouterView\" is not kebab-case.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       30,
+       41
+      ],
+      "text": "<router-view"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <router-view />\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid27"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 28,
+  "name": null,
+  "code": "\n        <template>\n          <c-button />\n          <c-card />\n          <CInput />\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "globals": [
+     "/^c-/"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"c-button\" is not PascalCase.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 20
+    },
+    {
+     "message": "Component name \"c-card\" is not PascalCase.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 18
+    }
+   ],
+   "output": "\n        <template>\n          <CButton />\n          <CCard />\n          <CInput />\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"c-button\" is not PascalCase.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       30,
+       39
+      ],
+      "text": "<CButton"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"c-card\" is not PascalCase.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       53,
+       60
+      ],
+      "text": "<CCard"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <CButton />\n          <CCard />\n          <CInput />\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid28"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 29,
+  "name": null,
+  "code": "\n        <template>\n          <CButton />\n          <CCard />\n          <c-input />\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "kebab-case",
+   {
+    "globals": [
+     "/^C[A-Z]/",
+     "/^c-/"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"CButton\" is not kebab-case.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 19
+    },
+    {
+     "message": "Component name \"CCard\" is not kebab-case.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 17
+    }
+   ],
+   "output": "\n        <template>\n          <c-button />\n          <c-card />\n          <c-input />\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"CButton\" is not kebab-case.",
+     "line": 3,
+     "column": 11,
+     "endLine": 3,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       30,
+       38
+      ],
+      "text": "<c-button"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"CCard\" is not kebab-case.",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 17,
+     "fix": {
+      "range": [
+       52,
+       58
+      ],
+      "text": "<c-card"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <c-button />\n          <c-card />\n          <c-input />\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid29"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 30,
+  "name": null,
+  "code": "\n        <script setup lang=\"ts\">\n          import type Foo from './Foo.vue'\n          import type { HelloWorld1 } from './components/HelloWorld'\n          import { type HelloWorld2 } from './components/HelloWorld2'\n          import type { HelloWorld as HelloWorld3 } from './components/HelloWorld3'\n          import { type HelloWorld as HelloWorld4 } from './components/HelloWorld4';\n          import { type default as HelloWorld5 } from './components/HelloWorld5';\n          import { type Component } from 'vue';\n        </script>\n\n        <template>\n          <foo />\n          <hello-world1 />\n          <hello-world2 />\n          <hello-world3 />\n          <hello-world4 />\n          <hello-world5 />\n          <component />\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"foo\" is not PascalCase.",
+     "line": 13,
+     "column": 11,
+     "endLine": 13,
+     "endColumn": 15
+    },
+    {
+     "message": "Component name \"hello-world1\" is not PascalCase.",
+     "line": 14,
+     "column": 11,
+     "endLine": 14,
+     "endColumn": 24
+    },
+    {
+     "message": "Component name \"hello-world2\" is not PascalCase.",
+     "line": 15,
+     "column": 11,
+     "endLine": 15,
+     "endColumn": 24
+    },
+    {
+     "message": "Component name \"hello-world3\" is not PascalCase.",
+     "line": 16,
+     "column": 11,
+     "endLine": 16,
+     "endColumn": 24
+    },
+    {
+     "message": "Component name \"hello-world4\" is not PascalCase.",
+     "line": 17,
+     "column": 11,
+     "endLine": 17,
+     "endColumn": 24
+    },
+    {
+     "message": "Component name \"hello-world5\" is not PascalCase.",
+     "line": 18,
+     "column": 11,
+     "endLine": 18,
+     "endColumn": 24
+    }
+   ],
+   "output": "\n        <script setup lang=\"ts\">\n          import type Foo from './Foo.vue'\n          import type { HelloWorld1 } from './components/HelloWorld'\n          import { type HelloWorld2 } from './components/HelloWorld2'\n          import type { HelloWorld as HelloWorld3 } from './components/HelloWorld3'\n          import { type HelloWorld as HelloWorld4 } from './components/HelloWorld4';\n          import { type default as HelloWorld5 } from './components/HelloWorld5';\n          import { type Component } from 'vue';\n        </script>\n\n        <template>\n          <Foo />\n          <HelloWorld1 />\n          <HelloWorld2 />\n          <HelloWorld3 />\n          <HelloWorld4 />\n          <HelloWorld5 />\n          <component />\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"foo\" is not PascalCase.",
+     "line": 13,
+     "column": 11,
+     "endLine": 13,
+     "endColumn": 15,
+     "fix": {
+      "range": [
+       563,
+       567
+      ],
+      "text": "<Foo"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"hello-world1\" is not PascalCase.",
+     "line": 14,
+     "column": 11,
+     "endLine": 14,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       581,
+       594
+      ],
+      "text": "<HelloWorld1"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"hello-world2\" is not PascalCase.",
+     "line": 15,
+     "column": 11,
+     "endLine": 15,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       608,
+       621
+      ],
+      "text": "<HelloWorld2"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"hello-world3\" is not PascalCase.",
+     "line": 16,
+     "column": 11,
+     "endLine": 16,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       635,
+       648
+      ],
+      "text": "<HelloWorld3"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"hello-world4\" is not PascalCase.",
+     "line": 17,
+     "column": 11,
+     "endLine": 17,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       662,
+       675
+      ],
+      "text": "<HelloWorld4"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"hello-world5\" is not PascalCase.",
+     "line": 18,
+     "column": 11,
+     "endLine": 18,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       689,
+       702
+      ],
+      "text": "<HelloWorld5"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup lang=\"ts\">\n          import type Foo from './Foo.vue'\n          import type { HelloWorld1 } from './components/HelloWorld'\n          import { type HelloWorld2 } from './components/HelloWorld2'\n          import type { HelloWorld as HelloWorld3 } from './components/HelloWorld3'\n          import { type HelloWorld as HelloWorld4 } from './components/HelloWorld4';\n          import { type default as HelloWorld5 } from './components/HelloWorld5';\n          import { type Component } from 'vue';\n        </script>\n\n        <template>\n          <Foo />\n          <HelloWorld1 />\n          <HelloWorld2 />\n          <HelloWorld3 />\n          <HelloWorld4 />\n          <HelloWorld5 />\n          <component />\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid30"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 31,
+  "name": null,
+  "code": "\n        <script setup>\n          import * as Form from './form-components'\n        </script>\n        <template>\n          <form.input>label</form.input>\n          <form.Label />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"form.input\" is not PascalCase.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 22
+    },
+    {
+     "message": "Component name \"form.Label\" is not PascalCase.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 22
+    }
+   ],
+   "output": "\n        <script setup>\n          import * as Form from './form-components'\n        </script>\n        <template>\n          <Form.input>label</Form.input>\n          <Form.Label />\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"form.input\" is not PascalCase.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       123,
+       152
+      ],
+      "text": "<Form.input>label</Form.input"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"form.Label\" is not PascalCase.",
+     "line": 7,
+     "column": 11,
+     "endLine": 7,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       164,
+       175
+      ],
+      "text": "<Form.Label"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          import * as Form from './form-components'\n        </script>\n        <template>\n          <Form.input>label</Form.input>\n          <Form.Label />\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid31"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 32,
+  "name": null,
+  "code": "\n        <script setup>\n          import * as MyForm from './form-components'\n        </script>\n        <template>\n          <MyForm.Input>label</MyForm.Input>\n          <my-form.Label />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"MyForm.Input\" is not kebab-case.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 24
+    }
+   ],
+   "output": "\n        <script setup>\n          import * as MyForm from './form-components'\n        </script>\n        <template>\n          <my-form.Input>label</my-form.Input>\n          <my-form.Label />\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"MyForm.Input\" is not kebab-case.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 24,
+     "fix": {
+      "range": [
+       125,
+       158
+      ],
+      "text": "<my-form.Input>label</my-form.Input"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          import * as MyForm from './form-components'\n        </script>\n        <template>\n          <my-form.Input>label</my-form.Input>\n          <my-form.Label />\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid32"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 33,
+  "name": null,
+  "code": "\n        <script setup>\n          import * as MyForm from './form-components'\n        </script>\n        <template>\n          <my-form.input />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"my-form.input\" is not PascalCase.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25
+    }
+   ],
+   "output": "\n        <script setup>\n          import * as MyForm from './form-components'\n        </script>\n        <template>\n          <MyForm.input />\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"my-form.input\" is not PascalCase.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       125,
+       139
+      ],
+      "text": "<MyForm.input"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          import * as MyForm from './form-components'\n        </script>\n        <template>\n          <MyForm.input />\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid33"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "invalid",
+  "idx": 34,
+  "name": null,
+  "code": "\n        <template>\n          <Form.Input>\n            <the-component />\n          </Form.Input>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 27
+    }
+   ],
+   "output": "\n        <template>\n          <Form.Input>\n            <TheComponent />\n          </Form.Input>\n        </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "incorrectCase",
+     "message": "Component name \"the-component\" is not PascalCase.",
+     "line": 4,
+     "column": 13,
+     "endLine": 4,
+     "endColumn": 27,
+     "fix": {
+      "range": [
+       55,
+       69
+      ],
+      "text": "<TheComponent"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <template>\n          <Form.Input>\n            <TheComponent />\n          </Form.Input>\n        </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#invalid34"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <template>\n          <!-- ✓ GOOD -->\n          <CoolComponent />\n          <UnregisteredComponent />\n          <unregistered-component />\n        </template>\n        <script>\n        export default {\n          components: {\n            CoolComponent\n          }\n        }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid0"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div/></template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid1"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><img></template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid2"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><TheComponent/></template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid3"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><svg><path/></svg></template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid4"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><math><mspace/></math></template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid5"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div><slot></slot></div></template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid6"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div><template v-if=\"foo\">bar</template></div></template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid7"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><h1>Title</h1></template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid8"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "<template><h1 :is=\"customTitle\">Title</h1></template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid9"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><svg><TheComponent /></svg></template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid10"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "<template><text /></template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid11"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "<template><circle cx=\"0\" cy=\"0\" :d=\"radius\"></template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid12"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "<template><component is=\"div\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid13"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "<template><the-component></the-component></template>",
+  "filename": "test.js",
+  "options": [
+   "kebab-case",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid14"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "<template><div/></template>",
+  "filename": "test.js",
+  "options": [
+   "kebab-case",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid15"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "<template><img></template>",
+  "filename": "test.js",
+  "options": [
+   "kebab-case",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid16"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "<template><svg><path/></svg></template>",
+  "filename": "test.js",
+  "options": [
+   "kebab-case",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid17"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "<template><math><mspace/></math></template>",
+  "filename": "test.js",
+  "options": [
+   "kebab-case",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid18"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "<template><component is=\"div\" /></template>",
+  "filename": "test.js",
+  "options": [
+   "kebab-case",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid19"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "<template><custom-element></custom-element></template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "ignores": [
+     "custom-element"
+    ],
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid20"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "<template><custom-element><TheComponent/></custom-element></template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "ignores": [
+     "custom-element"
+    ],
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid21"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 22,
+  "name": null,
+  "code": "\n        <template>\n          <global-button />\n          <globalCard />\n          <global-grid />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false,
+    "ignores": [
+     "/^global/"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid22"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 23,
+  "name": null,
+  "code": "<template><the-component a=\">test</the-component></template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid23"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 24,
+  "name": null,
+  "code": "<template><the-component><!--test</the-component></template>",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": false
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid24"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 25,
+  "name": null,
+  "code": "\n      <template>\n        <component />\n        <suspense />\n        <teleport />\n        <client-only />\n        <keep-alive />\n      </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid25"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 26,
+  "name": null,
+  "code": "\n        <template><div/></template>\n        <script setup>const Div = 0</script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "PascalCase"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid26"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 27,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <RouterView />\n            <RouterLink />\n          </div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "globals": [
+     "RouterView",
+     "router-link"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid27"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 28,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <router-view />\n            <router-link />\n          </div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "kebab-case",
+   {
+    "globals": [
+     "RouterView",
+     "router-link"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid28"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 29,
+  "name": null,
+  "code": "\n        <template>\n          <div>\n            <c-button />\n            <c-card />\n            <c-input />\n            <other-component />\n          </div>\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "kebab-case",
+   {
+    "globals": [
+     "/^c-/",
+     "other-component"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid29"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 30,
+  "name": null,
+  "code": "\n        <script setup>\n          import * as Form from './form-components'\n        </script>\n        <template>\n          <Form.Input>\n            <Form.label>label</Form.label>\n          </Form.Input>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid30"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 31,
+  "name": null,
+  "code": "\n        <script setup>\n          import * as Form from './form-components'\n        </script>\n        <template>\n          <form.Input>\n            <form.label>label</form.label>\n          </form.Input>\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [
+   "kebab-case"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid31"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 32,
+  "name": null,
+  "code": "\n        <script setup>\n          import Input from './Input.vue'\n          const form = { Input }\n        </script>\n        <template>\n          <form.Input />\n        </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid32"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 33,
+  "name": null,
+  "code": "\n        <template>\n          <Form.Input />\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "globals": [
+     "/^Form/"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid33"
+ },
+ {
+  "rule": "component-name-in-template-casing",
+  "kind": "valid",
+  "idx": 34,
+  "name": null,
+  "code": "\n        <script setup lang=\"ts\">\n          import type Foo from './Foo.vue'\n          import type { HelloWorld1 } from './components/HelloWorld'\n          import { type HelloWorld2 } from './components/HelloWorld2'\n          import type { HelloWorld as HelloWorld3 } from './components/HelloWorld3'\n          import { type HelloWorld as HelloWorld4 } from './components/HelloWorld4';\n          import { type default as HelloWorld5 } from './components/HelloWorld5';\n          import { type Component } from 'vue';\n        </script>\n\n        <template>\n          <foo />\n          <hello-world1 />\n          <hello-world2 />\n          <hello-world3 />\n          <hello-world4 />\n          <hello-world5 />\n          <component />\n        </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "PascalCase",
+   {
+    "registeredComponentsOnly": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "component-name-in-template-casing#valid34"
+ }
+]

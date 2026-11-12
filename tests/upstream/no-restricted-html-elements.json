@@ -1,0 +1,706 @@
+[
+ {
+  "rule": "no-restricted-html-elements",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div><button type=\"button\"></button><div></template>",
+  "filename": "test.vue",
+  "options": [
+   "button"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected use of forbidden element button.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 38
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenElement",
+     "message": "Unexpected use of forbidden element button.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 38,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-html-elements#invalid0"
+ },
+ {
+  "rule": "no-restricted-html-elements",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div class=\"foo\"><button type=\"button\"></button></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "div"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected use of forbidden element div.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 28
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenElement",
+     "message": "Unexpected use of forbidden element div.",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 28,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-html-elements#invalid1"
+ },
+ {
+  "rule": "no-restricted-html-elements",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><marquee>foo</marquee></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "element": "marquee",
+    "message": "Custom error"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Custom error",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 20
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "customMessage",
+     "message": "Custom error",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-html-elements#invalid2"
+ },
+ {
+  "rule": "no-restricted-html-elements",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><a></a><RouterLink></RouterLink></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "element": [
+     "a",
+     "RouterLink"
+    ],
+    "message": "Prefer the use of <NuxtLink> component"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Prefer the use of <NuxtLink> component",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 14
+    },
+    {
+     "message": "Prefer the use of <NuxtLink> component",
+     "line": 1,
+     "column": 18,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "customMessage",
+     "message": "Prefer the use of <NuxtLink> component",
+     "line": 1,
+     "column": 11,
+     "endLine": 1,
+     "endColumn": 14,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "customMessage",
+     "message": "Prefer the use of <NuxtLink> component",
+     "line": 1,
+     "column": 18,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-html-elements#invalid3"
+ },
+ {
+  "rule": "no-restricted-html-elements",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><svg><circle r=\"50\"></circle></svg></template>",
+  "filename": "test.vue",
+  "options": [
+   "circle"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected use of forbidden element circle.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenElement",
+     "message": "Unexpected use of forbidden element circle.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-html-elements#invalid4"
+ },
+ {
+  "rule": "no-restricted-html-elements",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><svg><rect width=\"100\" height=\"100\"></rect><path d=\"M10,10 L20,20\"></path></svg></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "element": [
+     "rect",
+     "path"
+    ],
+    "message": "Use simplified shapes instead"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Use simplified shapes instead",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 47
+    },
+    {
+     "message": "Use simplified shapes instead",
+     "line": 1,
+     "column": 54,
+     "endLine": 1,
+     "endColumn": 78
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "customMessage",
+     "message": "Use simplified shapes instead",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 47,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "customMessage",
+     "message": "Use simplified shapes instead",
+     "line": 1,
+     "column": 54,
+     "endLine": 1,
+     "endColumn": 78,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-html-elements#invalid5"
+ },
+ {
+  "rule": "no-restricted-html-elements",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><math><mfrac><mn>1</mn><mn>2</mn></mfrac></math></template>",
+  "filename": "test.vue",
+  "options": [
+   "mfrac"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected use of forbidden element mfrac.",
+     "line": 1,
+     "column": 17,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "forbiddenElement",
+     "message": "Unexpected use of forbidden element mfrac.",
+     "line": 1,
+     "column": 17,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-html-elements#invalid6"
+ },
+ {
+  "rule": "no-restricted-html-elements",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><math><mi>x</mi><mo>=</mo><mn>5</mn></math></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "element": "mo",
+    "message": "Avoid using operators directly"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Avoid using operators directly",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "customMessage",
+     "message": "Avoid using operators directly",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-html-elements#invalid7"
+ },
+ {
+  "rule": "no-restricted-html-elements",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [
+   "button"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-html-elements#valid0"
+ },
+ {
+  "rule": "no-restricted-html-elements",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div class=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "button"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-html-elements#valid1"
+ },
+ {
+  "rule": "no-restricted-html-elements",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><button type=\"button\"></button></template>",
+  "filename": "test.vue",
+  "options": [
+   "div"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-html-elements#valid2"
+ },
+ {
+  "rule": "no-restricted-html-elements",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div class=\"foo\"><Button type=\"button\"></Button></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "button"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-html-elements#valid3"
+ },
+ {
+  "rule": "no-restricted-html-elements",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><main><article></article></main></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "element": [
+     "div",
+     "span"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-html-elements#valid4"
+ },
+ {
+  "rule": "no-restricted-html-elements",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><svg><rect width=\"100\" height=\"100\"></rect></svg></template>",
+  "filename": "test.vue",
+  "options": [
+   "circle"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-html-elements#valid5"
+ },
+ {
+  "rule": "no-restricted-html-elements",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><math><mn>2</mn></math></template>",
+  "filename": "test.vue",
+  "options": [
+   "mi"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-html-elements#valid6"
+ }
+]

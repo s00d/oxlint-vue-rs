@@ -1,0 +1,505 @@
+[
+ {
+  "rule": "object-curly-newline",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div :foo=\"{a: 1\n        }\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected line break before this closing brace.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 10
+    }
+   ],
+   "output": "\n      <template>\n        <div :foo=\"{a: 1}\" />\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedLinebreakBeforeClosingBrace",
+     "message": "Unexpected line break before this closing brace.",
+     "line": 4,
+     "column": 9,
+     "endLine": 4,
+     "endColumn": 10,
+     "fix": {
+      "range": [
+       42,
+       51
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div :foo=\"{a: 1}\" />\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-newline#invalid0"
+ },
+ {
+  "rule": "object-curly-newline",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div :foo=\"{\n          a: 1}\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected line break after this opening brace.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 21
+    }
+   ],
+   "output": "\n      <template>\n        <div :foo=\"{a: 1}\" />\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedLinebreakAfterOpeningBrace",
+     "message": "Unexpected line break after this opening brace.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       38,
+       49
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div :foo=\"{a: 1}\" />\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-newline#invalid1"
+ },
+ {
+  "rule": "object-curly-newline",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div :foo=\"{a: 1}\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Expected a line break after this opening brace.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 21
+    },
+    {
+     "message": "Expected a line break before this closing brace.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 26
+    }
+   ],
+   "output": "\n      <template>\n        <div :foo=\"{\na: 1\n}\" />\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "expectedLinebreakAfterOpeningBrace",
+     "message": "Expected a line break after this opening brace.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       38,
+       38
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "expectedLinebreakBeforeClosingBrace",
+     "message": "Expected a line break before this closing brace.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       42,
+       42
+      ],
+      "text": "\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div :foo=\"{\na: 1\n}\" />\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-newline#invalid2"
+ },
+ {
+  "rule": "object-curly-newline",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <div :foo=\"{\n          a: 1\n        }\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected line break after this opening brace.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 21
+    },
+    {
+     "message": "Unexpected line break before this closing brace.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 10
+    }
+   ],
+   "output": "\n      <template>\n        <div :foo=\"{a: 1}\" />\n      </template>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedLinebreakAfterOpeningBrace",
+     "message": "Unexpected line break after this opening brace.",
+     "line": 3,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       38,
+       49
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedLinebreakBeforeClosingBrace",
+     "message": "Unexpected line break before this closing brace.",
+     "line": 5,
+     "column": 9,
+     "endLine": 5,
+     "endColumn": 10,
+     "fix": {
+      "range": [
+       53,
+       62
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <template>\n        <div :foo=\"{a: 1}\" />\n      </template>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-newline#invalid3"
+ },
+ {
+  "rule": "object-curly-newline",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n    <template>\n      <div :foo=\"{a: 1}\" />\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-newline#valid0"
+ },
+ {
+  "rule": "object-curly-newline",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div :foo=\"{a: 1}\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-newline#valid1"
+ },
+ {
+  "rule": "object-curly-newline",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n    <template>\n      <div :foo=\"{\n        a: 1\n      }\" />\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-newline#valid2"
+ },
+ {
+  "rule": "object-curly-newline",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <template>\n        <div :foo=\"{\n          a: 1\n        }\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-newline#valid3"
+ },
+ {
+  "rule": "object-curly-newline",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n    <template>\n      <div :[{a:1}]=\"value\" />\n    </template>\n    ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-newline#valid4"
+ },
+ {
+  "rule": "object-curly-newline",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <template>\n        <div :[{a:1}]=\"value\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "always"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-newline#valid5"
+ },
+ {
+  "rule": "object-curly-newline",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <template>\n        <div :[{a:1}]=\"value\" />\n      </template>\n      ",
+  "filename": "test.js",
+  "options": [
+   "never"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "object-curly-newline#valid6"
+ }
+]

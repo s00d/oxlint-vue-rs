@@ -1,0 +1,485 @@
+[
+ {
+  "rule": "space-unary-ops",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :attr=\"- a\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected space after unary operator '-'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26
+    }
+   ],
+   "output": "<template><div :attr=\"-a\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfter",
+     "message": "Unexpected space after unary operator '-'.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 26,
+     "fix": {
+      "range": [
+       23,
+       24
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"-a\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "space-unary-ops#invalid0"
+ },
+ {
+  "rule": "space-unary-ops",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :attr=\"typeof(a)\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unary word operator 'typeof' must be followed by whitespace.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 32
+    }
+   ],
+   "output": "<template><div :attr=\"typeof (a)\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireAfterWord",
+     "message": "Unary word operator 'typeof' must be followed by whitespace.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 32,
+     "fix": {
+      "range": [
+       28,
+       28
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :attr=\"typeof (a)\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "space-unary-ops#invalid1"
+ },
+ {
+  "rule": "space-unary-ops",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :[typeof(a)]=\"typeof(a)\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unary word operator 'typeof' must be followed by whitespace.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 39
+    }
+   ],
+   "output": "<template><div :[typeof(a)]=\"typeof (a)\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireAfterWord",
+     "message": "Unary word operator 'typeof' must be followed by whitespace.",
+     "line": 1,
+     "column": 30,
+     "endLine": 1,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       35,
+       35
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :[typeof(a)]=\"typeof (a)\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "space-unary-ops#invalid2"
+ },
+ {
+  "rule": "space-unary-ops",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :[!a]=\"!a\" /></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "nonwords": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unary operator '!' must be followed by whitespace.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ],
+   "output": "<template><div :[!a]=\"! a\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "requireAfter",
+     "message": "Unary operator '!' must be followed by whitespace.",
+     "line": 1,
+     "column": 23,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": {
+      "range": [
+       23,
+       23
+      ],
+      "text": " "
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div :[!a]=\"! a\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "space-unary-ops#invalid3"
+ },
+ {
+  "rule": "space-unary-ops",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <style>\n      .text {\n        padding: v-bind(`${- num}px`)\n      }\n      </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected space after unary operator '-'.",
+     "line": 4,
+     "column": 28,
+     "endLine": 4,
+     "endColumn": 33
+    }
+   ],
+   "output": "\n      <style>\n      .text {\n        padding: v-bind(`${-num}px`)\n      }\n      </style>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedAfter",
+     "message": "Unexpected space after unary operator '-'.",
+     "line": 4,
+     "column": 28,
+     "endLine": 4,
+     "endColumn": 33,
+     "fix": {
+      "range": [
+       57,
+       58
+      ],
+      "text": ""
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n      <style>\n      .text {\n        padding: v-bind(`${-num}px`)\n      }\n      </style>",
+   "other": null,
+   "crash": null
+  },
+  "id": "space-unary-ops#invalid4"
+ },
+ {
+  "rule": "space-unary-ops",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :attr=\"-a\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "space-unary-ops#valid0"
+ },
+ {
+  "rule": "space-unary-ops",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div :attr=\"typeof a\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "space-unary-ops#valid1"
+ },
+ {
+  "rule": "space-unary-ops",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :[typeof(a)]=\"a\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "space-unary-ops#valid2"
+ },
+ {
+  "rule": "space-unary-ops",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :attr=\"! a\" /></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "nonwords": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "space-unary-ops#valid3"
+ },
+ {
+  "rule": "space-unary-ops",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :[!a]=\"a\" /></template>",
+  "filename": "test.js",
+  "options": [
+   {
+    "nonwords": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "space-unary-ops#valid4"
+ },
+ {
+  "rule": "space-unary-ops",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n    <style>\n    .text {\n      padding: v-bind(`${-num}px`)\n    }\n    </style>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2015,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "space-unary-ops#valid5"
+ }
+]

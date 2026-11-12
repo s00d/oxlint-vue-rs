@@ -1,0 +1,982 @@
+[
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div :v-model=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `:v-xxx` is not allowed. Instead, remove `:` and use it as directive.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 24
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedVBind",
+     "message": "Using `:v-xxx` is not allowed. Instead, remove `:` and use it as directive.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 24,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#invalid0"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-bind:v-model=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `:v-xxx` is not allowed. Instead, remove `:` and use it as directive.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 30
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedVBind",
+     "message": "Using `:v-xxx` is not allowed. Instead, remove `:` and use it as directive.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 30,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#invalid1"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div :foo=\"bar\" :bar=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "foo"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `:foo` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 20
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedVBind",
+     "message": "Using `:foo` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#invalid2"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :foo=\"bar\" :bar=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "foo",
+   "bar"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `:foo` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 20
+    },
+    {
+     "message": "Using `:bar` is not allowed.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedVBind",
+     "message": "Using `:foo` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedVBind",
+     "message": "Using `:bar` is not allowed.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#invalid3"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :foo=\"bar\" :bar.sync=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "argument": "/^(foo|bar)$/"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `:foo` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 20
+    },
+    {
+     "message": "Using `:bar` is not allowed.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 36
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedVBind",
+     "message": "Using `:foo` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 20,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedVBind",
+     "message": "Using `:bar` is not allowed.",
+     "line": 1,
+     "column": 27,
+     "endLine": 1,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#invalid4"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div :foo.sync=\"foo\" /><div :foo=\"foo\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "argument": "foo",
+    "modifiers": [
+     "sync"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `:foo.sync` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedVBind",
+     "message": "Using `:foo.sync` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#invalid5"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div :v-on :foo.sync /><div :foo=\"foo\" v-bind=\"listener\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   "/^v-/",
+   {
+    "argument": "foo",
+    "modifiers": [
+     "sync"
+    ]
+   },
+   null
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `:v-on` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 21
+    },
+    {
+     "message": "Using `:foo.sync` is not allowed.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 31
+    },
+    {
+     "message": "Using `v-bind` is not allowed.",
+     "line": 1,
+     "column": 50,
+     "endLine": 1,
+     "endColumn": 56
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedVBind",
+     "message": "Using `:v-on` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedVBind",
+     "message": "Using `:foo.sync` is not allowed.",
+     "line": 1,
+     "column": 22,
+     "endLine": 1,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedVBind",
+     "message": "Using `v-bind` is not allowed.",
+     "line": 1,
+     "column": 50,
+     "endLine": 1,
+     "endColumn": 56,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#invalid6"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <template>\n        <div :v-on :foo.sync />\n        <MyButton :foo=\"foo\" :bar=\"bar\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   "/^v-/",
+   {
+    "argument": "foo",
+    "element": "/^My/"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `:v-on` is not allowed.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 19
+    },
+    {
+     "message": "Using `:foo` on `<MyButton>` is not allowed.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 23
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedVBind",
+     "message": "Using `:v-on` is not allowed.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 19,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "restrictedVBind",
+     "message": "Using `:foo` on `<MyButton>` is not allowed.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 23,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#invalid7"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <template>\n        <div :foo=\"x\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   "/^f/",
+   {
+    "argument": "foo"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `:foo` is not allowed.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedVBind",
+     "message": "Using `:foo` is not allowed.",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#invalid8"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <template>\n        <div :foo=\"x\" />\n      </template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "argument": "foo",
+    "message": "foo"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "foo",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 18
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedVBind",
+     "message": "foo",
+     "line": 3,
+     "column": 14,
+     "endLine": 3,
+     "endColumn": 18,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#invalid9"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "<template><div :foo.attr=\"foo\" /><div :bar.attr=\"foo\" /></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "argument": "foo",
+    "modifiers": [
+     "attr"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Using `:foo.attr` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "restrictedVBind",
+     "message": "Using `:foo.attr` is not allowed.",
+     "line": 1,
+     "column": 16,
+     "endLine": 1,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#invalid10"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#valid0"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div v-bind=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#valid1"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#valid2"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div :foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#valid3"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div :v-model=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "foo"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#valid4"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div :bar=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "foo"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#valid5"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   "foo"
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#valid6"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "<template><div :foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "argument": "foo",
+    "modifiers": [
+     "sync"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#valid7"
+ },
+ {
+  "rule": "no-restricted-v-bind",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "<template><div :foo=\"foo\"></div></template>",
+  "filename": "test.vue",
+  "options": [
+   {
+    "argument": "foo",
+    "element": "input"
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-restricted-v-bind#valid8"
+ }
+]

@@ -1,0 +1,122 @@
+# oxlint-vue-rs
+
+All of [eslint-plugin-vue](https://eslint.vuejs.org/) for projects that use [oxlint](https://oxc.rs): the
+**210 rules oxlint does not have** — `<template>` rules included — written in Rust on the oxc toolchain.
+
+- **Same behaviour as eslint-plugin-vue 10.12.1.** Same rule names, options, messages, locations, fixes and
+  suggestions; 6841/6878 of eslint-plugin-vue's own test cases pass (the rest need a TypeScript type checker or
+  parser options we don't support), and on 9 real projects (4121 `.vue` files) the output is identical to
+  eslint-plugin-vue: 151 548 matching problems, 0 missing, 0 extra. See [docs/compatibility.md](docs/compatibility.md).
+- **Fast.** All 210 rules over those 4121 files take 2.3 s (eslint-plugin-vue: 45 s).
+- **Same config as oxlint.** Rules go in your `.oxlintrc.json`; oxlint keeps its 46 native `vue/*` rules.
+
+## How it fits with oxlint
+
+oxlint (1.93) hands JS plugins only the `<script>` part of a `.vue` file, so template rules cannot run inside
+oxlint yet. oxlint-vue-rs therefore ships two pieces:
+
+1. an oxlint **JS plugin** (`oxlint-vue-rs`, alias `vue-rs`) that registers every rule name, so the rules can be
+   configured in `.oxlintrc.json` and oxlint (and its editor extension) accepts the config;
+2. the **`oxlint-vue-rs` binary**, which reads the same config and lints `.vue` files. With `--with-oxlint` it
+   also runs oxlint and prints one merged report.
+
+When oxlint lets plugins see the whole SFC (oxc PR #28720, or "language plugins"), the plugin will call the same
+Rust core directly — see [TODO.md](TODO.md) and [docs/architecture.md](docs/architecture.md).
+
+## Install
+
+```bash
+npm i -D oxlint oxlint-vue-rs     # pnpm add -D / yarn add -D work the same
+npx oxlint-vue-rs --with-oxlint src
+```
+
+The npm package carries the oxlint plugin, the presets and a small launcher; the native binary comes from a
+platform package (`oxlint-vue-rs-<os>-<cpu>[-gnu|-musl]`, installed automatically through
+`optionalDependencies`: macOS arm64/x64, Linux x64/arm64 glibc and musl, Windows x64/arm64). Nothing is compiled on
+install. `OXLINT_VUE_RS_BINARY=/path/to/binary` overrides the binary.
+
+From source: `cargo install --path .` (Rust 1.97+).
+
+Releasing: the `release` GitHub workflow (manual) builds all platform binaries, assembles the packages with
+`scripts/npm/pack.mjs` and, when run with `publish: true`, publishes them to npm (secret `NPM_TOKEN`) and creates
+the GitHub release. Not published yet.
+
+## Configure
+
+```jsonc
+// .oxlintrc.json
+{
+  "plugins": ["vue"],                       // oxlint's native vue/* rules
+  "jsPlugins": [{ "name": "vue-rs", "specifier": "oxlint-vue-rs" }],
+  "rules": {
+    "vue/no-dupe-keys": "error",            // native: oxlint runs it
+    "vue-rs/html-indent": ["warn", 2],      // ours: oxlint-vue-rs runs it
+    "vue-rs/valid-v-for": "error",
+    "vue-rs/attributes-order": ["warn", { "alphabetical": true }]
+  },
+  "overrides": [{ "files": ["**/legacy/**"], "rules": { "vue-rs/html-indent": "off" } }]
+}
+```
+
+`vue` is reserved by oxlint, so our rules use the alias you give the plugin (`vue-rs` by default). Options are
+exactly eslint-plugin-vue's. Presets (eslint-plugin-vue's Vue 3 / Vue 2 configs, minus the rules oxlint already has)
+are in `npm/configs/`: `essential`, `strongly-recommended`, `recommended`, and `vue2-*`:
+
+```jsonc
+{ "extends": ["./node_modules/oxlint-vue-rs/configs/recommended.json"] }
+```
+
+Supported config keys: `rules`, `overrides` (`files` globs), `ignorePatterns`, `settings`, `globals`, `extends`
+(file paths), `jsPlugins` (to find the alias). Inline `// eslint-disable…` / `// oxlint-disable…` comments work
+in scripts, and `<!-- eslint-disable… -->` in templates.
+
+## Run
+
+```bash
+oxlint-vue-rs src                 # lint .vue files under src with .oxlintrc.json
+oxlint-vue-rs --with-oxlint src   # also run oxlint (node_modules/.bin or PATH), merged output
+oxlint-vue-rs --fix src           # apply fixes (repeats until stable, max 10 passes)
+oxlint-vue-rs -D all src          # every rule as an error, ignoring the config's rule list
+oxlint-vue-rs -f json src         # json (oxlint-like) | unix | github | default
+oxlint-vue-rs --rules             # list rules
+```
+
+| Option | |
+|---|---|
+| `-c, --config <file>` | config file (default: nearest `.oxlintrc.json`) |
+| `-A/-W/-D <rule>` | allow / warn / deny a rule (`vue-rs/x`, `vue/x` or `x`; `all`) |
+| `--fix`, `--fix-suggestions` | apply fixes; also the first suggestion of each problem |
+| `-f, --format` | `default`, `json`, `unix`, `github` |
+| `--quiet`, `--deny-warnings`, `--max-warnings <n>` | as in oxlint |
+| `--ignore-pattern <glob>`, `--no-ignore`, `--hidden` | file selection (`.gitignore` is honoured) |
+| `--no-inline-config` | ignore disable comments |
+| `--threads <n>` | worker threads (default: all cores) |
+| `--with-oxlint [-- <oxlint args>]` | run oxlint too and merge |
+| `--print-config` | resolved rules |
+
+Exit code: 0 clean, 1 problems (or warnings with `--deny-warnings` / over `--max-warnings`), 2 usage/config error.
+
+## Rules
+
+[docs/rules.md](docs/rules.md) lists every eslint-plugin-vue rule: native in oxlint or implemented here, with
+upstream test results and real-project results per rule. Known differences: [TODO.md](TODO.md) "Parity gaps".
+
+## Develop
+
+```bash
+cargo test                                   # upstream cases, parser fixtures, robustness, unit tests
+UPSTREAM_RULE=html-indent UPSTREAM_VERBOSE=1 cargo test --test upstream
+cargo clippy --all-targets -- -D warnings && cargo fmt --check
+scripts/bench.sh <corpora> <node-ref-dir> <eslint-config>     # benchmark
+node scripts/compare-corpus.mjs eslint.json ours.json --implemented list.txt
+```
+
+Layout: `src/parser/` (vue-eslint-parser port), `src/ast.rs` (template AST), `src/rules/` (one file per rule),
+`src/utils/` (shared helpers, ESTree-shaped tree and ESLint token store for the stylistic/indent rules),
+`src/config.rs`, `src/directives.rs`, `src/main.rs` (CLI), `npm/` (oxlint plugin + presets),
+`tests/upstream/` (eslint-plugin-vue's cases with real ESLint results; MIT, see the license file there),
+`tests/parser-fixtures/` (vue-eslint-parser fixtures, MIT).
+
+## License
+
+MIT. Test data derived from eslint-plugin-vue and vue-eslint-parser (both MIT) keeps their license files.

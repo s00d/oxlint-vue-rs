@@ -1,0 +1,2292 @@
+[
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <script setup>\n          import { bar } from 'foo'\n          console.log('test1')\n          defineEmits(['update:test'])\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineEmits",
+     "defineProps"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineEmits should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 39
+    }
+   ],
+   "output": "\n        <script setup>\n          import { bar } from 'foo'\n          defineEmits(['update:test'])\n          console.log('test1')\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosNotAtTop",
+     "message": "defineEmits should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 39,
+     "fix": {
+      "range": [
+       70,
+       130
+      ],
+      "text": "defineEmits(['update:test'])\n          console.log('test1')\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          import { bar } from 'foo'\n          defineEmits(['update:test'])\n          console.log('test1')\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid0"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <script setup>\n          import { bar } from 'foo'\n\n          console.log('test1')\n          defineEmits(['update:test'])\n          console.log('test2')\n          defineProps({\n            test: Boolean\n          })\n          console.log('test3')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineProps",
+     "defineEmits"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineProps should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 8,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 13
+    }
+   ],
+   "output": "\n        <script setup>\n          import { bar } from 'foo'\n\n          defineProps({\n            test: Boolean\n          })\n          defineEmits(['update:test'])\n          console.log('test1')\n          console.log('test2')\n          console.log('test3')\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosNotAtTop",
+     "message": "defineProps should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 8,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       71,
+       225
+      ],
+      "text": "defineProps({\n            test: Boolean\n          })\n          defineEmits(['update:test'])\n          console.log('test1')\n          console.log('test2')\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          import { bar } from 'foo'\n\n          defineProps({\n            test: Boolean\n          })\n          defineEmits(['update:test'])\n          console.log('test1')\n          console.log('test2')\n          console.log('test3')\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid1"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <script setup>\n          import { bar } from 'foo'\n\n          defineEmits(['update:test'])\n          defineProps({\n            test: Boolean\n          })\n\n          console.log('test1')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineProps",
+     "defineEmits"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineProps should be above defineEmits.",
+     "line": 6,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 13
+    }
+   ],
+   "output": "\n        <script setup>\n          import { bar } from 'foo'\n\n          defineProps({\n            test: Boolean\n          })\n          defineEmits(['update:test'])\n          console.log('test1')\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosUnordered",
+     "message": "defineProps should be above defineEmits.",
+     "line": 6,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       71,
+       164
+      ],
+      "text": "defineProps({\n            test: Boolean\n          })\n          defineEmits(['update:test'])\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          import { bar } from 'foo'\n\n          defineProps({\n            test: Boolean\n          })\n          defineEmits(['update:test'])\n          console.log('test1')\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid2"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <script setup>\n          console.log('test1')\n          const props = defineProps({\n            test: Boolean\n          })\n          console.log('test2')\n          const emit = defineEmits(['update:test'])\n          console.log('test3')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineEmits",
+     "defineProps"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineEmits should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 52
+    }
+   ],
+   "output": "\n        <script setup>\n          const emit = defineEmits(['update:test'])\n          const props = defineProps({\n            test: Boolean\n          })\n          console.log('test1')\n          console.log('test2')\n          console.log('test3')\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosNotAtTop",
+     "message": "defineEmits should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 52,
+     "fix": {
+      "range": [
+       34,
+       215
+      ],
+      "text": "const emit = defineEmits(['update:test'])\n          const props = defineProps({\n            test: Boolean\n          })\n          console.log('test1')\n          console.log('test2')\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          const emit = defineEmits(['update:test'])\n          const props = defineProps({\n            test: Boolean\n          })\n          console.log('test1')\n          console.log('test2')\n          console.log('test3')\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid3"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <script setup>\n          console.log('test1')\n          const props = defineProps({\n            test: Boolean\n          })\n          console.log('test2')\n          const page = definePage({\n            name: 'hello'\n          })\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "definePage",
+     "defineProps"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "definePage should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 8,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 13
+    }
+   ],
+   "output": "\n        <script setup>\n          const page = definePage({\n            name: 'hello'\n          })\n          const props = defineProps({\n            test: Boolean\n          })\n          console.log('test1')\n          console.log('test2')\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosNotAtTop",
+     "message": "definePage should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 8,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       34,
+       238
+      ],
+      "text": "const page = definePage({\n            name: 'hello'\n          })\n          const props = defineProps({\n            test: Boolean\n          })\n          console.log('test1')\n          console.log('test2')\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          const page = definePage({\n            name: 'hello'\n          })\n          const props = defineProps({\n            test: Boolean\n          })\n          console.log('test1')\n          console.log('test2')\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid4"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <script lang=\"ts\" setup>\n          interface Props {\n            msg?: string\n            labels?: string[]\n          }\n\n          const props = withDefaults(defineProps<Props>(), {\n            msg: 'hello',\n            labels: () => ['one', 'two']\n          })\n          const emit = defineEmits<{(e: 'update:test'): void}>()\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineEmits",
+     "defineProps"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineEmits should be above defineProps.",
+     "line": 12,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 65
+    }
+   ],
+   "output": "\n        <script lang=\"ts\" setup>\n          interface Props {\n            msg?: string\n            labels?: string[]\n          }\n\n          const emit = defineEmits<{(e: 'update:test'): void}>()\n          const props = withDefaults(defineProps<Props>(), {\n            msg: 'hello',\n            labels: () => ['one', 'two']\n          })\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosUnordered",
+     "message": "defineEmits should be above defineProps.",
+     "line": 12,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 65,
+     "fix": {
+      "range": [
+       140,
+       336
+      ],
+      "text": "const emit = defineEmits<{(e: 'update:test'): void}>()\n          const props = withDefaults(defineProps<Props>(), {\n            msg: 'hello',\n            labels: () => ['one', 'two']\n          })\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script lang=\"ts\" setup>\n          interface Props {\n            msg?: string\n            labels?: string[]\n          }\n\n          const emit = defineEmits<{(e: 'update:test'): void}>()\n          const props = withDefaults(defineProps<Props>(), {\n            msg: 'hello',\n            labels: () => ['one', 'two']\n          })\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid5"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        <script lang=\"ts\" setup>\n          interface Props {\n            msg?: string\n            labels?: string[]\n          }\n\n          const props = defineProps<{\n            msg?: string\n            labels?: string[]\n          }>()\n          defineCustom()\n          const emit = defineEmits<{(e: 'update:test'): void}>()\n\n          const page = definePage({\n            name: 'hello'\n          })\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "definePage",
+     "defineCustom",
+     "defineProps",
+     "defineEmits"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "definePage should be above defineProps.",
+     "line": 15,
+     "column": 11,
+     "endLine": 17,
+     "endColumn": 13
+    }
+   ],
+   "output": "\n        <script lang=\"ts\" setup>\n          interface Props {\n            msg?: string\n            labels?: string[]\n          }\n\n          const page = definePage({\n            name: 'hello'\n          })\n          defineCustom()\n          const props = defineProps<{\n            msg?: string\n            labels?: string[]\n          }>()\n          const emit = defineEmits<{(e: 'update:test'): void}>()\n\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosUnordered",
+     "message": "definePage should be above defineProps.",
+     "line": 15,
+     "column": 11,
+     "endLine": 17,
+     "endColumn": 13,
+     "fix": {
+      "range": [
+       140,
+       404
+      ],
+      "text": "const page = definePage({\n            name: 'hello'\n          })\n          defineCustom()\n          const props = defineProps<{\n            msg?: string\n            labels?: string[]\n          }>()\n          const emit = defineEmits<{(e: 'update:test'): void}>()\n\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script lang=\"ts\" setup>\n          interface Props {\n            msg?: string\n            labels?: string[]\n          }\n\n          const page = definePage({\n            name: 'hello'\n          })\n          defineCustom()\n          const props = defineProps<{\n            msg?: string\n            labels?: string[]\n          }>()\n          const emit = defineEmits<{(e: 'update:test'): void}>()\n\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid6"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        <script lang=\"ts\" setup>\n          import bla from 'bla';\n          interface Foo {};\n          type Bar = {};\n          // <--- auto-fix should move `defineProps` here\n          const someOtherCode = '';\n          import foo from 'bar'; // not idiomatic, but allowed\n          interface SomeOtherInterface {};\n          defineProps({ test: Boolean });\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineProps should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 10,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 42
+    }
+   ],
+   "output": "\n        <script lang=\"ts\" setup>\n          import bla from 'bla';\n          interface Foo {};\n          type Bar = {};\n          defineProps({ test: Boolean });\n          // <--- auto-fix should move `defineProps` here\n          const someOtherCode = '';\n          import foo from 'bar'; // not idiomatic, but allowed\n          interface SomeOtherInterface {};\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosNotAtTop",
+     "message": "defineProps should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 10,
+     "column": 11,
+     "endLine": 10,
+     "endColumn": 42,
+     "fix": {
+      "range": [
+       130,
+       362
+      ],
+      "text": "defineProps({ test: Boolean });\n          // <--- auto-fix should move `defineProps` here\n          const someOtherCode = '';\n          import foo from 'bar'; // not idiomatic, but allowed\n          interface SomeOtherInterface {};\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script lang=\"ts\" setup>\n          import bla from 'bla';\n          interface Foo {};\n          type Bar = {};\n          defineProps({ test: Boolean });\n          // <--- auto-fix should move `defineProps` here\n          const someOtherCode = '';\n          import foo from 'bar'; // not idiomatic, but allowed\n          interface SomeOtherInterface {};\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid7"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        <script lang=\"ts\" setup>\n          debugger\n\n          console.log('test1')\n\n          /** Description for props */\n          const props = withDefaults(defineProps<Props>(), {\n            msg: 'hello'\n          });\n\n          console.log('test2')\n\n          // Description for emit\n          // Description for emit line 2\n          const emit = defineEmits<{(e: 'test'): void}>();\n\n          console.log('test3')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineEmits",
+     "defineProps"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineEmits should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 16,
+     "column": 11,
+     "endLine": 16,
+     "endColumn": 59
+    }
+   ],
+   "output": "\n        <script lang=\"ts\" setup>\n          debugger\n\n          // Description for emit\n          // Description for emit line 2\n          const emit = defineEmits<{(e: 'test'): void}>();\n\n          /** Description for props */\n          const props = withDefaults(defineProps<Props>(), {\n            msg: 'hello'\n          });\n\n          console.log('test1')\n\n          console.log('test2')\n\n          console.log('test3')\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosNotAtTop",
+     "message": "defineEmits should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 16,
+     "column": 11,
+     "endLine": 16,
+     "endColumn": 59,
+     "fix": {
+      "range": [
+       64,
+       393
+      ],
+      "text": "// Description for emit\n          // Description for emit line 2\n          const emit = defineEmits<{(e: 'test'): void}>();\n\n          /** Description for props */\n          const props = withDefaults(defineProps<Props>(), {\n            msg: 'hello'\n          });\n\n          console.log('test1')\n\n          console.log('test2')\n\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script lang=\"ts\" setup>\n          debugger\n\n          // Description for emit\n          // Description for emit line 2\n          const emit = defineEmits<{(e: 'test'): void}>();\n\n          /** Description for props */\n          const props = withDefaults(defineProps<Props>(), {\n            msg: 'hello'\n          });\n\n          console.log('test1')\n\n          console.log('test2')\n\n          console.log('test3')\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid8"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        <script setup>\n          const props = defineProps({ test: Boolean });defineEmits(['update:test'])\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineEmits",
+     "defineProps"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineEmits should be above defineProps.",
+     "line": 3,
+     "column": 56,
+     "endLine": 3,
+     "endColumn": 84
+    }
+   ],
+   "output": "\n        <script setup>\n          defineEmits(['update:test']);const props = defineProps({ test: Boolean });        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosUnordered",
+     "message": "defineEmits should be above defineProps.",
+     "line": 3,
+     "column": 56,
+     "endLine": 3,
+     "endColumn": 84,
+     "fix": {
+      "range": [
+       34,
+       108
+      ],
+      "text": "defineEmits(['update:test']);const props = defineProps({ test: Boolean });"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          defineEmits(['update:test']);const props = defineProps({ test: Boolean });        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid9"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        <script setup>\n          const props = defineProps({ test: Boolean });definePage({name: 'hello'})\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "definePage",
+     "defineProps"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "definePage should be above defineProps.",
+     "line": 3,
+     "column": 56,
+     "endLine": 3,
+     "endColumn": 83
+    }
+   ],
+   "output": "\n        <script setup>\n          definePage({name: 'hello'});const props = defineProps({ test: Boolean });        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosUnordered",
+     "message": "definePage should be above defineProps.",
+     "line": 3,
+     "column": 56,
+     "endLine": 3,
+     "endColumn": 83,
+     "fix": {
+      "range": [
+       34,
+       107
+      ],
+      "text": "definePage({name: 'hello'});const props = defineProps({ test: Boolean });"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          definePage({name: 'hello'});const props = defineProps({ test: Boolean });        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid10"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        <script>\n          import 'test2'\n          export default { inheritAttrs: false };\n        </script>\n\n        <script setup>\n          import 'test'\n\n          defineEmits(['update:test'])\n          const props = defineProps({ test: Boolean });\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineProps should be above defineEmits.",
+     "line": 11,
+     "column": 11,
+     "endLine": 11,
+     "endColumn": 56
+    }
+   ],
+   "output": "\n        <script>\n          import 'test2'\n          export default { inheritAttrs: false };\n        </script>\n\n        <script setup>\n          import 'test'\n\n          const props = defineProps({ test: Boolean });\n          defineEmits(['update:test'])\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosUnordered",
+     "message": "defineProps should be above defineEmits.",
+     "line": 11,
+     "column": 11,
+     "endLine": 11,
+     "endColumn": 56,
+     "fix": {
+      "range": [
+       170,
+       255
+      ],
+      "text": "const props = defineProps({ test: Boolean });\n          defineEmits(['update:test'])\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script>\n          import 'test2'\n          export default { inheritAttrs: false };\n        </script>\n\n        <script setup>\n          import 'test'\n\n          const props = defineProps({ test: Boolean });\n          defineEmits(['update:test'])\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid11"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n        <script setup>defineEmits(['update:test']);defineProps({ test: Boolean })</script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineProps should be above defineEmits.",
+     "line": 2,
+     "column": 52,
+     "endLine": 2,
+     "endColumn": 82
+    }
+   ],
+   "output": "\n        <script setup>defineProps({ test: Boolean });defineEmits(['update:test']);</script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosUnordered",
+     "message": "defineProps should be above defineEmits.",
+     "line": 2,
+     "column": 52,
+     "endLine": 2,
+     "endColumn": 82,
+     "fix": {
+      "range": [
+       23,
+       82
+      ],
+      "text": "defineProps({ test: Boolean });defineEmits(['update:test']);"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>defineProps({ test: Boolean });defineEmits(['update:test']);</script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid12"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n        <script setup>\n          console.log('test1')\n          defineProps({ test: Boolean })\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineEmits",
+     "defineProps"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineProps should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 41
+    }
+   ],
+   "output": "\n        <script setup>\n          defineProps({ test: Boolean })\n          console.log('test1')\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosNotAtTop",
+     "message": "defineProps should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 4,
+     "column": 11,
+     "endLine": 4,
+     "endColumn": 41,
+     "fix": {
+      "range": [
+       34,
+       96
+      ],
+      "text": "defineProps({ test: Boolean })\n          console.log('test1')\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          defineProps({ test: Boolean })\n          console.log('test1')\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid13"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 14,
+  "name": null,
+  "code": "\n        <script setup>\n          defineEmits(['update:test'])\n          console.log('test1')\n          defineProps({ test: Boolean })\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineEmits",
+     "defineProps"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineProps should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 41
+    }
+   ],
+   "output": "\n        <script setup>\n          defineEmits(['update:test'])\n          defineProps({ test: Boolean })\n          console.log('test1')\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosNotAtTop",
+     "message": "defineProps should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 41,
+     "fix": {
+      "range": [
+       73,
+       135
+      ],
+      "text": "defineProps({ test: Boolean })\n          console.log('test1')\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          defineEmits(['update:test'])\n          defineProps({ test: Boolean })\n          console.log('test1')\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid14"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 15,
+  "name": null,
+  "code": "\n        <script setup>\n          definePage({name: 'hello'})\n          console.log('test1')\n          defineCustom({ test: Boolean })\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineCustom",
+     "definePage"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineCustom should be above definePage.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 42
+    }
+   ],
+   "output": "\n        <script setup>\n          defineCustom({ test: Boolean })\n          definePage({name: 'hello'})\n          console.log('test1')\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosUnordered",
+     "message": "defineCustom should be above definePage.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 42,
+     "fix": {
+      "range": [
+       34,
+       135
+      ],
+      "text": "defineCustom({ test: Boolean })\n          definePage({name: 'hello'})\n          console.log('test1')\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          defineCustom({ test: Boolean })\n          definePage({name: 'hello'})\n          console.log('test1')\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid15"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 16,
+  "name": null,
+  "code": "\n        <script setup>\n          definePage({name: 'hello'})\n          console.log('test1')\n          const custom = defineCustom({ test: Boolean })\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineCustom",
+     "definePage"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineCustom should be above definePage.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 57
+    }
+   ],
+   "output": "\n        <script setup>\n          const custom = defineCustom({ test: Boolean })\n          definePage({name: 'hello'})\n          console.log('test1')\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosUnordered",
+     "message": "defineCustom should be above definePage.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 57,
+     "fix": {
+      "range": [
+       34,
+       150
+      ],
+      "text": "const custom = defineCustom({ test: Boolean })\n          definePage({name: 'hello'})\n          console.log('test1')\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          const custom = defineCustom({ test: Boolean })\n          definePage({name: 'hello'})\n          console.log('test1')\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid16"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 17,
+  "name": null,
+  "code": "\n        <script setup>\n          import Foo from 'foo'\n          console.log('test1')\n          /** emits */\n          defineEmits(['update:foo'])\n          /** props */\n          const props = defineProps(['foo'])\n          /** slots */\n          const slots = defineSlots()\n          /** options */\n          defineOptions({})\n          /** model */\n          const model = defineModel()\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineOptions",
+     "defineModel",
+     "defineEmits",
+     "defineProps",
+     "defineSlots"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineOptions should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 12,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 28
+    }
+   ],
+   "output": "\n        <script setup>\n          import Foo from 'foo'\n          /** options */\n          defineOptions({})\n          /** model */\n          const model = defineModel()\n          /** emits */\n          defineEmits(['update:foo'])\n          /** props */\n          const props = defineProps(['foo'])\n          /** slots */\n          const slots = defineSlots()\n          console.log('test1')\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosNotAtTop",
+     "message": "defineOptions should be placed at the top of `<script setup>` (after any potential import statements or type definitions).",
+     "line": 12,
+     "column": 11,
+     "endLine": 12,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       66,
+       391
+      ],
+      "text": "/** options */\n          defineOptions({})\n          /** model */\n          const model = defineModel()\n          /** emits */\n          defineEmits(['update:foo'])\n          /** props */\n          const props = defineProps(['foo'])\n          /** slots */\n          const slots = defineSlots()\n          console.log('test1')\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          import Foo from 'foo'\n          /** options */\n          defineOptions({})\n          /** model */\n          const model = defineModel()\n          /** emits */\n          defineEmits(['update:foo'])\n          /** props */\n          const props = defineProps(['foo'])\n          /** slots */\n          const slots = defineSlots()\n          console.log('test1')\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid17"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 18,
+  "name": null,
+  "code": "\n        <script setup>\n          /** slots */\n          const slots = defineSlots()\n          /** options */\n          defineOptions({})\n          /** emits */\n          defineEmits(['update:foo'])\n          /** props */\n          const props = defineProps(['foo'])\n          /** model */\n          const model = defineModel()\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineOptions",
+     "defineModel",
+     "defineEmits",
+     "defineProps",
+     "defineSlots"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineOptions should be above defineSlots.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 28
+    }
+   ],
+   "output": "\n        <script setup>\n          /** options */\n          defineOptions({})\n          /** model */\n          const model = defineModel()\n          /** emits */\n          defineEmits(['update:foo'])\n          /** props */\n          const props = defineProps(['foo'])\n          /** slots */\n          const slots = defineSlots()\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosUnordered",
+     "message": "defineOptions should be above defineSlots.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       34,
+       328
+      ],
+      "text": "/** options */\n          defineOptions({})\n          /** model */\n          const model = defineModel()\n          /** emits */\n          defineEmits(['update:foo'])\n          /** props */\n          const props = defineProps(['foo'])\n          /** slots */\n          const slots = defineSlots()\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          /** options */\n          defineOptions({})\n          /** model */\n          const model = defineModel()\n          /** emits */\n          defineEmits(['update:foo'])\n          /** props */\n          const props = defineProps(['foo'])\n          /** slots */\n          const slots = defineSlots()\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid18"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 19,
+  "name": null,
+  "code": "\n        <script setup>\n          /** emits */\n          defineEmits(['update:foo'])\n          /** expose */\n          defineExpose({})\n          /** slots */\n          const slots = defineSlots()\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "defineExposeLast": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`defineExpose` should be the last statement in `<script setup>`.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 27,
+     "suggestions": [
+      {
+       "desc": "Put `defineExpose` as the last statement in `<script setup>`.",
+       "output": "\n        <script setup>\n          /** emits */\n          defineEmits(['update:foo'])\n          /** slots */\n          const slots = defineSlots()\n          /** expose */\n          defineExpose({})\n        </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "defineExposeNotTheLast",
+     "message": "`defineExpose` should be the last statement in `<script setup>`.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "putExposeAtTheLast",
+       "desc": "Put `defineExpose` as the last statement in `<script setup>`.",
+       "output": "\n        <script setup>\n          /** emits */\n          defineEmits(['update:foo'])\n          /** slots */\n          const slots = defineSlots()\n          /** expose */\n          defineExpose({})\n        </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid19"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 20,
+  "name": null,
+  "code": "\n        <script setup>\n          /** emits */\n          defineEmits(['update:foo'])\n          /** expose */\n          defineExpose({})\n          /** options */\n          defineOptions({})\n          /** props */\n          const props = defineProps(['foo'])\n          /** slots */\n          const slots = defineSlots()\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineOptions",
+     "defineEmits",
+     "defineProps"
+    ],
+    "defineExposeLast": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "`defineExpose` should be the last statement in `<script setup>`.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 27,
+     "suggestions": [
+      {
+       "desc": "Put `defineExpose` as the last statement in `<script setup>`.",
+       "output": "\n        <script setup>\n          /** emits */\n          defineEmits(['update:foo'])\n          /** options */\n          defineOptions({})\n          /** props */\n          const props = defineProps(['foo'])\n          /** slots */\n          const slots = defineSlots()\n          /** expose */\n          defineExpose({})\n        </script>\n      "
+      }
+     ]
+    },
+    {
+     "message": "defineOptions should be above defineEmits.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 28
+    }
+   ],
+   "output": "\n        <script setup>\n          /** options */\n          defineOptions({})\n          /** emits */\n          defineEmits(['update:foo'])\n          /** expose */\n          defineExpose({})\n          /** props */\n          const props = defineProps(['foo'])\n          /** slots */\n          const slots = defineSlots()\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "defineExposeNotTheLast",
+     "message": "`defineExpose` should be the last statement in `<script setup>`.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "putExposeAtTheLast",
+       "desc": "Put `defineExpose` as the last statement in `<script setup>`.",
+       "output": "\n        <script setup>\n          /** emits */\n          defineEmits(['update:foo'])\n          /** options */\n          defineOptions({})\n          /** props */\n          const props = defineProps(['foo'])\n          /** slots */\n          const slots = defineSlots()\n          /** expose */\n          defineExpose({})\n        </script>\n      "
+      }
+     ]
+    },
+    {
+     "messageId": "macrosUnordered",
+     "message": "defineOptions should be above defineEmits.",
+     "line": 8,
+     "column": 11,
+     "endLine": 8,
+     "endColumn": 28,
+     "fix": {
+      "range": [
+       34,
+       189
+      ],
+      "text": "/** options */\n          defineOptions({})\n          /** emits */\n          defineEmits(['update:foo'])\n          /** expose */\n          defineExpose({})\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          /** options */\n          defineOptions({})\n          /** emits */\n          defineEmits(['update:foo'])\n          /** expose */\n          defineExpose({})\n          /** props */\n          const props = defineProps(['foo'])\n          /** slots */\n          const slots = defineSlots()\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid20"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 21,
+  "name": null,
+  "code": "\n        <script setup>\n          /** options */\n          defineOptions({})\n          /** model */\n          const first = defineModel('first')\n          const second = defineModel('second')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineModel",
+     "defineOptions"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineModel should be above defineOptions.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 45
+    }
+   ],
+   "output": "\n        <script setup>\n          /** model */\n          const first = defineModel('first')\n          const second = defineModel('second')\n          /** options */\n          defineOptions({})\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosUnordered",
+     "message": "defineModel should be above defineOptions.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 45,
+     "fix": {
+      "range": [
+       34,
+       192
+      ],
+      "text": "/** model */\n          const first = defineModel('first')\n          const second = defineModel('second')\n          /** options */\n          defineOptions({})\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          /** model */\n          const first = defineModel('first')\n          const second = defineModel('second')\n          /** options */\n          defineOptions({})\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid21"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 22,
+  "name": null,
+  "code": "\n        <script setup>\n          const first = defineModel('first')\n          defineOptions({})\n          const second = defineModel('second')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineModel",
+     "defineOptions"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineModel should be above defineOptions.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 47
+    }
+   ],
+   "output": "\n        <script setup>\n          const first = defineModel('first')\n          const second = defineModel('second')\n          defineOptions({})\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosUnordered",
+     "message": "defineModel should be above defineOptions.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 47,
+     "fix": {
+      "range": [
+       79,
+       144
+      ],
+      "text": "const second = defineModel('second')\n          defineOptions({})\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          const first = defineModel('first')\n          const second = defineModel('second')\n          defineOptions({})\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid22"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 23,
+  "name": null,
+  "code": "\n        <script setup>\n          defineOptions({})\n          defineCustom('second')\n          const something = defineSomething('first')\n          definePage()\n          const model = defineModel('second')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineSomething",
+     "defineCustom",
+     "defineModel",
+     "defineOptions",
+     "definePage"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineSomething should be above defineOptions.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 53
+    }
+   ],
+   "output": "\n        <script setup>\n          const something = defineSomething('first')\n          defineCustom('second')\n          const model = defineModel('second')\n          defineOptions({})\n          definePage()\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosUnordered",
+     "message": "defineSomething should be above defineOptions.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 53,
+     "fix": {
+      "range": [
+       34,
+       207
+      ],
+      "text": "const something = defineSomething('first')\n          defineCustom('second')\n          const model = defineModel('second')\n          defineOptions({})\n          definePage()\n"
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "\n        <script setup>\n          const something = defineSomething('first')\n          defineCustom('second')\n          const model = defineModel('second')\n          defineOptions({})\n          definePage()\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid23"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "invalid",
+  "idx": 24,
+  "name": null,
+  "code": "\n        <script setup>\n          const a = defineModel('a')\n          defineOptions({})\n          const c = defineModel('c')\n          defineExpose({})\n          const b = defineModel('b')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineModel",
+     "defineOptions"
+    ],
+    "defineExposeLast": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "defineModel should be above defineOptions.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 37
+    },
+    {
+     "message": "`defineExpose` should be the last statement in `<script setup>`.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 27,
+     "suggestions": [
+      {
+       "messageId": "putExposeAtTheLast",
+       "output": "\n        <script setup>\n          const a = defineModel('a')\n          defineOptions({})\n          const c = defineModel('c')\n          const b = defineModel('b')\n          defineExpose({})\n        </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": "\n        <script setup>\n          const a = defineModel('a')\n          const c = defineModel('c')\n          const b = defineModel('b')\n          defineOptions({})\n          defineExpose({})\n        </script>\n      "
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "macrosUnordered",
+     "message": "defineModel should be above defineOptions.",
+     "line": 5,
+     "column": 11,
+     "endLine": 5,
+     "endColumn": 37,
+     "fix": {
+      "range": [
+       71,
+       190
+      ],
+      "text": "const c = defineModel('c')\n          const b = defineModel('b')\n          defineOptions({})\n          defineExpose({})\n"
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "defineExposeNotTheLast",
+     "message": "`defineExpose` should be the last statement in `<script setup>`.",
+     "line": 6,
+     "column": 11,
+     "endLine": 6,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": [
+      {
+       "messageId": "putExposeAtTheLast",
+       "desc": "Put `defineExpose` as the last statement in `<script setup>`.",
+       "output": "\n        <script setup>\n          const a = defineModel('a')\n          defineOptions({})\n          const c = defineModel('c')\n          const b = defineModel('b')\n          defineExpose({})\n        </script>\n      "
+      }
+     ]
+    }
+   ],
+   "output": "\n        <script setup>\n          const a = defineModel('a')\n          const c = defineModel('c')\n          const b = defineModel('b')\n          defineOptions({})\n          defineExpose({})\n        </script>\n      ",
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#invalid24"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        <script setup>\n          defineProps({\n            test: Boolean\n          })\n          defineEmits(['update:test'])\n          console.log('test')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineProps",
+     "defineEmits"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#valid0"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        <script setup lang=\"ts\">\n          const props = withDefaults(defineProps<Props>(), {\n            msg: 'hello',\n            labels: () => ['one', 'two']\n          })\n          const emit = defineEmits<{(e: 'update:test'): void}>()\n          console.log('test')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#valid1"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        <script setup lang=\"ts\">\n          defineEmits(['update:test'])\n          console.log('test')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineProps",
+     "defineEmits"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#valid2"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        <script setup lang=\"ts\">\n          defineProps({\n            test: Boolean\n          })\n          console.log('test')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineProps",
+     "defineEmits"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#valid3"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        <script setup lang=\"ts\">\n          console.log('test')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineProps",
+     "defineEmits"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#valid4"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        <script setup lang=\"ts\">\n          import { bar } from 'foo'\n          defineEmits(['update:test'])\n          defineProps({\n            test: Boolean\n          })\n          console.log('test')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineEmits",
+     "defineProps"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#valid5"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        <script setup lang=\"ts\">\n          import { bar } from 'foo'\n          declare global {}\n          declare namespace Namespace {}\n          declare const foo: string\n          declare function bar(): void\n          export interface Props {\n            msg?: string\n            labels?: string[]\n          }\n          defineEmits(['update:test'])\n          const props = withDefaults(defineProps<Props>(), {\n            msg: 'hello',\n            labels: () => ['one', 'two']\n          })\n          console.log('test')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineEmits",
+     "defineProps"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#valid6"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        <script setup>\n          'use strict';\n          defineProps({\n            test: Boolean\n          })\n          defineEmits(['update:test'])\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineProps",
+     "defineEmits"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#valid7"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        <script setup>\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#valid8"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        <script setup>\n          import Foo from 'foo'\n          /** options */\n          defineOptions({})\n          /** model */\n          const model = defineModel()\n          /** emits */\n          defineEmits(['update:foo'])\n          /** props */\n          const props = defineProps(['foo'])\n          /** slots */\n          const slots = defineSlots()\n          console.log('test1')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineOptions",
+     "defineModel",
+     "defineEmits",
+     "defineProps",
+     "defineSlots"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#valid9"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        <script setup>\n          import Foo from 'foo'\n          /** Page */\n          definePage()\n          /** model */\n          const model = defineModel()\n          /** emits */\n          defineEmits(['update:foo'])\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "definePage",
+     "defineModel",
+     "defineEmits"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#valid10"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        <script setup>\n          import Foo from 'foo'\n          /** model */\n          const model = defineModel()\n          /** emits */\n          defineEmits(['update:foo'])\n\n          function fn() {\n            definePage()\n          }\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "definePage",
+     "defineModel",
+     "defineEmits"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#valid11"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n        <script setup>\n          import Foo from 'foo'\n          /** model */\n          const model = defineModel()\n          /** emits */\n          defineEmits(['update:foo'])\n\n          const val = () => definePage()\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "definePage",
+     "defineModel",
+     "defineEmits"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#valid12"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n        <script setup>\n          import Foo from 'foo'\n          /** props */\n          defineProps(['foo'])\n          /** options */\n          defineOptions({})\n          /** expose */\n          defineExpose({})\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "defineExposeLast": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#valid13"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n        <script setup lang=\"ts\">\n          import Foo from 'foo'\n          /** props */\n          const props = defineProps({\n            test: Boolean\n          })\n          /** emits */\n          defineEmits(['update:foo'])\n          /** slots */\n          const slots = defineSlots()\n          /** expose */\n          defineExpose({})\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineProps",
+     "defineEmits"
+    ],
+    "defineExposeLast": true
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#valid14"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n        <script setup>\n          const first = defineModel('first')\n          const second = defineModel('second')\n\n          const slots = defineSlots()\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "defineModel",
+     "defineSlots"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#valid15"
+ },
+ {
+  "rule": "define-macros-order",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n        <script setup>\n        const page = definePage()\n\n        const first = defineModel('first')\n        const second = defineModel('second')\n        </script>\n      ",
+  "filename": "test.vue",
+  "options": [
+   {
+    "order": [
+     "definePage",
+     "defineModel"
+    ]
+   }
+  ],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "define-macros-order#valid16"
+ }
+]

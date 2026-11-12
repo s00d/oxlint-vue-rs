@@ -1,0 +1,859 @@
+[
+ {
+  "rule": "no-spaces-around-equal-signs-in-attribute",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div attr = \"value\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div attr=\"value\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaces",
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       19,
+       22
+      ],
+      "text": "="
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div attr=\"value\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-spaces-around-equal-signs-in-attribute#invalid0"
+ },
+ {
+  "rule": "no-spaces-around-equal-signs-in-attribute",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div attr = \"\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div attr=\"\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaces",
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       19,
+       22
+      ],
+      "text": "="
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div attr=\"\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-spaces-around-equal-signs-in-attribute#invalid1"
+ },
+ {
+  "rule": "no-spaces-around-equal-signs-in-attribute",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div attr = 'value' /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div attr='value' /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaces",
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       19,
+       22
+      ],
+      "text": "="
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div attr='value' /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-spaces-around-equal-signs-in-attribute#invalid2"
+ },
+ {
+  "rule": "no-spaces-around-equal-signs-in-attribute",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div attr = value /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 23
+    }
+   ],
+   "output": "<template><div attr=value /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaces",
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       19,
+       22
+      ],
+      "text": "="
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div attr=value /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-spaces-around-equal-signs-in-attribute#invalid3"
+ },
+ {
+  "rule": "no-spaces-around-equal-signs-in-attribute",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div attr \t\n   =   \t\n \"value\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 1,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 2
+    }
+   ],
+   "output": "<template><div attr=\"value\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaces",
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 1,
+     "column": 20,
+     "endLine": 3,
+     "endColumn": 2,
+     "fix": {
+      "range": [
+       19,
+       32
+      ],
+      "text": "="
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div attr=\"value\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-spaces-around-equal-signs-in-attribute#invalid4"
+ },
+ {
+  "rule": "no-spaces-around-equal-signs-in-attribute",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div attr =\"value\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 22
+    }
+   ],
+   "output": "<template><div attr=\"value\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaces",
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       19,
+       21
+      ],
+      "text": "="
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div attr=\"value\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-spaces-around-equal-signs-in-attribute#invalid5"
+ },
+ {
+  "rule": "no-spaces-around-equal-signs-in-attribute",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "<template><div attr= \"value\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 22
+    }
+   ],
+   "output": "<template><div attr=\"value\" /></template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaces",
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 1,
+     "column": 20,
+     "endLine": 1,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       19,
+       21
+      ],
+      "text": "="
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template><div attr=\"value\" /></template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-spaces-around-equal-signs-in-attribute#invalid6"
+ },
+ {
+  "rule": "no-spaces-around-equal-signs-in-attribute",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "<template>\n          <div\n            is = \"header\"\n            v-for = \"item in items\"\n            v-if = \"!visible\"\n            v-once\n            id = \"uniqueID\"\n            ref = \"header\"\n            v-model = \"headerData\"\n            myProp = \"prop\"\n            @click = \"functionCall\"\n            v-text = \"textContent\">\n          </div>\n        </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 18
+    },
+    {
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 4,
+     "column": 18,
+     "endLine": 4,
+     "endColumn": 21
+    },
+    {
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 20
+    },
+    {
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 18
+    },
+    {
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 8,
+     "column": 16,
+     "endLine": 8,
+     "endColumn": 19
+    },
+    {
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 9,
+     "column": 20,
+     "endLine": 9,
+     "endColumn": 23
+    },
+    {
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 10,
+     "column": 19,
+     "endLine": 10,
+     "endColumn": 22
+    },
+    {
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 11,
+     "column": 19,
+     "endLine": 11,
+     "endColumn": 22
+    },
+    {
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 12,
+     "column": 19,
+     "endLine": 12,
+     "endColumn": 22
+    }
+   ],
+   "output": "<template>\n          <div\n            is=\"header\"\n            v-for=\"item in items\"\n            v-if=\"!visible\"\n            v-once\n            id=\"uniqueID\"\n            ref=\"header\"\n            v-model=\"headerData\"\n            myProp=\"prop\"\n            @click=\"functionCall\"\n            v-text=\"textContent\">\n          </div>\n        </template>"
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "unexpectedSpaces",
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 3,
+     "column": 15,
+     "endLine": 3,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       40,
+       43
+      ],
+      "text": "="
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedSpaces",
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 4,
+     "column": 18,
+     "endLine": 4,
+     "endColumn": 21,
+     "fix": {
+      "range": [
+       69,
+       72
+      ],
+      "text": "="
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedSpaces",
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 5,
+     "column": 17,
+     "endLine": 5,
+     "endColumn": 20,
+     "fix": {
+      "range": [
+       104,
+       107
+      ],
+      "text": "="
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedSpaces",
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 7,
+     "column": 15,
+     "endLine": 7,
+     "endColumn": 18,
+     "fix": {
+      "range": [
+       151,
+       154
+      ],
+      "text": "="
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedSpaces",
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 8,
+     "column": 16,
+     "endLine": 8,
+     "endColumn": 19,
+     "fix": {
+      "range": [
+       180,
+       183
+      ],
+      "text": "="
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedSpaces",
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 9,
+     "column": 20,
+     "endLine": 9,
+     "endColumn": 23,
+     "fix": {
+      "range": [
+       211,
+       214
+      ],
+      "text": "="
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedSpaces",
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 10,
+     "column": 19,
+     "endLine": 10,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       245,
+       248
+      ],
+      "text": "="
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedSpaces",
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 11,
+     "column": 19,
+     "endLine": 11,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       273,
+       276
+      ],
+      "text": "="
+     },
+     "suggestions": []
+    },
+    {
+     "messageId": "unexpectedSpaces",
+     "message": "Unexpected spaces found around equal signs.",
+     "line": 12,
+     "column": 19,
+     "endLine": 12,
+     "endColumn": 22,
+     "fix": {
+      "range": [
+       309,
+       312
+      ],
+      "text": "="
+     },
+     "suggestions": []
+    }
+   ],
+   "output": "<template>\n          <div\n            is=\"header\"\n            v-for=\"item in items\"\n            v-if=\"!visible\"\n            v-once\n            id=\"uniqueID\"\n            ref=\"header\"\n            v-model=\"headerData\"\n            myProp=\"prop\"\n            @click=\"functionCall\"\n            v-text=\"textContent\">\n          </div>\n        </template>",
+   "other": null,
+   "crash": null
+  },
+  "id": "no-spaces-around-equal-signs-in-attribute#invalid7"
+ },
+ {
+  "rule": "no-spaces-around-equal-signs-in-attribute",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "<template><div attr=\"value\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-spaces-around-equal-signs-in-attribute#valid0"
+ },
+ {
+  "rule": "no-spaces-around-equal-signs-in-attribute",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "<template><div attr=\"\" /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-spaces-around-equal-signs-in-attribute#valid1"
+ },
+ {
+  "rule": "no-spaces-around-equal-signs-in-attribute",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "<template><div attr='value' /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-spaces-around-equal-signs-in-attribute#valid2"
+ },
+ {
+  "rule": "no-spaces-around-equal-signs-in-attribute",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "<template><div attr=value /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-spaces-around-equal-signs-in-attribute#valid3"
+ },
+ {
+  "rule": "no-spaces-around-equal-signs-in-attribute",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "<template><div attr /></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-spaces-around-equal-signs-in-attribute#valid4"
+ },
+ {
+  "rule": "no-spaces-around-equal-signs-in-attribute",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "<template><div/></template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-spaces-around-equal-signs-in-attribute#valid5"
+ },
+ {
+  "rule": "no-spaces-around-equal-signs-in-attribute",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "<template>\n      <div\n        is=\"header\"\n        v-for=\"item in items\"\n        v-if=\"!visible\"\n        v-once\n        id=\"uniqueID\"\n        ref=\"header\"\n        v-model=\"headerData\"\n        myProp=\"prop\"\n        @click=\"functionCall\"\n        v-text=\"textContent\">\n      </div>\n    </template>",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": null,
+   "sourceType": null,
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "no-spaces-around-equal-signs-in-attribute#valid6"
+ }
+]

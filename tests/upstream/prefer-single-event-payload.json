@@ -1,0 +1,1401 @@
+[
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('change', value1, value2)\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"change\" event.",
+     "line": 3,
+     "column": 46,
+     "endLine": 3,
+     "endColumn": 52
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSinglePayload",
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"change\" event.",
+     "line": 3,
+     "column": 46,
+     "endLine": 3,
+     "endColumn": 52,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#invalid0"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('update', a, b, c)\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"update\" event.",
+     "line": 3,
+     "column": 41,
+     "endLine": 3,
+     "endColumn": 45
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSinglePayload",
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"update\" event.",
+     "line": 3,
+     "column": 41,
+     "endLine": 3,
+     "endColumn": 45,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#invalid1"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        methods: {\n          handleClick() {\n            this.$emit('change', value1, value2)\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"change\" event.",
+     "line": 6,
+     "column": 42,
+     "endLine": 6,
+     "endColumn": 48
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSinglePayload",
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"change\" event.",
+     "line": 6,
+     "column": 42,
+     "endLine": 6,
+     "endColumn": 48,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#invalid2"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        methods: {\n          handleClick() {\n            this.$emit?.('change', value1, value2)\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"change\" event.",
+     "line": 6,
+     "column": 44,
+     "endLine": 6,
+     "endColumn": 50
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSinglePayload",
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"change\" event.",
+     "line": 6,
+     "column": 44,
+     "endLine": 6,
+     "endColumn": 50,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#invalid3"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props, context) {\n          context.emit('change', value1, value2)\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"change\" event.",
+     "line": 5,
+     "column": 42,
+     "endLine": 5,
+     "endColumn": 48
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSinglePayload",
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"change\" event.",
+     "line": 5,
+     "column": 42,
+     "endLine": 5,
+     "endColumn": 48,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#invalid4"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props, { emit }) {\n          emit('change', value1, value2)\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"change\" event.",
+     "line": 5,
+     "column": 34,
+     "endLine": 5,
+     "endColumn": 40
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSinglePayload",
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"change\" event.",
+     "line": 5,
+     "column": 34,
+     "endLine": 5,
+     "endColumn": 40,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#invalid5"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script setup>\n      const emit = defineEmits(['change'])\n      emit('change', value1, value2)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"change\" event.",
+     "line": 4,
+     "column": 30,
+     "endLine": 4,
+     "endColumn": 36
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSinglePayload",
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"change\" event.",
+     "line": 4,
+     "column": 30,
+     "endLine": 4,
+     "endColumn": 36,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#invalid6"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script setup>\n      const emit = defineEmits(['update'])\n      emit('update', a, b, c)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"update\" event.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 29
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSinglePayload",
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"update\" event.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 29,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#invalid7"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        methods: {\n          handleClick() {\n            this.$emit(eventName, value1, value2)\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"unknown\" event.",
+     "line": 6,
+     "column": 43,
+     "endLine": 6,
+     "endColumn": 49
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSinglePayload",
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"unknown\" event.",
+     "line": 6,
+     "column": 43,
+     "endLine": 6,
+     "endColumn": 49,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#invalid8"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: {\n          change: (value1, value2) => true\n        },\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Declare a single payload parameter instead of multiple parameters for the \"change\" event.",
+     "line": 5,
+     "column": 28,
+     "endLine": 5,
+     "endColumn": 34
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSinglePayloadInDeclaration",
+     "message": "Declare a single payload parameter instead of multiple parameters for the \"change\" event.",
+     "line": 5,
+     "column": 28,
+     "endLine": 5,
+     "endColumn": 34,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#invalid9"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<{\n        (e: 'change', value1: string, value2: number): void\n      }>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Declare a single payload parameter instead of multiple parameters for the \"change\" event.",
+     "line": 4,
+     "column": 39,
+     "endLine": 4,
+     "endColumn": 53
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSinglePayloadInDeclaration",
+     "message": "Declare a single payload parameter instead of multiple parameters for the \"change\" event.",
+     "line": 4,
+     "column": 39,
+     "endLine": 4,
+     "endColumn": 53,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#invalid10"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<{\n        change: [value1: string, value2: number]\n      }>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Declare a single payload parameter instead of multiple parameters for the \"change\" event.",
+     "line": 4,
+     "column": 34,
+     "endLine": 4,
+     "endColumn": 48
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSinglePayloadInDeclaration",
+     "message": "Declare a single payload parameter instead of multiple parameters for the \"change\" event.",
+     "line": 4,
+     "column": 34,
+     "endLine": 4,
+     "endColumn": 48,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#invalid11"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<{\n        change(value1: string, value2: number): void\n      }>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Declare a single payload parameter instead of multiple parameters for the \"change\" event.",
+     "line": 4,
+     "column": 32,
+     "endLine": 4,
+     "endColumn": 46
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSinglePayloadInDeclaration",
+     "message": "Declare a single payload parameter instead of multiple parameters for the \"change\" event.",
+     "line": 4,
+     "column": 32,
+     "endLine": 4,
+     "endColumn": 46,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#invalid12"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n       <template>\n         <div @click=\"emit('change', 'foo', 'bar')\" />\n       </template>\n       <script setup lang=\"ts\">\n       const emit = defineEmits<{\n         (e: 'change', a: string, b: string): void\n       }>()\n       </script>\n       ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"change\" event.",
+     "line": 3,
+     "column": 45,
+     "endLine": 3,
+     "endColumn": 50
+    },
+    {
+     "message": "Declare a single payload parameter instead of multiple parameters for the \"change\" event.",
+     "line": 7,
+     "column": 35,
+     "endLine": 7,
+     "endColumn": 44
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "preferSinglePayload",
+     "message": "Pass a single payload object instead of multiple arguments when emitting the \"change\" event.",
+     "line": 3,
+     "column": 45,
+     "endLine": 3,
+     "endColumn": 50,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "preferSinglePayloadInDeclaration",
+     "message": "Declare a single payload parameter instead of multiple parameters for the \"change\" event.",
+     "line": 7,
+     "column": 35,
+     "endLine": 7,
+     "endColumn": 44,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#invalid13"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('change')\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid0"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('change', value)\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid1"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n      <template>\n        <div @click=\"$emit('change', { a, b })\" />\n      </template>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid2"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "\n       <template>\n         <div @click=\"emit('change', { a: 'foo', b: 'bar' })\" />\n       </template>\n       <script setup lang=\"ts\">\n       const emit = defineEmits<{\n         (e: 'change', payload: { a: string; b: string }): void\n       }>()\n       </script>\n       ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid3"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        methods: {\n          handleClick() {\n            this.$emit('change')\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid4"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        methods: {\n          handleClick() {\n            this.$emit('change', value)\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid5"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        methods: {\n          handleClick() {\n            this.$emit('change', { a, b })\n          }\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid6"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props, context) {\n          context.emit('change', value)\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid7"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        setup(props, { emit }) {\n          emit('change', value)\n        }\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid8"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n      <script setup>\n      const emit = defineEmits(['change'])\n      emit('change')\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid9"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n      <script setup>\n      const emit = defineEmits(['change'])\n      emit('change', value)\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid10"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n      <script setup>\n      const emit = defineEmits(['change'])\n      emit('change', { a, b })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid11"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 12,
+  "name": null,
+  "code": "\n      <script setup>\n      const emit = defineEmits({\n        change: (payload) => {\n          return true\n        }\n      })\n      emit('change', { a, b })\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid12"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 13,
+  "name": null,
+  "code": "\n      <script setup>\n      defineEmits(['change'])\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid13"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 14,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: {\n          change: null\n        },\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid14"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 15,
+  "name": null,
+  "code": "\n      <script>\n      export default {\n        emits: {\n          change: (value) => true\n        },\n      }\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": null,
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid15"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 16,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<{\n        (e: 'change', value: string): void\n      }>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid16"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 17,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<{\n        (e: 'change'): void\n      }>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid17"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 18,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<{\n        change: [value: string]\n      }>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid18"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 19,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<{\n        change: []\n      }>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid19"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 20,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<{\n        change(value: string): void\n      }>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid20"
+ },
+ {
+  "rule": "prefer-single-event-payload",
+  "kind": "valid",
+  "idx": 21,
+  "name": null,
+  "code": "\n      <script setup lang=\"ts\">\n      const emit = defineEmits<{\n        change(): void\n      }>()\n      </script>\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": "vue",
+   "scriptParser": "ts",
+   "ecmaVersion": 2020,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "prefer-single-event-payload#valid21"
+ }
+]

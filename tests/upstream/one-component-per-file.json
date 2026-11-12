@@ -1,0 +1,1312 @@
+[
+ {
+  "rule": "one-component-per-file",
+  "kind": "invalid",
+  "idx": 0,
+  "name": null,
+  "code": "\n        Vue.component('name', {})\n        Vue.component('name', {})\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There is more than one component in this file.",
+     "line": 2,
+     "column": 31,
+     "endLine": 2,
+     "endColumn": 33
+    },
+    {
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 33
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 2,
+     "column": 31,
+     "endLine": 2,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 31,
+     "endLine": 3,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#invalid0"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "invalid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        Vue.component('TodoList', {\n          // ...\n        })\n\n        Vue.component('TodoItem', {\n          // ...\n        })\n        export default {}\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There is more than one component in this file.",
+     "line": 2,
+     "column": 35,
+     "endLine": 4,
+     "endColumn": 10
+    },
+    {
+     "message": "There is more than one component in this file.",
+     "line": 6,
+     "column": 35,
+     "endLine": 8,
+     "endColumn": 10
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 2,
+     "column": 35,
+     "endLine": 4,
+     "endColumn": 10,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 6,
+     "column": 35,
+     "endLine": 8,
+     "endColumn": 10,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#invalid1"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "invalid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        Vue.component('name', {})\n        export default {}\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There is more than one component in this file.",
+     "line": 2,
+     "column": 31,
+     "endLine": 2,
+     "endColumn": 33
+    },
+    {
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 24,
+     "endLine": 3,
+     "endColumn": 26
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 2,
+     "column": 31,
+     "endLine": 2,
+     "endColumn": 33,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 24,
+     "endLine": 3,
+     "endColumn": 26,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#invalid2"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "invalid",
+  "idx": 3,
+  "name": null,
+  "code": "\n        import { component } from 'vue'\n        component('', {})\n        component('', {})\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 25
+    },
+    {
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#invalid3"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "invalid",
+  "idx": 4,
+  "name": null,
+  "code": "\n        const { component } = Vue\n        component('', {})\n        component('', {})\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 25
+    },
+    {
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#invalid4"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "invalid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        import { component } from '@vue/composition-api'\n        component('', {})\n        component('', {})\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 25
+    },
+    {
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 25
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 23,
+     "endLine": 3,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 23,
+     "endLine": 4,
+     "endColumn": 25,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#invalid5"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "invalid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        import { createApp } from 'vue'\n        createApp({})\n        createApp({})\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 19,
+     "endLine": 3,
+     "endColumn": 21
+    },
+    {
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 19,
+     "endLine": 3,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#invalid6"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "invalid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        import { createApp } from '@vue/composition-api'\n        createApp({})\n        createApp({})\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 19,
+     "endLine": 3,
+     "endColumn": 21
+    },
+    {
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 19,
+     "endLine": 3,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#invalid7"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "invalid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        const { createApp } = Vue\n        createApp({})\n        createApp({})\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 19,
+     "endLine": 3,
+     "endColumn": 21
+    },
+    {
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 19,
+     "endLine": 3,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#invalid8"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "invalid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        const createApp = Vue.createApp\n        createApp({})\n        createApp({})\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 19,
+     "endLine": 3,
+     "endColumn": 21
+    },
+    {
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 21
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 19,
+     "endLine": 3,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 19,
+     "endLine": 4,
+     "endColumn": 21,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#invalid9"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "invalid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        import { defineComponent } from 'vue'\n        defineComponent({})\n        defineComponent({})\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 27
+    },
+    {
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#invalid10"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "invalid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        import { defineComponent } from '@vue/composition-api'\n        defineComponent('', {})\n        defineComponent('', {})\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 29,
+     "endLine": 3,
+     "endColumn": 31
+    },
+    {
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 29,
+     "endLine": 4,
+     "endColumn": 31
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 29,
+     "endLine": 3,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 29,
+     "endLine": 4,
+     "endColumn": 31,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#invalid11"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "invalid",
+  "idx": 12,
+  "name": null,
+  "code": "\n        defineComponent({})\n        defineComponent({})\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There is more than one component in this file.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 27
+    },
+    {
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 2,
+     "column": 25,
+     "endLine": 2,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#invalid12"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "invalid",
+  "idx": 13,
+  "name": null,
+  "code": "\n        const { defineComponent } = require('vue')\n        defineComponent({})\n        defineComponent({})\n      ",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": [
+    {
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 27
+    },
+    {
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 27
+    }
+   ]
+  },
+  "actual": {
+   "messages": [
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 3,
+     "column": 25,
+     "endLine": 3,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    },
+    {
+     "messageId": "tooManyComponents",
+     "message": "There is more than one component in this file.",
+     "line": 4,
+     "column": 25,
+     "endLine": 4,
+     "endColumn": 27,
+     "fix": null,
+     "suggestions": []
+    }
+   ],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#invalid13"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "valid",
+  "idx": 0,
+  "name": null,
+  "code": "Vue.component('name', {})",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#valid0"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "valid",
+  "idx": 1,
+  "name": null,
+  "code": "\n        Vue.component('name', {})\n        new Vue({})\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#valid1"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "valid",
+  "idx": 2,
+  "name": null,
+  "code": "\n        const foo = {}\n        new Vue({})\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#valid2"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "valid",
+  "idx": 3,
+  "name": null,
+  "code": "export default {}",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#valid3"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "valid",
+  "idx": 4,
+  "name": null,
+  "code": "export default {\n        components: {\n          test: {\n            name: 'foo'\n          }\n        }\n      }",
+  "filename": "test.vue",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#valid4"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "valid",
+  "idx": 5,
+  "name": null,
+  "code": "\n        Vue.mixin({})\n        Vue.component('name', {})\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#valid5"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "valid",
+  "idx": 6,
+  "name": null,
+  "code": "\n        import { createApp } from 'vue'\n        createApp({})\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#valid6"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "valid",
+  "idx": 7,
+  "name": null,
+  "code": "\n        import { component } from 'other.js'\n        component({})\n        component({})\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#valid7"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "valid",
+  "idx": 8,
+  "name": null,
+  "code": "\n        import { createApp } from 'other.js'\n        createApp({})\n        createApp({})\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#valid8"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "valid",
+  "idx": 9,
+  "name": null,
+  "code": "\n        import { defineComponent } from 'other.js'\n        defineComponent({})\n        defineComponent({})\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#valid9"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "valid",
+  "idx": 10,
+  "name": null,
+  "code": "\n        function createApp() {}\n        createApp({})\n        createApp({})\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#valid10"
+ },
+ {
+  "rule": "one-component-per-file",
+  "kind": "valid",
+  "idx": 11,
+  "name": null,
+  "code": "\n        const { createApp } = require('other.js')\n        createApp({})\n        createApp({})\n      ",
+  "filename": "test.js",
+  "options": [],
+  "settings": {},
+  "languageOptions": {
+   "parser": null,
+   "scriptParser": null,
+   "ecmaVersion": 2018,
+   "sourceType": "module",
+   "ecmaFeatures": null,
+   "vueFeatures": null,
+   "templateTokenizer": null,
+   "project": false,
+   "globals": null
+  },
+  "expected": {
+   "errors": null
+  },
+  "actual": {
+   "messages": [],
+   "output": null,
+   "other": null,
+   "crash": null
+  },
+  "id": "one-component-per-file#valid11"
+ }
+]
