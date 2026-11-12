@@ -7,7 +7,7 @@
 // Downloads the release's *.tgz with `gh`, publishes the platform packages first and the main package last
 // (it depends on them through optionalDependencies), and skips versions already on npm, so a re-run finishes
 // a partial publish. Requires `gh` (authenticated) and `npm login`.
-import { execFileSync } from 'node:child_process'
+import { execFileSync, spawnSync } from 'node:child_process'
 import fs from 'node:fs'
 import os from 'node:os'
 import path from 'node:path'
@@ -48,7 +48,26 @@ try {
     const argv = ['publish', path.join(dir, `${name}-${version}.tgz`), '--access', 'public']
     if (dryRun) argv.push('--dry-run')
     console.log(`${dryRun ? 'dry-run ' : 'publish '} ${name}@${version}`)
-    run('npm', argv, { stdio: 'inherit' })
+    // stdin/stdout stay interactive for npm's own auth; stderr is captured to recognise known failures.
+    const r = spawnSync('npm', argv, { stdio: ['inherit', 'inherit', 'pipe'], encoding: 'utf8' })
+    process.stderr.write(r.stderr ?? '')
+    if (r.status === 0) continue
+    const err = r.stderr ?? ''
+    if (/previously published|cannot publish over|You cannot publish over/i.test(err)) {
+      // Accepted earlier but not visible yet (npm moderation / replication): nothing to do.
+      console.log(`skip     ${name}@${version} (already published, maybe still in npm moderation)`)
+      continue
+    }
+    const left = order.slice(order.indexOf(name))
+    if (/spam detection/i.test(err)) {
+      console.error(
+        `\nnpm's spam detection blocked ${name}. Packages accepted so far may still be in moderation.\n` +
+          `Wait for them to appear (npm view <name>), then run the same command again; it skips what is published.\n` +
+          `If the block persists, ask npm support to allow the names (https://www.npmjs.com/support).\n` +
+          `Not published yet: ${left.join(', ')}`,
+      )
+    }
+    process.exit(r.status ?? 1)
   }
   if (!dryRun) console.log(`done: npm i -D oxlint oxlint-vue-rs@${version}`)
 } finally {
